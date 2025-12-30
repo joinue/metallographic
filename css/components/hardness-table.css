@@ -1,0 +1,102 @@
+/* ============================================
+   Table: Hardness Data (Enhanced)
+   ============================================ */
+
+   .TableHardness {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: 'Inter', 'Roboto', Arial, sans-serif;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-size: 0.95rem;
+  }
+  
+  /* Table Header */
+  .TableHardness thead {
+    background-color: #1e2a38;
+    color: #ffffff;
+  }
+  
+  .TableHardness thead th {
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 2px solid #0f1823;
+  }
+  
+  /* Table Body */
+  .TableHardness tbody td {
+    padding: 1rem 1.25rem;
+    color: #2c3e50;
+    text-align: center;
+    border-bottom: 1px solid #e6e6e6;
+    transition: background-color 0.2s ease;
+  }
+  
+  .TableHardness tbody tr:nth-child(even) {
+    background-color: #f9fbfd;
+  }
+  
+  .TableHardness tbody tr:hover {
+    background-color: #eef3f8;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .TableHardness thead {
+      display: none;
+    }
+  
+    .TableHardness tbody tr {
+      display: block;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+  
+    .TableHardness tbody td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      padding: 0.9rem 1.2rem;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.92rem;
+      position: relative;
+    }
+  
+    .TableHardness tbody td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: #1e2a38;
+      flex-basis: 50%;
+      text-align: left;
+      padding-right: 1rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+  
+    .TableHardness tbody td:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .TableHardness tbody td {
+      font-size: 0.85rem;
+      padding: 0.8rem 1rem;
+    }
+  
+    .TableHardness tbody td::before {
+      font-size: 0.8rem;
+    }
+  }
+  

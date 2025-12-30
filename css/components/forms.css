@@ -1,0 +1,267 @@
+/* Contact Section */
+.contact-section {
+    padding: 20px 20px;
+    border-radius: 8px;
+}
+
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #333;
+}
+
+.contact-section p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-section a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.contact-section a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Contact Container */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+/* Contact Info */
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #eeeeee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Ensure separation on smaller screens */
+}
+
+.contact-info h3 {
+    color: #222229;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.contact-details, .business-hours, .social-media {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.contact-details li, .business-hours li, .social-media li {
+    margin-bottom: 10px;
+}
+
+.contact-details li strong, .business-hours li {
+    display: inline-block;
+    min-width: 100px;
+    font-weight: bold;
+    color: #555;
+}
+
+.contact-details a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-details a:hover {
+    color: #0056b3;
+}
+
+.contact-details a:focus {
+    outline: 2px solid #0056b3; /* Focus state for better accessibility */
+}
+
+.business-hours span {
+    color: var(--success-color);
+}
+
+.business-hours .closed {
+    color: var(--danger-color); /* Use any color you prefer, this is red */
+    font-weight: bold; /* Optional: make it bold for emphasis */
+}
+
+address {
+    font-style: normal;
+    line-height: 1.5;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-media a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: #ffffff; /* Icon color */
+    font-size: 24px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
+    text-decoration: none; /* Remove underline */
+}
+
+.social-media a.linkedin {
+    background-color: #0077b5; /* LinkedIn color */
+}
+
+.social-media a.linkedin:hover {
+    background-color: #ffffff;
+    color: #0077b5; /* Change icon color on hover */
+}
+
+.social-media a.youtube {
+    background-color: #FF0000; /* YouTube color */
+}
+
+.social-media a.youtube:hover {
+    background-color: #ffffff;
+    color: #FF0000; /* Change icon color on hover */
+}
+
+.social-media a.instagram {
+    background-color: #C13584; /* Instagram color */
+}
+
+.social-media a.instagram:hover {
+    background-color: #ffffff;
+    color: #C13584; /* Change icon color on hover */
+}
+
+.social-media a.facebook {
+    background-color: #3b5998; /* Facebook color */
+}
+
+.social-media a.facebook:hover {
+    background-color: #ffffff;
+    color: #3b5998; /* Change icon color on hover */
+}
+
+.social-media a:focus {
+    outline: 2px solid #ffffff; /* Focus state */
+}
+
+
+/* Contact Form */
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Ensure separation on smaller screens */
+}
+
+.contact-form h3 {
+    color: #222229;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #007BFF; /* Focus state */
+    outline: none;
+}
+
+.contact-form button {
+    padding: 12px 25px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+.contact-form button:focus {
+    outline: 2px solid #0056b3; /* Focus state */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 20px; /* Reduce gap for smaller screens */
+    }
+
+    .contact-info, .contact-form {
+        margin-bottom: 20px;
+        flex: none; /* Reset flex property for stacked layout */
+    }
+
+    .contact-info p,
+    .contact-form h3 {
+        font-size: 0.9em; /* Reduce font size for smaller screens */
+    }
+
+    .social-media {
+        justify-content: center; /* Center social media links */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info p,
+    .contact-form h3 {
+        font-size: 0.85em; /* Further reduce font size for very small screens */
+    }
+
+    .contact-details li strong, .business-hours li {
+        min-width: 80px; /* Adjust width for smaller screens */
+    }
+}

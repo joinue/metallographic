@@ -1,0 +1,160 @@
+/* ================================
+   Video Page Container
+   ================================ */
+
+   .video-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* ================================
+     Tabs Navigation
+     ================================ */
+  
+  .tabs {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .tablink {
+    background-color: #575757;
+    min-width: 120px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 1em;
+    margin: 5px 5px;
+    border-radius: 4px;
+  }
+  
+  .tablink:hover {
+    background-color: #292929;
+  }
+  
+  .tablink.active {
+    background-color: #292929;
+    font-weight: bold;
+  }
+  
+  /* ================================
+     Tab Content
+     ================================ */
+  
+  .tabcontent {
+    display: none;
+    padding: 20px;
+    background: linear-gradient(135deg, #dbdbdb, #fff);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+  }
+  
+  .tabcontent.active {
+    display: block;
+  }
+  
+  /* ================================
+     Video Category
+     ================================ */
+  
+  .video-category {
+    margin-bottom: 30px;
+  }
+  
+  .video-category h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* ================================
+     Toggle Videos Button
+     ================================ */
+  
+  .toggle-videos {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-videos:hover {
+    background-color: #0056b3;
+  }
+  
+  .toggle-videos .arrow {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* ================================
+     Video Grid
+     ================================ */
+  
+  .video-grid {
+    display: none;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .video-grid.visible {
+    display: flex;
+  }
+  
+  /* ================================
+     Video Card
+     ================================ */
+  
+  .video-card {
+    flex: 1 1 45%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  
+  .video-card:hover {
+    transform: scale(1.01);
+  }
+  
+  .video-card video {
+    width: 100%;
+    height: auto;
+  }
+  
+  .video-card h4 {
+    font-size: 1.5em;
+    margin: 15px;
+  }
+  
+  .video-card p {
+    font-size: 1em;
+    margin: 0 15px 15px;
+  }
+  
+  /* ================================
+     Responsive Design
+     ================================ */
+  
+  @media (max-width: 768px) {
+    .video-card {
+      flex: 1 1 100%;
+    }
+  }
+  

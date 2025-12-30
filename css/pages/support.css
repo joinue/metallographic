@@ -1,0 +1,1011 @@
+/* ================================
+   Common Styles
+   ================================ */
+
+/* Clean link styling for support pages */
+.product-series p a,
+.support-content p a {
+    color: #2d5a87;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.product-series p a:hover,
+.support-content p a:hover {
+    color: #1e3f5f;
+    border-bottom-color: #2d5a87;
+}
+
+/* Common Styles integrated into each section */
+.metallographic-procedures,
+.procedures-table {
+    margin: 0 auto;
+    padding: 40px 20px;
+    max-width: 1200px;
+    font-family: 'Inter', 'Roboto', Arial, sans-serif;
+    color: #333;
+}
+
+.metallographic-procedures h2,
+.procedures-table h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+    position: relative;
+}
+
+.metallographic-procedures h2::after,
+.procedures-table h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #004370;
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* ================================
+   Metallographic Procedures Section
+   ================================ */
+
+.metallographic-procedures {
+    background-color: #f5f5f5;
+}
+
+/* Styles for the intro section within metallographic-procedures */
+.metallographic-procedures .intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  gap: 20px; /* Space between image and text */
+}
+
+.metallographic-procedures .image-container {
+  flex: 1;
+  max-width: 50%; /* Image takes up to half of the container */
+}
+
+.metallographic-procedures .image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.metallographic-procedures .image-container img:hover {
+  transform: scale(1.01);
+}
+
+.metallographic-procedures .description-container {
+  flex: 1;
+  padding: 0 20px;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #333;
+}
+
+.metallographic-procedures .description-container h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: left;
+}
+
+.metallographic-procedures .description-container h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.metallographic-procedures .description-container p {
+  margin-bottom: 20px;
+}
+
+.metallographic-procedures .description-container ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.metallographic-procedures .description-container ul li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.metallographic-procedures .description-container ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design for Metallographic Procedures */
+@media (max-width: 800px) {
+  .metallographic-procedures .intro-section {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .metallographic-procedures .image-container, 
+  .metallographic-procedures .description-container {
+      max-width: 100%;
+  }
+
+  .metallographic-procedures .description-container {
+      padding: 0;
+  }
+}
+
+.metallographic-procedures .map-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.metallographic-procedures .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.metallographic-procedures .column {
+    flex: 1 1 25%;
+    max-width: 25%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.metallographic-procedures .side-by-side {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.metallographic-procedures .side-by-side td {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #ececec;
+}
+
+.metallographic-procedures .responsive {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.metallographic-procedures .responsive:hover {
+    transform: scale(1.02);
+}
+
+.metallographic-procedures .return-top {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.metallographic-procedures .return-top a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.metallographic-procedures .return-top a:hover {
+    color: #0056b3;
+}
+
+/* Responsive Design for Metallographic Procedures Columns */
+@media (max-width: 768px) {
+    .metallographic-procedures .column {
+        flex: 1 1 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .metallographic-procedures .column {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .metallographic-procedures .dropbtn-3 {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .metallographic-procedures .intro-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .metallographic-procedures .intro-section img,
+    .metallographic-procedures .intro-section .description {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* ================================
+   Procedures Table Section
+   ================================ */
+
+.procedures-table {
+  display: flex;
+  justify-content: center; /* Centers the table horizontally */
+  align-items: center; /* Centers the table vertically if needed */
+  flex-direction: column; /* Ensures any additional content stays in a column layout */
+  padding: 20px; /* Optional: Adds padding around the section */
+}
+
+.procedures-table .universal-dropdown-content {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.procedures-table .universal-dropdown-content a {
+    color: #061a30;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.procedures-table .universal-dropdown-content a:hover {
+    background-color: #e0e0e0;
+}
+
+.procedures-table table {
+  width: 100%; /* Ensures the table takes up the available space */
+  max-width: 1000px; /* Sets a maximum width for the table */
+  margin: 0 auto; /* Centers the table within the section */
+  border-collapse: collapse; /* Ensures borders are collapsed for a cleaner look */
+}
+
+.procedures-table td, .procedures-table th {
+  padding: 10px; /* Adds padding for readability */
+  text-align: left; /* Aligns text to the left */
+}
+
+.procedures-table th {
+  background-color: #f5f5f5; /* Optional: Adds a background color for headers */
+  font-weight: bold; /* Makes headers bold */
+}
+
+.procedures-table table td {
+    border: 1px solid #eeeeee;
+    padding: 15px;
+    vertical-align: top;
+    background-color: #dfdfdf;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.procedures-table table td:first-child {
+    background-color: #f0f0f0;
+    font-weight: 500;
+}
+
+/* ================================
+   Etchant Information Section
+   ================================ */
+
+.etchant-information {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Inter', 'Roboto', Arial, sans-serif;
+    color: #333;
+    border-radius: 8px;
+}
+
+.etchant-information .intro-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.etchant-information .intro-text {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.etchant-information .intro-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.etchant-information .intro-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.etchant-information .intro-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.etchant-information .intro-text ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.etchant-information .intro-text ul li {
+  margin-bottom: 10px;
+  text-align: left;
+  color: #333;
+}
+
+.etchant-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  justify-content: space-between;
+}
+
+.etchant-column {
+  flex: 1 1 calc(33.333% - 20px);
+  margin: 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.etchant-column:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.etchant-table {
+  padding: 20px;
+  text-align: center;
+}
+
+.etchant-dropdown {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.etchant-dropbtn {
+  background-color: #324f5a;
+  color: white;
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  position: relative; /* Ensure button and content are aligned */
+  z-index: 2; /* Ensure the button stays above other elements */
+}
+
+.etchant-dropbtn:hover {
+  background-color: #1d2e35;
+}
+
+.etchant-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* Aligns dropdown directly below button */
+  left: 0;
+  background-color: #ffffff;
+  min-width: 200px;
+  width: 100%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  padding: 10px 0;
+  margin-top: -2px; /* Reduce or remove gap */
+}
+
+.etchant-dropdown:hover .etchant-dropdown-content {
+  display: block;
+}
+
+.etchant-dropdown-content a {
+  color: #333;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.etchant-dropdown-content a:hover {
+  background-color: #e0e0e0;
+}
+
+.etchant-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Responsive Design for Etchant Information */
+@media (max-width: 768px) {
+  .etchant-column {
+      flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .etchant-column {
+      flex: 1 1 100%;
+  }
+}
+
+/* ================================
+   Technical Information Section
+   ================================ */
+
+   .technical-information .intro-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .technical-information .intro-section:hover {
+    background-color: #f0f0f0; /* Slightly darken background on hover */
+  }
+  
+  .technical-information .intro-text {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .technical-information .intro-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  
+  .technical-information .intro-text h3 {
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+    color: #007bff;
+    font-weight: 600;
+  }
+  
+  .technical-information .intro-text p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .technical-information .intro-text ul {
+    list-style-type: disc;
+    padding-left: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .technical-information .intro-text ul li {
+    margin-bottom: 10px;
+    text-align: left;
+    color: #333;
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+  
+  /* Technical Row */
+  .technical-information .technical-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+    justify-content: space-between;
+  }
+  
+  .technical-information .technical-column {
+    flex: 1 0 23%; /* Ensure four items per row on larger screens */
+    padding: 10px;
+    box-sizing: border-box;
+    max-width: 23%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .technical-information .technical-column:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .technical-information .technical-table {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    overflow: hidden; /* Ensures content doesn't overflow the rounded corners */
+  }
+  
+  .technical-information .technical-dropbtn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .technical-information .technical-dropbtn:hover {
+    background-color: #0056b3;
+  }
+  
+  .technical-information .technical-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px 0;
+    margin-top: 5px;
+    width: calc(100% - 40px); /* Width minus padding */
+    left: 50%; /* Center dropdown */
+    transform: translateX(-50%); /* Center dropdown */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+  }
+  
+  .technical-information .technical-dropdown:hover .technical-dropdown-content {
+    display: block;
+    max-height: 400px;
+    opacity: 1;
+  }
+  
+  .technical-information .technical-dropdown-content a {
+    color: #333;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .technical-information .technical-dropdown-content a:hover {
+    background-color: #e0e0e0;
+    color: #007bff;
+  }
+  
+  .technical-information .technical-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .technical-information .technical-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive Design for Technical Information */
+  @media (max-width: 1200px) {
+    .technical-information .technical-column {
+      flex: 1 0 31%;
+      max-width: 31%;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .technical-information .technical-column {
+      flex: 1 0 48%;
+      max-width: 48%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .technical-information .technical-column {
+      flex: 1 0 100%;
+      max-width: 100%;
+    }
+  }
+  
+
+/* ================================
+   Brochures Section
+   ================================ */
+
+.brochures-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: transparent;
+  padding: 2rem;
+}
+
+.equipment-brochures-section {
+  margin-bottom: 3rem;
+}
+
+.equipment-brochures-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.equipment-brochures-section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #004370;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.manuals-section {
+  margin-bottom: 3rem;
+}
+
+.manuals-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.manuals-section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #004370;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.consumables-brochures-section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.consumables-brochures-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.consumables-brochures-section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #004370;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.equipment-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Responsive grid adjustments */
+@media (min-width: 1600px) {
+    .equipment-categories {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+    .equipment-categories {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .equipment-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .equipment-categories {
+        grid-template-columns: 1fr;
+    }
+}
+
+.equipment-category {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.equipment-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.category-header {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.category-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.equipment-category:hover .category-header img {
+    transform: scale(1.05);
+}
+
+.category-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 1.5rem;
+    color: #fff;
+}
+
+.category-overlay h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.category-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.brochure-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    flex-grow: 1;
+}
+
+.brochure-select:hover {
+    border-color: #666;
+}
+
+.brochure-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Legacy consumables-section styles - now using consumables-brochures-section */
+
+/* ================================
+   Resources Section
+   ================================ */
+
+.resources-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.resources-container {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.resources-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resources-container li {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.resources-container a {
+  color: #007acc;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.resources-container a:hover {
+  color: #005f99;
+}
+
+.resources-container select {
+  width: 100%;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+/* Responsive Design for Resources Section */
+@media (max-width: 768px) {
+  .resources-section {
+      grid-template-columns: 1fr;
+  }
+}
+
+/* ================================
+   Featured Handbook Section
+   ================================ */
+
+.featured-handbook-section {
+    background: #f8f9fa;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+    overflow: visible;
+}
+
+.handbook-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.handbook-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    overflow: visible;
+}
+
+.handbook-text {
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.handbook-text h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+}
+
+.handbook-description {
+    font-size: 1rem;
+    color: #6c757d;
+    margin: 0 0 1rem 0;
+}
+
+.handbook-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.handbook-download-btn:hover {
+    background: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+.handbook-download-btn .btn-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.handbook-cover {
+    flex-shrink: 0;
+}
+
+.handbook-image {
+    width: 120px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.handbook-image:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Design for Handbook Section */
+@media (max-width: 768px) {
+    .featured-handbook-section {
+        padding: 1rem 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .handbook-container {
+        padding: 0 1rem;
+    }
+
+    .handbook-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .handbook-text h3 {
+        font-size: 1.3rem;
+    }
+
+    .handbook-image {
+        width: 100px;
+        margin: 0 auto;
+    }
+}

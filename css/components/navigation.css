@@ -1,0 +1,1209 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap');
+
+/* Navigation Bar Styles */
+.navigation {
+  background-color: #f5f5f5; /* Sets the background color of the navigation bar */
+  position: fixed; /* Fixes the navigation bar at the top */
+  width: 100%; /* Makes the navigation bar full width */
+  z-index: 1000; /* Ensures the navigation bar is on top */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  top: 0;
+}
+
+.navigation.condensed {
+  padding: 5px 0;
+}
+
+.navigation.condensed .logo-image {
+  max-width: 140px;
+  padding: 5px;
+  transform: scale(0.9);
+}
+
+.navigation.condensed .nav-links a {
+  padding: 12px 12px;
+}
+
+.navigation.condensed .quote-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+/* Adjust navigation position when notice is present */
+.navigation.with-notice {
+  top: 40px;
+}
+
+.navigation.with-notice.condensed {
+  top: 30px;
+}
+
+/* Shadow appears when scrolled */
+.navigation.scrolled {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a shadow when the navigation bar is scrolled */
+}
+
+.nav-wrapper {
+  display: flex; /* Uses flexbox for layout */
+  justify-content: space-between; /* Distributes space between items */
+  align-items: center; /* Aligns items vertically in the center */
+  padding: 10px 30px; /* Adds padding */
+  max-width: 1440px; /* Sets the maximum width */
+  margin: 0 auto; /* Centers the wrapper */
+  position: relative;
+  transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navigation.condensed .nav-wrapper {
+  padding: 10px 30px 0px 30px; /* Adds padding */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+  max-width: 180px; /* Maintain original max-width */
+  padding: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: left center;
+}
+
+.nav-links {
+  list-style: none; /* Removes default list styling */
+  display: flex; /* Uses flexbox for layout */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+}
+
+.nav-links li {
+  position: relative; /* Sets position relative for positioning child elements */
+  margin-left: 0px; /* Adds margin to the left */
+}
+
+.nav-links a {
+  color: #2d2d2d;
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 12px 12px;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-links a span {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.nav-links a span::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--button-color);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: #007bff;
+}
+
+.nav-links a:hover .down-arrow-icon,
+.nav-links a:hover .right-arrow-icon {
+  stroke: #007bff;
+}
+
+.nav-links a:hover span::after,
+.sub-menu a:hover span::after,
+.second-level a:hover span::after,
+.third-level a:hover span::after {
+  width: 100%;
+}
+
+/* Update hover states to include arrow color change */
+.nav-links a:hover .down-arrow-icon,
+.nav-links a:hover .right-arrow-icon,
+.sub-menu a:hover .down-arrow-icon,
+.sub-menu a:hover .right-arrow-icon,
+.second-level a:hover .down-arrow-icon,
+.second-level a:hover .right-arrow-icon,
+.third-level a:hover .down-arrow-icon,
+.third-level a:hover .right-arrow-icon {
+  stroke: #007bff;
+}
+
+/* Create a wrapper for the text and arrow */
+.sub-menu a,
+.second-level a,
+.third-level a {
+    padding: 6px 15px;
+    color: #292929;
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: color 0.3s;
+    position: relative;
+    white-space: nowrap;
+    min-height: 40px;
+}
+
+/* Create a wrapper for the text and arrow together */
+.sub-menu a span,
+.second-level a span,
+.third-level a span {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+/* Update underline animation for all levels */
+.sub-menu a span::after,
+.second-level a span::after,
+.third-level a span::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--button-color);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Remove any background changes on hover */
+.sub-menu a:hover,
+.second-level a:hover,
+.third-level a:hover {
+    color: #007bff;
+    background: none;
+}
+
+/* Submenu Styles */
+.sub-menu {
+  display: none;
+  position: absolute;
+  top: 120%;
+  left: -9%;
+  background: #fff;
+  border-radius: 20px;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  min-width: 200px;
+  width: max-content;
+  max-width: 400px;
+}
+
+/* Second-level submenu positioning */
+.second-level {
+  position: absolute;
+  top: -5px;
+  left: calc(100% + 10px); /* Position 10px to the right of parent */
+  margin-left: 0;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  width: max-content;
+  max-width: 400px;
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-10px);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Third-level submenu positioning */
+.third-level {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 10px); /* Position 10px to the right of parent */
+  margin-left: 0;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  width: max-content;
+  max-width: 400px;
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-10px);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Add a gap between menu items to prevent accidental closing */
+.sub-menu li,
+.second-level li,
+.third-level li {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+/* Show submenus on hover */
+.nav-links li:hover > .sub-menu,
+.sub-menu li:hover > .second-level,
+.second-level li:hover > .third-level {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-10px);
+}
+
+/* Add a gap element to prevent menu closing */
+.sub-menu li::after,
+.second-level li::after,
+.third-level li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -10px; /* Extend 10px to the right */
+  width: 10px;
+  height: 100%;
+  z-index: 999;
+}
+
+/* Down Arrow Icon Styles */
+.down-arrow-icon,
+.right-arrow-icon {
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  stroke: #292929;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: stroke 0.3s ease;
+}
+
+/* Quote Request Button */
+.quote-btn {
+  padding: 12px 24px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 10px auto;
+  display: block;
+  margin-right: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  will-change: transform, background-color, box-shadow;
+  filter: brightness(1);
+  text-shadow: none;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.quote-btn:hover {
+  transform: scale(1.01);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  background-color: #1d4ed8;
+}
+
+.quote-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.quote-btn:hover::before {
+  opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+.quote-btn:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mid-page Quote Request Button */
+.quote-btn-midpage {
+  padding: 12px 80px;
+  max-width: 400px;
+  background-image: linear-gradient(to right, #05619a, #128291);
+  color: #f5f5f5;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-image 0.4s ease, 
+              transform 0.3s ease-out, 
+              box-shadow 0.2s ease-out, 
+              filter 0.3s ease-out, 
+              text-shadow 0.3s ease-out;
+              margin: 10px 0; /* Align button to the left */
+              display: inline-block; /* Allow left alignment */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  will-change: transform, background-image, box-shadow;
+  filter: brightness(1);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-btn-midpage:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to right, #128291, #05619a);
+  filter: brightness(1.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.quote-btn-midpage::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+.quote-btn-midpage:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.quote-btn-midpage:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.double-arrow-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor; /* Uses current text color */
+  margin-left: 8px; /* Adds space between text and icon */
+  vertical-align: middle;
+}
+
+
+/* Navigation Icons */
+.nav-icons {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icons .icon {
+  margin-left: 8px;
+}
+
+.nav-icons .icon-svg {
+  width: 30px;
+  height: 24px;
+  stroke: #292929;
+}
+
+/* Mobile Menu Styles */
+#menu-btn {
+  display: none; 
+}
+
+.nav-links-mobile {
+  display: none;
+}
+
+/* Mobile Menu Styles */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 25px;
+  position: relative;
+  z-index: 1001;
+  transition: all 0.3s ease;
+  left: -20px; /* Move the menu icon 20px to the left */
+}
+
+.menu-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #292929;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* When menu is open */
+#menu-btn:checked + .menu-icon span:nth-child(1) {
+  transform: rotate(45deg) translate(6.5px, 5px);
+}
+
+#menu-btn:checked + .menu-icon span:nth-child(2) {
+  opacity: 0; /* Hide the middle line */
+}
+
+#menu-btn:checked + .menu-icon span:nth-child(3) {
+  transform: rotate(-45deg) translate(6.5px, -5px);
+}
+
+/* Responsive Styles */
+/* Adjustments for screens larger than 1200px */
+@media (min-width: 1200px) {
+  #menu-btn {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex; /* Show the desktop menu */
+
+  }
+
+  .nav-links-mobile {
+    display: none; /* Ensure the mobile menu is hidden */
+  }
+}
+
+/* Adjustments for screens smaller than 1200px */
+@media (max-width: 1200px) {
+
+  .nav-links a {
+    color: #292929; /* Sets the text color */
+    font-family: 'Inter', 'Roboto', Arial, sans-serif;
+    font-weight: 600; /* Sets the font weight */
+    font-size: 13px; /* Sets the font size */
+    text-decoration: none; /* Removes underline */
+    padding: 12px 8px; /* Increase padding to expand clickable area */
+    display: inline-block; /* Allows the link to be a block-level element with padding */
+    transition: color 0.3s, background 0.3s; /* Adds smooth transitions for color and background */
+    position: relative; /* For underline animation */
+    white-space: nowrap;
+  }
+
+  .sub-menu a,
+  .second-level a,
+  .third-level a {
+    padding: 8px 14px; /* Adds padding */
+    color: #292929; /* Sets the text color */
+    font-weight: 400; /* Sets the font weight */
+    font-size: 14px; /* Sets the font size */
+    text-decoration: none; /* Removes underline */
+    display: flex; /* Uses flexbox for layout */
+    align-items: center; /* Aligns items vertically in the center */
+    transition: color 0.3s, background 0.3s; /* Adds smooth transitions for color and background */
+    position: relative; /* For underline animation */
+}
+
+  .logo-container img {
+    max-width: 180px; /* Sets the maximum width for the logo */
+  }
+
+  .quote-btn {
+    padding: 12px 20px;
+    background-color:var(--button-color);
+    color: #f5f5f5;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 20px auto;
+    display: block;
+    margin-right: 20px;
+}
+}
+
+/* Adjustments for screens smaller than 992px */
+@media (max-width: 992px) {
+
+  .nav-wrapper {
+    display: flex; /* Uses flexbox for layout */
+    justify-content: space-between; /* Distributes space between items */
+    align-items: center; /* Aligns items vertically in the center */
+    padding: 10px 10px; /* Adds padding */
+    max-width: 1440px; /* Sets the maximum width */
+    margin: 0 auto; /* Centers the wrapper */
+  }
+
+  .nav-links {
+    display: none; /* Hide the desktop menu */
+  }
+  
+  /* Hide desktop navigation icons */
+  .nav-icons {
+    display: none;
+  }
+
+  /* Quote Button for Desktop */
+  .quote-btn {
+    display: none; /* Hide the desktop quote button */
+  }
+
+  /* Mobile Menu Icon */
+  .menu-icon {
+    display: flex; /* Show the mobile menu icon */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .menu-icon span {
+    width: 25px;
+    height: 3px;
+    background: #292929;
+    margin: 4px 0;
+    transition: all 0.3s;
+  }
+
+  /* Mobile Navigation Links */
+  .nav-links-mobile {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    width: 100%;
+    background: #eaeaea;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+    padding-top: 180px; /* Increased from 100px to 180px to move menu lower */
+  }
+
+  .nav-links-mobile li {
+    margin: 0;
+    text-align: center;
+    position: relative; /* For submenu positioning */
+  }
+
+  .nav-links-mobile a {
+    color: #292929;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 20px;
+    display: block;
+    text-align: center;
+    transition: color 0.3s, background 0.3s;
+  }
+
+  .nav-links-mobile a:hover {
+    background: #b0b0b0;
+  }
+
+  /* Mobile Submenu Styles */
+  .sub-menu-mobile {
+    display: none; /* Hide submenus by default */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #f5f5f5;
+    text-align: left; /* Align items to the left */
+  }
+
+  .nav-links-mobile li.open > .sub-menu-mobile {
+    display: block; /* Show submenu when parent is open */
+  }
+
+  .sub-menu-mobile li {
+    padding: 10px 20px;
+    text-align: left; /* Align items to the left */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Add subtle separator */
+  }
+
+  .sub-menu-mobile li:last-child {
+    border-bottom: none; /* Remove border from last item */
+  }
+
+  .sub-menu-mobile a {
+    font-size: 14px;
+    padding: 10px;
+    text-align: left; /* Align text to the left */
+    display: block; /* Make link take full width */
+    width: 100%; /* Full width for better touch target */
+  }
+
+  /* Checkbox control for mobile menu */
+  #menu-btn:checked + .menu-icon + .nav-links-mobile {
+    display: flex; /* Display mobile menu when checked */
+  }
+
+  /* Mobile Quote Button */
+  .quote-btn-mobile {
+    display: flex;
+    background: var(--button-color);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    width: 70%;
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Ensures text is centered inside the button */
+  }
+
+  .quote-btn-mobile:hover {
+    background: #0056b3 !important;
+  }
+
+  .sub-menu,
+  .second-level,
+  .third-level {
+    position: static;
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    box-shadow: none;
+    border-radius: 0;
+    margin-left: 20px;
+    transform: none;
+  }
+
+  .sub-menu li::after,
+  .second-level li::after,
+  .third-level li::after {
+    display: none;
+  }
+
+  .down-arrow-icon,
+  .right-arrow-icon {
+    margin-left: 8px;
+  }
+}
+
+
+  /* ================================
+     Quote Modal
+     ================================ */
+  
+     #quote-modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1000; /* Higher value to ensure it sits on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      padding-top: 60px; /* Add some padding at the top for content */
+    }
+
+    .modal-content {
+      background-color: #ffffff;
+      margin: 0 auto;
+      padding: 30px;
+      border: none;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 12px; /* Slightly larger radius for a softer look */
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); /* Deeper shadow for more depth */
+      position: relative;
+      overflow-y: auto; /* Ensure content scrolls if it exceeds max height */
+      max-height: 80vh; /* Make sure modal content does not exceed viewport height */
+      transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition effects */
+      transform: translateY(-20px);
+  }
+  
+  /* When the modal is visible */
+  #quote-modal.show .modal-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0); /* Animate entrance */
+  }
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(245, 245, 245, 0.8); /* Slightly transparent */
+  border-radius: 50%;
+  color: #333;
+  font-size: 20px; /* Set font size for the × */
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  outline: none;
+}
+
+.close:hover,
+.close:focus {
+  background-color: rgba(200, 200, 200, 0.9); /* Darker on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.close:active {
+  transform: scale(0.9); /* Slight "press" effect */
+  background-color: rgba(180, 180, 180, 0.9);
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 11px);
+    right: 0;
+    background: #333;
+    color: #fff;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 1003;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: 8px;
+    border: 3px solid transparent;
+    border-top-color: #333;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 1003;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after {
+    opacity: 1;
+}
+
+/* Mobile tooltip adjustments */
+@media (max-width: 992px) {
+    .mobile-nav-icons .tooltip::before {
+        content: attr(data-tooltip);
+        position: fixed;
+        bottom: 60px; /* Position just above the mobile nav */
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: #333;
+        color: #fff;
+        font-size: 12px;
+        padding: 8px;
+        text-align: center;
+        border-radius: 0;
+        white-space: normal;
+        word-wrap: break-word;
+        transform: none;
+        z-index: 1003;
+    }
+
+    .mobile-nav-icons .tooltip::after {
+        display: none; /* Remove the arrow for mobile */
+    }
+}
+
+/* Mobile Navigation Icons */
+.mobile-nav-icons {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 12px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1002; /* Increased z-index to stay above mobile menu */
+}
+
+/* Show mobile icons on mobile devices */
+@media (max-width: 992px) {
+    .mobile-nav-icons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 8px; /* Add gap between icons */
+    }
+}
+
+.mobile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    color: #333;
+    transition: color 0.2s ease;
+    flex: 1; /* Make icons take equal space */
+    max-width: 60px; /* Limit maximum width */
+    text-decoration: none;
+}
+
+.mobile-icon:hover {
+    color: #007bff;
+}
+
+.mobile-icon .icon-svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+}
+
+/* Hide mobile icons on desktop */
+@media (min-width: 992px) {
+    .mobile-nav-icons {
+        display: none;
+    }
+}
+
+/* Adjust mobile nav padding to account for fixed icons */
+@media (max-width: 992px) {
+    .nav-links-mobile {
+        padding-bottom: 70px;
+    }
+}
+
+/* Hide notice banner when mobile menu is open */
+#menu-btn:checked ~ .notice-banner {
+    display: none;
+}
+
+/* Notice Banner */
+.notice-banner {
+    background: #252525;
+    border-bottom: 1px solid #e9ecef;
+    padding: 8px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+
+.notice-content {
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.notice-icon {
+    color: #007bff;
+    flex-shrink: 0;
+}
+
+.notice-content p {
+    margin: 0;
+    font-size: 12px;
+    color: #dfdfdf;
+    line-height: 1.2;
+}
+
+.notice-close {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: #999999;
+    margin-left: auto;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notice-close:hover {
+    background-color: #e9ecef;
+    color: #767676;
+}
+
+.notice-close:active {
+    transform: scale(0.95);
+}
+
+.notice-link {
+  color: #1ea7fd; /* bright blue for visibility */
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.notice-link:visited {
+  color: #9bb8d3; /* slightly muted for visited state */
+}
+
+.notice-link:hover,
+.notice-link:focus {
+  color: #ffffff;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .notice-content {
+        padding: 4px 12px;
+    }
+    
+    .notice-content p {
+        font-size: 9px;
+        line-height: 1.1;
+    }
+
+    .notice-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .notice-close {
+        width: 20px;
+        height: 20px;
+    }
+
+    .notice-close svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .navigation.with-notice {
+        top: 32px;
+    }
+    
+    .navigation.with-notice.condensed {
+        top: 30px;
+    }
+
+    .navigation.condensed .logo-image {
+        max-width: 120px;
+        transform: scale(0.85);
+    }
+
+    .navigation.condensed .nav-links a {
+        padding: 12px 12px;
+    }
+}
+
+/* Search Container Styles */
+.search-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.search-box .search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+}
+
+.search-box input:focus + .search-icon {
+    color: var(--button-color);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--button-color);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+}
+
+.search-box input::placeholder {
+    color: #999;
+}
+
+.custom-loading-indicator {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin: 20px 0;
+    display: none;
+}
+
+.custom-loading-indicator .loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid var(--button-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.custom-loading-indicator span {
+    vertical-align: middle;
+}
+
+#customResultsContainer {
+    margin-top: 20px;
+}
+
+#customResultsContainer .search-result {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#customResultsContainer .search-result:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#customResultsContainer .search-result h3 {
+    color: var(--button-color);
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+#customResultsContainer .search-result p {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+#customResultsContainer .search-result a {
+    color: var(--button-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#customResultsContainer .search-result a:hover {
+    text-decoration: underline;
+}
+
+#customResultsContainer .search-result mark {
+    background-color: rgba(var(--button-color-rgb), 0.1);
+    color: var(--button-color);
+    padding: 0 2px;
+    border-radius: 2px;
+    font-weight: 500;
+}
+
+#customResultsContainer .search-result a {
+    color: var(--button-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#customResultsContainer .search-result a:hover {
+    color: var(--button-color-hover);
+    text-decoration: underline;
+}
+
+#customResultsContainer .search-result p {
+    margin-top: 8px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .search-container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .search-box input {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    #customResultsContainer .search-result {
+        padding: 15px;
+    }
+
+    #customResultsContainer .search-result h3 {
+        font-size: 16px;
+    }
+
+    #customResultsContainer .search-result p {
+        font-size: 13px;
+    }
+}
+
+.quote-icon {
+    stroke: white !important;
+}
+
+
+
+

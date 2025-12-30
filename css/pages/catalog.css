@@ -1,0 +1,134 @@
+.catalog-viewer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    border-radius: 12px;
+}
+
+.catalog-heading {
+    text-align: center;
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #2c2c2c;
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.pdf-viewer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.catalog-download {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.download-btn {
+    background-color: #5a1331;
+    color: #fff;
+    padding: 16px 32px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.download-btn:hover {
+    background-color: #722746;
+    transform: translateY(-2px);
+}
+
+.floating-download-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #5a1331;
+    color: #fff;
+    padding: 14px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 999;
+}
+
+.floating-download-btn:hover {
+    background-color: #722746;
+    transform: translateY(-2px);
+}
+
+.catalog-tip {
+    background-color: #f9f9f9;
+    border-left: 4px solid #5a1331;
+    padding: 10px 16px;
+    margin: 0 auto 20px;
+    font-size: 0.95rem;
+    color: #444;
+    max-width: 700px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+    .catalog-tip {
+        display: none;
+    }
+}
+
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .catalog-heading {
+        font-size: 2rem;
+    }
+
+    .pdf-viewer {
+        height: 70vh;
+    }
+
+    .download-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+}
+
+/* Device-based visibility */
+.desktop-only {
+    display: block;
+  }
+  .mobile-only {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-only {
+      display: none;
+    }
+    .mobile-only {
+      display: block;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .mobile-catalog-fallback p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #444;
+    }
+  }
+  

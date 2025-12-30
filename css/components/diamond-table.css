@@ -1,0 +1,178 @@
+.DiamondTableWrapper {
+    width: 100%;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Core Table */
+.DiamondTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', 'Roboto', Arial, sans-serif;
+    font-size: 0.95rem;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.DiamondTable thead {
+    background-color: #273544;
+    color: #ffffff;
+}
+
+.DiamondTable th,
+.DiamondTable td {
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* First Column */
+.DiamondTable th:first-child,
+.DiamondTable td:first-child {
+    text-align: left;
+    font-weight: bold;
+    background-color: #273544;
+    color: #ffffff;
+}
+
+/* Process Header Row */
+.DiamondTable thead tr:first-child th:not(:first-child),
+.DiamondTable thead tr:first-child td:not(:first-child) {
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+/* Down Arrow Icon */
+.DiamondTable .down-arrow-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+}
+
+/* Highlighting */
+.blue-table-cell {
+    background-color: #cce6f9;
+}
+
+.gray-table-cell {
+    background-color: #f5f5f5;
+}
+
+.striped-gray-table-cell {
+    background: linear-gradient(
+        135deg,
+        #f0f0f0 25%,
+        #f9f9f9 25%,
+        #f9f9f9 50%,
+        #f0f0f0 50%,
+        #f0f0f0 75%,
+        #f9f9f9 75%,
+        #f9f9f9 100%
+    );
+    background-size: 14px 14px;
+}
+
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .DiamondTable thead {
+        display: none;
+    }
+
+    .DiamondTable, 
+    .DiamondTable tbody, 
+    .DiamondTable tr {
+        display: block;
+    }
+
+    .DiamondTable tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .DiamondTable td {
+        display: block;
+        text-align: right;
+        padding: 10px 14px;
+        position: relative;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .DiamondTable td:first-child {
+        background-color: #273544;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+        padding: 14px;
+        border-bottom: 2px solid #ccc;
+        font-size: 1rem;
+    }
+
+    .DiamondTable td:not(:first-child) {
+        padding-left: 42%;
+        min-height: 44px;
+    }
+
+    /* Labels */
+    .DiamondTable td:nth-child(2):before { content: "9 µm Diamond"; }
+    .DiamondTable td:nth-child(3):before { content: "6 µm Diamond"; }
+    .DiamondTable td:nth-child(4):before { content: "3 µm Diamond"; }
+    .DiamondTable td:nth-child(5):before { content: "1 µm Diamond"; }
+    .DiamondTable td:nth-child(6):before { content: "Al₂O₃"; }
+    .DiamondTable td:nth-child(7):before { content: "SiO₂"; }
+
+    .DiamondTable td:not(:first-child):before {
+        position: absolute;
+        left: 12px;
+        width: 40%;
+        text-align: left;
+        font-weight: bold;
+        padding: 8px 10px;
+        margin-top: -8px;
+        font-size: 0.85rem;
+        color: #273544;
+        background-color: transparent;
+        z-index: 1;
+    }
+
+    .DiamondTable td:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+    .DiamondTable {
+        font-size: 0.85rem;
+    }
+
+    .DiamondTable td {
+        padding: 8px;
+    }
+
+    .DiamondTable td:not(:first-child) {
+        padding-left: 38%;
+    }
+
+    .DiamondTable td:not(:first-child):before {
+        left: 8px;
+        width: 34%;
+        padding: 6px 8px;
+        font-size: 0.75rem;
+    }
+
+    .DiamondTable td:first-child {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+}
