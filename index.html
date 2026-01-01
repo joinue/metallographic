@@ -8,8 +8,8 @@
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="google-site-verification" content="LzR4wVONWG6uIX3m2QcGuvf3rBxuHBCijv-Pl1tccFs">
     <meta name="norton-safeweb-site-verification" content="kw254olmyzhm98ttscnebx59npy7ji28spxv77ktnnqwpg2entz0hsfozhba0gzvjvrfj6z0-c00djzn-iq1hw-z1vdcna8ug093xtjit61oop1s26erotk-0ruemld5">
-    <meta name="description" content="PACE Technologies provides advanced metallographic sample preparation equipment and consumables for precise material analysis in aerospace, biomedical, and materials testing industries.">
-    <meta name="keywords" content="metallographic equipment, sample preparation, material analysis, hardness testing, grinding and polishing, microscopy, lab equipment">
+    <meta name="description" content="PACE Technologies: Leading supplier of metallographic equipment and consumables. Precision cutters, mounting presses, grinders, polishers, hardness testers, microscopes, and consumables for metallography labs. Expert sample preparation guides and technical support.">
+    <meta name="keywords" content="metallographic equipment, metallography equipment, sample preparation equipment, metallographic consumables, precision cutters, abrasive saws, mounting presses, compression mounting, castable mounting, grinder polishers, hardness testers, Rockwell tester, microhardness tester, metallurgical microscopes, polishing compounds, diamond compounds, grinding papers, mounting resins, etchants, metallography lab equipment, material testing equipment, failure analysis equipment, quality control equipment, metallographic sample preparation, metallography supplies, PACE Technologies">
     <meta name="author" content="PACE Technologies">
     <meta name="theme-color" content="#ffffff">
     <meta name="msapplication-TileColor" content="#da532c">
@@ -132,18 +132,45 @@
     <!-- Note: nav.css has @import which blocks parsing - inline CSS above prevents FOUC -->
     <link rel="stylesheet" href="/css/components/navigation.css" media="all">
     <link rel="stylesheet" href="/css/layouts/homepage-styles.css" media="all">
+    <!-- Critical inline style to prevent animation FOUC -->
+    <style>
+        /* Hide animated elements immediately to prevent flash */
+        /* Set initial transform states so elements start in their "from" position */
+        [data-animate] {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(0) translateX(0);
+        }
+        [data-animate="up"] {
+            transform: translateY(60px);
+        }
+        [data-animate="down"] {
+            transform: translateY(-60px);
+        }
+        [data-animate="left"] {
+            transform: translateX(60px);
+        }
+        [data-animate="right"] {
+            transform: translateX(-60px);
+        }
+        [data-animate="fade"] {
+            transform: translateY(0) translateX(0);
+        }
+    </style>
     <noscript>
-        <style>body{visibility:visible !important;opacity:1 !important;}</style>
+        <style>body{visibility:visible !important;opacity:1 !important;}[data-animate]{opacity:1 !important;visibility:visible !important;}</style>
     </noscript>
     
     <!-- Non-critical CSS - load asynchronously -->
     <link rel="stylesheet" href="/css/components/footer.css" media="print" onload="this.media='all'; this.onload=null;">
     <link rel="stylesheet" href="/css/layouts/homepage.css" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="stylesheet" href="/css/utilities/animations.css" media="print" onload="this.media='all'; this.onload=null;">
     
     <!-- Noscript fallbacks -->
     <noscript>
         <link rel="stylesheet" href="/css/components/footer.css">
         <link rel="stylesheet" href="/css/layouts/homepage.css">
+        <link rel="stylesheet" href="/css/utilities/animations.css">
     </noscript>
     
   
@@ -217,11 +244,11 @@
     </script>
   
     <!-- Page Title -->
-    <title>PACE Technologies - Metallographic Equipment & Consumables</title>
+    <title>Metallographic Equipment & Consumables | PACE Technologies - Precision Sample Preparation</title>
   
     <!-- Open Graph / Twitter (standardize image path) -->
-    <meta property="og:title" content="PACE Technologies - Metallographic Equipment & Consumables">
-    <meta property="og:description" content="Discover industry-leading metallographic solutions. Trusted in aerospace, biomedical, and materials testing.">
+    <meta property="og:title" content="Metallographic Equipment & Consumables | PACE Technologies">
+    <meta property="og:description" content="Complete metallography lab solutions: precision cutters, mounting presses, grinders, polishers, hardness testers, microscopes, and consumables. Expert guides and support for quality control, failure analysis, and materials research.">
     <meta property="og:image" content="https://www.metallographic.com/Images/pace-shortlogo-white.webp">
     <meta property="og:url" content="https://www.metallographic.com/">
     <meta property="og:type" content="website">
@@ -276,10 +303,38 @@
       "@type": "WebSite",
       "name": "PACE Technologies",
       "url": "https://www.metallographic.com",
+      "description": "Leading supplier of metallographic equipment and consumables for precision sample preparation. Complete solutions for metallography labs including cutters, mounting presses, grinders, polishers, hardness testers, and microscopes.",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://www.metallographic.com/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: WebPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Metallographic Equipment & Consumables | PACE Technologies",
+      "description": "Complete metallography lab solutions: precision cutters, mounting presses, grinders, polishers, hardness testers, microscopes, and consumables. Expert guides and support for quality control, failure analysis, and materials research.",
+      "url": "https://www.metallographic.com/",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "PACE Technologies",
+        "url": "https://www.metallographic.com"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Metallographic Equipment and Consumables",
+        "description": "Equipment and supplies for metallographic sample preparation including sectioning, mounting, grinding, polishing, etching, hardness testing, and microscopy"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://www.metallographic.com/images/pace/equipment.webp",
+        "description": "PACE Technologies metallographic equipment for sample preparation"
       }
     }
     </script>
@@ -332,6 +387,274 @@
             "name": "NANO-2000S",
             "description": "Reliable manual grinder/polisher designed for efficient sample surface preparation.",
             "url": "https://www.metallographic.com/metallographic-equipment/grinding-polishing/nano.html"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: HowTo Schema for Metallographic Sample Preparation -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Prepare Metallographic Samples for Microstructural Analysis",
+      "description": "Complete step-by-step guide to metallographic sample preparation including sectioning, mounting, grinding, polishing, and etching procedures.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Sectioning",
+          "text": "Cut the material sample using precision cutters or abrasive saws. Use appropriate cutting fluids to prevent damage and maintain sample integrity.",
+          "url": "https://www.metallographic.com/metallographic-equipment/abrasive-sectioning.html"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Mounting",
+          "text": "Embed the sample in mounting resin using compression or castable mounting systems to protect edges and provide handling support.",
+          "url": "https://www.metallographic.com/metallographic-equipment/compression-mounting.html"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Grinding",
+          "text": "Progressively remove material using grinding papers or SiC powders, starting with coarse grits and progressing to finer grits to remove sectioning damage.",
+          "url": "https://www.metallographic.com/metallographic-consumables/grinding.html"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Polishing",
+          "text": "Polish the ground surface using diamond compounds and polishing pads on grinder-polishers to achieve a smooth, scratch-free surface.",
+          "url": "https://www.metallographic.com/metallographic-consumables/polishing.html"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Final Polishing",
+          "text": "Use vibratory polishers with fine abrasives to eliminate subsurface damage and achieve superior surface finishes for high-quality microstructural analysis.",
+          "url": "https://www.metallographic.com/metallographic-equipment/grinding-polishing/giga.html"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Etching",
+          "text": "Apply appropriate etchants to reveal microstructural features such as grain boundaries, phases, and inclusions for examination under a metallurgical microscope.",
+          "url": "https://www.metallographic.com/metallographic-consumables/etching.html"
+        }
+      ],
+      "totalTime": "PT2H"
+    }
+    </script>
+
+    <!-- JSON-LD: Service Schema for Equipment Categories -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Metallographic Equipment Sales and Support",
+      "provider": {
+        "@type": "Organization",
+        "name": "PACE Technologies",
+        "url": "https://www.metallographic.com"
+      },
+      "areaServed": "Worldwide",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Metallographic Equipment and Consumables",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Sectioning Equipment",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Precision Wafering Systems",
+                  "description": "Precision cutters for delicate materials requiring minimal damage"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Abrasive Sectioning Equipment",
+                  "description": "Abrasive saws and cutters for faster throughput"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Mounting Equipment",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Compression Mounting Presses",
+                  "description": "Hydraulic and pneumatic presses for compression mounting"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Castable Mounting Systems",
+                  "description": "Vacuum, pressure, and UV systems for castable mounting"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Grinding and Polishing Equipment",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Grinder-Polishers",
+                  "description": "Manual and automated systems for grinding and polishing"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Vibratory Polishers",
+                  "description": "Systems for final polishing and subsurface damage elimination"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Hardness Testing Equipment",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Rockwell Hardness Testers",
+                  "description": "Equipment for Rockwell hardness testing"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Microhardness Testers",
+                  "description": "Vickers and Knoop microhardness testing systems"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Microscopy Equipment",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Metallurgical Microscopes",
+                  "description": "Microscopes for microstructural examination"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Image Analysis Systems",
+                  "description": "Digital imaging and analysis solutions"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is metallographic sample preparation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Metallographic sample preparation is the process of preparing material samples for microstructural analysis. It involves sectioning (cutting), mounting (embedding in resin), grinding (removing material with abrasives), polishing (achieving a smooth surface), and etching (revealing microstructural features) to enable examination under a metallurgical microscope. This process is essential for quality control, failure analysis, and materials research."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What metallographic equipment do I need for a complete lab?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A complete metallography lab requires sectioning equipment (precision cutters or abrasive saws), mounting equipment (compression or castable mounting presses), grinding and polishing equipment (grinder-polishers or separate grinders and polishers), etching supplies, and analysis equipment (metallurgical microscopes and optionally hardness testers). The specific equipment depends on your sample volume, material types, and analysis requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I choose the right metallographic equipment for my lab?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Selecting the right metallographic equipment depends on several factors: your sample volume and throughput requirements, material types you'll be preparing (steels, aluminum, titanium, ceramics, composites), available budget, and space constraints. Consider whether you need manual or automated systems, the level of precision required, and your long-term growth plans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between manual and automated polishing systems?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Manual polishing systems require operator control of pressure, speed, and time for each step. They offer flexibility and are cost-effective for low to medium volume labs. Automated systems provide programmable cycles with consistent parameters, reducing operator time and ensuring repeatable results, ideal for high-volume production environments and standardized procedures."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What consumables are needed for metallographic sample preparation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Essential metallographic consumables include cutting blades and fluids for sectioning, mounting resins and molds for mounting, grinding papers and SiC powders for grinding, diamond compounds and polishing pads for polishing, polishing cloths, etchants and cleaning solutions, and mounting accessories. The specific consumables depend on your material types and preparation requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need different consumables for different materials?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, material-specific consumables are important for optimal results. Hard materials like tool steels and ceramics may require diamond abrasives and specific polishing compounds, while softer materials like aluminum work well with silicon carbide papers and gentler polishing procedures."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should I replace polishing cloths and abrasives?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Polishing cloths should be replaced when they show visible wear, contamination, or when polishing quality degrades. Diamond compounds typically last for multiple samples, but should be refreshed when cutting efficiency decreases. Silicon carbide grinding papers are single-use and should be replaced after each sample or when the abrasive is worn."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best hardness tester for metallography?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The best hardness tester depends on your application. Rockwell testers are ideal for general hardness testing on larger samples. Microhardness testers (Vickers or Knoop) are essential for testing small features, heat-affected zones, and individual phases in microstructures. For metallographic applications requiring precise measurements on specific microstructural features, a microhardness tester is typically recommended."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I buy metallographic equipment and consumables?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PACE Technologies offers complete metallographic equipment and consumables through our website, online shop, and international distribution network. You can browse our equipment catalog, request quotes for custom lab configurations, or purchase consumables directly from our online shop. We serve customers worldwide and offer technical support, installation services, and training programs."
           }
         }
       ]
@@ -952,7 +1275,7 @@
             <!-- Background Image -->
             <div class="hero-background">
                 <div class="hero-background-image">
-                    <img src="images/pace/equipment.webp" alt="PACE Technologies metallography equipment including precision cutter, hydraulic press, and polishing system" class="hero-bg-img">
+                    <img src="images/pace/equipment.webp" alt="PACE Technologies metallographic equipment including precision cutters, mounting presses, grinder-polishers, hardness testers, and microscopes for complete sample preparation labs" class="hero-bg-img">
                     <!-- Fade background image to white at bottom -->
                     <div class="hero-fade-overlay"></div>
                 </div>
@@ -961,16 +1284,16 @@
             <div class="container-custom hero-content">
                 <div class="hero-text-wrapper">
                     <div class="hero-text-inner">
-                        <h1 class="hero-title">
+                        <h1 class="hero-title" data-animate="up" data-animate-delay="100">
                             <span class="hero-title-gradient">Build Your Sample Preparation Lab</span>
                         </h1>
-                        <p class="hero-description">
+                        <p class="hero-description" data-animate="up" data-animate-delay="200">
                             Quality control, failure analysis, research and development, and material characterization. 
                             Complete equipment and consumables solutions for every metallography application, backed by expert preparation guides.
                         </p>
-                        <div class="hero-buttons">
-                            <a href="/equipment" class="btn-primary">Browse Equipment</a>
-                            <a href="/guides" class="btn-tertiary">Sample Prep Guides</a>
+                        <div class="hero-buttons" data-animate="up" data-animate-delay="300">
+                            <a href="/equipment.html" class="btn-primary">Browse Equipment</a>
+                            <a href="/guides.html" class="btn-tertiary">Sample Prep Guides</a>
                         </div>
                     </div>
                 </div>
@@ -982,26 +1305,26 @@
             <div class="container-custom">
                 <div class="pace-help-content">
                     <div class="pace-help-grid">
-                        <div class="pace-help-text">
+                        <div class="pace-help-text" data-animate="right">
                             <h2 class="section-title">How PACE can help</h2>
                             <p class="section-text">
                                 PACE Technologies supplies the equipment and consumables your lab needs for metallographic sample preparation. 
                                 From sectioning and mounting through grinding, polishing, and etching, we offer precision equipment and consumables backed by preparation guides and technical support.
                             </p>
                             <p class="section-text-small">
-                                Whether you're setting up a new lab or upgrading existing equipment, our products and preparation methods deliver consistent results for quality control, failure analysis, and materials research.
+                                Whether you're setting up a new lab or upgrading existing equipment, our products and preparation methods deliver consistent results for quality control, failure analysis, and materials research. <a href="/about.html" class="link-primary">Learn more about PACE Technologies</a>.
                             </p>
                         </div>
-                        <div class="pace-help-image">
+                        <div class="pace-help-image" data-animate="left" data-animate-delay="200">
                             <img src="images/pace/homepage-hexagon.png" alt="PACE Technologies team and equipment showcasing metallographic sample preparation solutions" class="hexagon-image">
                         </div>
                     </div>
 
                     <!-- Sample Preparation Steps -->
                     <div class="prep-steps-section">
-                        <h3 class="prep-steps-title">Complete Solutions for Every Step</h3>
+                        <h3 class="prep-steps-title" data-animate="up">Complete Solutions for Every Step</h3>
                         <div class="prep-steps-grid">
-                            <div class="prep-step-card">
+                            <div class="prep-step-card" data-animate="up" data-animate-delay="50">
                                 <div class="prep-step-number">1</div>
                                 <h4 class="prep-step-title">Sectioning</h4>
                                 <p class="prep-step-description">Precision cutters, abrasive saws, and cutting fluids for clean, damage-free cuts</p>
@@ -1011,7 +1334,7 @@
                                     <a href="/metallographic-consumables/sectioning.html">Sectioning Consumables</a>
                                 </div>
                             </div>
-                            <div class="prep-step-card">
+                            <div class="prep-step-card" data-animate="up" data-animate-delay="100">
                                 <div class="prep-step-number">2</div>
                                 <h4 class="prep-step-title">Mounting</h4>
                                 <p class="prep-step-description">Compression mounting presses and castable mounting systems with a full range of mounting materials</p>
@@ -1021,7 +1344,7 @@
                                     <a href="/metallographic-consumables/mounting.html">Mounting Consumables</a>
                                 </div>
                             </div>
-                            <div class="prep-step-card">
+                            <div class="prep-step-card" data-animate="up" data-animate-delay="150">
                                 <div class="prep-step-number">3</div>
                                 <h4 class="prep-step-title">Grinding</h4>
                                 <p class="prep-step-description">Hand and belt grinders with papers and SiC powders for progressive material removal</p>
@@ -1030,7 +1353,7 @@
                                     <a href="/metallographic-consumables/grinding.html">Grinding Consumables</a>
                                 </div>
                             </div>
-                            <div class="prep-step-card">
+                            <div class="prep-step-card" data-animate="up" data-animate-delay="200">
                                 <div class="prep-step-number">4</div>
                                 <h4 class="prep-step-title">Polishing</h4>
                                 <p class="prep-step-description">Grinder-polishers with diamond compounds and polishing pads</p>
@@ -1039,7 +1362,7 @@
                                     <a href="/metallographic-consumables/polishing.html">Polishing Consumables</a>
                                 </div>
                             </div>
-                            <div class="prep-step-card">
+                            <div class="prep-step-card" data-animate="up" data-animate-delay="250">
                                 <div class="prep-step-number">5</div>
                                 <h4 class="prep-step-title">Final Polishing</h4>
                                 <p class="prep-step-description">Vibratory polishers for eliminating subsurface damage and achieving superior finishes</p>
@@ -1048,7 +1371,7 @@
                                     <a href="/metallographic-consumables/final-polishing.html">Final Polishing Consumables</a>
                                 </div>
                             </div>
-                            <div class="prep-step-card">
+                            <div class="prep-step-card" data-animate="up" data-animate-delay="300">
                                 <div class="prep-step-number">6</div>
                                 <h4 class="prep-step-title">Etching</h4>
                                 <p class="prep-step-description">Etchants, cleaning solutions, and application tools for microstructure revelation</p>
@@ -1057,7 +1380,7 @@
                                     <a href="/metallographic-consumables/cleaning.html">Cleaning Solutions</a>
                                 </div>
                             </div>
-                            <div class="prep-step-card">
+                            <div class="prep-step-card" data-animate="up" data-animate-delay="350">
                                 <div class="prep-step-number">7</div>
                                 <h4 class="prep-step-title">Hardness Testing</h4>
                                 <p class="prep-step-description">Rockwell, microhardness, and Brinell testers with accessories for material characterization</p>
@@ -1066,7 +1389,7 @@
                                     <a href="/metallographic-consumables/hardness-testing.html">Hardness Testing Consumables</a>
                                 </div>
                             </div>
-                            <div class="prep-step-card">
+                            <div class="prep-step-card" data-animate="up" data-animate-delay="400">
                                 <div class="prep-step-number">8</div>
                                 <h4 class="prep-step-title">Microscopy & Analysis</h4>
                                 <p class="prep-step-description">Metallurgical and stereo microscopes for microstructural examination and analysis</p>
@@ -1079,12 +1402,12 @@
                     </div>
 
                     <!-- 2026 Catalog Highlight -->
-                    <div class="catalog-highlight">
+                    <div class="catalog-highlight" data-animate="up">
                         <div class="catalog-highlight-content">
-                            <div class="catalog-highlight-image">
+                            <div class="catalog-highlight-image" data-animate="right" data-animate-delay="100">
                                 <img src="images/catalog/2026-catalog-cover.png" alt="2026 PACE Technologies Product Catalog" class="catalog-cover-image">
                             </div>
-                            <div class="catalog-highlight-text-wrapper">
+                            <div class="catalog-highlight-text-wrapper" data-animate="left" data-animate-delay="200">
                                 <h3 class="catalog-highlight-title">2026 Product Catalog</h3>
                                 <p class="catalog-highlight-text">
                                     Browse our latest catalog featuring complete equipment and consumables for metallographic sample preparation.
@@ -1101,10 +1424,10 @@
 
                     <div class="pace-help-links">
                         <p class="help-links-text">
-                            Explore our complete product line: <a href="/equipment" class="link-primary">equipment</a> and 
-                            <a href="/consumables" class="link-primary"> consumables</a>. 
-                            Pair your products with our <a href="/guides" class="link-primary">expert preparation guides</a>, or 
-                            <a href="/quote" class="link-primary"> request a custom quote</a> for your lab.
+                            Explore our complete product line: <a href="/equipment.html" class="link-primary">equipment</a> and 
+                            <a href="/consumables.html" class="link-primary"> consumables</a>. 
+                            Pair your products with our <a href="/guides.html" class="link-primary">expert preparation guides</a>, or 
+                            <a href="/quote.html" class="link-primary"> request a custom quote</a> for your lab.
                         </p>
                     </div>
                 </div>
@@ -1114,7 +1437,7 @@
         <!-- Equipment & Consumables by Step Section - Timeline -->
         <section class="timeline-section">
             <div class="container-custom">
-                <div class="timeline-header">
+                <div class="timeline-header" data-animate="up">
                     <h2 class="section-title-large">Equipment & Consumables by Step</h2>
                     <p class="section-subtitle">
                         Follow the complete sample preparation workflow with equipment and consumables for each step
@@ -1129,7 +1452,7 @@
                         <div class="timeline-line"></div>
                         
                         <!-- Step 1: Sectioning -->
-                        <div class="timeline-step">
+                        <div class="timeline-step" data-animate="right" data-animate-delay="100">
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
@@ -1185,7 +1508,7 @@
                         </div>
 
                         <!-- Step 2: Mounting -->
-                        <div class="timeline-step timeline-step-reverse">
+                        <div class="timeline-step timeline-step-reverse" data-animate="left" data-animate-delay="200">
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
@@ -1241,7 +1564,7 @@
                         </div>
 
                         <!-- Step 3: Grinding -->
-                        <div class="timeline-step">
+                        <div class="timeline-step" data-animate="right" data-animate-delay="300">
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
@@ -1288,7 +1611,7 @@
                         </div>
 
                         <!-- Step 4: Polishing -->
-                        <div class="timeline-step timeline-step-reverse">
+                        <div class="timeline-step timeline-step-reverse" data-animate="left" data-animate-delay="400">
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
@@ -1335,7 +1658,7 @@
                         </div>
 
                         <!-- Step 5: Final Polishing -->
-                        <div class="timeline-step">
+                        <div class="timeline-step" data-animate="right" data-animate-delay="500">
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
@@ -1382,7 +1705,7 @@
                         </div>
 
                         <!-- Step 6: Etching -->
-                        <div class="timeline-step timeline-step-reverse">
+                        <div class="timeline-step timeline-step-reverse" data-animate="left" data-animate-delay="600">
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
@@ -1420,7 +1743,7 @@
                         </div>
 
                         <!-- Step 7: Hardness Testing -->
-                        <div class="timeline-step">
+                        <div class="timeline-step" data-animate="right" data-animate-delay="700">
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
@@ -1467,7 +1790,7 @@
                         </div>
 
                         <!-- Step 8: Microscopy & Analysis -->
-                        <div class="timeline-step timeline-step-reverse">
+                        <div class="timeline-step timeline-step-reverse" data-animate="left" data-animate-delay="800">
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
@@ -1520,7 +1843,7 @@
         <!-- Services Section -->
         <section class="services-section">
             <div class="container-custom">
-                <div class="services-header">
+                <div class="services-header" data-animate="up">
                     <h2 class="section-title-large">Our Service Offerings</h2>
                     <p class="section-subtitle">
                         Professional services for your metallographic laboratory. Purchase service plans, schedule installation, arrange training, or book maintenance services to keep your lab running at peak performance.
@@ -1529,7 +1852,7 @@
                 
                 <div class="services-grid">
                     <!-- KeepPACE Service Plans -->
-                    <a href="/keeppace" class="service-card service-card-featured">
+                    <a href="/keeppace" class="service-card service-card-featured" data-animate="up" data-animate-delay="100">
                         <div class="service-badge">Popular</div>
                         <div class="service-card-content">
                             <div class="service-card-header">
@@ -1551,7 +1874,7 @@
                     </a>
 
                     <!-- Build Your Lab -->
-                    <a href="/builder" class="service-card">
+                    <a href="/builder" class="service-card" data-animate="up" data-animate-delay="200">
                         <div class="service-card-content">
                             <div class="service-card-header">
                                 <div class="service-icon">
@@ -1574,7 +1897,7 @@
                     </a>
 
                     <!-- Lab Consultation -->
-                    <a href="/contact" class="service-card">
+                    <a href="/contact" class="service-card" data-animate="up" data-animate-delay="300">
                         <div class="service-card-content">
                             <div class="service-card-header">
                                 <div class="service-icon">
@@ -1598,7 +1921,7 @@
                     </a>
 
                     <!-- Professional Services -->
-                    <a href="/services" class="service-card">
+                    <a href="/services" class="service-card" data-animate="up" data-animate-delay="400">
                         <div class="service-card-content">
                             <div class="service-card-header">
                                 <div class="service-icon">
@@ -1621,7 +1944,7 @@
                     </a>
 
                     <!-- View All Services -->
-                    <a href="/services" class="service-card service-card-cta">
+                    <a href="/services" class="service-card service-card-cta" data-animate="up" data-animate-delay="500">
                         <div class="service-card-content service-card-content-centered">
                             <div class="service-icon-large">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1648,14 +1971,14 @@
         <!-- Preparation Guides and Resources Section -->
         <section class="resources-section">
             <div class="container-custom">
-                <div class="resources-header">
+                <div class="resources-header" data-animate="up">
                     <h2 class="section-title-large">Preparation Guides and Resources</h2>
                     <p class="section-subtitle">
                         Comprehensive guides, tools, and resources to support your metallographic sample preparation workflow.
                     </p>
                 </div>
                 <div class="resources-grid">
-                    <div class="resource-card">
+                    <div class="resource-card" data-animate="up" data-animate-delay="100">
                         <div class="resource-image-wrapper">
                             <img src="images/webpage-snaps/intro-guide.png" alt="Metallographic sample preparation guide showing step-by-step procedures" class="resource-image">
                         </div>
@@ -1664,7 +1987,7 @@
                             Detailed step-by-step procedures for sectioning, mounting, grinding, polishing, and etching. 
                             Material-specific protocols for steels, aluminum, titanium, ceramics, and composites.
                         </p>
-                        <a href="/guides" class="resource-link">
+                        <a href="/guides.html" class="resource-link">
                             Explore Guides
                             <svg class="chevron-icon-small" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M9 18l6-6-6-6"/>
@@ -1672,7 +1995,7 @@
                         </a>
                     </div>
 
-                    <div class="resource-card">
+                    <div class="resource-card" data-animate="up" data-animate-delay="200">
                         <div class="resource-image-wrapper">
                             <img src="images/webpage-snaps/grit-size-tool.png" alt="Metallographic grit size converter tool" class="resource-image">
                         </div>
@@ -1688,7 +2011,7 @@
                         </a>
                     </div>
 
-                    <div class="resource-card">
+                    <div class="resource-card" data-animate="up" data-animate-delay="300">
                         <div class="resource-image-wrapper">
                             <img src="images/webpage-snaps/sample-prep-checklist.png" alt="Metallographic sample preparation checklist" class="resource-image">
                         </div>
@@ -1790,7 +2113,7 @@
                     </a>
                 </div>
                 <div class="popular-guides-footer">
-                    <a href="/guides" class="view-all-link">
+                    <a href="/guides.html" class="view-all-link">
                         View All Guides
                         <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M9 18l6-6-6-6"/>
@@ -1824,50 +2147,74 @@
         </nav>
 
         <!-- FAQ Section -->
-        <section class="faq-section">
+        <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
             <div class="container-custom">
                 <div class="faq-wrapper">
                     <div class="faq-header">
-                        <h2 class="section-title-large">Frequently Asked Questions</h2>
+                        <h2 class="section-title-large">Frequently Asked Questions About Metallographic Equipment and Sample Preparation</h2>
                         <p class="section-subtitle">
-                            Common questions about metallography and sample preparation
+                            Common questions about metallography equipment, consumables, and sample preparation techniques
                         </p>
                     </div>
                     <div class="faq-accordion">
-                        <details class="faq-item">
-                            <summary class="faq-question">What is metallographic sample preparation?</summary>
-                            <div class="faq-answer">
-                                <p>Metallographic sample preparation is the process of preparing material samples for microstructural analysis. It involves sectioning (cutting), mounting (embedding in resin), grinding (removing material with abrasives), polishing (achieving a smooth surface), and etching (revealing microstructural features) to enable examination under a microscope.</p>
+                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <summary class="faq-question" itemprop="name">What is metallographic sample preparation?</summary>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Metallographic sample preparation is the process of preparing material samples for microstructural analysis. It involves sectioning (cutting), mounting (embedding in resin), grinding (removing material with abrasives), polishing (achieving a smooth surface), and etching (revealing microstructural features) to enable examination under a metallurgical microscope. This process is essential for quality control, failure analysis, and materials research in industries including aerospace, automotive, biomedical, and materials testing.</p>
                             </div>
                         </details>
-                        <details class="faq-item">
-                            <summary class="faq-question">How do I choose the right equipment for my lab?</summary>
-                            <div class="faq-answer">
-                                <p>Selecting the right equipment depends on several factors: your sample volume and throughput requirements, material types you'll be preparing, available budget, and space constraints. Our "Build Your Lab" tool can help guide you through the selection process based on your specific needs. For personalized recommendations, contact our technical support team.</p>
+                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <summary class="faq-question" itemprop="name">What metallographic equipment do I need for a complete lab?</summary>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">A complete metallography lab requires sectioning equipment (precision cutters or abrasive saws), mounting equipment (compression or castable mounting presses), grinding and polishing equipment (grinder-polishers or separate grinders and polishers), etching supplies, and analysis equipment (metallurgical microscopes and optionally hardness testers). The specific equipment depends on your sample volume, material types, and analysis requirements. Our "Build Your Lab" tool can help guide you through the selection process based on your specific needs.</p>
                             </div>
                         </details>
-                        <details class="faq-item">
-                            <summary class="faq-question">What's the difference between manual and automated polishing systems?</summary>
-                            <div class="faq-answer">
-                                <p>Manual polishing systems require operator control of pressure, speed, and time for each step. They offer flexibility and are cost-effective for low to medium volume labs. Automated systems provide programmable cycles with consistent parameters, reducing operator time and ensuring repeatable results—ideal for high-volume production environments and standardized procedures.</p>
+                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <summary class="faq-question" itemprop="name">How do I choose the right metallographic equipment for my lab?</summary>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Selecting the right metallographic equipment depends on several factors: your sample volume and throughput requirements, material types you'll be preparing (steels, aluminum, titanium, ceramics, composites), available budget, and space constraints. Consider whether you need manual or automated systems, the level of precision required, and your long-term growth plans. Our "Build Your Lab" tool can help guide you through the selection process based on your specific needs. For personalized recommendations, contact our technical support team at +1-520-882-6598.</p>
                             </div>
                         </details>
-                        <details class="faq-item">
-                            <summary class="faq-question">Do I need different consumables for different materials?</summary>
-                            <div class="faq-answer">
-                                <p>Yes, material-specific consumables are important for optimal results. Hard materials like tool steels may require diamond abrasives, while softer materials like aluminum work well with silicon carbide. Our material-specific preparation guides provide detailed recommendations for consumable selection based on your material type.</p>
+                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <summary class="faq-question" itemprop="name">What's the difference between manual and automated polishing systems?</summary>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Manual polishing systems require operator control of pressure, speed, and time for each step. They offer flexibility and are cost-effective for low to medium volume labs. Automated systems provide programmable cycles with consistent parameters, reducing operator time and ensuring repeatable results, ideal for high-volume production environments and standardized procedures. Automated systems also reduce operator fatigue and can improve consistency across multiple samples.</p>
                             </div>
                         </details>
-                        <details class="faq-item">
-                            <summary class="faq-question">How often should I replace polishing cloths and abrasives?</summary>
-                            <div class="faq-answer">
-                                <p>Polishing cloths should be replaced when they show visible wear, contamination, or when polishing quality degrades. Diamond compounds typically last for multiple samples, but should be refreshed when cutting efficiency decreases. Silicon carbide papers are single-use and should be replaced after each sample or when the abrasive is worn.</p>
+                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <summary class="faq-question" itemprop="name">What consumables are needed for metallographic sample preparation?</summary>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Essential metallographic consumables include cutting blades and fluids for sectioning, mounting resins and molds for mounting, grinding papers and SiC powders for grinding, diamond compounds and polishing pads for polishing, polishing cloths, etchants and cleaning solutions, and mounting accessories. The specific consumables depend on your material types and preparation requirements. Our material-specific preparation guides provide detailed recommendations.</p>
                             </div>
                         </details>
-                        <details class="faq-item">
-                            <summary class="faq-question">Can I use your preparation guides with other equipment brands?</summary>
-                            <div class="faq-answer">
-                                <p>Yes, our preparation guides focus on techniques and procedures that are applicable regardless of equipment brand. The principles of metallographic sample preparation—grit progression, pressure application, polishing times, and etching procedures—are universal. However, specific equipment settings may need adjustment based on your system's capabilities.</p>
+                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <summary class="faq-question" itemprop="name">Do I need different consumables for different materials?</summary>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Yes, material-specific consumables are important for optimal results. Hard materials like tool steels and ceramics may require diamond abrasives and specific polishing compounds, while softer materials like aluminum work well with silicon carbide papers and gentler polishing procedures. Our material-specific preparation guides provide detailed recommendations for consumable selection based on your material type, including grit progressions, polishing times, and etchant selection.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <summary class="faq-question" itemprop="name">How often should I replace polishing cloths and abrasives?</summary>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Polishing cloths should be replaced when they show visible wear, contamination, or when polishing quality degrades. Diamond compounds typically last for multiple samples, but should be refreshed when cutting efficiency decreases. Silicon carbide grinding papers are single-use and should be replaced after each sample or when the abrasive is worn. Regular replacement ensures consistent preparation quality and prevents contamination between samples.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <summary class="faq-question" itemprop="name">What is the best hardness tester for metallography?</summary>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">The best hardness tester depends on your application. Rockwell testers are ideal for general hardness testing on larger samples. Microhardness testers (Vickers or Knoop) are essential for testing small features, heat-affected zones, and individual phases in microstructures. For metallographic applications requiring precise measurements on specific microstructural features, a microhardness tester is typically recommended. Our hardness testing equipment page provides detailed specifications and application guidance.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <summary class="faq-question" itemprop="name">Can I use your preparation guides with other equipment brands?</summary>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">Yes, our preparation guides focus on techniques and procedures that are applicable regardless of equipment brand. The principles of metallographic sample preparation, including grit progression, pressure application, polishing times, and etching procedures, are universal. However, specific equipment settings may need adjustment based on your system's capabilities. Our guides provide general principles that can be adapted to any quality metallographic equipment.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                            <summary class="faq-question" itemprop="name">Where can I buy metallographic equipment and consumables?</summary>
+                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                <p itemprop="text">PACE Technologies offers complete metallographic equipment and consumables through our website, online shop, and international distribution network. You can browse our equipment catalog, request quotes for custom lab configurations, or purchase consumables directly from our online shop at shop.metallographic.com. We serve customers worldwide and offer technical support, installation services, and training programs. Contact us at +1-520-882-6598 or visit our contact page for assistance.</p>
                             </div>
                         </details>
                     </div>
@@ -1895,9 +2242,9 @@
                             Explore our product catalog and preparation guides to build your complete sample preparation workflow
                         </p>
                         <div class="cta-buttons">
-                            <a href="/equipment" class="btn-primary">Browse Products</a>
-                            <a href="/guides" class="btn-secondary">View Guides</a>
-                            <a href="/quote" class="btn-tertiary">Request Quote</a>
+                            <a href="/equipment.html" class="btn-primary">Browse Products</a>
+                            <a href="/guides.html" class="btn-secondary">View Guides</a>
+                            <a href="/quote.html" class="btn-tertiary">Request Quote</a>
                         </div>
                     </div>
                 </div>
@@ -2044,6 +2391,7 @@
     </div>
 
     <script src="/js/scripts.js" defer></script>
+    <script src="/js/animations.js" defer></script>
     
     <script>
         // Set current year
