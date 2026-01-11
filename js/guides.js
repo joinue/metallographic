@@ -131,7 +131,7 @@ const guides = [
     description: 'Complete in-depth guide to preparing stainless steel samples for metallographic analysis, including sectioning, mounting, grinding, polishing, and etching techniques.',
     category: 'Material-Specific',
     readTime: '15 min read',
-    microstructureImage: '/images/microstructures/431 Stainless steel, Kallings no. 2, 400X.JPG',
+    microstructureImage: '/images/microstructures/431ss.png',
     difficulty: 'Intermediate',
   },
   {
@@ -149,7 +149,7 @@ const guides = [
     description: 'In-depth preparation methods for copper and its alloys, including brass and bronze. Learn techniques to avoid smearing and reveal true microstructures.',
     category: 'Material-Specific',
     readTime: '11 min read',
-    microstructureImage: '/images/microstructures/Tough pitch copper, ASTM-30 200X.JPG',
+    microstructureImage: '/images/microstructures/Tough-Pitch-copper-2.jpg',
     difficulty: 'Intermediate',
   },
   {
@@ -158,7 +158,7 @@ const guides = [
     description: 'In-depth specialized techniques for preparing titanium samples, including handling reactive surfaces and proper etching methods for alpha and beta phases.',
     category: 'Material-Specific',
     readTime: '13 min read',
-    microstructureImage: '/images/microstructures/Titanium+ZrB2, 400X (DIC).JPG',
+    microstructureImage: '/images/microstructures/Ti6Al4V.jpg',
     difficulty: 'Advanced',
   },
   {
@@ -167,7 +167,7 @@ const guides = [
     description: 'In-depth procedures for preparing carbon steel and low alloy steel samples (1018, 1045, 4140, 4340, 5160, 52100). Covers proper etching for pearlite, ferrite, and martensite structures.',
     category: 'Material-Specific',
     readTime: '12 min read',
-    microstructureImage: '/images/microstructures/Ferrite-Pearlite%20steel.JPG',
+    microstructureImage: '/images/microstructures/1018FC.jpg',
     difficulty: 'Intermediate',
   },
   {
@@ -176,7 +176,7 @@ const guides = [
     description: 'Complete guide to preparing cast iron samples with emphasis on preserving graphite structure. Covers gray, ductile, malleable, and austempered ductile iron preparation techniques.',
     category: 'Material-Specific',
     readTime: '14 min read',
-    microstructureImage: '/images/microstructures/Nodular cast iron, 200X.JPG',
+    microstructureImage: '/images/microstructures/CI-nodular-200X-AP-2.jpg',
     difficulty: 'Intermediate',
   },
   {
@@ -185,7 +185,7 @@ const guides = [
     description: 'Comprehensive guide for preparing very hard tool steels and hardened steels. Learn techniques for preserving carbides, extended preparation sequences, and revealing complex microstructures in high-hardness materials.',
     category: 'Material-Specific',
     readTime: '16 min read',
-    microstructureImage: '/images/microstructures/1095 Steel water quenched, martensite, Vilellas, 1000X.JPG',
+    microstructureImage: '/images/microstructures/1095wq.jpg',
     difficulty: 'Advanced',
   },
   {
@@ -203,7 +203,7 @@ const guides = [
     description: 'Specialized techniques for preparing magnesium and magnesium alloys. Learn how to handle reactive materials and avoid oxidation artifacts.',
     category: 'Material-Specific',
     readTime: '13 min read',
-    microstructureImage: '/images/microstructures/Aluminum-silicon,%20Kellers,%20400X.JPG',
+    microstructureImage: '/images/microstructures/B4Cmgl2.jpg',
     difficulty: 'Advanced',
   },
   {
@@ -212,7 +212,7 @@ const guides = [
     description: 'Complete guide to preparing ceramic samples for metallographic analysis. Covers sectioning hard materials, avoiding chipping, and revealing grain boundaries.',
     category: 'Material-Specific',
     readTime: '16 min read',
-    microstructureImage: '/images/microstructures/96%25%20alumina,%20400X.JPG',
+    microstructureImage: '/images/microstructures/Al2O3.jpg',
     difficulty: 'Advanced',
   },
   {
@@ -466,7 +466,7 @@ document.addEventListener('DOMContentLoaded', function() {
       : '';
 
     // Determine link - basics guides and process guides are local, troubleshooting goes to resources, others to metallography.org
-    const localGuides = ['introduction-to-metallography', 'purpose-and-applications', 'history-of-metallography', 'equipment-overview', 'safety-fundamentals', 'common-misconceptions', 'sectioning', 'mounting', 'grinding-techniques', 'polishing-methods', 'etching-procedures', 'microstructural-analysis', 'aluminum-sample-preparation'];
+    const localGuides = ['introduction-to-metallography', 'purpose-and-applications', 'history-of-metallography', 'equipment-overview', 'safety-fundamentals', 'common-misconceptions', 'sectioning', 'mounting', 'grinding-techniques', 'polishing-methods', 'etching-procedures', 'microstructural-analysis', 'aluminum-sample-preparation', 'carbon-steel-preparation', 'cast-iron-preparation', 'ceramics-preparation', 'composites-preparation'];
     let link;
     if (guide.slug === 'troubleshooting-common-issues') {
       link = '/support.html';

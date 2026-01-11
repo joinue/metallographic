@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
 import Link from 'next/link'
-import { ChevronRight, Award, Users, BookOpen, Heart } from 'lucide-react'
+import { ChevronRight, Award, Users, Heart } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About PACE Technologies - Metallographic Equipment & Sample Preparation',
@@ -211,6 +211,180 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Company Overview with Stats */}
+        <AnimateOnScroll animation="fadeInUp" delay={150} duration={500} className="mb-16">
+          <div className="card bg-gray-50 border-gray-200">
+            <h2 className="text-3xl font-bold mb-6 text-gray-900">Company Overview</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                <p className="mb-4">
+                  Based in Tucson, Arizona, PACE Technologies remains a family-owned and operated company serving 
+                  laboratories in over 50 countries. Our headquarters houses engineering, design, quality control, 
+                  and business operations, all focused on delivering precision solutions for metallographic sample preparation.
+                </p>
+                <p>
+                  Our dedication to quality and service earned us the Presidential "E" Award in 2015 for contributing 
+                  to the growth of U.S. exports. This recognition reflects our commitment to supporting laboratories 
+                  and researchers worldwide with reliable, high-quality equipment and consumables.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="card text-center bg-white">
+                  <div className="text-4xl font-bold text-primary-600 mb-2">25+</div>
+                  <div className="text-sm text-gray-600">Years of Excellence</div>
+                </div>
+                <div className="card text-center bg-white">
+                  <div className="text-4xl font-bold text-primary-600 mb-2">50+</div>
+                  <div className="text-sm text-gray-600">Countries Served</div>
+                </div>
+                <div className="card text-center bg-white">
+                  <div className="text-4xl font-bold text-primary-600 mb-2">2015</div>
+                  <div className="text-sm text-gray-600">Presidential E Award</div>
+                </div>
+                <div className="card text-center bg-white">
+                  <div className="text-2xl font-bold text-primary-600 mb-2">Family-Owned</div>
+                  <div className="text-sm text-gray-600">Since 1997</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
+        {/* Best-in-Class Section */}
+        <AnimateOnScroll animation="fadeInUp" delay={200} duration={500} className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900">Best-in-Class</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              What sets PACE Technologies apart in the metallography industry
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="card">
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">Products that Improve Lab Outcomes</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>Intuitive user interfaces designed for efficiency</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>High-quality consumables that reduce rework</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>Consistent value across all PACE products</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>Complete solutions from sectioning to analysis</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="card">
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">Access to Experts</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>Applications support from experienced metallographers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>Process optimization evaluations to save time and money</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>Material-specific preparation guides and procedures</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>One-on-one consultation for your unique challenges</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="card">
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">Peace of Mind</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>Industry leader with over 25 years of experience</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>Quick response time from knowledgeable staff</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>Comprehensive training and support programs</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ChevronRight className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span>Reliable equipment backed by expert service</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
+        {/* Customer Showcase */}
+        <AnimateOnScroll animation="fadeInUp" delay={250} duration={500} className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900">Trusted by Industry Leaders</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              PACE Technologies equipment and consumables are used by leading companies worldwide for quality control, 
+              failure analysis, and materials research.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            {['apple_no_bg', 'tesla_no_bg', 'medtronic_no_bg', 'seagate_no_bg', 'blue_origin_no_bg'].map((logo, index) => (
+              <div key={logo} className="card flex items-center justify-center p-6 bg-white">
+                <Image
+                  src={`/images/customers/${logo}.webp`}
+                  alt={logo.replace('_no_bg', '').replace('_', ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                  width={120}
+                  height={60}
+                  className="object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
+
+        {/* Customer Care Section */}
+        <AnimateOnScroll animation="fadeInUp" delay={300} duration={500} className="mb-16">
+          <div className="card bg-gradient-to-br from-primary-50 to-primary-100 border-primary-200">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900">PACE Customer Care</h2>
+            <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed mb-6">
+              <p className="mb-4">
+                We are not only experts in our field but also a strong business partner committed to excellent customer 
+                support. It is easy to do business with PACE because our people and our processes are set up for your success.
+              </p>
+              <p>
+                We have hassle-free ordering and investment in inventory to keep our customer's operations running smoothly, 
+                but most importantly we have a customer-focused culture filled with people who believe in service as a priority.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link 
+                href="/support" 
+                className="btn-primary inline-flex items-center justify-center gap-2"
+              >
+                Contact Customer Care
+                <ChevronRight className="w-4 h-4" />
+              </Link>
+              <Link 
+                href="/contact" 
+                className="btn-secondary inline-flex items-center justify-center gap-2"
+              >
+                Contact PACE
+                <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
         {/* Founders Section */}
         <AnimateOnScroll animation="fadeInUp" delay={150} duration={500} className="mb-16">
           <div className="card bg-gray-50 border-gray-200">
@@ -247,26 +421,46 @@ export default function AboutPage() {
           </div>
         </AnimateOnScroll>
 
-        {/* Location Section */}
-        <AnimateOnScroll animation="fadeInUp" delay={200} duration={500} className="mb-16">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-gray-900">Based in Tucson, Arizona</h2>
-            <p className="text-lg text-gray-700 leading-relaxed max-w-3xl">
-              PACE Technologies is proudly based in Tucson, Arizona. From our facility in the heart of the 
-              Sonoran Desert, we serve laboratories and researchers around the world. As a family-owned 
-              and operated company, we're deeply rooted in the Tucson community and committed to 
-              supporting the local economy while serving the international metallography community.
-            </p>
-            <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/images/pace/building banner.jpg"
-                alt="PACE Technologies facility in Tucson, Arizona"
-                fill
-                className="object-contain object-center"
-                loading="lazy"
-                quality={80}
-                sizes="100vw"
-              />
+        {/* Location & Facility Section */}
+        <AnimateOnScroll animation="fadeInUp" delay={350} duration={500} className="mb-16">
+          <div className="card bg-gray-50 border-gray-200">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h2 className="text-3xl font-bold mb-4 text-gray-900">Our Facility</h2>
+                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                  <p className="mb-4">
+                    Located in the heart of Tucson, Arizona, our headquarters houses our engineering, design, 
+                    quality control, and business operations. Our facility is focused on product development, 
+                    testing, and customer support.
+                  </p>
+                  <p className="mb-4">
+                    We welcome customers to visit our facility to see our equipment in action, meet our team, 
+                    and discuss your specific metallographic needs.
+                  </p>
+                  <p className="mb-6">
+                    <strong>Schedule a visit:</strong> Contact us to arrange a tour of our facility, see our 
+                    equipment demonstrations, or discuss custom solutions for your laboratory.
+                  </p>
+                  <Link 
+                    href="/contact" 
+                    className="btn-primary inline-flex items-center justify-center gap-2"
+                  >
+                    Schedule a Visit
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+              <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="/images/pace_hq_landscape.webp"
+                  alt="PACE Technologies Headquarters in Tucson, Arizona"
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                  quality={80}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
             </div>
           </div>
         </AnimateOnScroll>
@@ -318,8 +512,68 @@ export default function AboutPage() {
           </div>
         </AnimateOnScroll>
 
+        {/* Contact Section */}
+        <AnimateOnScroll animation="fadeInUp" delay={400} duration={500} className="mb-16">
+          <div className="card">
+            <h2 className="text-3xl font-bold mb-6 text-gray-900">Contact PACE Technologies</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">Get in Touch</h3>
+                <address className="not-italic text-gray-700 leading-relaxed mb-4">
+                  <strong className="text-gray-900">PACE Technologies</strong><br />
+                  3601 E. 34th Street<br />
+                  Tucson, AZ 85713<br />
+                  United States
+                </address>
+                <div className="text-gray-700 leading-relaxed">
+                  <p className="mb-2">
+                    <strong className="text-gray-900">Phone:</strong>{' '}
+                    <a href="tel:+15208826598" className="text-primary-600 hover:text-primary-700">
+                      +1-520-882-6598
+                    </a>
+                  </p>
+                  <p>
+                    <strong className="text-gray-900">Email:</strong>{' '}
+                    <a href="mailto:pace@metallographic.com" className="text-primary-600 hover:text-primary-700">
+                      pace@metallographic.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">Quick Actions</h3>
+                <div className="flex flex-col gap-3">
+                  <Link 
+                    href="/quote" 
+                    className="btn-primary inline-flex items-center justify-center gap-2"
+                  >
+                    Request a Quote
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                  <Link 
+                    href="/contact" 
+                    className="btn-secondary inline-flex items-center justify-center gap-2"
+                  >
+                    Contact Form
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                  <Link 
+                    href="https://metallographic.com" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-tertiary inline-flex items-center justify-center gap-2"
+                  >
+                    Visit Our Main Site
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
         {/* Call to Action Section */}
-        <AnimateOnScroll animation="fadeInUp" delay={300} duration={500}>
+        <AnimateOnScroll animation="fadeInUp" delay={450} duration={500}>
           <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-lg p-8 md:p-12 text-center border border-primary-200">
             <h2 className="text-3xl font-bold mb-4 text-gray-900">Ready to Work With Us?</h2>
             <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
@@ -328,12 +582,10 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                href="https://metallographic.com" 
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/equipment" 
                 className="btn-primary inline-flex items-center justify-center gap-2"
               >
-                Visit Our Main Site
+                Browse Equipment
                 <ChevronRight className="w-4 h-4" />
               </Link>
               <Link 
