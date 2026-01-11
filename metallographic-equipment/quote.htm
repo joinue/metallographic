@@ -120,205 +120,261 @@
                 <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
             </a>
         </div>
-        <input type="checkbox" id="menu-btn" class="menu-toggle">
-        <label for="menu-btn" class="menu-icon" aria-label="Menu Toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
 
         <!-- Mobile Navigation -->
-        <ul class="nav-links-mobile">
-            <li>
-                <a href="/equipment.html">
-                    <span>Equipment
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+        <div class="mobile-nav-container" id="mobile-nav-container">
+            <div class="mobile-nav-header-bar">
+                <h2 class="mobile-nav-title">Menu</h2>
+                <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="mobile-nav-content">
+            <ul class="nav-links-mobile">
+            <li class="mobile-nav-section">
+                <div class="mobile-nav-header">
+                    <a href="/equipment.html" class="mobile-nav-link">Equipment</a>
+                    <button class="mobile-nav-toggle" data-section="equipment" aria-label="Toggle Equipment submenu">
+                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu-mobile">
-                    <li>
-                        <a href="/metallographic-equipment/abrasive-sectioning.html">
-                            <span>Abrasive Sectioning
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/metallographic-equipment/precision-wafering.html">
-                            <span>Precision Wafering
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/metallographic-equipment/compression-mounting.html">
-                            <span>Compression Mounting
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/metallographic-equipment/castable-mounting.html">
-                            <span>Castable Mounting
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/metallographic-equipment/grinding-polishing.html">
-                            <span>Grinding & Polishing
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/metallographic-equipment/microscopy.html">
-                            <span>Microscopy
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/metallographic-equipment/hardness-testing.html">
-                            <span>Hardness Testing
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/metallographic-equipment/lab-furniture.html">
-                            <span>Lab Furniture</span>
-                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                <path d="M9 18l6-6-6-6" />
+                    </button>
+                </div>
+                <ul class="sub-menu-mobile" data-section="equipment">
+                    <li class="has-submenu">
+                        <a href="/metallographic-equipment/abrasive-sectioning.html">Abrasive Sectioning</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Abrasive Sectioning submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
                             </svg>
-                        </a>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/abrasive-sectioning.html#manual">Manual Abrasive Cutters</a></li>
+                            <li><a href="/metallographic-equipment/abrasive-sectioning.html#automated">Automated Abrasive Cutters</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="/metallographic-equipment/precision-wafering.html">Precision Wafering</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Precision Wafering submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/precision-wafering.html#gravity">Gravity Feed Saws</a></li>
+                            <li><a href="/metallographic-equipment/precision-wafering.html#table">Table Feed Saws</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="/metallographic-equipment/compression-mounting.html">Compression Mounting</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Compression Mounting submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/compression-mounting/tp-7500s.html">Hydraulic Mounting Press</a></li>
+                            <li><a href="/metallographic-equipment/compression-mounting/tp-7100s.html">Pneumatic Mounting Press</a></li>
+                            <li><a href="/metallographic-equipment/compression-mounting/tp-tank.html">Recirculating Cooling Tank</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="/metallographic-equipment/castable-mounting.html">Castable Mounting</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Castable Mounting submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/castable-mounting/lssa-011.html">Vacuum Mounting System</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/thetamount.html">Pressure Mounting System</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/uvmount.html">UV Curing System</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="/metallographic-equipment/grinding-polishing.html">Grinding & Polishing</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Grinding & Polishing submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="/metallographic-equipment/microscopy.html">Microscopy</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Microscopy submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/microscopy/metallurgical.html">Metallurgical Microscopes</a></li>
+                            <li><a href="/metallographic-equipment/microscopy/stereo-and-digital.html">Stereo Microscope</a></li>
+                            <li><a href="/metallographic-equipment/microscopy/image-analysis.html">Image Analysis</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="/metallographic-equipment/hardness-testing.html">Hardness Testing</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Hardness Testing submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/hardness-testing/microhardness.html">Microhardness Testers</a></li>
+                            <li><a href="/metallographic-equipment/hardness-testing/rockwell.html">Rockwell Testers</a></li>
+                            <li><a href="/metallographic-equipment/hardness-testing/brinell-vickers.html">Brinell / MacroVickers</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/metallographic-equipment/lab-furniture.html">Lab Furniture</a>
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="/consumables.html">
-                    <span>Consumables
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <li class="mobile-nav-section">
+                <div class="mobile-nav-header">
+                    <a href="/consumables.html" class="mobile-nav-link">Consumables</a>
+                    <button class="mobile-nav-toggle" data-section="consumables" aria-label="Toggle Consumables submenu">
+                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu-mobile">
+                    </button>
+                </div>
+                <ul class="sub-menu-mobile" data-section="consumables">
                     <li><a href="https://shop.metallographic.com/"><span>E-Commerce Shop</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li>
-                        <a href="/metallographic-consumables/sectioning.html">
-                            <span>Sectioning
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
+                    <li class="has-submenu">
+                        <a href="/metallographic-consumables/sectioning.html">Sectioning</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sectioning submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-consumables/sectioning/abrasive-cutting.html">Abrasive Cutting</a></li>
+                            <li><a href="/metallographic-consumables/sectioning/precision-wafering.html">Precision Wafering</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="/metallographic-consumables/mounting.html">
-                            <span>Mounting
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
+                    <li class="has-submenu">
+                        <a href="/metallographic-consumables/mounting.html">Mounting</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Mounting submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-consumables/mounting/compression.html">Compression Mounting</a></li>
+                            <li><a href="/metallographic-consumables/mounting/castable.html">Castable Mounting</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="/metallographic-consumables/grinding.html">
-                            <span>Grinding / Lapping
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
+                    <li class="has-submenu">
+                        <a href="/metallographic-consumables/grinding.html">Grinding / Lapping</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Grinding / Lapping submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-consumables/grinding/abrasive-grinding.html">Abrasive Grinding</a></li>
+                            <li><a href="/metallographic-consumables/grinding/diamond-grinding.html">Diamond Grinding</a></li>
+                            <li><a href="/metallographic-consumables/grinding/composite-disks.html">Composite Disks</a></li>
+                            <li><a href="/metallographic-consumables/grinding/lapping-films.html">Lapping Films</a></li>
+                            <li><a href="/metallographic-consumables/grinding/belts-rolls-powders.html">Belts, Rolls & Powders</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="/metallographic-consumables/polishing.html">
-                            <span>Rough Polishing
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
+                    <li class="has-submenu">
+                        <a href="/metallographic-consumables/polishing.html">Polishing</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Polishing submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-consumables/polishing/polishing-pads.html">Polishing Pads</a></li>
+                            <li><a href="/metallographic-consumables/polishing/magnetic-system.html">Magnetic System</a></li>
+                            <li><a href="/metallographic-consumables/polishing/polycrystalline-diamond.html">Polycrystalline Diamond</a></li>
+                            <li><a href="/metallographic-consumables/polishing/monocrystalline-diamond.html">Monocrystalline Diamond</a></li>
+                            <li><a href="/metallographic-consumables/final-polishing.html">Final Polishing</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="/metallographic-consumables/final-polishing.html">
-                            <span>Final Polishing
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/metallographic-consumables/cleaning.html">
-                            <span>Cleaning
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/metallographic-consumables/etching.html">
-                            <span>Etching
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/metallographic-consumables/hardness-testing.html">
-                            <span>Hardness Testing
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
+                    <li class="has-submenu">
+                        <a href="#">Surface Prep & Analysis</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Surface Prep & Analysis submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-consumables/cleaning.html">Cleaning</a></li>
+                            <li><a href="/metallographic-consumables/etching.html">Etching</a></li>
+                            <li><a href="/metallographic-consumables/hardness-testing.html">Hardness Testing</a></li>
+                        </ul>
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="/support.html">
-                    <span>Support
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <li class="mobile-nav-section">
+                <div class="mobile-nav-header">
+                    <a href="/support.html" class="mobile-nav-link">Support</a>
+                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu-mobile">
+                    </button>
+                </div>
+                <ul class="sub-menu-mobile" data-section="support">
                     <li><a href="/support/products.html"><span>Product Information</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li><a href="/support/brochures.html"><span>Brochures and Manuals</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/support/procedures.html"><span>Preparation Procedures</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li class="has-submenu">
+                        <a href="/support/brochures.html">Product Literature</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Literature submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="/support/procedures.html">Sample Prep Resources</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep Resources submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
+                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
+                            <li><a href="https://www.youtube.com/@pacetechnologies">PACE YouTube Channel</a></li>
+                        </ul>
+                    </li>
                     <li><a href="/support/etchant-information.html"><span>Etchant Information</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
@@ -327,6 +383,45 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
+                    <li class="mobile-nav-subsection">
+                        <div class="mobile-nav-header">
+                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
+                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
+                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 9l6 6 6-6" />
+                                </svg>
+                            </button>
+                        </div>
+                        <ul class="sub-menu-mobile nested" data-section="databases">
+                            <li>
+                                <a href="/materials.html">
+                                    <span>Materials Database
+                                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M9 18l6-6-6-6" />
+                                        </svg>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/etchants.html">
+                                    <span>Etchants Database
+                                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M9 18l6-6-6-6" />
+                                        </svg>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/standards.html">
+                                    <span>Standards Database
+                                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                            <path d="M9 18l6-6-6-6" />
+                                        </svg>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li><a href="/support.html"><span>Technical Services & Support</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
@@ -337,15 +432,16 @@
                         </svg></a></li>
                 </ul>
             </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <li class="mobile-nav-section">
+                <div class="mobile-nav-header">
+                    <a href="/company.html" class="mobile-nav-link">Company</a>
+                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
+                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu-mobile">
+                    </button>
+                </div>
+                <ul class="sub-menu-mobile" data-section="company">
                     <li><a href="/about.html"><span>About PACE</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
@@ -364,36 +460,18 @@
                         </svg></a></li>
                 </ul>
             </li>
-            <li><a href="/quote.html" class="quote-btn-mobile">Quote Request</a></li>
-        </ul>
-        
-        <!-- Mobile Navigation Icons -->
-        <div class="mobile-nav-icons">
-            <button id="quote-request-btn-mobile" class="mobile-icon" aria-label="Request a Quote">
-                <svg class="icon-svg quote-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="12" y1="1" x2="12" y2="23"></line>
-                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                </svg>
-            </button>
-            <a href="/search.html" class="mobile-icon" aria-label="Search">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </a>
-            <a href="https://shop.metallographic.com/account" class="mobile-icon tooltip" data-tooltip="Takes you to Account page on our e-commerce site" aria-label="Account">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20.8 20.8a9 9 0 1 0-17.6 0"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-            </a>
-            <a href="https://shop.metallographic.com/cart" class="mobile-icon tooltip" data-tooltip="Takes you to Cart page on our e-commerce site" aria-label="Shopping Cart">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61l1.18-7H6"></path>
-                </svg>
-            </a>
+            </ul>
+            </div>
+            <div class="mobile-nav-actions">
+                <a href="/quote.html" class="mobile-action-btn mobile-action-btn-primary">Quote Request</a>
+                <a href="/search.html" class="mobile-action-btn mobile-action-btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    Search
+                </a>
+            </div>
         </div>
 
         <!-- Desktop Navigation -->
@@ -456,9 +534,9 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
-                            <li><a href="/metallographic-equipment/castable-mounting/lssa-011.html"><span>Vacuum Mounting System</span></a></li>
-                            <li><a href="/metallographic-equipment/castable-mounting/thetamount.html"><span>Pressure Mounting System</span></a></li>
-                            <li><a href="/metallographic-equipment/castable-mounting/uvmount.html"><span>UV Curing System</span></a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teravac.html"><span>Vacuum Mounting System</span></a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teracomp.html"><span>Pressure Mounting System</span></a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/terauv.html"><span>UV Curing System</span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -620,6 +698,20 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="/databases.html">
+                            <span>Databases
+                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </span>
+                        </a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
+                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
+                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
                         <a href="/support.html">
                             <span>Technical Services
                                 <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
@@ -659,7 +751,9 @@
             </li>
             <li>
               <a href="https://shop.metallographic.com" class="shop-link">
-                <span>Online Shop&nbsp;<i class="fas fa-angle-double-right"></i></span>
+                <span>Online Shop&nbsp;<svg class="shop-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
+                </svg></span>
               </a>                
             </li>
         </ul>

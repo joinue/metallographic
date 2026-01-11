@@ -4,12 +4,20 @@
 
 /* Navigation Bar Styles */
 .navigation {
-  background-color: #f5f5f5; /* Sets the background color of the navigation bar */
+  background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+  backdrop-filter: blur(12px); /* Modern blur effect */
+  -webkit-backdrop-filter: blur(12px);
   position: fixed; /* Fixes the navigation bar at the top */
   width: 100%; /* Makes the navigation bar full width */
+  max-width: 100vw; /* Prevent viewport overflow */
   z-index: 1000; /* Ensures the navigation bar is on top */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  overflow: visible; /* Allow mobile nav to escape - but constrain nav-wrapper */
 }
 
 .navigation.condensed {
@@ -49,11 +57,26 @@
   display: flex; /* Uses flexbox for layout */
   justify-content: space-between; /* Distributes space between items */
   align-items: center; /* Aligns items vertically in the center */
-  padding: 10px 30px; /* Adds padding */
+  padding: 12px 24px; /* Adds padding */
   max-width: 1440px; /* Sets the maximum width */
+  width: 100%; /* Ensure it doesn't exceed viewport */
+  max-width: min(1440px, 100vw); /* Constrain to viewport */
   margin: 0 auto; /* Centers the wrapper */
   position: relative;
   transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box; /* Include padding in width calculation */
+  overflow: visible; /* Allow mobile nav to escape */
+}
+
+/* Modern mobile header styling */
+@media (max-width: 992px) {
+  .nav-wrapper {
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 0;
+  }
 }
 
 .navigation.condensed .nav-wrapper {
@@ -435,50 +458,171 @@
   stroke: #292929;
 }
 
-/* Mobile Menu Styles */
-#menu-btn {
-  display: none; 
+/* Modern Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1001;
+  position: relative;
+  transition: all 0.3s ease;
+  color: #292929;
+  border-radius: 8px;
+}
+
+.mobile-menu-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mobile-menu-btn[aria-expanded="true"] .menu-icon-open {
+  display: none;
+}
+
+.mobile-menu-btn[aria-expanded="false"] .menu-icon-close {
+  display: none;
+}
+
+.menu-icon-open,
+.menu-icon-close {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+}
+
+/* Mobile Navigation Overlay */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw; /* Use viewport width to break out of parent constraints */
+  max-width: 100vw; /* Constrain to viewport */
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  visibility: hidden; /* Hide when closed to prevent layout issues */
+  pointer-events: none; /* Disable interactions when closed */
+  box-sizing: border-box;
+  margin: 0; /* Reset any margins */
+  /* Break out of any parent constraints */
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.mobile-nav-overlay.active {
+  display: block;
+  opacity: 1;
+  visibility: visible; /* Show when active */
+  pointer-events: auto; /* Enable interactions when active */
+}
+
+/* Modern Mobile Navigation Container - Full Screen */
+.mobile-nav-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw; /* Use viewport width to break out of parent constraints */
+  max-width: 100vw; /* Constrain to viewport */
+  height: 100vh;
+  height: 100dvh; /* Use dynamic viewport height for mobile */
+  background: white;
+  z-index: 1002; /* Above overlay and navigation */
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent container scroll */
+  visibility: hidden; /* Hide when closed to prevent layout issues */
+  pointer-events: none; /* Disable interactions when closed */
+  margin: 0; /* Reset any margins */
+  /* Break out of any parent constraints */
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.mobile-nav-container.active {
+  display: flex;
+  transform: translateX(0);
+  visibility: visible; /* Show when active */
+  pointer-events: auto; /* Enable interactions when active */
+}
+
+/* Mobile Nav Header Bar with Close Button */
+.mobile-nav-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background: white;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.mobile-nav-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.mobile-nav-close {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #6b7280;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav-close:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #111827;
+}
+
+.mobile-nav-close svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+}
+
+/* Scrollable Content Area */
+.mobile-nav-content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0; /* Allow flex shrinking */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .nav-links-mobile {
-  display: none;
-}
-
-/* Mobile Menu Styles */
-.menu-icon {
-  display: none;
-  cursor: pointer;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 35px;
-  height: 25px;
-  position: relative;
-  z-index: 1001;
-  transition: all 0.3s ease;
-  left: -20px; /* Move the menu icon 20px to the left */
-}
-
-.menu-icon span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #292929;
-  margin: 4px 0;
-  transition: all 0.3s ease;
-}
-
-/* When menu is open */
-#menu-btn:checked + .menu-icon span:nth-child(1) {
-  transform: rotate(45deg) translate(6.5px, 5px);
-}
-
-#menu-btn:checked + .menu-icon span:nth-child(2) {
-  opacity: 0; /* Hide the middle line */
-}
-
-#menu-btn:checked + .menu-icon span:nth-child(3) {
-  transform: rotate(-45deg) translate(6.5px, -5px);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Responsive Styles */
@@ -555,7 +699,7 @@
     display: flex; /* Uses flexbox for layout */
     justify-content: space-between; /* Distributes space between items */
     align-items: center; /* Aligns items vertically in the center */
-    padding: 10px 10px; /* Adds padding */
+    padding: 12px 20px; /* Adds padding */
     max-width: 1440px; /* Sets the maximum width */
     margin: 0 auto; /* Centers the wrapper */
   }
@@ -574,116 +718,317 @@
     display: none; /* Hide the desktop quote button */
   }
 
-  /* Mobile Menu Icon */
-  .menu-icon {
-    display: flex; /* Show the mobile menu icon */
-    flex-direction: column;
-    justify-content: center;
+  /* Show modern mobile menu button */
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  /* Modern Mobile Navigation Styles */
+  .mobile-menu-btn {
+    display: flex;
     align-items: center;
-    cursor: pointer;
-    z-index: 1001;
+    justify-content: center;
   }
 
-  .menu-icon span {
-    width: 25px;
-    height: 3px;
-    background: #292929;
-    margin: 4px 0;
-    transition: all 0.3s;
-  }
-
-  /* Mobile Navigation Links */
-  .nav-links-mobile {
-    display: none;
-    list-style: none;
-    flex-direction: column;
-    width: 100%;
-    background: #eaeaea;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    overflow-y: auto;
-    z-index: 1000;
-    padding-top: 180px; /* Increased from 100px to 180px to move menu lower */
-  }
-
-  .nav-links-mobile li {
+  .mobile-nav-section,
+  .mobile-nav-subsection {
     margin: 0;
-    text-align: center;
-    position: relative; /* For submenu positioning */
+    border-bottom: 1px solid #e5e7eb;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
-  .nav-links-mobile a {
-    color: #292929;
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    min-height: 48px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mobile-nav-link {
+    flex: 1;
+    color: #111827;
     font-weight: 600;
     font-size: 16px;
     text-decoration: none;
-    padding: 20px;
+    padding: 14px 20px;
     display: block;
-    text-align: center;
-    transition: color 0.3s, background 0.3s;
+    transition: color 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  .nav-links-mobile a:hover {
-    background: #b0b0b0;
+  .mobile-nav-link:hover,
+  .mobile-nav-link:focus {
+    color: #2563eb;
+  }
+
+  .mobile-nav-toggle {
+    background: none;
+    border: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    color: #6b7280;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .mobile-nav-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #111827;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] .chevron-icon {
+    transform: rotate(180deg);
+  }
+
+  .chevron-icon {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    transition: transform 0.2s ease;
+  }
+  
+  .mobile-nav-header {
+    width: 100%;
   }
 
   /* Mobile Submenu Styles */
   .sub-menu-mobile {
-    display: none; /* Hide submenus by default */
+    display: none !important;
     list-style: none;
     padding: 0;
     margin: 0;
-    background: #f5f5f5;
-    text-align: left; /* Align items to the left */
+    background: #f9fafb;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .nav-links-mobile li.open > .sub-menu-mobile {
-    display: block; /* Show submenu when parent is open */
+  .sub-menu-mobile.active {
+    display: block !important;
+    max-height: 2000px;
+    animation: slideDown 0.3s ease;
+  }
+
+  .sub-menu-mobile.nested {
+    background: #f3f4f6;
+    padding-left: 0;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .sub-menu-mobile li {
-    padding: 10px 20px;
-    text-align: left; /* Align items to the left */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Add subtle separator */
+    margin: 0;
+    border-bottom: 1px solid #e5e7eb;
   }
 
   .sub-menu-mobile li:last-child {
-    border-bottom: none; /* Remove border from last item */
+    border-bottom: none;
   }
 
   .sub-menu-mobile a {
+    color: #4b5563;
     font-size: 14px;
-    padding: 10px;
-    text-align: left; /* Align text to the left */
-    display: block; /* Make link take full width */
-    width: 100%; /* Full width for better touch target */
-  }
-
-  /* Checkbox control for mobile menu */
-  #menu-btn:checked + .menu-icon + .nav-links-mobile {
-    display: flex; /* Display mobile menu when checked */
-  }
-
-  /* Mobile Quote Button */
-  .quote-btn-mobile {
-    display: flex;
-    background: var(--button-color);
-    color: white !important;
+    font-weight: 400;
     text-decoration: none;
+    padding: 12px 20px 12px 40px;
+    display: block;
+    transition: all 0.2s ease;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .sub-menu-mobile.nested a {
+    padding-left: 60px;
+  }
+  
+  .sub-menu-mobile li {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .sub-menu-mobile a:hover,
+  .sub-menu-mobile a:focus {
+    color: #2563eb;
+    background-color: rgba(37, 99, 235, 0.05);
+  }
+
+  /* Second-level submenu support */
+  .sub-menu-mobile li.has-submenu {
+    position: relative;
+  }
+  
+  .sub-menu-mobile li.has-submenu > a {
+    padding-right: 50px; /* Make room for toggle button */
+    position: relative;
+    display: block;
+    min-height: 44px; /* Ensure consistent height */
+    line-height: 44px; /* Center text vertically */
+  }
+  
+  .sub-menu-mobile .sub-menu-toggle {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: auto;
+    height: 44px; /* Match link height */
+    width: 44px; /* Square touch target */
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    color: #6b7280;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    /* Keep toggle aligned with link, not affected by submenu expansion */
+    transform: none;
+  }
+  
+  .sub-menu-mobile .sub-menu-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #111827;
+  }
+  
+  .sub-menu-mobile .sub-menu-toggle[aria-expanded="true"] .chevron-icon {
+    transform: rotate(180deg);
+  }
+  
+  .sub-menu-mobile .sub-menu-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #111827;
+  }
+  
+  .sub-menu-mobile .sub-menu-toggle[aria-expanded="true"] .chevron-icon {
+    transform: rotate(180deg);
+  }
+  
+  .sub-menu-mobile .sub-menu-second-level {
+    display: none !important;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #f3f4f6;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .sub-menu-mobile .sub-menu-second-level.active {
+    display: block !important;
+    max-height: 2000px;
+    animation: slideDown 0.3s ease;
+  }
+  
+  .sub-menu-mobile .sub-menu-second-level li {
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .sub-menu-mobile .sub-menu-second-level a {
+    padding: 10px 20px 10px 60px;
+    color: #4b5563;
+    font-size: 13px;
+  }
+  
+  /* Remove arrow icons from mobile submenu - but keep if it's a toggle */
+  .sub-menu-mobile .right-arrow-icon {
+    display: none;
+  }
+  
+  /* Remove span wrappers in mobile submenu */
+  .sub-menu-mobile a span {
+    display: inline;
+  }
+
+  /* Modern Mobile Action Buttons - Sticky at Bottom */
+  .mobile-nav-actions {
+    padding: 20px;
+    padding-bottom: max(20px, calc(20px + env(safe-area-inset-bottom)));
+    border-top: 1px solid #e5e7eb;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+  }
+  
+  .mobile-action-btn {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mobile-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
     border-radius: 50px;
     font-weight: 600;
     font-size: 14px;
-    width: 70%;
-    margin: 10px auto;
-    align-items: center;
-    justify-content: center;
-    text-align: center; /* Ensures text is centered inside the button */
+    text-decoration: none;
+    transition: all 0.2s ease;
+    text-align: center;
+    border: 1px solid transparent;
   }
 
-  .quote-btn-mobile:hover {
-    background: #0056b3 !important;
+  .mobile-action-btn-primary {
+    background: #2563eb;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .mobile-action-btn-primary:hover {
+    background: #1d4ed8;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+  }
+
+  .mobile-action-btn-secondary {
+    background: white;
+    color: #111827;
+    border-color: #e5e7eb;
+  }
+
+  .mobile-action-btn-secondary:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+  }
+
+  .mobile-action-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
   }
 
   .sub-menu,
@@ -827,91 +1172,13 @@
 
 /* Mobile tooltip adjustments */
 @media (max-width: 992px) {
-    .mobile-nav-icons .tooltip::before {
-        content: attr(data-tooltip);
-        position: fixed;
-        bottom: 60px; /* Position just above the mobile nav */
-        left: 0;
-        right: 0;
-        width: 100%;
-        background: #333;
-        color: #fff;
-        font-size: 12px;
-        padding: 8px;
-        text-align: center;
-        border-radius: 0;
-        white-space: normal;
-        word-wrap: break-word;
-        transform: none;
-        z-index: 1003;
-    }
-
-    .mobile-nav-icons .tooltip::after {
-        display: none; /* Remove the arrow for mobile */
-    }
+    /* Mobile nav icons removed - tooltip styles no longer needed */
 }
 
-/* Mobile Navigation Icons */
-.mobile-nav-icons {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    padding: 12px 0;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1002; /* Increased z-index to stay above mobile menu */
-}
-
-/* Show mobile icons on mobile devices */
-@media (max-width: 992px) {
-    .mobile-nav-icons {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        gap: 8px; /* Add gap between icons */
-    }
-}
-
-.mobile-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    color: #333;
-    transition: color 0.2s ease;
-    flex: 1; /* Make icons take equal space */
-    max-width: 60px; /* Limit maximum width */
-    text-decoration: none;
-}
-
-.mobile-icon:hover {
-    color: #007bff;
-}
-
-.mobile-icon .icon-svg {
-    width: 24px;
-    height: 24px;
-    stroke: currentColor;
-}
-
-/* Hide mobile icons on desktop */
-@media (min-width: 992px) {
-    .mobile-nav-icons {
-        display: none;
-    }
-}
-
-/* Adjust mobile nav padding to account for fixed icons */
-@media (max-width: 992px) {
-    .nav-links-mobile {
-        padding-bottom: 70px;
-    }
-}
+/* Mobile Navigation Icons - REMOVED */
 
 /* Hide notice banner when mobile menu is open */
-#menu-btn:checked ~ .notice-banner {
+.mobile-nav-container.active ~ .notice-banner {
     display: none;
 }
 

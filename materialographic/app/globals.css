@@ -1,0 +1,361 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  body {
+    @apply text-gray-900 bg-white;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1 {
+    @apply text-4xl font-bold text-gray-900 mb-6 tracking-tight;
+  }
+  
+  h2 {
+    @apply text-3xl font-semibold text-gray-900 mb-4 mt-8 tracking-tight;
+  }
+  
+  h3 {
+    @apply text-2xl font-semibold text-gray-800 mb-3 mt-6 tracking-tight;
+  }
+  
+  h4 {
+    @apply text-xl font-semibold text-gray-800 mb-2 mt-4 tracking-tight;
+  }
+  
+  p {
+    @apply text-gray-700 mb-4 leading-relaxed;
+    letter-spacing: -0.011em;
+  }
+  
+  a {
+    @apply text-primary-600 hover:text-primary-700 no-underline;
+    /* Remove focus outline on mouse clicks, keep for keyboard navigation */
+    @apply focus:outline-none focus:ring-0;
+  }
+  
+  /* Accessibility: Focus styles for keyboard navigation only */
+  button:focus-visible,
+  a:focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  }
+  
+  /* Remove focus styles for mouse clicks */
+  button:focus:not(:focus-visible),
+  a:focus:not(:focus-visible) {
+    @apply outline-none ring-0;
+  }
+  
+  /* Remove focus outline from navigation links on click */
+  nav a:focus:not(:focus-visible),
+  header a:focus:not(:focus-visible) {
+    @apply outline-none ring-0;
+  }
+  
+  /* Screen reader only class */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+    left: -9999px;
+  }
+  
+  .sr-only:focus,
+  .sr-only:focus-visible {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+  
+  ul, ol {
+    @apply mb-4 ml-6;
+    list-style-type: disc;
+  }
+  
+  ol {
+    list-style-type: decimal;
+  }
+  
+  /* Remove bullets from footer lists */
+  footer ul,
+  footer ol {
+    list-style-type: none;
+    margin-left: 0;
+  }
+  
+  footer li {
+    display: block;
+  }
+  
+  li {
+    @apply mb-2 text-gray-700;
+    display: list-item;
+  }
+  
+  /* Ensure list markers are visible in prose content */
+  .prose ul,
+  .prose ol {
+    list-style-type: disc !important;
+    padding-left: 1.5rem !important;
+    margin-left: 0 !important;
+  }
+  
+  .prose ol {
+    list-style-type: decimal !important;
+  }
+  
+  .prose li {
+    display: list-item !important;
+    margin-left: 0 !important;
+    padding-left: 0.5rem !important;
+    list-style-position: outside !important;
+  }
+  
+  .prose ul > li::marker,
+  .prose ol > li::marker {
+    color: currentColor;
+  }
+  
+  /* Also ensure nested lists have markers */
+  .prose ul ul,
+  .prose ol ol,
+  .prose ul ol,
+  .prose ol ul {
+    list-style-type: disc !important;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .prose ol ol {
+    list-style-type: lower-alpha !important;
+  }
+  
+  .prose ol ol ol {
+    list-style-type: lower-roman !important;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 text-white px-6 sm:px-8 py-3 sm:py-2.5 rounded-full font-semibold hover:bg-primary-700 hover:text-white transition-all duration-200 inline-flex items-center justify-center text-sm shadow-md hover:shadow-lg cursor-pointer relative z-10 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-900 px-6 sm:px-8 py-3 sm:py-2.5 rounded-full font-semibold hover:bg-gray-200 hover:text-gray-900 transition-all duration-200 inline-flex items-center justify-center text-sm border border-gray-300 shadow-sm hover:shadow-md cursor-pointer relative z-10 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .btn-tertiary {
+    @apply bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-2.5 rounded-full font-semibold hover:bg-gray-50 hover:text-gray-900 transition-all duration-200 inline-flex items-center justify-center text-sm border border-gray-200 shadow-sm hover:shadow-md cursor-pointer relative z-10 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .card {
+    @apply bg-white border border-gray-200 rounded-lg p-6 transition-colors duration-200 hover:border-gray-300;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Hide header and footer on build page */
+body.build-page-active .build-page-hidden {
+  display: none;
+}
+
+body.build-page-active .build-page-main {
+  padding-top: 0 !important;
+}
+
+@layer utilities {
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+  
+  .animate-pulse {
+    animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Scroll Animation Keyframes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 30px, 0); /* GPU acceleration */
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -30px, 0); /* GPU acceleration */
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translate3d(-30px, 0, 0); /* GPU acceleration */
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translate3d(30px, 0, 0); /* GPU acceleration */
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale3d(0.9, 0.9, 1); /* GPU acceleration */
+    }
+    to {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  @keyframes expand {
+    from {
+      opacity: 0;
+      transform: scale(0.85) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes fadeInSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animation Classes */
+  .animate-on-scroll {
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* GPU acceleration for smoother animations */
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .animate-fadeIn {
+    animation-name: fadeIn;
+  }
+
+  .animate-fadeInUp {
+    animation-name: fadeInUp;
+  }
+
+  .animate-fadeInDown {
+    animation-name: fadeInDown;
+  }
+
+  .animate-fadeInLeft {
+    animation-name: fadeInLeft;
+  }
+
+  .animate-fadeInRight {
+    animation-name: fadeInRight;
+  }
+
+  .animate-scaleIn {
+    animation-name: scaleIn;
+  }
+
+  /* Custom Scrollbar Styling */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #9ca3af #f3f4f6;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 10px;
+    border: 2px solid #f3f4f6;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-corner {
+    background: #f3f4f6;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+

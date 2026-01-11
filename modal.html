@@ -1,12 +1,46 @@
-<!-- Quote Request Modal -->
-<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
-    <div class="modal-content">
-        <button class="close" aria-label="Close">&times;</button>
-        <section class="quote-request" aria-labelledby="quote-request-heading">
-            <div class="quote-form-container">
-                <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
-                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
-            </div>
-        </section>
+    <!-- Quote Request Modal -->
+    <div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+        <div class="modal-content">
+            <button class="close" aria-label="Close">&times;</button>
+            <section class="quote-request" aria-labelledby="quote-request-heading">
+                <div class="quote-form-container">
+                    <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
+                    <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047">
+                        <!-- Fallback content for SEO and accessibility -->
+                        <noscript>
+                            <p>To request a quote, please <a href="/quote.html">visit our quote request page</a> or <a href="/contact.html">contact us directly</a>.</p>
+                        </noscript>
+                        <div class="form-loading" style="text-align: center; padding: 20px;">
+                            <p>Loading quote request form...</p>
+                            <p><a href="/quote.html">Or visit our quote page directly</a></p>
+                        </div>
+                    </div>
+                    <script>
+                        // Hide loading message when HubSpot form loads
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const formFrame = document.querySelector('.hs-form-frame');
+                            const loadingDiv = document.querySelector('.form-loading');
+                            
+                            // Check if HubSpot form has loaded
+                            const checkFormLoaded = setInterval(function() {
+                                if (formFrame && (formFrame.querySelector('form') || formFrame.querySelector('.hs-form'))) {
+                                    if (loadingDiv) {
+                                        loadingDiv.style.display = 'none';
+                                    }
+                                    clearInterval(checkFormLoaded);
+                                }
+                            }, 500);
+                            
+                            // Fallback: hide loading after 10 seconds
+                            setTimeout(function() {
+                                if (loadingDiv) {
+                                    loadingDiv.style.display = 'none';
+                                }
+                                clearInterval(checkFormLoaded);
+                            }, 10000);
+                        });
+                    </script>
+                </div>
+            </section>
+        </div>
     </div>
-</div>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="LzR4wVONWG6uIX3m2QcGuvf3rBxuHBCijv-Pl1tccFs">
+    <meta name="description" content="Material properties and preparation information for metallographic analysis.">
+    <meta name="keywords" content="metallography, material properties, sample preparation, metallographic analysis">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <link rel="canonical" href="https://www.metallographic.com/materials/">
+
+    <!-- Page Title (will be updated by JavaScript) -->
+    <title>Material Details | PACE Technologies</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/base/styles.css">
+    <link rel="stylesheet" href="/css/components/navigation.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/pages/materials.css">
+    <link rel="stylesheet" href="/css/pages/material-detail.css">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/pt-favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/pt-favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/pt-favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/pt-favicon/site.webmanifest">
+    <link rel="mask-icon" href="/images/pt-favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- Preload logo for faster LCP -->
+    <link rel="preload" as="image" href="/images/logo-microstructure-transparent.webp">
+
+    <!-- External Resources -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1066794256"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-1066794256');
+    </script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div id="navigation-placeholder"></div>
+    <script>
+        fetch('/navigation.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navigation-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <!-- Main Content -->
+    <main class="material-detail-page">
+        <div class="container-custom">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="/materials.html">Materials Database</a>
+                <span class="breadcrumb-separator">/</span>
+                <span id="breadcrumb-material" class="breadcrumb-current">Material</span>
+            </nav>
+
+            <!-- Loading State -->
+            <div id="loading-state" class="loading-state">
+                <p>Loading material information...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="error-state" style="display: none;">
+                <h1>Material Not Found</h1>
+                <p>The material you're looking for could not be found.</p>
+                <a href="/materials.html" class="btn-primary">Back to Materials Database</a>
+            </div>
+
+            <!-- Material Content -->
+            <div id="material-content" style="display: none;">
+                <!-- Header -->
+                <header class="material-header">
+                    <div class="material-header-content">
+                        <div class="material-title-section">
+                            <h1 id="material-name" class="material-name"></h1>
+                            <p id="material-category" class="material-category"></p>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Tabbed Content -->
+                <div class="material-tabs-container">
+                    <!-- Tabs Navigation -->
+                    <div class="material-tabs-nav">
+                        <button class="tab-btn active" data-tab="overview">
+                            <svg class="tab-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            Overview
+                        </button>
+                        <button class="tab-btn" data-tab="properties">
+                            <svg class="tab-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            </svg>
+                            Properties
+                        </button>
+                        <button class="tab-btn" data-tab="preparation">
+                            <svg class="tab-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                            </svg>
+                            Preparation
+                        </button>
+                        <button class="tab-btn" data-tab="heat-treatment">
+                            <svg class="tab-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.4 14.4 9.6 9.6"></path>
+                                <path d="M16 8 A6 6 0 0 0 8 16"></path>
+                                <path d="M8 8 A6 6 0 0 1 16 16"></path>
+                            </svg>
+                            Heat Treatment
+                        </button>
+                        <button class="tab-btn" data-tab="standards">
+                            <svg class="tab-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Standards
+                        </button>
+                        <button class="tab-btn" data-tab="applications">
+                            <svg class="tab-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                            Applications
+                        </button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="material-tabs-content">
+                        <div id="tab-overview" class="tab-content active"></div>
+                        <div id="tab-properties" class="tab-content"></div>
+                        <div id="tab-preparation" class="tab-content"></div>
+                        <div id="tab-heat-treatment" class="tab-content"></div>
+                        <div id="tab-standards" class="tab-content"></div>
+                        <div id="tab-applications" class="tab-content"></div>
+                    </div>
+                </div>
+
+                <!-- Related Guides -->
+                <div id="related-guides" class="related-guides"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <!-- Scripts -->
+    <script src="/js/scripts.js"></script>
+    <script src="/js/materials.js"></script>
+    <script src="/js/material-detail.js"></script>
+</body>
+
+</html>
+

@@ -1843,7 +1843,7 @@ input[type="text"]:focus {
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, background-color 0.3s, box-shadow 0.3s;
   z-index: 100;
   opacity: 0;
   visibility: hidden;
@@ -1858,10 +1858,12 @@ input[type="text"]:focus {
   opacity: 1;
   transform: translateX(-50%) scale(1);
   visibility: visible;
+  transition: opacity 0.3s, transform 0.3s, background-color 0.3s, box-shadow 0.3s;
 }
 
 .return-to-top:hover {
   background-color: rgba(0, 0, 0, 0.9);
+  transform: translateX(-50%) scale(1);
 }
 
 @media (max-width: 768px) {
