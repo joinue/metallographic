@@ -466,10 +466,19 @@ document.addEventListener('DOMContentLoaded', function() {
       : '';
 
     // Determine link - basics guides and process guides are local, troubleshooting goes to resources, others to metallography.org
-    const localGuides = ['introduction-to-metallography', 'purpose-and-applications', 'history-of-metallography', 'equipment-overview', 'safety-fundamentals', 'common-misconceptions', 'sectioning', 'mounting', 'grinding-techniques', 'polishing-methods', 'etching-procedures', 'microstructural-analysis', 'aluminum-sample-preparation', 'carbon-steel-preparation', 'cast-iron-preparation', 'ceramics-preparation', 'composites-preparation'];
+    const localGuides = ['introduction-to-metallography', 'purpose-and-applications', 'history-of-metallography', 'equipment-overview', 'safety-fundamentals', 'common-misconceptions', 'sectioning', 'mounting', 'grinding-techniques', 'polishing-methods', 'etching-procedures', 'microstructural-analysis', 'aluminum-sample-preparation', 'carbon-steel-preparation', 'cast-iron-preparation', 'ceramics-preparation', 'composites-preparation', 'magnesium-preparation', 'stainless-steel-preparation', 'titanium-preparation', 'copper-alloys-preparation', 'tool-steel-preparation', 'nickel-alloys-preparation'];
+    
+    // Special cases for guides with different file names than slugs
+    const slugToFileMap = {
+      'copper-alloys-preparation': 'copper-and-copper-alloys-preparation'
+    };
+    
     let link;
     if (guide.slug === 'troubleshooting-common-issues') {
       link = '/support.html';
+    } else if (slugToFileMap[guide.slug]) {
+      // Handle guides with different file names
+      link = `/guides/${slugToFileMap[guide.slug]}.html`;
     } else if (localGuides.includes(guide.slug)) {
       link = `/guides/${guide.slug}.html`;
     } else {
