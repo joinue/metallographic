@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/../css/components/footer.css">
     <link rel="stylesheet" href="/../css/base/styles.css">
     <link rel="stylesheet" href="/../css/pages/consumables.css">
+    <link rel="stylesheet" href="/../css/pages/machine.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Preconnect to external resources for faster loading -->
@@ -72,6 +73,78 @@
     <link rel="mask-icon" href="/../Images/pt-favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    
+    <!-- Hero Quick Navigation Styles -->
+    <style>
+    .hero-quick-nav {
+      margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+    }
+    
+    .hero-quick-nav-list {
+      display: inline-flex;
+      flex-wrap: nowrap;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    @media (max-width: 1024px) {
+      .hero-quick-nav-list {
+        flex-wrap: wrap;
+      }
+    }
+    
+    .hero-quick-nav-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 0.375rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    
+    .hero-quick-nav-link:hover,
+    .hero-quick-nav-link:focus {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+      outline: 2px solid rgba(255, 255, 255, 0.5);
+      outline-offset: 2px;
+    }
+    
+    .hero-quick-nav-link.active {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    @media (min-width: 640px) {
+      .hero-quick-nav-link {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.9375rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-quick-nav-list {
+        gap: 0.375rem;
+      }
+      
+      .hero-quick-nav-link {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.8125rem;
+      }
+    }
+    </style>
 </head>
 
 <body>
@@ -189,9 +262,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/metallographic-equipment/castable-mounting/lssa-011.html">Vacuum Mounting System</a></li>
-                            <li><a href="/metallographic-equipment/castable-mounting/thetamount.html">Pressure Mounting System</a></li>
-                            <li><a href="/metallographic-equipment/castable-mounting/uvmount.html">UV Curing System</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teravac.html">Vacuum Mounting System</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teravac-pro.html">Automated Vacuum Mounting</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teracomp.html">Pressure Mounting System</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/terauv.html">UV Curing System</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
@@ -205,6 +279,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
@@ -578,6 +653,7 @@
                         </a>
                         <ul class="sub-menu second-level">
                             <li><a href="/metallographic-equipment/castable-mounting/teravac.html"><span>Vacuum Mounting System</span></a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teravac-pro.html"><span>Automated Vacuum Mounting</span></a></li>
                             <li><a href="/metallographic-equipment/castable-mounting/teracomp.html"><span>Pressure Mounting System</span></a></li>
                             <li><a href="/metallographic-equipment/castable-mounting/terauv.html"><span>UV Curing System</span></a></li>
                         </ul>
@@ -594,6 +670,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html"><span>Hand / Belt Grinders</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html"><span>Manual Grinder Polishers</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html"><span>Semi-Auto Grinder Polishers</span></a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html"><span>Automated Abrasive Dispenser</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html"><span>Controlled Removal Polishers</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html"><span>Vibratory Polishers</span></a></li>
                         </ul>
@@ -887,91 +964,311 @@
       </div>
   </div>
 
-<!-- HEADER -->
+<!-- HEADER - Modern Hero Section -->
 
-    <header class="top-header">
-        <div class="top-header-content">
-            <div class="top-header-inner">
-                <h1 class="page-title">Consumables / Polishing</h1>      <a href="https://shop.metallographic.com" class="shop-button" target="_blank" rel="noopener noreferrer">
-                  <div class="content">
-                    <span>Shop Online Now</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-double-right">
-                      <polyline points="13 17 18 12 13 7"></polyline>
-                      <polyline points="6 17 11 12 6 7"></polyline>
-                    </svg>
-                  </div>
-                </a> 
-                <div class="text-content"></div>
-            </div>
-        </div>
-    </header>
+<section class="hero-section-modern hero-section-abrasive">
+  <div class="container-custom">
+    <div class="hero-grid">
+      <div>
+        <nav aria-label="Breadcrumb" class="hero-breadcrumb">
+          <ol class="breadcrumb-list">
+            <li class="breadcrumb-item">
+              <a href="/" aria-label="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </a>
+            </li>
+            <li class="breadcrumb-item"><a href="/consumables.html">Consumables</a></li>
+            <li class="breadcrumb-item" aria-current="page">Polishing</li>
+          </ol>
+        </nav>
+        <h1 class="hero-headline">Polishing Consumables</h1>
+        <p class="hero-description">
+          PACE Technologies' polishing consumables deliver superior surface finishes for metallographic sample preparation. Our range includes polishing pads and cloths, magnetic systems for easy pad changes, and monocrystalline and polycrystalline diamond suspensions for precise polishing with minimal surface deformation.
+        </p>
+        <nav class="hero-quick-nav" role="navigation" aria-label="Quick Navigation">
+          <ul class="hero-quick-nav-list">
+            <li><a href="#polishing-pads" class="hero-quick-nav-link">Polishing Pads</a></li>
+            <li><a href="#magnetic-system" class="hero-quick-nav-link">Magnetic System</a></li>
+            <li><a href="#monocrystalline-diamond" class="hero-quick-nav-link">Monocrystalline Diamond</a></li>
+            <li><a href="#polycrystalline-diamond" class="hero-quick-nav-link">Polycrystalline Diamond</a></li>
+            <li><a href="#final-polishing" class="hero-quick-nav-link">Final Polishing</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="/images/consumables/rough polishing/rough-polishing-cover.webp" alt="Polishing Consumables" width="800" height="600" loading="eager">
+      </div>
+    </div>
+  </div>
+</section>
             
 <!-- MAIN -->
 
+<main id="main-content">
 <div class="first-container">
-    <!-- Introduction Section -->
-    <section class="introduction">
-      <h2 class="consumables-header">Metallographic Polishing Consumables</h2>
-      <p>
-        Our polishing consumables ensure superior surface finishes for metallographic sample preparation. We offer pads and cloths for various materials, along with monocrystalline and polycrystalline diamond suspensions for precise polishing and minimal surface deformation, ensuring accurate microstructural analysis.
-
-
-
-
-    </p>
-      </section>
   
-    <!-- Carousel and Features Section -->
-    <section class="carousel-features">
-        <!-- Carousel Section -->
-        <div class="carousel" aria-label="Product Images and Video">
-          <div class="carousel-container">
-            <div class="carousel-content">
-              <div
-                class="carousel-item"
-                data-description="Polishing Consumables"
-              >
-                <img src="/../images/consumables/rough polishing/rough-polishing-cover.webp" alt="Polishing consumables" />
-              </div>
-            
-            </div>
-
+    <!-- Features Section -->
+    <section class="features-section-modern">
+      <div class="container-custom">
+        <h2 class="features-header-modern">Key Features</h2>
+        <div class="grid-modern features-grid-modern">
+          <div class="feature-item-modern">
+            <h3>Superior Surface Finishes</h3>
+            <p>Our polishing consumables ensure excellent surface quality with minimal deformation, supporting accurate microstructural analysis.</p>
           </div>
-
+          <div class="feature-item-modern">
+            <h3>Versatile Material Compatibility</h3>
+            <p>Designed to handle a wide range of materials, from soft metals to hard ceramics, making them ideal for diverse laboratory applications.</p>
+          </div>
+          <div class="feature-item-modern">
+            <h3>Optimized Workflow</h3>
+            <p>Magnetic systems and specialized pads streamline the polishing process, reducing preparation time and improving consistency.</p>
+          </div>
         </div>
-  
-      <!-- Features Section -->
-      <div class="features">
-        <h2>Tips</h2>
-        <ul>
-            <li><strong>Select the Right Pad</strong> - Soft cloths are best for final polishing; harder pads suit intermediate stages.</li>
-            <li><strong>Use Diamond Suspensions</strong> - Monocrystalline for aggressive polishing; polycrystalline for finer finishes.</li>
-            <li><strong>Prevent Contamination</strong> - Clean pads between steps to avoid cross-contamination.</li>
-            <li><strong>Magnetic System</strong> - Simplifies pad changes, improving workflow and reducing downtime.</li>
-          </ul>
-          
-        <br />
-        <p><strong>Learn More:</strong></p>
-        <div class="feature-buttons">
-          <a href="/metallographic-consumables/polishing/polishing-pads.html" class="feature-button" rel="noopener noreferrer">Polishing Pads</a>
-          <a href="/metallographic-consumables/polishing/monocrystalline-diamond.html" class="feature-button" rel="noopener noreferrer">Monocrystalline Diamond</a>
-          <a href="/metallographic-consumables/polishing/polycrystalline-diamond.html" class="feature-button" rel="noopener noreferrer">Polycrystalline Diamond</a>
-          <a href="/metallographic-consumables/polishing/magnetic-system.html" class="feature-button" rel="noopener noreferrer">Magnetic System</a>
-          <a href="/metallographic-consumables/final-polishing.html" class="feature-button" rel="noopener noreferrer">Final Polishing</a>
       </div>
-      <br>
-      <a href="https://shop.metallographic.com/collections/polishing" class="shop-button" target="_blank" rel="noopener noreferrer">
-        <div class="content">
-          <span>Shop Online Now</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-double-right">
-            <polyline points="13 17 18 12 13 7"></polyline>
-            <polyline points="6 17 11 12 6 7"></polyline>
-          </svg>
-        </div>
-      </a>      
-    </div>
     </section>
+
+    <!-- Sticky Section Navigation -->
+    <nav class="section-nav-sticky" aria-label="Consumables Sections">
+      <div class="container-custom">
+        <a href="#polishing-pads" class="section-nav-link">Polishing Pads</a>
+        <a href="#magnetic-system" class="section-nav-link">Magnetic System</a>
+        <a href="#monocrystalline-diamond" class="section-nav-link">Monocrystalline Diamond</a>
+        <a href="#polycrystalline-diamond" class="section-nav-link">Polycrystalline Diamond</a>
+        <a href="#final-polishing" class="section-nav-link">Final Polishing</a>
+      </div>
+    </nav>
+
+    <!-- Polishing Pads Section -->
+    <div class="section-anchor" id="polishing-pads" style="position: relative; top: -100px; visibility: hidden;"></div>
+
+    <section class="product-series product-series-modern">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Polishing Pads</h2>
+        <p class="section-description-modern">
+          Polishing pads and cloths provide the foundation for effective metallographic polishing. Our selection includes a variety of pads designed for different materials and polishing stages, from soft cloths for final polishing to harder pads for intermediate stages, delivering consistent, high-quality surface finishes.
+        </p>
+        <div class="product-grid-modern">
+          <article class="card-modern">
+            <div class="product-card-modern">
+              <div class="product-card-image">
+                <img src="/images/consumables/rough polishing/polishing pads/polishing-pads.webp" alt="Polishing Pads" width="400" height="300" loading="lazy" />
+              </div>
+              <div class="product-card-content">
+                <h3>Polishing Pads</h3>
+                <p class="product-intro">
+                  Our polishing pads and cloths include a variety of options designed for different materials and polishing stages. From soft cloths ideal for final polishing to harder pads suited for intermediate stages, these pads deliver consistent, high-quality surface finishes for accurate microstructural analysis.
+                </p>
+                <div class="key-specs">
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Pad Types</span>
+                    <span class="key-specs-value">Soft, Medium, Hard Cloths</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Applications</span>
+                    <span class="key-specs-value">Intermediate to Final Polishing</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Benefits</span>
+                    <span class="key-specs-value">Consistent Finishes & Material Compatibility</span>
+                  </div>
+                </div>
+                <div class="product-card-button-wrapper">
+                  <a href="/metallographic-consumables/polishing/polishing-pads.html" class="btn-modern btn-modern-primary">Learn More</a>
+                  <a href="https://shop.metallographic.com/collections/polishing" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Shop Online</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Magnetic System Section -->
+    <div class="section-anchor" id="magnetic-system" style="position: relative; top: -100px; visibility: hidden;"></div>
+
+    <section class="product-series product-series-modern">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Magnetic System</h2>
+        <p class="section-description-modern">
+          Magnetic polishing systems simplify pad changes and improve workflow efficiency. These systems use magnetic backing to securely hold polishing pads in place, allowing for quick and easy pad changes without adhesives, reducing downtime and improving consistency in sample preparation.
+        </p>
+        <div class="product-grid-modern">
+          <article class="card-modern">
+            <div class="product-card-modern">
+              <div class="product-card-image">
+                <img src="/images/consumables/rough polishing/magnetic system/polishing_pads_diamond_grinding_disks.webp" alt="Magnetic System" width="400" height="300" loading="lazy" />
+              </div>
+              <div class="product-card-content">
+                <h3>Magnetic Polishing System</h3>
+                <p class="product-intro">
+                  Our magnetic polishing systems use magnetic backing to securely hold polishing pads in place, eliminating the need for adhesives. This design allows for quick and easy pad changes, reducing downtime and improving workflow efficiency while maintaining consistent sample preparation results.
+                </p>
+                <div class="key-specs">
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">System Type</span>
+                    <span class="key-specs-value">Magnetic Backing</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Benefits</span>
+                    <span class="key-specs-value">Quick Pad Changes</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Workflow</span>
+                    <span class="key-specs-value">Improved Efficiency</span>
+                  </div>
+                </div>
+                <div class="product-card-button-wrapper">
+                  <a href="/metallographic-consumables/polishing/magnetic-system.html" class="btn-modern btn-modern-primary">Learn More</a>
+                  <a href="https://shop.metallographic.com/collections/polishing" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Shop Online</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monocrystalline Diamond Section -->
+    <div class="section-anchor" id="monocrystalline-diamond" style="position: relative; top: -100px; visibility: hidden;"></div>
+
+    <section class="product-series product-series-modern">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Monocrystalline Diamond</h2>
+        <p class="section-description-modern">
+          Monocrystalline diamond suspensions provide aggressive polishing with excellent material removal rates. These suspensions feature single-crystal diamond particles that maintain their sharp edges longer, making them ideal for rough and intermediate polishing stages where fast material removal is required.
+        </p>
+        <div class="product-grid-modern">
+          <article class="card-modern">
+            <div class="product-card-modern">
+              <div class="product-card-image">
+                <img src="/images/consumables/rough polishing/monocrystalline diamond/monocrystalline-diamond-low-viscosity.webp" alt="Monocrystalline Diamond" width="400" height="300" loading="lazy" />
+              </div>
+              <div class="product-card-content">
+                <h3>Monocrystalline Diamond Suspensions</h3>
+                <p class="product-intro">
+                  Our monocrystalline diamond suspensions feature single-crystal diamond particles that maintain their sharp edges longer, providing aggressive polishing with excellent material removal rates. These suspensions are ideal for rough and intermediate polishing stages where fast material removal is required while maintaining good surface quality.
+                </p>
+                <div class="key-specs">
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Diamond Type</span>
+                    <span class="key-specs-value">Single-Crystal Particles</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Applications</span>
+                    <span class="key-specs-value">Rough & Intermediate Polishing</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Benefits</span>
+                    <span class="key-specs-value">Aggressive Removal & Long-Lasting</span>
+                  </div>
+                </div>
+                <div class="product-card-button-wrapper">
+                  <a href="/metallographic-consumables/polishing/monocrystalline-diamond.html" class="btn-modern btn-modern-primary">Learn More</a>
+                  <a href="https://shop.metallographic.com/collections/polishing" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Shop Online</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Polycrystalline Diamond Section -->
+    <div class="section-anchor" id="polycrystalline-diamond" style="position: relative; top: -100px; visibility: hidden;"></div>
+
+    <section class="product-series product-series-modern">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Polycrystalline Diamond</h2>
+        <p class="section-description-modern">
+          Polycrystalline diamond suspensions provide fine polishing with superior surface finishes. These suspensions feature multi-crystal diamond particles that fracture to create new cutting edges, making them ideal for fine and final polishing stages where superior surface quality and minimal deformation are required.
+        </p>
+        <div class="product-grid-modern">
+          <article class="card-modern">
+            <div class="product-card-modern">
+              <div class="product-card-image">
+                <img src="/images/consumables/rough polishing/polycrystalline diamond/polycrystalline-diamond-low-viscosity.webp" alt="Polycrystalline Diamond" width="400" height="300" loading="lazy" />
+              </div>
+              <div class="product-card-content">
+                <h3>Polycrystalline Diamond Suspensions</h3>
+                <p class="product-intro">
+                  Our polycrystalline diamond suspensions feature multi-crystal diamond particles that fracture during use to create new cutting edges, providing fine polishing with superior surface finishes. These suspensions are ideal for fine and final polishing stages where superior surface quality and minimal deformation are required for accurate microstructural analysis.
+                </p>
+                <div class="key-specs">
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Diamond Type</span>
+                    <span class="key-specs-value">Multi-Crystal Particles</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Applications</span>
+                    <span class="key-specs-value">Fine & Final Polishing</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Benefits</span>
+                    <span class="key-specs-value">Superior Finishes & Self-Renewing</span>
+                  </div>
+                </div>
+                <div class="product-card-button-wrapper">
+                  <a href="/metallographic-consumables/polishing/polycrystalline-diamond.html" class="btn-modern btn-modern-primary">Learn More</a>
+                  <a href="https://shop.metallographic.com/collections/polishing" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Shop Online</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Polishing Section -->
+    <div class="section-anchor" id="final-polishing" style="position: relative; top: -100px; visibility: hidden;"></div>
+
+    <section class="product-series product-series-modern">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Final Polishing</h2>
+        <p class="section-description-modern">
+          Final polishing agents provide the ultimate surface finish for metallographic samples. Our selection includes colloidal silica and alumina slurries and suspensions designed for the final polishing stage, delivering mirror-like surface quality with minimal deformation for accurate microstructural analysis.
+        </p>
+        <div class="product-grid-modern">
+          <article class="card-modern">
+            <div class="product-card-modern">
+              <div class="product-card-image">
+                <img src="/images/consumables/final polishing & analysis/final polishing/final-polishing-coloidal-silica.webp" alt="Final Polishing" width="400" height="300" loading="lazy" />
+              </div>
+              <div class="product-card-content">
+                <h3>Final Polishing Agents</h3>
+                <p class="product-intro">
+                  Our final polishing agents include colloidal silica and alumina slurries and suspensions designed for the final polishing stage. These agents deliver mirror-like surface quality with minimal deformation, ensuring accurate microstructural analysis and optimal results for metallographic examination.
+                </p>
+                <div class="key-specs">
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Types</span>
+                    <span class="key-specs-value">Colloidal Silica & Alumina</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Formats</span>
+                    <span class="key-specs-value">Slurries & Suspensions</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Benefits</span>
+                    <span class="key-specs-value">Mirror Finishes & Minimal Deformation</span>
+                  </div>
+                </div>
+                <div class="product-card-button-wrapper">
+                  <a href="/metallographic-consumables/final-polishing.html" class="btn-modern btn-modern-primary">Learn More</a>
+                  <a href="https://shop.metallographic.com/collections/polishing" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Shop Online</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  
   </div>
+</main>
   
   <br><br>
 
@@ -1167,6 +1464,7 @@
   </script>
 </footer>
     <script src="/js/scripts.js" defer></script>
+    <script src="/js/section-nav.js" defer></script>
     <script src="/js/animations.js" defer></script>
 </body>
 </html>

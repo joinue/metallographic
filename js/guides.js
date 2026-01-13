@@ -71,7 +71,7 @@ const guides = [
     category: 'Process',
     readTime: '8 min read',
     processOrder: 1,
-    processIcon: 'Scissors',
+    processIcon: 'Wrench',
     difficulty: 'Beginner',
   },
   {
@@ -81,7 +81,7 @@ const guides = [
     category: 'Process',
     readTime: '10 min read',
     processOrder: 2,
-    processIcon: 'Box',
+    processIcon: 'Package',
     difficulty: 'Beginner',
   },
   {
@@ -91,7 +91,7 @@ const guides = [
     category: 'Process',
     readTime: '18 min read',
     processOrder: 3,
-    processIcon: 'Layers',
+    processIcon: 'Circle',
     difficulty: 'Beginner',
   },
   {
@@ -101,7 +101,7 @@ const guides = [
     category: 'Process',
     readTime: '20 min read',
     processOrder: 4,
-    processIcon: 'Gem',
+    processIcon: 'Sparkles',
     difficulty: 'Intermediate',
   },
   {
@@ -111,7 +111,7 @@ const guides = [
     category: 'Process',
     readTime: '16 min read',
     processOrder: 5,
-    processIcon: 'FlaskConical',
+    processIcon: 'Droplet',
     difficulty: 'Intermediate',
   },
   {
@@ -121,7 +121,7 @@ const guides = [
     category: 'Process',
     readTime: '18 min read',
     processOrder: 6,
-    processIcon: 'FlaskConical',
+    processIcon: 'Eye',
     difficulty: 'Intermediate',
   },
   // Material-Specific Guides
@@ -373,10 +373,19 @@ const guides = [
 // Icon SVG paths
 const iconMap = {
   BookOpen: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>',
+  // Process icons matching lab builder
+  Wrench: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>',
+  Package: '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>',
+  Circle: '<circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle>',
+  Sparkles: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"></path>',
+  Droplet: '<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>',
+  Eye: '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>',
+  FlaskConical: '<path d="M10 2v10"></path><path d="M14 2v10"></path><path d="M4 13h16"></path><path d="M8 22h8"></path><path d="M7 13l5-10 5 10"></path>',
+  Gauge: '<path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path><path d="M20.2 20.2C22 18.3 23 15.7 23 13c0-5.5-4.5-10-10-10S3 7.5 3 13c0 2.7 1 5.3 2.8 7.2"></path><path d="M12 2v4"></path><path d="M12 18v4"></path><path d="M2 12h4"></path><path d="M18 12h4"></path>',
+  // Legacy icons (kept for backwards compatibility)
   Scissors: '<circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line>',
   Layers: '<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline>',
   Gem: '<path d="M6 3h12l4 6-10 12L2 9z"></path>',
-  FlaskConical: '<path d="M10 2v10"></path><path d="M14 2v10"></path><path d="M4 13h16"></path><path d="M8 22h8"></path><path d="M7 13l5-10 5 10"></path>',
   Box: '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>',
   AlertCircle: '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>',
   ChevronRight: '<polyline points="9 18 15 12 9 6"></polyline>',

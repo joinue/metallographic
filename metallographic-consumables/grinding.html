@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/../css/components/footer.css">
     <link rel="stylesheet" href="/../css/base/styles.css">
     <link rel="stylesheet" href="/../css/pages/consumables.css">
+    <link rel="stylesheet" href="/../css/pages/machine.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Preconnect to external resources for faster loading -->
@@ -75,6 +76,78 @@
     <link rel="mask-icon" href="/../Images/pt-favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    
+    <!-- Hero Quick Navigation Styles -->
+    <style>
+    .hero-quick-nav {
+      margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+    }
+    
+    .hero-quick-nav-list {
+      display: inline-flex;
+      flex-wrap: nowrap;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    @media (max-width: 1024px) {
+      .hero-quick-nav-list {
+        flex-wrap: wrap;
+      }
+    }
+    
+    .hero-quick-nav-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 0.375rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    
+    .hero-quick-nav-link:hover,
+    .hero-quick-nav-link:focus {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+      outline: 2px solid rgba(255, 255, 255, 0.5);
+      outline-offset: 2px;
+    }
+    
+    .hero-quick-nav-link.active {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    @media (min-width: 640px) {
+      .hero-quick-nav-link {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.9375rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-quick-nav-list {
+        gap: 0.375rem;
+      }
+      
+      .hero-quick-nav-link {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.8125rem;
+      }
+    }
+    </style>
 </head>
 
 <body>
@@ -192,9 +265,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/metallographic-equipment/castable-mounting/lssa-011.html">Vacuum Mounting System</a></li>
-                            <li><a href="/metallographic-equipment/castable-mounting/thetamount.html">Pressure Mounting System</a></li>
-                            <li><a href="/metallographic-equipment/castable-mounting/uvmount.html">UV Curing System</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teravac.html">Vacuum Mounting System</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teravac-pro.html">Automated Vacuum Mounting</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teracomp.html">Pressure Mounting System</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/terauv.html">UV Curing System</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
@@ -208,6 +282,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
@@ -581,6 +656,7 @@
                         </a>
                         <ul class="sub-menu second-level">
                             <li><a href="/metallographic-equipment/castable-mounting/teravac.html"><span>Vacuum Mounting System</span></a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teravac-pro.html"><span>Automated Vacuum Mounting</span></a></li>
                             <li><a href="/metallographic-equipment/castable-mounting/teracomp.html"><span>Pressure Mounting System</span></a></li>
                             <li><a href="/metallographic-equipment/castable-mounting/terauv.html"><span>UV Curing System</span></a></li>
                         </ul>
@@ -597,6 +673,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html"><span>Hand / Belt Grinders</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html"><span>Manual Grinder Polishers</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html"><span>Semi-Auto Grinder Polishers</span></a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html"><span>Automated Abrasive Dispenser</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html"><span>Controlled Removal Polishers</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html"><span>Vibratory Polishers</span></a></li>
                         </ul>
@@ -891,79 +968,311 @@
   </div>
 
 
-<!-- HEADER -->
+<!-- HEADER - Modern Hero Section -->
 
-    <header class="top-header">
-        <div class="top-header-content">
-            <div class="top-header-inner">
-                <h1 class="page-title">Consumables / Grinding & Lapping</h1>
-                <div class="text-content"></div>
-            </div>
-        </div>
-    </header>
+<section class="hero-section-modern hero-section-abrasive">
+  <div class="container-custom">
+    <div class="hero-grid">
+      <div>
+        <nav aria-label="Breadcrumb" class="hero-breadcrumb">
+          <ol class="breadcrumb-list">
+            <li class="breadcrumb-item">
+              <a href="/" aria-label="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </a>
+            </li>
+            <li class="breadcrumb-item"><a href="/consumables.html">Consumables</a></li>
+            <li class="breadcrumb-item" aria-current="page">Grinding & Lapping</li>
+          </ol>
+        </nav>
+        <h1 class="hero-headline">Grinding & Lapping Consumables</h1>
+        <p class="hero-description">
+          PACE Technologies' grinding and lapping consumables deliver precision and efficiency in metallographic sample preparation. Our range includes abrasive papers, diamond grinding discs, composite disks, lapping films, and specialized belts, rolls, and powders designed for optimal material removal and surface quality.
+        </p>
+        <nav class="hero-quick-nav" role="navigation" aria-label="Quick Navigation">
+          <ul class="hero-quick-nav-list">
+            <li><a href="#abrasive-grinding" class="hero-quick-nav-link">Abrasive Grinding</a></li>
+            <li><a href="#diamond-grinding" class="hero-quick-nav-link">Diamond Grinding</a></li>
+            <li><a href="#composite-disks" class="hero-quick-nav-link">Composite Disks</a></li>
+            <li><a href="#lapping-films" class="hero-quick-nav-link">Lapping Films</a></li>
+            <li><a href="#belts-rolls-powders" class="hero-quick-nav-link">Belts, Rolls & Powders</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="/images/consumables/grinding-lapping/grinding-lapping-cover.webp" alt="Grinding & Lapping Consumables" width="800" height="600" loading="eager">
+      </div>
+    </div>
+  </div>
+</section>
             
 <!-- MAIN -->
 
+<main id="main-content">
 <div class="first-container">
-    <!-- Introduction Section -->
-    <section class="introduction">
-      <h2 class="consumables-header">Metallographic Grinding & Lapping Consumables</h2>
-      <p>
-        Our selection of grinding and lapping consumables is crafted for precision and efficiency in metallographic sample preparation. We offer a variety of grinding discs, lapping films, and polishing compounds to accommodate different materials and surface finish requirements. These consumables ensure minimal material removal and optimal surface quality, supporting accurate and reliable microstructural analysis.
-      </p>
-      </section>
   
-    <!-- Carousel and Features Section -->
-    <section class="carousel-features">
-        <!-- Carousel Section -->
-        <div class="carousel" aria-label="Product Images and Video">
-          <div class="carousel-container">
-            <div class="carousel-content">
-              <div
-                class="carousel-item"
-                data-description="Sectioning Consumables"
-              >
-                <img src="/../images/consumables/grinding-lapping/grinding-lapping-cover.webp" alt="Sectioning consumables" />
-              </div>
-            
-            </div>
-
+    <!-- Features Section -->
+    <section class="features-section-modern">
+      <div class="container-custom">
+        <h2 class="features-header-modern">Key Features</h2>
+        <div class="grid-modern features-grid-modern">
+          <div class="feature-item-modern">
+            <h3>Precision Material Removal</h3>
+            <p>Our consumables are designed for controlled material removal with minimal deformation, ensuring optimal surface integrity for accurate microstructural analysis.</p>
           </div>
-
+          <div class="feature-item-modern">
+            <h3>Versatile Material Compatibility</h3>
+            <p>Designed to handle a wide range of materials, from soft metals to hard ceramics, making them ideal for diverse laboratory applications.</p>
+          </div>
+          <div class="feature-item-modern">
+            <h3>Optimized Surface Quality</h3>
+            <p>High-quality abrasives and diamond products ensure consistent surface finishes while minimizing preparation time and consumable usage.</p>
+          </div>
         </div>
-  
-      <!-- Features Section -->
-      <div class="features">
-        <h2>Tips</h2>
-        <ul>
-            <li><strong>Abrasive Grinding</strong> - For fast material removal on hard samples, ideal for initial prep.</li>
-            <li><strong>Diamond Grinding</strong> - For hard or brittle materials, offering precision and durability.</li>
-            <li><strong>Composite Discs</strong> - Versatile for both aggressive grinding and fine finishing.</li>
-            <li><strong>Lapping Films</strong> - For fine, controlled removal and a high-quality finish.</li>
-            <li><strong>Belts, Rolls, and Powders</strong> - For continuous grinding, with powders for mirror-like finishes.</li>
-          </ul>
-          
-        <br />
-        <p><strong>Learn More:</strong></p>
-        <div class="feature-buttons">
-          <a href="/metallographic-consumables/grinding/abrasive-grinding.html" class="feature-button" rel="noopener noreferrer">Abrasive Grinding</a>
-          <a href="/metallographic-consumables/grinding/diamond-grinding.html" class="feature-button" rel="noopener noreferrer">Diamond Grinding</a>
-          <a href="/metallographic-consumables/grinding/composite-disks.html" class="feature-button" rel="noopener noreferrer">Composite Disks</a>
-          <a href="/metallographic-consumables/grinding/lapping-films.html" class="feature-button" rel="noopener noreferrer">Lapping Films</a>
-          <a href="/metallographic-consumables/grinding/belts-rolls-powders.html" class="feature-button" rel="noopener noreferrer">Belts, Rolls & Powders</a>
       </div>
-      <br>
-      <a href="https://shop.metallographic.com/collections/grinding" class="shop-button" target="_blank" rel="noopener noreferrer">
-        <div class="content">
-          <span>Shop Online Now</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-double-right">
-            <polyline points="13 17 18 12 13 7"></polyline>
-            <polyline points="6 17 11 12 6 7"></polyline>
-          </svg>
-        </div>
-      </a>      </div>
     </section>
+
+    <!-- Sticky Section Navigation -->
+    <nav class="section-nav-sticky" aria-label="Consumables Sections">
+      <div class="container-custom">
+        <a href="#abrasive-grinding" class="section-nav-link">Abrasive Grinding</a>
+        <a href="#diamond-grinding" class="section-nav-link">Diamond Grinding</a>
+        <a href="#composite-disks" class="section-nav-link">Composite Disks</a>
+        <a href="#lapping-films" class="section-nav-link">Lapping Films</a>
+        <a href="#belts-rolls-powders" class="section-nav-link">Belts, Rolls & Powders</a>
+      </div>
+    </nav>
+
+    <!-- Abrasive Grinding Section -->
+    <div class="section-anchor" id="abrasive-grinding" style="position: relative; top: -100px; visibility: hidden;"></div>
+
+    <section class="product-series product-series-modern">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Abrasive Grinding</h2>
+        <p class="section-description-modern">
+          Abrasive grinding papers provide efficient material removal for initial sample preparation. Our selection includes SiC, alumina, and zirconia papers in various grit sizes, delivering fast cutting rates and excellent surface quality for routine metallographic preparation.
+        </p>
+        <div class="product-grid-modern">
+          <article class="card-modern">
+            <div class="product-card-modern">
+              <div class="product-card-image">
+                <img src="/images/consumables/grinding-lapping/abrasive-griding/sic-papers.webp" alt="Abrasive Grinding Papers" width="400" height="300" loading="lazy" />
+              </div>
+              <div class="product-card-content">
+                <h3>Abrasive Grinding Papers</h3>
+                <p class="product-intro">
+                  Our abrasive grinding papers include SiC, alumina, and zirconia options in various grit sizes, designed for efficient material removal during initial sample preparation. These papers deliver fast cutting rates and excellent surface quality for routine metallographic applications.
+                </p>
+                <div class="key-specs">
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Abrasive Types</span>
+                    <span class="key-specs-value">SiC, Alumina, Zirconia</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Grit Sizes</span>
+                    <span class="key-specs-value">120 - 4000</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Benefits</span>
+                    <span class="key-specs-value">Fast Removal & Cost-Effective</span>
+                  </div>
+                </div>
+                <div class="product-card-button-wrapper">
+                  <a href="/metallographic-consumables/grinding/abrasive-grinding.html" class="btn-modern btn-modern-primary">Learn More</a>
+                  <a href="https://shop.metallographic.com/collections/grinding" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Shop Online</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diamond Grinding Section -->
+    <div class="section-anchor" id="diamond-grinding" style="position: relative; top: -100px; visibility: hidden;"></div>
+
+    <section class="product-series product-series-modern">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Diamond Grinding</h2>
+        <p class="section-description-modern">
+          Diamond grinding discs are designed for precision grinding and fine finishing of hard materials. Our selection includes resin-bonded, metal-bonded, and magnetic-backed diamond discs, providing controlled material removal with minimal damage for hard or brittle materials.
+        </p>
+        <div class="product-grid-modern">
+          <article class="card-modern">
+            <div class="product-card-modern">
+              <div class="product-card-image">
+                <img src="/images/consumables/grinding-lapping/diamond grinding/resin-bonded-diamond.webp" alt="Diamond Grinding Discs" width="400" height="300" loading="lazy" />
+              </div>
+              <div class="product-card-content">
+                <h3>Diamond Grinding Discs</h3>
+                <p class="product-intro">
+                  Our diamond grinding discs include resin-bonded, metal-bonded, and magnetic-backed options designed for precision grinding and fine finishing. These discs provide controlled material removal with minimal damage, making them ideal for hard or brittle materials and applications requiring the highest surface quality.
+                </p>
+                <div class="key-specs">
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Bond Types</span>
+                    <span class="key-specs-value">Resin, Metal, Magnetic-Backed</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Grit Sizes</span>
+                    <span class="key-specs-value">45μm - 3μm</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Benefits</span>
+                    <span class="key-specs-value">Precision & Minimal Damage</span>
+                  </div>
+                </div>
+                <div class="product-card-button-wrapper">
+                  <a href="/metallographic-consumables/grinding/diamond-grinding.html" class="btn-modern btn-modern-primary">Learn More</a>
+                  <a href="https://shop.metallographic.com/collections/grinding" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Shop Online</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Composite Disks Section -->
+    <div class="section-anchor" id="composite-disks" style="position: relative; top: -100px; visibility: hidden;"></div>
+
+    <section class="product-series product-series-modern">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Composite Disks</h2>
+        <p class="section-description-modern">
+          Composite disks offer versatile grinding and finishing capabilities, combining the benefits of multiple abrasive types in a single disc. These disks are ideal for both aggressive material removal and fine finishing, providing excellent performance across a wide range of materials.
+        </p>
+        <div class="product-grid-modern">
+          <article class="card-modern">
+            <div class="product-card-modern">
+              <div class="product-card-image">
+                <img src="/images/consumables/grinding-lapping/composite disks/composite disks.webp" alt="Composite Disks" width="400" height="300" loading="lazy" />
+              </div>
+              <div class="product-card-content">
+                <h3>Composite Disks</h3>
+                <p class="product-intro">
+                  Our composite disks combine multiple abrasive types in a single disc, offering versatile grinding and finishing capabilities. These disks are ideal for both aggressive material removal and fine finishing, providing excellent performance across a wide range of materials and applications.
+                </p>
+                <div class="key-specs">
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Composition</span>
+                    <span class="key-specs-value">Multi-Abrasive Design</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Applications</span>
+                    <span class="key-specs-value">Grinding & Finishing</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Benefits</span>
+                    <span class="key-specs-value">Versatile & Efficient</span>
+                  </div>
+                </div>
+                <div class="product-card-button-wrapper">
+                  <a href="/metallographic-consumables/grinding/composite-disks.html" class="btn-modern btn-modern-primary">Learn More</a>
+                  <a href="https://shop.metallographic.com/collections/grinding" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Shop Online</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lapping Films Section -->
+    <div class="section-anchor" id="lapping-films" style="position: relative; top: -100px; visibility: hidden;"></div>
+
+    <section class="product-series product-series-modern">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Lapping Films</h2>
+        <p class="section-description-modern">
+          Lapping films provide fine, controlled material removal and high-quality surface finishes. Our selection includes diamond and alumina lapping films in various grit sizes, ideal for precision finishing and achieving mirror-like surface quality.
+        </p>
+        <div class="product-grid-modern">
+          <article class="card-modern">
+            <div class="product-card-modern">
+              <div class="product-card-image">
+                <img src="/images/consumables/grinding-lapping/lapping films/diamond-lapping films.webp" alt="Lapping Films" width="400" height="300" loading="lazy" />
+              </div>
+              <div class="product-card-content">
+                <h3>Lapping Films</h3>
+                <p class="product-intro">
+                  Our lapping films include diamond and alumina options in various grit sizes, designed for fine, controlled material removal and high-quality surface finishes. These films are ideal for precision finishing and achieving mirror-like surface quality for accurate microstructural analysis.
+                </p>
+                <div class="key-specs">
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Types</span>
+                    <span class="key-specs-value">Diamond & Alumina</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Grit Sizes</span>
+                    <span class="key-specs-value">30μm - 0.3μm</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Benefits</span>
+                    <span class="key-specs-value">Fine Finishing & Mirror Quality</span>
+                  </div>
+                </div>
+                <div class="product-card-button-wrapper">
+                  <a href="/metallographic-consumables/grinding/lapping-films.html" class="btn-modern btn-modern-primary">Learn More</a>
+                  <a href="https://shop.metallographic.com/collections/grinding" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Shop Online</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Belts, Rolls & Powders Section -->
+    <div class="section-anchor" id="belts-rolls-powders" style="position: relative; top: -100px; visibility: hidden;"></div>
+
+    <section class="product-series product-series-modern">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Belts, Rolls & Powders</h2>
+        <p class="section-description-modern">
+          Belts, rolls, and powders provide continuous grinding capabilities for various applications. Our selection includes abrasive belts and rolls for continuous operations, along with grinding powders for specialized finishing applications, offering flexibility and efficiency in sample preparation.
+        </p>
+        <div class="product-grid-modern">
+          <article class="card-modern">
+            <div class="product-card-modern">
+              <div class="product-card-image">
+                <img src="/images/consumables/grinding-lapping/belts, rolls, & powders/belts.webp" alt="Belts, Rolls & Powders" width="400" height="300" loading="lazy" />
+              </div>
+              <div class="product-card-content">
+                <h3>Belts, Rolls & Powders</h3>
+                <p class="product-intro">
+                  Our belts, rolls, and powders include abrasive belts and rolls for continuous grinding operations, along with specialized grinding powders for finishing applications. These consumables offer flexibility and efficiency in sample preparation, supporting various grinding and finishing workflows.
+                </p>
+                <div class="key-specs">
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Formats</span>
+                    <span class="key-specs-value">Belts, Rolls, Powders</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Applications</span>
+                    <span class="key-specs-value">Continuous Grinding & Finishing</span>
+                  </div>
+                  <div class="key-specs-item">
+                    <span class="key-specs-label">Benefits</span>
+                    <span class="key-specs-value">Flexible & Efficient</span>
+                  </div>
+                </div>
+                <div class="product-card-button-wrapper">
+                  <a href="/metallographic-consumables/grinding/belts-rolls-powders.html" class="btn-modern btn-modern-primary">Learn More</a>
+                  <a href="https://shop.metallographic.com/collections/grinding" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Shop Online</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  
   </div>
+</main>
   
   <br><br>
 
@@ -1159,6 +1468,7 @@
   </script>
 </footer>
     <script src="/js/scripts.js" defer></script>
+    <script src="/js/section-nav.js" defer></script>
     <script src="/js/animations.js" defer></script>
 </body>
 </html>

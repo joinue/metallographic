@@ -29,38 +29,102 @@
     stickyNav.style.top = `${navHeight}px`;
   }
 
+  // Function to find the actual section element for an anchor
+  function findSectionElement(anchor) {
+    // The anchor is positioned -100px above, so find the next sibling section
+    let element = anchor.nextElementSibling;
+    
+    // Look for product-series or section class
+    while (element) {
+      if (element.classList && (
+        element.classList.contains('product-series') || 
+        element.classList.contains('section') ||
+        element.tagName === 'SECTION'
+      )) {
+        return element;
+      }
+      element = element.nextElementSibling;
+    }
+    
+    // Fallback: return null if no section found
+    return null;
+  }
+
   // Function to update active nav link
   function updateActiveNavLink() {
     const navHeight = getNavHeight();
-    const scrollPosition = window.scrollY + navHeight + 50; // Offset for sticky nav
+    const stickyNavHeight = stickyNav ? stickyNav.getBoundingClientRect().height : 0;
+    const scrollPosition = window.scrollY;
+    // Offset accounts for main nav, sticky nav, and the -100px anchor offset
+    const viewportOffset = navHeight + stickyNavHeight + 100;
+    const currentPosition = scrollPosition + viewportOffset;
 
-    sectionAnchors.forEach((anchor, index) => {
-      const section = anchor;
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight || 500; // Fallback height
-      const sectionBottom = sectionTop + sectionHeight;
+    let activeSectionId = null;
+    let closestDistance = Infinity;
+
+    sectionAnchors.forEach((anchor) => {
+      const targetId = anchor.getAttribute('id');
+      if (!targetId) return;
+
+      const sectionElement = findSectionElement(anchor);
+      let sectionTop, sectionBottom;
+      
+      if (sectionElement) {
+        // Use the actual section element's position and height
+        sectionTop = sectionElement.offsetTop;
+        const sectionHeight = sectionElement.offsetHeight;
+        sectionBottom = sectionTop + sectionHeight;
+      } else {
+        // Fallback: use anchor position if section not found
+        sectionTop = anchor.offsetTop;
+        
+        // Estimate section height by finding next anchor
+        let nextAnchor = anchor;
+        let sectionHeight = 800; // Default fallback
+        while (nextAnchor.nextElementSibling) {
+          nextAnchor = nextAnchor.nextElementSibling;
+          if (nextAnchor.classList && nextAnchor.classList.contains('section-anchor')) {
+            sectionHeight = nextAnchor.offsetTop - sectionTop;
+            break;
+          }
+        }
+        sectionBottom = sectionTop + sectionHeight;
+      }
 
       // Check if we're in this section
-      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-        // Remove active class from all links
-        navLinks.forEach(link => link.classList.remove('active'));
-        
-        // Add active class to corresponding nav link
-        const targetId = section.getAttribute('id');
-        const correspondingLink = Array.from(navLinks).find(link => {
-          const href = link.getAttribute('href');
-          return href === `#${targetId}`;
-        });
-        
-        if (correspondingLink) {
-          correspondingLink.classList.add('active');
+      if (currentPosition >= sectionTop - 100 && currentPosition < sectionBottom) {
+        // Calculate distance from section top to current position
+        // The section closest to the top of the viewport (accounting for offset) should be active
+        const distance = Math.abs(currentPosition - sectionTop);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          activeSectionId = targetId;
         }
       }
     });
 
-    // If scrolled to top, remove all active classes
-    if (window.scrollY < 100) {
-      navLinks.forEach(link => link.classList.remove('active'));
+    // Update active state on nav links
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      const linkId = href ? href.slice(1) : null;
+      const isActive = linkId === activeSectionId;
+      
+      link.classList.toggle('active', isActive);
+      link.setAttribute('aria-current', isActive ? 'location' : null);
+    });
+
+    // If scrolled to top (before first section), remove all active classes
+    if (sectionAnchors.length > 0 && !activeSectionId) {
+      const firstAnchor = sectionAnchors[0];
+      const firstSection = findSectionElement(firstAnchor);
+      const firstSectionTop = firstSection ? firstSection.offsetTop : firstAnchor.offsetTop;
+      
+      if (scrollPosition + viewportOffset < firstSectionTop - 150) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          link.removeAttribute('aria-current');
+        });
+      }
     }
   }
 

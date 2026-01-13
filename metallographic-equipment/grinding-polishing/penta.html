@@ -13,6 +13,122 @@
     <link rel="stylesheet" href="/../css/pages/machine.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <!-- Hero Quick Navigation Styles - Page Specific for Multi-Product Pages -->
+    <style>
+      /* Add more space between top nav and hero content */
+      .hero-section-modern.hero-section-equipment {
+        padding-top: calc(100px + 4rem) !important;
+      }
+      
+      @media (min-width: 768px) {
+        .hero-section-modern.hero-section-equipment {
+          padding-top: calc(100px + 5rem) !important;
+        }
+      }
+      
+      /* Increased vertical spacing in hero for multi-product pages */
+      .hero-section-modern.hero-section-equipment .hero-breadcrumb {
+        margin-bottom: 1rem !important;
+      }
+      
+      .hero-section-modern.hero-section-equipment .hero-headline {
+        margin-top: 0.5rem !important;
+        margin-bottom: 1rem !important;
+      }
+      
+      .hero-section-modern.hero-section-equipment .hero-description {
+        margin-bottom: 1.5rem !important;
+      }
+      
+      .hero-section-modern.hero-section-equipment .hero-quick-nav {
+        margin: 0 !important;
+        margin-top: 0 !important;
+      }
+      
+      /* Add space between hero and first product section */
+      .hero-section-modern.hero-section-equipment + main .first-container > .container-custom:first-child {
+        margin-top: 4rem !important;
+        padding-top: 2rem !important;
+      }
+      
+      @media (min-width: 768px) {
+        .hero-section-modern.hero-section-equipment .hero-breadcrumb {
+          margin-bottom: 1rem !important;
+        }
+        
+        .hero-section-modern.hero-section-equipment .hero-headline {
+          margin-bottom: 1.25rem !important;
+        }
+        
+        .hero-section-modern.hero-section-equipment .hero-description {
+          margin-bottom: 2rem !important;
+        }
+        
+        .hero-section-modern.hero-section-equipment + main .first-container > .container-custom:first-child {
+          margin-top: 5rem !important;
+          padding-top: 3rem !important;
+        }
+      }
+      
+      .hero-quick-nav-list {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      @media (max-width: 1024px) {
+        .hero-quick-nav-list {
+          flex-wrap: wrap;
+        }
+      }
+      
+      .hero-quick-nav-link {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.875rem;
+        font-weight: 500;
+        border-radius: 0.375rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+      
+      .hero-quick-nav-link:hover,
+      .hero-quick-nav-link:focus {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-1px);
+        outline: 2px solid rgba(255, 255, 255, 0.5);
+        outline-offset: 2px;
+      }
+      
+      .hero-quick-nav-link.active {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      /* Carousel image sizing fix */
+      .product-image-section .carousel-item {
+        overflow: hidden;
+      }
+      
+      .product-image-section .carousel-item img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+    </style>
+
     <!-- External libraries or scripts -->
     <link rel="preconnect" href="https://www.googletagmanager.com"> <!-- Preconnect to external resources for faster loading -->
     <link rel="preconnect" href="https://www.google-analytics.com">
@@ -188,9 +304,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/metallographic-equipment/castable-mounting/lssa-011.html">Vacuum Mounting System</a></li>
-                            <li><a href="/metallographic-equipment/castable-mounting/thetamount.html">Pressure Mounting System</a></li>
-                            <li><a href="/metallographic-equipment/castable-mounting/uvmount.html">UV Curing System</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teravac.html">Vacuum Mounting System</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teravac-pro.html">Automated Vacuum Mounting</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teracomp.html">Pressure Mounting System</a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/terauv.html">UV Curing System</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
@@ -204,6 +321,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
@@ -577,6 +695,7 @@
                         </a>
                         <ul class="sub-menu second-level">
                             <li><a href="/metallographic-equipment/castable-mounting/teravac.html"><span>Vacuum Mounting System</span></a></li>
+                            <li><a href="/metallographic-equipment/castable-mounting/teravac-pro.html"><span>Automated Vacuum Mounting</span></a></li>
                             <li><a href="/metallographic-equipment/castable-mounting/teracomp.html"><span>Pressure Mounting System</span></a></li>
                             <li><a href="/metallographic-equipment/castable-mounting/terauv.html"><span>UV Curing System</span></a></li>
                         </ul>
@@ -593,6 +712,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html"><span>Hand / Belt Grinders</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html"><span>Manual Grinder Polishers</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html"><span>Semi-Auto Grinder Polishers</span></a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html"><span>Automated Abrasive Dispenser</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html"><span>Controlled Removal Polishers</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html"><span>Vibratory Polishers</span></a></li>
                         </ul>
@@ -887,42 +1007,59 @@
       </div>
   </div>
 
-<!-- HEADER -->
+<!-- HEADER - Modern Hero Section -->
 
-    <header class="top-header">
-        <div class="top-header-content">
-            <div class="top-header-inner">
-                <h1 class="page-title">Hand & Belt Grinders - PENTA</h1>
-                <div class="text-content"></div>
-            </div>
-        </div>
-    </header>
-            
+<section class="hero-section-modern hero-section-equipment">
+  <div class="container-custom">
+    <div class="hero-grid">
+      <div>
+        <nav aria-label="Breadcrumb" class="hero-breadcrumb">
+          <ol class="breadcrumb-list">
+            <li class="breadcrumb-item">
+              <a href="/" aria-label="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="/metallographic-equipment/grinding-polishing.html">Grinding & Polishing</a>
+            </li>
+            <li class="breadcrumb-item" aria-current="page">PENTA Series</li>
+          </ol>
+        </nav>
+        <h1 class="hero-headline">PENTA Series Hand and Belt Grinders</h1>
+        <p class="hero-description">
+          Precise material removal and surface preparation for metallographic samples. Available in hand grinder and belt grinder configurations.
+        </p>
+        <!-- Quick Navigation Menu - Integrated into Hero -->
+        <nav class="hero-quick-nav" role="navigation" aria-label="Quick Navigation">
+          <ul class="hero-quick-nav-list">
+            <li><a href="#penta-5000a" class="hero-quick-nav-link">PENTA-5000A</a></li>
+            <li><a href="#penta-7500s" class="hero-quick-nav-link">PENTA-7500S</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-5000a/penta-5000a-cover.webp" alt="PENTA-5000A Hand Grinder" loading="eager">
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MAIN -->
 
+<main id="main-content" class="equipment-main-content">
+<div class="first-container">
 
-<main>
-
-
-    <div class="first-container">
-        <!-- Introduction Section -->
-        <section class="introduction">
-          <!-- Introduction -->
-          <h2 class="equipment-header">PENTA Series Hand and Belt Grinders</h2>
-          <p>
-            The PENTA Series Hand and Belt Grinders deliver precise material removal and surface preparation for metallographic samples. With robust construction and efficient cooling, they ensure reliable performance across applications. Their versatility and heavy-duty capabilities make them essential for high-quality lab work.
-          </p>
-          <div class="feature-buttons-top">
-            <a href="#penta-5000a" class="feature-button-top">PENTA-5000A Hand Grinder</a>
-            <a href="#penta-7500s" class="feature-button-top">PENTA-7500S Belt Grinder</a>
-        </div>
-      </section>
-
-    <!-- Carousel and Features Section -->
-    <div id="penta-5000a"></div>
-    <h3>PENTA-5000A Hand Grinder</h3>
-    <section class="carousel-features">
-        <!-- Carousel Section -->
+  <!-- PENTA-5000A Section -->
+  <section id="penta-5000a" style="scroll-margin-top: 180px;">
+    <div class="container-custom">
+    <!-- Product Grid: Images Left, Details Right -->
+    <div class="product-detail-grid">
+      <!-- Image Gallery Section -->
+      <div class="product-image-section">
         <div class="carousel" aria-label="Product Images and Video">
             <div class="carousel-container">
                 <button class="carousel-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
@@ -936,203 +1073,282 @@
                     <div class="carousel-item" data-description="PENTA-5000A Dimensions">
                         <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-5000a/penta-5000a-dimensions.webp" alt="Image of the PENTA-5000A highlighting key dimensions">
                     </div>
-                    <!-- <div class="carousel-item" data-description="PENTA-5000A Video">
-                        <video controls>
-                            <source src="/images/equipment/grinding & polishing/hand & belt grinders/penta-5000a/penta-5000a-video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>-->
                 </div>
                 <button class="carousel-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
             </div>
             <div class="carousel-description">
-                <p></p>
+                <p>PENTA-5000A - Hand Grinder</p>
             </div>
         </div>
 
-            <!-- Features Section -->
-            <div class="features">
-                <h3>Features</h3>
-                <ul>
-                  <li><strong>Precise Grinding Control:</strong> Features silicon carbide rolls in various grits for accurate material removal.</li>
-                  <li><strong>Versatile Grinding Stations:</strong> Supports five grinding stations, allowing for efficient processing of various sample types.</li>
-                  <li><strong>Robust Construction:</strong> Durable aluminum and stainless steel ensure long-lasting performance.</li>
-                </ul>
-                
-             
-            <br>
-                <div class="feature-buttons">
-                  <a href="/content/brochures/penta/penta-5000a.pdf" class="feature-button" target="_blank" rel="noopener noreferrer">Brochure</a>
-                  <a href="https://shop.metallographic.com/collections/sic-abrasive-belts" class="feature-button" target="_blank" rel="noopener noreferrer">Shop Consumables</a>
-                  <a href="https://www.youtube.com/watch?v=oFQoUkcwTMc&t=230s" class="feature-button" target="_blank" rel="noopener noreferrer">Demo Video</a>
-                  <a href="/metallographic-consumables/grinding.html" class="feature-button" rel="noopener noreferrer">Consumables Guide</a>
-                </div>
-            </div>
-        </section>
-        
-
-<!-- Technical Specifications Section for PENTA-5000A -->
-<section class="specifications">
-  <h3>Technical Specifications - PENTA-5000A</h3>
-  <table>
-      <tr>
-          <th>Parameter</th>
-          <th>Specification</th>
-      </tr>
-      <tr>
-          <td>Grinding Stations</td>
-          <td>240, 360, 600, 800, and 1200 grit silicon carbide rolls</td>
-      </tr>
-      <tr>
-          <td>Roll Sizes</td>
-          <td>3-7/16-inch width x 60 feet length with 1-inch core</td>
-      </tr>
-      <tr>
-          <td>Construction</td>
-          <td>Aluminum casting and stainless steel</td>
-      </tr>
-      <tr>
-          <td>Cooling System</td>
-          <td>Water rinse</td>
-      </tr>
-      <tr>
-          <td>Dimensions (WxDxH)</td>
-          <td>22 x 24 x 9 inches (550 x 610 x 230 mm)</td>
-      </tr>
-      <tr>
-          <td>Weight</td>
-          <td>56 lbs (25 kg)</td>
-      </tr>
-      <tr>
-          <td>Part Number</td>
-          <td>PENTA-5000A</td>
-      </tr>
-  </table>
-</section>
-
-<a href="/quote.html" class="quote-btn-link">
-  <button class="quote-btn-midpage">Request a Quote</button>
-</a><br><br>
-
-<!-- Carousel and Features Section -->
-<div id="penta-7500s"></div>
-<h3>PENTA-7500S Belt Grinder</h3>
-<section class="carousel-features">
-    <!-- Carousel Section -->
-    <div class="carousel" aria-label="Product Images and Video">
-        <div class="carousel-container">
-            <button class="carousel-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-            <div class="carousel-content">
-                <div class="carousel-item" data-description="PENTA-7500S Belt Grinder">
-                    <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-cover.webp" alt="PENTA-7500S Belt Grinder">
-                </div>
-                <div class="carousel-item" data-description="PENTA-7500S Front View">
-                    <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-front.webp" alt="PENTA-7500S Front View">
-                </div>
-                <div class="carousel-item" data-description="PENTA-7500S Side View">
-                    <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-side.webp" alt="PENTA-7500S Side View">
-                </div>
-                <div class="carousel-item" data-description="PENTA-7500S Closeup">
-                    <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-closeup.webp" alt="PENTA-7500S Closeup">
-                </div>
-                <div class="carousel-item" data-description="PENTA-7500S Features">
-                    <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-features.webp" alt="Image of the PENTA-7500S with arrows pointing to key features such as specimen holder, flow valve, and faucet">
-                </div>
-                <div class="carousel-item" data-description="PENTA-7500S Dimensions">
-                    <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-dimensions.webp" alt="Image of the PENTA-7500S highlighting key dimensions">
-                </div>
-                <!--<div class="carousel-item" data-description="PENTA-7500S Video">
-                    <video controls>
-                        <source src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>-->
-            </div>
-            <button class="carousel-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <!-- CTA Buttons -->
+        <div class="product-cta-buttons">
+          <a href="/quote.html" class="btn-modern btn-modern-primary">Request Quote</a>
+          <a href="/content/brochures/penta/penta-5000a.pdf" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Brochure
+          </a>
+          <a href="https://www.youtube.com/watch?v=oFQoUkcwTMc&t=230s" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Demo Video
+          </a>
+          <a href="https://shop.metallographic.com/collections/sic-abrasive-belts" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            Shop Consumables
+          </a>
         </div>
-        <div class="carousel-description">
-            <p></p>
+      </div>
+
+      <!-- Product Details Section -->
+      <div class="product-details-section">
+        <h1 class="product-title">PENTA-5000A Hand Grinder</h1>
+        <p class="product-item-id">Item ID: PENTA-5000A</p>
+        <div class="product-description">
+          <p>The PENTA-5000A Hand Grinder delivers precise material removal and surface preparation for metallographic samples. With robust construction and efficient cooling, it ensures reliable performance across applications.</p>
         </div>
+
+        <!-- Features List -->
+        <div class="product-features">
+          <h3 class="features-heading">Features</h3>
+          <ul class="features-list">
+            <li>Precise Grinding Control: Features silicon carbide rolls in various grits for accurate material removal</li>
+            <li>Versatile Grinding Stations: Supports five grinding stations, allowing for efficient processing of various sample types</li>
+            <li>Robust Construction: Durable aluminum and stainless steel ensure long-lasting performance</li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
 
-        <!-- Features Section -->
-        <div class="features">
-            <h3>Features</h3>
-            <ul>
-              <li><strong>Powerful Motor:</strong> Delivers high torque for efficient, precise grinding and planarization.</li>
-              <li><strong>Efficient Cooling System:</strong> Water-based rinse system with a faucet ensures effective cooling during operation.</li>
-              <li><strong>Robust Construction:</strong> Built with reinforced welded steel, fabricated metal, and stainless steel for long-lasting durability.</li>
-            </ul>
-            
-         
-        <br>
-            <div class="feature-buttons">
-              <a href="/content/brochures/penta/penta-7500s.pdf" class="feature-button" target="_blank" rel="noopener noreferrer">Brochure</a>
-              <a href="https://shop.metallographic.com/collections/sic-abrasive-belts" class="feature-button" target="_blank" rel="noopener noreferrer">Shop Consumables</a>
-              <a href="https://www.youtube.com/watch?v=14I8KUYgaGU&t=1s" class="feature-button" target="_blank" rel="noopener noreferrer">Demo Video</a>
-              <a href="/consumables/grinding.html" class="feature-button" rel="noopener noreferrer">Consumables Guide</a>
+    <!-- Technical Specifications Section for PENTA-5000A -->
+    <section class="specifications-section" id="penta-5000a-specifications">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Technical Specifications - PENTA-5000A</h2>
+        <div class="specifications-table-wrapper">
+          <table>
+            <tr>
+              <th>Parameter</th>
+              <th>Specification</th>
+            </tr>
+            <tr>
+              <td>Grinding Stations</td>
+              <td>240, 360, 600, 800, and 1200 grit silicon carbide rolls</td>
+            </tr>
+            <tr>
+              <td>Roll Sizes</td>
+              <td>3-7/16-inch width x 60 feet length with 1-inch core</td>
+            </tr>
+            <tr>
+              <td>Construction</td>
+              <td>Aluminum casting and stainless steel</td>
+            </tr>
+            <tr>
+              <td>Cooling System</td>
+              <td>Water rinse</td>
+            </tr>
+            <tr>
+              <td>Dimensions (WxDxH)</td>
+              <td>22 x 24 x 9 inches (550 x 610 x 230 mm)</td>
+            </tr>
+            <tr>
+              <td>Weight</td>
+              <td>56 lbs (25 kg)</td>
+            </tr>
+            <tr>
+              <td>Part Number</td>
+              <td>PENTA-5000A</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- PENTA-7500S Section -->
+  <section id="penta-7500s" style="scroll-margin-top: 180px; margin-top: 4rem;">
+    <div class="container-custom">
+    <!-- Product Grid: Images Left, Details Right -->
+    <div class="product-detail-grid">
+      <!-- Image Gallery Section -->
+      <div class="product-image-section">
+        <div class="carousel" aria-label="Product Images and Video">
+            <div class="carousel-container">
+                <button class="carousel-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-content">
+                    <div class="carousel-item" data-description="PENTA-7500S Belt Grinder">
+                        <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-cover.webp" alt="PENTA-7500S Belt Grinder">
+                    </div>
+                    <div class="carousel-item" data-description="PENTA-7500S Front View">
+                        <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-front.webp" alt="PENTA-7500S Front View">
+                    </div>
+                    <div class="carousel-item" data-description="PENTA-7500S Side View">
+                        <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-side.webp" alt="PENTA-7500S Side View">
+                    </div>
+                    <div class="carousel-item" data-description="PENTA-7500S Closeup">
+                        <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-closeup.webp" alt="PENTA-7500S Closeup">
+                    </div>
+                    <div class="carousel-item" data-description="PENTA-7500S Features">
+                        <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-features.webp" alt="Image of the PENTA-7500S with arrows pointing to key features such as specimen holder, flow valve, and faucet">
+                    </div>
+                    <div class="carousel-item" data-description="PENTA-7500S Dimensions">
+                        <img src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-dimensions.webp" alt="Image of the PENTA-7500S highlighting key dimensions">
+                    </div>
+                </div>
+                <button class="carousel-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="carousel-description">
+                <p>PENTA-7500S - Belt Grinder</p>
             </div>
         </div>
-    </section>
+
+        <!-- CTA Buttons -->
+        <div class="product-cta-buttons">
+          <a href="/quote.html" class="btn-modern btn-modern-primary">Request Quote</a>
+          <a href="/content/brochures/penta/penta-7500s.pdf" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Brochure
+          </a>
+          <a href="https://www.youtube.com/watch?v=14I8KUYgaGU&t=1s" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Demo Video
+          </a>
+          <a href="https://shop.metallographic.com/collections/sic-abrasive-belts" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            Shop Consumables
+          </a>
+        </div>
+      </div>
+
+      <!-- Product Details Section -->
+      <div class="product-details-section">
+        <h1 class="product-title">PENTA-7500S Belt Grinder</h1>
+        <p class="product-item-id">Item ID: PENTA-7500S</p>
+        <div class="product-description">
+          <p>The PENTA-7500S Belt Grinder delivers high torque for efficient, precise grinding and planarization. With an efficient cooling system and robust construction, it ensures reliable performance for demanding applications.</p>
+        </div>
+
+        <!-- Features List -->
+        <div class="product-features">
+          <h3 class="features-heading">Features</h3>
+          <ul class="features-list">
+            <li>Powerful Motor: Delivers high torque for efficient, precise grinding and planarization</li>
+            <li>Efficient Cooling System: Water-based rinse system with a faucet ensures effective cooling during operation</li>
+            <li>Robust Construction: Built with reinforced welded steel, fabricated metal, and stainless steel for long-lasting durability</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <!-- Technical Specifications Section for PENTA-7500S -->
-<section class="specifications">
-  <h3>Technical Specifications - PENTA-7500S</h3>
-  <table>
-      <tr>
-          <th>Parameter</th>
-          <th>Specification</th>
-      </tr>
-      <tr>
-          <td>Belt Size</td>
-          <td>4 x 36 inches (102 x 914 mm)</td>
-      </tr>
-      <tr>
-          <td>Cooling System</td>
-          <td>Water rinse</td>
-      </tr>
-      <tr>
-          <td>Construction</td>
-          <td>Reinforced welded steel, fabricated metal, & stainless steel</td>
-      </tr>
-      <tr>
-          <td>Motor Power</td>
-          <td>550 W (0.75 hp)</td>
-      </tr>
-      <tr>
-          <td>Electrical Specifications</td>
-          <td>110V or 220V 50/60 Hz</td>
-      </tr>
-      <tr>
-          <td>Dimensions (WxDxH)</td>
-          <td>20 x 25 x 15 inches (510 x 630 x 380 mm)</td>
-      </tr>
-      <tr>
-          <td>Weight</td>
-          <td>120 lbs (50 kg)</td>
-      </tr>
-      <tr>
-          <td>Part Number</td>
-          <td>PENTA-7500S</td>
-      </tr>
-  </table>
-</section>
+    <section class="specifications-section" id="penta-7500s-specifications">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Technical Specifications - PENTA-7500S</h2>
+        <div class="specifications-table-wrapper">
+          <table>
+            <tr>
+              <th>Parameter</th>
+              <th>Specification</th>
+            </tr>
+            <tr>
+              <td>Belt Size</td>
+              <td>4 x 36 inches (102 x 914 mm)</td>
+            </tr>
+            <tr>
+              <td>Cooling System</td>
+              <td>Water rinse</td>
+            </tr>
+            <tr>
+              <td>Construction</td>
+              <td>Reinforced welded steel, fabricated metal, & stainless steel</td>
+            </tr>
+            <tr>
+              <td>Motor Power</td>
+              <td>550 W (0.75 hp)</td>
+            </tr>
+            <tr>
+              <td>Electrical Specifications</td>
+              <td>110V or 220V 50/60 Hz</td>
+            </tr>
+            <tr>
+              <td>Dimensions (WxDxH)</td>
+              <td>20 x 25 x 15 inches (510 x 630 x 380 mm)</td>
+            </tr>
+            <tr>
+              <td>Weight</td>
+              <td>120 lbs (50 kg)</td>
+            </tr>
+            <tr>
+              <td>Part Number</td>
+              <td>PENTA-7500S</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+  </section>
 
-<a href="/quote.html" class="quote-btn-link">
-  <button class="quote-btn-midpage">Request a Quote</button>
-</a><br><br>
-
-
-<!-- Related Consumables Section -->
-<section class="related-products">
-  <h3>Related Consumables</h3>
-  <ul>
-      <li><a href="https://shop.metallographic.com/collections/sic-abrasive-belts" target="_blank" rel="noopener noreferrer">Silicon Carbide Grinding Belts</a></li>
-      <li><a href="https://shop.metallographic.com/collections/alumina-abrasive-belts" target="_blank" rel="noopener noreferrer">Aluminum Oxide Grinding Belts</a></li>
-      <li><a href="https://shop.metallographic.com/collections/zirconia-abrasive-belts" target="_blank" rel="noopener noreferrer">Zirconia Grinding Belts</a></li>
-  </ul>
-  <br>
-</section>
+  <!-- Related Consumables Section -->
+  <section class="related-consumables-section" id="penta-consumables">
+    <div class="container-custom">
+      <h2 class="section-header-modern">Related Consumables</h2>
+      <div class="related-consumables-grid">
+        <div class="consumables-image-wrapper">
+          <img src="/images/consumables/grinding-lapping/grinding-lapping-cover.webp" alt="Grinding & Lapping Consumables" loading="lazy">
+        </div>
+        <div class="consumables-links">
+          <a href="https://shop.metallographic.com/collections/sic-abrasive-belts" class="consumable-link" target="_blank" rel="noopener noreferrer">
+            <span>Silicon Carbide Grinding Belts</span>
+            <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+          <a href="https://shop.metallographic.com/collections/alumina-abrasive-belts" class="consumable-link" target="_blank" rel="noopener noreferrer">
+            <span>Aluminum Oxide Grinding Belts</span>
+            <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+          <a href="https://shop.metallographic.com/collections/zirconia-abrasive-belts" class="consumable-link" target="_blank" rel="noopener noreferrer">
+            <span>Zirconia Grinding Belts</span>
+            <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+          <a href="/metallographic-consumables/grinding.html" class="consumable-link">
+            <span>Grinding Consumables Guide</span>
+            <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
     </div>
 
@@ -1332,6 +1548,7 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
 </footer>
+    <script src="/js/carousel.js" defer></script>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
 </body>

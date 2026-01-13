@@ -68,6 +68,8 @@
     height: 0;
     padding-top: 66.25%; /* Aspect ratio 16:9 */
     position: relative;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 50%, #f5f5f5 100%);
+    border-radius: 8px;
 }
 
 .carousel-item img {
@@ -1860,6 +1862,8 @@ html {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
 }
 
 /* Section Headers */
@@ -2199,6 +2203,8 @@ main .first-container > .features-section-modern:first-child {
     
     .product-card-button-wrapper {
         margin-top: var(--spacing-md);
+        flex-direction: column;
+        gap: var(--spacing-xs);
     }
     
     .product-card-button-wrapper .btn-modern {
@@ -2363,14 +2369,276 @@ main .first-container > .features-section-modern:first-child {
     background: var(--color-background-light);
 }
 
+/* Account for fixed navigation header */
+main#main-content.equipment-main-content {
+    padding-top: 180px; /* Desktop navigation height - increased to account for full nav */
+}
+
+/* Fallback for pages without equipment-main-content class */
+#main-content:not(.equipment-main-content) {
+    padding-top: 100px;
+}
+
 /* Remove padding when hero section is present (hero already accounts for nav) */
 .hero-section-modern ~ main#main-content,
 .hero-section-modern + main#main-content {
     padding-top: 0;
 }
 
+/* Quick Links Section - For More Resources navigation */
+.quick-links-section {
+    padding: var(--spacing-2xl) 0;
+    margin: var(--spacing-2xl) 0;
+    background: var(--color-background-light, #f9fafb);
+    border-radius: var(--border-radius-lg, 0.5rem);
+    border: 1px solid var(--color-border, #e5e7eb);
+}
+
+@media (min-width: 640px) {
+    .quick-links-section {
+        padding: var(--spacing-3xl) 0;
+    }
+}
+
+.quick-links-section .section-header-modern {
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.quick-links-wrapper {
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.875rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@media (min-width: 640px) {
+    .quick-links {
+        gap: var(--spacing-md);
+    }
+}
+
+.quick-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    color: var(--color-text-primary, #111827);
+    background: var(--color-background, #ffffff);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.quick-link:hover {
+    color: var(--color-primary, #2563eb);
+    background: var(--color-background-light, #f9fafb);
+    border-color: var(--color-primary, #2563eb);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.quick-link:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.quick-link:focus-visible {
+    outline: 2px solid var(--color-primary, #2563eb);
+    outline-offset: 2px;
+    border-radius: 9999px;
+}
+
+.quick-link-separator {
+    color: var(--color-border, #d1d5db);
+    user-select: none;
+    padding: 0 var(--spacing-xs);
+    font-size: 1rem;
+}
+
+/* Anchor offset for smooth scrolling */
+a[id] {
+    scroll-margin-top: 120px;
+}
+
 @media (max-width: 768px) {
-    #main-content {
+    a[id] {
+        scroll-margin-top: 100px;
+    }
+    
+    .quick-link {
+        font-size: 0.8125rem;
+        padding: var(--spacing-xs) var(--spacing-md);
+    }
+    
+    .quick-links {
+        gap: var(--spacing-xs);
+    }
+}
+
+/* Guide-like styling for consumables content sections */
+/* Create a consistent content wrapper for content sections */
+/* Target container-custom divs that contain consumables content */
+#main-content .first-container .container-custom {
+    max-width: 65rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Override for hero and features sections which should use full width */
+.hero-section-modern .container-custom,
+.features-section-modern .container-custom,
+.quick-links-section .container-custom {
+    max-width: var(--container-max-width, 1440px);
+}
+
+/* Ensure all content within containers respects boundaries */
+#main-content .first-container .container-custom > * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.container-custom .consumables-header {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text-primary, #111827);
+    margin: 2rem 0 1.5rem 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border, #e5e7eb);
+    line-height: 1.2;
+    width: 100%;
+    max-width: 100%;
+}
+
+.container-custom .consumables-header:first-of-type {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.container-custom .consumables-subtitle,
+.container-custom .consumables-subheader {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary, #111827);
+    margin: 2rem 0 1rem 0;
+    line-height: 1.3;
+    width: 100%;
+    max-width: 100%;
+}
+
+.container-custom .consumables-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary, #111827);
+    margin: 0 0 1rem 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.container-custom .consumables-list {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    line-height: 1.7;
+    width: 100%;
+    max-width: 100%;
+}
+
+.container-custom .consumables-list li {
+    margin: 0.5rem 0;
+    color: var(--color-text-primary, #111827);
+}
+
+.container-custom .consumables-list li strong {
+    font-weight: 600;
+    color: var(--color-text-primary, #111827);
+}
+
+/* Ensure proper spacing between sections */
+.container-custom > a[id] + .consumables-header {
+    margin-top: 0;
+    border-top: none;
+    padding-top: 0;
+}
+
+/* Note styling */
+.container-custom .note {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary, #6b7280);
+    font-style: italic;
+    margin: 1rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--color-border, #e5e7eb);
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Ensure tables and other elements are properly constrained */
+.container-custom .specifications-table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 1.5rem 0;
+}
+
+.container-custom h4.consumables-subtitle {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Ensure images are properly constrained */
+.container-custom img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure all divs within container respect width */
+.container-custom > div {
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container-custom .consumables-header {
+        font-size: 1.75rem;
+        margin: 1.5rem 0 1rem 0;
+    }
+    
+    .container-custom .consumables-subtitle,
+    .container-custom .consumables-subheader {
+        font-size: 1.25rem;
+        margin: 1.5rem 0 0.75rem 0;
+    }
+    
+    .container-custom .consumables-text {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 768px) {
+    main#main-content.equipment-main-content {
+        padding-top: 180px; /* Mobile navigation height - increased to account for full nav */
+    }
+    
+    #main-content:not(.equipment-main-content) {
         padding-top: 160px; /* Smaller nav on mobile */
     }
     
@@ -2415,6 +2683,17 @@ main .first-container > .features-section-modern:first-child {
     width: 100%;
     margin-right: 0;
     margin-bottom: var(--spacing-lg);
+}
+
+/* Fix carousel image sizing to ensure images fit within frame */
+.product-image-section .carousel-item {
+    overflow: hidden;
+}
+
+.product-image-section .carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 /* Product Details Section */
