@@ -9,16 +9,32 @@
   const STORAGE_STEP_KEY = 'builder-step';
   const STORAGE_RECOMMENDATIONS_KEY = 'builder-recommendations';
 
+  // Helper function to create SVG icon (Lucide-style)
+  function createIconSVG(iconName, size = 20) {
+    const icons = {
+      'wrench': '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>',
+      'package': '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>',
+      'circle': '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>',
+      'sparkles': '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"></path></svg>',
+      'droplet': '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>',
+      'flask-conical': '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v6m4-6v6M4 10a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2H4z"></path><path d="M6 10h12"></path></svg>',
+      'gauge': '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path><path d="M20.2 20.2C22 18.3 23 15.7 23 13c0-5.5-4.5-10-10-10S3 7.5 3 13c0 2.7 1 5.3 2.8 7.2"></path><path d="M12 2v4"></path><path d="M12 18v4"></path><path d="M2 12h4"></path><path d="M18 12h4"></path></svg>',
+      'eye': '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>',
+      'check': '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>'
+    };
+    return icons[iconName] || '';
+  }
+
   // Process stage options
   const processStageOptions = [
-    { id: 'sectioning', label: 'Sectioning', description: 'Cutting and sample preparation equipment', icon: '🔧' },
-    { id: 'mounting', label: 'Mounting', description: 'Sample mounting equipment and materials', icon: '📦' },
-    { id: 'grinding', label: 'Grinding', description: 'Grinding equipment and abrasives', icon: '⚙️' },
-    { id: 'polishing', label: 'Polishing', description: 'Polishing equipment and consumables', icon: '✨' },
-    { id: 'etching', label: 'Etching', description: 'Etchants and etching supplies', icon: '💧' },
-    { id: 'microscopy', label: 'Microscopy', description: 'Microscopes and imaging equipment', icon: '🔬' },
-    { id: 'cleaning', label: 'Cleaning', description: 'Sample cleaning equipment', icon: '🧪' },
-    { id: 'hardness', label: 'Hardness Testing', description: 'Hardness testing equipment', icon: '📊' }
+    { id: 'sectioning', label: 'Sectioning', description: 'Cutting and sample preparation equipment', icon: 'wrench' },
+    { id: 'mounting', label: 'Mounting', description: 'Sample mounting equipment and materials', icon: 'package' },
+    { id: 'grinding', label: 'Grinding', description: 'Grinding equipment and abrasives', icon: 'circle' },
+    { id: 'polishing', label: 'Polishing', description: 'Polishing equipment and consumables', icon: 'sparkles' },
+    { id: 'etching', label: 'Etching', description: 'Etchants and etching supplies', icon: 'droplet' },
+    { id: 'microscopy', label: 'Microscopy', description: 'Microscopes and imaging equipment', icon: 'eye' },
+    { id: 'cleaning', label: 'Cleaning', description: 'Sample cleaning equipment', icon: 'flask-conical' },
+    { id: 'hardness', label: 'Hardness Testing', description: 'Hardness testing equipment', icon: 'gauge' }
   ];
 
   // Form data state
@@ -99,7 +115,7 @@
           <input type="checkbox" ${isSelected ? 'checked' : ''} class="builder-stage-checkbox">
           <div class="builder-stage-content">
             <div class="builder-stage-header">
-              <span class="builder-stage-icon">${option.icon}</span>
+              <span class="builder-stage-icon">${createIconSVG(option.icon, 24)}</span>
               <span class="builder-stage-label">${option.label}</span>
             </div>
             <p class="builder-stage-description">${option.description}</p>
@@ -273,6 +289,35 @@
     const backButton = document.getElementById('back-button');
     if (backButton) {
       backButton.addEventListener('click', handleBack);
+    }
+
+    // Back confirmation modal
+    const backConfirmationModal = document.getElementById('back-confirmation-modal');
+    const confirmBack = document.getElementById('confirm-back');
+    const sendToExpertBeforeBack = document.getElementById('send-to-expert-before-back');
+    
+    if (confirmBack) {
+      confirmBack.addEventListener('click', () => {
+        if (backConfirmationModal) backConfirmationModal.style.display = 'none';
+        window.location.href = '/';
+      });
+    }
+    
+    if (sendToExpertBeforeBack) {
+      sendToExpertBeforeBack.addEventListener('click', () => {
+        if (backConfirmationModal) backConfirmationModal.style.display = 'none';
+        if (expertReviewModal) expertReviewModal.style.display = 'flex';
+      });
+    }
+    
+    // Close back confirmation modal when clicking overlay
+    if (backConfirmationModal) {
+      const overlay = backConfirmationModal.querySelector('.builder-modal-overlay');
+      if (overlay) {
+        overlay.addEventListener('click', () => {
+          backConfirmationModal.style.display = 'none';
+        });
+      }
     }
 
     // Scroll to top
@@ -451,7 +496,7 @@
 
       if (i < currentStep) {
         if (circle) {
-          circle.innerHTML = '✓';
+          circle.innerHTML = createIconSVG('check', 16);
           circle.classList.add('completed');
         }
         if (line) line.classList.add('completed');
@@ -948,7 +993,7 @@
         html += `
           <div class="builder-results-category">
             <h4 class="builder-results-category-title">
-              <span class="builder-results-category-icon">📦</span>
+              <span class="builder-results-category-icon">${createIconSVG('package', 20)}</span>
               Equipment
             </h4>
             <div class="builder-results-items">
@@ -963,7 +1008,7 @@
         html += `
           <div class="builder-results-category">
             <h4 class="builder-results-category-title">
-              <span class="builder-results-category-icon">🧪</span>
+              <span class="builder-results-category-icon">${createIconSVG('flask-conical', 20)}</span>
               Consumables
             </h4>
             <div class="builder-results-items">
@@ -1002,22 +1047,23 @@
   // Get stage icon
   function getStageIcon(stage) {
     const icons = {
-      'sectioning': '🔧',
-      'mounting': '📦',
-      'grinding': '⚙️',
-      'polishing': '✨',
-      'final-polishing': '✨',
-      'etching': '💧',
-      'microscopy': '🔬',
-      'cleaning': '🧪',
-      'hardness': '📊'
+      'sectioning': 'wrench',
+      'mounting': 'package',
+      'grinding': 'circle',
+      'polishing': 'sparkles',
+      'final-polishing': 'sparkles',
+      'etching': 'droplet',
+      'microscopy': 'eye',
+      'cleaning': 'flask-conical',
+      'hardness': 'gauge'
     };
-    return icons[stage] || '📋';
+    const iconName = icons[stage] || 'package';
+    return createIconSVG(iconName, 20);
   }
 
   // Render recommendation item
   function renderRecommendationItem(rec) {
-    const icon = rec.category === 'equipment' ? '📦' : '🧪';
+    const icon = rec.category === 'equipment' ? createIconSVG('package', 20) : createIconSVG('flask-conical', 20);
     const reasoning = parseLinks(rec.reasoning);
     
     return `

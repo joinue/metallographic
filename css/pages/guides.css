@@ -21,7 +21,7 @@
 }
 
 .container-custom {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -164,6 +164,73 @@
   outline-offset: 2px;
 }
 
+/* Hide select on desktop by default */
+.filter-select {
+  display: none;
+}
+
+/* Mobile-optimized filter - use dropdown instead of buttons */
+@media (max-width: 640px) {
+  .filter-buttons {
+    display: none !important; /* Hide buttons on mobile */
+  }
+
+  .guides-filters {
+    margin-bottom: 1rem; /* Reduce spacing on mobile */
+  }
+
+  .filter-select {
+    display: block !important;
+    width: 100%;
+    padding: 0.75rem 2.5rem 0.75rem 0.75rem;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background-color: #fff;
+    color: var(--color-text-primary, #111827);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+    line-height: 1.5;
+  }
+
+  .filter-select:hover {
+    border-color: var(--color-gray-300, #d1d5db);
+    background-color: var(--color-gray-50, #f9fafb);
+  }
+
+  .filter-select:focus {
+    outline: none;
+    border-color: var(--color-primary, #2563eb);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    background-color: #fff;
+  }
+
+  .filter-select:active {
+    border-color: var(--color-primary, #2563eb);
+  }
+
+  /* Style option elements */
+  .filter-select option {
+    padding: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text-primary, #111827);
+  }
+
+  .filter-select option:checked {
+    background-color: var(--color-primary, #2563eb);
+    color: #fff;
+  }
+}
+
 /* Guide Sections */
 #guides-content .guide-section {
   margin-bottom: 0 !important;
@@ -174,6 +241,42 @@
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.7s ease-out forwards;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Ensure all guide sections have consistent alignment */
+#guides-content .guide-section[data-category="Application-Specific"] .guide-cards-grid,
+#guides-content .guide-section[data-category="Basics"] .guide-cards-grid,
+#guides-content .guide-section[data-category="Process"] .guide-cards-grid,
+#guides-content .guide-section[data-category="Material-Specific"] .guide-cards-grid,
+#guides-content .guide-section[data-category="Troubleshooting"] .guide-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: stretch; /* Stretch cards to fill grid cells */
+}
+
+@media (min-width: 768px) {
+  #guides-content .guide-section[data-category="Application-Specific"] .guide-cards-grid,
+  #guides-content .guide-section[data-category="Basics"] .guide-cards-grid,
+  #guides-content .guide-section[data-category="Process"] .guide-cards-grid,
+  #guides-content .guide-section[data-category="Material-Specific"] .guide-cards-grid,
+  #guides-content .guide-section[data-category="Troubleshooting"] .guide-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: stretch; /* Stretch cards to fill grid cells */
+  }
+}
+
+@media (min-width: 1024px) {
+  #guides-content .guide-section[data-category="Application-Specific"] .guide-cards-grid,
+  #guides-content .guide-section[data-category="Basics"] .guide-cards-grid,
+  #guides-content .guide-section[data-category="Process"] .guide-cards-grid,
+  #guides-content .guide-section[data-category="Material-Specific"] .guide-cards-grid,
+  #guides-content .guide-section[data-category="Troubleshooting"] .guide-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch; /* Stretch cards to fill grid cells */
+  }
 }
 
 /* Add spacing between sections using adjacent sibling selector */
@@ -237,17 +340,20 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  align-items: stretch; /* Stretch cards to fill grid cells */
 }
 
 @media (min-width: 768px) {
   .guide-cards-grid {
     grid-template-columns: repeat(2, 1fr);
+    align-items: stretch; /* Stretch cards to fill grid cells */
   }
 }
 
 @media (min-width: 1024px) {
   .guide-cards-grid {
     grid-template-columns: repeat(3, 1fr);
+    align-items: stretch; /* Stretch cards to fill grid cells */
   }
 }
 
@@ -262,6 +368,11 @@
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease-out forwards;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure cards fill grid cell height */
 }
 
 /* Stagger animation delays for cards */
@@ -280,10 +391,13 @@
 }
 
 .guide-card-link {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: 1.5rem;
   text-decoration: none;
   color: inherit;
+  height: 100%;
+  min-height: 0;
 }
 
 .guide-card-header {
@@ -320,6 +434,29 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+/* Ensure images display properly */
+.guide-card img,
+.guide-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure all guide cards have consistent width and alignment */
+#guides-content .guide-section .guide-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure grid items don't overflow */
+.guide-cards-grid > * {
+  min-width: 0;
+  width: 100%;
 }
 
 .difficulty-badge {
@@ -370,6 +507,15 @@
   color: var(--color-text-secondary, #374151);
   line-height: 1.6;
   margin-bottom: 1rem;
+  flex-grow: 1;
+  /* Limit to 4 lines with ellipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: calc(0.875rem * 1.6 * 4); /* 4 lines: font-size * line-height * 4 */
+  max-height: calc(0.875rem * 1.6 * 4);
 }
 
 .guide-card-link-text {
@@ -471,6 +617,7 @@
 .btn-primary:hover {
   background-color: var(--color-primary-hover, #1d4ed8);
   border-color: var(--color-primary-hover, #1d4ed8);
+  color: #fff;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }

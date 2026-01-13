@@ -420,7 +420,7 @@ export default function StandardsDatabasePage() {
 
                 <div className="pt-3 border-t border-gray-200 flex items-center justify-between">
                   <span className="text-primary-600 font-medium text-sm group-hover:underline">
-                    View Details →
+                    View Details >
                   </span>
                   {standard.official_url && (
                     <Link

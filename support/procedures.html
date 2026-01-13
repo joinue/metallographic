@@ -34,10 +34,39 @@
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/layouts/homepage.css">
     <link rel="stylesheet" href="/css/pages/support.css">
-    <link rel="stylesheet" href="/css/pages/prep.css">
+    <link rel="stylesheet" href="/css/pages/materials.css">
+    <link rel="stylesheet" href="/css/utilities/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
           integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/5hb7x1l5b6ASoD7Y6Mgg7k+RCUty7k3y9iO6F0"
           crossorigin="anonymous">
+    
+    <!-- Critical inline style to prevent animation FOUC -->
+    <style>
+        /* Hide animated elements immediately to prevent flash */
+        [data-animate] {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(0) translateX(0);
+        }
+        [data-animate="up"] {
+            transform: translateY(60px);
+        }
+        [data-animate="down"] {
+            transform: translateY(-60px);
+        }
+        [data-animate="left"] {
+            transform: translateX(60px);
+        }
+        [data-animate="right"] {
+            transform: translateX(-60px);
+        }
+        [data-animate="fade"] {
+            transform: translateY(0) translateX(0);
+        }
+    </style>
+    <noscript>
+        <style>body{visibility:visible !important;opacity:1 !important;}[data-animate]{opacity:1 !important;visibility:visible !important;}</style>
+    </noscript>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/Images/pt-favicon/apple-touch-icon.png">
@@ -83,6 +112,9 @@
 </head>
 
 <body>
+
+<!-- Skip to Main Content Link -->
+<a href="#main-content" class="skip-to-main">Skip to main content</a>
 
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
@@ -138,7 +170,7 @@
                 </button>
             </div>
             <div class="mobile-nav-content">
-            <ul class="nav-links-mobile">
+        <ul class="nav-links-mobile">
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
                     <a href="/equipment.html" class="mobile-nav-link">Equipment</a>
@@ -154,7 +186,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Abrasive Sectioning submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/abrasive-sectioning.html#manual">Manual Abrasive Cutters</a></li>
@@ -166,7 +198,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Precision Wafering submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/precision-wafering.html#gravity">Gravity Feed Saws</a></li>
@@ -178,7 +210,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Compression Mounting submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/compression-mounting/tp-7500s.html">Hydraulic Mounting Press</a></li>
@@ -191,7 +223,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Castable Mounting submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/castable-mounting/lssa-011.html">Vacuum Mounting System</a></li>
@@ -204,7 +236,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Grinding & Polishing submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
@@ -219,7 +251,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Microscopy submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/microscopy/metallurgical.html">Metallurgical Microscopes</a></li>
@@ -232,7 +264,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Hardness Testing submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/hardness-testing/microhardness.html">Microhardness Testers</a></li>
@@ -264,7 +296,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sectioning submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-consumables/sectioning/abrasive-cutting.html">Abrasive Cutting</a></li>
@@ -276,7 +308,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Mounting submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-consumables/mounting/compression.html">Compression Mounting</a></li>
@@ -288,7 +320,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Grinding / Lapping submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-consumables/grinding/abrasive-grinding.html">Abrasive Grinding</a></li>
@@ -338,44 +370,74 @@
                     </button>
                 </div>
                 <ul class="sub-menu-mobile" data-section="support">
-                    <li><a href="/support/products.html"><span>Product Information</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
                     <li class="has-submenu">
-                        <a href="/support/brochures.html">Product Literature</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Literature submenu">
+                        <a href="/support/products.html">Product Information</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/support/products.html">Explore Products</a></li>
                             <li><a href="/catalog.html">Product Catalog</a></li>
                             <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
                             <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="/services.html"><span>Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></span></a>
+                    </li>
+                    <li><a href="/support.html"><span>Technical Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav-section">
+                <div class="mobile-nav-header">
+                    <a href="/guides.html" class="mobile-nav-link">Learn</a>
+                    <button class="mobile-nav-toggle" data-section="learn" aria-label="Toggle Learn submenu">
+                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                </div>
+                <ul class="sub-menu-mobile" data-section="learn">
                     <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep Resources submenu">
+                        <a href="/guides.html">Guides</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Guides submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="https://www.youtube.com/@pacetechnologies">PACE YouTube Channel</a></li>
+                            <li><a href="/guides.html">All Guides</a></li>
+                            <li><a href="/guides.html?category=Basics">Basics</a></li>
+                            <li><a href="/guides.html?category=Process">Process</a></li>
+                            <li><a href="/guides.html?category=Material-Specific">Material-Specific</a></li>
+                            <li><a href="/guides.html?category=Application-Specific">Application-Specific</a></li>
+                            <li><a href="/guides.html?category=Troubleshooting">Troubleshooting</a></li>
                         </ul>
                     </li>
-                    <li><a href="/support/etchant-information.html"><span>Etchant Information</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li class="has-submenu">
+                        <a href="/tools.html">Tools</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Tools submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/tools/grit-size-converter.html">Grit Size Converter</a></li>
+                            <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
+                            <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
+                            <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
+                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
+                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+                        </ul>
+                    </li>
                     <li class="mobile-nav-subsection">
                         <div class="mobile-nav-header">
                             <a href="/databases.html" class="mobile-nav-link">Databases</a>
@@ -387,42 +449,67 @@
                         </div>
                         <ul class="sub-menu-mobile nested" data-section="databases">
                             <li>
+                                <a href="/databases.html">
+                                    <span>All Databases
+                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
                                 <a href="/materials.html">
                                     <span>Materials Database
-                                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <path d="M9 18l6-6-6-6" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
+                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
                                 <a href="/etchants.html">
                                     <span>Etchants Database
-                                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <path d="M9 18l6-6-6-6" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
+                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
                                 <a href="/standards.html">
                                     <span>Standards Database
-                                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <path d="M9 18l6-6-6-6" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </li>
+                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+                    <li class="has-submenu">
+                        <a href="/support/procedures.html">Resources</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Resources submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
+                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
+                            <li><a href="/guides.html">Preparation Guides</a></li>
                         </ul>
                     </li>
-                    <li><a href="/support.html"><span>Technical Services & Support</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies/videos"><span>Our YouTube Channel</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li class="has-submenu">
+                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li class="mobile-nav-section">
@@ -453,15 +540,15 @@
                         </svg></a></li>
                 </ul>
             </li>
-            </ul>
+        </ul>
             </div>
             <div class="mobile-nav-actions">
                 <a href="/quote.html" class="mobile-action-btn mobile-action-btn-primary">Quote Request</a>
                 <a href="/search.html" class="mobile-action-btn mobile-action-btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
                     Search
                 </a>
             </div>
@@ -664,30 +751,65 @@
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Explore Products                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/support/brochures.html"><span>Product Literature
+                    <li><a href="/support/products.html"><span>Product Information
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg>
                     </span></a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
                             <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
                             <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
                             <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep Resources 
+                    <li>
+                        <a href="/services.html">
+                            <span>Technical Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/support.html">
+                            <span>Customer Support</span>
+                        </a>
+                    </li>             
+                </ul>
+            </li>
+            <li>
+                <a href="/guides.html">
+                    <span>Learn
+                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="/guides.html"><span>Guides
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg>
                     </span></a>
                         <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="https://www.youtube.com/@pacetechnologies"><span>PACE YouTube Channel</span></a></li>
+                            <li><a href="/guides.html"><span>All Guides</span></a></li>
+                            <li><a href="/guides.html?category=Basics"><span>Basics</span></a></li>
+                            <li><a href="/guides.html?category=Process"><span>Process</span></a></li>
+                            <li><a href="/guides.html?category=Material-Specific"><span>Material-Specific</span></a></li>
+                            <li><a href="/guides.html?category=Application-Specific"><span>Application-Specific</span></a></li>
+                            <li><a href="/guides.html?category=Troubleshooting"><span>Troubleshooting</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/tools.html"><span>Tools
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/tools/grit-size-converter.html"><span>Grit Size Converter</span></a></li>
+                            <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
+                            <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
+                            <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
+                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
+                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -699,20 +821,32 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/databases.html"><span>All Databases</span></a></li>
                             <li><a href="/materials.html"><span>Materials Database</span></a></li>
                             <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
                             <li><a href="/standards.html"><span>Standards Database</span></a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Technical Services
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>             
+                    <li><a href="/support/procedures.html"><span>Resources
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
+                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
+                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -796,8 +930,7 @@
     <header>
         <div class="top-header-content">
             <div class="top-header-inner">
-                <h1 class="page-title">Metallographic Application Procedures</h1>
-                <div class="text-content"></div>
+                <h1 class="page-title" data-animate="fade" data-animate-delay="100">Sample Preparation Procedures</h1>
             </div>
         </div>
     </header>
@@ -807,285 +940,338 @@
 
 <div class="first-container">
     <main>
-
-      <section class="metallographic-procedures">
-      
-        <div class="intro-section">
-          <div class="image-container">
-              <img src="https://www.metallographic.com/Images/Class-materials.png" alt="Metallographic Procedures" usemap="#Map2">
-              <map name="Map2">
-                  <area shape="poly" coords="758,387,739,412,723,425,701,419,658,409,610,414,582,429,576,447,584,466,606,477,609,483,637,499,648,521,635,521,609,527,583,542,581,565,587,573,608,581,610,595,759,598,756,399" href="https://www.metallographic.com/support/preparation-procedures/class-11.html" alt="CLASS-11 Materials Preparation">
-                  <area shape="poly" coords="525,252,527,289,532,302,543,311,560,317,583,324,576,332,556,350,549,370,552,391,565,408,589,421,610,413,630,410,658,409,686,414,712,423,727,420,745,403,756,381,758,241,652,243" href="https://www.metallographic.com/support/preparation-procedures/class-10.html" alt="CLASS-10 Materials Preparation">
-                  <area shape="poly" coords="454,43,458,126,544,166,755,162,755,42" href="https://www.metallographic.com/support/preparation-procedures/class-9.html" alt="CLASS-9 Materials Preparation">
-                  <area shape="poly" coords="369,405,389,530,409,539,424,545,433,554,432,595,609,597,608,580,586,573,575,554,579,545,590,536,607,528,627,521,647,520,643,503,628,493,610,486,605,477,587,467,574,456,571,443,580,430,589,422,567,410,548,419,521,425,502,427,495,422,480,414,449,411,417,414,404,416,382,406,360,406,369,422,376,437,373,453,376,468,390,485,406,494,426,498,436,503,429,509,425,518,409,522,396,523" href="https://www.metallographic.com/support/preparation-procedures/class-8.html" alt="CLASS-8 Materials Preparation">
-                  <area shape="poly" coords="414,247,423,282,424,305,422,324,417,348,408,374,397,392,389,402,381,406,404,417,423,412,448,409,466,412,482,417,499,426,527,424,549,418,565,409,549,385,548,363,561,343,579,330,583,324,549,315,530,301,526,292,523,251,487,243,464,232,446,242" href="https://www.metallographic.com/support/preparation-procedures/class-7.html" alt="CLASS-7 Materials Preparation">
-                  <area shape="poly" coords="455,43,343,41,343,130,334,142,316,153,305,164,302,185,306,205,321,222,336,231,359,238,387,243,411,245,434,243,454,238,463,230,486,243,515,252,545,256,594,255,630,249,650,244,757,244,756,164,544,164,459,125" href="https://www.metallographic.com/support/preparation-procedures/class-6.html" alt="CLASS-6 Materials Preparation">
-                  <area shape="poly" coords="305,208,317,260,318,327,311,329,302,335,292,347,287,362,284,375,283,392,288,413,300,433,315,440,330,437,342,422,351,401,363,405,384,403,399,388,414,358,423,322,425,294,420,260,414,243,393,245,360,240,327,225" href="https://www.metallographic.com/support/preparation-procedures/class-5.html" alt="CLASS-5 Materials Preparation">
-                  <area shape="poly" coords="210,540,206,553,195,566,191,572,192,597,430,597,431,554,417,541,394,533,384,531,379,532,361,531,317,529,282,528,244,528" href="https://www.metallographic.com/support/preparation-procedures/class-4.html" alt="CLASS-4 Materials Preparation">
-                  <area shape="poly" coords="198,385,205,397,211,416,211,434,209,451,202,464,193,474,182,482,168,490,184,499,199,508,209,517,211,524,213,537,240,530,260,528,290,528,306,528,330,529,355,530,374,532,428,522,428,512,435,504,433,499,409,494,389,486,375,468,371,453,376,440,373,427,362,411,356,405,348,405,342,418,332,434,321,442,308,441,297,431,291,418,286,408,276,417,260,422,244,421,231,413,210,392" href="https://www.metallographic.com/support/preparation-procedures/class-3.html" alt="CLASS-3 Materials Preparation">
-                  <area shape="poly" coords="71,385,72,595,191,596,190,571,205,557,210,537,207,520,196,506,182,499,170,495,166,490,179,482,193,473,206,458,211,441,211,415,204,396,194,378,179,366,154,359,129,359" href="https://www.metallographic.com/support/preparation-procedures/class-2.html" alt="CLASS-2 Materials Preparation">
-                  <area shape="poly" coords="74,42,72,381,95,381,107,367,123,363,132,358,145,358,158,358,178,363,189,371,197,379,210,389,227,405,237,415,251,421,267,420,274,414,286,407,283,386,285,366,290,347,302,332,311,326,319,324,319,294,318,257,304,196,303,174,307,161,313,153,329,145,341,136,344,121,343,40" href="https://www.metallographic.com/support/preparation-procedures/class-1.html" alt="CLASS-1 Materials Preparation">
-              </map>
-          </div>
-          <div class="description-container">
-            <h2>Metallographic CLASS Overview</h2>
-            <p>
-                Metallographic materials are classified into different categories based on their physical and chemical properties. Each class requires specific preparation procedures to ensure accurate and reliable analysis.
-            </p>
-            
-            <h3>Why Proper Preparation is Crucial</h3>
-            <ul>
-                <li>Identifying material characteristics such as grain size and phase distribution.</li>
-                <li>Detecting potential defects and inconsistencies.</li>
-                <li>Ensuring high-quality images and data for analysis.</li>
-            </ul>
-            
-            <h3>Applications of Metallographic Analysis</h3>
-            <ul>
-                <li>Quality control in manufacturing processes.</li>
-                <li>Research and development in materials science.</li>
-                <li>Failure analysis in engineering applications.</li>
-            </ul>
+      <!-- Preparation Steps Overview -->
+      <section class="prep-steps-section" data-animate="fade" data-animate-delay="300">
+        <h2 class="prep-steps-title">Typical Sample Preparation Process</h2>
+        <div class="prep-steps-grid">
+            <div class="prep-step-card" data-animate="fade" data-animate-delay="400">
+                <div class="prep-step-number">1</div>
+                <h4 class="prep-step-title">Sectioning</h4>
+                <p class="prep-step-description">Cutting the sample to appropriate size using abrasive cutters or precision saws. Minimizes damage and preserves microstructure.</p>
+                <div class="prep-step-links">
+                    <a href="/guides/sectioning.html">Sectioning Guide</a> • 
+                    <a href="/metallographic-equipment/abrasive-sectioning.html">Equipment</a>
+                </div>
+            </div>
+            <div class="prep-step-card" data-animate="fade" data-animate-delay="450">
+                <div class="prep-step-number">2</div>
+                <h4 class="prep-step-title">Mounting</h4>
+                <p class="prep-step-description">Encasing samples in mounting material for easier handling and edge retention. Compression or castable mounting options available.</p>
+                <div class="prep-step-links">
+                    <a href="/guides/mounting.html">Mounting Guide</a> • 
+                    <a href="/metallographic-equipment/compression-mounting.html">Equipment</a>
+                </div>
+            </div>
+            <div class="prep-step-card" data-animate="fade" data-animate-delay="500">
+                <div class="prep-step-number">3</div>
+                <h4 class="prep-step-title">Grinding</h4>
+                <p class="prep-step-description">Progressive material removal using SiC papers or diamond grinding disks. Establishes flat surface and removes sectioning damage.</p>
+                <div class="prep-step-links">
+                    <a href="/guides/grinding-techniques.html">Grinding Guide</a> • 
+                    <a href="/metallographic-consumables/grinding.html">Consumables</a>
+                </div>
+            </div>
+            <div class="prep-step-card" data-animate="fade" data-animate-delay="550">
+                <div class="prep-step-number">4</div>
+                <h4 class="prep-step-title">Polishing</h4>
+                <p class="prep-step-description">Removing grinding scratches using diamond compounds on polishing pads. Progressive steps from coarse to fine diamond.</p>
+                <div class="prep-step-links">
+                    <a href="/guides/polishing-methods.html">Polishing Guide</a> • 
+                    <a href="/metallographic-consumables/polishing.html">Consumables</a>
+                </div>
+            </div>
+            <div class="prep-step-card" data-animate="fade" data-animate-delay="600">
+                <div class="prep-step-number">5</div>
+                <h4 class="prep-step-title">Final Polishing</h4>
+                <p class="prep-step-description">Eliminating remaining scratches and subsurface damage using colloidal silica or vibratory polishing for superior finishes.</p>
+                <div class="prep-step-links">
+                    <a href="/metallographic-consumables/final-polishing.html">Final Polishing</a> • 
+                    <a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a>
+                </div>
+            </div>
+            <div class="prep-step-card" data-animate="fade" data-animate-delay="650">
+                <div class="prep-step-number">6</div>
+                <h4 class="prep-step-title">Etching</h4>
+                <p class="prep-step-description">Chemical or electrolytic etching to reveal microstructure. Material-specific etchants highlight grain boundaries and phases.</p>
+                <div class="prep-step-links">
+                    <a href="/guides/etching-procedures.html">Etching Guide</a> • 
+                    <a href="/etchants.html">Etchants Database</a>
+                </div>
+            </div>
+            <div class="prep-step-card" data-animate="fade" data-animate-delay="700">
+                <div class="prep-step-number">7</div>
+                <h4 class="prep-step-title">Hardness Testing</h4>
+                <p class="prep-step-description">Material characterization with Rockwell, microhardness, and Brinell testers. Measure material properties and verify heat treatment results.</p>
+                <div class="prep-step-links">
+                    <a href="/metallographic-equipment/hardness-testing.html">Equipment</a> • 
+                    <a href="/metallographic-consumables/hardness-testing.html">Consumables</a>
+                </div>
+            </div>
+            <div class="prep-step-card" data-animate="fade" data-animate-delay="750">
+                <div class="prep-step-number">8</div>
+                <h4 class="prep-step-title">Microscopy & Analysis</h4>
+                <p class="prep-step-description">Examine microstructures with metallurgical and stereo microscopes. Capture images, measure features, and analyze material properties.</p>
+                <div class="prep-step-links">
+                    <a href="/metallographic-equipment/microscopy.html">Equipment</a> • 
+                    <a href="/metallographic-equipment/microscopy/image-analysis.html">Image Analysis</a>
+                </div>
+            </div>
         </div>
-        
-      </div>
-      <br>
-        <hr>
-      <br>
-        <h2>Metallographic CLASS Procedures</h2>
-      
-        <div class="row">
-          <div class="column">
-              <table class="side-by-side">
-                  <tr>
-                      <th>
-                          <div class="universal-dropdown">
-                              <button class="universal-dropbtn">CLASS-1<br>(Soft, Ductile <br>Materials)</button>
-                              <div class="universal-dropdown-content">
-                                  <a href="/support/preparation-procedures/class-1.html">View Class 1 Procedures</a>
-                              </div>
-                          </div>
-                      </th>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="/support/preparation-procedures/class-1.html"><img src="https://www.metallographic.com/Images/Class/Class-1-c.png" alt="Metallographic CLASS 1 procedures" class="responsive"></a>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-      
-          <div class="column">
-              <table class="side-by-side">
-                  <tr>
-                      <th>
-                          <div class="universal-dropdown">
-                              <button class="universal-dropbtn">CLASS-2<br>(Very soft, Low <br>Ductility Materials)</button>
-                              <div class="universal-dropdown-content">
-                                  <a href="/support/preparation-procedures/class-2.html">View Class 2 Procedures</a>
-                              </div>
-                          </div>
-                      </th>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="/support/preparation-procedures/class-2.html"><img src="https://www.metallographic.com/Images/Class/Class-2-c.png" alt="Metallographic CLASS 2 procedures" class="responsive"></a>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-      
-          <div class="column">
-              <table class="side-by-side">
-                  <tr>
-                      <th>
-                          <div class="universal-dropdown">
-                              <button class="universal-dropbtn">CLASS-3<br>(Lower Ductility <br>Metals)</button>
-                              <div class="universal-dropdown-content">
-                                  <a href="/support/preparation-procedures/class-3.html">View Class 3 Procedures</a>
-                              </div>
-                          </div>
-                      </th>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="/support/preparation-procedures/class-3.html"><img src="https://www.metallographic.com/Images/Class/Class-3-c.png" alt="Metallographic CLASS 3 procedures" class="responsive"></a>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-      
-          <div class="column">
-              <table class="side-by-side">
-                  <tr>
-                      <th>
-                          <div class="universal-dropdown">
-                              <button class="universal-dropbtn">CLASS-4<br>(Soft Brittle <br>Non-metals)</button>
-                              <div class="universal-dropdown-content">
-                                  <a href="/support/preparation-procedures/class-4.html">View Class 4 Procedures</a>
-                              </div>
-                          </div>
-                      </th>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="/support/preparation-procedures/class-4.html"><img src="https://www.metallographic.com/Images/Class/Class-4-c.png" alt="Metallographic CLASS 4 procedures" class="responsive"></a>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-      </div>
-      
-      <div class="row">
-          <div class="column">
-              <table class="side-by-side">
-                  <tr>
-                      <th>
-                          <div class="universal-dropdown">
-                              <button class="universal-dropbtn">CLASS-5<br>(Medium Hard / <br>Ductile Metals)</button>
-                              <div class="universal-dropdown-content">
-                                  <a href="/support/preparation-procedures/class-5.html">View Class 5 Procedures</a>
-                              </div>
-                          </div>
-                      </th>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="/support/preparation-procedures/class-5.html"><img src="https://www.metallographic.com/Images/Class/Class-5-c.png" alt="Metallographic CLASS 5 procedures" class="responsive"></a>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-      
-          <div class="column">
-              <table class="side-by-side">
-                  <tr>
-                      <th>
-                          <div class="universal-dropdown">
-                              <button class="universal-dropbtn">CLASS-6<br>(Tough, Hard <br>Non-ferrous Metals)</button>
-                              <div class="universal-dropdown-content">
-                                  <a href="/support/preparation-procedures/class-6.html">View Class 6 Procedures</a>
-                              </div>
-                          </div>
-                      </th>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="/support/preparation-procedures/class-6.html"><img src="https://www.metallographic.com/Images/Class/Class-6-c.png" alt="Metallographic CLASS 6 procedures" class="responsive"></a>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-      
-          <div class="column">
-              <table class="side-by-side">
-                  <tr>
-                      <th>
-                          <div class="universal-dropdown">
-                              <button class="universal-dropbtn">CLASS-7<br>(Thermal Spray <br>Coatings)</button>
-                              <div class="universal-dropdown-content">
-                                  <a href="/support/preparation-procedures/class-7.html">View Class 7 Procedures</a>
-                              </div>
-                          </div>
-                      </th>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="/support/preparation-procedures/class-7.html"><img src="https://www.metallographic.com/Images/Class/Class-7-c.png" alt="Metallographic CLASS 7 procedures" class="responsive"></a>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-      
-          <div class="column">
-              <table class="side-by-side">
-                  <tr>
-                      <th>
-                          <div class="universal-dropdown">
-                              <button class="universal-dropbtn">CLASS-8<br>(Heat Treated / <br>Hardened Steels)</button>
-                              <div class="universal-dropdown-content">
-                                  <a href="/support/preparation-procedures/class-8.html">View Class 8 Procedures</a>
-                              </div>
-                          </div>
-                      </th>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="/support/preparation-procedures/class-8.html"><img src="https://www.metallographic.com/Images/Class/Class-8-c.png" alt="Metallographic CLASS 8 procedures" class="responsive"></a>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-      </div>
-      
-      <div class="row">
-          <div class="column">
-              <table class="side-by-side">
-                  <tr>
-                      <th>
-                          <div class="universal-dropdown">
-                              <button class="universal-dropbtn">CLASS-9<br>(Metal Matrix <br>Composites)</button>
-                              <div class="universal-dropdown-content">
-                                  <a href="/support/preparation-procedures/class-9.html">View Class 9 Procedures</a>
-                              </div>
-                          </div>
-                      </th>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="/support/preparation-procedures/class-9.html"><img src="https://www.metallographic.com/Images/Class/Class-9-c.png" alt="Metallographic CLASS 9 procedures" class="responsive"></a>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-      
-          <div class="column">
-              <table class="side-by-side">
-                  <tr>
-                      <th>
-                          <div class="universal-dropdown">
-                              <button class="universal-dropbtn">CLASS-10<br>(Engineered Tough<br>Ceramics)</button>
-                              <div class="universal-dropdown-content">
-                                  <a href="/support/preparation-procedures/class-10.html">View Class 10 Procedures</a>
-                              </div>
-                          </div>
-                      </th>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="/support/preparation-procedures/class-10.html"><img src="https://www.metallographic.com/Images/Class/Class-10-c.png" alt="Metallographic CLASS 10 procedures" class="responsive"></a>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-      
-          <div class="column">
-              <table class="side-by-side">
-                  <tr>
-                      <th>
-                          <div class="universal-dropdown">
-                              <button class="universal-dropbtn">CLASS-11<br>(Very Hard <br>Brittle Materials)</button>
-                              <div class="universal-dropdown-content">
-                                  <a href="/support/preparation-procedures/class-11.html">View Class 11 Procedures</a>
-                              </div>
-                          </div>
-                      </th>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="/support/preparation-procedures/class-11.html"><img src="https://www.metallographic.com/Images/Class/Class-11-c.png" alt="Metallographic CLASS 11 procedures" class="responsive"></a>
-                      </td>
-                  </tr>
-              </table>
-          </div>
-      </div>
-      <br><br>
-      <hr>
       </section>
-      <section class="procedures-table">
-        <h2>Class Overview Table</h2>
+
+      <!-- Material Classes Section -->
+      <section class="metallographic-procedures">
+        <h2 data-animate="fade" data-animate-delay="750">Material Classification System</h2>
+        <div class="materials-grid">
+            <!-- CLASS-1 -->
+            <div class="material-card" data-animate="fade" data-animate-delay="800">
+                <div class="material-card-header">
+                    <div class="material-card-number" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">1</div>
+                    <div>
+                        <h3 class="material-card-title">CLASS-1</h3>
+                        <p class="material-card-subtitle">Soft, Ductile Materials</p>
+                    </div>
+                </div>
+                <p class="material-card-description">Aluminum alloys, copper alloys, magnesium alloys, lead, tin, zinc, and polymer matrix composites (PMCs).</p>
+                <div class="material-card-badges">
+                    <a href="/guides/aluminum-sample-preparation.html" class="material-card-badge">Aluminum Guide</a>
+                    <a href="/guides/copper-and-copper-alloys-preparation.html" class="material-card-badge">Copper Guide</a>
+                    <a href="/guides/magnesium-preparation.html" class="material-card-badge">Magnesium Guide</a>
+                    <a href="/materials.html?class=1" class="material-card-badge material-card-badge-secondary">Materials DB</a>
+                </div>
+                <a href="/support/preparation-procedures/class-1.html" class="material-card-link">
+                    View Procedures <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <!-- CLASS-2 -->
+            <div class="material-card" data-animate="fade" data-animate-delay="850">
+                <div class="material-card-header">
+                    <div class="material-card-number" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">2</div>
+                    <div>
+                        <h3 class="material-card-title">CLASS-2</h3>
+                        <p class="material-card-subtitle">Very Soft, Low Ductility</p>
+                    </div>
+                </div>
+                <p class="material-card-description">Precious metals (gold, silver, platinum), refractory metals (tungsten, rhenium, niobium, molybdenum), and rare earth elements.</p>
+                <div class="material-card-badges">
+                    <a href="/guides/precious-metals-preparation.html" class="material-card-badge">Precious Metals Guide</a>
+                    <a href="/guides/refractory-metals-preparation.html" class="material-card-badge">Refractory Metals Guide</a>
+                    <a href="/materials.html?class=2" class="material-card-badge material-card-badge-secondary">Materials DB</a>
+                </div>
+                <a href="/support/preparation-procedures/class-2.html" class="material-card-link">
+                    View Procedures <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <!-- CLASS-3 -->
+            <div class="material-card" data-animate="fade" data-animate-delay="900">
+                <div class="material-card-header">
+                    <div class="material-card-number" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">3</div>
+                    <div>
+                        <h3 class="material-card-title">CLASS-3</h3>
+                        <p class="material-card-subtitle">Lower Ductility Metals</p>
+                    </div>
+                </div>
+                <p class="material-card-description">Cast irons (gray, ductile, white), powder metallurgy materials (Fe-Cu, stainless PM, tool steel PM), and sintered alloys.</p>
+                <div class="material-card-badges">
+                    <a href="/guides/cast-iron-preparation.html" class="material-card-badge">Cast Iron Guide</a>
+                    <a href="/guides/powder-metallurgy-preparation.html" class="material-card-badge">Powder Metallurgy Guide</a>
+                    <a href="/materials.html?class=3" class="material-card-badge material-card-badge-secondary">Materials DB</a>
+                </div>
+                <a href="/support/preparation-procedures/class-3.html" class="material-card-link">
+                    View Procedures <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <!-- CLASS-4 -->
+            <div class="material-card" data-animate="fade" data-animate-delay="950">
+                <div class="material-card-header">
+                    <div class="material-card-number" style=" background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">4</div>
+                    <div>
+                        <h3 class="material-card-title">CLASS-4</h3>
+                        <p class="material-card-subtitle">Soft Brittle Non-metals</p>
+                    </div>
+                </div>
+                <p class="material-card-description">Multilayer ceramic capacitors, MEMS, semiconductors, and functional ceramics.</p>
+                <div class="material-card-badges">
+                    <a href="/guides/pcb-chip-preparation.html" class="material-card-badge">PCB/Chip Guide</a>
+                    <a href="/materials.html?class=4" class="material-card-badge material-card-badge-secondary">Materials DB</a>
+                </div>
+                <a href="/support/preparation-procedures/class-4.html" class="material-card-link">
+                    View Procedures <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <!-- CLASS-5 -->
+            <div class="material-card" data-animate="fade" data-animate-delay="1000">
+                <div class="material-card-header">
+                    <div class="material-card-number" style=" background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">5</div>
+                    <div>
+                        <h3 class="material-card-title">CLASS-5</h3>
+                        <p class="material-card-subtitle">Medium Hard/Ductile Metals</p>
+                    </div>
+                </div>
+                <p class="material-card-description">Low/medium carbon steels, stainless steels, and annealed structural steels.</p>
+                <div class="material-card-badges">
+                    <a href="/guides/carbon-steel-preparation.html" class="material-card-badge">Carbon Steel Guide</a>
+                    <a href="/guides/stainless-steel-preparation.html" class="material-card-badge">Stainless Guide</a>
+                    <a href="/materials.html?class=5" class="material-card-badge material-card-badge-secondary">Materials DB</a>
+                </div>
+                <a href="/support/preparation-procedures/class-5.html" class="material-card-link">
+                    View Procedures <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <!-- CLASS-6 -->
+            <div class="material-card" data-animate="fade" data-animate-delay="1050">
+                <div class="material-card-header">
+                    <div class="material-card-number" style=" background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);">6</div>
+                    <div>
+                        <h3 class="material-card-title">CLASS-6</h3>
+                        <p class="material-card-subtitle">Tough, Hard Non-ferrous</p>
+                    </div>
+                </div>
+                <p class="material-card-description">Titanium alloys, nickel superalloys, cobalt alloys, and high-temperature alloys.</p>
+                <div class="material-card-badges">
+                    <a href="/guides/titanium-preparation.html" class="material-card-badge">Titanium Guide</a>
+                    <a href="/guides/nickel-alloys-preparation.html" class="material-card-badge">Nickel Guide</a>
+                    <a href="/materials.html?class=6" class="material-card-badge material-card-badge-secondary">Materials DB</a>
+                </div>
+                <a href="/support/preparation-procedures/class-6.html" class="material-card-link">
+                    View Procedures <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <!-- CLASS-7 -->
+            <div class="material-card" data-animate="fade" data-animate-delay="1100">
+                <div class="material-card-header">
+                    <div class="material-card-number" style=" background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">7</div>
+                    <div>
+                        <h3 class="material-card-title">CLASS-7</h3>
+                        <p class="material-card-subtitle">Thermal Spray Coatings</p>
+                    </div>
+                </div>
+                <p class="material-card-description">WC-Co and chromium carbide coatings, alumina and YSZ ceramic coatings, NiCr/NiAl/Fe-based alloy coatings, and intermetallic spray layers.</p>
+                <div class="material-card-badges">
+                    <a href="/guides/thermal-spray-coatings-preparation.html" class="material-card-badge">Thermal Spray Guide</a>
+                    <a href="/materials.html?class=7" class="material-card-badge material-card-badge-secondary">Materials DB</a>
+                </div>
+                <a href="/support/preparation-procedures/class-7.html" class="material-card-link">
+                    View Procedures <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <!-- CLASS-8 -->
+            <div class="material-card" data-animate="fade" data-animate-delay="1150">
+                <div class="material-card-header">
+                    <div class="material-card-number" style=" background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">8</div>
+                    <div>
+                        <h3 class="material-card-title">CLASS-8</h3>
+                        <p class="material-card-subtitle">Hardened Steels</p>
+                    </div>
+                </div>
+                <p class="material-card-description">Tool steels, case-hardened steels, and through-hardened steels.</p>
+                <div class="material-card-badges">
+                    <a href="/guides/tool-steel-preparation.html" class="material-card-badge">Tool Steel Guide</a>
+                    <a href="/materials.html?class=8" class="material-card-badge material-card-badge-secondary">Materials DB</a>
+                </div>
+                <a href="/support/preparation-procedures/class-8.html" class="material-card-link">
+                    View Procedures <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <!-- CLASS-9 -->
+            <div class="material-card" data-animate="fade" data-animate-delay="1200">
+                <div class="material-card-header">
+                    <div class="material-card-number" style=" background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);">9</div>
+                    <div>
+                        <h3 class="material-card-title">CLASS-9</h3>
+                        <p class="material-card-subtitle">Metal Matrix Composites</p>
+                    </div>
+                </div>
+                <p class="material-card-description"><strong>Metal Matrix Composites (MMCs):</strong> Al-SiC, Mg-Al₂O₃, Ti-B₄C composites, fiber-reinforced MMCs (SiC fiber, boron fiber), and high-temperature MMCs. <em>Note: Polymer Matrix Composites (PMCs) are in CLASS-1.</em></p>
+                <div class="material-card-badges">
+                    <a href="/guides/composites-preparation.html" class="material-card-badge">Composites Guide</a>
+                    <a href="/materials.html?class=9" class="material-card-badge material-card-badge-secondary">Materials DB</a>
+                </div>
+                <a href="/support/preparation-procedures/class-9.html" class="material-card-link">
+                    View Procedures <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <!-- CLASS-10 -->
+            <div class="material-card" data-animate="fade" data-animate-delay="1250">
+                <div class="material-card-header">
+                    <div class="material-card-number" style=" background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">10</div>
+                    <div>
+                        <h3 class="material-card-title">CLASS-10</h3>
+                        <p class="material-card-subtitle">Engineered Ceramics</p>
+                    </div>
+                </div>
+                <p class="material-card-description">Oxide ceramics, non-oxide ceramics, and advanced ceramic materials.</p>
+                <div class="material-card-badges">
+                    <a href="/guides/ceramics-preparation.html" class="material-card-badge">Ceramics Guide</a>
+                    <a href="/materials.html?class=10" class="material-card-badge material-card-badge-secondary">Materials DB</a>
+                </div>
+                <a href="/support/preparation-procedures/class-10.html" class="material-card-link">
+                    View Procedures <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <!-- CLASS-11 -->
+            <div class="material-card" data-animate="fade" data-animate-delay="1300">
+                <div class="material-card-header">
+                    <div class="material-card-number" style=" background: linear-gradient(135deg, #64748b 0%, #475569 100%);">11</div>
+                    <div>
+                        <h3 class="material-card-title">CLASS-11</h3>
+                        <p class="material-card-subtitle">Very Hard Brittle Materials</p>
+                    </div>
+                </div>
+                <p class="material-card-description">Cermets (tungsten carbide, TiC-Ni), technical glasses (borosilicate, fused silica), and minerals (quartz, garnet, spinel).</p>
+                <div class="material-card-badges">
+                    <a href="/guides/cermets-technical-glasses-preparation.html" class="material-card-badge">Cermets & Glasses Guide</a>
+                    <a href="/materials.html?class=11" class="material-card-badge material-card-badge-secondary">Materials DB</a>
+                </div>
+                <a href="/support/preparation-procedures/class-11.html" class="material-card-link">
+                    View Procedures <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Additional Resources Section -->
+        <div style="background: #f9fafb; border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;" data-animate="fade" data-animate-delay="1350">
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 1rem; text-align: center;">Additional Resources</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto;">
+                <a href="/materials.html" style="display: flex; flex-direction: column; background: white; padding: 1.5rem; border-radius: 0.5rem; text-decoration: none; border: 1px solid #e5e7eb; transition: all 0.3s; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h4 style="margin: 0 0 0.5rem; color: #111827; font-weight: 600;">Materials Database</h4>
+                    <p style="margin: 0; color: #6b7280; font-size: 0.875rem;">Search comprehensive material properties and preparation information</p>
+                </a>
+                <a href="/guides.html" style="display: flex; flex-direction: column; background: white; padding: 1.5rem; border-radius: 0.5rem; text-decoration: none; border: 1px solid #e5e7eb; transition: all 0.3s; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    </div>
+                    <h4 style="margin: 0 0 0.5rem; color: #111827; font-weight: 600;">Preparation Guides</h4>
+                    <p style="margin: 0; color: #6b7280; font-size: 0.875rem;">Detailed material-specific preparation guides and techniques</p>
+                </a>
+                <a href="/etchants.html" style="display: flex; flex-direction: column; background: white; padding: 1.5rem; border-radius: 0.5rem; text-decoration: none; border: 1px solid #e5e7eb; transition: all 0.3s; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
+                    <h4 style="margin: 0 0 0.5rem; color: #111827; font-weight: 600;">Etchants Database</h4>
+                    <p style="margin: 0; color: #6b7280; font-size: 0.875rem;">Find the right etchant for your material and application</p>
+                </a>
+            </div>
+        </div>
+      </section>
+      <section class="procedures-table" style="margin-top: 4rem;">
+        <h2 style="text-align: center; margin-bottom: 2rem;" data-animate="fade" data-animate-delay="1400">Material Class Reference Table</h2>
       
-        <table class="material-class-table">
+        <div style="overflow-x: auto;">
+        <table class="material-class-table" style="width: 100%; border-collapse: collapse; background: white; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);" data-animate="fade" data-animate-delay="1450">
           <tr>
             <td class="class-header">
               <a href="/support/preparation-procedures/class-1.html" class="class-link">
@@ -1096,6 +1282,7 @@
               <ul class="material-list">
                 <li>Aluminum and Aluminum Alloys (2xxx, 6xxx, 7xxx Series)</li>
                 <li>Copper Alloys (Brass, Bronze, Beryllium Copper)</li>
+                <li>Magnesium Alloys (AZ31, AZ91, AM60, WE43)</li>
                 <li>Lead, Tin, Zinc (HV < 50, highly deformable)</li>
                 <li>Polymer Matrix Composites (Carbon/Glass Fiber Reinforced)</li>
               </ul>
@@ -1253,9 +1440,8 @@
                   </td>
               </tr>
           </table>
+        </div>
       </section>
-      
-      
 
     </main>
 </div>
@@ -1341,9 +1527,11 @@
         <div class="footer-column">
           <h3 class="footer-column-title">Company</h3>
           <ul class="footer-column-list">
-            <li><a href="/company.html" class="footer-link">Our Story</a></li>
+            <li><a href="/company.html" class="footer-link">About PACE</a></li>
             <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
             <li><a href="/careers.html" class="footer-link">Careers</a></li>
+            <li><a href="/events.html" class="footer-link">Events</a></li>
+            <li><a href="/distribution.html" class="footer-link">International Distribution</a></li>
             <li><a href="/quote.html" class="footer-link">Request Quote</a></li>
           </ul>
         </div>
@@ -1354,9 +1542,9 @@
           <ul class="footer-column-list">
             <li><a href="/equipment.html" class="footer-link">Equipment</a></li>
             <li><a href="/consumables.html" class="footer-link">Consumables</a></li>
+            <li><a href="/services.html" class="footer-link">Services</a></li>
             <li><a href="https://shop.metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-link">Online Shop</a></li>
             <li><a href="/build.html" class="footer-link">Lab Builder</a></li>
-            <li><a href="/quote.html" class="footer-link">Custom Solutions</a></li>
           </ul>
         </div>
         
@@ -1364,23 +1552,24 @@
         <div class="footer-column">
           <h3 class="footer-column-title">Resources</h3>
           <ul class="footer-column-list">
-            <li><a href="/guides.html" class="footer-link">Preparation Guides</a></li>
-            <li><a href="/materials.html" class="footer-link">Materials Database</a></li>
-            <li><a href="/etchants.html" class="footer-link">Etchants Database</a></li>
-            <li><a href="/standards.html" class="footer-link">Standards</a></li>
-            <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
-            <li><a href="/support/site-map.html" class="footer-link">Sitemap</a></li>
+            <li><a href="/guides.html" class="footer-link">Guides</a></li>
+            <li><a href="/tools.html" class="footer-link">Tools</a></li>
+            <li><a href="/databases.html" class="footer-link">Databases</a></li>
+            <li><a href="/catalog.html" class="footer-link">Product Catalog</a></li>
+            <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
+            <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
+            <li><a href="/support.html" class="footer-link">Customer Support</a></li>
           </ul>
         </div>
         
-        <!-- Legal & Support Section -->
+        <!-- Legal Section -->
         <div class="footer-column">
-          <h3 class="footer-column-title">Legal & Support</h3>
+          <h3 class="footer-column-title">Legal</h3>
           <ul class="footer-column-list">
             <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
             <li><a href="/terms.html" class="footer-link">Terms & Conditions</a></li>
-            <li><a href="/support.html" class="footer-link">Customer Support</a></li>
-            <li><a href="/distribution.html" class="footer-link">International Distribution</a></li>
+            <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+            <li><a href="/support/site-map.html" class="footer-link">Sitemap</a></li>
           </ul>
         </div>
       </div>
@@ -1440,13 +1629,17 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
 </footer>
-
-
-<!-- SCRIPTS -->
-<script src="/js/scripts.js"></script>
-<script src="/js/carousel.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</footer>
+    <script src="/js/scripts.js" defer></script>
+    <script src="/js/animations.js" defer></script>
 </body>
-
 </html>

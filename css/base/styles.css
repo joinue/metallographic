@@ -393,7 +393,7 @@ header a:focus:not(:focus-visible) {
 }
 
 .first-container {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: var(--spacing-md);
   background-color: transparent;
@@ -711,6 +711,20 @@ button:hover,
   margin-top: var(--header-content-gap-relaxed);
 }
 
+/* Reduce padding when first-container follows hero section */
+.hero-section-modern + .first-container,
+.hero-section-modern ~ .first-container {
+  padding-top: var(--spacing-sm);
+  margin-top: 0;
+}
+
+@media (min-width: 640px) {
+  .hero-section-modern + .first-container,
+  .hero-section-modern ~ .first-container {
+    padding-top: var(--spacing-md);
+  }
+}
+
 /* For pages that don't use first-container */
 .top-header + section,
 .top-header + main > section {
@@ -768,8 +782,8 @@ section {
   width: 100%;
   background: linear-gradient(to bottom right, #111827, #1f2937, #111827);
   padding-top: calc(100px + var(--spacing-xl)); /* Account for fixed nav + extra spacing */
-  padding-bottom: var(--spacing-3xl);
-  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  margin-bottom: 0;
   border-radius: 0 0 1.5rem 1.5rem;
   overflow: hidden;
 }
@@ -1073,14 +1087,35 @@ section {
 
 .btn-modern-primary {
   background-color: var(--color-primary);
-  color: var(--color-text-white);
+  color: var(--color-text-white) !important;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  will-change: transform, background-color, box-shadow;
 }
 
 .btn-modern-primary:hover {
   background-color: var(--color-primary-hover);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transform: translateY(-1px);
+  transform: scale(1.01);
+  color: var(--color-text-white) !important;
+}
+
+.btn-modern-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+
+.btn-modern-primary:hover::before {
+  opacity: 1;
 }
 
 .btn-modern-white {
@@ -1544,7 +1579,7 @@ section {
 .search-container {
   width: 90%;
   min-height: 50vh;
-  max-width: 1200px;
+  max-width: 1440px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1571,7 +1606,7 @@ section {
 
 input[type="text"] {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
   padding: 1.125rem 3.75rem 1.125rem 1.5rem;
   border: 2px solid #e2e8f0;
   border-radius: 0.75rem;
@@ -1598,7 +1633,7 @@ input[type="text"]:focus {
 
 #customResultsContainer {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: var(--spacing-xl);
   text-align: left;
@@ -2090,7 +2125,7 @@ input[type="text"]:focus {
   background-color: #ffffff;
   border-radius: 0.75rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   font-family: var(--font-family);
   line-height: 1.6;

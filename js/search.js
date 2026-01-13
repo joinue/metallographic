@@ -9,6 +9,8 @@ const data = [
     
     // Support & Documentation
     { title: "Customer Support", description: "Access comprehensive customer support resources and assistance.", link: "/support.html", keywords: "customer support help assistance technical support service maintenance training warranty repair troubleshooting" },
+    { title: "Professional Services", description: "Professional metallographic services you can purchase: KeepPACE service plans, on-site installation, training programs, and maintenance services for your laboratory.", link: "/services.html", keywords: "professional services service plans installation training maintenance lab consultation build your lab equipment setup calibration operator training preventive maintenance diagnostic repair" },
+    { title: "KeepPACE Service Plans", description: "Flexible service plans from basic annual check-ins to comprehensive coverage with priority support and personalized service.", link: "/keeppace.html", keywords: "keeppace service plans maintenance plans annual check-ins emergency support dedicated technicians spare parts discounts extended warranties service credits preventive maintenance priority support" },
     { title: "Sample Preparation Procedures", description: "Step-by-step guides for sample preparation, including mounting, grinding, and polishing methods.", link: "/support/procedures.html", keywords: "sample preparation mounting grinding polishing procedures techniques methods protocols step by step guide instructions mounting grinding polishing etching sectioning cutting" },
     { title: "Product Brochures", description: "Download detailed product brochures and technical specifications for our metallographic equipment and consumables.", link: "/support/brochures.html", keywords: "brochures technical specifications product information documentation datasheets manuals catalogs technical data specifications" },
     { title: "Etchant Information", description: "Comprehensive guide to metallographic etchants, including selection, application, and safety information.", link: "/support/etchant-information.html", keywords: "etchant etching solutions microstructure safety handling chemical reagents metallographic etching nital picral keller's reagent vilella's reagent" },
@@ -29,16 +31,16 @@ const data = [
     
     // Precision Wafering Equipment
     { title: "Precision Wafering Saws", description: "High-precision wafering saws for accurate and reliable sample preparation.", link: "/metallographic-equipment/precision-wafering.html", keywords: "precision wafering saws sample preparation PICO PICO-155P PICO-155S PICO-200A PICO-200S precision cutting wafering sectioning saws diamond blade cutting" },
-    { title: "PICO-155P Precision Wafering Saw", description: "High-precision wafering saw with advanced features for delicate sample preparation.", link: "/metallographic-equipment/precision-wafering/pico-155p.html", keywords: "PICO-155P precision wafering saw diamond blade cutting sectioning sample preparation advanced features" },
-    { title: "PICO-155S Precision Wafering Saw", description: "High-precision wafering saw for accurate and reliable sample preparation.", link: "/metallographic-equipment/precision-wafering/pico-155s.html", keywords: "PICO-155S precision wafering saw diamond blade cutting sectioning sample preparation" },
-    { title: "PICO-200A Precision Wafering Saw", description: "Advanced precision wafering saw for demanding applications and larger samples.", link: "/metallographic-equipment/precision-wafering/pico-200a.html", keywords: "PICO-200A precision wafering saw diamond blade cutting sectioning advanced precision larger samples" },
-    { title: "PICO-200S Precision Wafering Saw", description: "High-capacity precision wafering saw for production environments.", link: "/metallographic-equipment/precision-wafering/pico-200s.html", keywords: "PICO-200S precision wafering saw diamond blade cutting sectioning high capacity production" },
+    { title: "PICO-155P Precision Wafering Saw", description: "Precision cutter with touch controls and built-in recirculating pump. Fits 3-inch (75 mm) up to 7-inch (175 mm) diameter blades with variable speed 50-1500 rpm.", link: "/metallographic-equipment/precision-wafering/pico-155p.html", keywords: "PICO-155P precision wafering saw diamond blade cutting sectioning sample preparation touch controls recirculating pump" },
+    { title: "PICO-155S Precision Wafering Saw", description: "Precision cutter with touch-screen controls and built-in recirculating pump. Fits 3-inch (75 mm) up to 7-inch (175 mm) diameter blades with variable speed 50-1500 rpm.", link: "/metallographic-equipment/precision-wafering/pico-155s.html", keywords: "PICO-155S precision wafering saw diamond blade cutting sectioning sample preparation touch screen recirculating pump" },
+    { title: "PICO-200A Precision Wafering Saw", description: "Automated high speed table saw for precision cutting with automated operation.", link: "/metallographic-equipment/precision-wafering/pico-200a.html", keywords: "PICO-200A precision wafering saw diamond blade cutting sectioning advanced precision automated table saw" },
+    { title: "PICO-200S Precision Wafering Saw", description: "High speed (500-3000 rpm) manual variable speed table saw for precision cutting.", link: "/metallographic-equipment/precision-wafering/pico-200s.html", keywords: "PICO-200S precision wafering saw diamond blade cutting sectioning high speed manual variable speed" },
     
     // Compression Mounting Equipment
     { title: "Compression Mounting Presses", description: "Our selection of compression mounting presses ensures consistent sample preparation.", link: "/metallographic-equipment/compression-mounting.html", keywords: "compression mounting presses sample preparation TERAPRESS tp-7500s tp-7100s tp-tank mounting presses compression hydraulic pneumatic" },
-    { title: "TERAPRESS TP-7500S Hydraulic Mounting Press", description: "Hydraulic mounting press for robust sample mounting in metallographic studies.", link: "/metallographic-equipment/compression-mounting/tp-7500s.html", keywords: "TERAPRESS TP-7500S hydraulic mounting press compression mounting hydraulic" },
-    { title: "TERAPRESS TP-7100S Pneumatic Mounting Press", description: "Pneumatic mounting press offering ease of use and consistent sample preparation.", link: "/metallographic-equipment/compression-mounting/tp-7100s.html", keywords: "TERAPRESS TP-7100S pneumatic mounting press compression mounting pneumatic" },
-    { title: "TERAPRESS TP-Tank Mounting Press", description: "Tank-style mounting press for high-volume sample preparation applications.", link: "/metallographic-equipment/compression-mounting/tp-tank.html", keywords: "TERAPRESS TP-Tank mounting press compression mounting tank high volume" },
+    { title: "TERAPRESS TP-7500S Hydraulic Mounting Press", description: "Programmable electro-hydraulic automated compression mounting press with interchangeable molds. Features 1-inch to 2-inch interchangeable or fixed heater/molds, rapid ram movement, multiple cooling modes, and automatic programmable cycles.", link: "/metallographic-equipment/compression-mounting/tp-7500s.html", keywords: "TERAPRESS TP-7500S hydraulic mounting press compression mounting hydraulic programmable automated" },
+    { title: "TERAPRESS TP-7100S Pneumatic Mounting Press", description: "Programmable pneumatic automated mounting press with easy force control. Features 1-inch to 2-inch interchangeable or fixed heater/molds, rapid ram movement, multiple cooling modes, and automatic programmable cycles.", link: "/metallographic-equipment/compression-mounting/tp-7100s.html", keywords: "TERAPRESS TP-7100S pneumatic mounting press compression mounting pneumatic programmable automated" },
+    { title: "TERAPRESS TP-Tank Mounting Press", description: "TERAPRESS recirculation and cooling tank with pump for mounting press operations.", link: "/metallographic-equipment/compression-mounting/tp-tank.html", keywords: "TERAPRESS TP-Tank mounting press compression mounting tank recirculation cooling pump" },
     
     // Castable Mounting Equipment
     { title: "Castable Mounting Equipment", description: "Advanced castable mounting systems for sample preparation including vacuum impregnation and UV curing.", link: "/metallographic-equipment/castable-mounting.html", keywords: "castable mounting vacuum impregnation UV curing LSSA-011 UVMOUNT THETAMOUNT sample preparation mounting" },
@@ -48,13 +50,13 @@ const data = [
     
     // Grinding & Polishing Equipment
     { title: "Grinding & Polishing Equipment", description: "Complete range of grinding and polishing equipment for metallographic sample preparation.", link: "/metallographic-equipment/grinding-polishing.html", keywords: "grinding polishing equipment PENTA NANO FEMTO ATTO GIGA RC ZETA hand belt grinders automated polishing machines" },
-    { title: "PENTA Hand and Belt Grinders", description: "Versatile hand and belt grinders for a wide range of grinding applications.", link: "/metallographic-equipment/grinding-polishing/penta.html", keywords: "PENTA hand belt grinders grinding manual polishing manual grinding belt grinding" },
-    { title: "NANO Semi-Automatic Polisher", description: "Semi-automatic polishing machine for consistent results.", link: "/metallographic-equipment/grinding-polishing/nano.html", keywords: "NANO semi-automatic polisher semi-auto polishing automated polishing" },
-    { title: "FEMTO Automatic Polisher", description: "Fully automatic polishing machine for high-volume applications.", link: "/metallographic-equipment/grinding-polishing/femto.html", keywords: "FEMTO automatic polisher fully automatic polishing automated polishing" },
-    { title: "ATTO Automatic Polisher", description: "Advanced automatic polishing machine with precision control.", link: "/metallographic-equipment/grinding-polishing/atto.html", keywords: "ATTO automatic polisher precision control automatic polishing automated polishing" },
-    { title: "GIGA Polishing System", description: "High-capacity polishing system for production environments.", link: "/metallographic-equipment/grinding-polishing/giga.html", keywords: "GIGA polishing system high capacity production polishing automated" },
-    { title: "RC Polishing System", description: "Reliable polishing system for consistent sample preparation.", link: "/metallographic-equipment/grinding-polishing/rc.html", keywords: "RC polishing system reliable polishing sample preparation" },
-    { title: "ZETA Polishing System", description: "Advanced polishing system for specialized applications.", link: "/metallographic-equipment/grinding-polishing/zeta.html", keywords: "ZETA polishing system advanced polishing specialized applications" },
+    { title: "PENTA Hand and Belt Grinders", description: "5-station hand grinder for coarse to fine grinding with 240, 360, 600, 800 and 1200 grit abrasive. Wet or dry belt grinder for coarse grinding with square grinding attachment.", link: "/metallographic-equipment/grinding-polishing/penta.html", keywords: "PENTA hand belt grinders grinding manual polishing manual grinding belt grinding 5-station coarse fine" },
+    { title: "NANO Semi-Automatic Polisher", description: "Single and dual wheel grinder polisher bench top polishers for 8, 10, 12 and 14-inch wheels. Features variable speed (100-1000 rpm), preset fast speed buttons, and auto mode.", link: "/metallographic-equipment/grinding-polishing/nano.html", keywords: "NANO semi-automatic polisher semi-auto polishing automated polishing single dual wheel variable speed" },
+    { title: "FEMTO Automatic Polisher", description: "Automatic polishing heads for use with NANO-1000S, NANO-2000S, and NANO-1200S. Features variable speed (0-200 rpm) and pneumatically adjustable individual pistons for 1 to 6 specimens independent of each other.", link: "/metallographic-equipment/grinding-polishing/femto.html", keywords: "FEMTO polishing head attachments NANO automated polishing polishing heads automatic polishing head individual pistons" },
+    { title: "ATTO Automatic Polisher", description: "Controlled micro-precision polisher for plano-parallel sample preparation with metered material removal.", link: "/metallographic-equipment/grinding-polishing/atto.html", keywords: "ATTO metered material removal micro polisher precision control micro polishing plano-parallel controlled removal" },
+    { title: "GIGA Polishing System", description: "9 or 12-inch metallurgical vibratory polisher designed to prepare even the most difficult to polish materials with a very gentle polishing action. Ideal for EBSD preparation.", link: "/metallographic-equipment/grinding-polishing/giga.html", keywords: "GIGA vibratory polisher vibratory polishing system EBSD gentle polishing metallurgical" },
+    { title: "RC Polishing System", description: "Recirculating tank for NANO Polishers, includes tank, filter housing, pump, coarse, medium and fine filters for continuous polishing operations.", link: "/metallographic-equipment/grinding-polishing/rc.html", keywords: "RC recirculating tank polisher recirculation system polishing tank NANO filters filtration" },
+    { title: "ZETA Polishing System", description: "4-fluid automated and manual dispenser for controlling and regulating the application of abrasives such as diamond, alumina, colloidal silica and lubricant solutions onto the polishing surface.", link: "/metallographic-equipment/grinding-polishing/zeta.html", keywords: "ZETA abrasive dispenser abrasive delivery system automated dispensing fluid dispenser diamond alumina colloidal silica" },
     
     
     // Microscopy Equipment
@@ -74,17 +76,17 @@ const data = [
     
     // Manual Abrasive Sectioning
     { title: "Manual Abrasive Sectioning", description: "Manual MEGA abrasive sectioning saws for precise control and flexibility.", link: "/metallographic-equipment/abrasive-sectioning/manual.html", keywords: "manual abrasive sectioning MEGA manual cutting saws MEGA-M250S MEGA-T250S MEGA-T300S MEGA-T350S MEGA-T400S" },
-    { title: "MEGA-M250S Manual Abrasive Sectioning Saw", description: "High-performance manual abrasive sectioning saw for precise material cutting.", link: "/metallographic-equipment/abrasive-sectioning/manual/mega-m250s.html", keywords: "MEGA-M250S manual abrasive sectioning saw cutting abrasive cutting manual" },
-    { title: "MEGA-T250S Manual Abrasive Sectioning Saw", description: "Compact manual abrasive sectioning saw for small to medium samples.", link: "/metallographic-equipment/abrasive-sectioning/manual/mega-t250s.html", keywords: "MEGA-T250S manual abrasive sectioning saw cutting abrasive cutting manual compact" },
-    { title: "MEGA-T300S Manual Abrasive Sectioning Saw", description: "Advanced manual abrasive sectioning saw for demanding applications.", link: "/metallographic-equipment/abrasive-sectioning/manual/mega-t300s.html", keywords: "MEGA-T300S manual abrasive sectioning saw cutting abrasive cutting manual advanced" },
-    { title: "MEGA-T350S Manual Abrasive Sectioning Saw", description: "Heavy-duty manual abrasive sectioning saw for large samples.", link: "/metallographic-equipment/abrasive-sectioning/manual/mega-t350s.html", keywords: "MEGA-T350S manual abrasive sectioning saw cutting abrasive cutting manual heavy duty" },
-    { title: "MEGA-T400S Manual Abrasive Sectioning Saw", description: "Industrial manual abrasive sectioning saw for maximum capacity.", link: "/metallographic-equipment/abrasive-sectioning/manual/mega-t400s.html", keywords: "MEGA-T400S manual abrasive sectioning saw cutting abrasive cutting manual industrial" },
+    { title: "MEGA-M250S Manual Abrasive Sectioning Saw", description: "Manual wheel feed abrasive cutting machine for 10-inch (250 mm) abrasive blades.", link: "/metallographic-equipment/abrasive-sectioning/manual/mega-m250s.html", keywords: "MEGA-M250S manual abrasive sectioning saw cutting abrasive cutting manual 250mm 10-inch wheel feed" },
+    { title: "MEGA-T250S Manual Abrasive Sectioning Saw", description: "Manual wheel and table feed abrasive cutting machine for 10-inch (250 mm) abrasive blades.", link: "/metallographic-equipment/abrasive-sectioning/manual/mega-t250s.html", keywords: "MEGA-T250S manual abrasive sectioning saw cutting abrasive cutting manual 250mm 10-inch table feed" },
+    { title: "MEGA-T300S Manual Abrasive Sectioning Saw", description: "Manual wheel and table feed abrasive cutting machine for 12-inch (300 mm) abrasive blades. Cutting capacity up to 4-inch (100 mm) solid stock.", link: "/metallographic-equipment/abrasive-sectioning/manual/mega-t300s.html", keywords: "MEGA-T300S manual abrasive sectioning saw cutting abrasive cutting manual 300mm 12-inch table feed" },
+    { title: "MEGA-T350S Manual Abrasive Sectioning Saw", description: "Manual wheel and table feed abrasive cutting machine for 14-inch (350 mm) abrasive blades. Cutting capacity up to 4.5-inch (115 mm) solid stock.", link: "/metallographic-equipment/abrasive-sectioning/manual/mega-t350s.html", keywords: "MEGA-T350S manual abrasive sectioning saw cutting abrasive cutting manual 350mm 14-inch table feed" },
+    { title: "MEGA-T400S Manual Abrasive Sectioning Saw", description: "Manual wheel and table feed abrasive cutting machine for 16-inch (400 mm) abrasive blades. Cutting capacity up to 4.5-inch (115 mm) solid stock.", link: "/metallographic-equipment/abrasive-sectioning/manual/mega-t400s.html", keywords: "MEGA-T400S manual abrasive sectioning saw cutting abrasive cutting manual 400mm 16-inch table feed" },
     
     // Automated Abrasive Sectioning
     { title: "Automated Abrasive Sectioning", description: "Automated MEGA abrasive sectioning saws for high-volume production.", link: "/metallographic-equipment/abrasive-sectioning/automated.html", keywords: "automated abrasive sectioning MEGA automated cutting saws MEGA-T300A MEGA-T350A MEGA-T400A" },
-    { title: "MEGA-T300A Automated Abrasive Sectioning Saw", description: "Automated abrasive sectioning saw for efficient production cutting.", link: "/metallographic-equipment/abrasive-sectioning/automated/mega-t300a.html", keywords: "MEGA-T300A automated abrasive sectioning saw cutting abrasive cutting automated production" },
-    { title: "MEGA-T350A Automated Abrasive Sectioning Saw", description: "Heavy-duty automated abrasive sectioning saw for large sample production.", link: "/metallographic-equipment/abrasive-sectioning/automated/mega-t350a.html", keywords: "MEGA-T350A automated abrasive sectioning saw cutting abrasive cutting automated heavy duty" },
-    { title: "MEGA-T400A Automated Abrasive Sectioning Saw", description: "Industrial automated abrasive sectioning saw for maximum production capacity.", link: "/metallographic-equipment/abrasive-sectioning/automated/mega-t400a.html", keywords: "MEGA-T400A automated abrasive sectioning saw cutting abrasive cutting automated industrial" },
+    { title: "MEGA-T300A Automated Abrasive Sectioning Saw", description: "Automated and manual Y-axis with automated X-axis table feed and manual wheel feed abrasive cutting machine for 12-inch (300 mm) abrasive blades. Cutting capacity up to 4-inch (100 mm) solid stock.", link: "/metallographic-equipment/abrasive-sectioning/automated/mega-t300a.html", keywords: "MEGA-T300A automated abrasive sectioning saw cutting abrasive cutting automated 300mm 12-inch table feed" },
+    { title: "MEGA-T350A Automated Abrasive Sectioning Saw", description: "Automated and manual Y-axis with automated X-axis table feed and manual wheel feed abrasive cutting machine for 14-inch (350 mm) abrasive blades. Cutting capacity up to 4.5-inch (115 mm) solid stock.", link: "/metallographic-equipment/abrasive-sectioning/automated/mega-t350a.html", keywords: "MEGA-T350A automated abrasive sectioning saw cutting abrasive cutting automated 350mm 14-inch table feed" },
+    { title: "MEGA-T400A Automated Abrasive Sectioning Saw", description: "Automated and manual Y-axis with automated X-axis table feed and manual wheel feed abrasive cutting machine for 16-inch (400 mm) abrasive blades. Cutting capacity up to 4.5-inch (115 mm) solid stock.", link: "/metallographic-equipment/abrasive-sectioning/automated/mega-t400a.html", keywords: "MEGA-T400A automated abrasive sectioning saw cutting abrasive cutting automated 400mm 16-inch table feed" },
     
     // Lab Furniture
     { title: "Lab Furniture Solutions", description: "Ergonomic and efficient lab furniture designed for metallographic applications, including workstations and storage solutions.", link: "/metallographic-equipment/lab-furniture.html", keywords: "lab furniture workstation storage ergonomic efficiency laboratory furniture" },
@@ -274,6 +276,51 @@ const data = [
     
     // Events & News
     { title: "Upcoming Events", description: "Information about upcoming trade shows, conferences, and events.", link: "/events.html", keywords: "upcoming events trade shows conferences exhibitions metallographic events" },
+    
+    // Guides - Basics
+    { title: "Introduction to Metallography", description: "Learn the fundamentals of metallography, including what it is, why it matters, and how it's used in materials science and engineering.", link: "/guides/introduction-to-metallography.html", keywords: "introduction metallography fundamentals basics materials science engineering beginner guide", type: "guide", category: "Basics", difficulty: "Beginner" },
+    { title: "Purpose and Applications", description: "Discover the various applications of metallography in quality control, failure analysis, research, and materials development.", link: "/guides/purpose-and-applications.html", keywords: "purpose applications metallography quality control failure analysis research materials development", type: "guide", category: "Basics", difficulty: "Beginner" },
+    { title: "History of Metallography", description: "Explore the evolution of metallography from its origins to modern techniques. Understand how the field has developed over time.", link: "/guides/history-of-metallography.html", keywords: "history metallography evolution origins modern techniques development timeline", type: "guide", category: "Basics", difficulty: "Beginner" },
+    { title: "Equipment Overview", description: "Learn about the essential equipment used in metallography, from sectioning equipment to microscopes. Understand what equipment you need for metallographic sample preparation.", link: "/guides/equipment-overview.html", keywords: "equipment overview metallography sectioning microscopes sample preparation tools", type: "guide", category: "Basics", difficulty: "Beginner" },
+    { title: "Safety Fundamentals", description: "Essential safety practices for metallography laboratories. Learn about chemical safety, equipment safety, personal protective equipment, and safe work practices.", link: "/guides/safety-fundamentals.html", keywords: "safety fundamentals metallography laboratories chemical safety equipment safety PPE personal protective equipment", type: "guide", category: "Basics", difficulty: "Beginner" },
+    { title: "Common Misconceptions", description: "Learn about common mistakes and misconceptions beginners make in metallography. Avoid these pitfalls and develop better metallographic practices.", link: "/guides/common-misconceptions.html", keywords: "common misconceptions mistakes beginners metallography pitfalls best practices", type: "guide", category: "Basics", difficulty: "Beginner" },
+    
+    // Guides - Process
+    { title: "Sectioning Guide", description: "Overview of sample sectioning techniques covering both abrasive and precision sectioning methods. Includes saw selection, cutting parameters, and minimizing damage during the cutting process.", link: "/guides/sectioning.html", keywords: "sectioning sample cutting saw selection cutting parameters minimizing damage abrasive precision sectioning", type: "guide", category: "Process", difficulty: "Beginner" },
+    { title: "Mounting Guide", description: "Overview of mounting procedures including compression mounting, castable mounting, and selecting appropriate mounting materials.", link: "/guides/mounting.html", keywords: "mounting compression castable mounting materials procedures", type: "guide", category: "Process", difficulty: "Beginner" },
+    { title: "Grinding Techniques", description: "Overview of grinding with proper grit selection, pressure control, and technique. Learn progressive grinding methods for optimal surface quality.", link: "/guides/grinding-techniques.html", keywords: "grinding techniques grit selection pressure control progressive grinding surface quality", type: "guide", category: "Process", difficulty: "Beginner" },
+    { title: "Polishing Methods", description: "Overview of polishing techniques for different materials and applications. Covers diamond polishing, oxide polishing, and final polishing strategies.", link: "/guides/polishing-methods.html", keywords: "polishing methods diamond polishing oxide polishing final polishing strategies", type: "guide", category: "Process", difficulty: "Intermediate" },
+    { title: "Etching Procedures", description: "Overview of etching techniques, reagent selection, and application methods. Learn how to reveal microstructures effectively and safely.", link: "/guides/etching-procedures.html", keywords: "etching procedures reagent selection application methods microstructures", type: "guide", category: "Process", difficulty: "Intermediate" },
+    { title: "Microstructural Analysis", description: "Complete guide to preparing samples for microscopy, choosing the right microscope, and interpreting common microstructures in metals and alloys.", link: "/guides/microstructural-analysis.html", keywords: "microstructural analysis microscopy interpreting microstructures metals alloys", type: "guide", category: "Process", difficulty: "Intermediate" },
+    
+    // Guides - Material-Specific
+    { title: "Stainless Steel Preparation", description: "Complete in-depth guide to preparing stainless steel samples for metallographic analysis, including sectioning, mounting, grinding, polishing, and etching techniques.", link: "/guides/stainless-steel-preparation.html", keywords: "stainless steel preparation 304 316 430 431 sectioning mounting grinding polishing etching", type: "guide", category: "Material-Specific", difficulty: "Intermediate" },
+    { title: "Aluminum Sample Preparation", description: "In-depth guide for preparing aluminum samples without smearing or deformation. Learn proper techniques for soft materials and avoid common pitfalls.", link: "/guides/aluminum-sample-preparation.html", keywords: "aluminum preparation 6061 7075 smearing deformation soft materials", type: "guide", category: "Material-Specific", difficulty: "Intermediate" },
+    { title: "Copper and Copper Alloys Preparation", description: "In-depth preparation methods for copper and its alloys, including brass and bronze. Learn techniques to avoid smearing and reveal true microstructures.", link: "/guides/copper-and-copper-alloys-preparation.html", keywords: "copper alloys brass bronze preparation smearing microstructures", type: "guide", category: "Material-Specific", difficulty: "Intermediate" },
+    { title: "Titanium Preparation", description: "In-depth specialized techniques for preparing titanium samples, including handling reactive surfaces and proper etching methods for alpha and beta phases.", link: "/guides/titanium-preparation.html", keywords: "titanium preparation Ti6Al4V reactive surfaces alpha beta phases etching", type: "guide", category: "Material-Specific", difficulty: "Advanced" },
+    { title: "Carbon and Low Alloy Steels Preparation", description: "In-depth procedures for preparing carbon steel and low alloy steel samples (1018, 1045, 4140, 4340, 5160, 52100). Covers proper etching for pearlite, ferrite, and martensite structures.", link: "/guides/carbon-steel-preparation.html", keywords: "carbon steel low alloy 1018 1045 4140 4340 5160 52100 pearlite ferrite martensite", type: "guide", category: "Material-Specific", difficulty: "Intermediate" },
+    { title: "Cast Iron Preparation", description: "Complete guide to preparing cast iron samples with emphasis on preserving graphite structure. Covers gray, ductile, malleable, and austempered ductile iron preparation techniques.", link: "/guides/cast-iron-preparation.html", keywords: "cast iron gray ductile malleable austempered graphite structure", type: "guide", category: "Material-Specific", difficulty: "Intermediate" },
+    { title: "Tool Steel and Hardened Steel Preparation", description: "Comprehensive guide for preparing very hard tool steels and hardened steels. Learn techniques for preserving carbides, extended preparation sequences, and revealing complex microstructures in high-hardness materials.", link: "/guides/tool-steel-preparation.html", keywords: "tool steel hardened steel carbides high hardness microstructures", type: "guide", category: "Material-Specific", difficulty: "Advanced" },
+    { title: "Nickel and Cobalt Superalloys Preparation", description: "Comprehensive guide for preparing nickel and cobalt superalloys including Inconel, Hastelloy, and Stellite. Learn techniques for handling high-temperature alloys and revealing complex microstructures.", link: "/guides/nickel-alloys-preparation.html", keywords: "nickel cobalt superalloys Inconel Hastelloy Stellite high temperature alloys", type: "guide", category: "Material-Specific", difficulty: "Advanced" },
+    { title: "Magnesium Preparation", description: "Specialized techniques for preparing magnesium and magnesium alloys. Learn how to handle reactive materials and avoid oxidation artifacts.", link: "/guides/magnesium-preparation.html", keywords: "magnesium alloys reactive materials oxidation artifacts", type: "guide", category: "Material-Specific", difficulty: "Advanced" },
+    { title: "Ceramics Preparation", description: "Complete guide to preparing ceramic samples for metallographic analysis. Covers sectioning hard materials, avoiding chipping, and revealing grain boundaries.", link: "/guides/ceramics-preparation.html", keywords: "ceramics preparation hard materials chipping grain boundaries", type: "guide", category: "Material-Specific", difficulty: "Advanced" },
+    { title: "Composites Preparation", description: "In-depth techniques for preparing composite materials including fiber-reinforced composites. Learn to avoid pullout, maintain fiber orientation, and reveal interfaces.", link: "/guides/composites-preparation.html", keywords: "composites fiber reinforced pullout fiber orientation interfaces", type: "guide", category: "Material-Specific", difficulty: "Advanced" },
+    
+    // Guides - Application-Specific (external links)
+    { title: "Failure Analysis Guide", description: "Learn about failure analysis techniques in metallography, including fracture analysis, root cause investigation, and material failure mechanisms.", link: "https://metallography.org/guides/failure-analysis", keywords: "failure analysis fracture analysis root cause investigation material failure mechanisms", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Castings and Foundry Analysis", description: "Complete guide to metallographic analysis of cast materials including solidification structure analysis, dendrite arm spacing measurement, casting defect identification, and grain size control.", link: "https://metallography.org/guides/castings-foundry-analysis", keywords: "castings foundry solidification dendrite arm spacing casting defects grain size", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Hardness Testing Preparation", description: "In-depth specialized preparation techniques for samples that will undergo hardness testing. Ensure accurate results with proper surface preparation.", link: "https://metallography.org/guides/hardness-testing-preparation", keywords: "hardness testing preparation surface preparation accurate results", type: "guide", category: "Application-Specific", difficulty: "Intermediate" },
+    { title: "Heat Treatment Verification", description: "Complete guide to verifying heat treatment effectiveness through metallographic analysis, including case depth measurement, decarburization detection, and microstructure validation for different heat treatment processes.", link: "https://metallography.org/guides/heat-treatment-verification", keywords: "heat treatment verification case depth decarburization microstructure validation", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Quality Control and Inspection", description: "In-depth guide on how to evaluate sample quality, identify preparation artifacts, and ensure your samples meet industry standards for metallographic analysis.", link: "https://metallography.org/guides/quality-control-inspection", keywords: "quality control inspection sample quality preparation artifacts industry standards", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Welding Analysis and Weld Zone Preparation", description: "Complete guide to preparing weld samples for metallographic analysis, including weld zone, HAZ, and fusion boundary preparation for different welding methods.", link: "https://metallography.org/guides/welding-analysis", keywords: "welding analysis weld zone HAZ fusion boundary welding methods", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Additive Manufacturing (3D Printing) Sample Preparation", description: "Complete guide to preparing additive manufacturing samples for metallographic analysis. Learn techniques for handling porosity, layer boundaries, support structures, and revealing build direction and process defects.", link: "https://metallography.org/guides/additive-manufacturing-preparation", keywords: "additive manufacturing 3D printing porosity layer boundaries support structures build direction", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Aerospace Applications Guide", description: "Comprehensive guide to metallographic analysis for aerospace applications, covering titanium and superalloy preparation, fatigue and creep damage assessment, coating analysis, and industry-specific standards.", link: "https://metallography.org/guides/aerospace-applications", keywords: "aerospace titanium superalloys fatigue creep damage coating analysis", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Automotive Applications Guide", description: "Complete guide to metallographic analysis for automotive applications, covering steel and aluminum processing verification, heat treatment validation, weld quality assessment, and industry-specific quality requirements.", link: "https://metallography.org/guides/automotive-applications", keywords: "automotive steel aluminum heat treatment weld quality", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Medical Device Applications Guide", description: "Comprehensive guide to metallographic analysis for medical device applications, covering biocompatible material preparation, surface finish requirements, implant material characterization, and regulatory compliance considerations.", link: "https://metallography.org/guides/medical-device-applications", keywords: "medical devices biocompatible surface finish implants regulatory compliance", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "PCB and Chip Sample Preparation", description: "Complete guide to preparing printed circuit boards (PCBs) and semiconductor chips for metallographic analysis. Learn controlled removal techniques, ATTO polishing, and precision preparation methods essential for electronics failure analysis and quality control.", link: "https://metallography.org/guides/pcb-chip-preparation", keywords: "PCB chip semiconductor controlled removal ATTO polishing electronics failure analysis", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    
+    // Guides - Troubleshooting
+    { title: "Troubleshooting Common Issues", description: "Comprehensive solutions to common problems in metallographic sample preparation including scratches, contamination, relief, and poor contrast issues.", link: "/support.html", keywords: "troubleshooting common issues scratches contamination relief poor contrast", type: "guide", category: "Troubleshooting", difficulty: "Intermediate" },
 ];
     
 // Debounce function to limit the rate of search function execution
@@ -286,31 +333,50 @@ function debounce(func, wait) {
     };
 }
 
+// Get active filter from UI
+function getActiveFilter() {
+    const activeFilter = document.querySelector('.filter-btn.active');
+    return activeFilter ? activeFilter.dataset.filter : 'all';
+}
+
 function customSearch(query) {
     if (!query) {
         displayCustomResults([]); // Clear results if query is empty
         return;
     }
 
+    const activeFilter = getActiveFilter();
+    const queryLower = query.toLowerCase().trim();
+    // Filter out very short words and common stop words
+    const queryWords = queryLower.split(/\s+/).filter(w => w.length > 2 && !['the', 'and', 'for', 'are', 'but', 'not', 'you', 'all', 'can', 'her', 'was', 'one', 'our', 'out', 'day', 'get', 'has', 'him', 'his', 'how', 'its', 'may', 'new', 'now', 'old', 'see', 'two', 'way', 'who', 'boy', 'did', 'its', 'let', 'put', 'say', 'she', 'too', 'use'].includes(w));
+
     // Filter and score results
     const results = data
         .map(item => {
             // SDS files only appear if "sds" is in the search terms
-            if (item.priority === 'low' && !query.includes('sds')) {
+            if (item.priority === 'low' && !queryLower.includes('sds')) {
                 return null; // Don't include SDS files unless "sds" is in the search
+            }
+            
+            // Apply type filter
+            if (activeFilter !== 'all') {
+                if (activeFilter === 'guides' && item.type !== 'guide') return null;
+                if (activeFilter === 'equipment' && !item.link.includes('/metallographic-equipment/')) return null;
+                if (activeFilter === 'consumables' && !item.link.includes('/metallographic-consumables/')) return null;
+                if (activeFilter === 'support' && !item.link.includes('/support/') && item.type !== 'guide') return null;
             }
             
             let score = 0;
             
             // For SDS items, check if any word in the query matches
             if (item.priority === 'low') {
-                const queryWords = query.split(' ').filter(word => word !== 'sds');
-                const titleWords = item.title.toLowerCase().split(' ');
-                const descriptionWords = item.description.toLowerCase().split(' ');
-                const keywordsWords = item.keywords.toLowerCase().split(' ');
+                const filteredQueryWords = queryWords.filter(word => word !== 'sds');
+                const titleWords = item.title.toLowerCase().split(/\s+/);
+                const descriptionWords = item.description.toLowerCase().split(/\s+/);
+                const keywordsWords = item.keywords.toLowerCase().split(/\s+/);
                 
                 // Check if any query word (except 'sds') matches any word in title/description/keywords
-                const hasWordMatch = queryWords.some(queryWord => 
+                const hasWordMatch = filteredQueryWords.some(queryWord => 
                     titleWords.some(titleWord => titleWord.includes(queryWord)) ||
                     descriptionWords.some(descWord => descWord.includes(queryWord)) ||
                     keywordsWords.some(keywordWord => keywordWord.includes(queryWord))
@@ -321,25 +387,110 @@ function customSearch(query) {
                 }
             }
             
-            const titleMatch = item.title.toLowerCase().includes(query);
-            const descriptionMatch = item.description.toLowerCase().includes(query);
-            const keywordsMatch = item.keywords.toLowerCase().includes(query);
+            // Enhanced matching with word-level scoring
+            const titleLower = item.title.toLowerCase();
+            const descriptionLower = item.description.toLowerCase();
+            const keywordsLower = item.keywords.toLowerCase();
             
-            // Scoring system: title matches get highest priority
-            if (titleMatch) score += 100;
-            if (descriptionMatch) score += 50;
-            if (keywordsMatch) score += 25;
+            // Exact title match (highest priority - product names, etc.)
+            if (titleLower === queryLower) {
+                score += 1000; // Massive boost for exact title match
+            }
             
-            // Bonus for exact title matches
-            if (item.title.toLowerCase() === query) score += 200;
+            // Title starts with query (very high priority)
+            else if (titleLower.startsWith(queryLower)) {
+                score += 500;
+            }
             
-            // Bonus for title starting with query
-            if (item.title.toLowerCase().startsWith(query)) score += 150;
+            // Exact phrase in title (high priority)
+            else if (titleLower.includes(queryLower)) {
+                score += 300;
+            }
             
-            // Only return items that have at least one match
-            if (score > 0) {
+            // All query words appear in title in order (high relevance)
+            else if (queryWords.every(word => titleLower.includes(word))) {
+                // Check if words appear in order
+                let lastIndex = -1;
+                let wordsInOrder = true;
+                for (const word of queryWords) {
+                    const index = titleLower.indexOf(word, lastIndex + 1);
+                    if (index === -1) {
+                        wordsInOrder = false;
+                        break;
+                    }
+                    lastIndex = index;
+                }
+                if (wordsInOrder) {
+                    score += 250; // Words in order = higher relevance
+                } else {
+                    score += 150; // All words present but not in order
+                }
+            }
+            
+            // Product/model number detection (e.g., "PICO-155S", "MEGA-T300S")
+            const productPattern = /[A-Z]+-?[A-Z0-9]+/i;
+            const queryHasProductCode = productPattern.test(query);
+            const titleHasProductCode = productPattern.test(item.title);
+            
+            if (queryHasProductCode && titleHasProductCode) {
+                // Extract product codes
+                const queryCode = query.match(productPattern)?.[0]?.toLowerCase();
+                const titleCode = item.title.match(productPattern)?.[0]?.toLowerCase();
+                if (queryCode && titleCode && titleCode.includes(queryCode)) {
+                    score += 400; // Product code match is very relevant
+                }
+            }
+            
+            // Word-level matches in title (only meaningful words)
+            queryWords.forEach(word => {
+                if (titleLower.includes(word)) {
+                    // Check if word appears at start of title (more relevant)
+                    if (titleLower.startsWith(word) || titleLower.startsWith(word + ' ')) {
+                        score += 75;
+                    } else {
+                        score += 50;
+                    }
+                }
+            });
+            
+            // Description and keywords matches (lower priority)
+            if (descriptionLower.includes(queryLower)) score += 100;
+            if (keywordsLower.includes(queryLower)) score += 75;
+            
+            queryWords.forEach(word => {
+                if (descriptionLower.includes(word)) score += 25;
+                if (keywordsLower.includes(word)) score += 15;
+            });
+            
+            // Boost equipment/consumables when query matches product patterns
+            if ((item.link.includes('/metallographic-equipment/') || 
+                 item.link.includes('/metallographic-consumables/')) && 
+                queryHasProductCode) {
+                score += 100; // Equipment/consumables with product codes get boost
+            }
+            
+            // Only return items that have a meaningful match
+            // Require at least one query word to actually match in title, description, or keywords
+            // OR have a high score from exact/phrase matches
+            const hasWordMatch = queryWords.length === 0 || queryWords.some(word => 
+                titleLower.includes(word) || descriptionLower.includes(word) || keywordsLower.includes(word)
+            );
+            
+            // For exact matches (title equals query, starts with query, or contains full query), be more lenient
+            const isExactMatch = titleLower === queryLower || titleLower.startsWith(queryLower) || titleLower.includes(queryLower);
+            
+            // Minimum score threshold: 
+            // - 25 points for exact/phrase matches
+            // - 50 points for word matches
+            // - Must have at least one word match OR be an exact match
+            if (isExactMatch && score >= 25) {
                 return { ...item, score };
             }
+            
+            if (hasWordMatch && score >= 50) {
+                return { ...item, score };
+            }
+            
             return null;
         })
         .filter(item => item !== null)
@@ -354,40 +505,134 @@ function displayCustomResults(results, query = '') {
     container.innerHTML = ''; // Clear previous results
 
     if (results.length === 0) {
-        container.innerHTML = '<div class="search-result"><p>No results found. Try different keywords or check our <a href="/equipment.html">Equipment</a> and <a href="/consumables.html">Consumables</a> pages.</p></div>';
+        container.innerHTML = '<div class="search-no-results"><p>No results found. Try different keywords or check our <a href="/equipment.html">Equipment</a>, <a href="/consumables.html">Consumables</a>, and <a href="/guides.html">Guides</a> pages.</p></div>';
         loadingIndicator.style.display = 'none';
         return;
     }
 
-    results.forEach(result => {
-        const resultItem = document.createElement('div');
-        resultItem.classList.add('custom-result-item');
-
-        const highlightedTitle = highlightCustomText(result.title, query);
-        const highlightedDescription = highlightCustomText(result.description, query);
-
-        // Determine category and icon based on URL
-        const categoryInfo = getCategoryInfo(result.link);
-
-        resultItem.setAttribute('data-category', categoryInfo.category);
-        resultItem.innerHTML = `
-            <div class="result-header">
-                <div class="result-icon">
-                    <i class="${categoryInfo.icon}" aria-hidden="true"></i>
-                </div>
-                <div class="result-content">
-                    <div class="result-category">${categoryInfo.category}</div>
-            <h3><a href="${result.link}">${highlightedTitle}</a></h3>
-            <p>${highlightedDescription}</p>
-                </div>
-            </div>
+    // Group results by category/type for better organization
+    const groupedResults = groupResultsByCategory(results);
+    
+    // Define the order for displaying categories
+    const categoryOrder = ['Equipment', 'Consumables', 'Guides', 'Support & Resources', 'Other'];
+    
+    // Display grouped results in the specified order
+    categoryOrder.forEach(category => {
+        const categoryResults = groupedResults[category];
+        if (!categoryResults || categoryResults.length === 0) return;
+        
+        const categorySection = document.createElement('div');
+        categorySection.className = 'results-category-section';
+        categorySection.setAttribute('data-category', category);
+        
+        const categoryHeader = document.createElement('div');
+        categoryHeader.className = 'results-category-header';
+        categoryHeader.innerHTML = `
+            <h3 class="results-category-title">${category}</h3>
+            <span class="results-category-count">${categoryResults.length} ${categoryResults.length === 1 ? 'result' : 'results'}</span>
         `;
-        container.appendChild(resultItem);
+        categorySection.appendChild(categoryHeader);
+        
+        const resultsList = document.createElement('div');
+        resultsList.className = 'results-list';
+        
+        categoryResults.forEach(result => {
+            const resultItem = document.createElement('div');
+            resultItem.classList.add('custom-result-item');
+            if (result.type === 'guide') {
+                resultItem.classList.add('result-item-guide');
+            }
+
+            const highlightedTitle = highlightCustomText(result.title, query);
+            const highlightedDescription = highlightCustomText(result.description, query);
+
+            // Determine category and icon based on URL or guide type
+            const categoryInfo = getCategoryInfo(result.link, result);
+
+            const difficultyBadge = result.difficulty ? `<span class="difficulty-badge difficulty-${result.difficulty.toLowerCase()}">${result.difficulty}</span>` : '';
+            const guideCategory = result.category ? `<span class="guide-category-badge">${result.category}</span>` : '';
+            const externalLink = result.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : '';
+
+            // Format URL like Google (show domain/path)
+            const urlDisplay = formatUrlForDisplay(result.link);
+            
+            resultItem.setAttribute('data-category', categoryInfo.category);
+            resultItem.innerHTML = `
+                <div class="result-header">
+                    <div class="result-content">
+                        <div class="result-meta">
+                            <span class="result-url">${urlDisplay}</span>
+                            ${difficultyBadge}
+                            ${guideCategory}
+                        </div>
+                        <h3><a href="${result.link}" ${externalLink}>${highlightedTitle}</a></h3>
+                        <p>${highlightedDescription}</p>
+                    </div>
+                </div>
+            `;
+            resultsList.appendChild(resultItem);
+        });
+        
+        categorySection.appendChild(resultsList);
+        container.appendChild(categorySection);
     });
+    
     loadingIndicator.style.display = 'none';
 }
 
-function getCategoryInfo(url) {
+function groupResultsByCategory(results) {
+    const groups = {
+        'Equipment': [],
+        'Consumables': [],
+        'Guides': [],
+        'Support & Resources': [],
+        'Other': []
+    };
+    
+    results.forEach(result => {
+        if (result.type === 'guide') {
+            groups['Guides'].push(result);
+        } else if (result.link.includes('/metallographic-equipment/')) {
+            groups['Equipment'].push(result);
+        } else if (result.link.includes('/metallographic-consumables/')) {
+            groups['Consumables'].push(result);
+        } else if (result.link.includes('/support/') || result.link.includes('/guides.html') || result.link.includes('/procedures')) {
+            groups['Support & Resources'].push(result);
+        } else {
+            groups['Other'].push(result);
+        }
+    });
+    
+    // Remove empty groups
+    Object.keys(groups).forEach(key => {
+        if (groups[key].length === 0) {
+            delete groups[key];
+        }
+    });
+    
+    return groups;
+}
+
+function getCategoryInfo(url, item = null) {
+    // Handle guides
+    if (item && item.type === 'guide') {
+        const categoryIcons = {
+            'Basics': 'fas fa-book-open',
+            'Process': 'fas fa-cogs',
+            'Material-Specific': 'fas fa-flask',
+            'Application-Specific': 'fas fa-microscope',
+            'Troubleshooting': 'fas fa-wrench'
+        };
+        return { 
+            category: item.category || 'Guide', 
+            icon: categoryIcons[item.category] || 'fas fa-book' 
+        };
+    }
+    
+    if (url.includes('/guides/')) {
+        return { category: 'Guide', icon: 'fas fa-book' };
+    }
+    
     if (url.includes('/metallographic-equipment/')) {
         if (url.includes('abrasive-sectioning')) return { category: 'Abrasive Sectioning', icon: 'fas fa-cut' };
         if (url.includes('precision-wafering')) return { category: 'Precision Wafering', icon: 'fas fa-gem' };
@@ -427,12 +672,61 @@ function highlightCustomText(text, query) {
     return text.replace(regex, '<mark>$1</mark>');
 }
 
+function formatUrlForDisplay(url) {
+    if (url.startsWith('http')) {
+        try {
+            const urlObj = new URL(url);
+            return urlObj.hostname.replace('www.', '') + urlObj.pathname;
+        } catch (e) {
+            return url;
+        }
+    }
+    // For relative URLs, show the path
+    return url.replace(/^\//, '').replace(/\.html$/, '').replace(/\//g, ' › ');
+}
+
 const handleCustomSearch = debounce(function() {
     const query = document.getElementById('customSearchInput').value.toLowerCase();
     const loadingIndicator = document.getElementById('customLoadingIndicator');
-    loadingIndicator.style.display = 'block';
+    if (query.length > 0) {
+        loadingIndicator.style.display = 'block';
+    }
     customSearch(query);
 }, 300);
 
-document.getElementById('customSearchInput').addEventListener('input', handleCustomSearch);
+// Initialize search functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('customSearchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', handleCustomSearch);
+        
+        // Handle Enter key
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const query = searchInput.value.toLowerCase();
+                if (query.length > 0) {
+                    customSearch(query);
+                }
+            }
+        });
+    }
+    
+    // Initialize filter buttons if they exist
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Trigger search with current query
+            const query = document.getElementById('customSearchInput').value.toLowerCase();
+            if (query.length > 0) {
+                customSearch(query);
+            }
+        });
+    });
+});
 

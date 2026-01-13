@@ -229,7 +229,56 @@ function filterMaterials(searchQuery = '', category = 'All') {
 // Render category filter buttons
 function renderCategoryFilters() {
     const container = document.getElementById('category-filters');
+    const select = document.getElementById('category-select');
     if (!container) return;
+    
+    // Clear container first (remove existing buttons)
+    container.innerHTML = '';
+    
+    // Populate select dropdown
+    if (select) {
+        select.innerHTML = '<option value="All">All</option>';
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            select.appendChild(option);
+        });
+        
+        // Remove existing event listeners by cloning and replacing
+        const newSelect = select.cloneNode(true);
+        select.parentNode.replaceChild(newSelect, select);
+        
+        // Handle select change
+        newSelect.addEventListener('change', (e) => {
+            const category = e.target.value;
+            // Update button active state
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            const activeBtn = container.querySelector(`[data-category="${category}"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+            
+            // Filter materials
+            const searchQuery = document.getElementById('search-input').value;
+            filterMaterials(searchQuery, category);
+        });
+    }
+    
+    // Add "All" button first
+    const allBtn = document.createElement('button');
+    allBtn.className = 'filter-btn active';
+    allBtn.dataset.category = 'All';
+    allBtn.textContent = 'All';
+    allBtn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        allBtn.classList.add('active');
+        if (select) {
+            const currentSelect = document.getElementById('category-select');
+            if (currentSelect) currentSelect.value = 'All';
+        }
+        const searchQuery = document.getElementById('search-input').value;
+        filterMaterials(searchQuery, 'All');
+    });
+    container.appendChild(allBtn);
     
     // Add category buttons
     categories.forEach(category => {
@@ -242,23 +291,18 @@ function renderCategoryFilters() {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             
+            // Sync select dropdown
+            if (select) {
+                const currentSelect = document.getElementById('category-select');
+                if (currentSelect) currentSelect.value = category;
+            }
+            
             // Filter materials
             const searchQuery = document.getElementById('search-input').value;
             filterMaterials(searchQuery, category);
         });
         container.appendChild(btn);
     });
-    
-    // Setup "All" button
-    const allBtn = container.querySelector('[data-category="All"]');
-    if (allBtn) {
-        allBtn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            allBtn.classList.add('active');
-            const searchQuery = document.getElementById('search-input').value;
-            filterMaterials(searchQuery, 'All');
-        });
-    }
 }
 
 // Render materials grid

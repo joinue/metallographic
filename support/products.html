@@ -29,54 +29,120 @@
     <meta name="norton-safeweb-site-verification" content="kw254olmyzhm98ttscnebx59npy7ji28spxv77ktnnqwpg2entz0hsfozhba0gzvjvrfj6z0-c00djzn-iq1hw-z1vdcna8ug093xtjit61oop1s26erotk-0ruemld5">
 
     <!-- Stylesheets -->
+    <link rel="preload" href="/css/layouts/homepage-styles.css" as="style">
     <link rel="stylesheet" href="/css/base/styles.css" as="style">
     <link rel="stylesheet" href="/css/components/navigation.css">
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/layouts/homepage.css">
+    <link rel="stylesheet" href="/css/layouts/homepage-styles.css" media="all">
     <link rel="stylesheet" href="/css/pages/support.css">
     <link rel="stylesheet" href="/css/pages/machine.css">
+    <link rel="stylesheet" href="/css/utilities/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
           integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/5hb7x1l5b6ASoD7Y6Mgg7k+RCUty7k3y9iO6F0"
           crossorigin="anonymous">
 
-    <!-- Custom styles for compact product navigation -->
+    <!-- Custom styles for products page -->
     <style>
-        
-        /* Make product navigation more compact to fit all buttons on one line */
-        .product-nav .nav-list {
-            flex-wrap: nowrap !important;
-            gap: 0.1rem !important;
-            justify-content: center;
-            padding: 0.25rem 0.5rem;
+        /* Adjust header spacing - reduce top/bottom, increase internal spacing */
+        .product-series .timeline-header {
+            margin-top: 0.75rem !important;
+            margin-bottom: 1.25rem !important;
         }
         
-        .product-nav .nav-link {
-            font-size: 0.65rem !important;
-            padding: 0.25rem 0.4rem !important;
-            white-space: nowrap;
-        }
-        
-        /* Only allow wrapping on smaller screens */
-        @media (max-width: 1200px) {
-            .product-nav .nav-list {
-                flex-wrap: wrap !important;
-                gap: 0.1rem !important;
+        @media (min-width: 640px) {
+            .product-series .timeline-header {
+                margin-top: 1rem !important;
+                margin-bottom: 1.5rem !important;
             }
         }
         
-        @media (max-width: 992px) {
-            .product-nav .nav-link {
-                font-size: 0.75rem !important;
-                padding: 0.3rem 0.5rem !important;
+        .product-series .section-title-large {
+            margin-bottom: 1rem !important;
+        }
+        
+        @media (min-width: 640px) {
+            .product-series .section-title-large {
+                margin-bottom: 1.25rem !important;
             }
         }
         
-        @media (max-width: 768px) {
-            .product-nav .nav-list {
-                flex-wrap: wrap !important;
+        .product-series .section-subtitle {
+            line-height: 1.7 !important;
+            margin-bottom: 1.25rem !important;
+            padding: 0 !important;
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+        
+        .product-series .timeline-header {
+            max-width: 1440px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding: 0 1rem !important;
+        }
+        
+        @media (min-width: 640px) {
+            .product-series .timeline-header {
+                padding: 0 1.5rem !important;
             }
         }
         
+        @media (min-width: 1024px) {
+            .product-series .timeline-header {
+                padding: 0 2rem !important;
+            }
+        }
+        
+        @media (min-width: 640px) {
+            .product-series .section-subtitle {
+                line-height: 1.75 !important;
+                margin-bottom: 1.5rem !important;
+            }
+        }
+        
+        .product-series .timeline-header p:last-of-type {
+            line-height: 1.7 !important;
+            margin-bottom: 0 !important;
+        }
+        
+        /* Tighter spacing for timeline steps */
+        .timeline-section .timeline-step {
+            margin-bottom: 1.5rem !important;
+        }
+        
+        @media (min-width: 640px) {
+            .timeline-section .timeline-step {
+                margin-bottom: 2rem !important;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .timeline-section .timeline-step {
+                margin-bottom: 2.5rem !important;
+            }
+        }
+        
+        /* Timeline links grid under video */
+        .timeline-video .timeline-links-grid {
+            margin-top: 1rem;
+        }
+        
+        /* Tighter card padding */
+        .timeline-section .timeline-card {
+            padding: 1.25rem !important;
+        }
+        
+        @media (min-width: 640px) {
+            .timeline-section .timeline-card {
+                padding: 1.5rem !important;
+            }
+        }
+        
+        /* Tighter text spacing */
+        .timeline-section .timeline-step-text {
+            margin-bottom: 0 !important;
+        }
     </style>
 
     <!-- Favicon -->
@@ -124,6 +190,9 @@
 
 
 <body>
+
+<!-- Skip to Main Content Link -->
+<a href="#main-content" class="skip-to-main">Skip to main content</a>
 
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
@@ -179,7 +248,7 @@
                 </button>
             </div>
             <div class="mobile-nav-content">
-            <ul class="nav-links-mobile">
+        <ul class="nav-links-mobile">
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
                     <a href="/equipment.html" class="mobile-nav-link">Equipment</a>
@@ -195,7 +264,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Abrasive Sectioning submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/abrasive-sectioning.html#manual">Manual Abrasive Cutters</a></li>
@@ -207,7 +276,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Precision Wafering submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/precision-wafering.html#gravity">Gravity Feed Saws</a></li>
@@ -219,7 +288,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Compression Mounting submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/compression-mounting/tp-7500s.html">Hydraulic Mounting Press</a></li>
@@ -232,7 +301,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Castable Mounting submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/castable-mounting/lssa-011.html">Vacuum Mounting System</a></li>
@@ -245,7 +314,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Grinding & Polishing submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
@@ -260,7 +329,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Microscopy submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/microscopy/metallurgical.html">Metallurgical Microscopes</a></li>
@@ -273,7 +342,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Hardness Testing submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-equipment/hardness-testing/microhardness.html">Microhardness Testers</a></li>
@@ -305,7 +374,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sectioning submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-consumables/sectioning/abrasive-cutting.html">Abrasive Cutting</a></li>
@@ -317,7 +386,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Mounting submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-consumables/mounting/compression.html">Compression Mounting</a></li>
@@ -329,7 +398,7 @@
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Grinding / Lapping submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
-                            </svg>
+                                </svg>
                         </button>
                         <ul class="sub-menu-second-level">
                             <li><a href="/metallographic-consumables/grinding/abrasive-grinding.html">Abrasive Grinding</a></li>
@@ -379,44 +448,74 @@
                     </button>
                 </div>
                 <ul class="sub-menu-mobile" data-section="support">
-                    <li><a href="/support/products.html"><span>Product Information</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
                     <li class="has-submenu">
-                        <a href="/support/brochures.html">Product Literature</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Literature submenu">
+                        <a href="/support/products.html">Product Information</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/support/products.html">Explore Products</a></li>
                             <li><a href="/catalog.html">Product Catalog</a></li>
                             <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
                             <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="/services.html"><span>Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></span></a>
+                    </li>
+                    <li><a href="/support.html"><span>Technical Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav-section">
+                <div class="mobile-nav-header">
+                    <a href="/guides.html" class="mobile-nav-link">Learn</a>
+                    <button class="mobile-nav-toggle" data-section="learn" aria-label="Toggle Learn submenu">
+                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                </div>
+                <ul class="sub-menu-mobile" data-section="learn">
                     <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep Resources submenu">
+                        <a href="/guides.html">Guides</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Guides submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="https://www.youtube.com/@pacetechnologies">PACE YouTube Channel</a></li>
+                            <li><a href="/guides.html">All Guides</a></li>
+                            <li><a href="/guides.html?category=Basics">Basics</a></li>
+                            <li><a href="/guides.html?category=Process">Process</a></li>
+                            <li><a href="/guides.html?category=Material-Specific">Material-Specific</a></li>
+                            <li><a href="/guides.html?category=Application-Specific">Application-Specific</a></li>
+                            <li><a href="/guides.html?category=Troubleshooting">Troubleshooting</a></li>
                         </ul>
                     </li>
-                    <li><a href="/support/etchant-information.html"><span>Etchant Information</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li class="has-submenu">
+                        <a href="/tools.html">Tools</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Tools submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/tools/grit-size-converter.html">Grit Size Converter</a></li>
+                            <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
+                            <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
+                            <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
+                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
+                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+                        </ul>
+                    </li>
                     <li class="mobile-nav-subsection">
                         <div class="mobile-nav-header">
                             <a href="/databases.html" class="mobile-nav-link">Databases</a>
@@ -428,42 +527,67 @@
                         </div>
                         <ul class="sub-menu-mobile nested" data-section="databases">
                             <li>
+                                <a href="/databases.html">
+                                    <span>All Databases
+                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
                                 <a href="/materials.html">
                                     <span>Materials Database
-                                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <path d="M9 18l6-6-6-6" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
+                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
                                 <a href="/etchants.html">
                                     <span>Etchants Database
-                                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <path d="M9 18l6-6-6-6" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
+                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
                                 <a href="/standards.html">
                                     <span>Standards Database
-                                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                            <path d="M9 18l6-6-6-6" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </li>
+                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+                    <li class="has-submenu">
+                        <a href="/support/procedures.html">Resources</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Resources submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
+                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
+                            <li><a href="/guides.html">Preparation Guides</a></li>
                         </ul>
                     </li>
-                    <li><a href="/support.html"><span>Technical Services & Support</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies/videos"><span>Our YouTube Channel</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li class="has-submenu">
+                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
+                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <ul class="sub-menu-second-level">
+                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li class="mobile-nav-section">
@@ -494,15 +618,15 @@
                         </svg></a></li>
                 </ul>
             </li>
-            </ul>
+        </ul>
             </div>
             <div class="mobile-nav-actions">
                 <a href="/quote.html" class="mobile-action-btn mobile-action-btn-primary">Quote Request</a>
                 <a href="/search.html" class="mobile-action-btn mobile-action-btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
                     Search
                 </a>
             </div>
@@ -705,30 +829,65 @@
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Explore Products                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/support/brochures.html"><span>Product Literature
+                    <li><a href="/support/products.html"><span>Product Information
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg>
                     </span></a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
                             <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
                             <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
                             <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep Resources 
+                    <li>
+                        <a href="/services.html">
+                            <span>Technical Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/support.html">
+                            <span>Customer Support</span>
+                        </a>
+                    </li>             
+                </ul>
+            </li>
+            <li>
+                <a href="/guides.html">
+                    <span>Learn
+                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="/guides.html"><span>Guides
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg>
                     </span></a>
                         <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="https://www.youtube.com/@pacetechnologies"><span>PACE YouTube Channel</span></a></li>
+                            <li><a href="/guides.html"><span>All Guides</span></a></li>
+                            <li><a href="/guides.html?category=Basics"><span>Basics</span></a></li>
+                            <li><a href="/guides.html?category=Process"><span>Process</span></a></li>
+                            <li><a href="/guides.html?category=Material-Specific"><span>Material-Specific</span></a></li>
+                            <li><a href="/guides.html?category=Application-Specific"><span>Application-Specific</span></a></li>
+                            <li><a href="/guides.html?category=Troubleshooting"><span>Troubleshooting</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/tools.html"><span>Tools
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/tools/grit-size-converter.html"><span>Grit Size Converter</span></a></li>
+                            <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
+                            <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
+                            <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
+                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
+                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -740,20 +899,32 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/databases.html"><span>All Databases</span></a></li>
                             <li><a href="/materials.html"><span>Materials Database</span></a></li>
                             <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
                             <li><a href="/standards.html"><span>Standards Database</span></a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Technical Services
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>             
+                    <li><a href="/support/procedures.html"><span>Resources
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
+                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
+                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -849,216 +1020,491 @@
 <div class="first-container">
     <main>
     <section class="product-series">
-        <h2>Your Area of Interest</h2>
-        <p>PACE Technologies offers a full line of quality <strong>metallographic equipment and consumables</strong>. The links below provide more specific information on your area of interest. If you would like help assessing your needs don't hesitate to <a href="/quote.html">contact our product specialists</a> who can assist. 
-        </p>
-
-        <!-- Modern Product Navigation -->
-        <nav class="product-nav" role="navigation" aria-label="Product Categories">
-          <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
-            <span class="nav-toggle-text">Browse Categories</span>
-            <svg class="nav-toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </div>
-          
-          <ul class="nav-list" id="navList">
-            <li class="nav-item">
-              <a href="#abrasive-sectioning" class="nav-link" data-category="abrasive-sectioning">Abrasive Sectioning</a>
-            </li>
-            <li class="nav-item">
-              <a href="#precision-wafering" class="nav-link" data-category="precision-wafering">Precision Wafering</a>
-            </li>
-            <li class="nav-item">
-              <a href="#compression-mounting" class="nav-link" data-category="compression-mounting">Compression Mounting</a>
-            </li>
-            <li class="nav-item">
-              <a href="#castable-mounting" class="nav-link" data-category="castable-mounting">Castable Mounting</a>
-            </li>
-            <li class="nav-item">
-              <a href="#grinding" class="nav-link" data-category="grinding">Grinding / Lapping</a>
-            </li>
-            <li class="nav-item">
-              <a href="#polishing" class="nav-link" data-category="polishing">Rough Polishing</a>
-            </li>
-            <li class="nav-item">
-              <a href="#final-polishing" class="nav-link" data-category="final-polishing">Final Polishing</a>
-            </li>
-            <li class="nav-item">
-              <a href="#cleaning-etching" class="nav-link" data-category="cleaning-etching">Cleaning & Etching</a>
-            </li>
-            <li class="nav-item">
-              <a href="#analysis" class="nav-link" data-category="analysis">Hardness Testing</a>
-            </li>
-          </ul>
-        </nav>
-          
-  
-          <div class="product-cards">
-            <!-- Card 1: Abrasive Sectioning -->
-            <div class="section-anchor" id="abrasive-sectioning"></div>
-            <article class="product">
-                <div class="product-info">
-                    <h2>Abrasive Sectioning</h2>
-                    <p>
-                        Our abrasive sectioning solutions offer a comprehensive range of equipment and consumables designed for precise cutting of metals. Our high-performance abrasive blades and sectioning machines ensure clean cuts with minimal deformation, ideal for both heavy-duty and intricate applications.
-                    </p>
-                    <div class="btn-group">
-                        <a href="/Metallographic-Equipment/abrasive-sectioning.html" class="product-details-button">Equipment</a>
-                        <a href="/Metallographic-Consumables/sectioning/abrasive-cutting.html" class="product-details-button">Consumables</a>
-                    </div>
-                </div>
-                <div class="product-image">
-                    <img src="/images/Consumables/sectioning/abrasive-cutting.webp" alt="Abrasive Sectioning" />
-                </div>
-            </article>
-        
-            <!-- Card 2: Precision Wafering -->
-            <div class="section-anchor" id="precision-wafering"></div>
-            <article class="product">
-                <div class="product-info">
-                    <h2>Precision Wafering</h2>
-                    <p>
-                        Our precision wafering solutions provide advanced equipment and consumables for achieving superior surface finishes on delicate materials. Our precision wafering saws and blades ensure optimal cutting performance for detailed sample preparations.
-                    </p>
-                    <div class="btn-group">
-                        <a href="/Metallographic-Equipment/precision-wafering.html" class="product-details-button">Equipment</a>
-                        <a href="/Metallographic-Consumables/sectioning/precision-wafering.html" class="product-details-button">Consumables</a>
-                    </div>
-                </div>
-                <div class="product-image">
-                    <img src="/images/Consumables/sectioning/precision-wafering.webp" alt="Precision Wafering" />
-                </div>
-            </article>
-        
-            <!-- Card 3: Compression Mounting -->
-            <div class="section-anchor" id="compression-mounting"></div>
-            <article class="product">
-                <div class="product-info">
-                    <h2>Compression Mounting</h2>
-                    <p>
-                        Our compression mounting solutions include state-of-the-art equipment and consumables for creating durable mounts. Our mounting presses and resins provide excellent edge retention and support for metallographic samples, ensuring reliable preparation for analysis.
-                    </p>
-                    <div class="btn-group">
-                        <a href="/Metallographic-Equipment/compression-mounting.html" class="product-details-button">Equipment</a>
-                        <a href="/Metallographic-Consumables/mounting/compression.html" class="product-details-button">Consumables</a>
-                    </div>
-                </div>
-                <div class="product-image">
-                    <img src="/images/Consumables/mounting/compression mounting/compression-mounting-cover.webp" alt="Compression Mounting" />
-                </div>
-            </article>
-        
-            <!-- Card 4: Castable Mounting -->
-            <div class="section-anchor" id="castable-mounting"></div>
-            <article class="product">
-                <div class="product-info">
-                    <h2>Castable Mounting</h2>
-                    <p>
-                        Our castable mounting solutions provide versatile equipment and consumables for easy sample preparation. With various resin options, these consumables and machines ensure robust support and protection for delicate samples.
-                    </p>
-                    <div class="btn-group">
-                        <a href="/Metallographic-Equipment/castable-mounting.html" class="product-details-button">Equipment</a>
-                        <a href="/Metallographic-Consumables/mounting/castable.html" class="product-details-button">Consumables</a>
-                    </div>
-                </div>
-                <div class="product-image">
-                    <img src="/images/Consumables/mounting/castable mounting/castable-mounting-cover.webp" alt="Castable Mounting" />
-                </div>
-            </article>
-        
-            <!-- Card 5: Grinding / Lapping -->
-            <div class="section-anchor" id="grinding"></div>
-            <article class="product">
-                <div class="product-info">
-                    <h2>Grinding / Lapping</h2>
-                    <p>
-                        Our grinding and lapping solutions feature advanced equipment and consumables for precise surface preparation. Choose from our wide range of grinders, lapping machines, papers, and films to achieve optimal material removal and surface finish.
-                    </p>
-                    <div class="btn-group">
-                        <a href="/Metallographic-Equipment/grinding-polishing.html" class="product-details-button">Equipment</a>
-                        <a href="/Metallographic-Consumables/grinding.html" class="product-details-button">Consumables</a>
-                    </div>
-                </div>
-                <div class="product-image">
-                    <img src="/images/Consumables/grinding-lapping/grinding-lapping-cover.webp" alt="Grinding and Lapping" />
-                </div>
-            </article>
-        
-            <!-- Card 6: Rough Polishing -->
-            <div class="section-anchor" id="polishing"></div>
-            <article class="product">
-                <div class="product-info">
-                    <h2>Rough Polishing</h2>
-                    <p>
-                        Our rough polishing solutions include high-quality equipment and consumables such as polishing machines, pads, and diamond compounds designed to achieve a smooth, defect-free surface on your metallographic samples.
-                    </p>
-                    <div class="btn-group">
-                        <a href="/Metallographic-Equipment/grinding-polishing.html" class="product-details-button">Equipment</a>
-                        <a href="/Metallographic-Consumables/polishing.html" class="product-details-button">Consumables</a>
-                    </div>
-                </div>
-                <div class="product-image">
-                    <img src="/images/Consumables/rough polishing/rough-polishing-cover.webp" alt="Rough Polishing" />
-                </div>
-            </article>
-        
-            <!-- Card 7: Final Polishing -->
-            <div class="section-anchor" id="final-polishing"></div>
-            <article class="product">
-                <div class="product-info">
-                    <h2>Final Polishing</h2>
-                    <p>
-                        Our final polishing solutions provide cutting-edge equipment and consumables engineered to deliver the highest quality surface finish. Utilize our polishing machines and range of alumina and colloidal silica solutions for exceptional results.
-                    </p>
-                    <div class="btn-group">
-                        <a href="/Metallographic-Equipment/grinding-polishing/giga.html" class="product-details-button">Equipment</a>
-                        <a href="/Metallographic-Consumables/final-polishing.html" class="product-details-button">Consumables</a>
-                    </div>
-                </div>
-                <div class="product-image">
-                    <img src="/images/Consumables/final polishing & analysis/final polishing & analysis-cover.webp" alt="Final Polishing" />
-                </div>
-            </article>
-        
-            <!-- Card 8: Cleaning & Etching -->
-            <div class="section-anchor" id="cleaning-etching"></div>
-            <article class="product">
-                <div class="product-info">
-                    <h2>Cleaning & Etching</h2>
-                    <p>
-                        Our cleaning and etching solutions include products and etchants designed to enhance microstructure visibility and ensure the cleanliness of your metallographic samples.
-                    </p>
-                    <div class="btn-group">
-                        <a href="/Metallographic-Consumables/cleaning.html" class="product-details-button">Cleaning</a>
-                        <a href="/Metallographic-Consumables/etching.html" class="product-details-button">Etching</a>
-                    </div>
-                </div>
-                <div class="product-image">
-                    <img src="/images/Consumables/final polishing & analysis/etching/etching.webp" alt="Cleaning and Etching" />
-                </div>
-            </article>
-        
-            <!-- Card 9: Hardness Testing -->
-            <div class="section-anchor" id="analysis"></div>
-            <article class="product">
-                <div class="product-info">
-                    <h2>Hardness Testing</h2>
-                    <p>
-                        Our hardness testing solutions offer a complete suite of equipment and consumables to support precise and reliable metallographic sample analysis. Explore our range of testers, indenters, and accessories for all your hardness testing needs.
-                    </p>
-                    <div class="btn-group">
-                        <a href="/Metallographic-Equipment/hardness-testing.html" class="product-details-button">Equipment</a>
-                        <a href="/Metallographic-Consumables/hardness-testing.html" class="product-details-button">Consumables</a>
-                    </div>
-                </div>
-                <div class="product-image">
-                    <img src="/images/Consumables/final polishing & analysis/hardness testing/hardness testing.png" alt="Hardness Testing" />
-                </div>
-            </article>
+        <div class="timeline-header" data-animate="up">
+            <p class="section-subtitle">
+                PACE Technologies offers a comprehensive line of quality <strong>metallographic equipment and consumables</strong> for every step of the sample preparation workflow. Explore detailed product information, specifications, and applications for each process step. Our solutions are designed for precision, repeatability, and optimal results in materials analysis.
+            </p>
+            <p style="margin-top: 1.25rem; color: #4b5563; line-height: 1.7;">
+                Need help selecting the right products? <a href="/quote.html" style="color: #2563eb; text-decoration: underline;">Contact our product specialists</a> for personalized recommendations, or browse our <a href="/guides.html" style="color: #2563eb; text-decoration: underline;">preparation guides</a> for detailed procedures.
+            </p>
         </div>
+
+        <!-- Equipment & Consumables by Step Section - Timeline -->
+        <section class="timeline-section" style="background-color: transparent;">
+            <div class="container-custom">
+                <!-- Timeline Container -->
+                <div class="timeline-container" style="max-width: 1440px;">
+                    <!-- Timeline Steps -->
+                    <div class="timeline-steps">
+                        <!-- Vertical Timeline Line -->
+                        <div class="timeline-line"></div>
+                        
+                        <!-- Step 1: Sectioning -->
+                        <div class="timeline-step" id="sectioning" data-animate="right" data-animate-delay="100">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-step-content">
+                                <div class="timeline-video">
+                                    <div class="video-container">
+                                        <video autoplay muted loop playsinline preload="metadata" class="process-video">
+                                            <source src="/videos/process/sectioning.MP4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <div class="video-overlay"></div>
+                                    </div>
+                                    <div class="timeline-links-grid" style="margin-top: 1rem;">
+                                        <a href="/metallographic-equipment/abrasive-sectioning.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Abrasive Sectioning</div>
+                                                <div class="timeline-link-subtitle">Cutters, saws, systems</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                        <a href="/metallographic-equipment/precision-wafering.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Precision Wafering</div>
+                                                <div class="timeline-link-subtitle">Precision saws, systems</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                        <a href="/metallographic-consumables/sectioning.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Consumables</div>
+                                                <div class="timeline-link-subtitle">Blades, fluids, accessories</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-card">
+                                        <div class="timeline-card-header">
+                                            <div class="timeline-step-number">1</div>
+                                            <h3 class="timeline-step-title">Sectioning</h3>
+                                        </div>
+                                        <p class="timeline-step-text">
+                                            <strong>Sectioning</strong> is the critical first step in metallographic sample preparation. Our precision cutting equipment and consumables deliver clean, damage-free cuts with minimal deformation and heat-affected zones. <strong>Abrasive sectioning systems</strong> (MEGA series) provide fast, efficient cutting for hardened steels and non-ferrous alloys, while <strong>precision wafering saws</strong> (PICO series) excel with delicate materials, composites, and applications requiring minimal damage. Key considerations include blade selection, cutting speed, feed rate, and cooling fluid to optimize cut quality and extend blade life. Our consumables include abrasive and diamond blades, cutting fluids with corrosion inhibitors, and accessories for various sample sizes and materials.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Mounting -->
+                        <div class="timeline-step timeline-step-reverse" id="mounting" data-animate="left" data-animate-delay="200">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-step-content">
+                                <div class="timeline-video">
+                                    <div class="video-container">
+                                        <video autoplay muted loop playsinline preload="metadata" class="process-video">
+                                            <source src="/videos/process/compression-mounting.MP4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <div class="video-overlay"></div>
+                                    </div>
+                                    <div class="timeline-links-grid" style="margin-top: 1rem;">
+                                        <a href="/metallographic-equipment/compression-mounting.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Compression Mounting</div>
+                                                <div class="timeline-link-subtitle">Mounting presses</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                        <a href="/metallographic-equipment/castable-mounting.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Castable Mounting</div>
+                                                <div class="timeline-link-subtitle">Vacuum, pressure, UV systems</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                        <a href="/metallographic-consumables/mounting.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Consumables</div>
+                                                <div class="timeline-link-subtitle">Resins, molds, accessories</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-card">
+                                        <div class="timeline-card-header">
+                                            <div class="timeline-step-number">2</div>
+                                            <h3 class="timeline-step-title">Mounting</h3>
+                                        </div>
+                                        <p class="timeline-step-text">
+                                            <strong>Mounting</strong> protects samples and provides edge retention during grinding and polishing. <strong>Compression mounting</strong> uses heat and pressure to encapsulate samples in thermosetting resins (phenolic, diallyl phthalate, or epoxy) for excellent edge retention and durability. Our TERAPRESS mounting presses offer hydraulic and pneumatic options with precise temperature and pressure control. <strong>Castable mounting</strong> is ideal for heat-sensitive or delicate samples, using cold-cure resins applied under vacuum (TERAVAC), pressure (TERACOMP), or UV curing (TERAUV). Mounting materials include conductive options for SEM analysis, transparent resins for edge observation, and various hardness levels to match sample properties. Proper mounting prevents edge rounding, protects fragile features, and ensures consistent results.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Grinding -->
+                        <div class="timeline-step" id="grinding" data-animate="right" data-animate-delay="300">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-step-content">
+                                <div class="timeline-video">
+                                    <div class="video-container">
+                                        <video autoplay muted loop playsinline preload="metadata" class="process-video">
+                                            <source src="/videos/process/grinding.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <div class="video-overlay"></div>
+                                    </div>
+                                    <div class="timeline-links-grid" style="margin-top: 1rem;">
+                                        <a href="/metallographic-equipment/grinding-polishing.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Equipment</div>
+                                                <div class="timeline-link-subtitle">Hand grinders, belt grinders</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                        <a href="/metallographic-consumables/grinding.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Consumables</div>
+                                                <div class="timeline-link-subtitle">Papers, powders, films</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-card">
+                                        <div class="timeline-card-header">
+                                            <div class="timeline-step-number">3</div>
+                                            <h3 class="timeline-step-title">Grinding</h3>
+                                        </div>
+                                        <p class="timeline-step-text">
+                                            <strong>Grinding</strong> removes sectioning damage and establishes a flat surface with controlled scratch patterns. Our PENTA hand and belt grinders provide consistent material removal for initial surface preparation. Grinding consumables include <strong>SiC grinding papers</strong> (P120 to P4000 grit) for progressive scratch reduction, <strong>diamond grinding discs</strong> for hard materials and faster removal, <strong>composite disks</strong> that combine multiple grits for streamlined workflows, and <strong>lapping films</strong> for precision flatness. The grinding sequence typically progresses from coarse (P120-P240) to fine (P800-P1200) grits, removing previous scratches while maintaining flatness. Proper grinding technique minimizes subsurface damage and prepares the surface for polishing. Equipment selection depends on sample size, material hardness, and throughput requirements.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Polishing -->
+                        <div class="timeline-step timeline-step-reverse" id="polishing" data-animate="left" data-animate-delay="400">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-step-content">
+                                <div class="timeline-video">
+                                    <div class="video-container">
+                                        <video autoplay muted loop playsinline preload="metadata" class="process-video">
+                                            <source src="/videos/process/polishing.MP4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <div class="video-overlay"></div>
+                                    </div>
+                                    <div class="timeline-links-grid" style="margin-top: 1rem;">
+                                        <a href="/metallographic-equipment/grinding-polishing.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Equipment</div>
+                                                <div class="timeline-link-subtitle">Grinder-polishers, polishing systems</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                        <a href="/metallographic-consumables/polishing.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Consumables</div>
+                                                <div class="timeline-link-subtitle">Compounds, pads, cloths</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-card">
+                                        <div class="timeline-card-header">
+                                            <div class="timeline-step-number">4</div>
+                                            <h3 class="timeline-step-title">Polishing</h3>
+                                        </div>
+                                        <p class="timeline-step-text">
+                                            <strong>Rough polishing</strong> removes grinding scratches and refines surface finish using diamond compounds on polishing pads. Our NANO (manual), FEMTO (semi-automatic), and ATTO (controlled removal) grinder-polishers provide precise control over material removal and surface quality. Polishing consumables include <strong>diamond suspensions</strong> (polycrystalline and monocrystalline) in various particle sizes (9µm to 0.25µm), <strong>polishing pads</strong> (synthetic, silk, or canvas) matched to material and application, and <strong>magnetic polishing systems</strong> for easy pad changes. The polishing sequence typically uses 9µm, 6µm, 3µm, and 1µm diamond compounds, progressively removing scratches while maintaining flatness. Proper pad selection, compound concentration, and rotation speed are critical for optimal results. This step prepares the surface for final polishing or can serve as the final step for many applications.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Final Polishing -->
+                        <div class="timeline-step" id="final-polishing" data-animate="right" data-animate-delay="500">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-step-content">
+                                <div class="timeline-video">
+                                    <div class="video-container">
+                                        <video autoplay muted loop playsinline preload="metadata" class="process-video">
+                                            <source src="/videos/process/final-polishing.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <div class="video-overlay"></div>
+                                    </div>
+                                    <div class="timeline-links-grid" style="margin-top: 1rem;">
+                                        <a href="/metallographic-equipment/grinding-polishing/giga.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Equipment</div>
+                                                <div class="timeline-link-subtitle">Vibratory polishers</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                        <a href="/metallographic-consumables/final-polishing.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Consumables</div>
+                                                <div class="timeline-link-subtitle">Final polishing materials</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-card">
+                                        <div class="timeline-card-header">
+                                            <div class="timeline-step-number">5</div>
+                                            <h3 class="timeline-step-title">Final Polishing</h3>
+                                        </div>
+                                        <p class="timeline-step-text">
+                                            <strong>Final polishing</strong> eliminates subsurface damage and achieves mirror-like finishes essential for high-resolution analysis. Our GIGA vibratory polishers provide gentle, uniform surface finishing ideal for EBSD preparation, TEM sample preparation, and applications requiring minimal deformation. Final polishing consumables include <strong>colloidal silica suspensions</strong> (0.05µm) for oxide polishing, <strong>alumina suspensions</strong> for non-ferrous materials, and <strong>specialized polishing cloths</strong> (chemotextile, napless) designed for final polishing. The vibratory motion eliminates directional scratches and produces isotropic surfaces. This step is critical for electron microscopy (SEM, TEM, EBSD), where surface quality directly impacts image resolution and analysis accuracy. Proper final polishing reveals true microstructural features without artifacts from preparation damage.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 6: Etching -->
+                        <div class="timeline-step timeline-step-reverse" id="etching" data-animate="left" data-animate-delay="600">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-step-content">
+                                <div class="timeline-video">
+                                    <div class="video-container">
+                                        <video autoplay muted loop playsinline preload="metadata" class="process-video">
+                                            <source src="/videos/process/etching.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <div class="video-overlay"></div>
+                                    </div>
+                                    <div class="timeline-links-grid" style="margin-top: 1rem;">
+                                        <a href="/metallographic-consumables/etching.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Etchants</div>
+                                                <div class="timeline-link-subtitle">Chemical reagents</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                        <a href="/metallographic-consumables/cleaning.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Cleaning</div>
+                                                <div class="timeline-link-subtitle">Cleaning agents and supplies</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-card">
+                                        <div class="timeline-card-header">
+                                            <div class="timeline-step-number">6</div>
+                                            <h3 class="timeline-step-title">Etching</h3>
+                                        </div>
+                                        <p class="timeline-step-text">
+                                            <strong>Etching</strong> reveals microstructural features by selective chemical attack, highlighting grain boundaries, phases, and other important characteristics. Our comprehensive range of etchants includes standard solutions (nital, picral, Vilella's reagent) and specialized formulations for specific materials and applications. <strong>Cleaning</strong> removes polishing residues, oils, and contaminants that can interfere with etching and analysis. Proper cleaning ensures accurate etching results and prevents contamination. Etchant selection depends on material composition, heat treatment, and the features you want to reveal. Application methods include swabbing, immersion, and electrolytic etching for different materials and requirements. Our <a href="/etchants.html" style="color: #2563eb; text-decoration: underline;">etchants database</a> provides detailed information on composition, application, and results for hundreds of materials. Safety data sheets (SDS) are available for all chemical reagents.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 7: Hardness Testing -->
+                        <div class="timeline-step" id="hardness-testing" data-animate="right" data-animate-delay="700">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-step-content">
+                                <div class="timeline-video">
+                                    <div class="video-container">
+                                        <video autoplay muted loop playsinline preload="metadata" class="process-video">
+                                            <source src="/videos/process/hardness-testing.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <div class="video-overlay"></div>
+                                    </div>
+                                    <div class="timeline-links-grid" style="margin-top: 1rem;">
+                                        <a href="/metallographic-equipment/hardness-testing.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Equipment</div>
+                                                <div class="timeline-link-subtitle">Testers, systems</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                        <a href="/metallographic-consumables/hardness-testing.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Consumables</div>
+                                                <div class="timeline-link-subtitle">Test blocks, indenters</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-card">
+                                        <div class="timeline-card-header">
+                                            <div class="timeline-step-number">7</div>
+                                            <h3 class="timeline-step-title">Hardness Testing</h3>
+                                        </div>
+                                        <p class="timeline-step-text">
+                                            <strong>Hardness testing</strong> provides quantitative measurement of material resistance to deformation, essential for quality control, material characterization, and heat treatment verification. Our equipment includes <strong>microhardness testers</strong> (Vickers, Knoop) for small features and thin sections, <strong>Rockwell testers</strong> for rapid production testing, and <strong>Brinell/MacroVickers testers</strong> for larger indentations. Hardness testing consumables include <strong>calibration blocks</strong> (certified reference materials) for tester verification, <strong>indenter tips</strong> (diamond, tungsten carbide) in various geometries, and <strong>test blocks</strong> for daily verification. Proper sample preparation is critical: surfaces must be flat, polished, and free of contamination for accurate results. Hardness values correlate with material strength, wear resistance, and other mechanical properties, making this a fundamental characterization technique in materials science and quality control.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 8: Microscopy & Analysis -->
+                        <div class="timeline-step timeline-step-reverse" id="microscopy" data-animate="left" data-animate-delay="800">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-step-content">
+                                <div class="timeline-video">
+                                    <div class="video-container">
+                                        <video autoplay muted loop playsinline preload="metadata" class="process-video">
+                                            <source src="/videos/process/analysis.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <div class="video-overlay"></div>
+                                    </div>
+                                    <div class="timeline-links-grid" style="margin-top: 1rem;">
+                                        <a href="/metallographic-equipment/microscopy.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Equipment</div>
+                                                <div class="timeline-link-subtitle">Microscopes, systems</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                        <a href="/metallographic-equipment/microscopy/image-analysis.html" class="timeline-link-card">
+                                            <div>
+                                                <div class="timeline-link-title">Image Analysis</div>
+                                                <div class="timeline-link-subtitle">Analysis systems</div>
+                                            </div>
+                                            <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M9 18l6-6-6-6"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-card">
+                                        <div class="timeline-card-header">
+                                            <div class="timeline-step-number">8</div>
+                                            <h3 class="timeline-step-title">Microscopy & Analysis</h3>
+                                        </div>
+                                        <p class="timeline-step-text">
+                                            <strong>Microscopy and analysis</strong> enable detailed examination of microstructures, phase identification, and quantitative measurements. Our <strong>metallurgical microscopes</strong> provide brightfield, darkfield, and polarized light illumination for comprehensive microstructural analysis. <strong>Stereo microscopes</strong> offer 3D visualization for surface features, defects, and macro-scale examination. <strong>Digital imaging systems</strong> capture high-resolution images for documentation, analysis, and reporting. <strong>Image analysis software</strong> provides quantitative measurements including grain size, phase fraction, inclusion content, and dimensional analysis. Advanced systems support automated analysis, batch processing, and integration with laboratory information systems. Proper illumination, magnification selection, and image calibration are essential for accurate analysis. Our microscopy solutions support both research applications requiring high resolution and production environments needing rapid, repeatable measurements.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Resources Section -->
+        <section style="margin-top: 4rem; padding: 2rem 0;">
+            <div class="container-custom">
+                <div class="timeline-header" data-animate="up">
+                    <h2 class="section-title-large">Additional Resources</h2>
+                    <p class="section-subtitle">
+                        Access comprehensive resources to help you select the right products and optimize your sample preparation workflow.
+                    </p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                    <div style="background: #ffffff; border: 2px solid #e5e7eb; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin-bottom: 0.75rem;">Preparation Guides</h3>
+                        <p style="color: #4b5563; margin-bottom: 1rem; line-height: 1.6;">
+                            Step-by-step procedures for preparing various materials, including recommended equipment and consumables for each application.
+                        </p>
+                        <a href="/guides.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">
+                            Browse Guides >
+                        </a>
+                    </div>
+                    <div style="background: #ffffff; border: 2px solid #e5e7eb; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin-bottom: 0.75rem;">Materials Database</h3>
+                        <p style="color: #4b5563; margin-bottom: 1rem; line-height: 1.6;">
+                            Search our extensive database of materials with recommended preparation procedures, etchants, and product recommendations.
+                        </p>
+                        <a href="/materials.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">
+                            Search Materials >
+                        </a>
+                    </div>
+                    <div style="background: #ffffff; border: 2px solid #e5e7eb; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin-bottom: 0.75rem;">Etchants Database</h3>
+                        <p style="color: #4b5563; margin-bottom: 1rem; line-height: 1.6;">
+                            Comprehensive database of etchants with compositions, applications, and results for hundreds of materials and alloys.
+                        </p>
+                        <a href="/etchants.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">
+                            Browse Etchants >
+                        </a>
+                    </div>
+                    <div style="background: #ffffff; border: 2px solid #e5e7eb; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin-bottom: 0.75rem;">Product Literature</h3>
+                        <p style="color: #4b5563; margin-bottom: 1rem; line-height: 1.6;">
+                            Download brochures, manuals, technical specifications, and safety data sheets (SDS) for all our products.
+                        </p>
+                        <a href="/support/brochures.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">
+                            View Literature >
+                        </a>
+                    </div>
+                    <div style="background: #ffffff; border: 2px solid #e5e7eb; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin-bottom: 0.75rem;">Lab Builder</h3>
+                        <p style="color: #4b5563; margin-bottom: 1rem; line-height: 1.6;">
+                            Design your complete metallography lab with our interactive tool. Select equipment and consumables for your workflow.
+                        </p>
+                        <a href="/build.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">
+                            Build Your Lab >
+                        </a>
+                    </div>
+                    <div style="background: #ffffff; border: 2px solid #e5e7eb; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #111827; margin-bottom: 0.75rem;">Technical Support</h3>
+                        <p style="color: #4b5563; margin-bottom: 1rem; line-height: 1.6;">
+                            Get expert assistance with product selection, troubleshooting, and optimization. Our technical team is here to help.
+                        </p>
+                        <a href="/support.html" style="color: #2563eb; text-decoration: none; font-weight: 500;">
+                            Contact Support >
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
         
   </section>
   
@@ -1146,9 +1592,11 @@
         <div class="footer-column">
           <h3 class="footer-column-title">Company</h3>
           <ul class="footer-column-list">
-            <li><a href="/company.html" class="footer-link">Our Story</a></li>
+            <li><a href="/company.html" class="footer-link">About PACE</a></li>
             <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
             <li><a href="/careers.html" class="footer-link">Careers</a></li>
+            <li><a href="/events.html" class="footer-link">Events</a></li>
+            <li><a href="/distribution.html" class="footer-link">International Distribution</a></li>
             <li><a href="/quote.html" class="footer-link">Request Quote</a></li>
           </ul>
         </div>
@@ -1159,9 +1607,9 @@
           <ul class="footer-column-list">
             <li><a href="/equipment.html" class="footer-link">Equipment</a></li>
             <li><a href="/consumables.html" class="footer-link">Consumables</a></li>
+            <li><a href="/services.html" class="footer-link">Services</a></li>
             <li><a href="https://shop.metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-link">Online Shop</a></li>
             <li><a href="/build.html" class="footer-link">Lab Builder</a></li>
-            <li><a href="/quote.html" class="footer-link">Custom Solutions</a></li>
           </ul>
         </div>
         
@@ -1169,23 +1617,24 @@
         <div class="footer-column">
           <h3 class="footer-column-title">Resources</h3>
           <ul class="footer-column-list">
-            <li><a href="/guides.html" class="footer-link">Preparation Guides</a></li>
-            <li><a href="/materials.html" class="footer-link">Materials Database</a></li>
-            <li><a href="/etchants.html" class="footer-link">Etchants Database</a></li>
-            <li><a href="/standards.html" class="footer-link">Standards</a></li>
-            <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
-            <li><a href="/support/site-map.html" class="footer-link">Sitemap</a></li>
+            <li><a href="/guides.html" class="footer-link">Guides</a></li>
+            <li><a href="/tools.html" class="footer-link">Tools</a></li>
+            <li><a href="/databases.html" class="footer-link">Databases</a></li>
+            <li><a href="/catalog.html" class="footer-link">Product Catalog</a></li>
+            <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
+            <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
+            <li><a href="/support.html" class="footer-link">Customer Support</a></li>
           </ul>
         </div>
         
-        <!-- Legal & Support Section -->
+        <!-- Legal Section -->
         <div class="footer-column">
-          <h3 class="footer-column-title">Legal & Support</h3>
+          <h3 class="footer-column-title">Legal</h3>
           <ul class="footer-column-list">
             <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
             <li><a href="/terms.html" class="footer-link">Terms & Conditions</a></li>
-            <li><a href="/support.html" class="footer-link">Customer Support</a></li>
-            <li><a href="/distribution.html" class="footer-link">International Distribution</a></li>
+            <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+            <li><a href="/support/site-map.html" class="footer-link">Sitemap</a></li>
           </ul>
         </div>
       </div>
@@ -1245,87 +1694,17 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
 </footer>
-
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/5hb7x1l5b6ASoD7Y6Mgg7k+RCUty7k3y9iO6F0" crossorigin="anonymous" defer></script>
-  <script src="/js/scripts.js" defer></script>
-  <script src="/js/carousel.js" defer></script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   
-  <!-- Product Navigation JavaScript -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const navToggle = document.getElementById('navToggle');
-      const navList = document.getElementById('navList');
-      const navLinks = document.querySelectorAll('.nav-link');
-      
-      // Mobile toggle functionality
-      if (navToggle && navList) {
-        navToggle.addEventListener('click', function() {
-          navToggle.classList.toggle('active');
-          navList.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on a link and adjust scroll position
-        navLinks.forEach(link => {
-          link.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-              navToggle.classList.remove('active');
-              navList.classList.remove('active');
-            }
-            
-            // Adjust scroll position to account for fixed header
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-              e.preventDefault();
-              const targetPosition = targetElement.offsetTop - 100;
-              window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-              });
-            }
-          });
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-          if (window.innerWidth <= 768 && 
-              !navToggle.contains(event.target) && 
-              !navList.contains(event.target)) {
-            navToggle.classList.remove('active');
-            navList.classList.remove('active');
-          }
-        });
-      }
-      
-      // Active link highlighting based on scroll position
-      function updateActiveLink() {
-        const sections = document.querySelectorAll('.section-anchor');
-        const scrollPos = window.scrollY + 200;
-        
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.offsetHeight;
-          const sectionId = section.getAttribute('id');
-          
-          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
-              link.classList.remove('active');
-              if (link.getAttribute('href') === '#' + sectionId) {
-                link.classList.add('active');
-              }
-            });
-          }
-        });
-      }
-      
-      // Update active link on scroll
-      window.addEventListener('scroll', updateActiveLink);
-      
-      // Set initial active link
-      updateActiveLink();
-    });
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
-
+</footer>
+    <script src="/js/scripts.js" defer></script>
+    <script src="/js/animations.js" defer></script>
 </body>
 </html>

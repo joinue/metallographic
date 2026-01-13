@@ -21,7 +21,7 @@
 }
 
 .container-custom {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -166,6 +166,78 @@
 .filter-btn:focus {
   outline: 2px solid var(--color-primary, #2563eb);
   outline-offset: 2px;
+}
+
+/* Hide select on desktop by default */
+.filter-select {
+  display: none;
+}
+
+/* Mobile-optimized filter - use dropdown instead of buttons */
+@media (max-width: 640px) {
+  .filter-buttons {
+    display: none !important; /* Hide buttons on mobile */
+  }
+
+  .materials-filters {
+    margin-bottom: 1rem; /* Reduce spacing on mobile */
+  }
+
+  .filter-label {
+    font-size: 0.8125rem; /* Slightly smaller on mobile */
+    margin-bottom: 0.5rem;
+  }
+
+  .filter-select {
+    display: block !important;
+    width: 100%;
+    padding: 0.75rem 2.5rem 0.75rem 0.75rem;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background-color: #fff;
+    color: var(--color-text-primary, #111827);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+    line-height: 1.5;
+  }
+
+  .filter-select:hover {
+    border-color: var(--color-gray-300, #d1d5db);
+    background-color: var(--color-gray-50, #f9fafb);
+  }
+
+  .filter-select:focus {
+    outline: none;
+    border-color: var(--color-primary, #2563eb);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    background-color: #fff;
+  }
+
+  .filter-select:active {
+    border-color: var(--color-primary, #2563eb);
+  }
+
+  /* Style option elements */
+  .filter-select option {
+    padding: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text-primary, #111827);
+  }
+
+  .filter-select option:checked {
+    background-color: var(--color-primary, #2563eb);
+    color: #fff;
+  }
 }
 
 /* Results Info */

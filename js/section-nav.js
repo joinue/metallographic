@@ -107,7 +107,8 @@
         if (target) {
           const navHeight = getNavHeight();
           const stickyNavHeight = stickyNav.getBoundingClientRect().height || 50;
-          const offset = navHeight + stickyNavHeight + 20; // Account for both navs + padding
+          // Anchor divs are positioned -100px above, so we need less offset
+          const offset = navHeight + stickyNavHeight + 20; // Account for both navs + small padding
           const targetPosition = target.offsetTop - offset;
           window.scrollTo({
             top: targetPosition,

@@ -164,12 +164,20 @@ function handleSearch(event) {
 
 // Get selected category
 function getSelectedCategory() {
+    const select = document.getElementById('category-select');
+    if (select && window.innerWidth <= 640) {
+        return select.value || 'All';
+    }
     const activeBtn = document.querySelector('#category-filters .filter-btn.active');
     return activeBtn ? activeBtn.dataset.category : 'All';
 }
 
 // Get selected organization
 function getSelectedOrganization() {
+    const select = document.getElementById('organization-select');
+    if (select && window.innerWidth <= 640) {
+        return select.value || 'All';
+    }
     const activeBtn = document.querySelector('#organization-filters .filter-btn.active');
     return activeBtn ? activeBtn.dataset.organization : 'All';
 }
@@ -240,7 +248,56 @@ function filterStandards(searchQuery = '', category = 'All', organization = 'All
 // Render category filter buttons
 function renderCategoryFilters() {
     const container = document.getElementById('category-filters');
+    const select = document.getElementById('category-select');
     if (!container) return;
+    
+    // Clear container first (remove existing buttons)
+    container.innerHTML = '';
+    
+    // Populate select dropdown
+    if (select) {
+        select.innerHTML = '<option value="All">All</option>';
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            select.appendChild(option);
+        });
+        
+        // Remove existing event listeners by cloning and replacing
+        const newSelect = select.cloneNode(true);
+        select.parentNode.replaceChild(newSelect, select);
+        
+        // Handle select change
+        newSelect.addEventListener('change', (e) => {
+            const category = e.target.value;
+            // Update button active state
+            document.querySelectorAll('#category-filters .filter-btn').forEach(b => b.classList.remove('active'));
+            const activeBtn = container.querySelector(`[data-category="${category}"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+            
+            // Filter standards
+            const searchQuery = document.getElementById('search-input').value;
+            filterStandards(searchQuery, category, getSelectedOrganization());
+        });
+    }
+    
+    // Add "All" button first
+    const allBtn = document.createElement('button');
+    allBtn.className = 'filter-btn active';
+    allBtn.dataset.category = 'All';
+    allBtn.textContent = 'All';
+    allBtn.addEventListener('click', () => {
+        document.querySelectorAll('#category-filters .filter-btn').forEach(b => b.classList.remove('active'));
+        allBtn.classList.add('active');
+        if (select) {
+            const currentSelect = document.getElementById('category-select');
+            if (currentSelect) currentSelect.value = 'All';
+        }
+        const searchQuery = document.getElementById('search-input').value;
+        filterStandards(searchQuery, 'All', getSelectedOrganization());
+    });
+    container.appendChild(allBtn);
     
     // Add category buttons
     categories.forEach(category => {
@@ -253,29 +310,73 @@ function renderCategoryFilters() {
             document.querySelectorAll('#category-filters .filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             
+            // Sync select dropdown
+            if (select) {
+                const currentSelect = document.getElementById('category-select');
+                if (currentSelect) currentSelect.value = category;
+            }
+            
             // Filter standards
             const searchQuery = document.getElementById('search-input').value;
             filterStandards(searchQuery, category, getSelectedOrganization());
         });
         container.appendChild(btn);
     });
-    
-    // Setup "All" button
-    const allBtn = container.querySelector('[data-category="All"]');
-    if (allBtn) {
-        allBtn.addEventListener('click', () => {
-            document.querySelectorAll('#category-filters .filter-btn').forEach(b => b.classList.remove('active'));
-            allBtn.classList.add('active');
-            const searchQuery = document.getElementById('search-input').value;
-            filterStandards(searchQuery, 'All', getSelectedOrganization());
-        });
-    }
 }
 
 // Render organization filter buttons
 function renderOrganizationFilters() {
     const container = document.getElementById('organization-filters');
+    const select = document.getElementById('organization-select');
     if (!container) return;
+    
+    // Clear container first (remove existing buttons)
+    container.innerHTML = '';
+    
+    // Populate select dropdown
+    if (select) {
+        select.innerHTML = '<option value="All">All</option>';
+        organizations.forEach(organization => {
+            const option = document.createElement('option');
+            option.value = organization;
+            option.textContent = organization;
+            select.appendChild(option);
+        });
+        
+        // Remove existing event listeners by cloning and replacing
+        const newSelect = select.cloneNode(true);
+        select.parentNode.replaceChild(newSelect, select);
+        
+        // Handle select change
+        newSelect.addEventListener('change', (e) => {
+            const organization = e.target.value;
+            // Update button active state
+            document.querySelectorAll('#organization-filters .filter-btn').forEach(b => b.classList.remove('active'));
+            const activeBtn = container.querySelector(`[data-organization="${organization}"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+            
+            // Filter standards
+            const searchQuery = document.getElementById('search-input').value;
+            filterStandards(searchQuery, getSelectedCategory(), organization);
+        });
+    }
+    
+    // Add "All" button first
+    const allBtn = document.createElement('button');
+    allBtn.className = 'filter-btn active';
+    allBtn.dataset.organization = 'All';
+    allBtn.textContent = 'All';
+    allBtn.addEventListener('click', () => {
+        document.querySelectorAll('#organization-filters .filter-btn').forEach(b => b.classList.remove('active'));
+        allBtn.classList.add('active');
+        if (select) {
+            const currentSelect = document.getElementById('organization-select');
+            if (currentSelect) currentSelect.value = 'All';
+        }
+        const searchQuery = document.getElementById('search-input').value;
+        filterStandards(searchQuery, getSelectedCategory(), 'All');
+    });
+    container.appendChild(allBtn);
     
     // Add organization buttons
     organizations.forEach(organization => {
@@ -288,23 +389,18 @@ function renderOrganizationFilters() {
             document.querySelectorAll('#organization-filters .filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             
+            // Sync select dropdown
+            if (select) {
+                const currentSelect = document.getElementById('organization-select');
+                if (currentSelect) currentSelect.value = organization;
+            }
+            
             // Filter standards
             const searchQuery = document.getElementById('search-input').value;
             filterStandards(searchQuery, getSelectedCategory(), organization);
         });
         container.appendChild(btn);
     });
-    
-    // Setup "All" button
-    const allBtn = container.querySelector('[data-organization="All"]');
-    if (allBtn) {
-        allBtn.addEventListener('click', () => {
-            document.querySelectorAll('#organization-filters .filter-btn').forEach(b => b.classList.remove('active'));
-            allBtn.classList.add('active');
-            const searchQuery = document.getElementById('search-input').value;
-            filterStandards(searchQuery, getSelectedCategory(), 'All');
-        });
-    }
 }
 
 // Render standards grid

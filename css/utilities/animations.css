@@ -4,10 +4,10 @@
 
 /* Animation Variables */
 :root {
-    --animation-duration: 600ms;
+    --animation-duration: 700ms;
     --animation-delay: 0ms;
-    --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --animation-distance: 60px;
+    --animation-easing: cubic-bezier(0.16, 1, 0.3, 1);
+    --animation-distance: 50px;
 }
 
 /* Hide all animated elements by default to prevent FOUC */
@@ -16,29 +16,29 @@
 [data-animate] {
     opacity: 0;
     visibility: hidden;
-    /* Default to fade position (no transform) */
-    transform: translateY(0) translateX(0);
+    /* Default to fade position (no transform) - use translate3d for GPU acceleration */
+    transform: translate3d(0, 0, 0);
 }
 
 /* Set initial transform states for each animation direction */
 [data-animate="up"] {
-    transform: translateY(60px);
+    transform: translate3d(0, 50px, 0);
 }
 
 [data-animate="down"] {
-    transform: translateY(-60px);
+    transform: translate3d(0, -50px, 0);
 }
 
 [data-animate="left"] {
-    transform: translateX(60px);
+    transform: translate3d(50px, 0, 0);
 }
 
 [data-animate="right"] {
-    transform: translateX(-60px);
+    transform: translate3d(-50px, 0, 0);
 }
 
 [data-animate="fade"] {
-    transform: translateY(0) translateX(0);
+    transform: translate3d(0, 0, 0);
 }
 
 /* Base Animation State - Hidden */
@@ -55,81 +55,81 @@
 
 /* Fade In Animation */
 .animate-fade-in {
-    animation: fadeIn var(--animation-duration, 600ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
+    animation: fadeIn var(--animation-duration, 700ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(0) translateX(0);
+        transform: translate3d(0, 0, 0);
     }
     to {
         opacity: 1;
-        transform: translateY(0) translateX(0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
 /* Fly Up Animation */
 .animate-fly-up {
-    animation: flyUp var(--animation-duration, 600ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
+    animation: flyUp var(--animation-duration, 700ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
 }
 
 @keyframes flyUp {
     from {
         opacity: 0;
-        transform: translateY(var(--animation-distance, 60px));
+        transform: translate3d(0, var(--animation-distance, 50px), 0);
     }
     to {
         opacity: 1;
-        transform: translateY(0) translateX(0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
 /* Fly Down Animation */
 .animate-fly-down {
-    animation: flyDown var(--animation-duration, 600ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
+    animation: flyDown var(--animation-duration, 700ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
 }
 
 @keyframes flyDown {
     from {
         opacity: 0;
-        transform: translateY(calc(-1 * var(--animation-distance, 60px)));
+        transform: translate3d(0, calc(-1 * var(--animation-distance, 50px)), 0);
     }
     to {
         opacity: 1;
-        transform: translateY(0) translateX(0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
 /* Fly Left Animation */
 .animate-fly-left {
-    animation: flyLeft var(--animation-duration, 600ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
+    animation: flyLeft var(--animation-duration, 700ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
 }
 
 @keyframes flyLeft {
     from {
         opacity: 0;
-        transform: translateX(var(--animation-distance, 60px));
+        transform: translate3d(var(--animation-distance, 50px), 0, 0);
     }
     to {
         opacity: 1;
-        transform: translateY(0) translateX(0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
 /* Fly Right Animation */
 .animate-fly-right {
-    animation: flyRight var(--animation-duration, 600ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
+    animation: flyRight var(--animation-duration, 700ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
 }
 
 @keyframes flyRight {
     from {
         opacity: 0;
-        transform: translateX(calc(-1 * var(--animation-distance, 60px)));
+        transform: translate3d(calc(-1 * var(--animation-distance, 50px)), 0, 0);
     }
     to {
         opacity: 1;
-        transform: translateY(0) translateX(0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
@@ -161,6 +161,11 @@
     /* Prevent layout shifts during animation */
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    /* Smooth rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Force hardware acceleration - translate3d already provides this */
+    perspective: 1000px;
 }
 
 .animate-visible {

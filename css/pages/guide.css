@@ -24,6 +24,14 @@
   max-width: 65rem;
   margin: 0 auto;
   padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure all content within the wrapper respects its boundaries */
+.guide-content-wrapper > * {
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Breadcrumb */
@@ -123,11 +131,31 @@
 .guide-article {
   line-height: 1.7;
   color: var(--color-text-primary, #111827);
+  width: 100%;
+  max-width: 100%;
 }
 
 .guide-section {
   margin-bottom: 0.75rem;
   scroll-margin-top: 2rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Ensure all direct children in guide sections are properly constrained */
+.guide-section > *,
+.guide-article > * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Center and constrain any unstyled divs within guide sections */
+.guide-section > div:not(.guide-image-wrapper):not(.guide-info-box):not(.guide-table-wrapper):not(.guide-phases-grid):not(.guide-industries-grid):not(.guide-steps-list):not(.guide-resources-list):not(.guide-cta):not(.guide-related),
+.guide-article > div:not(.guide-image-wrapper):not(.guide-info-box):not(.guide-table-wrapper):not(.guide-phases-grid):not(.guide-industries-grid):not(.guide-steps-list):not(.guide-resources-list):not(.guide-cta):not(.guide-related) {
+  max-width: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .guide-section h2 {
@@ -137,6 +165,8 @@
   margin: 0 0 1.5rem 0;
   padding-top: 0.5rem;
   border-top: 1px solid var(--color-border, #e5e7eb);
+  max-width: 100%;
+  width: 100%;
 }
 
 .guide-section:first-of-type h2 {
@@ -149,6 +179,8 @@
   font-weight: 600;
   color: var(--color-text-primary, #111827);
   margin: 2rem 0 1rem 0;
+  max-width: 100%;
+  width: 100%;
 }
 
 .guide-section h4 {
@@ -156,17 +188,23 @@
   font-weight: 600;
   color: var(--color-text-primary, #111827);
   margin: 1.5rem 0 0.75rem 0;
+  max-width: 100%;
+  width: 100%;
 }
 
 .guide-section p {
   margin: 0 0 1rem 0;
   color: var(--color-text-primary, #111827);
+  max-width: 100%;
+  width: 100%;
 }
 
 .guide-section ul,
 .guide-section ol {
   margin: 1rem 0;
   padding-left: 1.5rem;
+  max-width: 100%;
+  width: 100%;
 }
 
 .guide-section li {
@@ -192,7 +230,13 @@
 /* Images */
 .guide-image-wrapper {
   margin: 2rem 0;
-  max-width: 100%;
+  max-width: 42rem; /* Limit wrapper to same max-width as image */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .guide-image {
@@ -200,6 +244,9 @@
   height: auto;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: block;
+  max-width: 100%; /* Image fills wrapper, wrapper has max-width */
+  object-fit: contain;
 }
 
 .guide-image-caption {
@@ -208,6 +255,58 @@
   font-style: italic;
   text-align: center;
   margin-top: 0.5rem;
+  max-width: 42rem; /* Match image max-width */
+  width: 100%;
+}
+
+/* Ensure all images in guide content display properly */
+.guide-content img,
+.guide-content-wrapper img {
+  max-width: 42rem; /* Limit to max-w-2xl equivalent (672px) */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center images */
+  border-radius: 0.5rem;
+}
+
+/* Images within guide sections should also be constrained */
+.guide-section img,
+.guide-article img {
+  max-width: 42rem;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto; /* Add vertical margin and center */
+  border-radius: 0.5rem;
+}
+
+/* Ensure images within unstyled divs are also centered */
+.guide-section > div img,
+.guide-article > div img {
+  max-width: 42rem;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+}
+
+/* Center paragraphs within unstyled divs */
+.guide-section > div p,
+.guide-article > div p {
+  max-width: 100%;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.guide-content img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.guide-content img[loading="lazy"].loaded {
+  opacity: 1;
 }
 
 /* Info Boxes */
@@ -521,6 +620,7 @@
 .btn-primary:hover {
   background-color: var(--color-primary-hover, #1d4ed8);
   border-color: var(--color-primary-hover, #1d4ed8);
+  color: white;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }

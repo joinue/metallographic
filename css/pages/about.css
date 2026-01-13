@@ -165,10 +165,8 @@
 
 /* Customers Section */
 .customers-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     padding: 3rem 0;
     margin: 3rem 0;
-    border-radius: 12px;
 }
 
 .customers-logo {
@@ -189,8 +187,7 @@
     background-color: #fff;
     border-radius: 0.5rem;
     border: 1px solid #e5e7eb;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    transition: transform 0.2s, border-color 0.2s;
     padding: 1rem;
 }
 
@@ -204,8 +201,8 @@
 
 .customers-logo-container:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     border-color: #d1d5db;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .customers-logo-container:hover .customer-logo {
@@ -225,13 +222,8 @@
 
 /* Enhanced section styling */
 .global-reach, .sales-partnerships, .customer-support, .contact-us {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
+    padding: 2rem 0;
     margin-bottom: 2rem;
-    border: 1px solid #e1e5e9;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* HQ Image Styling */
@@ -254,25 +246,33 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.global-reach:hover, .sales-partnerships:hover, .customer-support:hover, .contact-us:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
 
 /* Enhanced company history section */
 .company-history {
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-    border-radius: 12px;
-    padding: 2rem;
+    padding: 2rem 0;
     margin-bottom: 2rem;
-    border-left: 4px solid #2d5a87;
 }
 
-/* Ensure first-container doesn't override base styles incorrectly */
+/* Override global styles for about page */
 .first-container {
     background-color: transparent;
     border-radius: 0;
     margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 0;
+}
+
+/* Override global section padding and company-profile styles */
+.first-container section.company-profile,
+.first-container .company-profile {
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: none;
+    background-color: transparent;
+    border-radius: 0;
 }
 
 /* Video section styling */
@@ -311,10 +311,7 @@
 
 /* Enhanced address styling */
 address {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #2563eb;
+    padding: 1rem 0;
     margin: 1rem 0;
     font-style: normal;
     line-height: 1.6;
@@ -331,12 +328,6 @@ address a:hover {
     text-decoration: underline;
 }
 
-/* First container spacing - welcome section is now separate */
-.first-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    margin-top: 0;
-}
 
 /* Ensure top-header is visible and properly spaced */
 .top-header {
@@ -539,6 +530,7 @@ address a:hover {
     padding: 3rem 0;
     border-top: 1px solid #e5e7eb;
     border-bottom: 1px solid #e5e7eb;
+    box-sizing: border-box;
 }
 
 .overview-content {
@@ -567,7 +559,7 @@ address a:hover {
     padding: 1.5rem;
     background: #f8f9fa;
     border-radius: 8px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s;
 }
 
 .stat-box:hover {
@@ -653,6 +645,7 @@ address a:hover {
 /* Best-in-Class Section */
 .best-in-class {
     margin: 4rem 0;
+    box-sizing: border-box;
 }
 
 .best-class-grid {
@@ -663,17 +656,16 @@ address a:hover {
 }
 
 .best-class-item {
-    background: #fff;
+    padding: 2rem;
     border: 1px solid #e5e7eb;
     border-radius: 8px;
-    padding: 2rem;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    transition: transform 0.2s, border-color 0.2s;
 }
 
 .best-class-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     border-color: #d1d5db;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .best-class-item h3 {
@@ -709,8 +701,6 @@ address a:hover {
 .expertise-section {
     margin: 4rem 0;
     padding: 3rem 0;
-    background: #f8f9fa;
-    border-radius: 12px;
 }
 
 .expertise-content {
@@ -818,8 +808,6 @@ address a:hover {
 .values-section {
     margin: 4rem 0;
     padding: 3rem 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-    border-radius: 12px;
 }
 
 .values-header {
@@ -848,18 +836,17 @@ address a:hover {
 }
 
 .value-card {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
     padding: 2rem;
     text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    transition: transform 0.2s, border-color 0.2s;
 }
 
 .value-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     border-color: #d1d5db;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .value-icon {
@@ -910,10 +897,7 @@ address a:hover {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     margin: 2rem 0;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 0.5rem;
-    backdrop-filter: blur(10px);
+    padding: 1.5rem 0;
 }
 
 .contact-info-item {
@@ -1191,7 +1175,6 @@ address a:hover {
 
 /* Facility Section Styling */
 .facility-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     padding: 4rem 0;
     margin: 3rem 0;
 }

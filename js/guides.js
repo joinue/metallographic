@@ -36,7 +36,7 @@ const guides = [
   {
     title: 'Equipment Overview',
     slug: 'equipment-overview',
-    description: 'Learn about the essential equipment used in metallography, from sectioning equipment to microscopes. Understand what equipment you need for metallographic sample preparation.',
+    description: 'Learn about essential metallography equipment, from sectioning tools to microscopes. Understand what you need for sample preparation.',
     category: 'Basics',
     readTime: '12 min read',
     difficulty: 'Beginner',
@@ -46,7 +46,7 @@ const guides = [
   {
     title: 'Safety Fundamentals',
     slug: 'safety-fundamentals',
-    description: 'Essential safety practices for metallography laboratories. Learn about chemical safety, equipment safety, personal protective equipment, and safe work practices.',
+    description: 'Essential safety practices for metallography labs. Learn about chemical safety, equipment safety, and personal protective equipment.',
     category: 'Basics',
     readTime: '15 min read',
     difficulty: 'Beginner',
@@ -128,7 +128,7 @@ const guides = [
   {
     title: 'Stainless Steel Preparation',
     slug: 'stainless-steel-preparation',
-    description: 'Complete in-depth guide to preparing stainless steel samples for metallographic analysis, including sectioning, mounting, grinding, polishing, and etching techniques.',
+    description: 'Complete guide to preparing stainless steel samples for metallographic analysis, covering all preparation steps from sectioning to etching.',
     category: 'Material-Specific',
     readTime: '15 min read',
     microstructureImage: '/images/microstructures/431ss.png',
@@ -164,7 +164,7 @@ const guides = [
   {
     title: 'Carbon and Low Alloy Steels Preparation',
     slug: 'carbon-steel-preparation',
-    description: 'In-depth procedures for preparing carbon steel and low alloy steel samples (1018, 1045, 4140, 4340, 5160, 52100). Covers proper etching for pearlite, ferrite, and martensite structures.',
+    description: 'In-depth procedures for preparing carbon and low alloy steel samples. Covers proper etching for pearlite, ferrite, and martensite structures.',
     category: 'Material-Specific',
     readTime: '12 min read',
     microstructureImage: '/images/microstructures/1018FC.jpg',
@@ -173,7 +173,7 @@ const guides = [
   {
     title: 'Cast Iron Preparation',
     slug: 'cast-iron-preparation',
-    description: 'Complete guide to preparing cast iron samples with emphasis on preserving graphite structure. Covers gray, ductile, malleable, and austempered ductile iron preparation techniques.',
+    description: 'Complete guide to preparing cast iron samples with emphasis on preserving graphite structure. Covers all cast iron types.',
     category: 'Material-Specific',
     readTime: '14 min read',
     microstructureImage: '/images/microstructures/CI-nodular-200X-AP-2.jpg',
@@ -182,7 +182,7 @@ const guides = [
   {
     title: 'Tool Steel and Hardened Steel Preparation',
     slug: 'tool-steel-preparation',
-    description: 'Comprehensive guide for preparing very hard tool steels and hardened steels. Learn techniques for preserving carbides, extended preparation sequences, and revealing complex microstructures in high-hardness materials.',
+    description: 'Comprehensive guide for preparing tool steels and hardened steels. Learn techniques for preserving carbides and revealing complex microstructures.',
     category: 'Material-Specific',
     readTime: '16 min read',
     microstructureImage: '/images/microstructures/1095wq.jpg',
@@ -191,7 +191,7 @@ const guides = [
   {
     title: 'Nickel and Cobalt Superalloys Preparation',
     slug: 'nickel-alloys-preparation',
-    description: 'Comprehensive guide for preparing nickel and cobalt superalloys including Inconel, Hastelloy, and Stellite. Learn techniques for handling high-temperature alloys and revealing complex microstructures.',
+    description: 'Comprehensive guide for preparing nickel and cobalt superalloys. Learn techniques for handling high-temperature alloys and revealing complex microstructures.',
     category: 'Material-Specific',
     readTime: '14 min read',
     microstructureImage: '/images/microstructures/Hastelloy-adlers-etch-200X-DIC.jpg',
@@ -209,7 +209,7 @@ const guides = [
   {
     title: 'Ceramics Preparation',
     slug: 'ceramics-preparation',
-    description: 'Complete guide to preparing ceramic samples for metallographic analysis. Covers sectioning hard materials, avoiding chipping, and revealing grain boundaries.',
+    description: 'Complete guide to preparing ceramic samples for metallographic analysis. Covers sectioning hard materials and revealing grain boundaries.',
     category: 'Material-Specific',
     readTime: '16 min read',
     microstructureImage: '/images/microstructures/Al2O3.jpg',
@@ -224,6 +224,51 @@ const guides = [
     microstructureImage: '/images/microstructures/carbon-carbon-composite.jpg',
     difficulty: 'Advanced',
   },
+  {
+    title: 'Precious Metals Preparation',
+    slug: 'precious-metals-preparation',
+    description: 'Complete guide to preparing precious metals (gold, silver, platinum) samples for metallographic analysis. Learn techniques for handling extremely soft materials and avoiding smearing.',
+    category: 'Material-Specific',
+    readTime: '12 min read',
+    microstructureImage: '/images/microstructures/Copper.jpg',
+    difficulty: 'Advanced',
+  },
+  {
+    title: 'Refractory Metals Preparation',
+    slug: 'refractory-metals-preparation',
+    description: 'Comprehensive guide for preparing refractory metals (tungsten, rhenium, niobium, molybdenum). Learn techniques for handling extremely hard and brittle materials.',
+    category: 'Material-Specific',
+    readTime: '14 min read',
+    microstructureImage: '/images/microstructures/Refractory-metals.png',
+    difficulty: 'Advanced',
+  },
+  {
+    title: 'Powder Metallurgy Preparation',
+    slug: 'powder-metallurgy-preparation',
+    description: 'Complete guide to preparing powder metallurgy (PM) materials and sintered alloys. Learn vacuum impregnation techniques and methods to preserve porosity structure.',
+    category: 'Material-Specific',
+    readTime: '13 min read',
+    microstructureImage: '/images/microstructures/Powder-metals.png',
+    difficulty: 'Advanced',
+  },
+  {
+    title: 'Thermal Spray Coatings Preparation',
+    slug: 'thermal-spray-coatings-preparation',
+    description: 'Comprehensive guide for preparing thermal spray coatings including WC-Co, chromium carbide, and ceramic coatings. Learn to preserve coating-substrate interfaces.',
+    category: 'Material-Specific',
+    readTime: '15 min read',
+    microstructureImage: '/images/microstructures/Thermal-spray-coating.jpg',
+    difficulty: 'Advanced',
+  },
+  {
+    title: 'Cermets & Technical Glasses Preparation',
+    slug: 'cermets-technical-glasses-preparation',
+    description: 'Complete guide to preparing cermets (tungsten carbide, TiC-Ni) and technical glasses (borosilicate, fused silica). Learn techniques for extremely hard and brittle materials.',
+    category: 'Material-Specific',
+    readTime: '16 min read',
+    microstructureImage: '/images/microstructures/W-Co-200X.jpg',
+    difficulty: 'Advanced',
+  },
   // Application-Specific Guides
   {
     title: 'Failure Analysis',
@@ -236,7 +281,7 @@ const guides = [
   {
     title: 'Castings and Foundry Analysis',
     slug: 'castings-foundry-analysis',
-    description: 'Complete guide to metallographic analysis of cast materials including solidification structure analysis, dendrite arm spacing measurement, casting defect identification, and grain size control.',
+    description: 'Complete guide to metallographic analysis of cast materials. Covers solidification structure, defect identification, and grain size control.',
     category: 'Application-Specific',
     readTime: '18 min read',
     difficulty: 'Advanced',
@@ -252,7 +297,7 @@ const guides = [
   {
     title: 'Heat Treatment Verification',
     slug: 'heat-treatment-verification',
-    description: 'Complete guide to verifying heat treatment effectiveness through metallographic analysis, including case depth measurement, decarburization detection, and microstructure validation for different heat treatment processes.',
+    description: 'Complete guide to verifying heat treatment effectiveness through metallographic analysis. Covers case depth, decarburization, and microstructure validation.',
     category: 'Application-Specific',
     readTime: '18 min read',
     difficulty: 'Advanced',
@@ -260,7 +305,7 @@ const guides = [
   {
     title: 'Quality Control and Inspection',
     slug: 'quality-control-inspection',
-    description: 'In-depth guide on how to evaluate sample quality, identify preparation artifacts, and ensure your samples meet industry standards for metallographic analysis.',
+    description: 'In-depth guide on evaluating sample quality, identifying preparation artifacts, and ensuring samples meet industry standards.',
     category: 'Application-Specific',
     readTime: '15 min read',
     difficulty: 'Advanced',
@@ -268,7 +313,7 @@ const guides = [
   {
     title: 'Welding Analysis and Weld Zone Preparation',
     slug: 'welding-analysis',
-    description: 'Complete guide to preparing weld samples for metallographic analysis, including weld zone, HAZ, and fusion boundary preparation for different welding methods.',
+    description: 'Complete guide to preparing weld samples for metallographic analysis. Covers weld zone, HAZ, and fusion boundary preparation.',
     category: 'Application-Specific',
     readTime: '18 min read',
     difficulty: 'Advanced',
@@ -276,7 +321,7 @@ const guides = [
   {
     title: 'Additive Manufacturing (3D Printing) Sample Preparation',
     slug: 'additive-manufacturing-preparation',
-    description: 'Complete guide to preparing additive manufacturing samples for metallographic analysis. Learn techniques for handling porosity, layer boundaries, support structures, and revealing build direction and process defects.',
+    description: 'Complete guide to preparing additive manufacturing samples. Learn techniques for handling porosity, layer boundaries, and revealing build direction.',
     category: 'Application-Specific',
     readTime: '16 min read',
     difficulty: 'Advanced',
@@ -284,7 +329,7 @@ const guides = [
   {
     title: 'Aerospace Applications Guide',
     slug: 'aerospace-applications',
-    description: 'Comprehensive guide to metallographic analysis for aerospace applications, covering titanium and superalloy preparation, fatigue and creep damage assessment, coating analysis, and industry-specific standards.',
+    description: 'Comprehensive guide to metallographic analysis for aerospace applications. Covers titanium and superalloy preparation, damage assessment, and industry standards.',
     category: 'Application-Specific',
     readTime: '22 min read',
     difficulty: 'Advanced',
@@ -292,7 +337,7 @@ const guides = [
   {
     title: 'Automotive Applications Guide',
     slug: 'automotive-applications',
-    description: 'Complete guide to metallographic analysis for automotive applications, covering steel and aluminum processing verification, heat treatment validation, weld quality assessment, and industry-specific quality requirements.',
+    description: 'Complete guide to metallographic analysis for automotive applications. Covers processing verification, heat treatment validation, and quality requirements.',
     category: 'Application-Specific',
     readTime: '20 min read',
     difficulty: 'Advanced',
@@ -300,7 +345,7 @@ const guides = [
   {
     title: 'Medical Device Applications Guide',
     slug: 'medical-device-applications',
-    description: 'Comprehensive guide to metallographic analysis for medical device applications, covering biocompatible material preparation, surface finish requirements, implant material characterization, and regulatory compliance considerations.',
+    description: 'Comprehensive guide to metallographic analysis for medical device applications. Covers biocompatible material preparation, surface finish, and regulatory compliance.',
     category: 'Application-Specific',
     readTime: '18 min read',
     difficulty: 'Advanced',
@@ -308,7 +353,7 @@ const guides = [
   {
     title: 'PCB and Chip Sample Preparation',
     slug: 'pcb-chip-preparation',
-    description: 'Complete guide to preparing printed circuit boards (PCBs) and semiconductor chips for metallographic analysis. Learn controlled removal techniques, ATTO polishing, and precision preparation methods essential for electronics failure analysis and quality control.',
+    description: 'Complete guide to preparing PCBs and semiconductor chips for metallographic analysis. Learn controlled removal techniques and precision preparation methods.',
     category: 'Application-Specific',
     readTime: '20 min read',
     difficulty: 'Advanced',
@@ -350,11 +395,22 @@ const categoryDescriptions = {
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search-input');
   const categoryFilters = document.getElementById('category-filters');
+  const categorySelect = document.getElementById('category-select');
   const guidesContent = document.getElementById('guides-content');
   const emptyState = document.getElementById('empty-state');
 
   let selectedCategory = 'All';
   let searchQuery = '';
+  
+  // Setup select dropdown change handler once
+  if (categorySelect) {
+    categorySelect.addEventListener('change', function(e) {
+      selectedCategory = e.target.value;
+      updateURL();
+      renderFilters();
+      renderGuides();
+    });
+  }
 
   // Get category from URL parameter
   const urlParams = new URLSearchParams(window.location.search);
@@ -384,30 +440,44 @@ document.addEventListener('DOMContentLoaded', function() {
   // Render category filters
   function renderFilters() {
     const categories = ['All', ...categoryOrder];
-    categoryFilters.innerHTML = categories.map(category => {
-      const isActive = selectedCategory === category;
-      return `
-        <button
-          class="filter-btn ${isActive ? 'active' : ''}"
-          data-category="${category}"
-          role="tab"
-          aria-selected="${isActive}"
-          aria-controls="guides-content"
-        >
-          ${category}
-        </button>
-      `;
-    }).join('');
+    
+    // Populate select dropdown
+    if (categorySelect) {
+      categorySelect.innerHTML = categories.map(category => {
+        const isSelected = selectedCategory === category;
+        return `<option value="${category}" ${isSelected ? 'selected' : ''}>${category}</option>`;
+      }).join('');
+    }
+    
+    // Render buttons
+    if (categoryFilters) {
+      categoryFilters.innerHTML = categories.map(category => {
+        const isActive = selectedCategory === category;
+        return `
+          <button
+            class="filter-btn ${isActive ? 'active' : ''}"
+            data-category="${category}"
+            role="tab"
+            aria-selected="${isActive}"
+            aria-controls="guides-content"
+          >
+            ${category}
+          </button>
+        `;
+      }).join('');
 
-    // Add event listeners
-    categoryFilters.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        selectedCategory = btn.dataset.category;
-        updateURL();
-        renderFilters();
-        renderGuides();
+      // Add event listeners
+      categoryFilters.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectedCategory = btn.dataset.category;
+          // Sync select dropdown
+          if (categorySelect) categorySelect.value = selectedCategory;
+          updateURL();
+          renderFilters();
+          renderGuides();
+        });
       });
-    });
+    }
   }
 
   // Filter guides
@@ -466,7 +536,7 @@ document.addEventListener('DOMContentLoaded', function() {
       : '';
 
     // Determine link - basics guides and process guides are local, troubleshooting goes to resources, others to metallography.org
-    const localGuides = ['introduction-to-metallography', 'purpose-and-applications', 'history-of-metallography', 'equipment-overview', 'safety-fundamentals', 'common-misconceptions', 'sectioning', 'mounting', 'grinding-techniques', 'polishing-methods', 'etching-procedures', 'microstructural-analysis', 'aluminum-sample-preparation', 'carbon-steel-preparation', 'cast-iron-preparation', 'ceramics-preparation', 'composites-preparation', 'magnesium-preparation', 'stainless-steel-preparation', 'titanium-preparation', 'copper-alloys-preparation', 'tool-steel-preparation', 'nickel-alloys-preparation'];
+    const localGuides = ['introduction-to-metallography', 'purpose-and-applications', 'history-of-metallography', 'equipment-overview', 'safety-fundamentals', 'common-misconceptions', 'sectioning', 'mounting', 'grinding-techniques', 'polishing-methods', 'etching-procedures', 'microstructural-analysis', 'aluminum-sample-preparation', 'carbon-steel-preparation', 'cast-iron-preparation', 'ceramics-preparation', 'composites-preparation', 'magnesium-preparation', 'stainless-steel-preparation', 'titanium-preparation', 'copper-alloys-preparation', 'tool-steel-preparation', 'nickel-alloys-preparation', 'precious-metals-preparation', 'refractory-metals-preparation', 'powder-metallurgy-preparation', 'thermal-spray-coatings-preparation', 'cermets-technical-glasses-preparation', 'failure-analysis', 'castings-foundry-analysis', 'hardness-testing-preparation', 'heat-treatment-verification', 'quality-control-inspection', 'welding-analysis', 'additive-manufacturing-preparation', 'aerospace-applications', 'automotive-applications', 'medical-device-applications', 'pcb-chip-preparation', 'troubleshooting-common-issues'];
     
     // Special cases for guides with different file names than slugs
     const slugToFileMap = {
@@ -474,9 +544,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     let link;
-    if (guide.slug === 'troubleshooting-common-issues') {
-      link = '/support.html';
-    } else if (slugToFileMap[guide.slug]) {
+    if (slugToFileMap[guide.slug]) {
       // Handle guides with different file names
       link = `/guides/${slugToFileMap[guide.slug]}.html`;
     } else if (localGuides.includes(guide.slug)) {

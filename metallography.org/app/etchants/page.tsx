@@ -339,7 +339,7 @@ export default function EtchantsDatabasePage() {
 
                   <div className="mt-4 pt-4 border-t border-gray-200">
                     <span className="text-primary-600 font-medium text-sm group-hover:underline">
-                      View Details →
+                      View Details >
                     </span>
                   </div>
                 </Link>

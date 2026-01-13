@@ -580,7 +580,7 @@ function renderRelatedGuides() {
         html += '<h3 class="related-guides-title">Related Preparation Guides</h3>';
         html += '<div class="related-guides-list">';
         guides.forEach(guide => {
-            html += `<a href="${guide.url}" class="related-guide-link">→ ${escapeHtml(guide.name)}</a>`;
+            html += `<a href="${guide.url}" class="related-guide-link">> ${escapeHtml(guide.name)}</a>`;
         });
         html += '</div></div>';
         container.innerHTML = html;

@@ -23,16 +23,30 @@ body.build-page-active {
   color: #374151;
   cursor: pointer;
   transition: all 0.2s ease;
+  padding: 0;
+  margin: 0;
+}
+
+.builder-back-button svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  flex-shrink: 0;
 }
 
 .builder-back-button:hover {
   color: #2563eb;
   background: #f9fafb;
+  border-color: #2563eb;
 }
 
 .builder-back-button:focus {
   outline: none;
   box-shadow: 0 0 0 2px #2563eb, 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.builder-back-button:active {
+  transform: scale(0.95);
 }
 
 /* Container */
@@ -174,6 +188,17 @@ body.build-page-active {
 
 .builder-progress-circle.completed {
   border-color: #2563eb;
+  background: #2563eb;
+  color: white;
+}
+
+.builder-progress-circle.completed svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.builder-progress-circle.completed {
+  border-color: #2563eb;
   background: #eff6ff;
   color: #2563eb;
 }
@@ -306,6 +331,15 @@ body.build-page-active {
 
 .builder-stage-icon {
   font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.builder-stage-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .builder-stage-label {
@@ -593,6 +627,7 @@ body.build-page-active {
 
 .builder-primary-button:hover:not(:disabled) {
   background: #1d4ed8;
+  color: white;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
@@ -717,19 +752,37 @@ body.build-page-active {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: #2563eb;
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   color: white;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  padding: 0;
+  margin: 0;
+}
+
+.builder-scroll-top svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  flex-shrink: 0;
 }
 
 .builder-scroll-top:hover {
-  background: #1d4ed8;
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  color: white;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px);
+}
+
+.builder-scroll-top:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 .builder-scroll-top:focus {
@@ -827,11 +880,25 @@ body.build-page-active {
 
 .builder-results-stage-icon {
   font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.builder-results-stage-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 @media (min-width: 640px) {
   .builder-results-stage-icon {
     font-size: 1.5rem;
+  }
+  
+  .builder-results-stage-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
 
@@ -896,6 +963,15 @@ body.build-page-active {
 .builder-results-category-icon {
   font-size: 1.25rem;
   color: #2563eb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.builder-results-category-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .builder-results-items {
@@ -923,6 +999,14 @@ body.build-page-active {
   flex-shrink: 0;
   margin-top: 0.125rem;
   color: #2563eb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.builder-recommendation-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .builder-recommendation-type {
