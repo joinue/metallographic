@@ -10,11 +10,11 @@
     <meta name="norton-safeweb-site-verification" content="kw254olmyzhm98ttscnebx59npy7ji28spxv77ktnnqwpg2entz0hsfozhba0gzvjvrfj6z0-c00djzn-iq1hw-z1vdcna8ug093xtjit61oop1s26erotk-0ruemld5">
   
     <!-- Page Title -->
-    <title>About PACE Technologies | Metallographic Excellence Since 1997</title>
+    <title>About PACE Technologies | Metallographic Equipment Manufacturer Since 1997</title>
   
     <!-- SEO -->
-    <meta name="description" content="Learn about PACE Technologies—our mission, history, and commitment to providing quality metallographic sample preparation equipment and consumables.">
-    <meta name="keywords" content="PACE Technologies, about PACE, metallographic company, company history, metallography experts, microstructural analysis, materials testing, sample preparation leaders">
+    <meta name="description" content="PACE Technologies: Leading manufacturer of metallographic equipment and consumables since 1997. Family-owned company providing precision cutters, mounting presses, grinders, polishers, hardness testers, and microscopes for quality control, failure analysis, and materials research laboratories worldwide.">
+    <meta name="keywords" content="PACE Technologies, about PACE, metallographic company, metallography equipment manufacturer, sample preparation company, metallographic equipment supplier, company history, metallography experts, microstructural analysis, materials testing, sample preparation leaders, precision cutters, mounting presses, grinder polishers, hardness testers, metallurgical microscopes">
   
     <!-- Canonical -->
     <link rel="canonical" href="https://www.metallographic.com/about.html">
@@ -29,11 +29,51 @@
     <link rel="mask-icon" href="/Images/pt-favicon/safari-pinned-tab.svg" color="#5bbad5">
   
     <!-- Styles -->
-    <link rel="stylesheet" href="/css/base/styles.css" as="style">
-    <link rel="stylesheet" href="/css/components/navigation.css">
-    <link rel="stylesheet" href="/css/components/footer.css">
-    <link rel="stylesheet" href="/css/layouts/homepage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preload" href="/css/components/navigation.css" as="style">
+    <link rel="preload" href="/css/layouts/homepage-styles.css" as="style">
+    <link rel="stylesheet" href="/css/components/navigation.css" media="all">
+    <link rel="stylesheet" href="/css/layouts/homepage-styles.css" media="all">
+    <link rel="stylesheet" href="/css/components/footer.css" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="stylesheet" href="/css/pages/about.css" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="stylesheet" href="/css/utilities/animations.css" media="print" onload="this.media='all'; this.onload=null;">
+    <!-- Critical inline style to prevent animation FOUC -->
+    <style>
+        /* Hide animated elements immediately to prevent flash */
+        /* Set initial transform states so elements start in their "from" position */
+        [data-animate] {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(0) translateX(0);
+        }
+        [data-animate="up"] {
+            transform: translateY(60px);
+        }
+        [data-animate="down"] {
+            transform: translateY(-60px);
+        }
+        [data-animate="left"] {
+            transform: translateX(60px);
+        }
+        [data-animate="right"] {
+            transform: translateX(-60px);
+        }
+        [data-animate="fade"] {
+            transform: translateY(0) translateX(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            [data-animate] {
+                transform: translateY(0) translateX(0) !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+        }
+    </style>
+    <noscript>
+        <link rel="stylesheet" href="/css/components/footer.css">
+        <link rel="stylesheet" href="/css/pages/about.css">
+        <link rel="stylesheet" href="/css/utilities/animations.css">
+        <style>body{visibility:visible !important;opacity:1 !important;}[data-animate]{opacity:1 !important;visibility:visible !important;}</style>
+    </noscript>
   
     <!-- Preconnect -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
@@ -49,8 +89,8 @@
     </script>
   
     <!-- Open Graph -->
-    <meta property="og:title" content="About PACE Technologies | Metallographic Excellence Since 1993">
-    <meta property="og:description" content="PACE Technologies is a trusted name in metallographic equipment and consumables. Discover our mission, history, and the people behind the brand.">
+    <meta property="og:title" content="About PACE Technologies | Metallographic Equipment Manufacturer Since 1997">
+    <meta property="og:description" content="PACE Technologies: Family-owned manufacturer of metallographic equipment and consumables. Founded in 1997, we provide precision sample preparation solutions for quality control, failure analysis, and materials research laboratories worldwide.">
     <meta property="og:image" content="https://www.metallographic.com/Images/logo-microstructure-transparent.webp">
     <meta property="og:url" content="https://www.metallographic.com/about.html">
     <meta property="og:type" content="website">
@@ -69,15 +109,53 @@
       "name": "PACE Technologies",
       "url": "https://www.metallographic.com",
       "logo": "https://www.metallographic.com/Images/logo-microstructure-transparent.webp",
+      "description": "PACE Technologies is a leading manufacturer of metallographic equipment and consumables for precision sample preparation. Founded in 1997, we provide complete solutions for quality control, failure analysis, and materials research laboratories.",
+      "foundingDate": "1997",
+      "founder": {
+        "@type": "Person",
+        "name": "Dr. Donald Zipperian"
+      },
       "sameAs": [
         "https://www.facebook.com/PaceTechnologies",
         "https://www.linkedin.com/company/metallographic/",
-        "https://www.instagram.com/pace_technologies"
+        "https://www.youtube.com/@pacetechnologies",
+        "https://www.instagram.com/pace_technologies/"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+1-520-882-6598",
-        "contactType": "Customer Service"
+        "contactType": "Customer Service",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["English"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3601 E 34th Street",
+        "addressLocality": "Tucson",
+        "addressRegion": "AZ",
+        "postalCode": "85713",
+        "addressCountry": "US"
+      },
+      "award": "Presidential E Award (2015)"
+    }
+    </script>
+
+    <!-- Schema: AboutPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About PACE Technologies",
+      "description": "Learn about PACE Technologies, a family-owned manufacturer of metallographic equipment and consumables. Founded in 1997, we provide precision sample preparation solutions for laboratories worldwide.",
+      "url": "https://www.metallographic.com/about.html",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "PACE Technologies",
+        "foundingDate": "1997",
+        "founder": {
+          "@type": "Person",
+          "name": "Dr. Donald Zipperian"
+        }
       }
     }
     </script>
@@ -889,8 +967,18 @@
         <button class="close" aria-label="Close">&times;</button>
         <section class="quote-request" aria-labelledby="quote-request-heading">
             <div class="quote-form-container">
-                <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    (function() {
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.defer = true;
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                        };
+                        document.head.appendChild(script);
+                    })();
+                </script>
             </div>
         </section>
     </div>
@@ -914,68 +1002,357 @@
 <!--            ABOUT PACE TECH                   -->
 <!-- ============================================ -->
 
+<!-- Welcome Section - Full Width Background (like hero) -->
+<section class="about-welcome">
+  <!-- Background Image -->
+  <div class="welcome-background">
+    <div class="welcome-background-image">
+      <img src="/images/microstructures/Inconel-625-etched-Adlers-immersion-200x.png" alt="Inconel 625 microstructure background" class="welcome-bg-img">
+      <!-- Fade background image to white at bottom -->
+      <div class="welcome-fade-overlay"></div>
+    </div>
+  </div>
+  
+  <div class="container-custom welcome-content-wrapper">
+    <div class="welcome-content">
+      <div class="welcome-text" data-animate="right">
+        <div class="welcome-header">
+          <img src="/images/pace/short-logo-black.png" alt="PACE Technologies" class="welcome-logo">
+          <h1 class="welcome-title">About PACE</h1>
+        </div>
+        <p class="welcome-subtitle">Metallographic Sample Preparation, Testing & Analysis</p>
+        <div class="welcome-description">
+          <p class="section-text">
+            PACE Technologies is a family-owned and operated company that has grown into a trusted partner for laboratories worldwide. We help materials labs meet today's challenges by taking complexity out of the preparation process.
+          </p>
+          <p class="section-text">
+            Our products and support minimize training and rework, delivering consistent results the first time, every time. From precision cutters to advanced polishing systems, we provide complete solutions for metallographic sample preparation.
+          </p>
+        </div>
+      </div>
+      <div class="welcome-media" data-animate="left" data-animate-delay="200">
+        <div class="video-container">
+          <video controls preload="auto" aria-label="Introductory video about PACE Technologies">
+            <source src="/videos/PACE Intro Video (Original).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="first-container">
   <section class="company-profile">
-      <div class="profile-grid">
-        <div class="video-section">
-          <img src="/images/logo-microstructure-transparent.webp" alt="PACE Logo" class="header-image">
-          <div class="video-container">
-              <video controls preload="auto" aria-label="Introductory video about PACE Technologies">
-                  <source src="/videos/PACE Intro Video (Original).mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-              </video>
+      <div class="container-custom">
+        <!-- Our Story Section -->
+        <div class="company-overview">
+          <h2 class="section-title" data-animate="up">Our Story</h2>
+          <div class="overview-content">
+            <div class="overview-text" data-animate="right" data-animate-delay="100">
+              <p class="section-text">
+                Founded in 1997 by Dr. Donald and Cathy Zipperian, PACE Technologies began as a small project 
+                in the Zipperian family's home office in the basement, warehouse in the garage. Driven by a 
+                passion for advancing metallographic sample preparation after years in the industry, they set 
+                out to make metallographic sample preparation more accessible and reliable.
+              </p>
+              <p class="section-text">
+                Over the years, our dedication to quality and service helped us grow steadily, earning the 
+                Presidential "E" Award in 2015 for contributing to the growth of U.S. exports. Today, as a 
+                family-owned and operated company, we've grown into a trusted partner for laboratories worldwide.
+              </p>
+            </div>
+            <div class="overview-stats" data-animate="left" data-animate-delay="200">
+              <div class="stat-box">
+                <div class="stat-value">25+</div>
+                <div class="stat-label">Years of Excellence</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value">50+</div>
+                <div class="stat-label">Countries Served</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value">2015</div>
+                <div class="stat-label">Presidential E Award</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value">Family-Owned</div>
+                <div class="stat-label">Since 1997</div>
+              </div>
+            </div>
           </div>
-      </div>
-
-      <div class="profile-content">
-        <div class="company-history">
-            <h2>Our History</h2>
-            <p>
-                Founded in 1997 by Dr. Donald and Cathy Zipperian, PACE Technologies began as a small project in the Zipperian family's garage, driven by a passion for advancing metallographic sample preparation. Over the years, our dedication to quality and service helped us grow steadily, earning the Presidential “E” Award in 2015 for contributing to the growth of U.S. exports.<br><br>
-                As a family-owned and operated company, we continue to design and manufacture reliable, high-quality equipment and consumables that support laboratories and researchers around the world. Our commitment remains rooted in helping customers achieve consistent, accurate results in metallography and microstructural analysis.
-            </p>
         </div>
-    </div>
-    
 
-              <div class="global-reach">
-                  <h2>Global Reach</h2>
-                  <p>
-                      With a network of distributors and partners worldwide, PACE Technologies is proud to serve clients across various industries, including aerospace, automotive, biomedical, and more. Our global reach ensures that we deliver exceptional products and support, no matter where our clients are located.
+        <!-- Founders Section -->
+        <div class="founders-section">
+          <div class="founders-content">
+              <div class="founders-text" data-animate="right" data-animate-delay="100">
+                <h2 class="section-title">Our Founders</h2>
+                <div class="founders-description">
+                  <p class="section-text">
+                    Dr. Donald Zipperian brings extensive experience in metallography, having worked with 
+                    industry leaders like Buehler before founding PACE Technologies. Together with Cathy 
+                    Zipperian, they built the company on a foundation of technical expertise, quality, 
+                    and commitment to the metallography community.
                   </p>
-                  <a href="quote.html" class="about-btn">Contact Sales</a>
+                  <p class="section-text">
+                    Their vision was to create a company that not only provided high-quality equipment 
+                    and consumables but also supported laboratories with expert knowledge and technical 
+                    guidance. This commitment to excellence has been the driving force behind PACE 
+                    Technologies' growth and success.
+                  </p>
+                </div>
+              </div>
+              <div class="founders-image" data-animate="left" data-animate-delay="200">
+                <img src="/images/donz.jpg" alt="Donald Zipperian PhD, founder of PACE Technologies, who also worked with Buehler" class="founder-photo">
+              </div>
+            </div>
+          </div>
+
+        <!-- Company Overview Section -->
+        <div class="company-overview">
+          <h2 class="section-title" data-animate="up">Where We Are Today</h2>
+          <div class="overview-content">
+            <div class="overview-text" data-animate="right" data-animate-delay="100">
+              <p class="section-text">
+                Based in Tucson, Arizona, PACE Technologies remains a family-owned and operated company serving 
+                laboratories in over 50 countries. Our headquarters houses engineering, design, quality control, 
+                and business operations, all focused on delivering precision solutions for metallographic sample preparation.
+              </p>
+              <p class="section-text">
+                We help materials labs meet today's challenges by taking complexity out of the preparation process. 
+                Our products and support minimize training and rework, delivering consistent results the first time, every time.
+              </p>
+            </div>
+            <div class="overview-stats" data-animate="left" data-animate-delay="200">
+              <div class="stat-box">
+                <div class="stat-value">25+</div>
+                <div class="stat-label">Years of Excellence</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value">50+</div>
+                <div class="stat-label">Countries Served</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value">2015</div>
+                <div class="stat-label">Presidential E Award</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value">Family-Owned</div>
+                <div class="stat-label">Since 1997</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- What We Offer Section -->
+        <div class="best-in-class">
+          <h2 class="section-title" data-animate="up">What We Offer</h2>
+          <div class="best-class-grid">
+            <div class="best-class-item" data-animate="up" data-animate-delay="50">
+              <h3>Reliable, Affordable Solutions</h3>
+              <ul>
+                <li>Quality equipment built to last, without the premium price tag</li>
+                <li>Consistent, dependable consumables that deliver results</li>
+                <li>Straightforward products designed for real-world use</li>
+                <li>Complete solutions that fit your budget</li>
+              </ul>
+            </div>
+            <div class="best-class-item" data-animate="up" data-animate-delay="100">
+              <h3>Personal, Hands-On Support</h3>
+              <ul>
+                <li>Direct access to our team - no call centers or automated systems</li>
+                <li>Customized guidance tailored to your specific needs</li>
+                <li>One-on-one consultation from experienced metallographers</li>
+                <li>Bespoke solutions for your unique challenges</li>
+              </ul>
+            </div>
+            <div class="best-class-item" data-animate="up" data-animate-delay="150">
+              <h3>Expert Guidance You Can Trust</h3>
+              <ul>
+                <li>Over 25 years of hands-on experience in the field</li>
+                <li>Quick, personal responses from people who understand your work</li>
+                <li>Practical support that helps you get the job done</li>
+                <li>Reliable equipment backed by real expertise</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Values Section -->
+        <div class="values-section">
+          <div class="container-custom">
+            <div class="values-header" data-animate="up">
+              <h2 class="section-title">What We Stand For</h2>
+              <p class="section-subtitle">The principles that guide everything we do</p>
+            </div>
+            <div class="values-grid">
+              <div class="value-card" data-animate="up" data-animate-delay="50">
+                <div class="value-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                  </svg>
+                </div>
+                <h3 class="value-title">Quality & Excellence</h3>
+                <p class="value-description">
+                  We maintain the highest standards in our equipment and consumables, ensuring that every 
+                  product meets rigorous quality requirements. Our commitment to excellence has been 
+                  recognized through industry awards and customer trust.
+                </p>
               </div>
 
-              <div class="customer-support">
-                <h2>Customer Support</h2>
-                <p>
-                    Our commitment to customer satisfaction is unwavering. We offer comprehensive support and services, including technical assistance, training, and maintenance, to ensure that our clients maximize the value of their investment. Our dedicated support team is always ready to assist with any inquiries or challenges our clients may face.
+              <div class="value-card" data-animate="up" data-animate-delay="100">
+                <div class="value-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <h3 class="value-title">Customer Support</h3>
+                <p class="value-description">
+                  We're committed to supporting our customers with expert technical guidance, comprehensive 
+                  resources, and responsive service. Whether you're setting up a new lab or need troubleshooting 
+                  assistance, we're here to help.
                 </p>
-                <a href="support.html" class="about-btn">Get Support</a>
-            </div>
+              </div>
 
-            <div class="contact-us">
-                <h2>Contact Us</h2>
-                <p>
-                    For more information about our products and services, or to speak with a representative, please contact us at:
+              <div class="value-card" data-animate="up" data-animate-delay="150">
+                <div class="value-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                </div>
+                <h3 class="value-title">Community Commitment</h3>
+                <p class="value-description">
+                  As a family-owned business, we understand the importance of building lasting relationships 
+                  with the global metallography community. We're dedicated to advancing the field and 
+                  supporting practitioners at all levels.
                 </p>
-                <address>
-                    <strong>PACE Technologies</strong><br>
-                    3601 E. 34th Street<br>
-                    Tucson, AZ 85713<br>
-                    United States<br><br>
-                    Phone: <a href="tel:+15208826598">+1-520-882-6598</a><br>
-                    Email: <a href="mailto:pace@metallographic.com">pace@metallographic.com</a>
-                </address>
-                <a href="/contact.html" class="about-btn" aria-label="Go to contact form page">Contact Form</a>
+              </div>
             </div>
-            
           </div>
+        </div>
+
+        <!-- Customer Showcase -->
+        <div class="customers-section">
+          <h2 class="section-title" data-animate="up">Trusted by Industry Leaders</h2>
+          <p class="section-subtitle" data-animate="up" data-animate-delay="100">PACE Technologies equipment and consumables are used by leading companies worldwide for quality control, failure analysis, and materials research.</p>
+          <div class="customers-logo">
+            <div class="customers-logo-container" data-animate="up" data-animate-delay="50">
+              <img src="/images/customers/apple_no_bg.webp" alt="Apple" class="customer-logo">
+            </div>
+            <div class="customers-logo-container" data-animate="up" data-animate-delay="100">
+              <img src="/images/customers/tesla_no_bg.webp" alt="Tesla" class="customer-logo">
+            </div>
+            <div class="customers-logo-container" data-animate="up" data-animate-delay="150">
+              <img src="/images/customers/medtronic_no_bg.webp" alt="Medtronic" class="customer-logo">
+            </div>
+            <div class="customers-logo-container" data-animate="up" data-animate-delay="200">
+              <img src="/images/customers/seagate_no_bg.webp" alt="Seagate" class="customer-logo">
+            </div>
+            <div class="customers-logo-container" data-animate="up" data-animate-delay="250">
+              <img src="/images/customers/blue_origin_no_bg.webp" alt="Blue Origin" class="customer-logo">
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Care Section -->
+        <div class="customer-care-section">
+          <div class="care-content">
+            <div class="care-text" data-animate="up">
+              <h2 class="section-title">How We Support You</h2>
+              <p class="section-text">
+                We are not only experts in our field but also a strong business partner committed to excellent customer support. It is easy to do business with PACE because our people and our processes are set up for your success.
+              </p>
+              <p class="section-text">
+                We have hassle-free ordering and investment in inventory to keep our customer's operations running smoothly, but most importantly we have a customer-focused culture filled with people who believe in service as a priority.
+              </p>
+              <div class="care-buttons">
+                <a href="/support.html" class="btn-primary">Contact Customer Care</a>
+                <a href="/contact.html" class="btn-secondary">Contact PACE</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="cta-section">
+          <div class="container-custom">
+            <div class="cta-card" data-animate="up">
+              <!-- Background Image -->
+              <div class="cta-background">
+                <img src="/images/microstructures/Inconel-625-etched-Adlers-immersion-200x.png" alt="Metallographic sample background" class="cta-bg-image">
+                <div class="cta-gradient-overlay"></div>
+              </div>
+              
+              <!-- Content -->
+              <div class="cta-content">
+                <h2 class="cta-title">Contact PACE Technologies</h2>
+                <p class="cta-description">
+                  Get in touch with our team to discuss your metallographic equipment and consumable needs, 
+                  request a quote, or schedule a facility visit.
+                </p>
+                <div class="contact-info-inline">
+                  <div class="contact-info-item">
+                    <strong>Address:</strong>
+                    <address>
+                      PACE Technologies<br>
+                      3601 E. 34th Street<br>
+                      Tucson, AZ 85713<br>
+                      United States
+                    </address>
+                  </div>
+                  <div class="contact-info-item">
+                    <strong>Phone:</strong>
+                    <a href="tel:+15208826598">+1-520-882-6598</a>
+                  </div>
+                  <div class="contact-info-item">
+                    <strong>Email:</strong>
+                    <a href="mailto:pace@metallographic.com">pace@metallographic.com</a>
+                  </div>
+                </div>
+                <div class="cta-buttons">
+                  <a href="/quote.html" class="btn-primary">Request a Quote</a>
+                  <a href="/contact.html" class="btn-secondary">Contact Form</a>
+                  <a href="/support.html" class="btn-tertiary">Get Support</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
   </section>
 </div>
 
-<br><br>
+<!-- ============================================ -->
+<!--            VISIT OUR FACILITY                -->
+<!-- ============================================ -->
+
+<div class="facility-section">
+    <div class="container-custom">
+    <div class="facility-content">
+        <div class="facility-text" data-animate="right">
+            <h2 class="section-title">Our Facility</h2>
+            <p class="section-text">
+                Located in the heart of Tucson, Arizona, our headquarters houses our engineering, design, quality control, and business operations. Our facility is focused on product development, testing, and customer support. We welcome customers to visit our facility to see our equipment in action, meet our team, and discuss your specific metallographic needs.
+            </p>
+            <p class="section-text">
+                <strong>Schedule a visit:</strong> Contact us to arrange a tour of our facility, see our equipment demonstrations, or discuss custom solutions for your laboratory.
+            </p>
+            <a href="/contact.html" class="btn-primary">Schedule a Visit</a>
+        </div>
+        <div class="facility-image" data-animate="left" data-animate-delay="200">
+            <img src="/images/pace_hq_landscape.webp" alt="PACE Technologies Headquarters in Tucson, Arizona" class="hq-facility-image">
+        </div>
+    </div>
+    </div>
+</div>
+
+<br><br><br><br>
 
 <a href="#top" class="return-to-top" aria-label="Return to top">
     <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
