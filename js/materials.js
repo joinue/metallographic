@@ -340,13 +340,25 @@ function createMaterialCard(material) {
     const hardness = material.hardness || 'N/A';
     const microstructure = material.microstructure || 'N/A';
     const slug = material.slug || material.id || '';
+    const materialClass = material.class || '';
     
     // Get category badge colors
     const badgeColors = getCategoryBadgeColors(category);
     
+    // Get class badge color class
+    const classBadgeColor = getClassBadgeColor(materialClass);
+    
+    // Create class badge if class is available
+    const classBadge = materialClass ? `
+        <a href="/support/preparation-procedures/class-${materialClass}.html" class="material-class-badge ${classBadgeColor}" title="Preparation Class ${materialClass}">
+            CLASS-${materialClass}
+        </a>
+    ` : '';
+    
     // Create card
     return `
         <div class="material-card">
+            ${classBadge}
             <div class="material-card-header">
                 <span class="material-category-badge ${badgeColors.bg} ${badgeColors.text} ${badgeColors.border}">
                     ${category}
@@ -375,6 +387,16 @@ function createMaterialCard(material) {
             </div>
         </div>
     `;
+}
+
+// Get class badge color class
+function getClassBadgeColor(materialClass) {
+    if (!materialClass) return '';
+    
+    const classNum = parseInt(materialClass);
+    if (isNaN(classNum) || classNum < 1 || classNum > 11) return 'class-badge-default';
+    
+    return `class-badge-${classNum}`;
 }
 
 // Get category badge colors

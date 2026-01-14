@@ -1433,3 +1433,649 @@
         padding: 1rem;
     }
 }
+
+/* ================================
+   Procedures Page - Modern Hexagon Design
+   ================================ */
+
+/* Hero Section */
+.procedures-hero-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='86.6' viewBox='0 0 100 86.6'%3E%3Cdefs%3E%3Cpattern id='hexagons-procedures-dark' x='0' y='0' width='100' height='86.6' patternUnits='userSpaceOnUse'%3E%3Cpolygon points='50,0 93.3,25 93.3,75 50,100 6.7,75 6.7,25' fill='none' stroke='%234b5563' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23hexagons-procedures-dark)' opacity='0.15'/%3E%3C/svg%3E"),
+        linear-gradient(135deg, #1f2937 0%, #111827 100%),
+        radial-gradient(circle at 20% 30%, rgba(90, 19, 49, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(54, 102, 110, 0.1) 0%, transparent 50%);
+    padding: 120px 0 60px 0;
+    margin-top: 80px; /* Account for fixed navigation */
+}
+
+.procedures-hero-wrapper::before,
+.procedures-hero-wrapper::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 300px;
+    height: 300px;
+    clip-path: polygon(
+        25% 6.7%,
+        75% 6.7%,
+        100% 50%,
+        75% 93.3%,
+        25% 93.3%,
+        0% 50%
+    );
+    filter: blur(30px);
+    opacity: 0.15;
+    transition: opacity 0.6s ease;
+}
+
+.procedures-hero-wrapper::before {
+    background: linear-gradient(135deg, #8b2b4f 0%, #b84d7a 50%, #8b2b4f 100%);
+    top: -80px;
+    left: -80px;
+}
+
+.procedures-hero-wrapper::after {
+    background: linear-gradient(135deg, #36666e 0%, #4d8a9a 50%, #36666e 100%);
+    bottom: -80px;
+    right: -80px;
+}
+
+.procedures-hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.procedures-hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.procedures-hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.procedures-hero-description {
+    font-size: 1.125rem;
+    color: #d1d5db;
+    line-height: 1.7;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .procedures-hero-title {
+        font-size: 3rem;
+    }
+    
+    .procedures-hero-description {
+        font-size: 1.25rem;
+    }
+}
+
+/* Resource Gateway Section */
+.resource-gateway-section {
+    padding: 4rem 20px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resource-gateway-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 2rem auto 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.resource-gateway-top-row {
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+.resource-gateway-bottom-row {
+    margin-top: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .resource-gateway-top-row,
+    .resource-gateway-bottom-row {
+        grid-template-columns: repeat(3, 1fr) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-items: stretch;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .resource-gateway-top-row .resource-hex-card,
+    .resource-gateway-bottom-row .resource-hex-card {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .resource-gateway-top-row,
+    .resource-gateway-bottom-row {
+        grid-template-columns: repeat(3, 1fr) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+.resource-hex-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-hex-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #5a1331 0%, #36666e 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.resource-hex-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.15);
+    border-color: #d1d5db;
+}
+
+.resource-hex-card:hover::before {
+    transform: scaleX(1);
+}
+
+.hex-icon-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.hex-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #36666e;
+    transition: all 0.3s ease;
+}
+
+.resource-hex-card:hover .hex-icon {
+    background: linear-gradient(135deg, #36666e 0%, #4d8a9a 100%);
+    color: white;
+    transform: scale(1.05);
+}
+
+.resource-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 0.75rem 0;
+}
+
+.resource-card-description {
+    font-size: 0.9375rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.resource-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.resource-count {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #36666e;
+}
+
+.resource-arrow {
+    font-size: 1.25rem;
+    color: #36666e;
+    transition: transform 0.3s ease;
+}
+
+.resource-hex-card:hover .resource-arrow {
+    transform: translateX(4px);
+}
+
+/* Resource cards with images */
+.resource-hex-card-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.resource-card-image-wrapper {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    background: #f3f4f6;
+}
+
+.resource-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.resource-hex-card-image:hover .resource-card-image {
+    transform: scale(1.05);
+}
+
+.resource-hex-card-image .hex-icon-wrapper {
+    display: none;
+}
+
+/* Quick Info Section */
+.quick-info-section {
+    padding: 3rem 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #f9fafb;
+    border-radius: 12px;
+}
+
+.quick-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.quick-info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.quick-info-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 0.75rem 0;
+}
+
+.quick-info-text {
+    font-size: 0.9375rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+}
+
+.quick-info-link {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #36666e;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.quick-info-link:hover {
+    color: #2d5259;
+    text-decoration: underline;
+}
+
+/* Class System Section */
+.class-system-section {
+    padding: 2rem 20px 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: transparent;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 1rem 0;
+}
+
+.section-description {
+    font-size: 1.125rem;
+    color: #6b7280;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.class-hex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.class-hex-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+}
+
+.class-hex-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #e5e7eb;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.class-hex-badge-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.class-hex-card:hover .class-hex-badge {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: #36666e;
+}
+
+.class-hex-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.class-hex-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #5a1331 0%, #36666e 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.class-hex-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.15);
+    border-color: #d1d5db;
+}
+
+.class-hex-card:hover::before {
+    transform: scaleX(1);
+}
+
+.class-hex-number {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #36666e 0%, #4d8a9a 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    clip-path: polygon(
+        25% 6.7%,
+        75% 6.7%,
+        100% 50%,
+        75% 93.3%,
+        25% 93.3%,
+        0% 50%
+    );
+    transition: all 0.3s ease;
+}
+
+.class-hex-card:hover .class-hex-number {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.class-hex-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 0.25rem 0;
+}
+
+.class-hex-subtitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.75rem 0;
+}
+
+.class-hex-description {
+    font-size: 0.9375rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+}
+
+.class-hex-links {
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.class-hex-link {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #36666e;
+    text-decoration: none;
+    padding: 0.375rem 0.75rem;
+    background: #eff6ff;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.class-hex-link:hover {
+    color: #2d5259;
+    background: #dbeafe;
+    text-decoration: none;
+}
+
+.class-hex-link-secondary {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.class-hex-link-secondary:hover {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+/* Special Materials Database Card */
+.class-hex-card-special {
+    background-image: 
+        linear-gradient(135deg, rgba(31, 41, 55, 0.85) 0%, rgba(17, 24, 39, 0.85) 100%),
+        url('/images/microstructures/Ferrite-Pearlite steel.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border: 2px solid #36666e;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+}
+
+
+.class-hex-card-special::before {
+    z-index: 1;
+}
+
+.class-hex-card-special > * {
+    position: relative;
+    z-index: 2;
+}
+
+.class-hex-card-special .class-hex-title {
+    color: #ffffff;
+}
+
+.class-hex-card-special .class-hex-subtitle {
+    color: #d1d5db;
+}
+
+.class-hex-card-special .class-hex-description {
+    color: #e5e7eb;
+}
+
+.class-hex-card-special:hover {
+    border-color: #2d5259;
+    box-shadow: 0 8px 16px -4px rgba(54, 102, 110, 0.2);
+}
+
+.class-hex-card-special::before {
+    background: linear-gradient(90deg, #36666e 0%, #4d8a9a 100%);
+}
+
+.class-hex-number-special {
+    background: linear-gradient(135deg, #36666e 0%, #4d8a9a 100%);
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.class-hex-link-special {
+    background: linear-gradient(135deg, #36666e 0%, #4d8a9a 100%);
+    color: white;
+    cursor: default;
+    pointer-events: none;
+    border: none;
+}
+
+.class-hex-link-special:hover {
+    background: linear-gradient(135deg, #2d5259 0%, #3d6f7a 100%);
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .procedures-hero-title {
+        font-size: 2rem;
+    }
+    
+    .procedures-hero-description {
+        font-size: 1rem;
+    }
+    
+    .resource-gateway-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .quick-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .class-hex-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-description {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .class-hex-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .resource-gateway-grid:not(.resource-gateway-top-row):not(.resource-gateway-bottom-row) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .resource-gateway-top-row,
+    .resource-gateway-bottom-row {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .resource-gateway-grid:not(.resource-gateway-top-row):not(.resource-gateway-bottom-row) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .resource-gateway-top-row,
+    .resource-gateway-bottom-row {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}

@@ -194,11 +194,16 @@
           }
         }
 
-        // Scroll to letter section
+        // Scroll to letter section with offset for fixed navigation
         if (selectedLetter) {
           const section = document.getElementById(`sds-letter-${letter}`);
           if (section) {
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const offset = 120; // Account for fixed navigation header
+            const topPosition = section.offsetTop - offset;
+            window.scrollTo({
+              top: topPosition,
+              behavior: 'smooth'
+            });
           }
         }
       });
@@ -248,7 +253,12 @@
         
         const section = document.getElementById(`sds-letter-${letter}`);
         if (section) {
-          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const offset = 120; // Account for fixed navigation header
+          const topPosition = section.offsetTop - offset;
+          window.scrollTo({
+            top: topPosition,
+            behavior: 'smooth'
+          });
         }
       });
       

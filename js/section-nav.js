@@ -56,7 +56,7 @@
     const stickyNavHeight = stickyNav ? stickyNav.getBoundingClientRect().height : 0;
     const scrollPosition = window.scrollY;
     // Offset accounts for main nav, sticky nav, and the -100px anchor offset
-    const viewportOffset = navHeight + stickyNavHeight + 100;
+    const viewportOffset = navHeight + stickyNavHeight + 150;
     const currentPosition = scrollPosition + viewportOffset;
 
     let activeSectionId = null;
@@ -92,7 +92,7 @@
       }
 
       // Check if we're in this section
-      if (currentPosition >= sectionTop - 100 && currentPosition < sectionBottom) {
+      if (currentPosition >= sectionTop - 150 && currentPosition < sectionBottom) {
         // Calculate distance from section top to current position
         // The section closest to the top of the viewport (accounting for offset) should be active
         const distance = Math.abs(currentPosition - sectionTop);

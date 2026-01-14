@@ -447,6 +447,12 @@
       });
     }
 
+    // Update total terms count
+    const totalTermsElement = document.getElementById('glossary-total-terms');
+    if (totalTermsElement && typeof glossaryTerms !== 'undefined') {
+      totalTermsElement.textContent = glossaryTerms.length;
+    }
+    
     // Initial render
     updateCategoryButtons();
     updateActiveFilters();

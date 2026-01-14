@@ -2338,6 +2338,7 @@ main .first-container > .features-section-modern:first-child {
 .specifications-table-wrapper table {
     width: 100%;
     border-collapse: collapse;
+    border: none;
     background: var(--color-background);
 }
 
@@ -2366,6 +2367,46 @@ main .first-container > .features-section-modern:first-child {
 }
 
 .specifications-table-wrapper table tr:hover {
+    background: var(--color-background-light);
+}
+
+/* Direct table styling without wrapper */
+table.specifications-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: var(--spacing-lg);
+    overflow: hidden;
+    background: var(--color-background);
+}
+
+table.specifications-table th {
+    background: var(--color-background-light);
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    border-bottom: 2px solid var(--color-border);
+}
+
+table.specifications-table td {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+table.specifications-table td:first-child {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+table.specifications-table tr:last-child td {
+    border-bottom: none;
+}
+
+table.specifications-table tr:hover {
     background: var(--color-background-light);
 }
 
@@ -2411,20 +2452,26 @@ main#main-content.equipment-main-content {
 }
 
 .quick-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
     gap: var(--spacing-sm);
     font-size: 0.875rem;
     list-style: none;
     padding: 0;
     margin: 0;
+    max-width: 100%;
 }
 
 @media (min-width: 640px) {
     .quick-links {
-        gap: var(--spacing-md);
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: var(--spacing-sm) var(--spacing-md);
+    }
+}
+
+@media (min-width: 1024px) {
+    .quick-links {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     }
 }
 
@@ -2432,17 +2479,26 @@ main#main-content.equipment-main-content {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-sm) var(--spacing-lg);
+    padding: var(--spacing-xs) var(--spacing-md);
     color: var(--color-text-primary, #111827);
     background: var(--color-background, #ffffff);
     border: 1px solid var(--color-border, #e5e7eb);
     border-radius: 9999px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.875rem;
+    font-weight: 500;
+    font-size: 0.8125rem;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    text-align: center;
+    min-width: 0;
+}
+
+@media (min-width: 640px) {
+    .quick-link {
+        font-size: 0.875rem;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
 }
 
 .quick-link:hover {
@@ -2465,10 +2521,7 @@ main#main-content.equipment-main-content {
 }
 
 .quick-link-separator {
-    color: var(--color-border, #d1d5db);
-    user-select: none;
-    padding: 0 var(--spacing-xs);
-    font-size: 1rem;
+    display: none;
 }
 
 /* Anchor offset for smooth scrolling */
@@ -2482,11 +2535,12 @@ a[id] {
     }
     
     .quick-link {
-        font-size: 0.8125rem;
-        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: 0.75rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
     }
     
     .quick-links {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: var(--spacing-xs);
     }
 }
@@ -2501,6 +2555,18 @@ a[id] {
     padding: 0 1rem;
     width: 100%;
     box-sizing: border-box;
+}
+
+/* Add spacing between consecutive content sections */
+/* Only target container-custom divs that are content sections (not hero/features/quick-links) */
+#main-content .first-container > .container-custom + .container-custom {
+    margin-top: 1rem;
+}
+
+/* Add padding-top to content sections (but not the first one to avoid double spacing) */
+/* This needs higher specificity to override the padding shorthand above */
+#main-content .first-container > .container-custom:not(:first-of-type) {
+    padding-top: 2rem;
 }
 
 /* Override for hero and features sections which should use full width */
@@ -2837,11 +2903,6 @@ a[id] {
     margin: var(--spacing-lg) 0;
 }
 
-/* Related Consumables Section */
-.related-consumables-section {
-    margin: var(--spacing-lg) 0;
-}
-
 .related-consumables-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -2944,6 +3005,158 @@ a[id] {
     .product-cta-buttons .btn-modern {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* ================================
+   Mounting Methods Comparison Section
+   ================================ */
+
+.mounting-methods-comparison {
+    margin: var(--spacing-2xl) 0;
+}
+
+.mounting-methods-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .mounting-methods-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-lg);
+    }
+}
+
+.mounting-method-card {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.mounting-method-card:hover {
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.1), 0 4px 8px -2px rgba(0, 0, 0, 0.06);
+    transform: translateY(-4px);
+}
+
+.method-icon-wrapper {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.method-icon-wrapper svg {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.method-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+    text-align: center;
+}
+
+.method-image-wrapper {
+    margin: var(--spacing-md) 0;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.method-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.method-image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.method-pros-cons {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+}
+
+.pros-section,
+.cons-section {
+    flex: 1;
+}
+
+.pros-title,
+.cons-title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-text-primary);
+}
+
+.pros-title {
+    color: #059669; /* green-600 */
+}
+
+.pros-title svg {
+    color: #059669;
+}
+
+.cons-title {
+    color: #dc2626; /* red-600 */
+}
+
+.cons-title svg {
+    color: #dc2626;
+}
+
+.pros-section .consumables-list,
+.cons-section .consumables-list {
+    margin: 0;
+    padding-left: var(--spacing-lg);
+}
+
+.pros-section .consumables-list li,
+.cons-section .consumables-list li {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text-secondary);
+}
+
+.method-cta {
+    margin-top: var(--spacing-md);
+    text-align: center;
+}
+
+.method-cta .btn-modern {
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
+    .mounting-methods-grid {
+        gap: var(--spacing-lg);
+    }
+    
+    .mounting-method-card {
+        padding: var(--spacing-md);
+    }
+    
+    .method-title {
+        font-size: var(--font-size-lg);
     }
 }
 

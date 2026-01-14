@@ -3,6 +3,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const handleAnchorLinks = () => {
     const hash = window.location.hash;
     if (hash) {
+      // Check if this is a tab hash (starts with tab-)
+      const tabId = hash.slice(1); // Remove the #
+      const tabButton = document.querySelector(`[data-tab="${tabId}"]`);
+      if (tabButton) {
+        // This is a tab hash, switch to that tab
+        switchTab(tabId);
+        return;
+      }
+      
+      // Otherwise, handle as regular anchor link
       const targetElement = document.querySelector(hash);
       if (targetElement) {
         const offset = 100; // Same offset as used in smooth scroll
@@ -513,3 +523,33 @@ returnToTop.addEventListener("click", (e) => {
     }
   });
 });
+
+// Material Detail Page Tab Switching
+function switchTab(tabId) {
+  // Remove active class from all tab buttons
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  tabButtons.forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  // Remove active class from all tab contents
+  const tabContents = document.querySelectorAll('.tab-content');
+  tabContents.forEach(content => {
+    content.classList.remove('active');
+  });
+  
+  // Add active class to clicked button
+  const clickedButton = document.querySelector(`[data-tab="${tabId}"]`);
+  if (clickedButton) {
+    clickedButton.classList.add('active');
+  }
+  
+  // Add active class to corresponding tab content
+  const tabContent = document.getElementById(`tab-${tabId}`);
+  if (tabContent) {
+    tabContent.classList.add('active');
+  }
+  
+  // Update URL hash without scrolling
+  window.history.replaceState(null, '', `#${tabId}`);
+}

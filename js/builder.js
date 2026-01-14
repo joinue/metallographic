@@ -54,14 +54,36 @@
   let currentStep = 1;
   let recommendations = [];
   let isGenerating = false;
+  let previousPath = null;
 
   // Initialize
   function init() {
     loadFromStorage();
+    trackPreviousPage();
     renderStages();
     setupEventListeners();
     updateProgress();
     showStep(currentStep);
+  }
+
+  // Track previous page on mount
+  function trackPreviousPage() {
+    if (typeof window !== 'undefined') {
+      const referrer = document.referrer;
+      const currentOrigin = window.location.origin;
+      
+      if (referrer && referrer.startsWith(currentOrigin)) {
+        const referrerPath = new URL(referrer).pathname;
+        // Only store if it's not the builder page itself
+        if (referrerPath !== '/build.html' && referrerPath !== '/build') {
+          previousPath = referrerPath;
+        } else {
+          previousPath = '/index.html';
+        }
+      } else {
+        previousPath = '/index.html';
+      }
+    }
   }
 
   // Load from sessionStorage
@@ -299,7 +321,7 @@
     if (confirmBack) {
       confirmBack.addEventListener('click', () => {
         if (backConfirmationModal) backConfirmationModal.style.display = 'none';
-        window.location.href = '/';
+        navigateBack();
       });
     }
     
@@ -1089,8 +1111,17 @@
       const modal = document.getElementById('back-confirmation-modal');
       if (modal) modal.style.display = 'flex';
     } else {
-      // Go to homepage
-      window.location.href = '/';
+      // Navigate to previous page or index.html
+      navigateBack();
+    }
+  }
+
+  // Navigate back to previous page or index.html
+  function navigateBack() {
+    if (previousPath && previousPath !== '/build.html' && previousPath !== '/build') {
+      window.location.href = previousPath;
+    } else {
+      window.location.href = '/index.html';
     }
   }
 

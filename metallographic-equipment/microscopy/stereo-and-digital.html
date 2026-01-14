@@ -13,6 +13,64 @@
     <link rel="stylesheet" href="/../css/pages/machine.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <!-- Hero Quick Navigation Styles - Page Specific for Multi-Product Pages -->
+    <style>
+      /* Add more space between top nav and hero content */
+      .hero-section-modern.hero-section-equipment {
+        padding-top: calc(100px + 4rem) !important;
+      }
+      
+      @media (min-width: 768px) {
+        .hero-section-modern.hero-section-equipment {
+          padding-top: calc(100px + 5rem) !important;
+        }
+      }
+      
+      /* Increased vertical spacing in hero for multi-product pages */
+      .hero-section-modern.hero-section-equipment .hero-breadcrumb {
+        margin-bottom: 1rem !important;
+      }
+      
+      .hero-section-modern.hero-section-equipment .hero-headline {
+        margin-top: 0.5rem !important;
+        margin-bottom: 1rem !important;
+      }
+      
+      .hero-section-modern.hero-section-equipment .hero-description {
+        margin-bottom: 1.5rem !important;
+      }
+      
+      .hero-section-modern.hero-section-equipment .hero-quick-nav {
+        margin: 0 !important;
+        margin-top: 0 !important;
+      }
+      
+      /* Add space between hero and first product section */
+      .hero-section-modern.hero-section-equipment + main .first-container > .container-custom:first-child {
+        margin-top: 4rem !important;
+        padding-top: 2rem !important;
+      }
+      
+      @media (min-width: 768px) {
+        .hero-section-modern.hero-section-equipment .hero-breadcrumb {
+          margin-bottom: 1rem !important;
+        }
+        
+        .hero-section-modern.hero-section-equipment .hero-headline {
+          margin-bottom: 1.25rem !important;
+        }
+        
+        .hero-section-modern.hero-section-equipment .hero-description {
+          margin-bottom: 2rem !important;
+        }
+        
+        .hero-section-modern.hero-section-equipment + main .first-container > .container-custom:first-child {
+          margin-top: 5rem !important;
+          padding-top: 3rem !important;
+        }
+      }
+    </style>
+
     <!-- External libraries or scripts -->
     <link rel="preconnect" href="https://www.googletagmanager.com"> 
     <link rel="preconnect" href="https://www.google-analytics.com">
@@ -36,6 +94,24 @@
     <!-- Meta tags for SEO -->
     <meta name="keywords" content="Stereo Microscopes, Digital Microscopes, Metallography, PACE Technologies, Sample Analysis, Low Magnification Documentation, Microscopic Imaging">
     <meta name="description" content="Explore PACE Technologies' range of Stereo and Digital Microscopes designed for detailed metallographic analysis, providing high-quality imaging and versatile magnification options.">
+    <meta name="author" content="PACE Technologies">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.metallographic.com/metallographic-equipment/microscopy/stereo-and-digital.html">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Stereo & Digital Microscopes | PACE Technologies">
+    <meta property="og:description" content="Explore PACE Technologies' range of Stereo and Digital Microscopes designed for detailed metallographic analysis, providing high-quality imaging and versatile magnification options.">
+    <meta property="og:image" content="https://www.metallographic.com/images/stereo-digital-microscope.webp">
+    <meta property="og:url" content="https://www.metallographic.com/metallographic-equipment/microscopy/stereo-and-digital.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PACE Technologies">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stereo & Digital Microscopes | PACE Technologies">
+    <meta name="twitter:description" content="Explore PACE Technologies' range of Stereo and Digital Microscopes designed for detailed metallographic analysis, providing high-quality imaging and versatile magnification options.">
+    <meta name="twitter:image" content="https://www.metallographic.com/images/stereo-digital-microscope.webp">
 
     <!-- Schema Markup -->
     <script type="application/ld+json">
@@ -87,7 +163,7 @@
                     <line x1="12" y1="16" x2="12.01" y2="16"></line>
                 </svg>
                 <p>
-                    We've updated our site! Please clear your browser cache for the best experience. Also, our old shop pages are now retired — shop online at 
+                    We've updated our site! Please clear your browser cache for the best experience. Also, our old shop pages are now retired. Please shop online at 
                     <strong><a href="https://shop.metallographic.com" class="notice-link" target="_blank" rel="noopener noreferrer">shop.metallographic.com</a></strong>.
                   </p>
                   
@@ -248,7 +324,7 @@
                     </button>
                 </div>
                 <ul class="sub-menu-mobile" data-section="consumables">
-                    <li><a href="https://shop.metallographic.com/"><span>E-Commerce Shop</span>
+                    <li><a href="https://shop.metallographic.com/" class="shop-link-button" target="_blank" rel="noopener noreferrer"><span>E-Commerce Shop</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -359,8 +435,8 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/guides.html" class="mobile-nav-link">Learn</a>
-                    <button class="mobile-nav-toggle" data-section="learn" aria-label="Toggle Learn submenu">
+                    <a href="/resources.html" class="mobile-nav-link">Resources</a>
+                    <button class="mobile-nav-toggle" data-section="learn" aria-label="Toggle Resources submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
@@ -396,6 +472,7 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
+                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
                             <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
                         </ul>
                     </li>
@@ -448,8 +525,8 @@
                 </ul>
             </li>
                     <li class="has-submenu">
-                        <a href="/support/procedures.html">Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Resources submenu">
+                        <a href="/support/procedures.html">Sample Prep</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
@@ -458,6 +535,7 @@
                             <li><a href="/support/procedures.html">Recommended Procedures</a></li>
                             <li><a href="/support/etchant-information.html">Etchant Information</a></li>
                             <li><a href="/guides.html">Preparation Guides</a></li>
+                            <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
@@ -646,7 +724,7 @@
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="https://shop.metallographic.com/"><span>E-Commerce Shop</span></a></li>
+                    <li><a href="https://shop.metallographic.com/" class="shop-link-button" target="_blank" rel="noopener noreferrer"><span>E-Commerce Shop</span></a></li>
                     <li><a href="/metallographic-consumables/sectioning.html"><span>Sectioning                                    
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
@@ -739,8 +817,8 @@
                 </ul>
             </li>
             <li>
-                <a href="/guides.html">
-                    <span>Learn
+                <a href="/resources.html">
+                    <span>Resources
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
@@ -772,6 +850,7 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
+                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
                             <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
                         </ul>
                     </li>
@@ -790,7 +869,7 @@
                             <li><a href="/standards.html"><span>Standards Database</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Resources
+                    <li><a href="/support/procedures.html"><span>Sample Prep
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg>
@@ -799,6 +878,7 @@
                             <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
                             <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
                             <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
+                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
                     <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
@@ -840,7 +920,7 @@
                 </ul>
             </li>
             <li>
-              <a href="https://shop.metallographic.com" class="shop-link">
+              <a href="https://shop.metallographic.com" class="shop-link" target="_blank" rel="noopener noreferrer">
                 <span>Online Shop&nbsp;<svg class="shop-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
                 </svg></span>
@@ -888,394 +968,504 @@
     </div>
 </div>
 
-<!-- HEADER -->
+<!-- HEADER - Modern Hero Section -->
 
-<header class="top-header">
-  <div class="top-header-content">
-      <div class="top-header-inner">
-          <h1 class="page-title">Stereo and Digital Microscopes
-          </h1>
-          <div class="text-content"></div>
+<section class="hero-section-modern hero-section-equipment">
+  <div class="container-custom">
+    <div class="hero-grid">
+      <div>
+        <nav aria-label="Breadcrumb" class="hero-breadcrumb">
+          <ol class="breadcrumb-list">
+            <li class="breadcrumb-item">
+              <a href="/" aria-label="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </a>
+            </li>
+            <li class="breadcrumb-item"><a href="/equipment.html">Equipment</a></li>
+            <li class="breadcrumb-item"><a href="/metallographic-equipment/microscopy.html">Microscopy</a></li>
+            <li class="breadcrumb-item" aria-current="page">Stereo and Digital Microscopes</li>
+          </ol>
+        </nav>
+        <h1 class="hero-headline">Stereo and Digital Microscopes</h1>
+        <p class="hero-description">
+          Our stereo and digital microscopes provide precision and clarity for metallographic analysis. The ZMS0745T offers 7X–45X magnification for detailed stereo imaging. The VM-100 and VM-500-PLUS deliver high-resolution digital imaging with advanced measurement capabilities and auto-focus functionality.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#zms0745t" class="btn-modern btn-modern-white">ZMS0745T</a>
+          <a href="#vm-100" class="btn-modern btn-modern-outline">VM-100</a>
+          <a href="#vm-500-plus" class="btn-modern btn-modern-outline">VM-500-PLUS</a>
+        </div>
       </div>
+      <div class="hero-image-wrapper">
+        <img src="/images/equipment/microscopy/stereo microscopes/vm-100/vm-100-cover.webp" alt="Stereo and Digital Microscopes" width="800" height="600" loading="eager">
+      </div>
+    </div>
   </div>
-</header>
+</section>
             
 <!-- MAIN -->
 
+<main id="main-content">
 <div class="first-container">
-  <!-- Introduction Section -->
-  <section class="introduction">
-      <h2 class="equipment-header">Stereo and Digital Microscopes</h2>
-      <p>
-        Explore our stereo and digital metallographic microscopes, designed for precision and clarity in analysis. The ZMS0745T excels in low-magnification inspection, while the VM-100 and VM-500-PLUS offer high-resolution imaging, advanced measurements, and auto-focus. Whether for detailed inspection or digital documentation, our microscopes ensure reliable performance for modern laboratories.
-      </p>
-      <div class="feature-buttons-top">
-        <a href="#zms0745t" class="feature-button-top">ZMS0745T Stereo Microscope</a>
-        <a href="#vm-100" class="feature-button-top">VM-100 Digital Stereo Microscope</a>
-        <a href="#vm-500-plus" class="feature-button-top">VM-500-PLUS Digital Stereo Microscope</a>
+  
+  <!-- Key Features Section -->
+  <section class="features-section-modern">
+    <div class="container-custom">
+      <h2 class="features-header-modern">Key Features</h2>
+      <div class="grid-modern features-grid-modern">
+        <div class="feature-item-modern">
+          <h3>High-Resolution Digital Imaging</h3>
+          <p>Advanced camera systems with 2MP resolution and 1080P video capture for clear, detailed documentation and analysis.</p>
+        </div>
+        <div class="feature-item-modern">
+          <h3>Versatile Magnification</h3>
+          <p>Wide magnification ranges from 7X to 45X with optical zoom capabilities for flexible sample examination.</p>
+        </div>
+        <div class="feature-item-modern">
+          <h3>Advanced Measurement Tools</h3>
+          <p>Built-in measurement software for precise dimensional analysis including distance, area, angle, and perimeter measurements.</p>
+        </div>
+      </div>
     </div>
   </section>
 
 
 
-  <h3>ZMS0745T Stereo Microscope</h3>
-  <section class="carousel-features" id="zms0745t">
-      <!-- Carousel Section -->
-      <div class="carousel" aria-label="Product Images and Video">
-          <div class="carousel-container">
-              <button class="carousel-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-              <div class="carousel-content">
-                  <div class="carousel-item" data-description="ZMS0745T Stereo Microscope">
-                      <img src="/images/equipment/microscopy/stereo microscopes/zms0745t/zms0745t-cover.webp" alt="ZMS0745T Stereo Microscope">
-                  </div>
-                  <!--<div class="carousel-item" data-description="ZMS0745T Stereo Microscope Features">
-                      <img src="/images/equipment/microscopy/stereo microscopes/zms0745t/zms0745t-features.webp" alt="ZMS0745T Stereo Microscope Features">
-                  </div>-->
-                  <!--<div class="carousel-item" data-description="ZMS0745T Stereo Microscope Dimensions">
-                      <img src="/images/equipment/microscopy/stereo microscopes/zms0745t/zms0745t-dimensions.webp" alt="ZMS0745T Stereo Microscope Dimensions">
-                  </div>-->
-                  <!--<div class="carousel-item" data-description="ZMS0745T Video">
-                      <video controls>
-                          <source src="/images/equipment/microscopy/stereo microscopes/zms0745t/zms0745t-video.mp4" type="video/mp4">
-                          Your browser does not support the video tag.
-                      </video>
-                  </div>-->
-              </div>
-              <button class="carousel-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-          </div>
-          <div class="carousel-description">
-              <p></p>
-          </div>
+  <!-- ZMS0745T Section -->
+  <section id="zms0745t" style="scroll-margin-top: 150px;">
+    <div class="container-custom">
+    <!-- Product Grid: Images Left, Details Right -->
+    <div class="product-detail-grid">
+      <!-- Image Gallery Section -->
+      <div class="product-image-section">
+        <div class="carousel" aria-label="Product Images and Video">
+            <div class="carousel-container">
+                <button class="carousel-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-content">
+                    <div class="carousel-item" data-description="ZMS0745T Stereo Microscope">
+                        <img src="/images/equipment/microscopy/stereo microscopes/zms0745t/zms0745t-cover.webp" alt="ZMS0745T Stereo Microscope">
+                    </div>
+                </div>
+                <button class="carousel-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="carousel-description">
+                <p>ZMS0745T - Stereo Microscope</p>
+            </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="product-cta-buttons">
+          <a href="/quote.html" class="btn-modern btn-modern-primary">Request Quote</a>
+          <a href="/content/brochures/microscopes/zms0745t.pdf" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Brochure
+          </a>
+          <a href="https://shop.metallographic.com/products/mic-s?_pos=1&_psq=slides&_ss=e&_v=1.0" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            Shop Consumables
+          </a>
+        </div>
       </div>
 
-    <!-- Features Section -->
-    <div class="features">
-        <h3>Features</h3>
-        <ul>
-            <li><strong>Wide Magnification Range:</strong> Offers 7X to 45X magnification for detailed stereo imaging.</li>
-            <li><strong>Trinocular Eyepiece Tubes:</strong> Allows for comfortable use with a 45-degree inclination and 360-degree rotation.</li>
-            <li><strong>Precise Focus:</strong> Features a focus range of 3 inches with diopter adjustment.</li>
-            <li><strong>Versatile Accessories:</strong> Compatible with various magnifying objectives and digital camera attachments.</li>
-        </ul>
-        <br>
-        <div class="feature-buttons">
-            <a href="/content/brochures/microscopes/zms0745t.pdf" class="feature-button" target="_blank" rel="noopener noreferrer">Brochure</a>
-            <a href="https://shop.metallographic.com/products/mic-s?_pos=1&_psq=slides&_ss=e&_v=1.0" class="feature-button" target="_blank" rel="noopener noreferrer">Shop Consumables</a>
-            <!--<a href="/../videos/zms0745t-demo.mp4" class="feature-button" target="_blank" rel="noopener noreferrer">Demo Video</a>-->
-            <a href="/./content/catalog.pdf" class="feature-button" target="_blank" rel="noopener noreferrer">Full Catalog</a>
+      <!-- Product Details Section -->
+      <div class="product-details-section">
+        <h1 class="product-title">ZMS0745T Stereo Microscope</h1>
+        <p class="product-item-id">Item ID: ZMS0745T</p>
+        <div class="product-description">
+          <p>The ZMS0745T Stereo Microscope offers 7X–45X magnification for high-resolution imaging and precise analysis of metallographic specimens. With true color reproduction, oblique illumination, and a trinocular head, it ensures clear, detailed observations.</p>
         </div>
-    </div>
-</section>
 
-<!-- Technical Specifications Section for ZMS0745T -->
-<section class="specifications">
-    <h3>Technical Specifications - ZMS0745T</h3>
-    <table>
-        <tr>
-            <th>Parameter</th>
-            <th>Specification</th>
-        </tr>
-        <tr>
-            <td>Eyepiece</td>
-            <td>10X, 15X or 20X</td>
-        </tr>
-        <tr>
-            <td>Total magnification</td>
-            <td>7-45X</td>
-        </tr>
-        <tr>
-            <td>Zoom objective magnification</td>
-            <td>0.7X ~ 4.5X</td>
-        </tr>
-        <tr>
-            <td>Trinocular eyetubes</td>
-            <td>Inclined 45 degrees from main body (360 degree rotation)</td>
-        </tr>
-        <tr>
-            <td>Diopter adjustment</td>
-            <td>+/- 6 degrees</td>
-        </tr>
-        <tr>
-            <td>Interpupillary adjustment</td>
-            <td>2 ~ 3-inch (52 ~ 76 mm)</td>
-        </tr>
-        <tr>
-            <td>Focus range</td>
-            <td>3-inch (76 mm)</td>
-        </tr>
-        <tr>
-            <td>Stage size</td>
-            <td>5-inch (125 mm)</td>
-        </tr>
-        <tr>
-            <td>Catalog Number</td>
-            <td>ZMS0745T</td>
-        </tr>
-    </table>
+        <!-- Features List -->
+        <div class="product-features">
+          <h3 class="features-heading">Features</h3>
+          <ul class="features-list">
+            <li>Wide Magnification Range: Offers 7X to 45X magnification for detailed stereo imaging</li>
+            <li>Trinocular Eyepiece Tubes: Allows for comfortable use with a 45-degree inclination and 360-degree rotation</li>
+            <li>Precise Focus: Features a focus range of 3 inches with diopter adjustment</li>
+            <li>Versatile Accessories: Compatible with various magnifying objectives and digital camera attachments</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Technical Specifications Section for ZMS0745T -->
+    <section class="specifications-section" id="zms0745t-specifications">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Technical Specifications - ZMS0745T</h2>
+        <div class="specifications-table-wrapper">
+          <table>
+            <tr>
+              <th>Parameter</th>
+              <th>Specification</th>
+            </tr>
+            <tr>
+              <td>Eyepiece</td>
+              <td>10X, 15X or 20X</td>
+            </tr>
+            <tr>
+              <td>Total magnification</td>
+              <td>7-45X</td>
+            </tr>
+            <tr>
+              <td>Zoom objective magnification</td>
+              <td>0.7X ~ 4.5X</td>
+            </tr>
+            <tr>
+              <td>Trinocular eyetubes</td>
+              <td>Inclined 45 degrees from main body (360 degree rotation)</td>
+            </tr>
+            <tr>
+              <td>Diopter adjustment</td>
+              <td>+/- 6 degrees</td>
+            </tr>
+            <tr>
+              <td>Interpupillary adjustment</td>
+              <td>2 ~ 3-inch (52 ~ 76 mm)</td>
+            </tr>
+            <tr>
+              <td>Focus range</td>
+              <td>3-inch (76 mm)</td>
+            </tr>
+            <tr>
+              <td>Stage size</td>
+              <td>5-inch (125 mm)</td>
+            </tr>
+            <tr>
+              <td>Catalog Number</td>
+              <td>ZMS0745T</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
   </section>
 
-<h3>VM-100 Digital Stereo Microscope</h3>
-<section class="carousel-features" id="vm-100">
-    <!-- Carousel Section -->
-    <div class="carousel" aria-label="Product Images and Video">
-        <div class="carousel-container">
-            <button class="carousel-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-            <div class="carousel-content">
-                <div class="carousel-item" data-description="VM-100 Digital Stereo Microscope">
-                    <img src="/images/equipment/microscopy/stereo microscopes/vm-100/vm-100-cover.webp" alt="VM-100 Digital Stereo Microscope">
+  <!-- VM-100 Section -->
+  <section id="vm-100" style="scroll-margin-top: 150px;">
+    <div class="container-custom">
+    <!-- Product Grid: Images Left, Details Right -->
+    <div class="product-detail-grid">
+      <!-- Image Gallery Section -->
+      <div class="product-image-section">
+        <div class="carousel" aria-label="Product Images and Video">
+            <div class="carousel-container">
+                <button class="carousel-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-content">
+                    <div class="carousel-item" data-description="VM-100 Digital Stereo Microscope">
+                        <img src="/images/equipment/microscopy/stereo microscopes/vm-100/vm-100-cover.webp" alt="VM-100 Digital Stereo Microscope">
+                    </div>
+                    <div class="carousel-item" data-description="The VM-100 comes with a 24-inch LED monitor, a wireless keyboard, and an optical wireless mouse, compatible with both Windows and Mac OS.">
+                        <img src="/images/equipment/microscopy/stereo microscopes/vm-100/vm-100-accessories.webp" alt="Image of the VM-100 microscope along with an LED monitor, wireless keyboard and mouse.">
+                    </div>
                 </div>
-                <div class="carousel-item" data-description="The VM-100 comes with a 24-inch LED monitor, a wireless keyboard, and an optical wireless mouse, compatible with both Windows and Mac OS.">
-                    <img src="/images/equipment/microscopy/stereo microscopes/vm-100/vm-100-accessories.webp" alt="Image of the VM-100 microscope along with an LED monitor, wireless keyboard and mouse.">
-                </div>
-                <!--<div class="carousel-item" data-description="VM-100 Features">
-                    <img src="/images/equipment/microscopy/stereo microscopes/vm-100/vm-100-features.webp" alt="Image of the VM-100 with arrows pointing to key features">
-                </div>-->
-                <!--<div class="carousel-item" data-description="VM-100 Dimensions">
-                    <img src="/images/equipment/microscopy/stereo microscopes/vm-100/vm-100-features.webp" alt="Image of the VM-100 highlighting key dimensions such as width, depth, and lenght">
-                </div>-->
-                <!--<div class="carousel-item" data-description="VM-100 Video">
-                    <video controls>
-                        <source src="/images/equipment/microscopy/stereo microscopes/vm-100/vm-100-video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>-->
+                <button class="carousel-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
             </div>
-            <button class="carousel-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="carousel-description">
-            <p></p>
-        </div>
-    </div>
-
-    <!-- Features Section -->
-    <div class="features">
-        <h3>Features</h3>
-        <ul>
-            <li><strong>High-Resolution Digital Imaging:</strong> Offers a 2 million pixel camera with 1920x1080 resolution for clear and detailed images.</li>
-            <li><strong>Optical Zoom Range:</strong> Provides 0.7X to 4.5X magnification with a 6.5:1 zoom ratio.</li>
-            <li><strong>Built-in Recording Features:</strong> Supports photo and video recording with storage on an SD card.</li>
-            <li><strong>Integrated Measurement Function:</strong> Optional PC system and software allow for precise measurements.</li>
-        </ul>
-        <br>
-        <div class="feature-buttons">
-            <a href="/content/brochures/microscopes/vm-100.pdf" class="feature-button" target="_blank" rel="noopener noreferrer">Brochure</a>
-            <a href="https://shop.metallographic.com/products/mic-s?_pos=1&_psq=slides&_ss=e&_v=1.0" class="feature-button" target="_blank" rel="noopener noreferrer">Shop Consumables</a>
-            <!--<a href="/../videos/vm-100-demo.mp4" class="feature-button" target="_blank" rel="noopener noreferrer">Demo Video</a>-->
-            <a href="/./content/catalog.pdf" class="feature-button" target="_blank" rel="noopener noreferrer">Full Catalog</a>
-        </div>
-    </div>
-</section>
-
-<!-- Technical Specifications Section for VM-100 -->
-<section class="specifications">
-    <h3>Technical Specifications - VM-100</h3>
-    <table>
-        <tr>
-            <th>Parameter</th>
-            <th>Specification</th>
-        </tr>
-        <tr>
-            <td>Optical Objective</td>
-            <td>
-              0.7 X ~ 4.5X Horizontal zoom lens<br>
-              Zoom ratio: 6.5:1
-            </td>
-        </tr>
-        <tr>
-            <td>Camera Parameter</td>
-            <td>
-              2 million pixel (1920 x 1080)<br>
-              Image size: 1/2.86-inch<br>
-              Frames per second: 30 fps
-            </td>
-        </tr>
-        <tr>
-            <td>Camera Function</td>
-            <td>
-              White balance, brightness control, digital noise reduction<br>
-              Photograph and video recording<br>
-              VGS/USB Out put, SD card storage<br>
-              OSD: Comprehensive digital UI design, Wireless USB 2.0 mouse operation<br>
-              Cross hairline<br>
-              Picture frozen, 10 X digital magnification
-            </td>
-        </tr>
-        <tr>
-            <td>Measuring Function</td>
-            <td>Optional PC System and measuring software can measure image in field of view</td>
-        </tr>
-        <tr>
-            <td>Interpupillary adjustment</td>
-            <td>2 ~ 3-inch (52 ~ 76 mm)</td>
-        </tr>
-        <tr>
-            <td>Microscope Stand</td>
-            <td>
-              Z-axis Travel: 6-inch (150 mm)<br>
-              Coarse/fine lifting system
-            </td>
-        </tr>
-        <tr>
-            <td>Electrical Parameters</td>
-            <td>90~240 V; 50~60 Hz</td>
-        </tr>
-        <tr>
-            <td>Dimensions (W x D x H)</td>
-            <td>
-              11.4 x 11 x 15.7 inches<br>
-              (290 x 280 x 400 mm)
-            </td>
-        </tr>
-        <tr>
-            <td>Gross/ Net Weight</td>
-            <td>10 lbs (4.7 kg)</td>
-        </tr>
-        <tr>
-            <td>Catalog Number</td>
-            <td>VM-100</td>
-        </tr>
-    </table>
-  </section>
-
-<h3>VM-500-PLUS Digital Stereo Microscope</h3>
-<section class="carousel-features" id="vm-500-plus">
-    <!-- Carousel Section -->
-    <div class="carousel" aria-label="Product Images and Video">
-        <div class="carousel-container">
-            <button class="carousel-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-            <div class="carousel-content">
-                <div class="carousel-item" data-description="VM-500-PLUS Digital Stereo Microscope">
-                    <img src="/images/equipment/microscopy/stereo microscopes/vm-500-plus/vm-500-plus-cover.webp" alt="VM-500-PLUS Digital Stereo Microscope">
-                </div>
-                <div class="carousel-item" data-description="The VM-500-PLUS comes with a 24-inch LED monitor, a wireless keyboard, and an optical wireless mouse, compatible with both Windows and Mac OS.">
-                    <img src="/images/equipment/microscopy/stereo microscopes/vm-500-plus/vm-500-plus-accessories.webp" alt="Image of the VM-500-PLUS microscope along with an LED monitor, wireless keyboard and mouse.">
-                </div>
-                <!--<div class="carousel-item" data-description="Image of the VM-500-PLUS Features">
-                    <img src="/images/equipment/microscopy/stereo microscopes/vm-500/vm-500-plus-features.webp" alt="Image of the VM-500-PLUS with arrows pointing to key features">
-                </div>-->
-                <!--<div class="carousel-item" data-description="Image of the VM-500-PLUS Dimensions">
-                    <img src="/images/equipment/microscopy/stereo microscopes/vm-500/vm-500-plus-dimensions.webp" alt="Image of the VM-500-PLUS highlighting key dimensions ">
-                </div>-->
-                <!--<div class="carousel-item" data-description="VM-500 Video">
-                    <video controls>
-                        <source src="/images/equipment/microscopy/stereo microscopes/vm-500/vm-500-plus-video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>-->
+            <div class="carousel-description">
+                <p>VM-100 - Digital Stereo Microscope</p>
             </div>
-            <button class="carousel-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
         </div>
-        <div class="carousel-description">
-            <p></p>
-        </div>
-    </div>
 
-    <!-- Features Section -->
-    <div class="features">
-        <h3>Features</h3>
-        <ul>
-            <li><strong>Auto Focus Functionality:</strong> Provides precise focus adjustments for clear imaging.</li>
-            <li><strong>High-Resolution Camera:</strong> Equipped with a 2 million pixel camera for 1080P video and image capture.</li>
-            <li><strong>Comprehensive Measuring Capabilities:</strong> Measures linear dimensions, perimeter, area, angles, and more.</li>
-            <li><strong>Robust Design:</strong> Features a durable Z-axis travel stand with a coarse/fine lifting system.</li>
-        </ul>
-        <br>
-        <div class="feature-buttons">
-            <a href="/content/brochures/microscopes/vm-500-plus.pdf" class="feature-button" target="_blank" rel="noopener noreferrer">Brochure</a>
-            <a href="https://shop.metallographic.com/products/mic-s?_pos=1&_psq=slides&_ss=e&_v=1.0" class="feature-button" target="_blank" rel="noopener noreferrer">Shop Consumables</a>
-            <!--<a href="/../videos/vm-500-demo.mp4" class="feature-button" target="_blank" rel="noopener noreferrer">Demo Video</a>-->
-            <a href="/./content/catalog.pdf" class="feature-button" target="_blank" rel="noopener noreferrer">Full Catalog</a>
+        <!-- CTA Buttons -->
+        <div class="product-cta-buttons">
+          <a href="/quote.html" class="btn-modern btn-modern-primary">Request Quote</a>
+          <a href="/content/brochures/microscopes/vm-100.pdf" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Brochure
+          </a>
+          <a href="https://shop.metallographic.com/products/mic-s?_pos=1&_psq=slides&_ss=e&_v=1.0" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            Shop Consumables
+          </a>
         </div>
-    </div>
-</section>
+      </div>
 
-<!-- Technical Specifications Section for VM-500-PLUS -->
-<section class="specifications">
-    <h3>Technical Specifications - VM-500-PLUS</h3>
-    <table>
-        <tr>
-            <th>Parameter</th>
-            <th>Specifications</th>
-        </tr>
-        <tr>
-            <td>Optical Objective</td>
-            <td>
-              0.7 X ~ 4.5X Horizontal zoom lens<br>
-              Zoom ratio: 6.5:1
-            </td>
-        </tr>
-        <tr>
-            <td>Focus</td>
-            <td>Auto</td>
-        </tr>
-        <tr>
-            <td>Camera Parameter</td>
-            <td>
-              2 million pixel (1920 x 1080)<br>
-              Image size: 1/2.86-inch<br>
-              Frames per second: 1080P@60 fps
-            </td>
-        </tr>
-        <tr>
-            <td>Measuring Function</td>
-            <td>
-              White balance, brightness control, digital noise reduction<br>
-              Photograph and video recording<br>
-              VGS/USB Out put<br>
-              Cross hairline, picture frozen, 10X digital magnification
-            </td>
-        </tr>
-        <tr>
-            <td>Measuring Function</td>
-            <td>
-              Linear dimensions such as distance, perimeter, area, angle, radian, width, height, and radius elements are measured
-            </td>
-        </tr>
-        <tr>
-            <td>Microscope Stand</td>
-            <td>
-              Z-axis Travel: 4-inch (100 mm)<br>
-              Coarse/fine lifting system
-            </td>
-        </tr>
-        <tr>
-            <td>Electrical Parameters</td>
-            <td>90~240 V; 50~60 Hz</td>
-        </tr>
-        <tr>
-            <td>Dimensions (W x D x H)</td>
-            <td>
-              14.8 x 11.2 x 19.7 inches<br>
-              (375 x 285 x 500 mm)
-            </td>
-        </tr>
-        <tr>
-            <td>Gross/ Net Weight</td>
-            <td>14 lbs (6.5 kg)</td>
-        </tr>
-        <tr>
-            <td>Catalog Number</td>
-            <td>VM-500-PLUS</td>
-        </tr>
-    </table>
+      <!-- Product Details Section -->
+      <div class="product-details-section">
+        <h1 class="product-title">VM-100 Digital Stereo Microscope</h1>
+        <p class="product-item-id">Item ID: VM-100</p>
+        <div class="product-description">
+          <p>The VM-100 Digital Stereo Microscope delivers high-resolution, true-color imaging with a continuous zoom lens (0.7X - 4.5X) for precise metallographic analysis. Its built-in HD camera, adjustable LED illumination, and advanced measurement capabilities make it ideal for inspecting cracks, welds, and surface details.</p>
+        </div>
+
+        <!-- Features List -->
+        <div class="product-features">
+          <h3 class="features-heading">Features</h3>
+          <ul class="features-list">
+            <li>High-Resolution Digital Imaging: Offers a 2 million pixel camera with 1920x1080 resolution for clear and detailed images</li>
+            <li>Optical Zoom Range: Provides 0.7X to 4.5X magnification with a 6.5:1 zoom ratio</li>
+            <li>Built-in Recording Features: Supports photo and video recording with storage on an SD card</li>
+            <li>Integrated Measurement Function: Optional PC system and software allow for precise measurements</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Technical Specifications Section for VM-100 -->
+    <section class="specifications-section" id="vm-100-specifications">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Technical Specifications - VM-100</h2>
+        <div class="specifications-table-wrapper">
+          <table>
+            <tr>
+              <th>Parameter</th>
+              <th>Specification</th>
+            </tr>
+            <tr>
+              <td>Optical Objective</td>
+              <td>
+                0.7 X ~ 4.5X Horizontal zoom lens<br>
+                Zoom ratio: 6.5:1
+              </td>
+            </tr>
+            <tr>
+              <td>Camera Parameter</td>
+              <td>
+                2 million pixel (1920 x 1080)<br>
+                Image size: 1/2.86-inch<br>
+                Frames per second: 30 fps
+              </td>
+            </tr>
+            <tr>
+              <td>Camera Function</td>
+              <td>
+                White balance, brightness control, digital noise reduction<br>
+                Photograph and video recording<br>
+                VGS/USB Out put, SD card storage<br>
+                OSD: Comprehensive digital UI design, Wireless USB 2.0 mouse operation<br>
+                Cross hairline<br>
+                Picture frozen, 10 X digital magnification
+              </td>
+            </tr>
+            <tr>
+              <td>Measuring Function</td>
+              <td>Optional PC System and measuring software can measure image in field of view</td>
+            </tr>
+            <tr>
+              <td>Interpupillary adjustment</td>
+              <td>2 ~ 3-inch (52 ~ 76 mm)</td>
+            </tr>
+            <tr>
+              <td>Microscope Stand</td>
+              <td>
+                Z-axis Travel: 6-inch (150 mm)<br>
+                Coarse/fine lifting system
+              </td>
+            </tr>
+            <tr>
+              <td>Electrical Parameters</td>
+              <td>90~240 V; 50~60 Hz</td>
+            </tr>
+            <tr>
+              <td>Dimensions (W x D x H)</td>
+              <td>
+                11.4 x 11 x 15.7 inches<br>
+                (290 x 280 x 400 mm)
+              </td>
+            </tr>
+            <tr>
+              <td>Gross/ Net Weight</td>
+              <td>10 lbs (4.7 kg)</td>
+            </tr>
+            <tr>
+              <td>Catalog Number</td>
+              <td>VM-100</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
   </section>
-  
-  <a href="/quote.html" class="quote-btn-link">
-    <button class="quote-btn-midpage">Request a Quote</button>
-  </a><br><br>
 
-   <!-- Related Consumables Section -->
-<section class="related-products">
-    <h3>Related Consumables</h3>
-    <ul>
-        <li><a href="https://shop.metallographic.com/products/mic-s?_pos=1&_psq=slides&_ss=e&_v=1.0" target="_blank" rel="noopener noreferrer">Microscope Slides</a></li>
-    </ul>
-    <br>
+  <!-- VM-500-PLUS Section -->
+  <section id="vm-500-plus" style="scroll-margin-top: 150px;">
+    <div class="container-custom">
+    <!-- Product Grid: Images Left, Details Right -->
+    <div class="product-detail-grid">
+      <!-- Image Gallery Section -->
+      <div class="product-image-section">
+        <div class="carousel" aria-label="Product Images and Video">
+            <div class="carousel-container">
+                <button class="carousel-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-content">
+                    <div class="carousel-item" data-description="VM-500-PLUS Digital Stereo Microscope">
+                        <img src="/images/equipment/microscopy/stereo microscopes/vm-500-plus/vm-500-plus-cover.webp" alt="VM-500-PLUS Digital Stereo Microscope">
+                    </div>
+                    <div class="carousel-item" data-description="The VM-500-PLUS comes with a 24-inch LED monitor, a wireless keyboard, and an optical wireless mouse, compatible with both Windows and Mac OS.">
+                        <img src="/images/equipment/microscopy/stereo microscopes/vm-500-plus/vm-500-plus-accessories.webp" alt="Image of the VM-500-PLUS microscope along with an LED monitor, wireless keyboard and mouse.">
+                    </div>
+                </div>
+                <button class="carousel-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="carousel-description">
+                <p>VM-500-PLUS - Digital Stereo Microscope</p>
+            </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="product-cta-buttons">
+          <a href="/quote.html" class="btn-modern btn-modern-primary">Request Quote</a>
+          <a href="/content/brochures/microscopes/vm-500-plus.pdf" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Brochure
+          </a>
+          <a href="https://shop.metallographic.com/products/mic-s?_pos=1&_psq=slides&_ss=e&_v=1.0" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            Shop Consumables
+          </a>
+        </div>
+      </div>
+
+      <!-- Product Details Section -->
+      <div class="product-details-section">
+        <h1 class="product-title">VM-500-PLUS Digital Stereo Microscope</h1>
+        <p class="product-item-id">Item ID: VM-500-PLUS</p>
+        <div class="product-description">
+          <p>The VM-500-PLUS Digital Stereo Microscope delivers high-resolution imaging with auto-focus and a 0.7X–4.5X zoom lens, making it ideal for metallographic analysis. Its built-in measurement software ensures precise analysis, while the 22-inch Full HD display and integrated VGA/USB connectivity enable seamless documentation.</p>
+        </div>
+
+        <!-- Features List -->
+        <div class="product-features">
+          <h3 class="features-heading">Features</h3>
+          <ul class="features-list">
+            <li>Auto Focus Functionality: Provides precise focus adjustments for clear imaging</li>
+            <li>High-Resolution Camera: Equipped with a 2 million pixel camera for 1080P video and image capture</li>
+            <li>Comprehensive Measuring Capabilities: Measures linear dimensions, perimeter, area, angles, and more</li>
+            <li>Robust Design: Features a durable Z-axis travel stand with a coarse/fine lifting system</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Technical Specifications Section for VM-500-PLUS -->
+    <section class="specifications-section" id="vm-500-plus-specifications">
+      <div class="container-custom">
+        <h2 class="section-header-modern">Technical Specifications - VM-500-PLUS</h2>
+        <div class="specifications-table-wrapper">
+          <table>
+            <tr>
+              <th>Parameter</th>
+              <th>Specifications</th>
+            </tr>
+            <tr>
+              <td>Optical Objective</td>
+              <td>
+                0.7 X ~ 4.5X Horizontal zoom lens<br>
+                Zoom ratio: 6.5:1
+              </td>
+            </tr>
+            <tr>
+              <td>Focus</td>
+              <td>Auto</td>
+            </tr>
+            <tr>
+              <td>Camera Parameter</td>
+              <td>
+                2 million pixel (1920 x 1080)<br>
+                Image size: 1/2.86-inch<br>
+                Frames per second: 1080P@60 fps
+              </td>
+            </tr>
+            <tr>
+              <td>Camera Function</td>
+              <td>
+                White balance, brightness control, digital noise reduction<br>
+                Photograph and video recording<br>
+                VGS/USB Out put<br>
+                Cross hairline, picture frozen, 10X digital magnification
+              </td>
+            </tr>
+            <tr>
+              <td>Measuring Function</td>
+              <td>
+                Linear dimensions such as distance, perimeter, area, angle, radian, width, height, and radius elements are measured
+              </td>
+            </tr>
+            <tr>
+              <td>Microscope Stand</td>
+              <td>
+                Z-axis Travel: 4-inch (100 mm)<br>
+                Coarse/fine lifting system
+              </td>
+            </tr>
+            <tr>
+              <td>Electrical Parameters</td>
+              <td>90~240 V; 50~60 Hz</td>
+            </tr>
+            <tr>
+              <td>Dimensions (W x D x H)</td>
+              <td>
+                14.8 x 11.2 x 19.7 inches<br>
+                (375 x 285 x 500 mm)
+              </td>
+            </tr>
+            <tr>
+              <td>Gross/ Net Weight</td>
+              <td>14 lbs (6.5 kg)</td>
+            </tr>
+            <tr>
+              <td>Catalog Number</td>
+              <td>VM-500-PLUS</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+
+  <!-- Related Consumables Section -->
+  <section class="related-consumables-section" id="stereo-consumables">
+    <div class="container-custom">
+      <h2 class="section-header-modern">Related Consumables</h2>
+      <div class="related-consumables-grid">
+        <div class="consumables-image-wrapper">
+          <img src="/images/equipment/microscopy/stereo microscopes/vm-100/vm-100-cover.webp" alt="Microscope Consumables" loading="lazy">
+        </div>
+        <div class="consumables-links">
+          <a href="https://shop.metallographic.com/products/mic-s?_pos=1&_psq=slides&_ss=e&_v=1.0" class="consumable-link" target="_blank" rel="noopener noreferrer">
+            <span>Microscope Slides</span>
+            <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 
 </div>
-  
-<br><br>
+
+
+</main>
 
 <a href="#top" class="return-to-top" aria-label="Return to top">
   <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
@@ -1379,8 +1569,9 @@
         
         <!-- Resources Section -->
         <div class="footer-column">
-          <h3 class="footer-column-title">Resources</h3>
+          <h3 class="footer-column-title">Learning</h3>
           <ul class="footer-column-list">
+            <li><a href="/resources.html" class="footer-link">Resources</a></li>
             <li><a href="/guides.html" class="footer-link">Guides</a></li>
             <li><a href="/tools.html" class="footer-link">Tools</a></li>
             <li><a href="/databases.html" class="footer-link">Databases</a></li>

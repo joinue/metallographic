@@ -18,6 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             let currentIndex = 0;
             
+            // Hide buttons if there's only one item
+            if (items.length <= 1) {
+                prevButton.style.display = 'none';
+                nextButton.style.display = 'none';
+                return; // Exit early if only one item
+            }
+            
             // Update carousel display
             function updateCarousel() {
                 items.forEach((item, index) => {
@@ -63,6 +70,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const prevButton = carousel.querySelector('.carousel-prev');
             
             if (!track || !slides.length || !nextButton || !prevButton) return;
+
+            // Hide buttons if there's only one slide
+            if (slides.length <= 1) {
+                prevButton.style.display = 'none';
+                nextButton.style.display = 'none';
+                return; // Exit early if only one slide
+            }
 
             // Cache slide width to avoid forced reflow
             let slideWidth = 0;

@@ -140,6 +140,43 @@ function renderMaterial() {
     document.getElementById('material-category').textContent = currentMaterial.category || '';
     document.getElementById('breadcrumb-material').textContent = currentMaterial.name || 'Material';
     
+    // Update class link if material has a class
+    let classLink = document.getElementById('material-class-link');
+    const categoryElement = document.getElementById('material-category');
+    
+    if (currentMaterial.class && categoryElement) {
+        const classNumber = currentMaterial.class;
+        
+        // Create the link if it doesn't exist
+        if (!classLink) {
+            // Check if category is in a row container, if not create one
+            let categoryRow = categoryElement.parentElement;
+            if (!categoryRow || !categoryRow.classList.contains('material-category-row')) {
+                categoryRow = document.createElement('div');
+                categoryRow.className = 'material-category-row';
+                categoryElement.parentNode.insertBefore(categoryRow, categoryElement);
+                categoryRow.appendChild(categoryElement);
+            }
+            
+            // Create the class link element
+            classLink = document.createElement('a');
+            classLink.id = 'material-class-link';
+            classLink.className = 'material-class-link';
+            classLink.innerHTML = '<span class="material-class-link-text">Class </span><span class="material-class-link-number"></span>';
+            categoryRow.appendChild(classLink);
+        }
+        
+        // Update the link
+        classLink.href = `/support/preparation-procedures/class-${classNumber}.html`;
+        classLink.querySelector('.material-class-link-number').textContent = classNumber;
+        // Remove any existing class-* classes and add the correct one
+        classLink.className = classLink.className.replace(/\bclass-\d+\b/g, '');
+        classLink.classList.add('material-class-link', `class-${classNumber}`);
+        classLink.style.display = 'inline-flex';
+    } else if (classLink) {
+        classLink.style.display = 'none';
+    }
+    
     // Render tabs
     renderOverview();
     renderProperties();
