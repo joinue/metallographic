@@ -1,12 +1,12 @@
 // Procedure Time Estimator
 const grindingSteps = [
-    { grit: '120', time: { min: 30, max: 60 } },
-    { grit: '240', time: { min: 30, max: 60 } },
-    { grit: '320', time: { min: 30, max: 60 } },
-    { grit: '400', time: { min: 30, max: 60 } },
-    { grit: '600', time: { min: 30, max: 60 } },
-    { grit: '800', time: { min: 30, max: 60 }, optional: true },
-    { grit: '1200', time: { min: 30, max: 60 }, optional: true },
+    { grit: '120', time: { min: 0.5, max: 1 } },
+    { grit: '240', time: { min: 0.5, max: 1 } },
+    { grit: '320', time: { min: 0.5, max: 1 } },
+    { grit: '400', time: { min: 0.5, max: 1 } },
+    { grit: '600', time: { min: 0.5, max: 1 } },
+    { grit: '800', time: { min: 0.5, max: 1 }, optional: true },
+    { grit: '1200', time: { min: 0.5, max: 1 }, optional: true },
 ];
 
 const polishingSteps = {
@@ -129,34 +129,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Mounting time
-        const mountingTime = includeMounting.checked ? 10 : 0;
+        const mountingMin = includeMounting.checked ? 5 : 0;
+        const mountingMax = includeMounting.checked ? 15 : 0;
         if (includeMounting.checked) {
             breakdown.push({
                 step: 'Mounting (compression)',
-                time: '5-15 min',
+                time: formatTimeRange(mountingMin, mountingMax),
             });
         }
 
         // Etching time
-        const etchingTime = includeEtching.checked ? 2 : 0;
+        const etchingMin = includeEtching.checked ? 1 : 0;
+        const etchingMax = includeEtching.checked ? 3 : 0;
         if (includeEtching.checked) {
             breakdown.push({
                 step: 'Etching',
-                time: '1-3 min',
+                time: formatTimeRange(etchingMin, etchingMax),
             });
         }
 
         // Cleaning time
-        const cleaningTime = includeCleaning.checked ? 5 : 0;
+        const cleaningMin = includeCleaning.checked ? 3 : 0;
+        const cleaningMax = includeCleaning.checked ? 7 : 0;
         if (includeCleaning.checked) {
             breakdown.push({
                 step: 'Cleaning (between steps)',
-                time: '3-7 min',
+                time: formatTimeRange(cleaningMin, cleaningMax),
             });
         }
 
-        const totalMin = grindingMin + polishingMin + mountingTime + etchingTime + cleaningTime;
-        const totalMax = grindingMax + polishingMax + mountingTime + etchingTime + cleaningTime;
+        const totalMin = grindingMin + polishingMin + mountingMin + etchingMin + cleaningMin;
+        const totalMax = grindingMax + polishingMax + mountingMax + etchingMax + cleaningMax;
 
         resultsContent.innerHTML = `
             <div style="margin-bottom: 1.5rem; padding: 1rem; background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 0.5rem;">
@@ -181,22 +184,22 @@ document.addEventListener('DOMContentLoaded', function() {
                         ${formatTimeRange(polishingMin, polishingMax)}
                     </div>
                 </div>
-                ${mountingTime > 0 ? `
+                ${mountingMax > 0 ? `
                     <div style="padding: 0.75rem; background: #f9fafb; border-radius: 0.5rem;">
                         <div style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;">Mounting</div>
-                        <div style="font-size: 1.125rem; font-weight: 600; color: #111827;">~${formatTime(mountingTime)}</div>
+                        <div style="font-size: 1.125rem; font-weight: 600; color: #111827;">${formatTimeRange(mountingMin, mountingMax)}</div>
                     </div>
                 ` : ''}
-                ${etchingTime > 0 ? `
+                ${etchingMax > 0 ? `
                     <div style="padding: 0.75rem; background: #f9fafb; border-radius: 0.5rem;">
                         <div style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;">Etching</div>
-                        <div style="font-size: 1.125rem; font-weight: 600; color: #111827;">~${formatTime(etchingTime)}</div>
+                        <div style="font-size: 1.125rem; font-weight: 600; color: #111827;">${formatTimeRange(etchingMin, etchingMax)}</div>
                     </div>
                 ` : ''}
-                ${cleaningTime > 0 ? `
+                ${cleaningMax > 0 ? `
                     <div style="padding: 0.75rem; background: #f9fafb; border-radius: 0.5rem;">
                         <div style="font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem;">Cleaning</div>
-                        <div style="font-size: 1.125rem; font-weight: 600; color: #111827;">~${formatTime(cleaningTime)}</div>
+                        <div style="font-size: 1.125rem; font-weight: 600; color: #111827;">${formatTimeRange(cleaningMin, cleaningMax)}</div>
                     </div>
                 ` : ''}
             </div>

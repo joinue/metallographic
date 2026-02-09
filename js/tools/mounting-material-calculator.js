@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${materialNeededOz.toFixed(2)} fl oz
                 </div>
                 <div style="font-size: 0.875rem; color: #6b7280;">
-                    (${materialNeededGrams.toFixed(1)} g or ${materialNeeded.toFixed(1)} ml)
+                    (${materialNeededGrams.toFixed(1)} g or ${materialNeededCm3.toFixed(1)} ml)
                 </div>
             </div>
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem;">

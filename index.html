@@ -73,8 +73,6 @@
     -->
   
     <!-- Preconnect (keep minimal; prioritize critical resources) -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://js.hsforms.net">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
@@ -85,8 +83,8 @@
     <link rel="preload" href="/css/layouts/homepage-styles.css" as="style">
 
     <!-- Preload critical images with cache hints -->
-    <link rel="preload" as="image" href="/images/logo-microstructure-transparent.webp" fetchpriority="high">
-    <link rel="preload" as="image" href="/images/pace/equipment.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/logo-microstructure-320.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/pace/equipment-1400.webp" fetchpriority="high">
 
     <!-- Preload deferred JS to move them earlier in the download queue -->
     <link rel="preload" href="/js/scripts.js" as="script">
@@ -102,14 +100,11 @@
     Header always set Content-Security-Policy "frame-src 'self' https://js.hsforms.net https://*.hubspot.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://js.hsforms.net https://*.hubspot.com;"
     -->
     
-    <!-- Preload critical fonts to break dependency chain -->
-  
-    <!-- Stylesheets -->
-    <!-- Google Fonts - load with font-display: swap to prevent FOIT -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
-    
-    
+    <!-- Self-hosted fonts (eliminates Google Fonts network dependency chain) -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/roboto-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/base/fonts.css" media="all">
+
     <!-- Critical CSS - load synchronously for above-the-fold content -->
     <!-- Note: nav.css has @import which blocks parsing - inline CSS above prevents FOUC -->
     <link rel="stylesheet" href="/css/components/navigation.css" media="all">
@@ -568,7 +563,7 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo" width="2047" height="981" decoding="async">
+                <img class="logo-image" src="/images/logo-microstructure-320.webp" srcset="/images/logo-microstructure-320.webp 320w, /images/logo-microstructure-transparent.webp 2047w" sizes="160px" alt="PACE Technologies Logo" width="2047" height="981" decoding="async">
             </a>
         </div>
         <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
@@ -1227,15 +1222,19 @@
             <div class="quote-form-container">
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
                 <script>
-                    (function() {
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
                         var script = document.createElement('script');
                         script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
-                        script.defer = true;
                         script.onerror = function() {
                             console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
                         };
                         document.head.appendChild(script);
-                    })();
+                    }
                 </script>
             </div>
         </section>
@@ -1248,7 +1247,7 @@
             <!-- Background Image -->
             <div class="hero-background">
                 <div class="hero-background-image">
-                    <img src="/images/pace/equipment.webp" alt="PACE Technologies metallographic equipment including precision cutters, mounting presses, grinder-polishers, hardness testers, and microscopes for complete sample preparation labs" class="hero-bg-img" width="2000" height="2000" decoding="async">
+                    <img src="/images/pace/equipment-1400.webp" srcset="/images/pace/equipment-800.webp 800w, /images/pace/equipment-1400.webp 1400w, /images/pace/equipment.webp 2000w" sizes="100vw" alt="PACE Technologies metallographic equipment including precision cutters, mounting presses, grinder-polishers, hardness testers, and microscopes for complete sample preparation labs" class="hero-bg-img" width="2000" height="2000" decoding="async">
                     <!-- Fade background image to white at bottom -->
                     <div class="hero-fade-overlay"></div>
                 </div>
@@ -2265,32 +2264,31 @@
               <li><a href="/consumables.html" class="footer-link">Consumables</a></li>
               <li><a href="/services.html" class="footer-link">Services</a></li>
               <li><a href="https://shop.metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-link">Online Shop</a></li>
+              <li><a href="/catalog.html" class="footer-link">Product Catalog</a></li>
               <li><a href="/build.html" class="footer-link">Lab Builder</a></li>
             </ul>
           </div>
-          
-          <!-- Learning Section -->
+
+          <!-- Resources Section -->
           <div class="footer-column">
-            <h3 class="footer-column-title">Learning</h3>
+            <h3 class="footer-column-title">Resources</h3>
             <ul class="footer-column-list">
-              <li><a href="/resources.html" class="footer-link">Resources</a></li>
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
               <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/catalog.html" class="footer-link">Product Catalog</a></li>
+              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
             </ul>
           </div>
-          
+
           <!-- Legal Section -->
           <div class="footer-column">
             <h3 class="footer-column-title">Legal</h3>
             <ul class="footer-column-list">
               <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
               <li><a href="/terms.html" class="footer-link">Terms & Conditions</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/site-map.html" class="footer-link">Sitemap</a></li>
             </ul>
           </div>

@@ -48,7 +48,9 @@
     throughput: '',
     automation: '',
     budget: '',
-    surfaceFinish: ''
+    surfaceFinish: '',
+    sectionType: 'Cross-section',
+    damageCriticality: 'Standard'
   };
 
   let currentStep = 1;
@@ -64,6 +66,9 @@
     setupEventListeners();
     updateProgress();
     showStep(currentStep);
+    updateStep1Button();
+    updateStep2Button();
+    updateStep3Button();
   }
 
   // Track previous page on mount
@@ -503,6 +508,11 @@
       infoBanner.style.display = step === 1 ? 'block' : 'none';
     }
 
+    // If step 3, render stage-specific questions
+    if (step === 3) {
+      renderStageSpecificQuestions();
+    }
+
     // If step 4, render results
     if (step === 4 && recommendations.length > 0) {
       renderResults();
@@ -536,6 +546,62 @@
         }
         if (line) line.classList.remove('completed');
       }
+    }
+  }
+
+  // Render stage-specific questions for step 3
+  function renderStageSpecificQuestions() {
+    const container = document.getElementById('stage-specific-questions');
+    if (!container) return;
+
+    let html = '';
+
+    if (formData.processStages.includes('sectioning')) {
+      html += `
+        <div class="builder-form-section-header">
+          <h3>Sectioning Details</h3>
+        </div>
+        <div class="builder-form-grid">
+          <div class="builder-form-field">
+            <label class="builder-form-label" for="section-type">Section Type</label>
+            <select id="section-type" class="builder-select">
+              <option value="Cross-section"${formData.sectionType === 'Cross-section' ? ' selected' : ''}>Cross-section</option>
+              <option value="Longitudinal"${formData.sectionType === 'Longitudinal' ? ' selected' : ''}>Longitudinal</option>
+              <option value="Surface"${formData.sectionType === 'Surface' ? ' selected' : ''}>Surface</option>
+              <option value="Specific feature"${formData.sectionType === 'Specific feature' ? ' selected' : ''}>Specific Feature</option>
+            </select>
+            <p class="builder-form-help">The orientation of the cut relative to the sample.</p>
+          </div>
+          <div class="builder-form-field">
+            <label class="builder-form-label" for="damage-criticality">Cut Damage Sensitivity</label>
+            <select id="damage-criticality" class="builder-select">
+              <option value="Standard"${formData.damageCriticality === 'Standard' ? ' selected' : ''}>Standard</option>
+              <option value="High"${formData.damageCriticality === 'High' ? ' selected' : ''}>High - Minimize heat-affected zone</option>
+              <option value="Very High"${formData.damageCriticality === 'Very High' ? ' selected' : ''}>Very High - Critical microstructure preservation</option>
+            </select>
+            <p class="builder-form-help">How sensitive your sample is to heat and mechanical damage from cutting.</p>
+          </div>
+        </div>
+      `;
+    }
+
+    container.innerHTML = html;
+
+    // Attach event listeners to dynamically created fields
+    var sectionTypeEl = document.getElementById('section-type');
+    var damageCriticalityEl = document.getElementById('damage-criticality');
+
+    if (sectionTypeEl) {
+      sectionTypeEl.addEventListener('change', function(e) {
+        formData.sectionType = e.target.value;
+        saveToStorage();
+      });
+    }
+    if (damageCriticalityEl) {
+      damageCriticalityEl.addEventListener('change', function(e) {
+        formData.damageCriticality = e.target.value;
+        saveToStorage();
+      });
     }
   }
 
@@ -593,11 +659,14 @@
     const isDelicate = sampleShape === 'Small' || sampleShape === 'Thin';
     const isHighThroughput = throughput.includes('High') || throughput.includes('Very High');
     const isVeryHighThroughput = throughput.includes('Very High');
-    const isAutomated = automation.includes('Automated');
+    const isAutomated = automation === 'Fully Automated';
     const isSemiAutomated = automation.includes('Semi-Automated');
     const needsEBSD = applications.includes('EBSD') || surfaceFinish.includes('EBSD') || surfaceFinish.includes('Extremely Flat');
     const isHardMaterial = materialType.includes('Hard Metals') || materialType.includes('Ceramics');
-    const isBrittle = materialType.includes('Ceramics') || materialType.includes('Hard Metals');
+    // Equipment tier
+    const isEssentialTier = budget === 'Essential';
+    const isComprehensiveTier = budget === 'Comprehensive';
+    const isPremiumTier = budget === 'Advanced' || budget === 'Comprehensive';
 
     // SECTIONING RECOMMENDATIONS
     if (selectedStages.includes('sectioning')) {
@@ -676,44 +745,79 @@
 
     // MOUNTING RECOMMENDATIONS
     if (selectedStages.includes('mounting')) {
-      const needsColdMounting = isSoft || isDelicate || materialType.includes('Titanium') || materialType.includes('Heat-Sensitive');
-      
+      const needsColdMounting = isSoft || isDelicate || materialType.includes('Titanium');
+
       if (needsColdMounting) {
-        if (isHighThroughput) {
+        if (isHighThroughput && isPremiumTier) {
           recommendations.push({
             type: 'UV Curing Mounting System',
-            reasoning: 'Fastest cold mounting cycles for high-volume work. Essential for temperature-sensitive materials where compression mounting heat would alter microstructure.',
-            category: 'equipment',
-            stage: 'mounting'
-          });
-        } else {
-          recommendations.push({
-            type: 'Vacuum Impregnation System',
-            reasoning: 'Removes air bubbles for clear mounts without heat application. Essential for soft metals and heat-sensitive materials. Prevents thermal damage that could mask true microstructure.',
+            reasoning: 'Fastest cold mounting method with cure times under 10 minutes. Ideal for high-volume labs working with temperature-sensitive materials. No heat application preserves true microstructure in soft metals and titanium.',
             category: 'equipment',
             stage: 'mounting'
           });
         }
         recommendations.push({
-          type: 'Epoxy Mounting Resins',
-          reasoning: 'High-quality epoxy resins for cold mounting. Excellent edge retention and chemical resistance essential for microstructure preservation.',
-          category: 'consumable',
-          stage: 'mounting'
-        });
-      } else {
-        const pressType = isAutomated ? 'Automated' : 'Manual';
-        recommendations.push({
-          type: `${pressType} Compression Mounting Press`,
-          reasoning: 'Fast cycles and good edge retention for most materials. Heat and pressure application suitable for materials that can tolerate thermal cycling.',
+          type: 'Vacuum Impregnation System',
+          reasoning: `Removes air bubbles for clear, void-free mounts without heat application. Essential for ${isSoft ? 'soft metals' : isDelicate ? 'delicate/thin samples' : materialType || 'heat-sensitive materials'} where compression mounting temperatures (150-180°C) would alter microstructure or cause sample damage.`,
           category: 'equipment',
           stage: 'mounting'
         });
+        if (isDelicate || sampleShape === 'Irregular') {
+          recommendations.push({
+            type: 'Low-Viscosity Epoxy Mounting Resins',
+            reasoning: 'Low-viscosity epoxy penetrates fine cracks, pores, and irregular surfaces. Combined with vacuum impregnation, ensures complete encapsulation of delicate and complex-shaped samples.',
+            category: 'consumable',
+            stage: 'mounting'
+          });
+        } else {
+          recommendations.push({
+            type: 'Epoxy Mounting Resins',
+            reasoning: 'Room-temperature curing epoxy with excellent edge retention and chemical resistance. Clear formulations allow sample visibility during grinding. Typical cure time: 6-8 hours (or 1-2 hours with fast-cure formulas).',
+            category: 'consumable',
+            stage: 'mounting'
+          });
+        }
+      } else {
         recommendations.push({
-          type: 'Thermosetting Mounting Resins',
-          reasoning: 'Phenolic or diallyl phthalate (DAP) resins for compression mounting. Select based on material compatibility and edge retention needs.',
-          category: 'consumable',
+          type: isAutomated ? 'Programmable Hydraulic Mounting Press' : 'Hydraulic Compression Mounting Press',
+          reasoning: `${isAutomated ? 'Programmable press with automated temperature, pressure, and time control ensures repeatable mounts with minimal operator input.' : 'Hydraulic mounting press provides reliable, high-force compression mounting.'} Fast 8-15 minute cycles with good edge retention. Suitable for materials that can tolerate 150-180°C temperatures.`,
+          category: 'equipment',
           stage: 'mounting'
         });
+        // Recommend cooling tank for comprehensive setups
+        if (isComprehensiveTier) {
+          recommendations.push({
+            type: 'Recirculating Cooling Tank',
+            reasoning: 'Accelerates cooling cycle and provides controlled, consistent cooldown. Reduces total mount cycle time and prevents thermal shock in sensitive samples.',
+            category: 'equipment',
+            stage: 'mounting'
+          });
+        }
+        // Resin recommendation based on application
+        if (needsEBSD || applications.includes('Research & Development')) {
+          recommendations.push({
+            type: 'Diallyl Phthalate (DAP) Mounting Resins',
+            reasoning: 'DAP provides superior edge retention and hardness compared to phenolic. Recommended for research and advanced characterization where edge quality is critical for accurate measurements.',
+            category: 'consumable',
+            stage: 'mounting'
+          });
+        } else {
+          recommendations.push({
+            type: 'Phenolic Mounting Resins',
+            reasoning: 'Cost-effective phenolic resins for routine compression mounting. Available in multiple colors for sample identification. Good general-purpose edge retention for standard metallography.',
+            category: 'consumable',
+            stage: 'mounting'
+          });
+        }
+        // Comprehensive tier: also recommend cold mounting option
+        if (isComprehensiveTier) {
+          recommendations.push({
+            type: 'Epoxy Mounting Resins (supplemental)',
+            reasoning: 'Having castable epoxy available alongside compression mounting gives flexibility for samples that cannot tolerate heat, irregular shapes, or when clear mounts are needed for cross-reference.',
+            category: 'consumable',
+            stage: 'mounting'
+          });
+        }
       }
     }
 
@@ -727,48 +831,85 @@
           stage: 'grinding'
         });
       }
-      
-      const platenSize = isLarge || isVeryLarge ? '12 inch' : '8-10 inch';
+
+      // Platen size influenced by sample size and tier
+      let platenSize;
+      if (isEssentialTier) {
+        platenSize = isLarge || isVeryLarge ? '10 inch' : '8 inch';
+      } else if (isPremiumTier) {
+        platenSize = isLarge || isVeryLarge ? '12 inch' : '10 inch';
+      } else {
+        platenSize = isLarge || isVeryLarge ? '12 inch' : '8-10 inch';
+      }
       const automationType = isAutomated ? 'Programmable' : isSemiAutomated ? 'Semi-automated' : 'Manual';
-      
+
       recommendations.push({
         type: `${platenSize} ${automationType} Grinder/Polisher`,
-        reasoning: `Appropriate platen size for ${sampleSize.toLowerCase()} samples. ${isAutomated ? 'Programmable operation ensures consistent grinding parameters.' : 'Manual control provides flexibility for varied materials.'}`,
+        reasoning: `Appropriate platen size for ${sampleSize.toLowerCase()} samples. ${isAutomated ? 'Programmable operation ensures consistent grinding parameters and repeatability.' : isSemiAutomated ? 'Semi-automated head provides consistent force application while allowing operator control.' : 'Manual control provides flexibility for varied materials and sample shapes.'}`,
         category: 'equipment',
         stage: 'grinding'
       });
-      
+
+      // Automated dispenser for premium tiers
+      if (isPremiumTier && (isAutomated || isSemiAutomated)) {
+        recommendations.push({
+          type: 'Automated Abrasive Dispenser',
+          reasoning: 'Automated dispensing ensures consistent abrasive application, reduces waste, and improves repeatability across operators. Recommended for advanced and comprehensive lab setups.',
+          category: 'equipment',
+          stage: 'grinding'
+        });
+      }
+
+      // Grinding sequences differentiated by hardness
       let grindingSequence = [];
       if (isSoft) {
         grindingSequence = ['240', '320', '400', '600'];
-      } else if (isHardMaterial || isVeryHard) {
-        grindingSequence = ['120', '240', '320', '400', '600', '800', '1200'];
+      } else if (isVeryHard || isHardMaterial) {
+        grindingSequence = ['60', '120', '240', '320', '400', '600', '800', '1200'];
       } else if (isHard) {
-        grindingSequence = ['120', '240', '320', '400', '600', '800', '1200'];
+        grindingSequence = ['120', '240', '320', '400', '600', '800'];
       } else {
-        grindingSequence = ['120', '240', '320', '400', '600', '800', '1200'];
+        // Medium hardness
+        grindingSequence = ['120', '240', '320', '400', '600'];
       }
-      
+
       const gritList = grindingSequence.join(', ');
-      
+
       if (isHardMaterial || isVeryHard) {
         recommendations.push({
           type: `Silicon Carbide Grinding Papers (${gritList} grit)`,
-          reasoning: `SiC provides aggressive cutting action essential for hard materials. Follow progressive sequence: ${gritList} grit. ${grindingSequence.includes('800') || grindingSequence.includes('1200') ? 'Fine grits (800, 1200) recommended for best surface quality before polishing.' : ''}`,
+          reasoning: `SiC provides aggressive cutting action essential for hard materials and ceramics. Start coarse (${grindingSequence[0]} grit) due to slow material removal, then follow the full progressive sequence through ${grindingSequence[grindingSequence.length - 1]} grit. Fine grits (800, 1200) are critical for minimizing subsurface damage before polishing.`,
           category: 'consumable',
           stage: 'grinding'
         });
       } else if (isSoft) {
         recommendations.push({
           type: `Aluminum Oxide or Fine SiC Grinding Papers (${gritList} grit)`,
-          reasoning: `Finer abrasives (starting at 240 grit) with light pressure minimize embedding and relief in soft materials. Follow sequence: ${gritList} grit. Essential for preserving true microstructure.`,
+          reasoning: `Finer abrasives (starting at 240 grit) with light pressure minimize embedding and surface relief in soft materials like ${materialType || 'aluminum and copper alloys'}. Shorter sequence avoids overworking the surface. Essential for preserving true microstructure.`,
+          category: 'consumable',
+          stage: 'grinding'
+        });
+      } else if (isHard) {
+        recommendations.push({
+          type: `Silicon Carbide Grinding Papers (${gritList} grit)`,
+          reasoning: `SiC papers in progressive grit sizes: ${gritList}. Extended sequence through 800 grit ensures adequate surface quality for hard materials before transitioning to polishing. Finer final grit reduces polishing time.`,
           category: 'consumable',
           stage: 'grinding'
         });
       } else {
         recommendations.push({
-          type: `Grinding Papers (${gritList} grit)`,
-          reasoning: `Standard grinding papers in progressive grit sizes: ${gritList}. ${grindingSequence.includes('800') || grindingSequence.includes('1200') ? 'Fine grits (800, 1200) recommended for optimal surface preparation before polishing.' : 'Follow progressive grinding steps for optimal surface preparation.'}`,
+          type: `Silicon Carbide Grinding Papers (${gritList} grit)`,
+          reasoning: `Standard progressive grinding sequence: ${gritList} grit. Appropriate for medium-hardness materials. Each step removes damage from the previous grit before transitioning to polishing.`,
+          category: 'consumable',
+          stage: 'grinding'
+        });
+      }
+
+      // Diamond grinding discs for premium tiers with hard materials
+      if (isPremiumTier && (isHard || isVeryHard || isHardMaterial)) {
+        recommendations.push({
+          type: 'Diamond Grinding Discs (75 µm, 45 µm)',
+          reasoning: 'Reusable diamond grinding discs offer faster, more consistent grinding for hard materials compared to SiC papers. Longer lifespan reduces per-sample cost in high-volume labs. Can replace several SiC paper steps.',
           category: 'consumable',
           stage: 'grinding'
         });
@@ -777,53 +918,89 @@
 
     // POLISHING RECOMMENDATIONS
     if (selectedStages.includes('polishing')) {
-      const platenSize = isLarge || isVeryLarge ? '12 inch' : '8-10 inch';
-      const automationType = isAutomated ? 'Programmable' : isSemiAutomated ? 'Semi-automated' : 'Manual';
-      
-      const needsDualWheel = isHighThroughput || isVeryHighThroughput || 
+      let polishPlatenSize;
+      if (isEssentialTier) {
+        polishPlatenSize = isLarge || isVeryLarge ? '10 inch' : '8 inch';
+      } else if (isPremiumTier) {
+        polishPlatenSize = isLarge || isVeryLarge ? '12 inch' : '10 inch';
+      } else {
+        polishPlatenSize = isLarge || isVeryLarge ? '12 inch' : '8-10 inch';
+      }
+      const polishAutomationType = isAutomated ? 'Programmable' : isSemiAutomated ? 'Semi-automated' : 'Manual';
+
+      const needsDualWheel = isHighThroughput || isVeryHighThroughput ||
                              (applications.includes('Quality Control') && isHighThroughput) ||
-                             (applications.includes('Production Testing'));
-      
+                             (applications.includes('Production Testing')) ||
+                             isComprehensiveTier;
+
       if (needsDualWheel) {
         recommendations.push({
-          type: `Dual Wheel ${platenSize} ${automationType} Grinder/Polisher`,
-          reasoning: `Dual wheel configuration allows dedicated wheels for grinding and polishing, preventing cross-contamination and improving throughput. ${isAutomated ? 'Programmable operation ensures consistent polishing parameters.' : 'Manual control provides flexibility.'} Essential for high-volume production and quality control where sample-to-sample contamination must be avoided.`,
+          type: `Dual Wheel ${polishPlatenSize} ${polishAutomationType} Grinder/Polisher`,
+          reasoning: `Dual wheel configuration allows dedicated wheels for grinding and polishing, preventing cross-contamination and improving throughput. ${isAutomated ? 'Programmable operation ensures consistent polishing parameters.' : 'Semi-automated or manual control provides flexibility.'} Essential for high-volume production and quality control.`,
           category: 'equipment',
           stage: 'polishing'
         });
       } else {
         recommendations.push({
-          type: `${platenSize} ${automationType} Grinder/Polisher`,
-          reasoning: `Can handle both grinding and polishing operations with polishing suspension. ${isAutomated ? 'Programmable operation ensures consistent polishing parameters.' : 'Manual control provides flexibility.'}`,
+          type: `${polishPlatenSize} ${polishAutomationType} Grinder/Polisher`,
+          reasoning: `Can handle both grinding and polishing operations. ${isAutomated ? 'Programmable operation ensures consistent polishing parameters.' : isSemiAutomated ? 'Semi-automated head provides consistent force application.' : 'Manual control provides flexibility for varied materials.'}`,
           category: 'equipment',
           stage: 'polishing'
         });
       }
-      
+
+      // Automated dispenser for premium polishing
+      if (isPremiumTier && (isAutomated || isSemiAutomated)) {
+        recommendations.push({
+          type: 'Automated Abrasive Dispenser',
+          reasoning: 'Precisely meters diamond suspension onto the polishing cloth at timed intervals. Eliminates operator variability, reduces abrasive waste, and ensures consistent polishing results.',
+          category: 'equipment',
+          stage: 'polishing'
+        });
+      }
+
+      // Polishing sequences differentiated by hardness
       let polishingSequence = [];
       if (isSoft) {
-        polishingSequence = ['6', '3', '1', '0.5', '0.25'];
-      } else if (isHardMaterial || isVeryHard) {
+        polishingSequence = ['6', '3', '1', '0.25'];
+      } else if (isVeryHard || isHardMaterial) {
         polishingSequence = ['9', '6', '3', '1', '0.5', '0.25'];
+      } else if (isHard) {
+        polishingSequence = ['9', '6', '3', '1', '0.25'];
       } else {
-        polishingSequence = ['9', '6', '3', '1', '0.5', '0.25'];
+        // Medium hardness
+        polishingSequence = ['6', '3', '1', '0.25'];
       }
-      
-      const coarseDiamond = polishingSequence.find(g => parseFloat(g) >= 3) || '3';
-      
+
+      const coarseDiamond = polishingSequence[0];
+      const fineDiamond = polishingSequence[polishingSequence.length - 1];
+
+      // Diamond type recommendation based on tier
+      const diamondType = isPremiumTier ? 'Polycrystalline Diamond' : 'Diamond';
+
       recommendations.push({
-        type: `Diamond Polishing Suspensions (${coarseDiamond} µm to 0.25 µm)`,
-        reasoning: `Diamond suspensions for progressive polishing steps: ${polishingSequence.join(', ')} µm. Essential for removing grinding scratches and achieving high-quality surface finish.`,
+        type: `${diamondType} Polishing Suspensions (${coarseDiamond} µm to ${fineDiamond} µm)`,
+        reasoning: `Progressive polishing steps: ${polishingSequence.join(', ')} µm. ${isSoft ? 'Shorter sequence with lighter starting grit avoids embedding in soft materials.' : isVeryHard || isHardMaterial ? 'Full sequence starting at 9 µm with additional 0.5 µm step ensures complete scratch removal on hard materials.' : isHard ? 'Extended sequence starting at 9 µm needed for scratch removal on hard materials.' : 'Standard sequence for medium-hardness materials.'} ${isPremiumTier ? 'Polycrystalline diamond provides more consistent scratch patterns and faster cutting than monocrystalline.' : ''}`,
         category: 'consumable',
         stage: 'polishing'
       });
-      
-      recommendations.push({
-        type: 'Polishing Cloths (synthetic)',
-        reasoning: 'Synthetic polishing cloths for diamond polishing stages. Provides consistent surface for diamond suspension application.',
-        category: 'consumable',
-        stage: 'polishing'
-      });
+
+      // Cloth recommendations based on material
+      if (isSoft) {
+        recommendations.push({
+          type: 'Low-Nap Polishing Cloths',
+          reasoning: 'Low-nap (hard) cloths minimize surface relief and edge rounding in soft materials. Essential for maintaining flat surfaces on aluminum, copper, and other soft metals.',
+          category: 'consumable',
+          stage: 'polishing'
+        });
+      } else {
+        recommendations.push({
+          type: 'Synthetic Polishing Cloths',
+          reasoning: 'Woven synthetic cloths for diamond polishing stages. Provides consistent, resilient surface for diamond suspension application. Use progressively softer cloths for finer polishing steps.',
+          category: 'consumable',
+          stage: 'polishing'
+        });
+      }
     }
 
     // FINAL POLISHING RECOMMENDATIONS
@@ -831,32 +1008,42 @@
       if (needsEBSD || surfaceFinish.includes('Extremely Flat') || surfaceFinish.includes('High Quality')) {
         recommendations.push({
           type: 'Vibratory Polisher',
-          reasoning: 'Essential for EBSD preparation and extremely flat surfaces. Produces deformation-free surfaces with minimal relief critical for electron backscatter diffraction. Uses vibration to polish samples without mechanical pressure.',
+          reasoning: 'Produces deformation-free surfaces with minimal relief using gentle vibratory action rather than mechanical force. Essential for EBSD preparation, advanced characterization, and research-grade surface finish. Hands-free operation allows overnight polishing cycles.',
           category: 'equipment',
           stage: 'final-polishing'
         });
         recommendations.push({
           type: 'Colloidal Silica Polishing Suspension (0.05 µm)',
-          reasoning: 'Final polishing step for extremely flat surfaces. Essential for EBSD and advanced characterization techniques requiring minimal surface relief and deformation-free surfaces.',
+          reasoning: 'Chemo-mechanical polishing action removes the last traces of surface deformation while maintaining flatness. Industry standard final step for EBSD, nanoindentation, and advanced characterization. Typical cycle: 30-60 minutes on vibratory polisher.',
           category: 'consumable',
           stage: 'final-polishing'
         });
         recommendations.push({
           type: 'Napped Polishing Cloth',
-          reasoning: 'Napped cloth essential for final colloidal silica polishing. Provides gentle polishing action for deformation-free surfaces.',
+          reasoning: 'Napped (soft) cloth essential for colloidal silica final polishing. Fiber structure holds suspension while providing gentle, uniform polishing action.',
           category: 'consumable',
           stage: 'final-polishing'
         });
       } else {
-        recommendations.push({
-          type: 'Fine Diamond Suspension (0.25 µm) or Colloidal Silica (0.05 µm)',
-          reasoning: 'Final polishing step for high-quality surface finish. Removes fine scratches from previous polishing steps and prepares surface for microstructural analysis.',
-          category: 'consumable',
-          stage: 'final-polishing'
-        });
+        // Standard final polishing
+        if (isPremiumTier) {
+          recommendations.push({
+            type: 'Colloidal Silica Polishing Suspension (0.05 µm)',
+            reasoning: 'Chemo-mechanical final polishing produces superior surface quality compared to fine diamond alone. Recommended for quality-critical work even when EBSD is not required.',
+            category: 'consumable',
+            stage: 'final-polishing'
+          });
+        } else {
+          recommendations.push({
+            type: 'Fine Diamond Suspension (0.25 µm) or Colloidal Silica (0.05 µm)',
+            reasoning: 'Final polishing step for standard metallographic analysis. Fine diamond provides adequate surface finish for most optical microscopy work. Colloidal silica gives better results for etching response.',
+            category: 'consumable',
+            stage: 'final-polishing'
+          });
+        }
         recommendations.push({
           type: 'Napped Polishing Cloth',
-          reasoning: 'Napped cloth for final polishing steps. Provides appropriate surface for fine polishing suspensions.',
+          reasoning: 'Napped cloth for final polishing. Softer fiber structure provides gentle action appropriate for fine suspensions.',
           category: 'consumable',
           stage: 'final-polishing'
         });
@@ -882,26 +1069,52 @@
 
     // MICROSCOPY RECOMMENDATIONS
     if (selectedStages.includes('microscopy')) {
-      const scopeType = needsEBSD || applications.includes('Research & Development') ? 'Advanced' : isHighThroughput ? 'Production' : 'Standard';
+      // Scope type based on application and tier
+      let scopeType, scopeReasoning;
+      if (needsEBSD || (applications.includes('Research & Development') && isPremiumTier)) {
+        scopeType = 'Research-Grade';
+        scopeReasoning = 'Research-grade inverted metallurgical microscope with advanced optics, DIC/Nomarski capability, polarized light, and high-magnification objectives. Essential for advanced characterization, publication-quality imaging, and EBSD sample verification.';
+      } else if (isHighThroughput || applications.includes('Production Testing')) {
+        scopeType = 'Production';
+        scopeReasoning = 'Production-grade metallurgical microscope optimized for fast, repeatable inspections. Brightfield and darkfield illumination for routine quality control. Ergonomic design for extended use.';
+      } else if (isPremiumTier) {
+        scopeType = 'Advanced';
+        scopeReasoning = 'Advanced metallurgical microscope with brightfield, darkfield, and polarized light capabilities. Suitable for a wide range of metallographic analysis including grain structure, phase identification, and inclusion analysis.';
+      } else {
+        scopeType = 'Standard';
+        scopeReasoning = 'Standard metallurgical microscope with brightfield illumination and 50x-1000x magnification range. Adequate for routine microstructural examination, grain size measurement, and basic quality control.';
+      }
+
       recommendations.push({
         type: `${scopeType} Metallurgical Microscope`,
-        reasoning: `${scopeType.toLowerCase()} microscope suitable for ${isHighThroughput ? 'high-throughput' : 'routine'} metallographic analysis. Consider digital imaging capabilities for documentation.`,
+        reasoning: scopeReasoning,
         category: 'equipment',
         stage: 'microscopy'
       });
-      
-      const needsImaging = isHighThroughput || 
-                           applications.includes('Quality Control') || 
+
+      // Digital imaging based on application and tier
+      const needsImaging = isHighThroughput ||
+                           applications.includes('Quality Control') ||
                            applications.includes('Failure Analysis') ||
-                           applications.includes('Research & Development');
-      
+                           applications.includes('Research & Development') ||
+                           !isEssentialTier;
+
       if (needsImaging) {
-        recommendations.push({
-          type: 'Digital Imaging System',
-          reasoning: `Essential for modern metallography documentation. Includes digital camera and imaging software for image capture, measurement, annotation, and report generation. Critical for ${applications.includes('Quality Control') ? 'quality control' : applications.includes('Failure Analysis') ? 'failure analysis' : 'research'} documentation.`,
-          category: 'equipment',
-          stage: 'microscopy'
-        });
+        if (isPremiumTier) {
+          recommendations.push({
+            type: 'Image Analysis Software with Digital Camera',
+            reasoning: 'Professional image analysis system for quantitative metallography: grain size (ASTM E112), phase fraction, inclusion rating (ASTM E45), porosity, and coating thickness measurement. Includes calibrated digital camera, automated measurement, and report generation.',
+            category: 'equipment',
+            stage: 'microscopy'
+          });
+        } else {
+          recommendations.push({
+            type: 'Digital Camera with Capture Software',
+            reasoning: `Digital camera system for microscope documentation. Includes capture software for image acquisition, basic measurement, annotation, and report generation. ${applications.includes('Quality Control') ? 'Essential for quality control record-keeping and traceability.' : 'Critical for documenting microstructures and sharing results.'}`,
+            category: 'equipment',
+            stage: 'microscopy'
+          });
+        }
       }
     }
 
@@ -924,12 +1137,65 @@
 
     // HARDNESS TESTING RECOMMENDATIONS
     if (selectedStages.includes('hardness')) {
-      recommendations.push({
-        type: 'Hardness Tester (Vickers/Rockwell)',
-        reasoning: `Appropriate hardness testing system for ${materialType || 'your materials'}. Vickers for precision, Rockwell for production testing.`,
-        category: 'equipment',
-        stage: 'hardness'
-      });
+      // Primary tester based on material and application
+      if (isSoft || materialType.includes('Aluminum') || materialType.includes('Copper')) {
+        if (isHighThroughput || applications.includes('Production Testing')) {
+          recommendations.push({
+            type: 'Rockwell Hardness Tester',
+            reasoning: `Fast, direct-reading Rockwell testing is ideal for production QC of ${materialType || 'soft metals'}. Use B scale (HRB) for softer materials. Minimal sample preparation required. Results in seconds.`,
+            category: 'equipment',
+            stage: 'hardness'
+          });
+        } else {
+          recommendations.push({
+            type: 'Brinell / MacroVickers Hardness Tester',
+            reasoning: `Brinell testing with larger indentations provides reliable hardness readings on ${materialType || 'soft metals'} where small indentations may not be representative. Low-force Vickers (HV 1-10) is an alternative for mounted samples.`,
+            category: 'equipment',
+            stage: 'hardness'
+          });
+        }
+      } else if (isVeryHard || isHardMaterial) {
+        recommendations.push({
+          type: 'Vickers Microhardness Tester',
+          reasoning: `Vickers microhardness testing (HV 0.01-2) is essential for hard materials like ${materialType || 'carbides and ceramics'}. Small indentations work on thin coatings, individual phases, and small samples. Measures hardness precisely even on very hard materials where Rockwell indenters may be damaged.`,
+          category: 'equipment',
+          stage: 'hardness'
+        });
+      } else if (isHighThroughput || applications.includes('Production Testing')) {
+        recommendations.push({
+          type: 'Rockwell Hardness Tester',
+          reasoning: `Rockwell testing provides the fastest hardness measurements for production environments. Direct-reading display with no optical measurement needed. Use C scale (HRC) for ${materialType || 'steels'} in the ${hardness || 'typical'} range.`,
+          category: 'equipment',
+          stage: 'hardness'
+        });
+      } else {
+        recommendations.push({
+          type: 'Vickers Hardness Tester',
+          reasoning: `Vickers testing provides a single continuous scale suitable for all metals from soft to hard. Ideal for ${materialType || 'general metallography'}. Load selection (HV 0.1-50) allows testing mounted samples, individual phases, and bulk materials.`,
+          category: 'equipment',
+          stage: 'hardness'
+        });
+      }
+
+      // Additional microhardness for R&D and failure analysis
+      if (applications.includes('Failure Analysis') || applications.includes('Research & Development') || applications.includes('Material Characterization')) {
+        recommendations.push({
+          type: 'Microhardness Tester (Vickers/Knoop)',
+          reasoning: 'Microhardness testing (HV/HK 0.01-1) is essential for failure analysis and research. Measures hardness of individual phases, thin coatings, case-hardened layers, heat-affected zones, and weld cross-sections. Knoop indenter preferred for thin layers and brittle materials.',
+          category: 'equipment',
+          stage: 'hardness'
+        });
+      }
+
+      // Automated traverse for comprehensive tier
+      if (isComprehensiveTier && (applications.includes('Quality Control') || applications.includes('Research & Development'))) {
+        recommendations.push({
+          type: 'Automated Hardness Traverse Capability',
+          reasoning: 'Programmable automatic traverse measures hardness profiles across welds, case-hardened layers, and coating cross-sections. Generates hardness maps and meets ASTM/ISO standards for case depth measurement. Eliminates operator variability in production testing.',
+          category: 'equipment',
+          stage: 'hardness'
+        });
+      }
     }
 
     return recommendations;
@@ -1235,17 +1501,16 @@
     }
     
     body += '\n---\n';
-    body += 'This request was generated from the Lab Builder tool on metallography.org';
+    body += 'This request was generated from the Lab Builder tool on metallographic.com';
     
     const subject = `Lab Builder Review Request${reviewData.company ? ` - ${reviewData.company}` : ''}`;
     
     return `mailto:sales@metallographic.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
-  // Handle download PDF
+  // Handle print results
   function handleDownloadPDF() {
-    // For now, just show an alert. PDF generation can be added later with jsPDF library
-    alert('PDF download functionality coming soon. For now, please use the "Get Expert Review" feature to email your results.');
+    window.print();
   }
 
   // Handle start over
@@ -1267,7 +1532,9 @@
         throughput: '',
         automation: '',
         budget: '',
-        surfaceFinish: ''
+        surfaceFinish: '',
+        sectionType: 'Cross-section',
+        damageCriticality: 'Standard'
       };
       
       recommendations = [];

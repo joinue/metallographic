@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultsDiv = document.getElementById('results');
     const resultsContent = document.getElementById('resultsContent');
 
-    let magnification = '100';
-
     function updateInputFields() {
         const method = methodSelect.value;
         let html = '';
@@ -30,12 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="form-group">
                     <label for="averageDiameter">Average Grain Diameter</label>
                     <input type="number" id="averageDiameter" class="form-control" step="0.001" min="0" placeholder="e.g., 0.050 (mm) or 50 (μm)">
-                    <p class="text-sm" style="margin-top: 0.25rem; color: #6b7280; font-size: 0.75rem;">Enter in mm or μm (values &lt; 0.1 are treated as mm, else μm)</p>
-                </div>
-                <div class="form-group">
-                    <label for="magnification">Magnification</label>
-                    <input type="number" id="magnification" class="form-control" value="100" placeholder="100">
-                    <p class="text-sm" style="margin-top: 0.25rem; color: #6b7280; font-size: 0.75rem;">Magnification at which diameter was measured</p>
+                    <p class="text-sm" style="margin-top: 0.25rem; color: #6b7280; font-size: 0.75rem;">Enter actual grain diameter in mm or μm (values &lt; 1.0 treated as mm, ≥ 1.0 as μm)</p>
                 </div>
             `;
         } else if (method === 'intercept') {
@@ -85,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     calculateBtn.addEventListener('click', function() {
         const method = methodSelect.value;
-        const M = parseFloat(document.getElementById('magnification').value) || 100;
+        const M = parseFloat(document.getElementById('magnification')?.value) || 100;
         let result = [];
 
         if (method === 'number-to-diameter') {
@@ -94,14 +87,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 result = [{ label: 'Error', value: 'Grain size number must be between 0 and 14' }];
             } else {
                 const N = Math.pow(2, G - 1);
-                const d_100 = 1 / Math.pow(2, (G - 1) / 2);
-                const d_M = d_100 * (100 / M);
+                const d_mm = 0.254 / Math.pow(2, (G - 1) / 2);
                 result = [
                     { label: 'ASTM Grain Size Number (G)', value: G.toFixed(1) },
                     { label: 'Grains per square inch at 100x', value: N.toFixed(0) },
-                    { label: 'Average grain diameter at 100x', value: `${d_100.toFixed(3)} mm` },
-                    { label: `Average grain diameter at ${M}x`, value: `${d_M.toFixed(3)} mm` },
-                    { label: `Average grain diameter at ${M}x`, value: `${(d_M * 1000).toFixed(1)} μm` },
+                    { label: 'Average grain diameter', value: `${d_mm.toFixed(4)} mm` },
+                    { label: 'Average grain diameter', value: `${(d_mm * 1000).toFixed(1)} μm` },
                 ];
             }
         } else if (method === 'diameter-to-number') {
@@ -109,9 +100,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isNaN(d) || d <= 0) {
                 result = [{ label: 'Error', value: 'Diameter must be greater than 0' }];
             } else {
-                const d_mm = d < 0.1 ? d / 1000 : d;
-                const d_100 = d_mm * (M / 100);
-                const G = 2 * (Math.log(1 / d_100) / Math.LN2) + 1;
+                const d_mm = d < 1.0 ? d : d / 1000;
+                const G = 2 * (Math.log(0.254 / d_mm) / Math.LN2) + 1;
                 const N = Math.pow(2, G - 1);
                 if (G < 0 || G > 14) {
                     result = [{ label: 'Error', value: 'Calculated grain size number is outside ASTM E112 range (0-14)' }];
@@ -119,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     result = [
                         { label: 'ASTM Grain Size Number (G)', value: G.toFixed(2) },
                         { label: 'Grains per square inch at 100x', value: N.toFixed(0) },
-                        { label: 'Average grain diameter at 100x', value: `${d_100.toFixed(3)} mm` },
+                        { label: 'Average grain diameter', value: `${d_mm.toFixed(4)} mm (${(d_mm * 1000).toFixed(1)} μm)` },
                     ];
                 }
             }
@@ -129,16 +119,15 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isNaN(count) || isNaN(length) || count <= 0 || length <= 0) {
                 result = [{ label: 'Error', value: 'Intercept count and length must be greater than 0' }];
             } else {
-                const L_M = length / count;
-                const L_100 = L_M * (100 / M);
-                const G = -3.2877 + 6.6439 * Math.log10(L_100);
+                const l_bar = (length / count) / M;
+                const G = -6.6439 * Math.log10(l_bar) - 3.2877;
                 const N = Math.pow(2, G - 1);
                 if (G < 0 || G > 14) {
                     result = [{ label: 'Error', value: 'Calculated grain size number is outside ASTM E112 range (0-14)' }];
                 } else {
                     result = [
                         { label: 'ASTM Grain Size Number (G)', value: G.toFixed(2) },
-                        { label: 'Mean intercept length at 100x', value: `${L_100.toFixed(3)} mm` },
+                        { label: 'Mean intercept length', value: `${l_bar.toFixed(4)} mm (${(l_bar * 1000).toFixed(1)} μm)` },
                         { label: 'Grains per square inch at 100x', value: N.toFixed(0) },
                     ];
                 }
@@ -156,11 +145,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (G < 0 || G > 14) {
                     result = [{ label: 'Error', value: 'Calculated grain size number is outside ASTM E112 range (0-14)' }];
                 } else {
-                    const avgDiameter_100x = 1 / Math.pow(2, (G - 1) / 2);
+                    const avgDiameter_mm = 0.254 / Math.pow(2, (G - 1) / 2);
                     result = [
                         { label: 'ASTM Grain Size Number (G)', value: G.toFixed(2) },
                         { label: 'Grains per square inch at 100x', value: N.toFixed(0) },
-                        { label: 'Average grain diameter at 100x', value: `${avgDiameter_100x.toFixed(3)} mm` },
+                        { label: 'Average grain diameter', value: `${avgDiameter_mm.toFixed(4)} mm (${(avgDiameter_mm * 1000).toFixed(1)} μm)` },
                     ];
                 }
             }

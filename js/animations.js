@@ -54,9 +54,9 @@
         // Immediately ensure all elements are hidden (prevent FOUC)
         animatedElements.forEach(element => {
             element.classList.add('animate-hidden');
-            // Force reflow to ensure styles are applied
-            void element.offsetHeight;
         });
+        // Single forced reflow to flush all style changes at once
+        void document.body.offsetHeight;
 
         // Check if Intersection Observer is supported
         if (!('IntersectionObserver' in window)) {

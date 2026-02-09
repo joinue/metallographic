@@ -848,6 +848,32 @@
     </div>
 </nav>
 
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
+
     <!-- Main Content -->
     <main class="tool-page">
         <div class="container-custom">
@@ -901,15 +927,20 @@
                 <div class="info-card">
                     <h3>About Grit Sizes</h3>
                     <p>
-                        Different standards use different numbering systems for abrasive grit sizes. 
-                        This converter helps you find equivalent sizes across standards.
+                        Different standards use different numbering systems for abrasive grit sizes.
+                        This converter helps you find approximate equivalents across standards.
                     </p>
                     <ul>
-                        <li><strong>FEPA:</strong> European standard (P-Grade system)</li>
-                        <li><strong>ANSI:</strong> American National Standards Institute</li>
-                        <li><strong>JIS:</strong> Japanese Industrial Standard</li>
-                        <li><strong>Micron:</strong> Particle size in micrometers</li>
+                        <li><strong>FEPA (P-Grade):</strong> ISO 6344 standard for coated abrasives. Micron values represent median particle size (d50).</li>
+                        <li><strong>ANSI/CAMI:</strong> US standard. Macrogrits (≤220) share the same designation numbers as FEPA P, though actual particle sizes differ slightly between standards. Above 220, ANSI uses a different numbering scale.</li>
+                        <li><strong>JIS:</strong> Japanese Industrial Standard R6001. Macrogrits use the same sieve-based numbering as FEPA/ANSI. Microgrits (above #220) diverge significantly in numbering.</li>
+                        <li><strong>Micron (μm):</strong> Particle size in micrometers per the FEPA P-grade specification.</li>
                     </ul>
+                    <p style="font-size:0.8125rem;color:#6b7280;margin-top:0.75rem;margin-bottom:0;">
+                        <strong>Note:</strong> Cross-standard equivalents above P220 are approximate and matched by closest particle size, not by grit number.
+                        These standards define particle size differently (sieve analysis vs. sedimentation vs. laser diffraction), so exact equivalence is not possible.
+                        Always verify critical specifications with your abrasive supplier.
+                    </p>
                 </div>
 
                 <div class="help-card">
@@ -917,7 +948,7 @@
                     <p>
                         Check out our comprehensive guides on grinding techniques and sample preparation.
                     </p>
-                    <a href="/guides.html" class="help-link">View Grinding Techniques Guide ></a>
+                    <a href="/guides/grinding-techniques.html" class="help-link">View Grinding Techniques Guide &rsaquo;</a>
                 </div>
             </div>
         </div>

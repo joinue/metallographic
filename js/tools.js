@@ -110,6 +110,17 @@
       }
     });
 
+    // Show/hide featured tool based on category
+    const featuredTool = document.querySelector('.featured-tool');
+    if (featuredTool) {
+      const featuredCategory = featuredTool.getAttribute('data-category');
+      if (currentCategory === 'all' || featuredCategory === currentCategory) {
+        featuredTool.classList.remove('hidden');
+      } else {
+        featuredTool.classList.add('hidden');
+      }
+    }
+
     // Show/hide empty state
     if (emptyState) {
       if (visibleCount === 0) {

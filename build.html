@@ -67,7 +67,7 @@
       "@type": "Organization",
       "name": "PACE Technologies",
       "url": "https://www.metallographic.com",
-      "logo": "https://www.metallographic.com/Images/pace-metallographic-logo.webp",
+      "logo": "https://www.metallographic.com/images/pace-metallographic-logo.webp",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+1-520-882-6598",
@@ -124,9 +124,6 @@
   <!-- Stylesheets -->
   <link rel="preload" href="/css/layouts/homepage-styles.css" as="style">
   <link rel="stylesheet" href="/css/base/styles.css">
-  <link rel="stylesheet" href="/css/components/navigation.css">
-  <link rel="stylesheet" href="/css/components/footer.css">
-  <link rel="stylesheet" href="/css/layouts/homepage.css">
   <link rel="stylesheet" href="/css/layouts/homepage-styles.css" media="all">
   <link rel="stylesheet" href="/css/pages/builder.css">
   <link rel="stylesheet" href="/css/utilities/media.css">
@@ -138,8 +135,7 @@
 <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
-<!-- Navigation -->
-<!--#include virtual="/navigation.html" -->
+<!-- No navigation - back button provides navigation -->
 
 <main id="main-content">
   <!-- Back Button -->
@@ -238,23 +234,6 @@
         <h2 class="builder-step-title">Sample Specifications</h2>
         
         <div class="builder-form-grid">
-          <!-- Material Selection Mode -->
-          <div class="builder-form-section">
-            <label class="builder-form-label">
-              Material Selection <span class="required">*</span>
-            </label>
-            <div class="builder-radio-group">
-              <label class="builder-radio-label">
-                <input type="radio" name="materialMode" value="general" checked>
-                <span>General Material Type</span>
-              </label>
-              <label class="builder-radio-label">
-                <input type="radio" name="materialMode" value="specific">
-                <span>Specific Material</span>
-              </label>
-            </div>
-          </div>
-
           <!-- Material Type -->
           <div class="builder-form-field">
             <label class="builder-form-label" for="material-type">
@@ -476,11 +455,11 @@
         </button>
         <button id="download-pdf" class="builder-primary-button">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
+            <polyline points="6 9 6 2 18 2 18 9"/>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+            <rect x="6" y="14" width="12" height="8"/>
           </svg>
-          Download PDF
+          Print Results
         </button>
         <button id="start-over" class="builder-secondary-button">
           Start Over
@@ -627,11 +606,8 @@
   </div>
 </main>
 
-<!-- Footer -->
-<!--#include virtual="/footer.html" -->
 
 <!-- Scripts -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 <script src="/js/scripts.js" defer></script>
 <script src="/js/builder.js" defer></script>
 
