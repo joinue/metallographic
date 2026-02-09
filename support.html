@@ -26,20 +26,20 @@
   <meta property="og:description" content="Submit a customer support request for help with your metallographic equipment. We're here to assist with questions, troubleshooting, and service needs.">
   <meta property="og:url" content="https://www.metallographic.com/support.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://www.metallographic.com/Images/pace-metallographic-logo.webp">
+  <meta property="og:image" content="https://www.metallographic.com/images/pace-metallographic-logo.webp">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Customer Support | PACE Technologies">
   <meta name="twitter:description" content="Submit a customer support request for help with your metallographic equipment. We're here to assist with questions, troubleshooting, and service needs.">
-  <meta name="twitter:image" content="https://www.metallographic.com/Images/pace-metallographic-logo.webp">
+  <meta name="twitter:image" content="https://www.metallographic.com/images/pace-metallographic-logo.webp">
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/Images/pt-favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/Images/pt-favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/Images/pt-favicon/favicon-16x16.png">
-  <link rel="manifest" href="/Images/pt-favicon/site.webmanifest">
-  <link rel="mask-icon" href="/Images/pt-favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pt-favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pt-favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pt-favicon/favicon-16x16.png">
+  <link rel="manifest" href="/images/pt-favicon/site.webmanifest">
+  <link rel="mask-icon" href="/images/pt-favicon/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 
@@ -47,10 +47,47 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "ContactPage",
     "name": "Customer Support",
     "url": "https://www.metallographic.com/support.html",
-    "description": "Submit a customer support request form for assistance with your metallographic equipment. Get help with questions, troubleshooting, and service needs."
+    "description": "Submit a customer support request form for assistance with your metallographic equipment. Get help with questions, troubleshooting, and service needs.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "PACE Technologies",
+      "url": "https://www.metallographic.com",
+      "telephone": "+1-520-882-6598",
+      "email": "pace@metallographic.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "telephone": "+1-520-882-6598",
+        "email": "pace@metallographic.com",
+        "availableLanguage": "English",
+        "hoursAvailable": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.metallographic.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Customer Support",
+          "item": "https://www.metallographic.com/support.html"
+        }
+      ]
+    }
   }
   </script>
 
@@ -59,179 +96,13 @@
   <link rel="preconnect" href="https://www.google-analytics.com">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="/css/base/styles.css">
-  <link rel="stylesheet" href="/css/components/navigation.css">
-  <link rel="stylesheet" href="/css/components/footer.css">
-  <link rel="stylesheet" href="/css/components/forms.css">
-  <link rel="stylesheet" href="/css/pages/support-page.css">
-  <link rel="stylesheet" href="/css/utilities/animations.css">
+  <link rel="stylesheet" href="/css/base/styles.css" as="style">
+  <link rel="stylesheet" href="/css/components/navigation.css" as="style">
+  <link rel="stylesheet" href="/css/components/footer.css" as="style">
+  <link rel="stylesheet" href="/css/components/forms.css" as="style">
+  <link rel="stylesheet" href="/css/pages/support-page.css" as="style">
+  <link rel="stylesheet" href="/css/utilities/animations.css" as="style">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
-  <!-- Service Card Styles (from services page) -->
-  <style>
-    /* Service card styles */
-    .service-card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-      transition: all 0.3s;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .service-card:hover {
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      border-color: #d1d5db;
-    }
-    
-    .service-card-icon {
-      width: 3rem;
-      height: 3rem;
-      flex-shrink: 0;
-      background: linear-gradient(to bottom right, #dbeafe, #eff6ff);
-      border-radius: 0.5rem;
-      padding: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    }
-    
-    .service-card-icon svg {
-      width: 1.5rem;
-      height: 1.5rem;
-      color: #2563eb;
-    }
-    
-    .service-card-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    
-    .service-card h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #111827;
-      margin: 0;
-    }
-    
-    .service-card:hover h2 {
-      color: #2563eb;
-    }
-    
-    .service-card p {
-      color: #4b5563;
-      margin-bottom: 1rem;
-      flex-grow: 1;
-    }
-    
-    .service-card-footer {
-      display: flex;
-      align-items: center;
-      color: #2563eb;
-      font-weight: 600;
-      margin-top: auto;
-      gap: 0.25rem;
-    }
-    
-    /* Service offering card styles */
-    .service-offerings-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-    
-    @media (min-width: 768px) {
-      .service-offerings-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    
-    .service-offering-card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-    }
-    
-    .service-offering-image {
-      width: 100%;
-      height: 16rem;
-      margin-bottom: 1rem;
-      border-radius: 0.5rem;
-      overflow: hidden;
-      background: #f3f4f6;
-    }
-    
-    .service-offering-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .service-offering-card h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: 0.75rem;
-    }
-    
-    .service-offering-card p {
-      color: #374151;
-      margin-bottom: 1rem;
-    }
-    
-    .service-offering-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    
-    .service-offering-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      font-size: 0.875rem;
-      color: #374151;
-    }
-    
-    .service-offering-list svg {
-      width: 1rem;
-      height: 1rem;
-      color: #2563eb;
-      flex-shrink: 0;
-      margin-top: 0.25rem;
-    }
-    
-    .btn-service-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background: #2563eb;
-      color: white;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background-color 0.2s;
-    }
-    
-    .btn-service-primary:hover {
-      background: #1d4ed8;
-      color: white;
-    }
-  </style>
 
   <!-- Google Tag Manager -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQ62KENYY5"></script>
@@ -484,7 +355,7 @@
                         </ul>
                     </li>
                     <li class="has-submenu">
-                        <a href="#">Surface Prep & Analysis</a>
+                        <a href="/metallographic-consumables/etching.html">Surface Prep & Analysis</a>
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Surface Prep & Analysis submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
@@ -871,7 +742,7 @@
                             <li><a href="/metallographic-consumables/final-polishing.html"><span>Final Polishing</span></a></li>
                         </ul>
                     </li>
-                    <li><a><span>Surface Prep & Analysis
+                    <li><a href="/metallographic-consumables/etching.html"><span>Surface Prep & Analysis
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg>
@@ -1071,7 +942,7 @@
 
 
 <div class="first-container">
-    <main>
+    <main id="main-content">
       <section class="support-section">
         <div class="support-container">
   
@@ -1109,9 +980,9 @@
 
 
           <!-- Support Form -->
-          <div class="support-form animate-on-scroll" id="support-form" style="margin-top: 3rem;">
+          <div class="support-form" id="support-form">
             <h2>Submit a Support Request</h2>
-            <p style="font-size: 1rem; color: #4b5563; margin-bottom: 1.5rem; line-height: 1.6;">
+            <p class="support-form-description">
               Please fill out the form below with details about your question or issue. Our customer support team will respond as soon as possible.
             </p>
             <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
@@ -1125,9 +996,9 @@
           </div>
 
           <!-- Contact Information -->
-          <div class="container-custom" style="margin-top: 4rem; margin-bottom: 4rem;">
+          <div class="container-custom support-content-block">
             <h2 class="section-title" data-animate="up">Get in Touch</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div class="support-contact-grid-layout">
               <div class="service-card" data-animate="up" data-animate-delay="100">
                 <div class="service-card-header">
                   <div class="service-card-icon">
@@ -1140,7 +1011,7 @@
                 </div>
                 <p>For technical assistance and support requests - we'll get back to you promptly</p>
                 <div class="service-card-footer">
-                  <a href="mailto:pace@metallographic.com" style="color: inherit; text-decoration: none;">pace@metallographic.com</a>
+                  <a href="mailto:pace@metallographic.com">pace@metallographic.com</a>
                 </div>
               </div>
 
@@ -1155,23 +1026,23 @@
                 </div>
                 <p>Monday - Friday, 8:00 AM - 5:00 PM MST - speak directly with our team</p>
                 <div class="service-card-footer">
-                  <a href="tel:+15208826598" style="color: inherit; text-decoration: none;">+1 (520) 882-6598</a>
+                  <a href="tel:+15208826598">+1 (520) 882-6598</a>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- KeepPACE Support Program -->
-          <div class="container-custom" style="margin-top: 4rem; margin-bottom: 4rem;">
-            <h2 class="section-title" data-animate="up">KeepPACE Support Program</h2>
-            <div class="service-offerings-grid" style="margin-top: 2rem;">
+          <!-- Services & Support Programs -->
+          <div class="container-custom support-content-block">
+            <h2 class="section-title" data-animate="up">Services & Support Programs</h2>
+            <div class="service-offerings-grid support-services-grid">
               <div class="service-offering-card" data-animate="up" data-animate-delay="200">
                 <div class="service-offering-image">
                   <img src="/images/trainings-distributors/QS5.jpg" alt="PACE Technologies training and support services">
                 </div>
                 <h3>KeepPACE Service Plans</h3>
                 <p>
-                  Our <strong>KeepPACE</strong> program offers flexible service plans designed to meet the needs of any lab, from basic annual check-ins to comprehensive coverage with priority support and personalized service from our experienced team.
+                  Our <strong>KeepPACE</strong> program offers flexible service plans designed to meet the needs of any lab, from basic annual check-ins to comprehensive coverage with priority support.
                 </p>
                 <ul class="service-offering-list">
                   <li>
@@ -1195,16 +1066,9 @@
                     </svg>
                     <span>Dedicated technicians and personalized service</span>
                   </li>
-                  <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                      <polyline points="22 4 12 14.01 9 11.01"/>
-                    </svg>
-                    <span>Spare parts discounts and extended warranties</span>
-                  </li>
                 </ul>
-                <div style="margin-top: 1.5rem;">
-                  <a href="/keeppace.html" class="btn-service-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                <div class="support-cta-wrapper">
+                  <a href="/keeppace.html" class="btn-service-primary">
                     <span>Learn More About KeepPACE</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -1212,16 +1076,7 @@
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- Additional Services -->
-          <div class="container-custom" style="margin-top: 4rem; margin-bottom: 4rem;">
-            <h2 class="section-title" data-animate="up">Additional Services</h2>
-            <p class="section-text" style="margin-bottom: 2rem;" data-animate="up">
-              In addition to customer support, we offer professional services that you can purchase as needed. Whether you're setting up new equipment, training your team, or need maintenance services, we provide expert assistance tailored to your schedule and requirements.
-            </p>
-            <div class="service-offerings-grid">
               <div class="service-offering-card" data-animate="up" data-animate-delay="250">
                 <div class="service-offering-image">
                   <img src="/images/trainings-distributors/QS7.jpg" alt="On-site equipment installation">
@@ -1242,8 +1097,8 @@
                 </p>
               </div>
             </div>
-            <div style="margin-top: 2rem; text-align: center;">
-              <a href="/services.html" class="btn-service-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+            <div class="support-cta-centered">
+              <a href="/services.html" class="btn-service-primary">
                 <span>View All Services</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -1258,9 +1113,7 @@
     </main>
   </div>
 
-  <br><br>
-
-  <a href="#top" class="return-to-top" aria-label="Return to top">
+  <a href="#top" class="return-to-top support-main-spacer" aria-label="Return to top">
       <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
           <path d="M12 4l-8 8h16z"></path>
       </svg>
@@ -1432,16 +1285,6 @@
             <a href="/privacy.html" class="footer-bottom-link">Privacy</a>
             <a href="/terms.html" class="footer-bottom-link">Terms</a>
             <a href="/support/site-map.html" class="footer-bottom-link">Sitemap</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <script>
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-  </script>
-</footer>
           </div>
         </div>
       </div>

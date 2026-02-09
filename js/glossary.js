@@ -548,7 +548,7 @@
     const letterSections = document.querySelectorAll('.glossary-letter-section');
     if (letterSections.length === 0) return;
 
-    const scrollPosition = window.scrollY + 150; // Offset for header
+    const scrollPosition = window.scrollY + window.innerHeight * 0.55;
     let activeLetter = null;
 
     letterSections.forEach(section => {

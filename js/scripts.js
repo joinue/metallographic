@@ -315,8 +315,6 @@ document.addEventListener("DOMContentLoaded", () => {
       button.setAttribute("aria-expanded", !isExpanded);
       details.setAttribute("aria-hidden", isExpanded ? "true" : "false");
       details.classList.toggle("active");
-
-      console.log(`Button clicked. Details are now ${!isExpanded ? "visible" : "hidden"}.`);
     });
   });
 
@@ -399,15 +397,12 @@ window.addEventListener("scroll", () => {
         returnToTop.style.visibility = "hidden";
     }
 
-    // Recalculate footer position on each scroll for accuracy
+    // Use cached footer position (updated on resize) to avoid layout thrashing
     if (footer) {
-        const currentFooterTop = footer.getBoundingClientRect().top + window.scrollY;
-        const currentWindowHeight = window.innerHeight;
-        
         // Smart positioning: stop above footer but maintain visibility
-        if (scrollPosition + currentWindowHeight > currentFooterTop) {
+        if (scrollPosition + windowHeight > footerOffset) {
             // Calculate how much of the footer is visible
-            const footerVisible = (scrollPosition + currentWindowHeight) - currentFooterTop;
+            const footerVisible = (scrollPosition + windowHeight) - footerOffset;
             const newBottom = Math.max(30, footerVisible + distanceFromFooter);
             returnToTop.style.bottom = `${newBottom}px`;
         } else {

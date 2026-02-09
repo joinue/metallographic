@@ -43,10 +43,11 @@ const data = [
     { title: "TERAPRESS TP-Tank Mounting Press", description: "TERAPRESS recirculation and cooling tank with pump for mounting press operations.", link: "/metallographic-equipment/compression-mounting/tp-tank.html", keywords: "TERAPRESS TP-Tank mounting press compression mounting tank recirculation cooling pump" },
     
     // Castable Mounting Equipment
-    { title: "Castable Mounting Equipment", description: "Advanced castable mounting systems for sample preparation including vacuum impregnation and UV curing.", link: "/metallographic-equipment/castable-mounting.html", keywords: "castable mounting vacuum impregnation UV curing LSSA-011 UVMOUNT THETAMOUNT sample preparation mounting" },
-    { title: "LSSA-011 Vacuum Mounting System", description: "Vacuum mounting systems that improve sample integrity during metallographic preparation.", link: "/metallographic-equipment/castable-mounting/lssa-011.html", keywords: "LSSA-011 vacuum mounting systems sample integrity vacuum impregnation castable mounting vacuum" },
-    { title: "UVMOUNT UV Curing System", description: "Efficient UV curing systems for rapid processing in metallographic labs.", link: "/metallographic-equipment/castable-mounting/uvmount.html", keywords: "UVMOUNT UV curing systems rapid processing UV curing castable mounting" },
-    { title: "THETAMOUNT Mounting System", description: "Advanced mounting system for specialized sample preparation applications.", link: "/metallographic-equipment/castable-mounting/thetamount.html", keywords: "THETAMOUNT mounting system specialized sample preparation castable mounting" },
+    { title: "Castable Mounting Equipment", description: "Advanced castable mounting systems for sample preparation including vacuum impregnation, pressure mounting, and UV curing.", link: "/metallographic-equipment/castable-mounting.html", keywords: "castable mounting vacuum impregnation UV curing TeraVAC TeraUV TeraCOMP sample preparation mounting" },
+    { title: "TeraVAC Vacuum Mounting System", description: "Castable vacuum impregnation chamber that improves sample integrity during metallographic preparation.", link: "/metallographic-equipment/castable-mounting/teravac.html", keywords: "TeraVAC vacuum mounting systems sample integrity vacuum impregnation castable mounting vacuum chamber" },
+    { title: "TeraVAC Pro Programmable Vacuum Impregnation Chamber", description: "Automated programmable vacuum impregnation chamber for advanced castable mounting applications.", link: "/metallographic-equipment/castable-mounting/teravac-pro.html", keywords: "TeraVAC Pro vacuum impregnation programmable automated castable mounting vacuum chamber" },
+    { title: "TeraCOMP Pressure Mounting Machine", description: "Pressure mounting machine for castable mounting applications requiring controlled compression.", link: "/metallographic-equipment/castable-mounting/teracomp.html", keywords: "TeraCOMP pressure mounting machine castable mounting pressure compression" },
+    { title: "TeraUV UV Curing System", description: "Ultraviolet mounting curing system for rapid processing in metallographic labs.", link: "/metallographic-equipment/castable-mounting/terauv.html", keywords: "TeraUV UV curing systems rapid processing UV curing castable mounting ultraviolet" },
     
     // Grinding & Polishing Equipment
     { title: "Grinding & Polishing Equipment", description: "Complete range of grinding and polishing equipment for metallographic sample preparation.", link: "/metallographic-equipment/grinding-polishing.html", keywords: "grinding polishing equipment PENTA NANO FEMTO ATTO GIGA RC ZETA hand belt grinders automated polishing machines" },
@@ -668,7 +669,8 @@ function getCategoryInfo(url, item = null) {
 
 function highlightCustomText(text, query) {
     if (!query) return text;
-    const regex = new RegExp(`(${query})`, 'gi');
+    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escaped})`, 'gi');
     return text.replace(regex, '<mark>$1</mark>');
 }
 

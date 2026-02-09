@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Side Navigation - Fixed Viewport Edge Menu
+   Shared component for equipment.html and consumables.html
+   ========================================================================== */
+
+.side-nav {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  z-index: 1000;
+  padding-left: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.side-nav.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: none;
+  border-radius: 0 0.5rem 0.5rem 0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.side-nav-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-bottom: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.side-nav-link:last-child {
+  border-bottom: none;
+}
+
+.side-nav-link:hover {
+  background: #f3f4f6;
+  color: #2563eb;
+}
+
+.side-nav-link.active {
+  background: #eff6ff;
+  color: #2563eb;
+  border-left: 3px solid #2563eb;
+}
+
+/* Hide when viewport is too narrow for side nav + 1440px container + margins */
+@media (max-width: 1440px) {
+  .side-nav {
+    display: none;
+  }
+}

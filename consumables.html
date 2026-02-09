@@ -15,7 +15,6 @@
 
   <!-- Google Tag Manager - GA4 + Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQ62KENYY5"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1066794256"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -34,7 +33,7 @@
   <meta name="norton-safeweb-site-verification" content="kw254olmyzhm98ttscnebx59npy7ji28spxv77ktnnqwpg2entz0hsfozhba0gzvjvrfj6z0-c00djzn-iq1hw-z1vdcna8ug093xtjit61oop1s26erotk-0ruemld5">
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Browse metallographic consumables from PACE Technologies including polishing cloths, diamond suspensions, mounting resins, cutting blades, and grinding papers for precise sample preparation.">
+  <meta name="description" content="Browse PACE Technologies' metallographic consumables: polishing cloths, diamond suspensions, mounting resins, cutting blades, and grinding papers.">
   <meta name="keywords" content="metallographic consumables, polishing cloths, diamond suspensions, grinding papers, mounting resins, abrasive blades, sample preparation supplies, metallography materials, PACE Technologies consumables">
 
   <!-- Open Graph Meta Tags -->
@@ -66,7 +65,7 @@
       "@type": "Organization",
       "name": "PACE Technologies",
       "url": "https://www.metallographic.com",
-      "logo": "https://www.metallographic.com/Images/pace-metallographic-logo.webp",
+      "logo": "https://www.metallographic.com/images/pace-metallographic-logo.webp",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+1-520-882-6598",
@@ -92,18 +91,86 @@
     }
   </script>
 
-  <!-- Stylesheets -->
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.metallographic.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Consumables",
+          "item": "https://www.metallographic.com/consumables.html"
+        }
+      ]
+    }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What consumables do I need for metallographic sample preparation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A complete consumables set includes sectioning blades and cutting fluids, mounting powders or resins, grinding discs and papers, polishing pads with diamond suspensions, final polishing cloths with colloidal silica, and etching reagents. The specific products depend on your material type and preparation requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between polycrystalline and monocrystalline diamond?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Polycrystalline diamond has multiple crystal facets that break down during use, continuously exposing fresh cutting edges for consistent material removal. Monocrystalline diamond is a single crystal with superior hardness, ideal for hard materials and applications requiring the finest surface finish with minimal subsurface damage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I choose the right mounting material?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Compression mounting powders work best for routine samples that can tolerate heat and pressure, providing excellent edge retention. Castable resins are better for heat-sensitive, fragile, or irregularly shaped specimens. Vacuum impregnation is recommended for porous materials or when filling cracks and voids is critical for analysis."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <!-- Preload Hero Image -->
+  <link rel="preload" as="image" href="/images/consumables/sectioning/abrasive-cutting.webp" fetchpriority="high">
+
+  <!-- Preload Critical CSS -->
+  <link rel="preload" href="/css/components/navigation.css" as="style">
   <link rel="preload" href="/css/layouts/homepage-styles.css" as="style">
-  <link rel="stylesheet" href="/css/base/styles.css" as="style">
-  <link rel="stylesheet" href="/css/components/navigation.css">
-  <link rel="stylesheet" href="/css/components/footer.css">
-  <link rel="stylesheet" href="/css/layouts/homepage.css">
+
+  <!-- Critical CSS - load synchronously for above-the-fold content -->
+  <link rel="stylesheet" href="/css/base/styles.css">
+  <link rel="stylesheet" href="/css/components/navigation.css" media="all">
   <link rel="stylesheet" href="/css/layouts/homepage-styles.css" media="all">
-  <link rel="stylesheet" href="/css/pages/legal.css">
-  <link rel="stylesheet" href="/css/utilities/media.css">
-  <link rel="stylesheet" href="/css/pages/support.css">
-  <link rel="stylesheet" href="/css/pages/machine.css">
-  <link rel="stylesheet" href="/css/utilities/animations.css">
+  <link rel="stylesheet" href="/css/components/side-nav.css">
+
+  <!-- Non-critical CSS - load asynchronously -->
+  <link rel="stylesheet" href="/css/components/footer.css" media="print" onload="this.media='all'; this.onload=null;">
+  <link rel="stylesheet" href="/css/layouts/homepage.css" media="print" onload="this.media='all'; this.onload=null;">
+  <link rel="stylesheet" href="/css/utilities/animations.css" media="print" onload="this.media='all'; this.onload=null;">
+
+  <!-- Noscript fallbacks for async CSS -->
+  <noscript>
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/layouts/homepage.css">
+    <link rel="stylesheet" href="/css/utilities/animations.css">
+  </noscript>
 
   <!-- Inline CSS for shop arrow icon and consumables page styles -->
   <style>
@@ -212,90 +279,107 @@
       }
     }
     
-    /* Side Navigation Menu - Fixed on Viewport Edge */
-    .side-nav {
-      position: fixed;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 200px;
-      z-index: 1000;
-      padding-left: 1rem;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
+    /* Timeline content styles */
+    .timeline-container {
+      max-width: 90rem;
     }
-    
-    .side-nav.visible {
-      opacity: 1;
-      visibility: visible;
+
+    .timeline-video img {
+      width: 100%;
+      height: auto;
     }
-    
-    .side-nav-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      background: #ffffff;
+
+    .timeline-step-text {
+      margin-bottom: 1.25rem;
+      line-height: 1.65;
+    }
+
+    .return-to-top {
+      margin-top: var(--spacing-2xl);
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 3rem 0 2rem;
+    }
+
+    .faq-heading {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 50rem;
+      margin: 0 auto;
+    }
+
+    .faq-item {
       border: 1px solid #e5e7eb;
-      border-left: none;
-      border-radius: 0 0.5rem 0.5rem 0;
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      border-radius: 0.5rem;
       overflow: hidden;
+      transition: box-shadow 0.2s ease;
     }
-    
-    .side-nav-link {
-      display: block;
-      padding: 0.75rem 1rem;
-      color: #4b5563;
-      text-decoration: none;
-      font-size: 0.875rem;
+
+    .faq-item[open] {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-item summary {
+      padding: 1rem 1.25rem;
       font-weight: 500;
-      border-bottom: 1px solid #e5e7eb;
-      transition: all 0.2s ease;
+      color: #1e293b;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    
-    .side-nav-link:last-child {
-      border-bottom: none;
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
     }
-    
-    .side-nav-link:hover {
-      background: #f3f4f6;
-      color: #2563eb;
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: #6b7280;
+      flex-shrink: 0;
+      margin-left: 1rem;
     }
-    
-    @media (max-width: 1200px) {
-      .side-nav {
-        display: none;
-      }
+
+    .faq-item[open] summary::after {
+      content: '\2212';
+    }
+
+    .faq-item summary:hover {
+      background: #f9fafb;
+    }
+
+    .faq-item p {
+      padding: 0 1.25rem 1rem;
+      color: #4b5563;
+      line-height: 1.65;
+      margin: 0;
     }
   </style>
 
 </head>
 
+<body>
+
+<!-- Skip to Main Content -->
+<a href="#main-content" class="skip-to-main">Skip to main content</a>
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
-        <!-- Notice Banner
-        <div class="notice-banner" role="alert">
-            <div class="notice-content">
-                <svg class="notice-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                </svg>
-                <p>
-                    We've updated our site! Please clear your browser cache for the best experience. Also, our old shop pages are now retired. Please shop online at 
-                    <strong><a href="https://shop.metallographic.com" class="notice-link" target="_blank" rel="noopener noreferrer">shop.metallographic.com</a></strong>.
-                  </p>
-                  
-                                  <button class="notice-close" aria-label="Close notice">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-        </div> -->
         <div class="logo-container">
             <a href="/">
                 <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
@@ -504,7 +588,7 @@
                         </ul>
                     </li>
                     <li class="has-submenu">
-                        <a href="#">Surface Prep & Analysis</a>
+                        <a href="/metallographic-consumables/etching.html">Surface Prep & Analysis</a>
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Surface Prep & Analysis submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
@@ -891,7 +975,7 @@
                             <li><a href="/metallographic-consumables/final-polishing.html"><span>Final Polishing</span></a></li>
                         </ul>
                     </li>
-                    <li><a><span>Surface Prep & Analysis
+                    <li><a href="/metallographic-consumables/etching.html"><span>Surface Prep & Analysis
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg>
@@ -1075,15 +1159,12 @@
     </div>
 </nav>
 
-<body>
-
 <!-- Quote Request Modal -->
 <div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
     <div class="modal-content">
         <button class="close" aria-label="Close">&times;</button>
         <section class="quote-request" aria-labelledby="quote-request-heading">
             <div class="quote-form-container">
-                <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
             </div>
         </section>
@@ -1114,7 +1195,7 @@
           Essential consumables for every stage of sample preparation, from sectioning blades and mounting materials through grinding discs, polishing pads, and analysis supplies.
         </p>
         <!-- Quick Navigation Menu - Integrated into Hero -->
-        <nav class="hero-quick-nav" role="navigation" aria-label="Quick Navigation">
+        <nav class="hero-quick-nav" aria-label="Quick Navigation">
           <ul class="hero-quick-nav-list" id="navList">
             <li><a href="#sectioning" class="hero-quick-nav-link" data-category="sectioning">Sectioning</a></li>
             <li><a href="#compression-mounting" class="hero-quick-nav-link" data-category="mounting">Mounting</a></li>
@@ -1132,7 +1213,7 @@
             
 <!-- MAIN -->
 
-<div class="first-container" style="background-color: transparent;">
+<div class="first-container">
     <main id="main-content">
 
         <!-- Side Navigation Menu - Outside Content Area -->
@@ -1148,21 +1229,23 @@
           </ul>
         </nav>
 
-        <section class="timeline-section" style="background-color: transparent;">
+        <section class="timeline-section">
             <div class="container-custom">
+                <h2 class="timeline-intro">Browse our full range of metallographic consumables, organized by preparation step.</h2>
+
                 <!-- Timeline Container -->
-                <div class="timeline-container" style="max-width: 90rem;">
+                <div class="timeline-container">
                     <!-- Timeline Steps -->
                     <div class="timeline-steps">
                         <!-- Vertical Timeline Line -->
                         <div class="timeline-line"></div>
-                        
+
                         <!-- Step 1: Sectioning -->
                         <div class="timeline-step" id="sectioning" data-animate="right" data-animate-delay="100">
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/Consumables/sectioning/abrasive-cutting.webp" alt="Sectioning consumables for metallographic sample preparation" loading="lazy" width="800" height="600" style="width: 100%; height: auto;">
+                                    <img src="/images/consumables/sectioning/abrasive-cutting.webp" alt="Sectioning consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1170,8 +1253,8 @@
                                             <div class="timeline-step-number">1</div>
                                             <h3 class="timeline-step-title">Sectioning</h3>
                                         </div>
-                                        <p class="timeline-step-text" style="margin-bottom: 1.25rem; line-height: 1.65;">
-                                            Clean, precise cuts for metallographic analysis. Abrasive blades for hardened steels and non-ferrous alloys with minimal edge deformation. Wafering blades for delicate materials and composites. Cutting fluids with corrosion inhibitors reduce friction and thermal effects, extending blade life. See our <a href="https://www.metallographic.com/equipment.html#sectioning" target="_blank" rel="noopener">Sectioning Equipment</a>.
+                                        <p class="timeline-step-text">
+                                            Clean, precise cuts for metallographic analysis. Abrasive blades for hardened steels and non-ferrous alloys with minimal edge deformation. Wafering blades for delicate materials and composites. Cutting fluids with corrosion inhibitors reduce friction and thermal effects, extending blade life. See our <a href="/equipment.html#sectioning">Sectioning Equipment</a>.
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/sectioning/abrasive-cutting.html" class="timeline-link-card">
@@ -1179,7 +1262,7 @@
                                                     <div class="timeline-link-title">Abrasive Sectioning</div>
                                                     <div class="timeline-link-subtitle">Cutting blades and fluids</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1188,7 +1271,7 @@
                                                     <div class="timeline-link-title">Precision Wafering</div>
                                                     <div class="timeline-link-subtitle">Diamond blades and accessories</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1203,7 +1286,7 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/Consumables/mounting/compression mounting/compression-mounting-cover.webp" alt="Mounting consumables for metallographic sample preparation" loading="lazy" width="800" height="600" style="width: 100%; height: auto;">
+                                    <img src="/images/consumables/mounting/compression mounting/compression-mounting-cover.webp" alt="Mounting consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1211,8 +1294,8 @@
                                             <div class="timeline-step-number">2</div>
                                             <h3 class="timeline-step-title">Mounting</h3>
                                         </div>
-                                        <p class="timeline-step-text" style="margin-bottom: 1.25rem; line-height: 1.65;">
-                                            Specimen encapsulation with compression mounting powders and resins for high-pressure applications with strong edge retention. Castable mounting materials for sensitive samples offer flexibility and clarity. See our <a href="https://www.metallographic.com/equipment.html#mounting" target="_blank" rel="noopener">Mounting Equipment</a>.
+                                        <p class="timeline-step-text">
+                                            Specimen encapsulation with compression mounting powders and resins for high-pressure applications with strong edge retention. Castable mounting materials for sensitive samples offer flexibility and clarity. See our <a href="/equipment.html#mounting">Mounting Equipment</a>.
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/mounting/compression.html" class="timeline-link-card">
@@ -1220,7 +1303,7 @@
                                                     <div class="timeline-link-title">Compression Mounting</div>
                                                     <div class="timeline-link-subtitle">Powders and resins</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1229,7 +1312,7 @@
                                                     <div class="timeline-link-title">Castable Mounting</div>
                                                     <div class="timeline-link-subtitle">Vacuum and pressure materials</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1244,7 +1327,7 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/Consumables/grinding-lapping/grinding-lapping-cover.webp" alt="Grinding and lapping consumables for metallographic sample preparation" loading="lazy" width="800" height="600" style="width: 100%; height: auto;">
+                                    <img src="/images/consumables/grinding-lapping/grinding-lapping-cover.webp" alt="Grinding and lapping consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1252,8 +1335,8 @@
                                             <div class="timeline-step-number">3</div>
                                             <h3 class="timeline-step-title">Grinding / Lapping</h3>
                                         </div>
-                                        <p class="timeline-step-text" style="margin-bottom: 1.25rem; line-height: 1.65;">
-                                            Consistent surface finish and flatness for reliable analysis. Grinding discs and lapping films remove material efficiently with minimal surface damage across soft metals to hard ceramics. Durable, repeatable performance. See our <a href="/Metallographic-Equipment/grinding-polishing.html" target="_blank" rel="noopener">Grinding & Polishing Equipment</a>.
+                                        <p class="timeline-step-text">
+                                            Consistent surface finish and flatness for reliable analysis. Grinding discs and lapping films remove material efficiently with minimal surface damage across soft metals to hard ceramics. Durable, repeatable performance. See our <a href="/metallographic-equipment/grinding-polishing.html">Grinding & Polishing Equipment</a>.
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/grinding/abrasive-grinding.html" class="timeline-link-card">
@@ -1261,7 +1344,7 @@
                                                     <div class="timeline-link-title">Abrasive Grinding</div>
                                                     <div class="timeline-link-subtitle">Grinding discs and papers</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1270,7 +1353,7 @@
                                                     <div class="timeline-link-title">Diamond Grinding</div>
                                                     <div class="timeline-link-subtitle">Diamond discs and pads</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1279,7 +1362,7 @@
                                                     <div class="timeline-link-title">Composite Disks</div>
                                                     <div class="timeline-link-subtitle">Multi-step preparation</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1288,7 +1371,7 @@
                                                     <div class="timeline-link-title">Lapping Films</div>
                                                     <div class="timeline-link-subtitle">Precision lapping materials</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1297,7 +1380,7 @@
                                                     <div class="timeline-link-title">Belts, Rolls & Powders</div>
                                                     <div class="timeline-link-subtitle">Additional grinding supplies</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1312,7 +1395,7 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/Consumables/rough polishing/rough-polishing-cover.webp" alt="Rough polishing consumables for metallographic sample preparation" loading="lazy" width="800" height="600" style="width: 100%; height: auto;">
+                                    <img src="/images/consumables/rough polishing/rough-polishing-cover.webp" alt="Rough polishing consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1320,8 +1403,8 @@
                                             <div class="timeline-step-number">4</div>
                                             <h3 class="timeline-step-title">Rough Polishing</h3>
                                         </div>
-                                        <p class="timeline-step-text" style="margin-bottom: 1.25rem; line-height: 1.65;">
-                                            Initial surface refinement with material removal and smoothing. Polishing pads and diamond suspensions produce consistent results and uniform finish across specimen types. See our <a href="/Metallographic-Equipment/grinding-polishing.html" target="_blank" rel="noopener">Grinding & Polishing Equipment</a>.
+                                        <p class="timeline-step-text">
+                                            Initial surface refinement with material removal and smoothing. Polishing pads and diamond suspensions produce consistent results and uniform finish across specimen types. See our <a href="/metallographic-equipment/grinding-polishing.html">Grinding & Polishing Equipment</a>.
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/polishing/polishing-pads.html" class="timeline-link-card">
@@ -1329,7 +1412,7 @@
                                                     <div class="timeline-link-title">Polishing Pads</div>
                                                     <div class="timeline-link-subtitle">Rough polishing cloths</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1338,7 +1421,7 @@
                                                     <div class="timeline-link-title">Magnetic System</div>
                                                     <div class="timeline-link-subtitle">Magnetic polishing pads</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1347,7 +1430,7 @@
                                                     <div class="timeline-link-title">PC Diamond</div>
                                                     <div class="timeline-link-subtitle">Polycrystalline diamond</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1356,7 +1439,7 @@
                                                     <div class="timeline-link-title">MA Diamond</div>
                                                     <div class="timeline-link-subtitle">Monocrystalline diamond</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1371,7 +1454,7 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/Consumables/final polishing & analysis/final polishing & analysis-cover.webp" alt="Final polishing consumables for metallographic sample preparation" loading="lazy" width="800" height="600" style="width: 100%; height: auto;">
+                                    <img src="/images/consumables/final polishing & analysis/final polishing & analysis-cover.webp" alt="Final polishing consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1379,8 +1462,8 @@
                                             <div class="timeline-step-number">5</div>
                                             <h3 class="timeline-step-title">Final Polishing</h3>
                                         </div>
-                                        <p class="timeline-step-text" style="margin-bottom: 1.25rem; line-height: 1.65;">
-                                            Ultra-smooth surface finishes for accurate analysis. Polishing cloths and colloidal silica suspensions produce high surface clarity and defect-free results. Colloidal silica's uniform particle size improves microstructural visibility. See our <a href="https://www.metallographic.com/metallographic-equipment/grinding-polishing/giga.html" target="_blank" rel="noopener">GIGA Vibratory Polisher</a>.
+                                        <p class="timeline-step-text">
+                                            Ultra-smooth surface finishes for accurate analysis. Polishing cloths and colloidal silica suspensions produce high surface clarity and defect-free results. Colloidal silica's uniform particle size improves microstructural visibility. See our <a href="/metallographic-equipment/grinding-polishing/giga.html">GIGA Vibratory Polisher</a>.
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/final-polishing.html" class="timeline-link-card">
@@ -1388,7 +1471,7 @@
                                                     <div class="timeline-link-title">Final Polishing Consumables</div>
                                                     <div class="timeline-link-subtitle">Polishing cloths and suspensions</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1403,7 +1486,7 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/Consumables/final polishing & analysis/etching/etching.webp" alt="Cleaning and etching consumables for metallographic sample preparation" loading="lazy" width="800" height="600" style="width: 100%; height: auto;">
+                                    <img src="/images/consumables/final polishing & analysis/etching/etching.webp" alt="Cleaning and etching consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1411,7 +1494,7 @@
                                             <div class="timeline-step-number">6</div>
                                             <h3 class="timeline-step-title">Cleaning & Etching</h3>
                                         </div>
-                                        <p class="timeline-step-text" style="margin-bottom: 1.25rem; line-height: 1.65;">
+                                        <p class="timeline-step-text">
                                             Better contrast and surface clarity. Etching solutions and cleaning agents reveal microstructural features while preserving specimen integrity. Removes surface contaminants and improves image contrast. <a href="https://shop.metallographic.com/collections/etching-and-cleaning" target="_blank" rel="noopener">Shop Etching & Cleaning Supplies</a>
                                         </p>
                                         <div class="timeline-links-grid">
@@ -1420,7 +1503,7 @@
                                                     <div class="timeline-link-title">Cleaning</div>
                                                     <div class="timeline-link-subtitle">Cleaning agents and supplies</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1429,7 +1512,7 @@
                                                     <div class="timeline-link-title">Etching</div>
                                                     <div class="timeline-link-subtitle">Etching solutions and reagents</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1444,7 +1527,7 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/Consumables/final polishing & analysis/hardness testing/hardness testing.png" alt="Hardness testing consumables for metallographic sample preparation" loading="lazy" width="800" height="600" style="width: 100%; height: auto;">
+                                    <img src="/images/consumables/final polishing & analysis/hardness testing/hardness testing.webp" alt="Hardness testing consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1452,8 +1535,8 @@
                                             <div class="timeline-step-number">7</div>
                                             <h3 class="timeline-step-title">Hardness Testing</h3>
                                         </div>
-                                        <p class="timeline-step-text" style="margin-bottom: 1.25rem; line-height: 1.65;">
-                                            Accurate, repeatable measurements for microhardness and macrohardness evaluations. Calibration blocks, indenter tips, and reference materials for consistent performance across testing applications. Used in research, quality control, and production. See our <a href="https://www.metallographic.com/metallographic-equipment/hardness-testing.html" target="_blank" rel="noopener">Hardness Testing Equipment</a>.
+                                        <p class="timeline-step-text">
+                                            Accurate, repeatable measurements for microhardness and macrohardness evaluations. Calibration blocks, indenter tips, and reference materials for consistent performance across testing applications. Used in research, quality control, and production. See our <a href="/metallographic-equipment/hardness-testing.html">Hardness Testing Equipment</a>.
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/hardness-testing.html" class="timeline-link-card">
@@ -1461,7 +1544,7 @@
                                                     <div class="timeline-link-title">Hardness Testing Consumables</div>
                                                     <div class="timeline-link-subtitle">Calibration blocks and accessories</div>
                                                 </div>
-                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                     <path d="M9 18l6-6-6-6"/>
                                                 </svg>
                                             </a>
@@ -1474,11 +1557,40 @@
                 </div>
             </div>
         </section>
-    
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container-custom">
+                <h2 class="faq-heading">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>What consumables do I need for metallographic sample preparation?</summary>
+                        <p>A complete consumables set includes sectioning blades and cutting fluids, mounting powders or resins, grinding discs and papers, polishing pads with diamond suspensions, final polishing cloths with colloidal silica, and etching reagents. The specific products depend on your material type and preparation requirements.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>What is the difference between polycrystalline and monocrystalline diamond?</summary>
+                        <p>Polycrystalline diamond has multiple crystal facets that break down during use, continuously exposing fresh cutting edges for consistent material removal. Monocrystalline diamond is a single crystal with superior hardness, ideal for hard materials and applications requiring the finest surface finish with minimal subsurface damage.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>How do I choose the right mounting material?</summary>
+                        <p>Compression mounting powders work best for routine samples that can tolerate heat and pressure, providing excellent edge retention. Castable resins are better for heat-sensitive, fragile, or irregularly shaped specimens. Vacuum impregnation is recommended for porous materials or when filling cracks and voids is critical for analysis.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop CTA -->
+        <section class="container-custom" style="text-align: center; padding: var(--spacing-2xl) 0 var(--spacing-xl);">
+            <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;">Ready to Order?</h2>
+            <p style="color: #4b5563; margin-bottom: 1.5rem;">Browse and purchase consumables directly from our online shop.</p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="https://shop.metallographic.com" class="btn-primary" target="_blank" rel="noopener noreferrer">Shop All Consumables</a>
+                <a href="/quote.html" class="btn-secondary">Request a Quote</a>
+            </div>
+        </section>
+
 </main>
 </div>
-
-<br><br>
 
 <a href="#top" class="return-to-top" aria-label="Return to top">
     <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
@@ -1662,17 +1774,68 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
 </footer>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <script>
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-  </script>
-</footer>
+
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
+
+    <!-- Side Navigation Visibility + Active Section -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var sideNav = document.querySelector('.side-nav');
+      var heroSection = document.querySelector('.hero-section-equipment');
+      var sideNavLinks = document.querySelectorAll('.side-nav-link');
+      var sections = document.querySelectorAll('.timeline-step[id]');
+
+      if (!sideNav || !heroSection || sections.length === 0) return;
+
+      function updateNavigation() {
+        var heroBottom = heroSection.getBoundingClientRect().bottom;
+        if (heroBottom < 0) {
+          sideNav.classList.add('visible');
+        } else {
+          sideNav.classList.remove('visible');
+        }
+
+        // Closest-center: activate whichever visible section's center is
+        // nearest to the target line — handles small sections correctly
+        var nav = document.querySelector('.navigation');
+        var navH = nav ? nav.getBoundingClientRect().height : 100;
+        var targetY = navH + (window.innerHeight - navH) * 0.45;
+        var activeId = '';
+        var closest = Infinity;
+        for (var i = 0; i < sections.length; i++) {
+          var rect = sections[i].getBoundingClientRect();
+          if (rect.bottom > navH && rect.top < window.innerHeight) {
+            var center = (rect.top + rect.bottom) / 2;
+            var dist = Math.abs(center - targetY);
+            if (dist < closest) {
+              closest = dist;
+              activeId = sections[i].id;
+            }
+          }
+        }
+
+        sideNavLinks.forEach(function(link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
+        });
+      }
+
+      window.addEventListener('scroll', updateNavigation, { passive: true });
+      updateNavigation();
+
+      // Lazy-load HubSpot form script on first quote modal open
+      var quoteBtn = document.getElementById('quote-request-btn');
+      if (quoteBtn) {
+        var hsLoaded = false;
+        quoteBtn.addEventListener('click', function() {
+          if (hsLoaded) return;
+          hsLoaded = true;
+          var s = document.createElement('script');
+          s.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+          document.head.appendChild(s);
+        });
+      }
+    });
+    </script>
 </body>
 </html>

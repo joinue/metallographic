@@ -5,10 +5,12 @@
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="google-site-verification" content="LzR4wVONWG6uIX3m2QcGuvf3rBxuHBCijv-Pl1tccFs">
+    <meta name="norton-safeweb-site-verification" content="kw254olmyzhm98ttscnebx59npy7ji28spxv77ktnnqwpg2entz0hsfozhba0gzvjvrfj6z0-c00djzn-iq1hw-z1vdcna8ug093xtjit61oop1s26erotk-0ruemld5">
     <meta name="description" content="Comprehensive resources for metallographic sample preparation: tools, calculators, guides, databases, reference charts, video tutorials, and support materials from PACE Technologies.">
     <meta name="keywords" content="metallography resources, sample preparation resources, metallographic tools, preparation guides, materials database, etchants database, standards database, video tutorials, reference charts">
+    <meta name="author" content="PACE Technologies">
     <meta name="theme-color" content="#ffffff">
     <meta name="msapplication-TileColor" content="#da532c">
     <link rel="canonical" href="https://www.metallographic.com/resources.html">
@@ -20,8 +22,7 @@
     <link rel="stylesheet" href="/css/base/styles.css">
     <link rel="stylesheet" href="/css/components/navigation.css">
     <link rel="stylesheet" href="/css/components/footer.css">
-    <link rel="stylesheet" href="/css/pages/tools.css">
-    <link rel="stylesheet" href="/css/pages/about.css">
+    <link rel="stylesheet" href="/css/pages/resources.css">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/pt-favicon/apple-touch-icon.png">
@@ -94,362 +95,6 @@
     }
     </script>
 
-    <!-- Custom Styles for Resources Page -->
-    <style>
-        .resources-page {
-            padding: 2rem 1rem;
-            padding-top: 8rem;
-            min-height: 80vh;
-            background: transparent;
-        }
-
-        @media (min-width: 768px) {
-            .resources-page {
-                padding-top: 9rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .resources-page {
-                padding-top: 10rem;
-            }
-        }
-
-        .resources-header {
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .resources-header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 0.5rem;
-        }
-
-        .resources-intro {
-            font-size: 1rem;
-            color: #374151;
-            line-height: 1.6;
-            margin-top: 0.5rem;
-        }
-
-        .resources-intro strong {
-            font-weight: 600;
-            color: #111827;
-        }
-
-        .resources-section {
-            margin-bottom: 2rem;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #111827;
-            margin: 0;
-        }
-
-        .section-description {
-            font-size: 0.875rem;
-            color: #6b7280;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        @media (min-width: 768px) {
-            .resources-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .resources-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .resource-card {
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            transition: all 0.2s;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            height: 100%;
-        }
-
-        .resource-card:hover {
-            border-color: #d1d5db;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .resource-card:hover h3 {
-            color: #2563eb;
-        }
-
-        .resource-icon {
-            width: 3rem;
-            height: 3rem;
-            background-color: #eff6ff;
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            color: #2563eb;
-            flex-shrink: 0;
-        }
-
-        .resource-icon svg {
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-
-        .resource-card h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #111827;
-            margin: 0 0 0.5rem 0;
-            line-height: 1.4;
-            transition: color 0.2s;
-        }
-
-        .resource-card p {
-            font-size: 0.875rem;
-            color: #374151;
-            line-height: 1.6;
-            margin: 0 0 1rem 0;
-            flex-grow: 1;
-        }
-
-        .resource-card .btn-primary {
-            margin-top: auto;
-            align-self: flex-start;
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.2s;
-        }
-
-        .resource-card .btn-primary:hover {
-            background: #1d4ed8;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-        }
-
-        .resource-type-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: #eff6ff;
-            color: #2563eb;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-bottom: 0.75rem;
-        }
-
-        .resources-search {
-            margin-bottom: 2rem;
-        }
-
-        .resources-filters {
-            margin-bottom: 2rem;
-        }
-
-        .filter-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1.25rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 0.875rem;
-            border: none;
-            background-color: #f3f4f6;
-            color: #374151;
-            cursor: pointer;
-            transition: all 0.2s;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .filter-btn:hover {
-            background-color: #e5e7eb;
-        }
-
-        .filter-btn.active {
-            background-color: #2563eb;
-            color: #fff;
-        }
-
-        .filter-btn:focus {
-            outline: 2px solid #2563eb;
-            outline-offset: 2px;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: #6b7280;
-        }
-
-        .resources-cta {
-            position: relative;
-            background: linear-gradient(to bottom right, #111827, #1f2937, #111827);
-            border-radius: 1rem;
-            padding: 2.5rem 1rem;
-            text-align: center;
-            color: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            overflow: hidden;
-            margin-top: 2.5rem;
-        }
-
-        @media (min-width: 768px) {
-            .resources-cta {
-                padding: 4rem 2rem;
-            }
-        }
-
-        .resources-cta h2 {
-            font-size: 1.875rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        @media (min-width: 768px) {
-            .resources-cta h2 {
-                font-size: 2.25rem;
-            }
-        }
-
-        .cta-description {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            max-width: 42rem;
-            margin-left: auto;
-            margin-right: auto;
-            color: rgba(255, 255, 255, 0.95);
-        }
-
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .cta-buttons a {
-            width: auto;
-            max-width: 100%;
-        }
-
-        @media (min-width: 640px) {
-            .cta-buttons {
-                flex-direction: row;
-            }
-        }
-
-        .cta-buttons .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1.25rem;
-            background: white;
-            color: #111827;
-            border-radius: 9999px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s;
-            border: none;
-            width: auto;
-            flex-shrink: 0;
-            flex-grow: 0;
-        }
-
-        .cta-buttons .btn-primary:hover {
-            background: #f9fafb;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            transform: translateY(-4px);
-        }
-
-        .cta-buttons .btn-primary svg {
-            width: 1.25rem;
-            height: 1.25rem;
-            transition: transform 0.3s;
-        }
-
-        .cta-buttons .btn-primary:hover svg {
-            transform: scale(1.1);
-        }
-
-        .cta-buttons .btn-tertiary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1.25rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 9999px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-            width: auto;
-            flex-shrink: 0;
-            flex-grow: 0;
-        }
-
-        .cta-buttons .btn-tertiary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
-            color: white;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .cta-buttons .btn-tertiary svg {
-            width: 1.25rem;
-            height: 1.25rem;
-            transition: transform 0.3s;
-        }
-
-        .cta-buttons .btn-tertiary:hover svg {
-            transform: scale(1.1);
-        }
-    </style>
 </head>
 
 <body>
@@ -688,7 +333,7 @@
                         </ul>
                     </li>
                     <li class="has-submenu">
-                        <a href="#">Surface Prep & Analysis</a>
+                        <a href="/metallographic-consumables/etching.html">Surface Prep & Analysis</a>
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Surface Prep & Analysis submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
@@ -1075,7 +720,7 @@
                             <li><a href="/metallographic-consumables/final-polishing.html"><span>Final Polishing</span></a></li>
                         </ul>
                     </li>
-                    <li><a><span>Surface Prep & Analysis
+                    <li><a href="/metallographic-consumables/etching.html"><span>Surface Prep & Analysis
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg>
@@ -1259,6 +904,28 @@
     </div>
 </nav>
 
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    (function() {
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.defer = true;
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                        };
+                        document.head.appendChild(script);
+                    })();
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
+
     <!-- Main Content -->
     <main class="resources-page" id="main-content">
         <div class="container-custom">
@@ -1290,7 +957,7 @@
 
             <!-- Category Filter -->
             <div class="resources-filters">
-                <div class="filter-buttons" id="category-filters" role="tablist" aria-label="Resource categories">
+                <div class="filter-buttons" id="category-filters" role="group" aria-label="Filter resources by category">
                     <button class="filter-btn active" data-category="all">All</button>
                     <button class="filter-btn" data-category="Tools">Tools & Calculators</button>
                     <button class="filter-btn" data-category="Guides">Guides</button>
@@ -1307,7 +974,6 @@
                 <section class="resources-section" data-category="Tools">
                     <div class="section-header">
                         <h2>Tools & Calculators</h2>
-                        <span class="tool-count">(8 tools)</span>
                     </div>
                     <p class="section-description">
                         Interactive calculators and conversion tools for grit sizes, polishing times, grain sizes, and more.
@@ -1420,7 +1086,6 @@
                 <section class="resources-section" data-category="Guides">
                     <div class="section-header">
                         <h2>Preparation Guides</h2>
-                        <span class="tool-count">(40+ guides)</span>
                     </div>
                     <p class="section-description">
                         Step-by-step guides organized by topic: Basics, Process, Material-Specific, Application-Specific, and Troubleshooting.
@@ -1489,7 +1154,6 @@
                 <section class="resources-section" data-category="Databases">
                     <div class="section-header">
                         <h2>Databases</h2>
-                        <span class="tool-count">(3 databases)</span>
                     </div>
                     <p class="section-description">
                         Searchable databases of materials, etchants, and standards for quick reference and research.
@@ -1544,7 +1208,6 @@
                 <section class="resources-section" data-category="Reference">
                     <div class="section-header">
                         <h2>Reference Materials</h2>
-                        <span class="tool-count">(5 resources)</span>
                     </div>
                     <p class="section-description">
                         Quick reference charts, glossaries, and checklists for daily use in the laboratory.
@@ -1612,7 +1275,6 @@
                 <section class="resources-section" data-category="Video">
                     <div class="section-header">
                         <h2>Video Resources</h2>
-                        <span class="tool-count">(1 channel)</span>
                     </div>
                     <p class="section-description">
                         Free video tutorials demonstrating equipment operation, sample preparation techniques, and best practices.
@@ -1630,6 +1292,32 @@
                             <p>Free video tutorials by Dr. Donald Zipperian, founder of PACE Technologies. Watch step-by-step demonstrations of sectioning, mounting, grinding, and polishing equipment and techniques.</p>
                             <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer" class="btn-primary">Watch Videos →</a>
                         </div>
+
+                        <div class="resource-card" data-resource="equipment-demos">
+                            <div class="resource-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                                </svg>
+                            </div>
+                            <span class="resource-type-badge">Video Tutorials</span>
+                            <h3>Equipment Operation Demos</h3>
+                            <p>Watch detailed demonstrations of PACE Technologies equipment including grinder-polishers, mounting presses, precision saws, and microscopy systems.</p>
+                            <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer" class="btn-primary">Watch Demos →</a>
+                        </div>
+
+                        <div class="resource-card" data-resource="technique-videos">
+                            <div class="resource-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                                </svg>
+                            </div>
+                            <span class="resource-type-badge">Video Tutorials</span>
+                            <h3>Sample Preparation Techniques</h3>
+                            <p>Video walkthroughs of complete sample preparation workflows covering sectioning, mounting, grinding, polishing, and etching for various materials.</p>
+                            <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer" class="btn-primary">Watch Tutorials →</a>
+                        </div>
                     </div>
                 </section>
 
@@ -1637,7 +1325,6 @@
                 <section class="resources-section" data-category="Support">
                     <div class="section-header">
                         <h2>Support Materials</h2>
-                        <span class="tool-count">(4 resources)</span>
                     </div>
                     <p class="section-description">
                         Product literature, safety data sheets, brochures, and technical support resources.
@@ -1911,8 +1598,6 @@
   </footer>
 
     <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
         // Search functionality
         const searchInput = document.getElementById('search-input');
         const resourceCards = document.querySelectorAll('.resource-card');
@@ -1938,8 +1623,9 @@
 
             // Show/hide sections based on visible cards
             document.querySelectorAll('.resources-section').forEach(section => {
-                const visibleCards = section.querySelectorAll('.resource-card[style*="display: flex"], .resource-card:not([style*="display: none"])');
-                if (visibleCards.length === 0 && searchTerm) {
+                const sectionCards = section.querySelectorAll('.resource-card');
+                const hasVisible = Array.from(sectionCards).some(card => card.style.display !== 'none');
+                if (!hasVisible && searchTerm) {
                     section.style.display = 'none';
                 } else {
                     section.style.display = 'block';

@@ -51,13 +51,17 @@
   }
 
   // Function to update active nav link
+  // Uses "closest center" algorithm: whichever visible section's center is
+  // nearest to the viewport's target line wins. This handles small sections
+  // correctly — they activate as soon as they're the most prominent content
+  // on screen, rather than waiting for a fixed point to enter their bounds.
   function updateActiveNavLink() {
     const navHeight = getNavHeight();
     const stickyNavHeight = stickyNav ? stickyNav.getBoundingClientRect().height : 0;
     const scrollPosition = window.scrollY;
-    // Offset accounts for main nav, sticky nav, and the -100px anchor offset
-    const viewportOffset = navHeight + stickyNavHeight + 150;
-    const currentPosition = scrollPosition + viewportOffset;
+    const topOffset = navHeight + stickyNavHeight;
+    // Target line at ~45% of the visible content area (slightly above center)
+    const targetY = topOffset + (window.innerHeight - topOffset) * 0.45;
 
     let activeSectionId = null;
     let closestDistance = Infinity;
@@ -67,20 +71,15 @@
       if (!targetId) return;
 
       const sectionElement = findSectionElement(anchor);
-      let sectionTop, sectionBottom;
-      
+      let sectionTop, sectionHeight;
+
       if (sectionElement) {
-        // Use the actual section element's position and height
         sectionTop = sectionElement.offsetTop;
-        const sectionHeight = sectionElement.offsetHeight;
-        sectionBottom = sectionTop + sectionHeight;
+        sectionHeight = sectionElement.offsetHeight;
       } else {
-        // Fallback: use anchor position if section not found
         sectionTop = anchor.offsetTop;
-        
-        // Estimate section height by finding next anchor
+        sectionHeight = 800;
         let nextAnchor = anchor;
-        let sectionHeight = 800; // Default fallback
         while (nextAnchor.nextElementSibling) {
           nextAnchor = nextAnchor.nextElementSibling;
           if (nextAnchor.classList && nextAnchor.classList.contains('section-anchor')) {
@@ -88,14 +87,18 @@
             break;
           }
         }
-        sectionBottom = sectionTop + sectionHeight;
       }
 
-      // Check if we're in this section
-      if (currentPosition >= sectionTop - 150 && currentPosition < sectionBottom) {
-        // Calculate distance from section top to current position
-        // The section closest to the top of the viewport (accounting for offset) should be active
-        const distance = Math.abs(currentPosition - sectionTop);
+      const sectionBottom = sectionTop + sectionHeight;
+
+      // Section's position relative to viewport
+      const screenTop = sectionTop - scrollPosition;
+      const screenBottom = sectionBottom - scrollPosition;
+      const screenCenter = (screenTop + screenBottom) / 2;
+
+      // Only consider sections at least partially visible below the nav
+      if (screenBottom > topOffset && screenTop < window.innerHeight) {
+        const distance = Math.abs(screenCenter - targetY);
         if (distance < closestDistance) {
           closestDistance = distance;
           activeSectionId = targetId;
@@ -108,24 +111,10 @@
       const href = link.getAttribute('href');
       const linkId = href ? href.slice(1) : null;
       const isActive = linkId === activeSectionId;
-      
+
       link.classList.toggle('active', isActive);
       link.setAttribute('aria-current', isActive ? 'location' : null);
     });
-
-    // If scrolled to top (before first section), remove all active classes
-    if (sectionAnchors.length > 0 && !activeSectionId) {
-      const firstAnchor = sectionAnchors[0];
-      const firstSection = findSectionElement(firstAnchor);
-      const firstSectionTop = firstSection ? firstSection.offsetTop : firstAnchor.offsetTop;
-      
-      if (scrollPosition + viewportOffset < firstSectionTop - 150) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          link.removeAttribute('aria-current');
-        });
-      }
-    }
   }
 
   // Watch for navigation state changes

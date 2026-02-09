@@ -2,6 +2,27 @@
    Homepage Styles - Standalone CSS for Legacy Site Integration
    ============================================================================ */
 
+/* Skip to Main Content - Accessibility */
+.skip-to-main {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    z-index: 10000;
+    padding: 0.5rem 1rem;
+    background: #5a1331;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0 0 0.5rem 0;
+    transition: top 0.3s ease;
+}
+
+.skip-to-main:focus {
+    top: 0;
+    outline: 3px solid #5a1331;
+    outline-offset: 2px;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -640,6 +661,13 @@ a:focus-visible {
     .timeline-section {
         padding: 5rem 0;
     }
+}
+
+.timeline-intro {
+    text-align: center;
+    color: #6b7280;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
 }
 
 .timeline-header {

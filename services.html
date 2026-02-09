@@ -22,12 +22,15 @@
     <!-- Theme & Favicons -->
     <meta name="theme-color" content="#ffffff">
     <meta name="msapplication-TileColor" content="#da532c">
-    <link rel="apple-touch-icon" sizes="180x180" href="/Images/pt-favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/Images/pt-favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/Images/pt-favicon/favicon-16x16.png">
-    <link rel="manifest" href="/Images/pt-favicon/site.webmanifest">
-    <link rel="mask-icon" href="/Images/pt-favicon/safari-pinned-tab.svg" color="#5bbad5">
-  
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/pt-favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/pt-favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/pt-favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/pt-favicon/site.webmanifest">
+    <link rel="mask-icon" href="/images/pt-favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://js.hsforms.net https://*.hubspot.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://js.hsforms.net https://*.hubspot.com;">
+
     <!-- Styles -->
     <link rel="preload" href="/css/components/navigation.css" as="style">
     <link rel="preload" href="/css/layouts/homepage-styles.css" as="style">
@@ -35,7 +38,6 @@
     <link rel="stylesheet" href="/css/components/navigation.css" media="all">
     <link rel="stylesheet" href="/css/layouts/homepage-styles.css" media="all">
     <link rel="stylesheet" href="/css/components/footer.css" media="print" onload="this.media='all'; this.onload=null;">
-    <link rel="stylesheet" href="/css/pages/about.css" media="print" onload="this.media='all'; this.onload=null;">
     <link rel="stylesheet" href="/css/utilities/animations.css">
     <!-- Critical inline style to prevent animation FOUC -->
     <style>
@@ -586,17 +588,17 @@
     <!-- Open Graph -->
     <meta property="og:title" content="Services - Service Plans, Installation & Training | PACE Technologies">
     <meta property="og:description" content="Professional metallographic services you can purchase: KeepPACE service plans, on-site installation, training programs, and maintenance services for your laboratory.">
-    <meta property="og:image" content="https://www.metallographic.com/Images/logo-microstructure-transparent.webp">
+    <meta property="og:image" content="https://www.metallographic.com/images/pace-metallographic-logo.webp">
     <meta property="og:url" content="https://www.metallographic.com/services.html">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Materialographic.com">
+    <meta property="og:site_name" content="PACE Technologies">
     <meta property="og:locale" content="en_US">
   
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Services - Service Plans, Installation & Training | PACE Technologies">
     <meta name="twitter:description" content="Professional metallographic services you can purchase: KeepPACE service plans, on-site installation, training programs, and maintenance services for your laboratory.">
-    <meta name="twitter:image" content="https://www.metallographic.com/Images/logo-microstructure-transparent.webp">
+    <meta name="twitter:image" content="https://www.metallographic.com/images/pace-metallographic-logo.webp">
   
     <!-- Schema: WebPage -->
     <script type="application/ld+json">
@@ -617,6 +619,9 @@
   </head>
   
 <body>
+
+<!-- Skip to Main Content Link -->
+<a href="#main-content" class="skip-to-main">Skip to main content</a>
 
 <!-- ============================================ -->
 <!--                NAVIGATION                    -->
@@ -854,7 +859,7 @@
                         </ul>
                     </li>
                     <li class="has-submenu">
-                        <a href="#">Surface Prep & Analysis</a>
+                        <a href="/metallographic-consumables/etching.html">Surface Prep & Analysis</a>
                         <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Surface Prep & Analysis submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
@@ -1241,7 +1246,7 @@
                             <li><a href="/metallographic-consumables/final-polishing.html"><span>Final Polishing</span></a></li>
                         </ul>
                     </li>
-                    <li><a><span>Surface Prep & Analysis
+                    <li><a href="/metallographic-consumables/etching.html"><span>Surface Prep & Analysis
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg>
@@ -1429,7 +1434,7 @@
 <!--                MAIN CONTENT                  -->
 <!-- ============================================ -->
 
-<main>
+<main id="main-content">
     <!-- Hero Section with Image -->
     <section class="services-hero">
         <!-- Background Image -->
@@ -1915,16 +1920,6 @@
             <a href="/privacy.html" class="footer-bottom-link">Privacy</a>
             <a href="/terms.html" class="footer-bottom-link">Terms</a>
             <a href="/support/site-map.html" class="footer-bottom-link">Sitemap</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <script>
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-  </script>
-</footer>
           </div>
         </div>
       </div>

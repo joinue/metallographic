@@ -283,7 +283,7 @@
     let currentSection = '';
     sections.forEach(section => {
       const rect = section.getBoundingClientRect();
-      if (rect.top <= 150 && rect.bottom >= 150) {
+      if (rect.top <= window.innerHeight * 0.55 && rect.bottom >= window.innerHeight * 0.55) {
         currentSection = section.id.replace('sds-letter-', '');
       }
     });

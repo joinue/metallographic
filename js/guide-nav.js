@@ -191,7 +191,7 @@
           })
           .filter(Boolean);
 
-        const currentScroll = scrollTop + windowHeight / 3;
+        const currentScroll = scrollTop + windowHeight * 0.55;
 
         for (let i = sectionElements.length - 1; i >= 0; i--) {
           const section = sectionElements[i];
