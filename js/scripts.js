@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Otherwise, handle as regular anchor link
       const targetElement = document.querySelector(hash);
       if (targetElement) {
-        const offset = 100; // Same offset as used in smooth scroll
+        const offset = 50; // Account for fixed nav + sticky section nav
         // Use requestAnimationFrame to avoid forced reflow
         requestAnimationFrame(() => {
           const topPosition = targetElement.offsetTop - offset;
@@ -362,31 +362,11 @@ const footer = document.querySelector("footer");
 
 // Only set up return-to-top functionality if the element exists
 if (returnToTop) {
-// Show or hide the return-to-top button based on scroll position
-let footerOffset = 0;
-let windowHeight = window.innerHeight;
-
-// Cache footer position to avoid repeated getBoundingClientRect calls
-const updateFooterOffset = () => {
-    if (footer) {
-        footerOffset = footer.getBoundingClientRect().top + window.scrollY;
-        windowHeight = window.innerHeight;
-    }
-};
-
-// Initial calculation
-updateFooterOffset();
-
-// Update on resize
-window.addEventListener('resize', () => {
-    requestAnimationFrame(updateFooterOffset);
-});
 
 window.addEventListener("scroll", () => {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-    const distanceFromFooter = 30; // Distance above the footer to stop
 
-    // Toggle visibility with smooth fade-in/out
+    // Toggle visibility
     if (scrollPosition > 500) {
         returnToTop.classList.add("visible");
         returnToTop.style.opacity = "1";
@@ -397,19 +377,17 @@ window.addEventListener("scroll", () => {
         returnToTop.style.visibility = "hidden";
     }
 
-    // Use cached footer position (updated on resize) to avoid layout thrashing
+    // Keep button above footer using live position
     if (footer) {
-        // Smart positioning: stop above footer but maintain visibility
-        if (scrollPosition + windowHeight > footerOffset) {
-            // Calculate how much of the footer is visible
-            const footerVisible = (scrollPosition + windowHeight) - footerOffset;
-            const newBottom = Math.max(30, footerVisible + distanceFromFooter);
-            returnToTop.style.bottom = `${newBottom}px`;
+        const footerRect = footer.getBoundingClientRect();
+        const buttonHeight = 50;
+        const gap = 20;
+        if (footerRect.top < window.innerHeight) {
+            const overlap = window.innerHeight - footerRect.top;
+            returnToTop.style.bottom = `${overlap + gap}px`;
         } else {
             returnToTop.style.bottom = "30px";
         }
-    } else {
-        returnToTop.style.bottom = "30px";
     }
 });
 

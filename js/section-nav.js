@@ -24,10 +24,11 @@
   // Function to update sticky nav position based on main nav state
   function updateStickyNavPosition() {
     if (!mainNav) return;
-    
+
     const navHeight = getNavHeight();
     stickyNav.style.top = `${navHeight}px`;
   }
+
 
   // Function to find the actual section element for an anchor
   function findSectionElement(anchor) {
@@ -158,10 +159,7 @@
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-          const navHeight = getNavHeight();
-          const stickyNavHeight = stickyNav.getBoundingClientRect().height || 50;
-          // Anchor divs are positioned -100px above, so we need less offset
-          const offset = navHeight + stickyNavHeight + 20; // Account for both navs + small padding
+          const offset = 50; // Account for fixed nav + sticky section nav
           const targetPosition = target.offsetTop - offset;
           window.scrollTo({
             top: targetPosition,

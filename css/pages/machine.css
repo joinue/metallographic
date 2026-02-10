@@ -2032,72 +2032,58 @@ main .first-container > .features-section-modern:first-child {
     position: sticky;
     top: 100px; /* Default: full nav height - will be updated by JS */
     z-index: 100;
-    background: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius-lg);
-    padding: var(--spacing-sm) var(--spacing-lg);
-    margin: var(--spacing-2xl) auto var(--spacing-2xl);
-    max-width: 1440px;
-    width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-}
-
-.section-nav-sticky:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    max-width: var(--container-max-width);
+    margin: var(--spacing-xl) auto var(--spacing-2xl);
+    padding: 0 var(--container-padding-desktop);
+    transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-nav-sticky .container-custom {
     display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
+    gap: 0;
     align-items: center;
     justify-content: flex-start;
-    padding: 0;
-    max-width: 100%;
+    padding: 5px;
+    width: fit-content;
+    background: rgba(243, 244, 246, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 9999px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .section-nav-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-sm) var(--spacing-lg);
+    padding: 6px 16px;
     font-size: var(--font-size-sm);
-    font-weight: 600;
+    font-weight: 500;
     color: var(--color-text-secondary);
     text-decoration: none;
-    border-radius: 9999px; /* Fully rounded like buttons */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid transparent;
-    background: transparent;
     white-space: nowrap;
+    border-radius: 9999px;
+    transition: all 0.15s ease;
 }
 
 .section-nav-link:hover {
-    color: var(--color-primary);
-    background: var(--color-background-light);
-    border-color: var(--color-border);
-    transform: translateY(-1px);
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .section-nav-link:focus-visible {
-    outline: 3px solid var(--color-primary);
-    outline-offset: 2px;
+    outline: 2px solid var(--color-primary);
+    outline-offset: -1px;
 }
 
 .section-nav-link.active {
-    color: var(--color-text-white);
-    background: var(--color-primary);
-    border-color: var(--color-primary);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    color: var(--color-text-primary);
+    font-weight: 600;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .section-nav-link.active:hover {
-    background: var(--color-primary-hover);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    transform: translateY(-1px);
+    background: #fff;
 }
 
 /* Responsive Design */
@@ -2248,27 +2234,23 @@ main .first-container > .features-section-modern:first-child {
     /* Sticky Nav Mobile */
     .section-nav-sticky {
         top: 80px;
-        padding: var(--spacing-xs) var(--spacing-md);
-        margin: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
-        max-width: calc(100% - var(--spacing-md) * 2);
+        padding: 0 var(--container-padding-mobile);
+        margin: var(--spacing-lg) 0 var(--spacing-xl);
     }
-    
+
     .section-nav-sticky .container-custom {
-        gap: var(--spacing-xs);
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        justify-content: flex-start;
     }
-    
+
     .section-nav-sticky .container-custom::-webkit-scrollbar {
         display: none;
     }
-    
+
     .section-nav-link {
-        white-space: nowrap;
         font-size: var(--font-size-xs);
-        padding: var(--spacing-xs) var(--spacing-md);
+        padding: var(--spacing-xs) var(--spacing-sm);
     }
     
     /* Product Series Mobile */

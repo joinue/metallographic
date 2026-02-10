@@ -142,6 +142,46 @@
             "@type": "Answer",
             "text": "Compression mounting powders work best for routine samples that can tolerate heat and pressure, providing excellent edge retention. Castable resins are better for heat-sensitive, fragile, or irregularly shaped specimens. Vacuum impregnation is recommended for porous materials or when filling cracks and voids is critical for analysis."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should I replace my polishing pads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Replace polishing pads when you notice inconsistent finishes, longer polishing times, or new scratches. Usage frequency and material type affect pad life. Mixing different diamond sizes on the same pad shortens its life. When in doubt, start fresh. A worn pad costs more in rework than a replacement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What sectioning blade should I use for my material?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Match the blade to the material hardness. For soft metals like aluminum or copper, use a harder bond blade. For hard materials like tool steels or ceramics, use a softer bond that exposes fresh abrasive as it cuts. Specialty blades are available for composites and heat-sensitive materials."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the same polishing suspension for different materials?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can, but results improve with material-matched suspensions. A polycrystalline diamond suspension works as a general-purpose option, but specific materials respond better to matched abrasive types and concentrations. Cross-contamination between samples is also a concern when switching materials on the same pad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between colloidal silica and alumina for final polishing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Colloidal silica has a slight chemical polishing action in addition to mechanical removal, producing flatter, more artifact-free surfaces, especially on metals. Alumina is purely mechanical and works well for harder materials or when chemical effects need to be avoided. For most metallographic work, colloidal silica is the preferred final polish."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you ship consumables internationally?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. PACE Technologies ships consumables to labs worldwide. Some items like certain cutting fluids or etching chemicals may have shipping restrictions depending on the destination, but these are handled on a case-by-case basis."
+          }
         }
       ]
     }
@@ -261,8 +301,18 @@
     
     /* Hero Section Equipment Specific Styles */
     .hero-section-equipment {
-      margin-bottom: var(--spacing-xl);
+      margin-bottom: var(--spacing-md);
       padding-top: calc(100px + var(--spacing-2xl));
+    }
+
+    /* Timeline section padding override (matches equipment page) */
+    .timeline-section {
+      padding: 2rem 0;
+    }
+    @media (min-width: 640px) {
+      .timeline-section {
+        padding: 3rem 0;
+      }
     }
     
     .hero-section-equipment .hero-grid {
@@ -294,13 +344,9 @@
       line-height: 1.65;
     }
 
-    .return-to-top {
-      margin-top: var(--spacing-2xl);
-    }
-
     /* FAQ Section */
     .faq-section {
-      padding: 3rem 0 2rem;
+      padding: 1.5rem 0 2rem;
     }
 
     .faq-heading {
@@ -368,6 +414,35 @@
       line-height: 1.65;
       margin: 0;
     }
+
+    /* CTA Section (service-style with hexagons) */
+    .service-cta-section {
+      position: relative;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #111827 70%, #0f172a 100%);
+      border-radius: 1rem;
+      padding: 3rem 1rem 2.5rem;
+      text-align: center;
+      color: white;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      margin: 2rem 0 4rem;
+    }
+    .service-cta-section .cta-hexagons { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+    .service-cta-section .cta-glow { position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 60%; height: 70%; background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.12) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .service-cta-section .cta-accent { position: absolute; top: 0; left: 10%; right: 10%; height: 3px; background: linear-gradient(90deg, transparent, #2563eb, #3b82f6, #2563eb, transparent); border-radius: 0 0 2px 2px; z-index: 1; }
+    .service-cta-section h2, .service-cta-section p, .service-cta-buttons-large { position: relative; z-index: 1; }
+    .service-cta-section h2 { font-size: 1.875rem; font-weight: 700; margin-bottom: 1rem; color: white; letter-spacing: -0.01em; }
+    .service-cta-section p { font-size: 1.125rem; margin-bottom: 2rem; max-width: 42rem; margin-left: auto; margin-right: auto; color: rgba(255, 255, 255, 0.85); line-height: 1.7; }
+    .service-cta-buttons-large { display: flex; flex-direction: column; gap: 0.75rem; justify-content: center; align-items: center; }
+    .btn-cta-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.625rem 1.25rem; background: white; color: #111827; border-radius: 9999px; font-weight: 600; font-size: 0.9375rem; text-decoration: none; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1); transition: all 0.3s; width: auto; }
+    .btn-cta-primary:hover { background: #f0f7ff; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 20px rgba(37, 99, 235, 0.15); transform: translateY(-3px); }
+    .btn-cta-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.625rem 1.25rem; background: rgba(255, 255, 255, 0.06); backdrop-filter: blur(12px); color: rgba(255, 255, 255, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 9999px; font-weight: 600; font-size: 0.9375rem; text-decoration: none; transition: all 0.3s; width: auto; }
+    .btn-cta-secondary:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.3); color: white; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transform: translateY(-3px); }
+    .btn-cta-primary svg, .btn-cta-secondary svg { width: 1.25rem; height: 1.25rem; transition: transform 0.3s; }
+    .btn-cta-primary:hover svg, .btn-cta-secondary:hover svg { transform: scale(1.1); }
+    @media (min-width: 640px) { .service-cta-buttons-large { flex-direction: row; } }
+    @media (min-width: 768px) { .service-cta-section { padding: 4.5rem 2rem 4rem; } .service-cta-section h2 { font-size: 2.25rem; } }
+    @media (max-width: 640px) { .service-cta-section { padding: 2rem 1rem 1.5rem; } .service-cta-section .cta-accent { left: 5%; right: 5%; } }
   </style>
 
 </head>
@@ -1192,7 +1267,7 @@
         </nav>
         <h1 class="hero-headline">Metallographic Consumables</h1>
         <p class="hero-description">
-          Essential consumables for every stage of sample preparation, from sectioning blades and mounting materials through grinding discs, polishing pads, and analysis supplies.
+          The consumables you use matter as much as the equipment. Wrong blade, wrong abrasive, wrong polishing suspension, and you're reworking samples or missing defects. We make consumables that work right the first time.
         </p>
         <!-- Quick Navigation Menu - Integrated into Hero -->
         <nav class="hero-quick-nav" aria-label="Quick Navigation">
@@ -1231,7 +1306,7 @@
 
         <section class="timeline-section">
             <div class="container-custom">
-                <h2 class="timeline-intro">Browse our full range of metallographic consumables, organized by preparation step.</h2>
+                <h2 class="timeline-intro">Every step in metallographic preparation depends on the one before it. Here's what we make for each stage, and why it matters.</h2>
 
                 <!-- Timeline Container -->
                 <div class="timeline-container">
@@ -1254,7 +1329,7 @@
                                             <h3 class="timeline-step-title">Sectioning</h3>
                                         </div>
                                         <p class="timeline-step-text">
-                                            Clean, precise cuts for metallographic analysis. Abrasive blades for hardened steels and non-ferrous alloys with minimal edge deformation. Wafering blades for delicate materials and composites. Cutting fluids with corrosion inhibitors reduce friction and thermal effects, extending blade life. See our <a href="/equipment.html#sectioning">Sectioning Equipment</a>.
+                                            A bad cut means rework at every step that follows. Our abrasive blades are formulated for specific material groups like hardened steels, non-ferrous alloys, and ceramics, so you get clean cuts with minimal deformation right from the start. For delicate or composite materials, our wafering blades give you thin, precise sections without thermal damage. And the right cutting fluid makes a real difference: ours use corrosion inhibitors that protect your sample and extend blade life. See our <a href="/equipment.html#sectioning">Sectioning Equipment</a>.
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/sectioning/abrasive-cutting.html" class="timeline-link-card">
@@ -1295,7 +1370,7 @@
                                             <h3 class="timeline-step-title">Mounting</h3>
                                         </div>
                                         <p class="timeline-step-text">
-                                            Specimen encapsulation with compression mounting powders and resins for high-pressure applications with strong edge retention. Castable mounting materials for sensitive samples offer flexibility and clarity. See our <a href="/equipment.html#mounting">Mounting Equipment</a>.
+                                            Good mounting means your sample stays put through grinding and polishing. No pullout, no edge rounding, no gaps. Our compression mounting powders give you strong edge retention for routine work. For heat-sensitive or fragile specimens, our castable resins cure at room temperature with excellent clarity. If you're dealing with porous materials, we have vacuum impregnation options that fill every crack and void. See our <a href="/equipment.html#mounting">Mounting Equipment</a>.
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/mounting/compression.html" class="timeline-link-card">
@@ -1336,7 +1411,7 @@
                                             <h3 class="timeline-step-title">Grinding / Lapping</h3>
                                         </div>
                                         <p class="timeline-step-text">
-                                            Consistent surface finish and flatness for reliable analysis. Grinding discs and lapping films remove material efficiently with minimal surface damage across soft metals to hard ceramics. Durable, repeatable performance. See our <a href="/metallographic-equipment/grinding-polishing.html">Grinding & Polishing Equipment</a>.
+                                            This is where most of the damage gets introduced, or prevented. Our grinding discs and lapping films are designed to remove material quickly while keeping surface damage to a minimum, whether you're working with soft aluminum or hard carbides. We offer a full range from coarse abrasive papers through diamond grinding discs and precision lapping films, all engineered for flat, consistent results. See our <a href="/metallographic-equipment/grinding-polishing.html">Grinding & Polishing Equipment</a>.
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/grinding/abrasive-grinding.html" class="timeline-link-card">
@@ -1404,7 +1479,7 @@
                                             <h3 class="timeline-step-title">Rough Polishing</h3>
                                         </div>
                                         <p class="timeline-step-text">
-                                            Initial surface refinement with material removal and smoothing. Polishing pads and diamond suspensions produce consistent results and uniform finish across specimen types. See our <a href="/metallographic-equipment/grinding-polishing.html">Grinding & Polishing Equipment</a>.
+                                            Rough polishing takes you from a ground surface to something you can actually start analyzing. Our polishing pads are matched to specific diamond suspensions: polycrystalline for fast, consistent removal on most materials, monocrystalline for harder specimens where surface finish really matters. The magnetic system makes pad changes quick and repeatable. See our <a href="/metallographic-equipment/grinding-polishing.html">Grinding & Polishing Equipment</a>.
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/polishing/polishing-pads.html" class="timeline-link-card">
@@ -1463,7 +1538,7 @@
                                             <h3 class="timeline-step-title">Final Polishing</h3>
                                         </div>
                                         <p class="timeline-step-text">
-                                            Ultra-smooth surface finishes for accurate analysis. Polishing cloths and colloidal silica suspensions produce high surface clarity and defect-free results. Colloidal silica's uniform particle size improves microstructural visibility. See our <a href="/metallographic-equipment/grinding-polishing/giga.html">GIGA Vibratory Polisher</a>.
+                                            This is where microstructure becomes visible. Our final polishing cloths paired with colloidal silica suspensions produce the kind of surface clarity you need for accurate analysis. No scratches, no artifacts, no relief. The uniform particle size in our colloidal silica means consistent results across the entire specimen. See our <a href="/metallographic-equipment/grinding-polishing/giga.html">GIGA Vibratory Polisher</a>.
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/final-polishing.html" class="timeline-link-card">
@@ -1495,7 +1570,7 @@
                                             <h3 class="timeline-step-title">Cleaning & Etching</h3>
                                         </div>
                                         <p class="timeline-step-text">
-                                            Better contrast and surface clarity. Etching solutions and cleaning agents reveal microstructural features while preserving specimen integrity. Removes surface contaminants and improves image contrast. <a href="https://shop.metallographic.com/collections/etching-and-cleaning" target="_blank" rel="noopener">Shop Etching & Cleaning Supplies</a>
+                                            After polishing, your sample needs to be clean before you etch, and the etch needs to be right for your material and what you're trying to see. Our cleaning agents remove residual polishing compounds without affecting the surface. Our etching solutions are formulated for specific alloy systems. Pick the right one and grain boundaries, phase structures, and defects come through clearly. <a href="https://shop.metallographic.com/collections/etching-and-cleaning" target="_blank" rel="noopener">Shop Etching & Cleaning Supplies</a>
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/cleaning.html" class="timeline-link-card">
@@ -1536,7 +1611,7 @@
                                             <h3 class="timeline-step-title">Hardness Testing</h3>
                                         </div>
                                         <p class="timeline-step-text">
-                                            Accurate, repeatable measurements for microhardness and macrohardness evaluations. Calibration blocks, indenter tips, and reference materials for consistent performance across testing applications. Used in research, quality control, and production. See our <a href="/metallographic-equipment/hardness-testing.html">Hardness Testing Equipment</a>.
+                                            Reliable hardness numbers start with good calibration. Our calibration blocks, indenter tips, and reference materials are made to tight tolerances so your measurements are consistent test after test. Whether you're running microhardness profiles, Rockwell production checks, or Brinell testing, we have the consumables to keep your tester performing. See our <a href="/metallographic-equipment/hardness-testing.html">Hardness Testing Equipment</a>.
                                         </p>
                                         <div class="timeline-links-grid">
                                             <a href="/metallographic-consumables/hardness-testing.html" class="timeline-link-card">
@@ -1565,29 +1640,84 @@
                 <div class="faq-list">
                     <details class="faq-item">
                         <summary>What consumables do I need for metallographic sample preparation?</summary>
-                        <p>A complete consumables set includes sectioning blades and cutting fluids, mounting powders or resins, grinding discs and papers, polishing pads with diamond suspensions, final polishing cloths with colloidal silica, and etching reagents. The specific products depend on your material type and preparation requirements.</p>
+                        <p>It depends on what you're preparing and what you're looking for, but a typical setup includes sectioning blades and cutting fluid, mounting material (compression or castable), grinding discs or papers, polishing pads with diamond suspension, final polishing cloth with colloidal silica, and etching reagent. If you're not sure what's right for your material, call us and we'll walk you through it.</p>
                     </details>
                     <details class="faq-item">
                         <summary>What is the difference between polycrystalline and monocrystalline diamond?</summary>
-                        <p>Polycrystalline diamond has multiple crystal facets that break down during use, continuously exposing fresh cutting edges for consistent material removal. Monocrystalline diamond is a single crystal with superior hardness, ideal for hard materials and applications requiring the finest surface finish with minimal subsurface damage.</p>
+                        <p>Polycrystalline diamond is made up of many small crystals that break down during use, constantly exposing fresh cutting edges. It's a good all-around choice for most materials and gives you fast, consistent removal. Monocrystalline diamond is a single crystal. It's harder, sharper, and better for very hard materials or when you need the best possible surface finish with minimal subsurface damage.</p>
                     </details>
                     <details class="faq-item">
                         <summary>How do I choose the right mounting material?</summary>
-                        <p>Compression mounting powders work best for routine samples that can tolerate heat and pressure, providing excellent edge retention. Castable resins are better for heat-sensitive, fragile, or irregularly shaped specimens. Vacuum impregnation is recommended for porous materials or when filling cracks and voids is critical for analysis.</p>
+                        <p>For most routine work, compression mounting is the way to go. It's fast, gives you strong edge retention, and the resulting mount is easy to handle. Use castable resins when your sample can't take heat or pressure, or when it's an odd shape that won't fit in a mold. If your material is porous or has cracks you need to fill, vacuum impregnation is the best option. Not sure? Give us a call.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>How often should I replace my polishing pads?</summary>
+                        <p>It depends on how heavily you use them and what materials you're polishing, but a good rule of thumb is to replace a pad when you start seeing inconsistent finishes, longer polishing times, or scratches that weren't there before. Some labs get weeks out of a pad, others change them daily. If you're mixing different diamond sizes on the same pad, that will shorten its life too. When in doubt, start fresh. A worn pad costs you more in rework than a new one costs to replace.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>What sectioning blade should I use for my material?</summary>
+                        <p>The short answer: match the blade to the material hardness. For soft metals like aluminum or copper, use a harder bond blade so it doesn't wear too fast. For hard materials like tool steels or ceramics, use a softer bond that exposes fresh abrasive as it cuts. We also make specialty blades for composites and heat-sensitive materials. If you tell us what you're cutting, we can recommend the right blade.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Can I use the same polishing suspension for different materials?</summary>
+                        <p>You can, but you'll get better results if you don't. Different materials respond differently to abrasive types and concentrations. A polycrystalline diamond suspension works well as a general-purpose option, but if you're preparing something specific, like a soft non-ferrous alloy or a very hard ceramic, a suspension matched to that material will give you a cleaner surface in less time. Cross-contamination between samples is also a concern if you're switching materials on the same pad.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>What's the difference between colloidal silica and alumina for final polishing?</summary>
+                        <p>Both work for final polishing, but they behave differently. Colloidal silica has a slight chemical polishing action in addition to the mechanical removal, which helps produce a flatter, more artifact-free surface, especially on metals. Alumina is purely mechanical and works well for harder materials or when you need to avoid chemical effects. For most metallographic work, colloidal silica is the go-to choice for final polish.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Do you ship consumables internationally?</summary>
+                        <p>Yes. We ship to labs around the world and have been doing it for decades. Some items like certain cutting fluids or etching chemicals may have shipping restrictions depending on the destination, but we'll work through that with you. Just give us a call or place your order through the shop and we'll take care of the rest.</p>
                     </details>
                 </div>
             </div>
         </section>
 
-        <!-- Shop CTA -->
-        <section class="container-custom" style="text-align: center; padding: var(--spacing-2xl) 0 var(--spacing-xl);">
-            <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;">Ready to Order?</h2>
-            <p style="color: #4b5563; margin-bottom: 1.5rem;">Browse and purchase consumables directly from our online shop.</p>
-            <div class="cta-buttons" style="justify-content: center;">
-                <a href="https://shop.metallographic.com" class="btn-primary" target="_blank" rel="noopener noreferrer">Shop All Consumables</a>
-                <a href="/quote.html" class="btn-secondary">Request a Quote</a>
-            </div>
-        </section>
+        <!-- CTA -->
+        <div class="container-custom">
+          <div class="service-cta-section" data-animate="up">
+              <div class="cta-hexagons">
+                  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid slice">
+                      <polygon points="40,20 70,40 70,70 40,90 10,70 10,40" fill="none" stroke="white" stroke-width="1" opacity="0.08" />
+                      <polygon points="140,60 170,80 170,110 140,130 110,110 110,80" fill="none" stroke="white" stroke-width="1.1" opacity="0.06" />
+                      <polygon points="280,30 310,50 310,80 280,100 250,80 250,50" fill="none" stroke="white" stroke-width="1" opacity="0.07" />
+                      <polygon points="200,150 230,170 230,200 200,220 170,200 170,170" fill="none" stroke="white" stroke-width="1" opacity="0.05" />
+                      <polygon points="420,80 450,100 450,130 420,150 390,130 390,100" fill="none" stroke="white" stroke-width="1.1" opacity="0.07" />
+                      <polygon points="560,40 590,60 590,90 560,110 530,90 530,60" fill="none" stroke="white" stroke-width="1" opacity="0.06" />
+                      <polygon points="500,180 530,200 530,230 500,250 470,230 470,200" fill="none" stroke="white" stroke-width="1" opacity="0.05" />
+                      <polygon points="700,100 730,120 730,150 700,170 670,150 670,120" fill="none" stroke="white" stroke-width="1.1" opacity="0.08" />
+                      <polygon points="830,50 860,70 860,100 830,120 800,100 800,70" fill="none" stroke="white" stroke-width="1" opacity="0.06" />
+                      <polygon points="760,200 790,220 790,250 760,270 730,250 730,220" fill="none" stroke="white" stroke-width="1" opacity="0.05" />
+                      <polygon points="950,70 980,90 980,120 950,140 920,120 920,90" fill="none" stroke="white" stroke-width="1.1" opacity="0.07" />
+                      <polygon points="1080,120 1110,140 1110,170 1080,190 1050,170 1050,140" fill="none" stroke="white" stroke-width="1" opacity="0.06" />
+                      <polygon points="1160,40 1190,60 1190,90 1160,110 1130,90 1130,60" fill="none" stroke="white" stroke-width="1" opacity="0.07" />
+                  </svg>
+              </div>
+              <div class="cta-glow"></div>
+              <div class="cta-accent"></div>
+
+              <h2>Need Consumables?</h2>
+              <p>
+                  Browse our online shop or give us a call. If you're not sure what you need for your material, we'll help you figure it out.
+              </p>
+              <div class="service-cta-buttons-large">
+                  <a href="https://shop.metallographic.com" class="btn-cta-primary" target="_blank" rel="noopener noreferrer">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                      </svg>
+                      Shop Consumables
+                  </a>
+                  <a href="tel:+15208826598" class="btn-cta-secondary">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                      </svg>
+                      Call: (520) 882-6598
+                  </a>
+              </div>
+          </div>
+        </div>
 
 </main>
 </div>
