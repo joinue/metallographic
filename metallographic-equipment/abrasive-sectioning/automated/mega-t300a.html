@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/base/styles.css">
     <link rel="stylesheet" href="/css/pages/machine.css">
+    <link rel="stylesheet" href="/css/pages/machine-enhanced.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
@@ -958,6 +959,7 @@
             <div class="carousel-description">
                 <p></p>
             </div>
+            <div class="carousel-dots" aria-label="Image navigation"></div>
         </div>
 
         <!-- CTA Buttons -->
@@ -980,10 +982,18 @@
 
       <!-- Product Details Section -->
       <div class="product-details-section">
+        <nav aria-label="Breadcrumb">
+          <ol class="product-breadcrumb">
+            <li><a href="/equipment.html">Equipment</a></li>
+            <li><a href="/metallographic-equipment/abrasive-sectioning.html">Abrasive Sectioning</a></li>
+            <li><a href="/metallographic-equipment/abrasive-sectioning.html#automated">Automated</a></li>
+            <li><span class="breadcrumb-current">MEGA-T300A</span></li>
+          </ol>
+        </nav>
         <h1 class="product-title">MEGA-T300A Automated Abrasive Cutter</h1>
         <p class="product-item-id">Item ID: MEGA-T300A</p>
         <div class="product-description">
-          <p>The MEGA-T300A Abrasive Saw offers flexible cutting with automatic and manual modes. Its 12-inch blade and 15 kW servo motor power high-efficiency operations. Automatic Y and optional X-axis feeds ensure precise, rapid cuts--perfect for industrial material analysis.</p>
+          <p>A 12-inch automated abrasive cutter with a 15 kW servo motor and automatic Y-axis feed for high-throughput sectioning. Optional X-axis feed and dual auto/manual modes add flexibility for a wide range of materials.</p>
         </div>
 
         <!-- Features List -->
@@ -994,7 +1004,6 @@
             <li>Includes a 12-inch (305 mm) blade suitable for various materials</li>
             <li>High-powered 15 kW servo motor for enhanced cutting capability</li>
             <li>Automatic Y and optional X-axis table feed for precision and speed</li>
-            <li>Consistent cutting with adjustable feed rates and cutting forces</li>
           </ul>
         </div>
       </div>
@@ -1359,8 +1368,74 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
 </footer>
+<!-- Sticky Quote Bar -->
+<div class="sticky-quote-bar" id="sticky-quote-bar">
+  <span class="sticky-quote-bar-title">MEGA-T300A Automated Abrasive Cutter</span>
+  <a href="/quote.html" class="btn-modern btn-modern-primary">Request Quote</a>
+  <a href="/content/brochures/mega/mega-t300a.pdf" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Brochure</a>
+</div>
+
     <script src="/js/scripts.js" defer></script>
     <script src="/js/carousel.js" defer></script>
     <script src="/js/animations.js" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // --- Carousel dot indicators ---
+  const carousel = document.querySelector('.equipment-main-content .carousel');
+  if (carousel) {
+    const items = carousel.querySelectorAll('.carousel-content > .carousel-item');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    if (dotsContainer && items.length > 1) {
+      items.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+        dot.addEventListener('click', () => {
+          const prev = carousel.querySelector('.carousel-prev');
+          const next = carousel.querySelector('.carousel-next');
+          let current = 0;
+          items.forEach((item, idx) => {
+            if (item.style.display !== 'none') current = idx;
+          });
+          const diff = i - current;
+          const btn = diff > 0 ? next : prev;
+          for (let step = 0; step < Math.abs(diff); step++) {
+            btn.click();
+          }
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      const updateDots = () => {
+        items.forEach((item, idx) => {
+          const dot = dotsContainer.children[idx];
+          if (dot) {
+            dot.classList.toggle('active', item.style.display !== 'none');
+          }
+        });
+      };
+
+      const observer = new MutationObserver(updateDots);
+      items.forEach(item => {
+        observer.observe(item, { attributes: true, attributeFilter: ['style'] });
+      });
+    }
+  }
+
+  // --- Sticky quote bar ---
+  const stickyBar = document.getElementById('sticky-quote-bar');
+  const ctaButtons = document.querySelector('.product-cta-buttons');
+  if (stickyBar && ctaButtons) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        stickyBar.classList.toggle('visible', !entry.isIntersecting);
+      },
+      { threshold: 0, rootMargin: '0px' }
+    );
+    observer.observe(ctaButtons);
+  }
+});
+</script>
 </body>
 </html>

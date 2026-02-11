@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/base/styles.css">
     <link rel="stylesheet" href="/css/pages/machine.css">
+    <link rel="stylesheet" href="/css/pages/machine-enhanced.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Favicon -->
@@ -957,6 +958,7 @@
             <div class="carousel-description">
                 <p></p>
             </div>
+            <div class="carousel-dots" aria-label="Image navigation"></div>
         </div>
 
         <!-- CTA Buttons -->
@@ -979,10 +981,18 @@
 
       <!-- Product Details Section -->
       <div class="product-details-section">
+        <nav aria-label="Breadcrumb">
+          <ol class="product-breadcrumb">
+            <li><a href="/equipment.html">Equipment</a></li>
+            <li><a href="/metallographic-equipment/abrasive-sectioning.html">Abrasive Sectioning</a></li>
+            <li><a href="/metallographic-equipment/abrasive-sectioning.html#automated">Automated</a></li>
+            <li><span class="breadcrumb-current">MEGA-T350A</span></li>
+          </ol>
+        </nav>
         <h1 class="product-title">MEGA-T350A Automated Abrasive Cutter</h1>
         <p class="product-item-id">Item ID: MEGA-T350A</p>
         <div class="product-description">
-          <p>The MEGA-T350A Automated Abrasive Cutter is built for precision and efficiency. Its durable design ensures reliable performance in demanding applications. Engineered for versatility, it handles a wide range of materials with ease.</p>
+          <p>A 14-inch automated abrasive cutter that combines auto and manual operation for versatile sectioning. Its optional X-axis table feed and integrated cooling system handle demanding, high-volume workflows.</p>
         </div>
 
         <!-- Features List -->
@@ -1308,8 +1318,74 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
 </footer>
+<!-- Sticky Quote Bar -->
+<div class="sticky-quote-bar" id="sticky-quote-bar">
+  <span class="sticky-quote-bar-title">MEGA-T350A Automated Abrasive Cutter</span>
+  <a href="/quote.html" class="btn-modern btn-modern-primary">Request Quote</a>
+  <a href="/content/brochures/mega/mega-t350a.pdf" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Brochure</a>
+</div>
+
     <script src="/js/scripts.js" defer></script>
     <script src="/js/carousel.js" defer></script>
     <script src="/js/animations.js" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // --- Carousel dot indicators ---
+  const carousel = document.querySelector('.equipment-main-content .carousel');
+  if (carousel) {
+    const items = carousel.querySelectorAll('.carousel-content > .carousel-item');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    if (dotsContainer && items.length > 1) {
+      items.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+        dot.addEventListener('click', () => {
+          const prev = carousel.querySelector('.carousel-prev');
+          const next = carousel.querySelector('.carousel-next');
+          let current = 0;
+          items.forEach((item, idx) => {
+            if (item.style.display !== 'none') current = idx;
+          });
+          const diff = i - current;
+          const btn = diff > 0 ? next : prev;
+          for (let step = 0; step < Math.abs(diff); step++) {
+            btn.click();
+          }
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      const updateDots = () => {
+        items.forEach((item, idx) => {
+          const dot = dotsContainer.children[idx];
+          if (dot) {
+            dot.classList.toggle('active', item.style.display !== 'none');
+          }
+        });
+      };
+
+      const observer = new MutationObserver(updateDots);
+      items.forEach(item => {
+        observer.observe(item, { attributes: true, attributeFilter: ['style'] });
+      });
+    }
+  }
+
+  // --- Sticky quote bar ---
+  const stickyBar = document.getElementById('sticky-quote-bar');
+  const ctaButtons = document.querySelector('.product-cta-buttons');
+  if (stickyBar && ctaButtons) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        stickyBar.classList.toggle('visible', !entry.isIntersecting);
+      },
+      { threshold: 0, rootMargin: '0px' }
+    );
+    observer.observe(ctaButtons);
+  }
+});
+</script>
 </body>
 </html>
