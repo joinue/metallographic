@@ -3159,4 +3159,138 @@ a[id] {
     }
 }
 
+/* ================================
+   Series Overview Card
+   (Unified card for multi-product series on category pages)
+   ================================ */
 
+.series-overview-card {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.series-overview-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: var(--color-primary);
+}
+
+.series-overview-image {
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    min-height: 280px;
+}
+
+.series-overview-image img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.series-overview-card:hover .series-overview-image img {
+    transform: scale(1.03);
+}
+
+.series-overview-content {
+    padding: var(--spacing-xl) var(--spacing-2xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.series-overview-content h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.series-overview-content > p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+/* Comparison table */
+.series-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: var(--font-size-sm);
+}
+
+.series-comparison-table th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+    padding: 0.5rem 0.75rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.series-comparison-table td {
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    color: var(--color-text-primary);
+}
+
+.series-comparison-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.series-comparison-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.series-comparison-table td:first-child {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.series-overview-content .btn-modern {
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+@media (max-width: 900px) {
+    .series-overview-card {
+        grid-template-columns: 1fr;
+    }
+
+    .series-overview-image {
+        min-height: 220px;
+        padding: var(--spacing-lg);
+    }
+
+    .series-overview-content {
+        padding: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .series-comparison-table {
+        font-size: 0.8125rem;
+    }
+
+    .series-comparison-table th,
+    .series-comparison-table td {
+        padding: 0.5rem;
+    }
+
+    .series-overview-content h3 {
+        font-size: var(--font-size-lg);
+    }
+}

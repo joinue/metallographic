@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/../css/components/footer.css">
     <link rel="stylesheet" href="/../css/base/styles.css">
     <link rel="stylesheet" href="/../css/pages/machine.css">
+    <link rel="stylesheet" href="/../css/pages/machine-enhanced.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- External libraries or scripts -->
@@ -226,6 +227,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
@@ -615,12 +617,13 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
-                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html"><span>Hand / Belt Grinders</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html"><span>Manual Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html"><span>Semi-Auto Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html"><span>Automated Abrasive Dispenser</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html"><span>Controlled Removal Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html"><span>Vibratory Polishers</span></a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
                     </li>
                     <li>
@@ -945,6 +948,7 @@
             <div class="carousel-description">
                 <p></p>
             </div>
+            <div class="carousel-dots" aria-label="Image navigation"></div>
         </div>
 
         <!-- CTA Buttons -->
@@ -969,21 +973,27 @@
 
       <!-- Product Details Section -->
       <div class="product-details-section">
+        <nav aria-label="Breadcrumb">
+          <ol class="product-breadcrumb">
+            <li><a href="/equipment.html">Equipment</a></li>
+            <li><a href="/metallographic-equipment/castable-mounting.html">Castable Mounting</a></li>
+            <li><span class="breadcrumb-current">TeraUV</span></li>
+          </ol>
+        </nav>
         <h1 class="product-title">TeraUV UV Mounting Curing System</h1>
         <p class="product-item-id">Item ID: TeraUV</p>
         <div class="product-description">
-          <p>The TeraUV UV Mounting Curing System by PACE Technologies ensures fast, reliable curing with strong adhesion and minimal shrinkage. Designed for quick turnaround, it delivers consistent, high-quality results for precise sample preparation. Its user-friendly interface and efficient operation make it ideal for material science and metallography labs.</p>
+          <p>A UV curing system for fast, reliable mounting with strong adhesion and minimal shrinkage. Delivers quick turnaround and consistent results for metallographic sample preparation.</p>
         </div>
 
         <!-- Features List -->
         <div class="product-features">
           <h3 class="features-heading">Features</h3>
           <ul class="features-list">
-            <li>Advanced UV Curing: Ensures strong adhesion and minimal shrinkage during the sample mounting process</li>
-            <li>Fast Processing: Speeds up sample preparation with quick curing times, ideal for labs requiring rapid turnaround</li>
-            <li>Consistent Results: Provides uniform curing for high-quality, reliable metallographic samples</li>
-            <li>User-Friendly Interface: Simple controls make it easy to operate, suitable for various material science applications</li>
-            <li>Versatile Application: Effective for a wide range of materials and sample sizes, enhancing lab efficiency</li>
+            <li>UV curing with strong adhesion and minimal shrinkage</li>
+            <li>Fast processing for rapid sample turnaround</li>
+            <li>Uniform curing for consistent, high-quality mounts</li>
+            <li>Simple controls for easy operation</li>
           </ul>
         </div>
       </div>
@@ -1286,8 +1296,76 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
 </footer>
+<!-- Sticky Quote Bar -->
+<div class="sticky-quote-bar" id="sticky-quote-bar">
+  <span class="sticky-quote-bar-title">TeraUV UV Curing System</span>
+  <a href="/quote.html" class="btn-modern btn-modern-primary">Request Quote</a>
+  <a href="/content/brochures/castable/teraUV.pdf" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Brochure</a>
+  <a href="#top" class="sticky-return-top" aria-label="Return to top">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4l-8 8h16z"></path></svg>
+  </a>
+</div>
+
     <script src="/js/scripts.js" defer></script>
     <script src="/js/carousel.js" defer></script>
     <script src="/js/animations.js" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // --- Carousel dot indicators ---
+  const carousel = document.querySelector('.equipment-main-content .carousel');
+  if (carousel) {
+    const items = carousel.querySelectorAll('.carousel-content > .carousel-item');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    if (dotsContainer && items.length > 1) {
+      items.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+        dot.addEventListener('click', () => {
+          let current = 0;
+          items.forEach((item, idx) => {
+            if (item.style.display !== 'none') current = idx;
+          });
+          const diff = i - current;
+          const btn = diff > 0 ? carousel.querySelector('.carousel-next') : carousel.querySelector('.carousel-prev');
+          for (let step = 0; step < Math.abs(diff); step++) {
+            btn.click();
+          }
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      const updateDots = () => {
+        items.forEach((item, idx) => {
+          const dot = dotsContainer.children[idx];
+          if (dot) {
+            dot.classList.toggle('active', item.style.display !== 'none');
+          }
+        });
+      };
+
+      const observer = new MutationObserver(updateDots);
+      items.forEach(item => {
+        observer.observe(item, { attributes: true, attributeFilter: ['style'] });
+      });
+    }
+  }
+
+  // --- Sticky quote bar ---
+  const stickyBar = document.getElementById('sticky-quote-bar');
+  const ctaButtons = document.querySelector('.product-cta-buttons');
+  if (stickyBar && ctaButtons) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const scrolledPast = !entry.isIntersecting && entry.boundingClientRect.bottom < 0;
+        stickyBar.classList.toggle('visible', scrolledPast);
+      },
+      { threshold: 0, rootMargin: '0px' }
+    );
+    observer.observe(ctaButtons);
+  }
+});
+</script>
 </body>
 </html>

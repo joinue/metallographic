@@ -229,6 +229,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
@@ -618,12 +619,13 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
-                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html"><span>Hand / Belt Grinders</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html"><span>Manual Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html"><span>Semi-Auto Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html"><span>Automated Abrasive Dispenser</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html"><span>Controlled Removal Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html"><span>Vibratory Polishers</span></a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
                     </li>
                     <li>
@@ -1362,6 +1364,9 @@
   <span class="sticky-quote-bar-title">MEGA-T400A Automated Abrasive Cutter</span>
   <a href="/quote.html" class="btn-modern btn-modern-primary">Request Quote</a>
   <a href="/content/brochures/mega/mega-t400a.pdf" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Brochure</a>
+  <a href="#top" class="sticky-return-top" aria-label="Return to top">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4l-8 8h16z"></path></svg>
+  </a>
 </div>
 
     <script src="/js/scripts.js" defer></script>
@@ -1418,7 +1423,8 @@ document.addEventListener('DOMContentLoaded', function() {
   if (stickyBar && ctaButtons) {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        stickyBar.classList.toggle('visible', !entry.isIntersecting);
+        const scrolledPast = !entry.isIntersecting && entry.boundingClientRect.bottom < 0;
+        stickyBar.classList.toggle('visible', scrolledPast);
       },
       { threshold: 0, rootMargin: '0px' }
     );

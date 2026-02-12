@@ -33,7 +33,7 @@ from datetime import datetime
 SOURCE_FILE = "index.html"
 BACKUP_DIR = "navigation_backups"
 EXCLUDE_DIRS = {"node_modules", ".git", "metallography.org", "navigation_backups", "__pycache__", ".vscode"}
-EXCLUDE_FILES = {SOURCE_FILE, "navigation.html", "footer.html", "return-top.html", "modal.html"}
+EXCLUDE_FILES = {SOURCE_FILE, "navigation.html", "footer.html", "return-top.html", "modal.html", "build.html"}
 TEST_FILE = None  # Set to a file path to test on a single file first
 
 def extract_navigation_from_index():
@@ -85,13 +85,6 @@ def update_navigation_in_file(file_path, new_navigation):
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
-        
-        # Check if file already has the Lab Builder link
-        if 'Lab Builder' in content and '/build.html' in content:
-            # Check if it's in the navigation section
-            nav_match = re.search(r'(<!--\s*Navigation\s*-->.*?</nav>)', content, re.DOTALL)
-            if nav_match and 'Lab Builder' in nav_match.group(1):
-                return False, "Already has Lab Builder in navigation"
         
         # Find and replace navigation section
         nav_pattern = r'(<!--\s*Navigation\s*-->.*?</nav>)'

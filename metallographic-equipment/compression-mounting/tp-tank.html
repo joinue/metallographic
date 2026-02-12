@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/../css/components/footer.css">
     <link rel="stylesheet" href="/../css/base/styles.css">
     <link rel="stylesheet" href="/../css/pages/machine.css">
+    <link rel="stylesheet" href="/../css/pages/machine-enhanced.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- External libraries or scripts -->
@@ -224,6 +225,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
@@ -613,12 +615,13 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
-                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html"><span>Hand / Belt Grinders</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html"><span>Manual Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html"><span>Semi-Auto Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html"><span>Automated Abrasive Dispenser</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html"><span>Controlled Removal Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html"><span>Vibratory Polishers</span></a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
                     </li>
                     <li>
@@ -940,6 +943,7 @@
             <div class="carousel-description">
                 <p></p>
             </div>
+            <div class="carousel-dots" aria-label="Image navigation"></div>
         </div>
 
         <!-- CTA Buttons -->
@@ -964,21 +968,27 @@
 
       <!-- Product Details Section -->
       <div class="product-details-section">
+        <nav aria-label="Breadcrumb">
+          <ol class="product-breadcrumb">
+            <li><a href="/equipment.html">Equipment</a></li>
+            <li><a href="/metallographic-equipment/compression-mounting.html">Compression Mounting</a></li>
+            <li><span class="breadcrumb-current">TP-TANK</span></li>
+          </ol>
+        </nav>
         <h1 class="product-title">TP-TANK Recirculating Coolant System</h1>
         <p class="product-item-id">Item ID: TP-TANK</p>
         <div class="product-description">
-          <p>The TP-TANK Recirculating Coolant System optimizes cooling for compression mounting presses like the TERAPRESS series. With a 14-gallon (53-liter) capacity and 24V DC pump delivering 1.3 GPM, it ensures consistent cooling and reduced water usage. It is ideal for labs focused on sustainable and efficient sample preparation.</p>
+          <p>A recirculating coolant system with 14-gallon (53-liter) capacity and 24V DC pump delivering 1.3 GPM. Designed for TERAPRESS series mounting presses to reduce water usage and maintain consistent cooling.</p>
         </div>
 
         <!-- Features List -->
         <div class="product-features">
           <h3 class="features-heading">Features</h3>
           <ul class="features-list">
-            <li>Efficient Cooling: 14-gallon (53-liter) capacity ensures consistent cooling for prolonged use</li>
-            <li>Reduced Water Usage: Recirculating design minimizes water consumption, promoting sustainability</li>
-            <li>Powerful Pump: 24V DC diaphragm pump delivers 1.3 GPM (5 L/min) for optimal coolant flow</li>
-            <li>Compact and Durable: Designed for easy integration with TERAPRESS series mounting presses</li>
-            <li>Enhanced Operational Efficiency: Maintains consistent temperatures during intensive mounting operations</li>
+            <li>14-gallon (53-liter) recirculating tank for sustained cooling</li>
+            <li>24V DC diaphragm pump at 1.3 GPM (5 L/min)</li>
+            <li>Direct integration with TERAPRESS series presses</li>
+            <li>Recirculating design reduces water consumption</li>
           </ul>
         </div>
       </div>
@@ -1299,8 +1309,76 @@
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
 </footer>
+<!-- Sticky Quote Bar -->
+<div class="sticky-quote-bar" id="sticky-quote-bar">
+  <span class="sticky-quote-bar-title">TP-TANK Recirculating Coolant System</span>
+  <a href="/quote.html" class="btn-modern btn-modern-primary">Request Quote</a>
+  <a href="/content/brochures/terapress/tp-tank.pdf" class="btn-modern btn-modern-secondary" target="_blank" rel="noopener noreferrer">Brochure</a>
+  <a href="#top" class="sticky-return-top" aria-label="Return to top">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4l-8 8h16z"></path></svg>
+  </a>
+</div>
+
     <script src="/js/scripts.js" defer></script>
     <script src="/js/carousel.js" defer></script>
     <script src="/js/animations.js" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // --- Carousel dot indicators ---
+  const carousel = document.querySelector('.equipment-main-content .carousel');
+  if (carousel) {
+    const items = carousel.querySelectorAll('.carousel-content > .carousel-item');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    if (dotsContainer && items.length > 1) {
+      items.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+        dot.addEventListener('click', () => {
+          let current = 0;
+          items.forEach((item, idx) => {
+            if (item.style.display !== 'none') current = idx;
+          });
+          const diff = i - current;
+          const btn = diff > 0 ? carousel.querySelector('.carousel-next') : carousel.querySelector('.carousel-prev');
+          for (let step = 0; step < Math.abs(diff); step++) {
+            btn.click();
+          }
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      const updateDots = () => {
+        items.forEach((item, idx) => {
+          const dot = dotsContainer.children[idx];
+          if (dot) {
+            dot.classList.toggle('active', item.style.display !== 'none');
+          }
+        });
+      };
+
+      const observer = new MutationObserver(updateDots);
+      items.forEach(item => {
+        observer.observe(item, { attributes: true, attributeFilter: ['style'] });
+      });
+    }
+  }
+
+  // --- Sticky quote bar ---
+  const stickyBar = document.getElementById('sticky-quote-bar');
+  const ctaButtons = document.querySelector('.product-cta-buttons');
+  if (stickyBar && ctaButtons) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const scrolledPast = !entry.isIntersecting && entry.boundingClientRect.bottom < 0;
+        stickyBar.classList.toggle('visible', scrolledPast);
+      },
+      { threshold: 0, rootMargin: '0px' }
+    );
+    observer.observe(ctaButtons);
+  }
+});
+</script>
 </body>
 </html>
