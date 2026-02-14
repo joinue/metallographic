@@ -151,7 +151,7 @@
   updateActiveNavLink();
   updateStickyNavPosition();
 
-  // Smooth scroll for nav links
+  // Smooth scroll for nav links - CSS scroll-margin-top handles offset
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -159,11 +159,9 @@
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-          const offset = 50; // Account for fixed nav + sticky section nav
-          const targetPosition = target.offsetTop - offset;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
           });
         }
       }

@@ -2,6 +2,14 @@
    Consumables Page Styles
    ============================================================================ */
 
+/* ================================
+   Section Anchor Links
+   ================================ */
+
+.section-anchor {
+  scroll-margin-top: 100px;
+}
+
 
 /* ================================
    Introduction Section
@@ -1304,6 +1312,7 @@ img {
 
 @media (max-width: 768px) {
   .section-nav-sticky {
+    top: 100px;
     margin-left: 0;
     margin-right: 0;
     padding-left: 1rem;
@@ -1329,6 +1338,23 @@ img {
     flex-shrink: 0;
     font-size: 0.8125rem;
     padding: 6px 12px;
+  }
+
+  /* Horizontal scroll indicator for mobile */
+  .section-nav-sticky {
+    position: relative;
+  }
+
+  .section-nav-sticky::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.95));
+    pointer-events: none;
+    z-index: 1;
   }
 
   /* Hero image optimization for mobile */

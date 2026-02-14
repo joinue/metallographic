@@ -41,19 +41,20 @@
     <meta name="twitter:image" content="https://www.metallographic.com/images/pace-shortlogo-white.webp">
   
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/../css/components/navigation.css">
-    <link rel="stylesheet" href="/../css/components/footer.css">
-    <link rel="stylesheet" href="/../css/base/styles.css">
-    <link rel="stylesheet" href="/../css/pages/consumables.css">
-    <link rel="stylesheet" href="/../css/pages/machine.css">
+    <link rel="stylesheet" href="/css/components/navigation.css">
+    <link rel="stylesheet" href="/css/components/footer.css">
+    <link rel="stylesheet" href="/css/base/styles.css">
+    <link rel="stylesheet" href="/css/pages/consumables.css">
+    <link rel="stylesheet" href="/css/pages/machine.css">
+    <link rel="stylesheet" href="/css/layouts/homepage-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/Images/pt-favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/Images/pt-favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/Images/pt-favicon/favicon-16x16.png">
-    <link rel="manifest" href="/Images/pt-favicon/site.webmanifest">
-    <link rel="mask-icon" href="/Images/pt-favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/pt-favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/pt-favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/pt-favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/pt-favicon/site.webmanifest">
+    <link rel="mask-icon" href="/images/pt-favicon/safari-pinned-tab.svg" color="#5bbad5">
   
     <!-- Preconnect -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
@@ -77,7 +78,7 @@
       "@type": "Organization",
       "name": "PACE Technologies",
       "url": "https://www.metallographic.com",
-      "logo": "https://www.metallographic.com/Images/logo-microstructure-transparent.webp",
+      "logo": "https://www.metallographic.com/images/logo-microstructure-transparent.webp",
       "sameAs": [
         "https://www.facebook.com/PaceTechnologies",
         "https://www.linkedin.com/company/metallographic"
@@ -989,33 +990,21 @@
       </div>
     </section>
 
-<!-- More Resources Section -->
-<section class="quick-links-section">
+<!-- Sticky Section Navigation -->
+<nav class="section-nav-sticky" aria-label="Page Sections">
   <div class="container-custom">
-    <h2 class="section-header-modern">More Resources</h2>
-    <div class="quick-links-wrapper">
-      <nav class="quick-links" aria-label="Page sections">
-        <a href="#Intro" class="quick-link">Introduction</a>
-        <span class="quick-link-separator" aria-hidden="true">•</span>
-        <a href="#Applications" class="quick-link">Applications</a>
-        <span class="quick-link-separator" aria-hidden="true">•</span>
-        <a href="#Product" class="quick-link">Product Options</a>
-        <span class="quick-link-separator" aria-hidden="true">•</span>
-        <a href="#Grit" class="quick-link">Grit Selection</a>
-        <span class="quick-link-separator" aria-hidden="true">•</span>
-        <a href="#Procedures" class="quick-link">Procedures</a>
-        <span class="quick-link-separator" aria-hidden="true">•</span>
-        <a href="#Parameters" class="quick-link">Process Parameters</a>
-        <span class="quick-link-separator" aria-hidden="true">•</span>
-        <a href="#Trouble" class="quick-link">Troubleshooting</a>
-      </nav>
-    </div>
+    <a href="#Intro" class="section-nav-link">Introduction</a>
+    <a href="#Applications" class="section-nav-link">Applications</a>
+    <a href="#Products" class="section-nav-link">Products</a>
+    <a href="#Procedures" class="section-nav-link">Procedures & Parameters</a>
+    <a href="#Trouble" class="section-nav-link">Troubleshooting</a>
   </div>
-</section>
+</nav>
 
 <!-- Introduction Section -->
+<div class="section-anchor" id="Intro"></div>
 <div class="container-custom">
-<section id="Intro">
+<section>
   <h2 class="consumables-header">Introduction</h2>
   <p class="consumables-text">
     Diamond is the hardest known material and makes a great grinding abrasive for many hard materials. The advantages and disadvantages of grinding with diamond are as follows:
@@ -1036,16 +1025,17 @@
 </div>
 
 <!-- Recommended Applications Section -->
+<div class="section-anchor" id="Applications"></div>
 <div class="container-custom">
-<section id="Applications">
-  <h2 class="consumables-header">Recommended Applications</h2>
+<section>
+  <h2 class="consumables-header">Applications</h2>
   <p class="consumables-text">Diamond grinding is the most useful for removing material from ceramics and ceramic matrix composites. It is also useful for hard non-ferrous metals such as titanium and zirconium.</p>
   <p class="consumables-text">In general, for grinding other ferrous, steel and softer non-ferrous metals, diamond is typically not the best choice from both a performance and cost perspective.</p>
   
-  <h3 class="consumables-header">Metal vs. Resin Bond</h3>
+  <h3 class="consumables-subtitle">Metal vs. Resin Bond</h3>
   <p class="consumables-text">There are two types of bonding for diamond grinding disks: metal and resin. Metal bonded diamond grinding disks are more aggressive and can produce more damage. Resin bonded disks will break down easier to produce a better surface finish, however, they typically have lower life.</p>
   
-  <h3 class="consumables-header">PSA vs. Magnetic Backing</h3>
+  <h3 class="consumables-subtitle">PSA vs. Magnetic Backing</h3>
   <p class="consumables-text">Diamond grinding disks are available with two backing options:</p>
   <ul class="consumables-list">
     <li><strong>PSA (Pressure-Sensitive Adhesive) Backing:</strong> Provides secure adhesion to grinding wheels. Ideal for standard grinding applications and when quick disk changes are needed.</li>
@@ -1054,111 +1044,126 @@
 </section>
 </div>
 
-<!-- Product Options Section -->
+<!-- Products Section -->
+<div class="section-anchor" id="Products"></div>
 <div class="container-custom">
-<section id="Product">
-  <h2 class="consumables-header">Product Options</h2>
+<section>
+  <h2 class="consumables-header">Products</h2>
+
+  <h3 class="consumables-subtitle">Product Options</h3>
   <p class="consumables-text">Choose from metal or resin bonded diamond disks, available in both PSA (pressure-sensitive adhesive) and magnetic backing options for different grinding applications.</p>
-  
-  <h3 class="consumables-header">Metal Bonded Diamond Disks (PSA Backing)</h3>
+
+  <h4 class="consumables-subtitle">Metal Bonded Diamond Disks</h4>
   <div class="product-image-wrapper" style="margin-bottom: 1.5rem; text-align: center;">
     <img src="/images/consumables/grinding-lapping/diamond-grinding/metal-bonded-diamond.webp" alt="Metal bonded diamond grinding disks" width="600" height="450" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px;">
-    <div style="margin-top: 0.75rem;">
-      <a href="https://shop.metallographic.com/collections/diamond-grinding" class="btn-modern btn-modern-primary" target="_blank" rel="noopener noreferrer" style="font-size: 0.875rem; padding: 0.5rem 1rem; display: inline-block;">Shop Diamond Disks</a>
-    </div>
   </div>
   <table class="TableGeneral-2c2 specifications-table">
-        <thead>
-          <tr>
-            <th>Description</th>
-            <th>8-inch Diameter</th>
-            <th>10-inch Diameter</th>
-            <th>12-inch Diameter</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>250 micron Metal Bonded Diamond Grinding Disk with Adhesive Backing</td><td>DIA-M250-08-PSA</td><td>DIA-M250-10-PSA</td><td>DIA-M250-12-PSA</td></tr>
-          <tr><td>125 micron Metal Bonded Diamond Grinding Disk with Adhesive Backing</td><td>DIA-M125-08-PSA</td><td>DIA-M125-10-PSA</td><td>DIA-M125-12-PSA</td></tr>
-          <tr><td>75 micron Metal Bonded Diamond Grinding Disk with Adhesive Backing</td><td>DIA-M075-08-PSA</td><td>DIA-M075-10-PSA</td><td>DIA-M075-12-PSA</td></tr>
-          <tr><td>40 micron Metal Bonded Diamond Grinding Disk with Adhesive Backing</td><td>DIA-M040-08-PSA</td><td>DIA-M040-10-PSA</td><td>DIA-M040-12-PSA</td></tr>
-          <tr><td>30 micron Metal Bonded Diamond Grinding Disk with Adhesive Backing</td><td>DIA-M030-08-PSA</td><td>DIA-M030-10-PSA</td><td>DIA-M030-12-PSA</td></tr>
-          <tr><td>15 micron Metal Bonded Diamond Grinding Disk with Adhesive Backing</td><td>DIA-M015-08-PSA</td><td>DIA-M015-10-PSA</td><td>DIA-M015-12-PSA</td></tr>
-        </tbody>
-      </table>
-      
-      <h3 class="consumables-header">Resin Bonded Diamond Disks (PSA Backing)</h3>
-      <div class="product-image-wrapper" style="margin-bottom: 1.5rem; text-align: center;">
-        <img src="/images/consumables/grinding-lapping/diamond-grinding/resin-bonded-diamond.webp" alt="Resin bonded diamond grinding disks" width="600" height="450" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px;">
-      </div>
-      <table class="TableGeneral-2c2 specifications-table">
-        <thead>
-          <tr>
-            <th>Description</th>
-            <th>8-inch Diameter</th>
-            <th>10-inch Diameter</th>
-            <th>12-inch Diameter</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>125 micron Resin Bonded Diamond Grinding Disk with Adhesive Backing</td><td>DIA-R125-08-PSA</td><td>DIA-R125-10-PSA</td><td>DIA-R125-12-PSA</td></tr>
-          <tr><td>70 micron Resin Bonded Diamond Grinding Disk with Adhesive Backing</td><td>DIA-R070-08-PSA</td><td>DIA-R070-10-PSA</td><td>DIA-R070-12-PSA</td></tr>
-          <tr><td>35 micron Resin Bonded Diamond Grinding Disk with Adhesive Backing</td><td>DIA-R035-08-PSA</td><td>DIA-R035-10-PSA</td><td>DIA-R035-12-PSA</td></tr>
-          <tr><td>25 micron Resin Bonded Diamond Grinding Disk with Adhesive Backing</td><td>DIA-R025-08-PSA</td><td>DIA-R025-10-PSA</td><td>DIA-R025-12-PSA</td></tr>
-          <tr><td>15 micron Resin Bonded Diamond Grinding Disk with Adhesive Backing</td><td>DIA-R015-08-PSA</td><td>DIA-R015-10-PSA</td><td>DIA-R015-12-PSA</td></tr>
-          <tr><td>9 micron Resin Bonded Diamond Grinding Disk with Adhesive Backing</td><td>DIA-R009-08-PSA</td><td>DIA-R009-10-PSA</td><td>DIA-R009-12-PSA</td></tr>
-        </tbody>
-      </table>
-      
-      <h3 class="consumables-header">Metal Bonded Diamond Disks (Magnetic Backing)</h3>
-      <div class="product-image-wrapper" style="margin-bottom: 1.5rem; text-align: center;">
-        <img src="/images/consumables/grinding-lapping/diamond-grinding/magnetic-backed-diamond.webp" alt="Metal bonded diamond grinding disks with magnetic backing" width="600" height="450" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px;">
-      </div>
-      <table class="TableGeneral-2c2 specifications-table">
-        <thead>
-          <tr>
-            <th>Description</th>
-            <th>8-inch Diameter</th>
-            <th>10-inch Diameter</th>
-            <th>12-inch Diameter</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>250 micron Metal Bonded Diamond Grinding Disk with Magnetic Backing</td><td>DIA-M250-08-MAG</td><td>DIA-M250-10-MAG</td><td>DIA-M250-12-MAG</td></tr>
-          <tr><td>125 micron Metal Bonded Diamond Grinding Disk with Magnetic Backing</td><td>DIA-M125-08-MAG</td><td>DIA-M125-10-MAG</td><td>DIA-M125-12-MAG</td></tr>
-          <tr><td>75 micron Metal Bonded Diamond Grinding Disk with Magnetic Backing</td><td>DIA-M075-08-MAG</td><td>DIA-M075-10-MAG</td><td>DIA-M075-12-MAG</td></tr>
-          <tr><td>40 micron Metal Bonded Diamond Grinding Disk with Magnetic Backing</td><td>DIA-M040-08-MAG</td><td>DIA-M040-10-MAG</td><td>DIA-M040-12-MAG</td></tr>
-          <tr><td>30 micron Metal Bonded Diamond Grinding Disk with Magnetic Backing</td><td>DIA-M030-08-MAG</td><td>DIA-M030-10-MAG</td><td>DIA-M030-12-MAG</td></tr>
-          <tr><td>15 micron Metal Bonded Diamond Grinding Disk with Magnetic Backing</td><td>DIA-M015-08-MAG</td><td>DIA-M015-10-MAG</td><td>DIA-M015-12-MAG</td></tr>
-        </tbody>
-      </table>
-      
-      <h3 class="consumables-header">Resin Bonded Diamond Disks (Magnetic Backing)</h3>
-      <table class="TableGeneral-2c2 specifications-table">
-        <thead>
-          <tr>
-            <th>Description</th>
-            <th>8-inch Diameter</th>
-            <th>10-inch Diameter</th>
-            <th>12-inch Diameter</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>125 micron Resin Bonded Diamond Grinding Disk with Magnetic Backing</td><td>DIA-R125-08-MAG</td><td>DIA-R125-10-MAG</td><td>DIA-R125-12-MAG</td></tr>
-          <tr><td>70 micron Resin Bonded Diamond Grinding Disk with Magnetic Backing</td><td>DIA-R070-08-MAG</td><td>DIA-R070-10-MAG</td><td>DIA-R070-12-MAG</td></tr>
-          <tr><td>35 micron Resin Bonded Diamond Grinding Disk with Magnetic Backing</td><td>DIA-R035-08-MAG</td><td>DIA-R035-10-MAG</td><td>DIA-R035-12-MAG</td></tr>
-          <tr><td>25 micron Resin Bonded Diamond Grinding Disk with Magnetic Backing</td><td>DIA-R025-08-MAG</td><td>DIA-R025-10-MAG</td><td>DIA-R025-12-MAG</td></tr>
-          <tr><td>15 micron Resin Bonded Diamond Grinding Disk with Magnetic Backing</td><td>DIA-R015-08-MAG</td><td>DIA-R015-10-MAG</td><td>DIA-R015-12-MAG</td></tr>
-          <tr><td>9 micron Resin Bonded Diamond Grinding Disk with Magnetic Backing</td><td>DIA-R009-08-MAG</td><td>DIA-R009-10-MAG</td><td>DIA-R009-12-MAG</td></tr>
-        </tbody>
-      </table>
-      <a href="https://shop.metallographic.com/collections/diamond-grinding" class="btn-modern btn-modern-primary" target="_blank" rel="noopener noreferrer">Shop Diamond Grinding Disks</a>
-    </section>
-    </div>
+    <thead>
+      <tr>
+        <th>Micron Size</th>
+        <th>8-inch Diameter</th>
+        <th>10-inch Diameter</th>
+        <th>12-inch Diameter</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Micron Size">250µ</td>
+        <td data-label="8-inch">DIA-M250-08-PSA (PSA)<br>DIA-M250-08-MAG (Magnetic)</td>
+        <td data-label="10-inch">DIA-M250-10-PSA (PSA)<br>DIA-M250-10-MAG (Magnetic)</td>
+        <td data-label="12-inch">DIA-M250-12-PSA (PSA)<br>DIA-M250-12-MAG (Magnetic)</td>
+      </tr>
+      <tr>
+        <td data-label="Micron Size">125µ</td>
+        <td data-label="8-inch">DIA-M125-08-PSA (PSA)<br>DIA-M125-08-MAG (Magnetic)</td>
+        <td data-label="10-inch">DIA-M125-10-PSA (PSA)<br>DIA-M125-10-MAG (Magnetic)</td>
+        <td data-label="12-inch">DIA-M125-12-PSA (PSA)<br>DIA-M125-12-MAG (Magnetic)</td>
+      </tr>
+      <tr>
+        <td data-label="Micron Size">75µ</td>
+        <td data-label="8-inch">DIA-M075-08-PSA (PSA)<br>DIA-M075-08-MAG (Magnetic)</td>
+        <td data-label="10-inch">DIA-M075-10-PSA (PSA)<br>DIA-M075-10-MAG (Magnetic)</td>
+        <td data-label="12-inch">DIA-M075-12-PSA (PSA)<br>DIA-M075-12-MAG (Magnetic)</td>
+      </tr>
+      <tr>
+        <td data-label="Micron Size">40µ</td>
+        <td data-label="8-inch">DIA-M040-08-PSA (PSA)<br>DIA-M040-08-MAG (Magnetic)</td>
+        <td data-label="10-inch">DIA-M040-10-PSA (PSA)<br>DIA-M040-10-MAG (Magnetic)</td>
+        <td data-label="12-inch">DIA-M040-12-PSA (PSA)<br>DIA-M040-12-MAG (Magnetic)</td>
+      </tr>
+      <tr>
+        <td data-label="Micron Size">30µ</td>
+        <td data-label="8-inch">DIA-M030-08-PSA (PSA)<br>DIA-M030-08-MAG (Magnetic)</td>
+        <td data-label="10-inch">DIA-M030-10-PSA (PSA)<br>DIA-M030-10-MAG (Magnetic)</td>
+        <td data-label="12-inch">DIA-M030-12-PSA (PSA)<br>DIA-M030-12-MAG (Magnetic)</td>
+      </tr>
+      <tr>
+        <td data-label="Micron Size">15µ</td>
+        <td data-label="8-inch">DIA-M015-08-PSA (PSA)<br>DIA-M015-08-MAG (Magnetic)</td>
+        <td data-label="10-inch">DIA-M015-10-PSA (PSA)<br>DIA-M015-10-MAG (Magnetic)</td>
+        <td data-label="12-inch">DIA-M015-12-PSA (PSA)<br>DIA-M015-12-MAG (Magnetic)</td>
+      </tr>
+    </tbody>
+  </table>
 
-<!-- Grit Selection Guide Section -->
-<div class="container-custom">
-<section id="Grit">
-  <h2 class="consumables-header">Grit Selection Guide</h2>
+  <h4 class="consumables-subtitle">Resin Bonded Diamond Disks</h4>
+  <div class="product-image-wrapper" style="margin-bottom: 1.5rem; text-align: center;">
+    <img src="/images/consumables/grinding-lapping/diamond-grinding/resin-bonded-diamond.webp" alt="Resin bonded diamond grinding disks" width="600" height="450" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px;">
+  </div>
+  <table class="TableGeneral-2c2 specifications-table">
+    <thead>
+      <tr>
+        <th>Micron Size</th>
+        <th>8-inch Diameter</th>
+        <th>10-inch Diameter</th>
+        <th>12-inch Diameter</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Micron Size">125µ</td>
+        <td data-label="8-inch">DIA-R125-08-PSA (PSA)<br>DIA-R125-08-MAG (Magnetic)</td>
+        <td data-label="10-inch">DIA-R125-10-PSA (PSA)<br>DIA-R125-10-MAG (Magnetic)</td>
+        <td data-label="12-inch">DIA-R125-12-PSA (PSA)<br>DIA-R125-12-MAG (Magnetic)</td>
+      </tr>
+      <tr>
+        <td data-label="Micron Size">70µ</td>
+        <td data-label="8-inch">DIA-R070-08-PSA (PSA)<br>DIA-R070-08-MAG (Magnetic)</td>
+        <td data-label="10-inch">DIA-R070-10-PSA (PSA)<br>DIA-R070-10-MAG (Magnetic)</td>
+        <td data-label="12-inch">DIA-R070-12-PSA (PSA)<br>DIA-R070-12-MAG (Magnetic)</td>
+      </tr>
+      <tr>
+        <td data-label="Micron Size">35µ</td>
+        <td data-label="8-inch">DIA-R035-08-PSA (PSA)<br>DIA-R035-08-MAG (Magnetic)</td>
+        <td data-label="10-inch">DIA-R035-10-PSA (PSA)<br>DIA-R035-10-MAG (Magnetic)</td>
+        <td data-label="12-inch">DIA-R035-12-PSA (PSA)<br>DIA-R035-12-MAG (Magnetic)</td>
+      </tr>
+      <tr>
+        <td data-label="Micron Size">25µ</td>
+        <td data-label="8-inch">DIA-R025-08-PSA (PSA)<br>DIA-R025-08-MAG (Magnetic)</td>
+        <td data-label="10-inch">DIA-R025-10-PSA (PSA)<br>DIA-R025-10-MAG (Magnetic)</td>
+        <td data-label="12-inch">DIA-R025-12-PSA (PSA)<br>DIA-R025-12-MAG (Magnetic)</td>
+      </tr>
+      <tr>
+        <td data-label="Micron Size">15µ</td>
+        <td data-label="8-inch">DIA-R015-08-PSA (PSA)<br>DIA-R015-08-MAG (Magnetic)</td>
+        <td data-label="10-inch">DIA-R015-10-PSA (PSA)<br>DIA-R015-10-MAG (Magnetic)</td>
+        <td data-label="12-inch">DIA-R015-12-PSA (PSA)<br>DIA-R015-12-MAG (Magnetic)</td>
+      </tr>
+      <tr>
+        <td data-label="Micron Size">9µ</td>
+        <td data-label="8-inch">DIA-R009-08-PSA (PSA)<br>DIA-R009-08-MAG (Magnetic)</td>
+        <td data-label="10-inch">DIA-R009-10-PSA (PSA)<br>DIA-R009-10-MAG (Magnetic)</td>
+        <td data-label="12-inch">DIA-R009-12-PSA (PSA)<br>DIA-R009-12-MAG (Magnetic)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="text-align: center; margin: var(--spacing-lg) 0;">
+    <a href="https://shop.metallographic.com/collections/diamond-grinding" class="btn-modern btn-modern-primary" target="_blank" rel="noopener noreferrer">Shop Diamond Grinding Disks</a>
+  </div>
+
+  <h3 class="consumables-subtitle">Grit Selection Guide</h3>
   <p class="consumables-text">Select the appropriate diamond grit size based on your material type, starting condition, and desired surface finish. Start with the coarsest grit needed to remove sectioning damage, then progress to finer grits.</p>
   <table class="TableGeneral-2c2 specifications-table">
     <thead>
@@ -1197,16 +1202,25 @@
     </tbody>
   </table>
   <p class="consumables-text"><strong>Note:</strong> For materials requiring minimal damage, use resin-bonded disks with finer grits. For aggressive material removal, use metal-bonded disks with coarser grits.</p>
+
+  <div style="background: #f8f9fa; border-left: 4px solid #0066cc; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px;">
+    <p style="margin: 0; font-size: 0.95rem;">
+      <strong>💡 Need to convert between grit systems?</strong> Use our <a href="/tools/grit-size-converter.html" style="color: #0066cc; text-decoration: underline;">Grit Size Converter Tool</a> to quickly convert between ANSI, FEPA, JIS, and micron standards.
+    </p>
+  </div>
 </section>
 </div>
 
-<!-- Recommended Procedures Section -->
+<!-- Procedures & Parameters Section -->
+<div class="section-anchor" id="Procedures"></div>
 <div class="container-custom">
-<section id="Procedures">
-  <h2 class="consumables-header">Recommended Procedures</h2>
+<section>
+  <h2 class="consumables-header">Procedures & Parameters</h2>
+
+  <h3 class="consumables-subtitle">Recommended Procedures</h3>
   <p class="consumables-text">Follow these steps for optimal diamond grinding results:</p>
   
-  <h3 class="consumables-header">Initial Setup</h3>
+  <h4 class="consumables-subtitle">Initial Setup</h4>
   <ul class="consumables-list">
     <li>Select the appropriate diamond disk based on material type and starting condition</li>
     <li>Ensure the grinding wheel surface is clean and flat</li>
@@ -1214,7 +1228,7 @@
     <li>For magnetic-backed disks: Place disk on magnetic wheel and verify secure attachment</li>
   </ul>
   
-  <h3 class="consumables-header">Grinding Process</h3>
+  <h4 class="consumables-subtitle">Grinding Process</h4>
   <ul class="consumables-list">
     <li>Apply appropriate grinding fluid (water or oil-compatible) to the disk surface</li>
     <li>Start with light pressure and gradually increase as needed</li>
@@ -1224,7 +1238,7 @@
     <li>Thoroughly rinse specimen between grit changes to prevent cross-contamination</li>
   </ul>
   
-  <h3 class="consumables-header">Disk Conditioning</h3>
+  <h4 class="consumables-subtitle">Disk Conditioning</h4>
   <p class="consumables-text">Diamond disks require periodic conditioning to maintain optimal performance:</p>
   <ul class="consumables-list">
     <li><strong>When to condition:</strong> When cutting rates decrease or surface quality degrades</li>
@@ -1233,7 +1247,7 @@
     <li><strong>Frequency:</strong> Condition after every 10-20 specimens or when performance drops noticeably</li>
   </ul>
   
-  <h3 class="consumables-header">Best Practices</h3>
+  <h4 class="consumables-subtitle">Best Practices</h4>
   <ul class="consumables-list">
     <li>Use the finest grit possible for your starting condition to minimize damage</li>
     <li>Progress through grits systematically - don't skip intermediate sizes</li>
@@ -1241,16 +1255,17 @@
     <li>Store disks in a clean, dry environment to prevent contamination</li>
     <li>For ceramics and hard materials, use lower pressure to reduce cracking risk</li>
   </ul>
-</section>
-</div>
 
-<!-- Process Parameters Section -->
-<div class="container-custom">
-<section id="Parameters">
-  <h2 class="consumables-header">Process Parameters</h2>
+  <div style="background: #fff8e6; border-left: 4px solid #ff9800; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px;">
+    <p style="margin: 0; font-size: 0.95rem;">
+      <strong>🔧 Need detailed step-by-step procedures?</strong> Visit our <a href="/support/procedures.html" style="color: #e67700; text-decoration: underline;">Support Procedures Library</a> for material-specific preparation protocols, equipment setup guides, and troubleshooting workflows.
+    </p>
+  </div>
+
+  <h3 class="consumables-subtitle">Process Parameters</h3>
   <p class="consumables-text">Optimize your diamond grinding process by understanding key parameters:</p>
   
-  <h3 class="consumables-header">Grinding Pressure</h3>
+  <h4 class="consumables-subtitle">Grinding Pressure</h4>
   <ul class="consumables-list">
     <li><strong>Light pressure (2-4 lbs):</strong> Recommended for ceramics, brittle materials, and fine grits to minimize damage</li>
     <li><strong>Moderate pressure (4-8 lbs):</strong> Standard for most hard materials and medium grits</li>
@@ -1258,7 +1273,7 @@
     <li>Higher pressure increases material removal but also increases subsurface damage risk</li>
   </ul>
   
-  <h3 class="consumables-header">Speed Settings</h3>
+  <h4 class="consumables-subtitle">Speed Settings</h4>
   <table class="TableGeneral-2c2 specifications-table">
     <thead>
       <tr>
@@ -1290,7 +1305,7 @@
     </tbody>
   </table>
   
-  <h3 class="consumables-header">Lubrication</h3>
+  <h4 class="consumables-subtitle">Lubrication</h4>
   <ul class="consumables-list">
     <li><strong>Water:</strong> Most common choice, effective for most materials, prevents overheating</li>
     <li><strong>Water-soluble oils:</strong> Recommended for water-sensitive specimens, provides better lubrication</li>
@@ -1298,13 +1313,20 @@
     <li>Maintain consistent fluid flow throughout grinding cycle</li>
     <li>Ensure adequate fluid volume to prevent swarf buildup on disk surface</li>
   </ul>
+
+  <div style="background: #f0f7ff; border-left: 4px solid #0066cc; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px;">
+    <p style="margin: 0; font-size: 0.95rem;">
+      <strong>📚 Want to learn more advanced techniques?</strong> Explore our comprehensive <a href="/guides/grinding-techniques.html" style="color: #0066cc; text-decoration: underline;">Grinding Techniques Guide</a> for detailed procedures, troubleshooting tips, and best practices.
+    </p>
+  </div>
 </section>
 </div>
 
-    <!-- Troubleshooting Section -->
-    <div class="container-custom">
-    <section id="Trouble">
-      <h2 class="consumables-header">Diamond Grinding Troubleshooting</h2>
+<!-- Troubleshooting Section -->
+<div class="section-anchor" id="Trouble"></div>
+<div class="container-custom">
+<section>
+  <h2 class="consumables-header">Troubleshooting</h2>
       <table class="TableGeneral-2c2 specifications-table">
         <thead>
           <tr>
@@ -1353,8 +1375,120 @@
       </table>
     </section>
     </div>
+
+<!-- Related Equipment Section -->
+<div class="section-anchor" id="Equipment"></div>
+<section style="margin-top: 3rem; margin-bottom: 3rem;">
+  <div class="container-custom">
+    <h2 class="section-header-modern">Related Equipment</h2>
+    <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 800px; margin: 0 auto;">
+
+      <!-- NFZ System Card -->
+      <article class="card-modern">
+        <div class="product-card-modern">
+          <div class="product-card-image">
+            <a href="/metallographic-equipment/grinding-polishing/nfz-system.html">
+              <img src="/images/nano-femto-zeta.webp" alt="NFZ System - Complete Grinding and Polishing Solution" loading="lazy">
+            </a>
+          </div>
+          <div class="product-card-content">
+            <h3><a href="/metallographic-equipment/grinding-polishing/nfz-system.html">NFZ System (NANO-FEMTO-ZETA-RC)</a></h3>
+            <p class="product-intro">
+              The NFZ System integrates NANO manual polishers, FEMTO autopolishing heads, ZETA automated dispensers, and RC recirculating filter systems into a complete grinding and polishing workflow. This integrated solution accommodates diamond grinding disks and provides flexibility for initial grinding through final polishing of ceramics, composites, and hard materials.
+            </p>
+            <div class="product-card-button-wrapper">
+              <a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="btn-modern btn-modern-secondary">Explore NFZ System</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<div class="section-anchor" id="FAQ"></div>
+<section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+  <div class="container-custom">
+    <div class="faq-wrapper">
+      <div class="faq-header">
+        <h2 class="section-title-large">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Common questions about diamond grinding</p>
+      </div>
+
+    <div class="faq-accordion">
+      <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary class="faq-question" itemprop="name">When should I use metal-bonded vs. resin-bonded diamond disks?</summary>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <div itemprop="text">
+            <p>Metal-bonded diamond disks are ideal for aggressive material removal on very hard materials like ceramics and ceramic matrix composites. They offer longer life and higher removal rates but can produce more subsurface damage. Resin-bonded disks break down more easily, exposing fresh diamond particles for a better surface finish with less damage. Use metal-bonded for initial coarse grinding (250-75µ) and consider resin-bonded for finer grits (40µ and below) when surface quality is critical.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary class="faq-question" itemprop="name">Why doesn't diamond work well with steel and high-carbon materials?</summary>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <div itemprop="text">
+            <p>Diamond reacts chemically with the ferrite phase in steel at the high temperatures generated during grinding, causing the diamond particles to dull rapidly. This makes diamond inefficient and costly for grinding ferrous materials, hardened steels, and high-carbon steels. For these materials, use silicon carbide or alumina abrasive papers instead, which provide better performance and cost-effectiveness.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary class="faq-question" itemprop="name">How do I condition or dress diamond grinding disks?</summary>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <div itemprop="text">
+            <p>Diamond disks require periodic conditioning to expose fresh diamond particles and maintain cutting efficiency. For metal-bonded disks, use a dressing stick (typically silicon carbide) or coarse SiC paper to remove the worn bond material and expose new diamond. For resin-bonded disks, they naturally break down during use, but you can accelerate conditioning by grinding a softer material. Condition disks when you notice decreased cutting rates or poor surface quality—typically every 10-20 specimens.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary class="faq-question" itemprop="name">Should I use PSA or magnetic backing for diamond disks?</summary>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <div itemprop="text">
+            <p>PSA (pressure-sensitive adhesive) backing provides strong, permanent adhesion to standard grinding wheels and is ideal when you plan to use the disk until it's worn out. Magnetic backing works only with magnetic grinding wheels but offers easy removal and repositioning, making it convenient when you need to switch between different grits frequently or want to preserve partially-used disks. Choose based on your equipment type and workflow requirements.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary class="faq-question" itemprop="name">What materials are best suited for diamond grinding?</summary>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <div itemprop="text">
+            <p>Diamond grinding excels with ceramics, ceramic matrix composites (CMCs), carbides, hardened minerals, and hard non-ferrous metals like titanium and zirconium. These materials benefit from diamond's exceptional hardness and durability. Diamond is NOT recommended for ferrous metals, steels (especially high-carbon or hardened), or soft metals where the cost doesn't justify the performance. For general-purpose grinding of softer metals, silicon carbide or alumina papers are more economical and effective.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary class="faq-question" itemprop="name">How do I prevent cracking when grinding brittle ceramics?</summary>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <div itemprop="text">
+            <p>To minimize cracking in brittle materials: 1) Use light pressure (2-4 lbs) throughout the grinding process, 2) Start with the finest grit possible for your starting condition to reduce subsurface damage, 3) Progress through grits systematically without skipping intermediate sizes, 4) Use resin-bonded disks for finer grits (40µ and below), 5) Maintain adequate lubrication to control heat, and 6) Use moderate speeds (150-200 rpm). Never apply excessive pressure, which increases stress and crack propagation risk.</p>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+  </div>
+</section>
+
   </div>
 </main>
+
+<!-- FAB Shop Button -->
+<a href="https://shop.metallographic.com/collections/diamond-grinding" class="fab-shop" target="_blank" rel="noopener noreferrer">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="21" r="1"></circle>
+    <circle cx="20" cy="21" r="1"></circle>
+    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+  </svg>
+  Shop Online
+</a>
 
 <br><br>
 
@@ -1551,5 +1685,6 @@
 </footer>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
+    <script src="/js/section-nav.js" defer></script>
 </body>
 </html>
