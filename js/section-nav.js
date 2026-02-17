@@ -54,7 +54,7 @@
   // Function to update active nav link
   // Uses "closest center" algorithm: whichever visible section's center is
   // nearest to the viewport's target line wins. This handles small sections
-  // correctly — they activate as soon as they're the most prominent content
+  // correctly; they activate as soon as they're the most prominent content
   // on screen, rather than waiting for a fixed point to enter their bounds.
   function updateActiveNavLink() {
     const navHeight = getNavHeight();

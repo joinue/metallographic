@@ -154,6 +154,20 @@ function setupEventListeners() {
     if (searchInput) {
         searchInput.addEventListener('input', handleSearch);
     }
+
+    // Clear filters button
+    const clearBtn = document.getElementById('clear-filters');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            const categorySelect = document.getElementById('category-select');
+            const organizationSelect = document.getElementById('organization-select');
+            if (categorySelect) categorySelect.value = 'All';
+            if (organizationSelect) organizationSelect.value = 'All';
+            clearBtn.style.display = 'none';
+            const searchQuery = document.getElementById('search-input').value;
+            filterStandards(searchQuery, 'All', 'All');
+        });
+    }
 }
 
 // Handle search input
@@ -165,21 +179,13 @@ function handleSearch(event) {
 // Get selected category
 function getSelectedCategory() {
     const select = document.getElementById('category-select');
-    if (select && window.innerWidth <= 640) {
-        return select.value || 'All';
-    }
-    const activeBtn = document.querySelector('#category-filters .filter-btn.active');
-    return activeBtn ? activeBtn.dataset.category : 'All';
+    return select ? (select.value || 'All') : 'All';
 }
 
 // Get selected organization
 function getSelectedOrganization() {
     const select = document.getElementById('organization-select');
-    if (select && window.innerWidth <= 640) {
-        return select.value || 'All';
-    }
-    const activeBtn = document.querySelector('#organization-filters .filter-btn.active');
-    return activeBtn ? activeBtn.dataset.organization : 'All';
+    return select ? (select.value || 'All') : 'All';
 }
 
 // Filter standards based on search, category, and organization
@@ -245,162 +251,56 @@ function filterStandards(searchQuery = '', category = 'All', organization = 'All
     updatePagination();
 }
 
-// Render category filter buttons
+// Render category filter options
 function renderCategoryFilters() {
-    const container = document.getElementById('category-filters');
     const select = document.getElementById('category-select');
-    if (!container) return;
-    
-    // Clear container first (remove existing buttons)
-    container.innerHTML = '';
-    
+    if (!select) return;
+
     // Populate select dropdown
-    if (select) {
-        select.innerHTML = '<option value="All">All</option>';
-        categories.forEach(category => {
-            const option = document.createElement('option');
-            option.value = category;
-            option.textContent = category;
-            select.appendChild(option);
-        });
-        
-        // Remove existing event listeners by cloning and replacing
-        const newSelect = select.cloneNode(true);
-        select.parentNode.replaceChild(newSelect, select);
-        
-        // Handle select change
-        newSelect.addEventListener('change', (e) => {
-            const category = e.target.value;
-            // Update button active state
-            document.querySelectorAll('#category-filters .filter-btn').forEach(b => b.classList.remove('active'));
-            const activeBtn = container.querySelector(`[data-category="${category}"]`);
-            if (activeBtn) activeBtn.classList.add('active');
-            
-            // Filter standards
-            const searchQuery = document.getElementById('search-input').value;
-            filterStandards(searchQuery, category, getSelectedOrganization());
-        });
-    }
-    
-    // Add "All" button first
-    const allBtn = document.createElement('button');
-    allBtn.className = 'filter-btn active';
-    allBtn.dataset.category = 'All';
-    allBtn.textContent = 'All';
-    allBtn.addEventListener('click', () => {
-        document.querySelectorAll('#category-filters .filter-btn').forEach(b => b.classList.remove('active'));
-        allBtn.classList.add('active');
-        if (select) {
-            const currentSelect = document.getElementById('category-select');
-            if (currentSelect) currentSelect.value = 'All';
-        }
-        const searchQuery = document.getElementById('search-input').value;
-        filterStandards(searchQuery, 'All', getSelectedOrganization());
-    });
-    container.appendChild(allBtn);
-    
-    // Add category buttons
+    select.innerHTML = '<option value="All">All Categories</option>';
     categories.forEach(category => {
-        const btn = document.createElement('button');
-        btn.className = 'filter-btn';
-        btn.dataset.category = category;
-        btn.textContent = category;
-        btn.addEventListener('click', () => {
-            // Update active state
-            document.querySelectorAll('#category-filters .filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            // Sync select dropdown
-            if (select) {
-                const currentSelect = document.getElementById('category-select');
-                if (currentSelect) currentSelect.value = category;
-            }
-            
-            // Filter standards
-            const searchQuery = document.getElementById('search-input').value;
-            filterStandards(searchQuery, category, getSelectedOrganization());
-        });
-        container.appendChild(btn);
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        select.appendChild(option);
+    });
+
+    // Handle select change
+    select.addEventListener('change', (e) => {
+        const searchQuery = document.getElementById('search-input').value;
+        filterStandards(searchQuery, e.target.value, getSelectedOrganization());
+        updateClearButton();
     });
 }
 
-// Render organization filter buttons
+// Render organization filter options
 function renderOrganizationFilters() {
-    const container = document.getElementById('organization-filters');
     const select = document.getElementById('organization-select');
-    if (!container) return;
-    
-    // Clear container first (remove existing buttons)
-    container.innerHTML = '';
-    
+    if (!select) return;
+
     // Populate select dropdown
-    if (select) {
-        select.innerHTML = '<option value="All">All</option>';
-        organizations.forEach(organization => {
-            const option = document.createElement('option');
-            option.value = organization;
-            option.textContent = organization;
-            select.appendChild(option);
-        });
-        
-        // Remove existing event listeners by cloning and replacing
-        const newSelect = select.cloneNode(true);
-        select.parentNode.replaceChild(newSelect, select);
-        
-        // Handle select change
-        newSelect.addEventListener('change', (e) => {
-            const organization = e.target.value;
-            // Update button active state
-            document.querySelectorAll('#organization-filters .filter-btn').forEach(b => b.classList.remove('active'));
-            const activeBtn = container.querySelector(`[data-organization="${organization}"]`);
-            if (activeBtn) activeBtn.classList.add('active');
-            
-            // Filter standards
-            const searchQuery = document.getElementById('search-input').value;
-            filterStandards(searchQuery, getSelectedCategory(), organization);
-        });
-    }
-    
-    // Add "All" button first
-    const allBtn = document.createElement('button');
-    allBtn.className = 'filter-btn active';
-    allBtn.dataset.organization = 'All';
-    allBtn.textContent = 'All';
-    allBtn.addEventListener('click', () => {
-        document.querySelectorAll('#organization-filters .filter-btn').forEach(b => b.classList.remove('active'));
-        allBtn.classList.add('active');
-        if (select) {
-            const currentSelect = document.getElementById('organization-select');
-            if (currentSelect) currentSelect.value = 'All';
-        }
-        const searchQuery = document.getElementById('search-input').value;
-        filterStandards(searchQuery, getSelectedCategory(), 'All');
-    });
-    container.appendChild(allBtn);
-    
-    // Add organization buttons
+    select.innerHTML = '<option value="All">All Organizations</option>';
     organizations.forEach(organization => {
-        const btn = document.createElement('button');
-        btn.className = 'filter-btn';
-        btn.dataset.organization = organization;
-        btn.textContent = organization;
-        btn.addEventListener('click', () => {
-            // Update active state
-            document.querySelectorAll('#organization-filters .filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            // Sync select dropdown
-            if (select) {
-                const currentSelect = document.getElementById('organization-select');
-                if (currentSelect) currentSelect.value = organization;
-            }
-            
-            // Filter standards
-            const searchQuery = document.getElementById('search-input').value;
-            filterStandards(searchQuery, getSelectedCategory(), organization);
-        });
-        container.appendChild(btn);
+        const option = document.createElement('option');
+        option.value = organization;
+        option.textContent = organization;
+        select.appendChild(option);
     });
+
+    // Handle select change
+    select.addEventListener('change', (e) => {
+        const searchQuery = document.getElementById('search-input').value;
+        filterStandards(searchQuery, getSelectedCategory(), e.target.value);
+        updateClearButton();
+    });
+}
+
+// Show/hide clear filters button based on active filters
+function updateClearButton() {
+    const clearBtn = document.getElementById('clear-filters');
+    if (!clearBtn) return;
+    const hasFilters = getSelectedCategory() !== 'All' || getSelectedOrganization() !== 'All';
+    clearBtn.style.display = hasFilters ? '' : 'none';
 }
 
 // Render standards grid

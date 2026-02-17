@@ -1445,6 +1445,70 @@ a:focus-visible {
     color: #d1d5db;
 }
 
+/* Customer Showcase */
+.customers-section {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .customers-section {
+        padding: 4rem 2rem;
+    }
+}
+
+.customers-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.customers-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 90px;
+    background: #fff;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    padding: 1rem;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.customer-logo {
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.customers-logo-container:hover {
+    transform: translateY(-2px);
+    border-color: #d1d5db;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.customers-logo-container:hover .customer-logo {
+    filter: grayscale(0%);
+}
+
+@media (max-width: 768px) {
+    .customers-logo {
+        gap: 1rem;
+    }
+
+    .customers-logo-container {
+        width: 140px;
+        height: 70px;
+        padding: 0.75rem;
+    }
+}
+
 /* FAQ Section */
 .faq-section {
     padding: 3rem 0;

@@ -37,18 +37,19 @@
     <link rel="preconnect" href="https://www.google-analytics.com">
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1066794256"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQ62KENYY5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
+        gtag('config', 'G-VQ62KENYY5');
         gtag('config', 'AW-1066794256');
     </script>
 
     <!-- Open Graph Tags for Social Sharing -->
     <meta property="og:title" content="Materials Database | PACE Technologies">
     <meta property="og:description" content="Comprehensive materials database with preparation procedures, properties, and recommended techniques.">
-    <meta property="og:image" content="https://www.metallographic.com/images/pace-shortlogo-white.png">
+    <meta property="og:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
     <meta property="og:url" content="https://www.metallographic.com/materials.html">
     <meta property="og:type" content="website">
 
@@ -56,7 +57,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Materials Database">
     <meta name="twitter:description" content="Comprehensive materials database with preparation procedures, properties, and recommended techniques.">
-    <meta name="twitter:image" content="https://www.metallographic.com/images/pace-shortlogo-white.png">
+    <meta name="twitter:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
 
     <!-- Schema Markup: CollectionPage -->
     <script type="application/ld+json">
@@ -928,17 +929,24 @@
                     </div>
                 </div>
 
-                <!-- Category Filter -->
-                <div class="materials-filters">
-                    <div class="filter-label">Filter by Category:</div>
-                    <select class="filter-select" id="category-select" aria-label="Material categories">
-                        <option value="All">All</option>
-                        <!-- Options will be populated by JavaScript -->
-                    </select>
-                    <div class="filter-buttons" id="category-filters" role="tablist" aria-label="Material categories">
-                        <button class="filter-btn active" data-category="All">All</button>
-                        <!-- Filter buttons will be populated by JavaScript -->
+                <!-- Filters -->
+                <div class="materials-filter-bar">
+                    <div class="filter-group">
+                        <label class="filter-group-label" for="category-select">Category</label>
+                        <select class="filter-dropdown" id="category-select" aria-label="Filter by category">
+                            <option value="All">All Categories</option>
+                        </select>
                     </div>
+                    <div class="filter-group">
+                        <label class="filter-group-label" for="class-select">Prep Class</label>
+                        <select class="filter-dropdown" id="class-select" aria-label="Filter by preparation class">
+                            <option value="All">All Classes</option>
+                        </select>
+                    </div>
+                    <button class="filter-clear-btn" id="clear-filters" style="display: none;" aria-label="Clear all filters">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        Clear filters
+                    </button>
                 </div>
             </div>
 

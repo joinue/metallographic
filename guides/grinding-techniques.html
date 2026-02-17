@@ -39,7 +39,6 @@
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQ62KENYY5"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1066794256"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -51,7 +50,7 @@
     <!-- Open Graph Tags for Social Sharing -->
     <meta property="og:title" content="Grinding Techniques | PACE Technologies">
     <meta property="og:description" content="Master the art of grinding with proper grit selection, pressure control, and technique for optimal surface quality in metallographic sample preparation.">
-    <meta property="og:image" content="https://www.metallographic.com/images/pace-shortlogo-white.webp">
+    <meta property="og:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
     <meta property="og:url" content="https://www.metallographic.com/guides/grinding-techniques.html">
     <meta property="og:type" content="article">
 
@@ -59,7 +58,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Grinding Techniques">
     <meta name="twitter:description" content="Master the art of grinding with proper grit selection, pressure control, and technique for optimal surface quality.">
-    <meta name="twitter:image" content="https://www.metallographic.com/images/pace-shortlogo-white.webp">
+    <meta name="twitter:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
 
     <!-- Schema Markup: Article -->
     <script type="application/ld+json">
@@ -958,7 +957,6 @@
 
                 <!-- Content -->
                 <article class="guide-article">
-                <article class="guide-article">
                     <section id="introduction" class="guide-section">
                         <h2>Introduction</h2>
                         <p>
@@ -1017,13 +1015,15 @@
                             </div>
                         </div>
                         <ul>
-                            <li><strong>120-180 grit:</strong> For heavy sectioning damage or very hard materials</li>
+                            <li><strong>120-180 grit:</strong> For heavy sectioning damage or large amounts of material to remove</li>
                             <li><strong>240-320 grit:</strong> For moderate sectioning damage (most common starting point)</li>
-                            <li><strong>400-600 grit:</strong> For minimal damage or soft materials</li>
+                            <li><strong>400-600 grit:</strong> For minimal damage, precision-cut surfaces, or soft/deformation-sensitive materials</li>
                         </ul>
                         <p>
-                            Always start with the coarsest grit necessary to remove sectioning damage efficiently. 
-                            Starting too fine will prolong the grinding process and may not fully remove damage.
+                            The starting grit is primarily determined by how much material needs to be removed, not
+                            by material hardness alone. Start with the coarsest grit necessary to remove sectioning
+                            damage efficiently - starting too fine will prolong the process and may not fully remove
+                            the damaged layer.
                         </p>
                         <p>
                             For more information on grinding consumables, visit our <a href="/metallographic-consumables/grinding.html" class="guide-link">Grinding Consumables</a> page.
@@ -1057,19 +1057,20 @@
                             A typical grinding sequence progresses through increasingly fine grits. The key is to 
                             ensure that all scratches from the previous grit are removed before moving to the next.
                         </p>
-                        <h3>Standard Grinding Sequence</h3>
+                        <h3>Standard SiC Grinding Sequence</h3>
                         <ol>
-                            <li><strong>120 grit:</strong> Remove sectioning damage (30-60 seconds)</li>
-                            <li><strong>240 grit:</strong> Remove 120-grit scratches (30-60 seconds)</li>
-                            <li><strong>320 grit:</strong> Further refinement (30-60 seconds)</li>
-                            <li><strong>400 grit:</strong> Continue refinement (30-60 seconds)</li>
-                            <li><strong>600 grit:</strong> Final grinding step (30-60 seconds)</li>
-                            <li><strong>800 grit (optional):</strong> For very fine finishes (30-60 seconds)</li>
-                            <li><strong>1200 grit (optional):</strong> For ultra-fine finishes (30-60 seconds)</li>
+                            <li><strong>120 or 240 grit:</strong> Remove sectioning damage and establish a flat surface</li>
+                            <li><strong>320 grit:</strong> Remove previous scratch pattern</li>
+                            <li><strong>400 grit:</strong> Continue refinement</li>
+                            <li><strong>600 grit:</strong> Final grinding step for most materials</li>
+                            <li><strong>800 / 1200 grit (optional):</strong> For finer surface finishes before polishing</li>
                         </ol>
                         <p>
-                            <strong>Important:</strong> The exact sequence may vary based on material and initial 
-                            damage. Always inspect the surface after each step to ensure complete scratch removal.
+                            <strong>Important:</strong> Do not move to the next grit until all scratches from the
+                            previous step are removed. Inspect the surface between steps - the time required varies
+                            with material hardness, sample size, and how much damage is present. Most steps take
+                            roughly 1-2 minutes, but let the surface condition guide your decision rather than
+                            a fixed time.
                         </p>
                     </section>
 
@@ -1077,56 +1078,83 @@
                         <h2>Proper Grinding Technique</h2>
                         <h3>Sample Orientation</h3>
                         <p>
-                            Rotate the sample 90° between each grit to ensure complete removal of previous scratches. 
-                            This is critical - grinding in the same direction as previous scratches will not remove them.
+                            When grinding on a belt or stationary paper (unidirectional scratches), rotate the sample
+                            90° between each grit change. This makes it easy to see when all scratches from the
+                            previous grit have been replaced by the current grit's scratch pattern. On a rotating
+                            platen, scratches are multidirectional, so rotation is less critical - but you should
+                            still inspect the surface between steps to confirm the previous scratch pattern is fully
+                            removed.
                         </p>
                         <h3>Grinding Motion</h3>
+                        <p>
+                            The correct motion depends on your equipment:
+                        </p>
                         <ul>
-                            <li>Use a figure-8 or circular motion for even material removal</li>
-                            <li>Cover the entire sample surface evenly</li>
-                            <li>Avoid staying in one area too long (prevents over-grinding)</li>
-                            <li>Maintain consistent contact with the grinding surface</li>
+                            <li><strong>Belt / hand grinders:</strong> Push the sample in smooth, unidirectional strokes against the abrasive, covering the full width of the belt</li>
+                            <li><strong>Rotating platens (manual):</strong> Hold the sample firmly against the rotating disc, moving it gently from center to edge for even paper wear</li>
+                            <li><strong>Semi-automated systems:</strong> The sample head controls motion and force - follow your equipment's guidelines for speed and pressure settings</li>
                         </ul>
+                        <p>
+                            Regardless of method, maintain consistent contact with the grinding surface and avoid
+                            concentrating on one area, which leads to uneven material removal.
+                        </p>
 
-                        <div class="guide-video-wrapper">
-                            <iframe 
-                                width="560" 
-                                height="315" 
-                                src="https://www.youtube.com/embed/oFQoUkcwTMc" 
-                                title="Manual Grinding with PENTA 7500S & PENTA 5000A"
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                loading="lazy"
-                                class="guide-video"
-                            ></iframe>
-                            <p class="guide-video-caption">Learn proper manual grinding techniques from Dr. Donald Zipperian. This video demonstrates correct sample orientation, grinding motion, pressure control, and proper use of the PENTA manual grinding systems.</p>
-                        </div>
-
-                        <div class="guide-video-wrapper">
-                            <iframe 
-                                width="560" 
-                                height="315" 
-                                src="https://www.youtube.com/embed/PT2fRdSvhDM" 
-                                title="Automated Grinding & Polishing with NANO 1000S & FEMTO 1100S"
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                loading="lazy"
-                                class="guide-video"
-                            ></iframe>
-                            <p class="guide-video-caption">Watch Dr. Donald Zipperian demonstrate automated grinding and polishing using the NANO 1000S and FEMTO 1100S systems. Learn how to program and operate these automated systems for consistent, high-quality results.</p>
+                        <div class="guide-video-grid">
+                            <div class="guide-video-card">
+                                <div class="guide-video-embed">
+                                    <iframe
+                                        src="https://www.youtube.com/embed/oFQoUkcwTMc"
+                                        title="Manual Grinding with PENTA 7500S & PENTA 5000A"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen
+                                        loading="lazy"
+                                    ></iframe>
+                                </div>
+                                <p class="guide-video-caption">
+                                    <strong>Manual Grinding</strong>
+                                    Dr. Donald Zipperian demonstrates correct sample orientation, grinding motion, pressure control, and proper use of the PENTA manual grinding systems.
+                                </p>
+                            </div>
+                            <div class="guide-video-card">
+                                <div class="guide-video-embed">
+                                    <iframe
+                                        src="https://www.youtube.com/embed/PT2fRdSvhDM"
+                                        title="Automated Grinding & Polishing with NANO 1000S & FEMTO 1100S"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen
+                                        loading="lazy"
+                                    ></iframe>
+                                </div>
+                                <p class="guide-video-caption">
+                                    <strong>Automated Grinding & Polishing</strong>
+                                    Dr. Donald Zipperian demonstrates the NANO 1000S and FEMTO 1100S systems - programming, operation, and achieving consistent, high-quality results.
+                                </p>
+                            </div>
                         </div>
 
                         <h3>Time Management</h3>
                         <p>
-                            Each grinding step typically requires 30-60 seconds, but this varies based on:
+                            There is no universal time-per-step rule. Visual inspection of the scratch pattern is
+                            always the best indicator of when to proceed. That said, most grinding steps fall in
+                            the range of 1-2 minutes, influenced by:
                         </p>
                         <ul>
-                            <li>Material hardness</li>
-                            <li>Amount of damage to remove</li>
-                            <li>Grit size (coarser grits may need more time)</li>
-                            <li>Grinding pressure applied</li>
+                            <li>Material hardness (harder materials wear paper faster but remove slowly)</li>
+                            <li>Amount of damage to remove from the previous step</li>
+                            <li>Sample size and mount diameter</li>
+                            <li>Grinding pressure and equipment type</li>
+                        </ul>
+                        <h3>Cleaning Between Steps</h3>
+                        <p>
+                            Thorough cleaning between each grit change is essential. Abrasive particles carried
+                            over from a coarser step will create deep scratches that are difficult to remove and
+                            easy to mistake for insufficient grinding. After each step:
+                        </p>
+                        <ul>
+                            <li>Rinse the sample under running water to remove loose debris</li>
+                            <li>Ultrasonic cleaning for 30-60 seconds is ideal when available</li>
+                            <li>Dry the sample before placing it on the next abrasive</li>
+                            <li>Clean your hands and sample holder as well - they can transfer contaminants</li>
                         </ul>
                     </section>
 
@@ -1137,19 +1165,26 @@
                             cause deformation, while too little may not remove scratches efficiently.
                         </p>
                         <h3>Guidelines for Pressure</h3>
+                        <p>
+                            The right amount of pressure depends on the material, sample size, and equipment.
+                            Rather than targeting a specific number, use these principles:
+                        </p>
                         <ul>
-                            <li><strong>Coarse grits (120-240):</strong> Moderate pressure (2-4 lbs)</li>
-                            <li><strong>Medium grits (320-400):</strong> Light to moderate pressure (1-3 lbs)</li>
-                            <li><strong>Fine grits (600+):</strong> Light pressure (1-2 lbs)</li>
+                            <li><strong>Coarse grits (120-240):</strong> Firm, steady pressure - enough for efficient stock removal without excessive paper wear</li>
+                            <li><strong>Medium grits (320-400):</strong> Moderate pressure - focus on replacing the previous scratch pattern evenly</li>
+                            <li><strong>Fine grits (600+):</strong> Lighter pressure to minimize subsurface deformation going into polishing</li>
                         </ul>
                         <p>
-                            <strong>Rule of thumb:</strong> Use enough pressure to maintain contact and remove 
-                            material, but not so much that you feel excessive resistance or see deformation.
+                            For manual grinding, typical applied force ranges from about 5-15 lbs (20-65 N)
+                            depending on mount size. Semi-automated systems like the FEMTO offer programmable,
+                            repeatable force settings - consult your equipment manual for recommended starting
+                            values for your material.
                         </p>
                         <h3>Pressure Distribution</h3>
                         <p>
-                            Distribute pressure evenly across the sample. Avoid concentrating pressure on edges or 
-                            corners, which can cause rounding or over-grinding.
+                            Distribute pressure evenly across the sample. Uneven pressure causes edge rounding,
+                            relief at phase boundaries, and inconsistent material removal - all of which create
+                            problems during polishing and microscopy.
                         </p>
                     </section>
 
@@ -1166,51 +1201,59 @@
                         </ul>
                         <h3>Lubricant Selection</h3>
                         <ul>
-                            <li><strong>Water:</strong> Most common, suitable for most materials</li>
-                            <li><strong>Water with surfactant:</strong> Better wetting for some materials</li>
-                            <li><strong>Oil-based:</strong> For materials that react with water</li>
-                            <li><strong>Specialized fluids:</strong> For specific applications</li>
+                            <li><strong>Water:</strong> The standard for most metallographic grinding - inexpensive, effective, and readily available</li>
+                            <li><strong>Water with surfactant:</strong> Improves wetting and swarf removal; helpful for materials prone to loading</li>
+                            <li><strong>Oil-based lubricants:</strong> Required for water-reactive materials such as magnesium, lithium, and certain reactive metals</li>
                         </ul>
                         <p>
-                            Apply lubricant continuously during grinding to maintain a clean, effective grinding surface.
+                            Apply lubricant continuously during grinding. Adequate flow keeps the surface clean,
+                            carries away debris that would cause scratching, and prevents heat buildup that can
+                            alter the microstructure.
                         </p>
                     </section>
 
                     <section id="material-specific" class="guide-section">
                         <h2>Material-Specific Considerations</h2>
-                        <h3>Hard Materials</h3>
+                        <h3>Hard Metals (Hardened Steels, Tool Steels)</h3>
                         <ul>
-                            <li>May require starting with coarser grits (120-180)</li>
-                            <li>Can tolerate higher pressure</li>
-                            <li>May need longer grinding times per step</li>
-                            <li>Less prone to deformation</li>
+                            <li>Removal rates are slower — expect longer grinding times at each step</li>
+                            <li>Can generally tolerate higher applied force without deformation</li>
+                            <li>SiC paper wears faster; replace papers more frequently to maintain cutting efficiency</li>
+                            <li>Diamond grinding discs are often more economical than SiC for routine hard-metal work</li>
                         </ul>
-                        <h3>Soft Materials</h3>
+                        <h3>Ceramics and Brittle Materials</h3>
                         <ul>
-                            <li>Start with finer grits (240-320) to minimize damage</li>
-                            <li>Use lighter pressure to avoid deformation</li>
-                            <li>Shorter grinding times may be sufficient</li>
-                            <li>More prone to smearing - monitor carefully</li>
+                            <li>Hard but brittle — excessive force causes chipping, cracking, or fracture rather than deformation</li>
+                            <li>Use firm, steady pressure rather than high pressure</li>
+                            <li>Diamond grinding surfaces are typically preferred over SiC for ceramics</li>
+                            <li>Adequate lubrication is critical to prevent thermal shock</li>
                         </ul>
-                        <h3>Work-Hardening Materials</h3>
+                        <h3>Soft Materials (Aluminum, Copper, Lead)</h3>
                         <ul>
-                            <li>Use consistent, moderate pressure</li>
-                            <li>Avoid excessive grinding time</li>
-                            <li>May benefit from intermediate polishing steps</li>
-                            <li>Monitor for deformation carefully</li>
+                            <li>The main challenges are smearing and embedded abrasive, not just scratch removal</li>
+                            <li>Use lighter pressure and ensure adequate lubrication to reduce smearing</li>
+                            <li>Use fresh papers — worn papers cut poorly and increase the tendency to smear</li>
+                            <li>Still choose starting grit based on the amount of sectioning damage, not the material softness</li>
+                        </ul>
+                        <h3>Work-Hardening Materials (Austenitic Stainless Steels, Nickel Alloys)</h3>
+                        <ul>
+                            <li>Grinding introduces a deeper deformation zone than their hardness alone would suggest</li>
+                            <li>Each grit step must fully remove the deformation from the previous step — not just the visible scratches</li>
+                            <li>Use steady, moderate pressure; avoid excessive force which deepens the deformed layer</li>
+                            <li>Fresh, sharp abrasives are important — dull papers increase deformation without improving removal</li>
                         </ul>
                     </section>
 
                     <section id="troubleshooting" class="guide-section">
                         <h2>Troubleshooting Common Issues</h2>
                         <div class="guide-image-wrapper">
-                            <img 
-                                src="https://metallography.org/images/microstructures/Inclusion-oxide-2.jpg"
-                                alt="Example of contamination and inclusion issues that can occur during grinding"
+                            <img
+                                src="/images/guides/inclusion-oxide.jpg"
+                                alt="Metallographic micrograph showing oxide inclusions revealed after proper sample preparation"
                                 loading="lazy"
                                 class="guide-image"
                             />
-                            <p class="guide-image-caption">Proper grinding technique helps avoid contamination and surface defects. Clean samples between grits, use fresh abrasives, and maintain consistent pressure to prevent artifacts.</p>
+                            <p class="guide-image-caption">Proper grinding and polishing technique preserves true microstructural features like these oxide inclusions. Poor grinding practice - contamination, embedded abrasive, or excessive deformation - can obscure or mimic real features, making accurate analysis impossible.</p>
                         </div>
                         <h3>Scratches Not Removing</h3>
                         <ul>
@@ -1325,13 +1368,13 @@
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                                 <summary class="guide-faq-question" itemprop="name">What grit sequence should I use for grinding?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">A typical grinding sequence progresses from coarse to fine: 120, 240, 320, 400, 600, and 800 grit for most materials. For hard materials, you may start at 180 or 240 grit. For soft materials, start at 240 or 320 grit to minimize deformation. Always progress through each grit sequentially - don't skip grits. Each step should remove scratches from the previous step. Continue until all scratches from sectioning are removed and you have uniform scratch patterns.</p>
+                                    <p itemprop="text">A typical SiC grinding sequence progresses from coarse to fine: 240, 320, 400, and 600 grit is a common starting point. Start coarser (120 grit) only when there is heavy sectioning damage to remove, or finer (320-400) for precision-cut or soft/deformation-sensitive materials. Progress through each grit sequentially without skipping steps. Each step should fully remove the scratch pattern from the previous step before you advance. The exact sequence depends on your material and the amount of damage - let the surface condition guide your decisions.</p>
                                 </div>
                             </details>
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                                 <summary class="guide-faq-question" itemprop="name">How do I know when to move to the next grit?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">Move to the next grit when all scratches from the previous grit are removed and replaced with uniform, parallel scratches in one direction. Rotate the sample 90 degrees between grits to make previous scratches visible. If you see scratches from two or more previous grits, you haven't ground long enough. Typically, 1-2 minutes per grit is sufficient, but hard materials may require longer. The surface should look uniform under good lighting.</p>
+                                    <p itemprop="text">Move to the next grit when all scratches from the previous step have been replaced by a uniform pattern from the current grit. On belt or hand grinders, rotating the sample 90 degrees between grits makes this easier to judge since you're looking for unidirectional scratches. On rotating platens, inspect under good lighting for any remaining deeper scratches from the previous step. If scratches from two or more previous grits are visible, you haven't ground long enough. Most steps take roughly 1-2 minutes, but hard materials or heavy damage may require longer - let the surface guide you.</p>
                                 </div>
                             </details>
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -1343,13 +1386,13 @@
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                                 <summary class="guide-faq-question" itemprop="name">Should I use wet or dry grinding?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">Always use wet grinding for metallographic samples. Water or coolant serves multiple purposes: it cools the sample to prevent thermal damage, flushes away removed material to prevent contamination, extends paper life, and improves cutting efficiency. Dry grinding can cause overheating, embed particles, and damage the microstructure. Use a continuous flow of water or coolant during all grinding steps.</p>
+                                    <p itemprop="text">Wet grinding is standard practice for metallographic samples. Water or coolant cools the sample to prevent thermal damage, flushes away removed material, extends paper life, and improves cutting efficiency. Dry grinding can cause overheating, embed particles, and damage the microstructure. For most materials, use a continuous flow of water during all grinding steps. The exception is water-reactive materials (such as magnesium or lithium), which require oil-based lubricants instead of water.</p>
                                 </div>
                             </details>
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                                 <summary class="guide-faq-question" itemprop="name">How much pressure should I apply during grinding?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">Apply moderate, consistent pressure - enough to maintain contact but not so much that you deform the sample or wear the paper excessively. For manual grinding, use body weight through your arms, typically 5-15 pounds depending on sample size. For automated systems, follow manufacturer recommendations (typically 5-10 N per sample). Too much pressure causes deformation in soft materials and excessive paper wear. Too little pressure results in inefficient material removal.</p>
+                                    <p itemprop="text">Apply consistent, even pressure - enough to remove material efficiently, but not so much that you deform soft phases or wear the paper excessively. For manual grinding, typical applied force is roughly 5-15 lbs (20-65 N) depending on mount size and material. For semi-automated systems, follow your equipment's recommendations for force settings. Reduce pressure as you move to finer grits to minimize subsurface deformation going into polishing. Too much pressure causes smearing in soft materials and excessive paper wear; too little results in slow, inefficient material removal.</p>
                                 </div>
                             </details>
                         </div>
@@ -1363,7 +1406,8 @@
                             <a href="/guides/polishing-methods.html" class="guide-link">→ Polishing Methods</a>
                             <a href="/guides/sectioning.html" class="guide-link">→ Sectioning</a>
                             <a href="/guides/safety-fundamentals.html" class="guide-link">→ Safety Fundamentals</a>
-                        
+                        </div>
+                    </div>
                 </article>
             </div>
         </div>
@@ -1543,16 +1587,6 @@
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
   </footer>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <script>
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-  </script>
-</footer>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
     <script src="/js/guide-nav.js"></script>

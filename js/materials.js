@@ -6,6 +6,7 @@ let allMaterials = [];
 let filteredMaterials = [];
 let currentPage = 1;
 let categories = [];
+let materialClasses = [];
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
@@ -19,31 +20,35 @@ async function loadMaterials() {
         const response = await fetch('/materials_rows.csv');
         const csvText = await response.text();
         allMaterials = parseCSV(csvText);
-        
+
         // Filter only published materials
         allMaterials = allMaterials.filter(m => m.status === 'published');
-        
+
         // Sort materials alphabetically by name
         allMaterials.sort((a, b) => {
             const nameA = (a.name || '').toLowerCase();
             const nameB = (b.name || '').toLowerCase();
             return nameA.localeCompare(nameB);
         });
-        
+
         // Extract unique categories
         categories = [...new Set(allMaterials.map(m => m.category).filter(Boolean))].sort();
-        
+
+        // Extract unique classes (sorted numerically)
+        materialClasses = [...new Set(allMaterials.map(m => m.class).filter(Boolean))]
+            .sort((a, b) => parseInt(a) - parseInt(b));
+
         // Initialize filtered materials
         filteredMaterials = allMaterials;
-        
+
         // Render UI
-        renderCategoryFilters();
+        renderFilters();
         renderMaterials();
         updateResultsCount();
         hideLoadingState();
     } catch (error) {
         console.error('Error loading materials:', error);
-        document.getElementById('materials-grid').innerHTML = 
+        document.getElementById('materials-grid').innerHTML =
             '<div class="error-state"><p>Error loading materials. Please try again later.</p></div>';
         hideLoadingState();
     }
@@ -55,7 +60,7 @@ function parseCSV(csvText) {
         console.error('PapaParse is not loaded. Falling back to simple parser.');
         return parseCSVSimple(csvText);
     }
-    
+
     const result = Papa.parse(csvText, {
         header: true,
         skipEmptyLines: true,
@@ -72,7 +77,7 @@ function parseCSV(csvText) {
             return value;
         }
     });
-    
+
     return result.data || [];
 }
 
@@ -80,16 +85,16 @@ function parseCSV(csvText) {
 function parseCSVSimple(csvText) {
     const lines = csvText.split('\n').filter(line => line.trim());
     if (lines.length < 2) return [];
-    
+
     // Parse header
     const headers = parseCSVLine(lines[0]);
-    
+
     // Parse data rows
     const materials = [];
     for (let i = 1; i < lines.length; i++) {
         const values = parseCSVLine(lines[i]);
         if (values.length !== headers.length) continue;
-        
+
         const material = {};
         headers.forEach((header, index) => {
             let value = values[index] || '';
@@ -107,7 +112,7 @@ function parseCSVSimple(csvText) {
         });
         materials.push(material);
     }
-    
+
     return materials;
 }
 
@@ -116,11 +121,11 @@ function parseCSVLine(line) {
     const values = [];
     let current = '';
     let inQuotes = false;
-    
+
     for (let i = 0; i < line.length; i++) {
         const char = line[i];
         const nextChar = line[i + 1];
-        
+
         if (char === '"') {
             if (inQuotes && nextChar === '"') {
                 // Escaped quote
@@ -138,10 +143,10 @@ function parseCSVLine(line) {
             current += char;
         }
     }
-    
+
     // Add last field
     values.push(current);
-    
+
     return values;
 }
 
@@ -151,40 +156,126 @@ function setupEventListeners() {
     if (searchInput) {
         searchInput.addEventListener('input', handleSearch);
     }
-    
-    // Category filter buttons are set up in renderCategoryFilters
 }
 
 // Handle search input
 function handleSearch(event) {
     const query = event.target.value.toLowerCase().trim();
-    filterMaterials(query, getSelectedCategory());
+    applyFilters();
 }
 
-// Get selected category
-function getSelectedCategory() {
-    const activeBtn = document.querySelector('.filter-btn.active');
-    return activeBtn ? activeBtn.dataset.category : 'All';
+// Get current filter values and apply
+function applyFilters() {
+    const searchQuery = (document.getElementById('search-input')?.value || '').toLowerCase().trim();
+    const categorySelect = document.getElementById('category-select');
+    const classSelect = document.getElementById('class-select');
+    const category = categorySelect ? categorySelect.value : 'All';
+    const materialClass = classSelect ? classSelect.value : 'All';
+
+    filterMaterials(searchQuery, category, materialClass);
+    updateFilterDropdowns(category, materialClass);
+    updateClearButton();
+    updateFilterActiveStates();
 }
 
-// Filter materials based on search and category
-function filterMaterials(searchQuery = '', category = 'All') {
+// Update dropdown options with cross-filtered counts
+function updateFilterDropdowns(activeCategory, activeClass) {
+    const categorySelect = document.getElementById('category-select');
+    const classSelect = document.getElementById('class-select');
+
+    // Update category dropdown: counts reflect the active class filter
+    if (categorySelect) {
+        const prev = categorySelect.value;
+        const baseForCategory = activeClass !== 'All'
+            ? allMaterials.filter(m => m.class === activeClass)
+            : allMaterials;
+
+        categorySelect.innerHTML = `<option value="All">All Categories (${baseForCategory.length})</option>`;
+        categories.forEach(cat => {
+            const count = baseForCategory.filter(m => m.category === cat).length;
+            const option = document.createElement('option');
+            option.value = cat;
+            option.textContent = `${cat} (${count})`;
+            if (count === 0) option.disabled = true;
+            categorySelect.appendChild(option);
+        });
+        categorySelect.value = prev;
+    }
+
+    // Update class dropdown: counts reflect the active category filter
+    if (classSelect) {
+        const prev = classSelect.value;
+        const baseForClass = activeCategory !== 'All'
+            ? allMaterials.filter(m => m.category === activeCategory)
+            : allMaterials;
+
+        classSelect.innerHTML = `<option value="All">All Classes (${baseForClass.length})</option>`;
+        materialClasses.forEach(cls => {
+            const count = baseForClass.filter(m => m.class === cls).length;
+            const label = getClassLabel(cls);
+            const option = document.createElement('option');
+            option.value = cls;
+            option.textContent = `Class ${cls} - ${label} (${count})`;
+            if (count === 0) option.disabled = true;
+            classSelect.appendChild(option);
+        });
+        classSelect.value = prev;
+    }
+}
+
+// Toggle .filter-active class on dropdowns that have an active selection
+function updateFilterActiveStates() {
+    const categorySelect = document.getElementById('category-select');
+    const classSelect = document.getElementById('class-select');
+
+    if (categorySelect) {
+        categorySelect.classList.toggle('filter-active', categorySelect.value !== 'All');
+    }
+    if (classSelect) {
+        classSelect.classList.toggle('filter-active', classSelect.value !== 'All');
+    }
+}
+
+// Show/hide the clear filters button
+function updateClearButton() {
+    const clearBtn = document.getElementById('clear-filters');
+    if (!clearBtn) return;
+
+    const categorySelect = document.getElementById('category-select');
+    const classSelect = document.getElementById('class-select');
+    const searchInput = document.getElementById('search-input');
+
+    const hasFilters =
+        (categorySelect && categorySelect.value !== 'All') ||
+        (classSelect && classSelect.value !== 'All') ||
+        (searchInput && searchInput.value.trim() !== '');
+
+    clearBtn.style.display = hasFilters ? 'inline-flex' : 'none';
+}
+
+// Filter materials based on search, category, and class
+function filterMaterials(searchQuery = '', category = 'All', materialClass = 'All') {
     filteredMaterials = allMaterials.filter(material => {
         // Category filter
         if (category !== 'All' && material.category !== category) {
             return false;
         }
-        
+
+        // Class filter
+        if (materialClass !== 'All' && material.class !== materialClass) {
+            return false;
+        }
+
         // Search filter
         if (!searchQuery) return true;
-        
+
         const searchLower = searchQuery.toLowerCase();
         const name = (material.name || '').toLowerCase();
         const categoryName = (material.category || '').toLowerCase();
         const composition = (material.composition || '').toLowerCase();
         const microstructure = (material.microstructure || '').toLowerCase();
         const hardness = (material.hardness || '').toLowerCase();
-        
+
         // Parse alternative names (can be array or string)
         let alternativeNames = '';
         if (material.alternative_names) {
@@ -204,7 +295,7 @@ function filterMaterials(searchQuery = '', category = 'All') {
                 }
             }
         }
-        
+
         return name.includes(searchLower) ||
                categoryName.includes(searchLower) ||
                composition.includes(searchLower) ||
@@ -212,123 +303,109 @@ function filterMaterials(searchQuery = '', category = 'All') {
                hardness.includes(searchLower) ||
                alternativeNames.includes(searchLower);
     });
-    
+
     // Sort filtered materials alphabetically by name
     filteredMaterials.sort((a, b) => {
         const nameA = (a.name || '').toLowerCase();
         const nameB = (b.name || '').toLowerCase();
         return nameA.localeCompare(nameB);
     });
-    
+
     currentPage = 1;
     renderMaterials();
     updateResultsCount();
     updatePagination();
 }
 
-// Render category filter buttons
-function renderCategoryFilters() {
-    const container = document.getElementById('category-filters');
-    const select = document.getElementById('category-select');
-    if (!container) return;
-    
-    // Clear container first (remove existing buttons)
-    container.innerHTML = '';
-    
-    // Populate select dropdown
-    if (select) {
-        select.innerHTML = '<option value="All">All</option>';
+// Render filter dropdowns
+function renderFilters() {
+    const categorySelect = document.getElementById('category-select');
+    const classSelect = document.getElementById('class-select');
+    const clearBtn = document.getElementById('clear-filters');
+
+    // Populate category dropdown
+    if (categorySelect) {
+        categorySelect.innerHTML = `<option value="All">All Categories (${allMaterials.length})</option>`;
         categories.forEach(category => {
+            const count = allMaterials.filter(m => m.category === category).length;
             const option = document.createElement('option');
             option.value = category;
-            option.textContent = category;
-            select.appendChild(option);
+            option.textContent = `${category} (${count})`;
+            categorySelect.appendChild(option);
         });
-        
-        // Remove existing event listeners by cloning and replacing
-        const newSelect = select.cloneNode(true);
-        select.parentNode.replaceChild(newSelect, select);
-        
-        // Handle select change
-        newSelect.addEventListener('change', (e) => {
-            const category = e.target.value;
-            // Update button active state
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            const activeBtn = container.querySelector(`[data-category="${category}"]`);
-            if (activeBtn) activeBtn.classList.add('active');
-            
-            // Filter materials
-            const searchQuery = document.getElementById('search-input').value;
-            filterMaterials(searchQuery, category);
+
+        categorySelect.addEventListener('change', applyFilters);
+    }
+
+    // Populate class dropdown
+    if (classSelect) {
+        classSelect.innerHTML = `<option value="All">All Classes (${allMaterials.length})</option>`;
+        materialClasses.forEach(cls => {
+            const count = allMaterials.filter(m => m.class === cls).length;
+            const label = getClassLabel(cls);
+            const option = document.createElement('option');
+            option.value = cls;
+            option.textContent = `Class ${cls} - ${label} (${count})`;
+            classSelect.appendChild(option);
+        });
+
+        classSelect.addEventListener('change', applyFilters);
+    }
+
+    // Clear filters button
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            if (categorySelect) categorySelect.value = 'All';
+            if (classSelect) classSelect.value = 'All';
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) searchInput.value = '';
+            applyFilters();
         });
     }
-    
-    // Add "All" button first
-    const allBtn = document.createElement('button');
-    allBtn.className = 'filter-btn active';
-    allBtn.dataset.category = 'All';
-    allBtn.textContent = 'All';
-    allBtn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        allBtn.classList.add('active');
-        if (select) {
-            const currentSelect = document.getElementById('category-select');
-            if (currentSelect) currentSelect.value = 'All';
-        }
-        const searchQuery = document.getElementById('search-input').value;
-        filterMaterials(searchQuery, 'All');
-    });
-    container.appendChild(allBtn);
-    
-    // Add category buttons
-    categories.forEach(category => {
-        const btn = document.createElement('button');
-        btn.className = 'filter-btn';
-        btn.dataset.category = category;
-        btn.textContent = category;
-        btn.addEventListener('click', () => {
-            // Update active state
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            // Sync select dropdown
-            if (select) {
-                const currentSelect = document.getElementById('category-select');
-                if (currentSelect) currentSelect.value = category;
-            }
-            
-            // Filter materials
-            const searchQuery = document.getElementById('search-input').value;
-            filterMaterials(searchQuery, category);
-        });
-        container.appendChild(btn);
-    });
+}
+
+// Get descriptive label for each class
+function getClassLabel(cls) {
+    const labels = {
+        '1': 'Soft, Ductile',
+        '2': 'Refractory Metals',
+        '3': 'Lower Ductility Metals',
+        '4': 'Soft Brittle Non-metals',
+        '5': 'Medium Hard/Ductile',
+        '6': 'Tough, Hard Non-ferrous',
+        '7': 'Coatings & Surface Treatments',
+        '8': 'Hardened Steels',
+        '9': 'Metal Matrix Composites',
+        '10': 'Engineered Ceramics',
+        '11': 'Very Hard Brittle Materials'
+    };
+    return labels[String(cls)] || '';
 }
 
 // Render materials grid
 function renderMaterials() {
     const grid = document.getElementById('materials-grid');
     const emptyState = document.getElementById('empty-state');
-    
+
     if (!grid) return;
-    
+
     if (filteredMaterials.length === 0) {
         grid.innerHTML = '';
         if (emptyState) emptyState.style.display = 'block';
         return;
     }
-    
+
     if (emptyState) emptyState.style.display = 'none';
-    
+
     // Calculate pagination
     const totalPages = Math.ceil(filteredMaterials.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, filteredMaterials.length);
     const paginatedMaterials = filteredMaterials.slice(startIndex, endIndex);
-    
+
     // Render materials
     grid.innerHTML = paginatedMaterials.map(material => createMaterialCard(material)).join('');
-    
+
     // Update pagination
     updatePagination();
 }
@@ -341,20 +418,20 @@ function createMaterialCard(material) {
     const microstructure = material.microstructure || 'N/A';
     const slug = material.slug || material.id || '';
     const materialClass = material.class || '';
-    
+
     // Get category badge colors
     const badgeColors = getCategoryBadgeColors(category);
-    
+
     // Get class badge color class
     const classBadgeColor = getClassBadgeColor(materialClass);
-    
+
     // Create class badge if class is available
     const classBadge = materialClass ? `
         <a href="/support/preparation-procedures/class-${materialClass}.html" class="material-class-badge ${classBadgeColor}" title="Preparation Class ${materialClass}">
             CLASS-${materialClass}
         </a>
     ` : '';
-    
+
     // Create card
     return `
         <div class="material-card">
@@ -392,17 +469,17 @@ function createMaterialCard(material) {
 // Get class badge color class
 function getClassBadgeColor(materialClass) {
     if (!materialClass) return '';
-    
+
     const classNum = parseInt(materialClass);
     if (isNaN(classNum) || classNum < 1 || classNum > 11) return 'class-badge-default';
-    
+
     return `class-badge-${classNum}`;
 }
 
 // Get category badge colors
 function getCategoryBadgeColors(category) {
     const categoryLower = category.toLowerCase();
-    
+
     if (categoryLower.includes('carbon steel') || categoryLower.includes('steel')) {
         return {
             bg: 'badge-slate',
@@ -466,7 +543,7 @@ function getCategoryBadgeColors(category) {
             border: 'badge-border-stone'
         };
     }
-    
+
     // Default
     return {
         bg: 'badge-primary',
@@ -479,11 +556,11 @@ function getCategoryBadgeColors(category) {
 function updateResultsCount() {
     const countEl = document.getElementById('results-count');
     if (!countEl) return;
-    
+
     const total = filteredMaterials.length;
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE + 1;
     const endIndex = Math.min(currentPage * ITEMS_PER_PAGE, total);
-    
+
     if (total === 0) {
         countEl.textContent = 'No materials found';
     } else if (total <= ITEMS_PER_PAGE) {
@@ -497,21 +574,21 @@ function updateResultsCount() {
 function updatePagination() {
     const paginationEl = document.getElementById('pagination');
     if (!paginationEl) return;
-    
+
     const totalPages = Math.ceil(filteredMaterials.length / ITEMS_PER_PAGE);
-    
+
     if (totalPages <= 1) {
         paginationEl.style.display = 'none';
         return;
     }
-    
+
     paginationEl.style.display = 'flex';
-    
+
     let paginationHTML = '';
-    
+
     // Previous button
     paginationHTML += `
-        <button class="pagination-btn ${currentPage === 1 ? 'disabled' : ''}" 
+        <button class="pagination-btn ${currentPage === 1 ? 'disabled' : ''}"
                 ${currentPage === 1 ? 'disabled' : ''}
                 onclick="goToPage(${currentPage - 1})">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -520,7 +597,7 @@ function updatePagination() {
             <span class="pagination-text">Previous</span>
         </button>
     `;
-    
+
     // Page numbers
     const pages = [];
     if (totalPages <= 7) {
@@ -531,7 +608,7 @@ function updatePagination() {
     } else {
         // Show first, last, and pages around current
         pages.push(1);
-        
+
         if (currentPage <= 3) {
             // Near start: 1 2 3 4 ... last
             for (let i = 2; i <= 4; i++) {
@@ -555,23 +632,23 @@ function updatePagination() {
             pages.push(totalPages);
         }
     }
-    
+
     pages.forEach(page => {
         if (page === 'ellipsis') {
             paginationHTML += '<span class="pagination-ellipsis">...</span>';
         } else {
             paginationHTML += `
-                <button class="pagination-btn ${currentPage === page ? 'active' : ''}" 
+                <button class="pagination-btn ${currentPage === page ? 'active' : ''}"
                         onclick="goToPage(${page})">
                     ${page}
                 </button>
             `;
         }
     });
-    
+
     // Next button
     paginationHTML += `
-        <button class="pagination-btn ${currentPage === totalPages ? 'disabled' : ''}" 
+        <button class="pagination-btn ${currentPage === totalPages ? 'disabled' : ''}"
                 ${currentPage === totalPages ? 'disabled' : ''}
                 onclick="goToPage(${currentPage + 1})">
             <span class="pagination-text">Next</span>
@@ -580,7 +657,7 @@ function updatePagination() {
             </svg>
         </button>
     `;
-    
+
     paginationEl.innerHTML = paginationHTML;
 }
 
@@ -588,12 +665,12 @@ function updatePagination() {
 window.goToPage = function(page) {
     const totalPages = Math.ceil(filteredMaterials.length / ITEMS_PER_PAGE);
     if (page < 1 || page > totalPages) return;
-    
+
     currentPage = page;
     renderMaterials();
     updateResultsCount();
     updatePagination();
-    
+
     // Scroll to top of results
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -612,4 +689,3 @@ function escapeHtml(text) {
     div.textContent = text;
     return div.innerHTML;
 }
-

@@ -37,18 +37,19 @@
     <link rel="preconnect" href="https://www.google-analytics.com">
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1066794256"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQ62KENYY5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
+        gtag('config', 'G-VQ62KENYY5');
         gtag('config', 'AW-1066794256');
     </script>
 
     <!-- Open Graph Tags for Social Sharing -->
     <meta property="og:title" content="Standards Database | PACE Technologies">
     <meta property="og:description" content="Reference database of ASTM and ISO standards relevant to metallography, including preparation methods, testing procedures, and analysis guidelines.">
-    <meta property="og:image" content="https://www.metallographic.com/images/pace-shortlogo-white.png">
+    <meta property="og:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
     <meta property="og:url" content="https://www.metallographic.com/standards.html">
     <meta property="og:type" content="website">
 
@@ -56,7 +57,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Standards Database">
     <meta name="twitter:description" content="Reference database of ASTM and ISO standards relevant to metallography, including preparation methods, testing procedures, and analysis guidelines.">
-    <meta name="twitter:image" content="https://www.metallographic.com/images/pace-shortlogo-white.png">
+    <meta name="twitter:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
 
     <!-- Schema Markup: CollectionPage -->
     <script type="application/ld+json">
@@ -929,28 +930,23 @@
                 </div>
 
                 <!-- Filters -->
-                <div class="materials-filters">
-                    <div class="filter-label">Filter by Category:</div>
-                    <select class="filter-select" id="category-select" aria-label="Standard categories">
-                        <option value="All">All</option>
-                        <!-- Options will be populated by JavaScript -->
-                    </select>
-                    <div class="filter-buttons" id="category-filters" role="tablist" aria-label="Standard categories">
-                        <button class="filter-btn active" data-category="All">All</button>
-                        <!-- Filter buttons will be populated by JavaScript -->
+                <div class="materials-filter-bar">
+                    <div class="filter-group">
+                        <label class="filter-group-label" for="category-select">Category</label>
+                        <select class="filter-dropdown" id="category-select" aria-label="Filter by category">
+                            <option value="All">All Categories</option>
+                        </select>
                     </div>
-                </div>
-                
-                <div class="materials-filters" style="margin-top: 1rem;">
-                    <div class="filter-label">Filter by Organization:</div>
-                    <select class="filter-select" id="organization-select" aria-label="Standard organizations">
-                        <option value="All">All</option>
-                        <!-- Options will be populated by JavaScript -->
-                    </select>
-                    <div class="filter-buttons" id="organization-filters" role="tablist" aria-label="Standard organizations">
-                        <button class="filter-btn active" data-organization="All">All</button>
-                        <!-- Filter buttons will be populated by JavaScript -->
+                    <div class="filter-group">
+                        <label class="filter-group-label" for="organization-select">Organization</label>
+                        <select class="filter-dropdown" id="organization-select" aria-label="Filter by organization">
+                            <option value="All">All Organizations</option>
+                        </select>
                     </div>
+                    <button class="filter-clear-btn" id="clear-filters" style="display: none;" aria-label="Clear all filters">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                        Clear filters
+                    </button>
                 </div>
             </div>
 
