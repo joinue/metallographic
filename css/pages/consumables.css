@@ -381,48 +381,6 @@ h4.consumables-subtitle {
         font-size: 0.85rem;
     }
 
-    .TableGeneral-2c2 {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .TableGeneral-2c2 thead {
-        display: none;
-    }
-
-    .TableGeneral-2c2 tbody tr {
-        display: block;
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-
-    .TableGeneral-2c2 tbody td {
-        display: block;
-        text-align: right;
-        padding: 8px;
-        position: relative;
-        padding-left: 50%;
-        border-bottom: 1px solid #eee;
-    }
-
-    .TableGeneral-2c2 tbody td:last-child {
-        border-bottom: none;
-    }
-
-    .TableGeneral-2c2 tbody td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 8px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-        text-align: left;
-        font-weight: bold;
-    }
-
     .consumables-header {
         font-size: 1.5rem;
         padding: 0 10px;
@@ -462,14 +420,6 @@ h4.consumables-subtitle {
     .feature-button {
         font-size: 0.85rem;
         padding: 8px 12px;
-    }
-
-    .TableGeneral-2c2 tbody td {
-        font-size: 0.85rem;
-    }
-
-    .TableGeneral-2c2 tbody td::before {
-        font-size: 0.85rem;
     }
 }
 
@@ -845,10 +795,12 @@ h4.consumables-subtitle {
     stroke: currentColor;
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments - Card Layout for Mobile */
 @media (max-width: 768px) {
     .TableGeneral-2c2 {
         border: 0;
+        width: 100%;
+        max-width: 100%;
     }
 
     .TableGeneral-2c2 thead {
@@ -857,7 +809,8 @@ h4.consumables-subtitle {
 
     .TableGeneral-2c2 tbody tr {
         display: block;
-        margin-bottom: 15px;
+        margin: 15px 0;
+        padding: 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
         background-color: #ffffff;
@@ -874,6 +827,8 @@ h4.consumables-subtitle {
         text-align: left;
         border-bottom: 1px solid #e0e0e0;
         position: relative;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
 
     .TableGeneral-2c2 tbody td::before {
@@ -887,19 +842,44 @@ h4.consumables-subtitle {
     }
 
     .TableGeneral-2c2 tbody td:last-of-type {
-        text-align: left;
         border-bottom: none;
     }
 
-    .TableGeneral-2c2 tbody tr {
-        padding: 0;
-        margin: 15px 0;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .TableGeneral-2c2 tbody td img {
+        display: block;
+        margin: 5px 0;
     }
 
-    .TableGeneral-2c2 tbody tr:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Scroll layout for complex tables (rowspan, many columns) */
+    .TableGeneral-2c2.table-scroll-mobile {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .TableGeneral-2c2.table-scroll-mobile thead {
+        display: table-header-group;
+    }
+
+    .TableGeneral-2c2.table-scroll-mobile tbody tr {
+        display: table-row;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .TableGeneral-2c2.table-scroll-mobile tbody td {
+        display: table-cell;
+        padding: 10px 12px;
+        border-bottom: 1px solid #e0e0e0;
+        white-space: nowrap;
+    }
+
+    .TableGeneral-2c2.table-scroll-mobile tbody td::before {
+        display: none;
     }
 }
 
@@ -982,7 +962,6 @@ h4.consumables-subtitle {
     .introduction,
     .carousel-features,
     .feature-buttons,
-    .TableGeneral-2c2,
     .consumables-section-title,
     .consumables-subtitle,
     .consumables-list,
@@ -1000,7 +979,6 @@ h4.consumables-subtitle {
     .features p,
     .consumables-text,
     .consumables-list li,
-    .TableGeneral-2c2 tbody td,
     .feature-button,
     .feature-button-top,
     .carousel-description p {
@@ -1024,32 +1002,6 @@ h4.consumables-subtitle {
         overflow-wrap: break-word;
     }
 
-    /* Table adjustments */
-    .TableGeneral-2c2 tbody td {
-        display: block;
-        text-align: left;
-        padding: 8px 8px 8px 50%;
-        position: relative;
-        border-bottom: 1px solid #eee;
-        font-size: 0.9rem;
-        word-break: break-word;
-        overflow-wrap: break-word;
-    }
-
-    .TableGeneral-2c2 tbody td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 8px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: normal;
-        text-align: left;
-        font-weight: bold;
-        font-size: 0.85rem;
-        word-break: break-word;
-        overflow-wrap: break-word;
-    }
-
     /* List adjustments */
     .consumables-list {
         padding: 0;
@@ -1066,28 +1018,20 @@ h4.consumables-subtitle {
 }
 
 @media (max-width: 480px) {
-    /* Further text size adjustments for smaller screens */
     .introduction p,
     .features p,
     .consumables-text,
     .consumables-list li,
-    .TableGeneral-2c2 tbody td,
     .feature-button,
     .feature-button-top,
     .carousel-description p {
         font-size: 0.85rem;
-    }
-
-    .TableGeneral-2c2 tbody td::before {
-        font-size: 0.8rem;
-        width: 40%;
     }
 }
 
 /* Ensure all elements respect container width */
 * {
     box-sizing: border-box;
-    max-width: 100%;
 }
 
 /* Ensure images and tables don't overflow */
@@ -1110,7 +1054,6 @@ img {
 .features p,
 .consumables-text,
 .consumables-list li,
-.TableGeneral-2c2 tbody td,
 .feature-button,
 .feature-button-top,
 .carousel-description p {

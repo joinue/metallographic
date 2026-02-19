@@ -35,23 +35,57 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle Navigation Scroll
   const nav = document.querySelector(".navigation");
   if (nav) {
-    // Ensure logo starts big (remove any existing condensed class)
-    nav.classList.remove("scrolled", "condensed");
-    
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
+    // Read scroll position before any DOM mutation to avoid forced reflow
+    const initialScroll = window.scrollY;
+    if (initialScroll > 50) {
+      nav.classList.add("scrolled", "condensed");
+    } else {
+      nav.classList.remove("scrolled", "condensed");
+    }
+  }
+
+  // Unified scroll handler — rAF-throttled to run at most once per frame
+  let scrollTicking = false;
+  window.addEventListener("scroll", () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(onScroll);
+      scrollTicking = true;
+    }
+  });
+
+  function onScroll() {
+    scrollTicking = false;
+    const scrollY = window.scrollY;
+
+    // Nav condensed state
+    if (nav) {
+      if (scrollY > 50) {
         nav.classList.add("scrolled", "condensed");
       } else {
         nav.classList.remove("scrolled", "condensed");
       }
-    };
-    
-    // Only check scroll position if page is actually scrolled
-    if (window.scrollY > 50) {
-      handleScroll();
     }
-    
-    window.addEventListener("scroll", handleScroll);
+
+    // Return-to-top visibility + footer avoidance
+    if (returnToTop) {
+      if (scrollY > 500) {
+        returnToTop.classList.add("visible");
+        returnToTop.style.opacity = "1";
+        returnToTop.style.visibility = "visible";
+      } else {
+        returnToTop.classList.remove("visible");
+        returnToTop.style.opacity = "0";
+        returnToTop.style.visibility = "hidden";
+      }
+      if (footer) {
+        const footerTop = footer.getBoundingClientRect().top;
+        if (footerTop < window.innerHeight) {
+          returnToTop.style.bottom = `${window.innerHeight - footerTop + 20}px`;
+        } else {
+          returnToTop.style.bottom = "30px";
+        }
+      }
+    }
   }
 
   // Modern Mobile Navigation Toggle
@@ -356,58 +390,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Handle Scroll to Show Return to Top
-// Select the return-to-top button and footer elements
-const returnToTop = document.querySelector(".return-to-top");
-const footer = document.querySelector("footer");
+  const returnToTop = document.querySelector(".return-to-top");
+  const footer = document.querySelector("footer");
 
-// Only set up return-to-top functionality if the element exists
-if (returnToTop) {
-
-window.addEventListener("scroll", () => {
-    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-
-    // Toggle visibility
-    if (scrollPosition > 500) {
-        returnToTop.classList.add("visible");
-        returnToTop.style.opacity = "1";
-        returnToTop.style.visibility = "visible";
-    } else {
-        returnToTop.classList.remove("visible");
-        returnToTop.style.opacity = "0";
-        returnToTop.style.visibility = "hidden";
-    }
-
-    // Keep button above footer using live position
-    if (footer) {
-        const footerRect = footer.getBoundingClientRect();
-        const buttonHeight = 50;
-        const gap = 20;
-        if (footerRect.top < window.innerHeight) {
-            const overlap = window.innerHeight - footerRect.top;
-            returnToTop.style.bottom = `${overlap + gap}px`;
-        } else {
-            returnToTop.style.bottom = "30px";
-        }
-    }
-});
-
-// Best-in-class return to top functionality
-returnToTop.addEventListener("click", (e) => {
-    e.preventDefault();
-    
-    // Smooth scroll to the very top with easing
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+  // Only set up return-to-top click if the element exists
+  if (returnToTop) {
+    returnToTop.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      returnToTop.style.transform = 'scale(0.95)';
+      setTimeout(() => { returnToTop.style.transform = 'scale(1)'; }, 150);
     });
-    
-    // Add a subtle visual feedback
-    returnToTop.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-        returnToTop.style.transform = 'scale(1)';
-    }, 150);
-});
-}
+  }
 
   // Mobile Menu Items Toggle
   const menuItems = document.querySelectorAll(".nav-links-mobile > li > a");
@@ -526,3 +520,81 @@ function switchTab(tabId) {
   // Update URL hash without scrolling
   window.history.replaceState(null, '', `#${tabId}`);
 }
+
+// Desktop-only video loading
+// Videos use data-src instead of <source> to prevent 18MB+ mobile downloads.
+// On desktop, inject <source> and autoplay when videos enter the viewport.
+(function() {
+  if (window.innerWidth < 769) return;
+  var videos = document.querySelectorAll('video[data-src]');
+  if (!videos.length) return;
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var video = entry.target;
+      var source = document.createElement('source');
+      source.src = video.getAttribute('data-src');
+      source.type = 'video/mp4';
+      video.appendChild(source);
+      video.autoplay = true;
+      video.load();
+      video.play();
+      observer.unobserve(video);
+    });
+  }, { rootMargin: '200px' });
+  videos.forEach(function(v) { observer.observe(v); });
+})();
+
+// Cookie consent banner
+(function() {
+  if (document.cookie.indexOf('cookie_consent=') !== -1) return;
+
+  try {
+    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    var usZones = ['America/New_York','America/Chicago','America/Denver','America/Los_Angeles',
+      'America/Anchorage','America/Adak','America/Phoenix','America/Boise','America/Detroit',
+      'America/Menominee','America/Nome','America/Sitka','America/Yakutat','America/Juneau',
+      'America/Metlakatla','Pacific/Honolulu'];
+    var isUS = usZones.indexOf(tz) !== -1 ||
+      tz.indexOf('America/Indiana') === 0 ||
+      tz.indexOf('America/Kentucky') === 0 ||
+      tz.indexOf('America/North_Dakota') === 0;
+    if (isUS) return;
+  } catch(e) {}
+
+  var banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Cookie consent');
+  banner.innerHTML =
+    '<div class="cookie-banner-inner">' +
+      '<p class="cookie-banner-text">We use cookies to analyze site traffic and improve your experience. ' +
+        '<a href="/privacy.html">Privacy Policy</a></p>' +
+      '<div class="cookie-banner-actions">' +
+        '<button class="cookie-banner-decline">Decline</button>' +
+        '<button class="cookie-banner-accept">Accept</button>' +
+      '</div>' +
+    '</div>';
+
+  document.body.appendChild(banner);
+
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      banner.classList.add('visible');
+    });
+  });
+
+  function dismiss(accepted) {
+    document.cookie = 'cookie_consent=' + (accepted ? '1' : '0') + '; path=/; max-age=31536000; SameSite=Lax';
+    banner.classList.remove('visible');
+    setTimeout(function() { banner.remove(); }, 300);
+  }
+
+  banner.querySelector('.cookie-banner-accept').addEventListener('click', function() {
+    dismiss(true);
+  });
+
+  banner.querySelector('.cookie-banner-decline').addEventListener('click', function() {
+    dismiss(false);
+  });
+})();

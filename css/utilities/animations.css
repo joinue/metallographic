@@ -133,6 +133,27 @@
     }
 }
 
+/* Disable entrance animations on mobile
+   !important needed to override inline <style> FOUC-prevention transforms */
+@media (max-width: 768px) {
+    [data-animate] {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .animate-fade-in,
+    .animate-fly-up,
+    .animate-fly-down,
+    .animate-fly-left,
+    .animate-fly-right {
+        animation: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+}
+
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
     .animate-fade-in,
@@ -142,30 +163,24 @@
     .animate-fly-right {
         animation: fadeIn 300ms ease forwards;
     }
-    
+
     :root {
         --animation-duration: 300ms;
         --animation-distance: 20px;
     }
 }
 
-/* Performance optimizations */
-[data-animate],
-.animate-hidden,
+/* Performance: only promote to GPU layer during active animation.
+   translate3d() in keyframes already triggers hardware acceleration,
+   so will-change is only needed briefly during the transition. */
 .animate-fade-in,
 .animate-fly-up,
 .animate-fly-down,
 .animate-fly-left,
 .animate-fly-right {
     will-change: opacity, transform;
-    /* Prevent layout shifts during animation */
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    /* Smooth rendering */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /* Force hardware acceleration - translate3d already provides this */
-    perspective: 1000px;
 }
 
 .animate-visible {

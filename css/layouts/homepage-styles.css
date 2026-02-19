@@ -285,6 +285,15 @@ a:focus-visible {
     width: 100%;
 }
 
+.hero-tagline {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}
+
 .hero-title {
     font-size: 2.25rem;
     font-weight: 700;
@@ -344,6 +353,45 @@ a:focus-visible {
     .hero-buttons {
         flex-direction: row;
         gap: 1rem;
+    }
+}
+
+/* Hero CSS-only entrance animation (no JS dependency) */
+@keyframes heroFlyUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.hero-animate {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+    animation: heroFlyUp 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity, transform;
+}
+
+.hero-tagline.hero-animate  { animation-delay: 50ms; }
+.hero-title.hero-animate    { animation-delay: 100ms; }
+.hero-description.hero-animate { animation-delay: 150ms; }
+.hero-buttons.hero-animate  { animation-delay: 250ms; }
+
+@media (max-width: 768px) {
+    .hero-animate {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-animate {
+        animation-duration: 200ms;
+        transform: translate3d(0, 0, 0);
     }
 }
 
@@ -452,6 +500,30 @@ a:focus-visible {
     height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.prep-step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.prep-step-guide-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    color: #6b7280;
+    background: transparent;
+    transition: color 0.2s, background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.prep-step-guide-btn:hover {
+    color: #2563eb;
+    background-color: #eff6ff;
 }
 
 .prep-step-number {
@@ -1550,7 +1622,7 @@ a:focus-visible {
 }
 
 .faq-question {
-    padding: 1.25rem 1.5rem;
+    padding: 1.25rem 3rem 1.25rem 1.5rem;
     font-weight: 600;
     color: #111827;
     cursor: pointer;

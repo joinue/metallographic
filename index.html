@@ -71,12 +71,11 @@
     <link rel="preload" href="/css/layouts/homepage-styles.css" as="style">
 
     <!-- Preload critical images with cache hints -->
-    <link rel="preload" as="image" href="/images/logo-microstructure-320.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/logo-microstructure-320.webp" imagesrcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" imagesizes="(max-width: 768px) 120px, 180px" fetchpriority="high">
     <link rel="preload" as="image" href="/images/pace/equipment-1400.webp" fetchpriority="high">
 
     <!-- Preload deferred JS to move them earlier in the download queue -->
     <link rel="preload" href="/js/scripts.js" as="script">
-    <link rel="preload" href="/js/animations.js" as="script">
     
     <!-- Security Headers -->
     <!-- Add to .htaccess for security:
@@ -88,10 +87,27 @@
     Header always set Content-Security-Policy "frame-src 'self' https://js.hsforms.net https://*.hubspot.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://js.hsforms.net https://*.hubspot.com;"
     -->
     
-    <!-- Self-hosted fonts (eliminates Google Fonts network dependency chain) -->
+    <!-- Self-hosted fonts (inlined to eliminate critical-chain network hop) -->
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/roboto-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/css/base/fonts.css" media="all">
+    <style>
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 300 700;
+        font-display: swap;
+        src: url('/fonts/inter-latin.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 300 700;
+        font-display: swap;
+        src: url('/fonts/roboto-latin.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>
 
     <!-- Critical CSS - load synchronously for above-the-fold content -->
     <!-- Note: nav.css has @import which blocks parsing - inline CSS above prevents FOUC -->
@@ -107,16 +123,16 @@
             transform: translateY(0) translateX(0);
         }
         [data-animate="up"] {
-            transform: translateY(60px);
+            transform: translateY(50px);
         }
         [data-animate="down"] {
-            transform: translateY(-60px);
+            transform: translateY(-50px);
         }
         [data-animate="left"] {
-            transform: translateX(60px);
+            transform: translateX(50px);
         }
         [data-animate="right"] {
-            transform: translateX(-60px);
+            transform: translateX(-50px);
         }
         [data-animate="fade"] {
             transform: translateY(0) translateX(0);
@@ -521,7 +537,7 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
         <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
@@ -1342,16 +1358,17 @@
             <div class="container-custom hero-content">
                 <div class="hero-text-wrapper">
                     <div class="hero-text-inner">
-                        <h1 class="hero-title" data-animate="up" data-animate-delay="100">
-                            <span class="hero-title-gradient">Build Your Sample Preparation Lab</span>
+                        <p class="hero-tagline hero-animate">Quality Matters</p>
+                        <h1 class="hero-title hero-animate">
+                            <span class="hero-title-gradient">Your Partner in Sample&nbsp;Preparation</span>
                         </h1>
-                        <p class="hero-description" data-animate="up" data-animate-delay="200">
+                        <p class="hero-description hero-animate">
                             Quality control, failure analysis, research and development, and material characterization.
-                            Complete equipment and consumables solutions for every metallography application, backed by expert preparation guides.
+                            Complete equipment and consumables solutions for your metallography application, backed by our team of experts.
                         </p>
-                        <div class="hero-buttons" data-animate="up" data-animate-delay="300">
+                        <div class="hero-buttons hero-animate">
                             <a href="/equipment.html" class="btn-primary">Browse Equipment</a>
-                            <a href="/guides.html" class="btn-tertiary">Sample Prep Guides</a>
+                            <a href="/consumables.html" class="btn-tertiary">Browse Consumables</a>
                         </div>
                     </div>
                 </div>
@@ -1366,8 +1383,8 @@
                         <div class="pace-help-text" data-animate="right">
                             <h2 class="section-title">How PACE can help</h2>
                             <p class="section-text">
-                                PACE Technologies supplies the equipment and consumables your lab needs for metallographic sample preparation. 
-                                From sectioning and mounting through grinding, polishing, and etching, we offer precision equipment and consumables backed by preparation guides and technical support.
+                                PACE Technologies supplies the equipment and consumables your lab needs for metallographic sample preparation.
+                                From <a href="/guides/sectioning.html" class="link-primary">sectioning</a> and <a href="/guides/mounting.html" class="link-primary">mounting</a> through <a href="/guides/grinding-techniques.html" class="link-primary">grinding</a>, <a href="/guides/polishing-methods.html" class="link-primary">polishing</a>, and <a href="/guides/etching-procedures.html" class="link-primary">etching</a>, we offer precision equipment and consumables backed by <a href="/guides.html" class="link-primary">preparation guides</a> and <a href="/support.html" class="link-primary">technical support</a>.
                             </p>
                             <p class="section-text-small">
                                 Whether you're setting up a new lab or upgrading existing equipment, our products and preparation methods deliver consistent results for <a href="/guides/purpose-and-applications.html" class="link-primary">quality control, failure analysis, and materials research</a>. <a href="/about.html" class="link-primary">Learn more about PACE Technologies</a>.
@@ -1387,76 +1404,116 @@
                         <h3 class="prep-steps-title" data-animate="up">Complete Solutions for Every Step</h3>
                         <div class="prep-steps-grid">
                             <div class="prep-step-card" data-animate="up" data-animate-delay="50">
-                                <div class="prep-step-number">1</div>
+                                <div class="prep-step-header">
+                                    <div class="prep-step-number">1</div>
+                                    <a href="/guides/sectioning.html" class="prep-step-guide-btn" aria-label="Sectioning Guide" title="Sectioning Guide">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                    </a>
+                                </div>
                                 <h4 class="prep-step-title">Sectioning</h4>
                                 <p class="prep-step-description">Precision cutters, abrasive saws, and cutting fluids for clean, damage-free cuts</p>
                                 <div class="prep-step-links">
-                                    <a href="/metallographic-equipment/abrasive-sectioning.html">Abrasive Sectioning</a> • 
-                                    <a href="/metallographic-equipment/precision-wafering.html">Precision Wafering</a> • 
+                                    <a href="/metallographic-equipment/abrasive-sectioning.html">Abrasive Sectioning</a> •
+                                    <a href="/metallographic-equipment/precision-wafering.html">Precision Wafering</a> •
                                     <a href="/metallographic-consumables/sectioning.html">Sectioning Consumables</a>
                                 </div>
                             </div>
                             <div class="prep-step-card" data-animate="up" data-animate-delay="100">
-                                <div class="prep-step-number">2</div>
+                                <div class="prep-step-header">
+                                    <div class="prep-step-number">2</div>
+                                    <a href="/guides/mounting.html" class="prep-step-guide-btn" aria-label="Mounting Guide" title="Mounting Guide">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                    </a>
+                                </div>
                                 <h4 class="prep-step-title">Mounting</h4>
                                 <p class="prep-step-description">Compression mounting presses and castable mounting systems with a full range of mounting materials</p>
                                 <div class="prep-step-links">
-                                    <a href="/metallographic-equipment/compression-mounting.html">Compression Mounting</a> • 
-                                    <a href="/metallographic-equipment/castable-mounting.html">Castable Mounting</a> • 
+                                    <a href="/metallographic-equipment/compression-mounting.html">Compression Mounting</a> •
+                                    <a href="/metallographic-equipment/castable-mounting.html">Castable Mounting</a> •
                                     <a href="/metallographic-consumables/mounting.html">Mounting Consumables</a>
                                 </div>
                             </div>
                             <div class="prep-step-card" data-animate="up" data-animate-delay="150">
-                                <div class="prep-step-number">3</div>
+                                <div class="prep-step-header">
+                                    <div class="prep-step-number">3</div>
+                                    <a href="/guides/grinding-techniques.html" class="prep-step-guide-btn" aria-label="Grinding Guide" title="Grinding Guide">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                    </a>
+                                </div>
                                 <h4 class="prep-step-title">Grinding</h4>
                                 <p class="prep-step-description">Hand and belt grinders with papers and SiC powders for progressive material removal</p>
                                 <div class="prep-step-links">
-                                    <a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a> • 
+                                    <a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a> •
                                     <a href="/metallographic-consumables/grinding.html">Grinding Consumables</a>
                                 </div>
                             </div>
                             <div class="prep-step-card" data-animate="up" data-animate-delay="200">
-                                <div class="prep-step-number">4</div>
+                                <div class="prep-step-header">
+                                    <div class="prep-step-number">4</div>
+                                    <a href="/guides/polishing-methods.html" class="prep-step-guide-btn" aria-label="Polishing Guide" title="Polishing Guide">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                    </a>
+                                </div>
                                 <h4 class="prep-step-title">Polishing</h4>
                                 <p class="prep-step-description">Grinder-polishers with diamond compounds and polishing pads</p>
                                 <div class="prep-step-links">
-                                    <a href="/metallographic-equipment/grinding-polishing.html">Grinder-Polishers</a> • 
+                                    <a href="/metallographic-equipment/grinding-polishing.html">Grinder-Polishers</a> •
                                     <a href="/metallographic-consumables/polishing.html">Polishing Consumables</a>
                                 </div>
                             </div>
                             <div class="prep-step-card" data-animate="up" data-animate-delay="250">
-                                <div class="prep-step-number">5</div>
+                                <div class="prep-step-header">
+                                    <div class="prep-step-number">5</div>
+                                    <a href="/guides/polishing-methods.html" class="prep-step-guide-btn" aria-label="Polishing Guide" title="Final Polishing Guide">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                    </a>
+                                </div>
                                 <h4 class="prep-step-title">Final Polishing</h4>
                                 <p class="prep-step-description">Vibratory polishers for eliminating subsurface damage and achieving superior finishes</p>
                                 <div class="prep-step-links">
-                                    <a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a> • 
+                                    <a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a> •
                                     <a href="/metallographic-consumables/final-polishing.html">Final Polishing Consumables</a>
                                 </div>
                             </div>
                             <div class="prep-step-card" data-animate="up" data-animate-delay="300">
-                                <div class="prep-step-number">6</div>
+                                <div class="prep-step-header">
+                                    <div class="prep-step-number">6</div>
+                                    <a href="/guides/etching-procedures.html" class="prep-step-guide-btn" aria-label="Etching Guide" title="Etching Guide">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                    </a>
+                                </div>
                                 <h4 class="prep-step-title">Etching</h4>
                                 <p class="prep-step-description">Etchants, cleaning solutions, and application tools for microstructure revelation</p>
                                 <div class="prep-step-links">
-                                    <a href="/metallographic-consumables/etching.html">Etching Consumables</a> • 
+                                    <a href="/metallographic-consumables/etching.html">Etching Consumables</a> •
                                     <a href="/metallographic-consumables/cleaning.html">Cleaning Solutions</a>
                                 </div>
                             </div>
                             <div class="prep-step-card" data-animate="up" data-animate-delay="350">
-                                <div class="prep-step-number">7</div>
+                                <div class="prep-step-header">
+                                    <div class="prep-step-number">7</div>
+                                    <a href="/guides/hardness-testing-preparation.html" class="prep-step-guide-btn" aria-label="Hardness Testing Guide" title="Hardness Testing Guide">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                    </a>
+                                </div>
                                 <h4 class="prep-step-title">Hardness Testing</h4>
                                 <p class="prep-step-description">Rockwell, microhardness, and Brinell testers with accessories for material characterization</p>
                                 <div class="prep-step-links">
-                                    <a href="/metallographic-equipment/hardness-testing.html">Hardness Testers</a> • 
+                                    <a href="/metallographic-equipment/hardness-testing.html">Hardness Testers</a> •
                                     <a href="/metallographic-consumables/hardness-testing.html">Hardness Testing Consumables</a>
                                 </div>
                             </div>
                             <div class="prep-step-card" data-animate="up" data-animate-delay="400">
-                                <div class="prep-step-number">8</div>
+                                <div class="prep-step-header">
+                                    <div class="prep-step-number">8</div>
+                                    <a href="/guides/microstructural-analysis.html" class="prep-step-guide-btn" aria-label="Microscopy Guide" title="Microscopy & Analysis Guide">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                    </a>
+                                </div>
                                 <h4 class="prep-step-title">Microscopy & Analysis</h4>
                                 <p class="prep-step-description">Metallurgical and stereo microscopes for microstructural examination and analysis</p>
                                 <div class="prep-step-links">
-                                    <a href="/metallographic-equipment/microscopy.html">Microscopes</a> • 
+                                    <a href="/metallographic-equipment/microscopy.html">Microscopes</a> •
                                     <a href="/metallographic-equipment/microscopy/image-analysis.html">Image Analysis</a>
                                 </div>
                             </div>
@@ -1467,7 +1524,7 @@
                     <div class="catalog-highlight" data-animate="up">
                         <div class="catalog-highlight-content">
                             <div class="catalog-highlight-image" data-animate="right" data-animate-delay="100">
-                                <img src="/images/catalog/2026-catalog-cover.webp" alt="2026 PACE Technologies Product Catalog" class="catalog-cover-image" width="682" height="828" decoding="async">
+                                <img src="/images/catalog/2026-catalog-cover-350.webp" srcset="/images/catalog/2026-catalog-cover-350.webp 350w, /images/catalog/2026-catalog-cover.webp 682w" sizes="(max-width: 768px) 280px, 350px" alt="2026 PACE Technologies Product Catalog" class="catalog-cover-image" width="350" height="425" decoding="async">
                             </div>
                             <div class="catalog-highlight-text-wrapper" data-animate="left" data-animate-delay="200">
                                 <h3 class="catalog-highlight-title">2026 Product Catalog</h3>
@@ -1501,22 +1558,22 @@
                 <p class="section-subtitle" data-animate="up" data-animate-delay="100">From aerospace and automotive to medical devices and semiconductors, leading companies rely on PACE equipment and consumables for quality control, failure analysis, and materials research.</p>
                 <div class="customers-logo" data-animate="up" data-animate-delay="150">
                     <div class="customers-logo-container">
-                        <img src="/images/customers/apple_no_bg.webp" alt="Apple" class="customer-logo" loading="lazy" width="160" height="80" decoding="async">
+                        <img src="/images/customers/apple_no_bg.webp" alt="Apple" class="customer-logo" width="160" height="80" decoding="async">
                     </div>
                     <div class="customers-logo-container">
-                        <img src="/images/customers/tesla_no_bg.webp" alt="Tesla" class="customer-logo" loading="lazy" width="160" height="80" decoding="async">
+                        <img src="/images/customers/tesla_no_bg-360.webp" alt="Tesla" class="customer-logo" width="160" height="80" decoding="async">
                     </div>
                     <div class="customers-logo-container">
-                        <img src="/images/customers/medtronic_no_bg.webp" alt="Medtronic" class="customer-logo" loading="lazy" width="160" height="80" decoding="async">
+                        <img src="/images/customers/medtronic_no_bg-360.webp" alt="Medtronic" class="customer-logo" width="160" height="80" decoding="async">
                     </div>
                     <div class="customers-logo-container">
-                        <img src="/images/customers/seagate_no_bg.webp" alt="Seagate" class="customer-logo" loading="lazy" width="160" height="80" decoding="async">
+                        <img src="/images/customers/seagate_no_bg-360.webp" alt="Seagate" class="customer-logo" width="160" height="80" decoding="async">
                     </div>
                     <div class="customers-logo-container">
-                        <img src="/images/customers/blue_origin_no_bg.webp" alt="Blue Origin" class="customer-logo" loading="lazy" width="160" height="80" decoding="async">
+                        <img src="/images/customers/blue_origin_no_bg-360.webp" alt="Blue Origin" class="customer-logo" width="160" height="80" decoding="async">
                     </div>
                     <div class="customers-logo-container">
-                        <img src="/images/customers/avx_no_bg.webp" alt="AVX" class="customer-logo" loading="lazy" width="160" height="80" decoding="async">
+                        <img src="/images/customers/avx_no_bg-360.webp" alt="AVX" class="customer-logo" width="160" height="80" decoding="async">
                     </div>
                 </div>
             </div>
@@ -1545,9 +1602,7 @@
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
                                     <div class="video-container">
-                                        <video autoplay muted loop playsinline preload="none" poster="/videos/process/sectioning-poster.webp" class="process-video" aria-label="Metallographic sectioning process demonstration">
-                                            <source src="/videos/process/sectioning-web.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
+                                        <video muted loop playsinline preload="none" poster="/videos/process/sectioning-poster-700.webp" class="process-video" data-src="/videos/process/sectioning-web.mp4" aria-label="Metallographic sectioning process demonstration">
                                         </video>
                                         <div class="video-overlay"></div>
                                     </div>
@@ -1595,9 +1650,7 @@
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
                                     <div class="video-container">
-                                        <video autoplay muted loop playsinline preload="none" poster="/videos/process/compression-mounting-poster.webp" class="process-video" aria-label="Compression mounting process demonstration">
-                                            <source src="/videos/process/compression-mounting-web.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
+                                        <video muted loop playsinline preload="none" poster="/videos/process/compression-mounting-poster-700.webp" class="process-video" data-src="/videos/process/compression-mounting-web.mp4" aria-label="Compression mounting process demonstration">
                                         </video>
                                         <div class="video-overlay"></div>
                                     </div>
@@ -1645,9 +1698,7 @@
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
                                     <div class="video-container">
-                                        <video autoplay muted loop playsinline preload="none" poster="/videos/process/grinding-poster.webp" class="process-video" aria-label="Grinding process demonstration">
-                                            <source src="/videos/process/grinding-web.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
+                                        <video muted loop playsinline preload="none" poster="/videos/process/grinding-poster-700.webp" class="process-video" data-src="/videos/process/grinding-web.mp4" aria-label="Grinding process demonstration">
                                         </video>
                                         <div class="video-overlay"></div>
                                     </div>
@@ -1688,9 +1739,7 @@
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
                                     <div class="video-container">
-                                        <video autoplay muted loop playsinline preload="none" poster="/videos/process/polishing-poster.webp" class="process-video" aria-label="Polishing process demonstration">
-                                            <source src="/videos/process/polishing-web.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
+                                        <video muted loop playsinline preload="none" poster="/videos/process/polishing-poster-700.webp" class="process-video" data-src="/videos/process/polishing-web.mp4" aria-label="Polishing process demonstration">
                                         </video>
                                         <div class="video-overlay"></div>
                                     </div>
@@ -1731,9 +1780,7 @@
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
                                     <div class="video-container">
-                                        <video autoplay muted loop playsinline preload="none" poster="/videos/process/final-polishing-poster.webp" class="process-video" aria-label="Final polishing process demonstration">
-                                            <source src="/videos/process/final-polishing-web.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
+                                        <video muted loop playsinline preload="none" poster="/videos/process/final-polishing-poster.webp" class="process-video" data-src="/videos/process/final-polishing-web.mp4" aria-label="Final polishing process demonstration">
                                         </video>
                                         <div class="video-overlay"></div>
                                     </div>
@@ -1774,9 +1821,7 @@
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
                                     <div class="video-container">
-                                        <video autoplay muted loop playsinline preload="none" poster="/videos/process/etching-poster.webp" class="process-video" aria-label="Chemical etching process demonstration">
-                                            <source src="/videos/process/etching-web.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
+                                        <video muted loop playsinline preload="none" poster="/videos/process/etching-poster.webp" class="process-video" data-src="/videos/process/etching-web.mp4" aria-label="Chemical etching process demonstration">
                                         </video>
                                         <div class="video-overlay"></div>
                                     </div>
@@ -1810,9 +1855,7 @@
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
                                     <div class="video-container">
-                                        <video autoplay muted loop playsinline preload="none" poster="/videos/process/hardness-testing-poster.webp" class="process-video" aria-label="Hardness testing process demonstration">
-                                            <source src="/videos/process/hardness-testing-web.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
+                                        <video muted loop playsinline preload="none" poster="/videos/process/hardness-testing-poster.webp" class="process-video" data-src="/videos/process/hardness-testing-web.mp4" aria-label="Hardness testing process demonstration">
                                         </video>
                                         <div class="video-overlay"></div>
                                     </div>
@@ -1853,9 +1896,7 @@
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
                                     <div class="video-container">
-                                        <video autoplay muted loop playsinline preload="none" poster="/videos/process/analysis-poster.webp" class="process-video" aria-label="Microscopy and analysis process demonstration">
-                                            <source src="/videos/process/analysis-web.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
+                                        <video muted loop playsinline preload="none" poster="/videos/process/analysis-poster.webp" class="process-video" data-src="/videos/process/analysis-web.mp4" aria-label="Microscopy and analysis process demonstration">
                                         </video>
                                         <div class="video-overlay"></div>
                                     </div>
@@ -2176,7 +2217,7 @@
                         <span class="quick-link-separator" aria-hidden="true">•</span>
                         <a href="/standards.html" class="quick-link">ASTM Standards</a>
                         <span class="quick-link-separator" aria-hidden="true">•</span>
-                        <a href="/materials.html" class="quick-link">Microstructure Gallery</a>
+                        <a href="/materials.html" class="quick-link">Materials Database</a>
                     </div>
                 </div>
             </div>
@@ -2359,7 +2400,7 @@
           
           <!-- Company Section -->
           <div class="footer-column">
-            <h3 class="footer-column-title">Company</h3>
+            <p class="footer-column-title">Company</p>
             <ul class="footer-column-list">
               <li><a href="/company.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
@@ -2372,7 +2413,7 @@
           
           <!-- Products Section -->
           <div class="footer-column">
-            <h3 class="footer-column-title">Products</h3>
+            <p class="footer-column-title">Products</p>
             <ul class="footer-column-list">
               <li><a href="/equipment.html" class="footer-link">Equipment</a></li>
               <li><a href="/consumables.html" class="footer-link">Consumables</a></li>
@@ -2385,7 +2426,7 @@
 
           <!-- Resources Section -->
           <div class="footer-column">
-            <h3 class="footer-column-title">Resources</h3>
+            <p class="footer-column-title">Resources</p>
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
@@ -2399,7 +2440,7 @@
 
           <!-- Legal Section -->
           <div class="footer-column">
-            <h3 class="footer-column-title">Legal</h3>
+            <p class="footer-column-title">Legal</p>
             <ul class="footer-column-list">
               <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
               <li><a href="/terms.html" class="footer-link">Terms & Conditions</a></li>
@@ -2410,7 +2451,7 @@
         
         <!-- Social Links -->
         <div class="footer-social-section">
-          <h3 class="footer-column-title">Connect with Us</h3>
+          <p class="footer-column-title">Connect with Us</p>
           <ul class="footer-social">
             <li>
               <a href="https://www.facebook.com/pacetechnologies/" aria-label="Facebook" class="footer-social-link">

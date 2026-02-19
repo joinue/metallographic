@@ -131,18 +131,11 @@
         });
     }
 
-    // Initialize immediately to prevent FOUC
-    // Use requestAnimationFrame to ensure DOM is ready but run as early as possible
+    // Initialize on DOMContentLoaded (inline <style> already hides [data-animate] to prevent FOUC)
     if (document.readyState === 'loading') {
-        // Run synchronously on first available frame to hide elements ASAP
-        requestAnimationFrame(() => {
-            requestAnimationFrame(initAnimations);
-        });
-        // Also run on DOMContentLoaded as backup
         document.addEventListener('DOMContentLoaded', initAnimations);
     } else {
-        // DOM already loaded, run immediately
-        requestAnimationFrame(initAnimations);
+        initAnimations();
     }
 
     // Expose public API for programmatic use

@@ -1,0 +1,138 @@
+RewriteEngine On
+
+# =====================
+# DOMAIN REDIRECT
+# =====================
+
+RewriteCond %{HTTP_HOST} ^(www\.)?metallographic-equipment\.com$ [NC]
+RewriteRule ^(.*)$ https://www.metallographic.com/$1 [R=301,L]
+
+# =====================
+# HTTPS (must be first)
+# =====================
+
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# =====================
+# SECURITY
+# =====================
+
+Options -Indexes
+
+<Limit PUT DELETE>
+    order deny,allow
+    deny from all
+</Limit>
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# =====================
+# FORCE LOWERCASE URLs
+# =====================
+
+RedirectMatch 301 ^/Images/(.*)$ /images/$1
+RedirectMatch 301 ^/Metallographic-Equipment/(.*)$ /metallographic-equipment/$1
+RedirectMatch 301 ^/Metallographic-Consumables/(.*)$ /metallographic-consumables/$1
+RedirectMatch 301 ^/Metallographic-Technical/(.*)$ /metallographic-technical/$1
+RedirectMatch 301 ^/images/Equipment/(.*)$ /images/equipment/$1
+RedirectMatch 301 ^/images/Consumables/(.*)$ /images/consumables/$1
+RedirectMatch 301 ^/Basics(/.*)?$ /basics$1
+
+# =====================
+# CLEAN URLs
+# =====================
+
+# Redirect index.html / index.htm to /
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html?(\s|\?|$) [NC]
+RewriteRule ^ / [R=301,L]
+
+# Strip .html / .htm extension from browser URL (external redirect)
+RewriteCond %{THE_REQUEST} \s/+(.+)\.html?(\s|\?|$) [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Trailing slash — serve .html if the file exists
+RewriteRule ^(.+)/$ - [E=BASE:$1]
+
+RewriteCond %{DOCUMENT_ROOT}/%{ENV:BASE}.html -f
+RewriteRule ^(.+)/$ /%{ENV:BASE}.html [L]
+
+RewriteCond %{DOCUMENT_ROOT}/%{ENV:BASE}.htm -f
+RewriteRule ^(.+)/$ /%{ENV:BASE}.htm [L]
+
+# Extensionless URL — internally serve .html then .htm
+RewriteCond %{REQUEST_URI} !\.html?$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+RewriteCond %{REQUEST_URI} !\.htm$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.htm -f
+RewriteRule ^(.*)$ $1.htm [L]
+
+# =====================
+# ERROR PAGE
+# =====================
+
+ErrorDocument 404 /404.html
+
+# =====================
+# PERFORMANCE
+# =====================
+
+# Gzip
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+</IfModule>
+
+# MIME types
+<IfModule mod_mime.c>
+    AddType text/css .css
+    AddType application/javascript .js
+    AddType text/html .html .htm
+    AddType text/plain .txt
+    AddType image/jpeg .jpg .jpeg
+    AddType image/png .png
+    AddType image/svg+xml .svg .svgz
+    AddType video/mp4 .mp4
+    AddType application/pdf .pdf
+    AddType application/font-woff .woff
+    AddType application/font-woff2 .woff2
+</IfModule>
+
+# Caching — max-age only, no hardcoded Expires dates
+<IfModule mod_headers.c>
+    # Images — 1 year
+    <FilesMatch "\.(webp|jpg|jpeg|png|gif|svg|ico)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+
+    # CSS / JS — 1 month
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+
+    # Fonts — 1 year
+    <FilesMatch "\.(woff|woff2|ttf|eot)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+
+    # PDF / Video — 1 year
+    <FilesMatch "\.(pdf|mp4)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+
+    # HTML — 1 hour
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=3600"
+    </FilesMatch>
+</IfModule>
