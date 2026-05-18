@@ -25,19 +25,16 @@
 }
 
 .navigation.condensed .logo-image {
-  max-width: 140px;
-  padding: 5px;
-  transform: scale(0.9);
+  max-width: 120px;
+  padding: 0;
+  transform: none; /* sizing is handled entirely by max-width — no extra visual scale */
 }
 
-.navigation.condensed .nav-links a {
-  padding: 12px 12px;
-}
-
-.navigation.condensed .quote-btn {
-  padding: 12px 24px;
-  font-size: 16px;
-}
+/* Note: nav-links and quote-btn keep their responsive sizing on scroll.
+   Previously these were forced back to the base (12px 12px / 12px 24px+16px),
+   which made the CTA visibly GROW when scrolling on sub-1280px viewports
+   because the responsive cascade already shrinks them below those values.
+   Only the logo + wrapper padding shrink during the condensed transition. */
 
 /* Adjust navigation position when notice is present */
 .navigation.with-notice {
@@ -57,7 +54,7 @@
   display: flex; /* Uses flexbox for layout */
   justify-content: space-between; /* Distributes space between items */
   align-items: center; /* Aligns items vertically in the center */
-  padding: 12px 24px; /* Adds padding */
+  padding: 10px 24px; /* Compact-modern nav with headroom so condensed (3px) reads as a real shrink on scroll */
   max-width: 1440px; /* Sets the maximum width */
   width: 100%; /* Ensure it doesn't exceed viewport */
   max-width: min(1440px, 100vw); /* Constrain to viewport */
@@ -72,7 +69,7 @@
 /* Modern mobile header styling */
 @media (max-width: 992px) {
   .nav-wrapper {
-    padding: 12px 20px;
+    padding: 4px 20px;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -81,7 +78,7 @@
 }
 
 .navigation.condensed .nav-wrapper {
-  padding: 8px 30px; /* Equal top/bottom padding for proper centering */
+  padding: 3px 30px; /* Genuinely tighter than the base (10px) so scroll-shrink reads visually, not just on the logo */
 }
 
 .logo-container {
@@ -89,17 +86,22 @@
     align-items: center;
     justify-content: center;
     height: 100%; /* Take full height for centering */
+    flex-shrink: 0; /* Don't let flex layout squish the logo when nav-links/quote-btn grow on scroll */
 }
 
 .logo-image {
-  max-width: 180px; /* Maintain original max-width */
-  padding: 10px;
+  max-width: 135px; /* Tighter logo box for modern B2B nav height */
+  height: auto;     /* Preserve aspect ratio when max-width shrinks (e.g. on scroll/condensed).
+                       Without this, pages that don't load homepage-styles.css inherit the
+                       <img width/height> HTML attributes and squish horizontally. */
+  padding: 2px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: left center;
 }
 
 /* Ensure logo-container img also has smooth transitions */
 .logo-container img {
+  height: auto; /* Same aspect-ratio guard as .logo-image — defensive against pages without the global img reset. */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -125,7 +127,7 @@
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
-  padding: 12px 12px;
+  padding: 12px 14px;
   display: flex; /* Use flexbox for better centering */
   align-items: center; /* Center vertically */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -366,10 +368,11 @@
 
 /* Quote Request Button */
 .quote-btn {
-  padding: 12px 24px;
+  padding: 10px 20px;
+  min-height: auto; /* Override the generic `button { min-height: 44px }` from base/styles.css so the nav CTA matches the homepage's natural height on pages that load styles.css */
   background-color: #2563eb;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   font-family: 'Inter', 'Roboto', Arial, sans-serif;
   border: none;
@@ -507,6 +510,37 @@
   stroke: #292929;
 }
 
+/* Mobile-only header actions wrapper (search + hamburger sit together on the right) */
+.mobile-header-actions {
+  display: none; /* desktop hides this; show on <=992px below */
+  align-items: center;
+  gap: 4px;
+}
+
+/* Mobile search icon button — 1-tap access to the inline search overlay */
+.mobile-search-btn {
+  display: none; /* shown at <=992px */
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #292929;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-search-btn:hover,
+.mobile-search-btn:focus-visible {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mobile-search-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
 /* Modern Mobile Menu Button */
 .mobile-menu-btn {
   display: none;
@@ -612,8 +646,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 18px 24px;
+  border-bottom: 1px solid #f1f3f5;
   background: white;
   flex-shrink: 0;
   position: sticky;
@@ -623,32 +657,41 @@
 
 .mobile-nav-title {
   margin: 0;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   color: #111827;
+  letter-spacing: -0.01em;
 }
 
 .mobile-nav-close {
   background: none;
   border: none;
-  padding: 8px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   cursor: pointer;
   color: #6b7280;
-  transition: all 0.2s ease;
-  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.mobile-nav-close:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+.mobile-nav-close:hover,
+.mobile-nav-close:focus-visible {
+  background-color: #f3f4f6;
   color: #111827;
 }
 
+.mobile-nav-close:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
 .mobile-nav-close svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   stroke: currentColor;
 }
 
@@ -656,11 +699,13 @@
 .mobile-nav-content {
   flex: 1;
   overflow-y: auto;
+  overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   min-height: 0; /* Allow flex shrinking */
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  padding: 8px 0 12px;
 }
 
 .nav-links-mobile {
@@ -702,14 +747,14 @@
   }
   
   .nav-wrapper {
-    padding: 12px 18px;
+    padding: 8px 18px;
     transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .logo-image,
   .logo-container img {
-    max-width: 165px;
-    padding: 9px;
+    max-width: 140px;
+    padding: 4px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
@@ -754,13 +799,13 @@
   }
 
   .nav-wrapper {
-    padding: 12px 16px;
+    padding: 8px 16px;
   }
 
   .logo-image,
   .logo-container img {
-    max-width: 155px;
-    padding: 8px;
+    max-width: 130px;
+    padding: 4px;
   }
 
   .quote-btn {
@@ -792,13 +837,13 @@
 /* Breakpoint 3: 1100px and below - Further compression */
 @media (max-width: 1100px) {
   .nav-wrapper {
-    padding: 12px 14px;
+    padding: 8px 14px;
   }
-  
+
   .logo-image,
   .logo-container img {
-    max-width: 145px;
-    padding: 7px;
+    max-width: 120px;
+    padding: 4px;
   }
   
   .quote-btn {
@@ -816,13 +861,13 @@
 /* Breakpoint 4: 1000px and below - Aggressive space-saving */
 @media (max-width: 1000px) {
   .nav-wrapper {
-    padding: 12px 12px;
+    padding: 8px 12px;
   }
-  
+
   .logo-image,
   .logo-container img {
-    max-width: 135px;
-    padding: 6px;
+    max-width: 115px;
+    padding: 4px;
   }
   
   .quote-btn {
@@ -863,9 +908,19 @@
     display: none; /* Hide the desktop quote button */
   }
 
+  /* Show mobile header actions (search + hamburger group) */
+  .mobile-header-actions {
+    display: flex;
+  }
+
   /* Show modern mobile menu button */
   .mobile-menu-btn {
     display: flex;
+  }
+
+  /* Show mobile-only search icon button */
+  .mobile-search-btn {
+    display: inline-flex;
   }
 
   /* Modern Mobile Navigation Styles */
@@ -878,10 +933,16 @@
   .mobile-nav-section,
   .mobile-nav-subsection {
     margin: 0;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #f1f3f5;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    transition: background-color 0.2s ease;
+  }
+
+  /* Subtle highlight on expanded top-level sections for visual anchoring */
+  .mobile-nav-section:has(.mobile-nav-toggle[aria-expanded="true"]) {
+    background-color: #fafbfc;
   }
 
   .mobile-nav-header {
@@ -889,7 +950,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0;
-    min-height: 48px;
+    min-height: 56px;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -900,8 +961,9 @@
     color: #111827;
     font-weight: 600;
     font-size: 16px;
+    letter-spacing: -0.01em;
     text-decoration: none;
-    padding: 14px 20px;
+    padding: 16px 24px;
     display: block;
     transition: color 0.2s ease;
     width: 100%;
@@ -916,19 +978,33 @@
   .mobile-nav-toggle {
     background: none;
     border: none;
-    padding: 8px 20px;
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
+    padding: 0;
     cursor: pointer;
     color: #6b7280;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    border-radius: 10px;
   }
 
-  .mobile-nav-toggle:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+  .mobile-nav-toggle:hover,
+  .mobile-nav-toggle:focus-visible {
+    background-color: #eef0f3;
     color: #111827;
+  }
+
+  .mobile-nav-toggle:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] {
+    color: #2563eb;
   }
 
   .mobile-nav-toggle[aria-expanded="true"] .chevron-icon {
@@ -936,12 +1012,12 @@
   }
 
   .chevron-icon {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     stroke: currentColor;
-    transition: transform 0.2s ease;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .mobile-nav-header {
     width: 100%;
   }
@@ -950,9 +1026,9 @@
   .sub-menu-mobile {
     display: none !important;
     list-style: none;
-    padding: 0;
+    padding: 4px 0;
     margin: 0;
-    background: #f9fafb;
+    background: #f8f9fb;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -961,18 +1037,18 @@
   .sub-menu-mobile.active {
     display: block !important;
     max-height: 2000px;
-    animation: slideDown 0.3s ease;
+    animation: slideDown 0.25s ease;
   }
 
   .sub-menu-mobile.nested {
-    background: #f3f4f6;
+    background: #f1f3f6;
     padding-left: 0;
   }
 
   @keyframes slideDown {
     from {
       opacity: 0;
-      transform: translateY(-10px);
+      transform: translateY(-6px);
     }
     to {
       opacity: 1;
@@ -982,7 +1058,10 @@
 
   .sub-menu-mobile li {
     margin: 0;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .sub-menu-mobile li:last-child {
@@ -991,118 +1070,142 @@
 
   .sub-menu-mobile a {
     color: #4b5563;
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 14.5px;
+    font-weight: 500;
     text-decoration: none;
-    padding: 12px 20px 12px 40px;
+    padding: 13px 24px 13px 40px;
     display: block;
-    transition: all 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    position: relative;
+  }
+
+  /* Left indent rail to visually anchor nested items */
+  .sub-menu-mobile a::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    width: 6px;
+    height: 1px;
+    background-color: #d1d5db;
+    transform: translateY(-50%);
+    transition: background-color 0.2s ease;
   }
 
   .sub-menu-mobile.nested a {
-    padding-left: 60px;
+    padding-left: 56px;
   }
-  
-  .sub-menu-mobile li {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+
+  .sub-menu-mobile.nested a::before {
+    left: 40px;
   }
 
   .sub-menu-mobile a:hover,
   .sub-menu-mobile a:focus {
     color: #2563eb;
-    background-color: rgba(37, 99, 235, 0.05);
+    background-color: rgba(37, 99, 235, 0.06);
+  }
+
+  .sub-menu-mobile a:hover::before,
+  .sub-menu-mobile a:focus::before {
+    background-color: #2563eb;
   }
 
   /* Second-level submenu support */
   .sub-menu-mobile li.has-submenu {
     position: relative;
   }
-  
+
   .sub-menu-mobile li.has-submenu > a {
-    padding-right: 50px; /* Make room for toggle button */
+    padding-right: 56px; /* Make room for toggle button */
     position: relative;
-    display: block;
-    min-height: 44px; /* Ensure consistent height */
-    line-height: 44px; /* Center text vertically */
+    display: flex;
+    align-items: center;
+    min-height: 46px;
   }
-  
+
   .sub-menu-mobile .sub-menu-toggle {
     position: absolute;
-    right: 10px;
-    top: 0;
+    right: 8px;
+    /* Pin to the link row, not the (expanding) li. Offset = (link min-height 46 − toggle 40) / 2 */
+    top: 3px;
     bottom: auto;
-    height: 44px; /* Match link height */
-    width: 44px; /* Square touch target */
+    transform: none;
+    height: 40px;
+    width: 40px;
     background: none;
     border: none;
     padding: 0;
     margin: 0;
     cursor: pointer;
     color: #6b7280;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
-    /* Keep toggle aligned with link, not affected by submenu expansion */
-    transform: none;
+    border-radius: 8px;
   }
-  
-  .sub-menu-mobile .sub-menu-toggle:hover {
+
+  .sub-menu-mobile .sub-menu-toggle:hover,
+  .sub-menu-mobile .sub-menu-toggle:focus-visible {
     background-color: rgba(0, 0, 0, 0.05);
     color: #111827;
   }
-  
+
+  .sub-menu-mobile .sub-menu-toggle:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+
+  .sub-menu-mobile .sub-menu-toggle[aria-expanded="true"] {
+    color: #2563eb;
+  }
+
   .sub-menu-mobile .sub-menu-toggle[aria-expanded="true"] .chevron-icon {
     transform: rotate(180deg);
   }
-  
-  .sub-menu-mobile .sub-menu-toggle:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: #111827;
-  }
-  
-  .sub-menu-mobile .sub-menu-toggle[aria-expanded="true"] .chevron-icon {
-    transform: rotate(180deg);
-  }
-  
+
   .sub-menu-mobile .sub-menu-second-level {
     display: none !important;
     list-style: none;
-    padding: 0;
+    padding: 2px 0;
     margin: 0;
-    background: #f3f4f6;
+    background: #eef0f3;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .sub-menu-mobile .sub-menu-second-level.active {
     display: block !important;
     max-height: 2000px;
-    animation: slideDown 0.3s ease;
+    animation: slideDown 0.25s ease;
   }
-  
+
   .sub-menu-mobile .sub-menu-second-level li {
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   }
-  
+
   .sub-menu-mobile .sub-menu-second-level a {
-    padding: 10px 20px 10px 60px;
+    padding: 11px 24px 11px 56px;
     color: #4b5563;
-    font-size: 13px;
+    font-size: 13.5px;
+    font-weight: 500;
   }
-  
+
+  .sub-menu-mobile .sub-menu-second-level a::before {
+    left: 40px;
+  }
+
   /* Remove arrow icons from mobile submenu - but keep if it's a toggle */
   .sub-menu-mobile .right-arrow-icon {
     display: none;
   }
-  
+
   /* Remove span wrappers in mobile submenu */
   .sub-menu-mobile a span {
     display: inline;
@@ -1206,74 +1309,188 @@
   /* ================================
      Quote Modal
      ================================ */
-  
+
      #quote-modal {
       display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1000; /* Higher value to ensure it sits on top */
-      left: 0;
-      top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-      padding-top: 60px; /* Add some padding at the top for content */
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(15, 23, 42, 0.55); /* Slate w/ opacity — slightly cooler & deeper */
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      padding: 5vh 16px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    #quote-modal.show {
+      opacity: 1;
     }
 
     .modal-content {
       background-color: #ffffff;
       margin: 0 auto;
-      padding: 30px;
+      padding: 28px 28px 24px;
       border: none;
-      width: 90%;
+      width: 100%;
       max-width: 600px;
-      border-radius: 12px; /* Slightly larger radius for a softer look */
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); /* Deeper shadow for more depth */
+      border-radius: 14px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28), 0 4px 12px rgba(0, 0, 0, 0.12);
       position: relative;
-      overflow-y: auto; /* Ensure content scrolls if it exceeds max height */
-      max-height: 80vh; /* Make sure modal content does not exceed viewport height */
-      transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition effects */
-      transform: translateY(-20px);
+      overflow-y: auto;
+      max-height: 90vh;
+      transform: translateY(8px) scale(0.98);
+      opacity: 0;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
   }
-  
+
   /* When the modal is visible */
   #quote-modal.show .modal-content {
       opacity: 1;
-      visibility: visible;
-      transform: translateY(0); /* Animate entrance */
+      transform: translateY(0) scale(1);
   }
 
-/* Close Button */
-.close {
+  @media (prefers-reduced-motion: reduce) {
+    #quote-modal,
+    .modal-content {
+      transition: none;
+    }
+    .modal-content {
+      transform: none;
+    }
+  }
+
+/* Close Button — crisp SVG X so it renders identically on every device.
+   Scoped to #quote-modal .close (specificity 1-1-0) so it unambiguously beats
+   the global `button` rule in css/base/styles.css (which would otherwise apply
+   pill padding, min-height: 44px, border-radius: 9999px, and a fill color). */
+#quote-modal .close,
+#quote-modal button.close {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 12px;
+  right: 12px;
   width: 36px;
   height: 36px;
-  background-color: rgba(245, 245, 245, 0.8); /* Slightly transparent */
+  min-width: 0;
+  min-height: 0;
+  max-width: none;
+  max-height: none;
+  box-sizing: border-box;
+  background: transparent;
+  background-color: transparent;
   border-radius: 50%;
-  color: #333;
-  font-size: 20px; /* Set font size for the × */
-  font-weight: bold;
+  color: #475569; /* slate-600 — visible on white, subdued so it doesn't compete with the form */
+  font-size: 0; /* hide the literal &times; character; the SVG below provides the visual */
+  font-weight: normal;
+  line-height: 0;
+  letter-spacing: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+  box-shadow: none;
   border: none;
   outline: none;
+  padding: 0;
+  margin: 0;
+  z-index: 2;
 }
 
-.close:hover,
-.close:focus {
-  background-color: rgba(200, 200, 200, 0.9); /* Darker on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+@media (min-width: 640px) {
+  /* Override the matching media-query rule in base/styles.css that re-applies
+     padding: 0.5rem 2rem to all buttons. */
+  #quote-modal .close,
+  #quote-modal button.close {
+    padding: 0;
+    font-size: 0;
+  }
 }
 
-.close:active {
-  transform: scale(0.9); /* Slight "press" effect */
-  background-color: rgba(180, 180, 180, 0.9);
+#quote-modal .close::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M3.22 3.22a.75.75 0 0 1 1.06 0L8 6.94l3.72-3.72a.75.75 0 1 1 1.06 1.06L9.06 8l3.72 3.72a.75.75 0 1 1-1.06 1.06L8 9.06l-3.72 3.72a.75.75 0 1 1-1.06-1.06L6.94 8 3.22 4.28a.75.75 0 0 1 0-1.06Z'/></svg>") center / contain no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M3.22 3.22a.75.75 0 0 1 1.06 0L8 6.94l3.72-3.72a.75.75 0 1 1 1.06 1.06L9.06 8l3.72 3.72a.75.75 0 1 1-1.06 1.06L8 9.06l-3.72 3.72a.75.75 0 1 1-1.06-1.06L6.94 8 3.22 4.28a.75.75 0 0 1 0-1.06Z'/></svg>") center / contain no-repeat;
+}
+
+#quote-modal .close:hover {
+  background-color: #f1f5f9; /* slate-100 */
+  color: #0f172a;            /* slate-900 */
+}
+
+#quote-modal .close:focus-visible {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.45); /* blue focus ring */
+}
+
+#quote-modal .close:active {
+  transform: scale(0.92);
+  background-color: #e2e8f0; /* slate-200 */
+}
+
+/* ================================
+   Quote form loading state
+   Shows a spinner while the HubSpot script downloads + the iframe boots.
+   :has(iframe) hides the spinner the moment HubSpot injects its iframe.
+   ================================ */
+.quote-form-container {
+  position: relative;
+  min-height: 360px;
+}
+
+.quote-form-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36px;
+  height: 36px;
+  margin: -38px 0 0 -18px;
+  border-radius: 50%;
+  border: 3px solid #e2e8f0;
+  border-top-color: #2563eb; /* brand-ish blue */
+  animation: quote-spin 0.8s linear infinite;
+  pointer-events: none;
+}
+
+.quote-form-container::after {
+  content: "Loading form…";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #64748b; /* slate-500 */
+  letter-spacing: 0.01em;
+  pointer-events: none;
+}
+
+/* Once HubSpot mounts the form iframe, hide the spinner. */
+.quote-form-container:has(iframe)::before,
+.quote-form-container:has(iframe)::after,
+.quote-form-container.is-loaded::before,
+.quote-form-container.is-loaded::after {
+  display: none;
+}
+
+@keyframes quote-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-form-container::before {
+    animation: none;
+  }
 }
 
 /* Tooltip styles */
@@ -1684,7 +1901,5 @@
     text-align: center !important;
   }
 }
-
-
 
 

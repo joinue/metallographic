@@ -30,8 +30,38 @@
     box-sizing: border-box;
 }
 
+/* ============================================================================
+   Spacing scale — vertical padding tokens for major sections.
+   Three tiers that adapt at the 640px breakpoint via :root re-declaration.
+
+      --space-section-tight   for connective / clustered sections
+                              (Resources, Popular Guides, Quick Links)
+      --space-section         default for standalone sections
+                              (Customers, Pace Help, Timeline, Services, FAQ)
+      --space-section-loose   for "pause" / emphasis sections
+                              (CTA — gives breath before the close)
+
+   Hero and Trust band are intentionally exempt and use their own paddings.
+   ============================================================================ */
+:root {
+    --space-section-tight: 2rem;
+    --space-section:       3rem;
+    --space-section-loose: 4rem;
+}
+
+@media (min-width: 640px) {
+    :root {
+        --space-section-tight: 3rem;
+        --space-section:       5rem;
+        --space-section-loose: 7rem;
+    }
+}
+
 html {
     scroll-behavior: smooth;
+    /* Defensive: prevent any minor horizontal overflow from triggering a page-level x-scroll.
+       `clip` is preferable to `hidden` because it does not break position: sticky descendants. */
+    overflow-x: clip;
 }
 
 body {
@@ -41,6 +71,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
 }
 
 /* Container */
@@ -360,31 +391,46 @@ a:focus-visible {
 @keyframes heroFlyUp {
     from {
         opacity: 0;
-        transform: translate3d(0, 30px, 0);
+        transform: translate3d(0, 24px, 0) scale(0.985);
     }
     to {
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0) scale(1);
     }
 }
 
 .hero-animate {
     opacity: 0;
-    transform: translate3d(0, 30px, 0);
-    animation: heroFlyUp 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translate3d(0, 24px, 0) scale(0.985);
+    /* Match the global animation easing token (ease-out-quint).
+       650ms is a hair longer than the global default — hero gets to land more deliberately. */
+    animation: heroFlyUp 650ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
     will-change: opacity, transform;
 }
 
-.hero-tagline.hero-animate  { animation-delay: 50ms; }
-.hero-title.hero-animate    { animation-delay: 100ms; }
-.hero-description.hero-animate { animation-delay: 150ms; }
-.hero-buttons.hero-animate  { animation-delay: 250ms; }
+/* Wider stagger between hero elements — 80ms gaps feel deliberate rather than rushed.
+   Total sequence: tagline (80ms) → title (160ms) → description (240ms) → buttons (360ms).
+   The buttons get an extra beat because they're the action moment. */
+.hero-tagline.hero-animate     { animation-delay: 80ms; }
+.hero-title.hero-animate       { animation-delay: 160ms; }
+.hero-description.hero-animate { animation-delay: 240ms; }
+.hero-buttons.hero-animate     { animation-delay: 360ms; }
 
+/* Mobile: shorter travel + faster duration, but motion stays */
 @media (max-width: 768px) {
+    @keyframes heroFlyUp {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 16px, 0) scale(0.99);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+        }
+    }
     .hero-animate {
-        opacity: 1;
-        transform: none;
-        animation: none;
+        animation-duration: 500ms;
+        transform: translate3d(0, 16px, 0) scale(0.99);
     }
 }
 
@@ -397,13 +443,7 @@ a:focus-visible {
 
 /* PACE Help Section */
 .pace-help-section {
-    padding: 3rem 0;
-}
-
-@media (min-width: 640px) {
-    .pace-help-section {
-        padding: 5rem 0;
-    }
+    padding: var(--space-section) 0;
 }
 
 .pace-help-grid {
@@ -590,15 +630,14 @@ a:focus-visible {
     border-radius: 0.25rem;
 }
 
-/* Catalog Highlight Section */
-.catalog-highlight {
-    margin: 2.5rem 0;
+/* Catalog Highlight — its own section between PACE Help article and Timeline.
+   Uses --space-section-tight so it reads as connective tissue, not a destination. */
+.catalog-highlight-section {
+    padding: var(--space-section-tight) 0;
 }
 
-@media (min-width: 640px) {
-    .catalog-highlight {
-        margin: 3rem 0;
-    }
+.catalog-highlight {
+    margin: 0; /* parent section now provides vertical breathing room */
 }
 
 .catalog-highlight-content {
@@ -725,14 +764,8 @@ a:focus-visible {
 
 /* Timeline Section */
 .timeline-section {
-    padding: 3rem 0;
+    padding: var(--space-section) 0;
     background-color: #ffffff;
-}
-
-@media (min-width: 640px) {
-    .timeline-section {
-        padding: 5rem 0;
-    }
 }
 
 .timeline-intro {
@@ -751,6 +784,20 @@ a:focus-visible {
     .timeline-header {
         margin-bottom: 4rem;
     }
+}
+
+/* Small uppercase kicker label that sits above a section H2.
+   Establishes typographic hierarchy and surfaces the PACE blue brand color
+   into the body content (not just buttons/links). */
+.section-kicker {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2563eb;
+    margin: 0 0 0.5rem;
+    line-height: 1;
 }
 
 .section-title-large {
@@ -1044,16 +1091,10 @@ a:focus-visible {
 
 /* Services Section */
 .services-section {
-    padding: 3rem 0;
+    padding: var(--space-section) 0;
     position: relative;
     overflow: hidden;
     background: linear-gradient(to bottom right, #eff6ff, #ffffff, #f9fafb);
-}
-
-@media (min-width: 640px) {
-    .services-section {
-        padding: 5rem 0;
-    }
 }
 
 .services-header {
@@ -1254,15 +1295,9 @@ a:focus-visible {
     border-color: #60a5fa;
 }
 
-/* Resources Section */
+/* Resources Section — first of the "knowledge cluster" (Resources → Popular Guides → Quick Links) */
 .resources-section {
-    padding: 3rem 0;
-}
-
-@media (min-width: 640px) {
-    .resources-section {
-        padding: 5rem 0;
-    }
+    padding: var(--space-section-tight) 0;
 }
 
 .resources-header {
@@ -1303,6 +1338,34 @@ a:focus-visible {
     border-color: #d1d5db;
 }
 
+/* Homepage resource cards: whole card is a link, so adopt the elevated
+   hover used by service-card / guide-card. Scoped to .resources-section
+   so other pages using .resource-card as a non-link container aren't affected. */
+.resources-section .resource-card {
+    border-width: 2px;
+    border-color: #d1d5db;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.resources-section .resource-card:hover {
+    border-color: #93c5fd;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.resources-section .resource-card:hover .resource-title {
+    color: #2563eb;
+}
+
+.resources-section .resource-card .resource-link {
+    transition: color 0.2s, gap 0.2s;
+}
+
+.resources-section .resource-card:hover .resource-link {
+    color: #1d4ed8;
+}
+
 .resource-image-wrapper {
     position: relative;
     width: 100%;
@@ -1323,6 +1386,7 @@ a:focus-visible {
     font-weight: 600;
     margin-bottom: 0.75rem;
     color: #111827;
+    transition: color 0.2s;
 }
 
 .resource-description {
@@ -1351,15 +1415,128 @@ a:focus-visible {
     height: 1rem;
 }
 
-/* Popular Guides Section */
-.popular-guides-section {
-    padding: 3rem 0;
+/* Kick-Start Your Lab Section */
+.kickstart-section {
+    padding: var(--space-section-tight) 0;
 }
 
-@media (min-width: 640px) {
-    .popular-guides-section {
-        padding: 5rem 0;
+.kickstart-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.kickstart-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .kickstart-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 56rem;
+        margin-left: auto;
+        margin-right: auto;
     }
+}
+
+.kickstart-card {
+    background-color: #ffffff;
+    border: 2px solid #d1d5db;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+}
+
+.kickstart-card:hover {
+    border-color: #93c5fd;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.kickstart-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 12rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.kickstart-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kickstart-badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kickstart-badge img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.kickstart-card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.kickstart-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #111827;
+    transition: color 0.2s;
+}
+
+.kickstart-card:hover .kickstart-card-title {
+    color: #2563eb;
+}
+
+.kickstart-card-description {
+    color: #4b5563;
+    margin-bottom: 1rem;
+    line-height: 1.75;
+    flex-grow: 1;
+}
+
+.kickstart-card-link {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color 0.2s;
+}
+
+.kickstart-card:hover .kickstart-card-link {
+    color: #1d4ed8;
+}
+
+/* Popular Guides Section */
+/* Middle of the knowledge cluster */
+.popular-guides-section {
+    padding: var(--space-section-tight) 0;
 }
 
 .popular-guides-header {
@@ -1466,16 +1643,10 @@ a:focus-visible {
     color: #1d4ed8;
 }
 
-/* Quick Links Section */
+/* Quick Links Section — closes the knowledge cluster */
 .quick-links-section {
-    padding: 2rem 0;
+    padding: var(--space-section-tight) 0;
     border-top: 1px solid #e5e7eb;
-}
-
-@media (min-width: 640px) {
-    .quick-links-section {
-        padding: 3rem 0;
-    }
 }
 
 .quick-links-wrapper {
@@ -1517,25 +1688,122 @@ a:focus-visible {
     color: #d1d5db;
 }
 
-/* Customer Showcase */
-.customers-section {
-    padding: 3rem 1.5rem;
-    text-align: center;
+/* Trust Band — compact value-prop strip directly beneath the hero */
+.trust-band {
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1.25rem 1.5rem;
 }
 
-@media (min-width: 640px) {
-    .customers-section {
-        padding: 4rem 2rem;
+.trust-band-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr; /* stack on phones — 3 items in 2 cols would leave an odd orphan */
+    gap: 0.875rem 1.25rem;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .trust-band-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
     }
 }
 
-.customers-logo {
+.trust-band-item {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+    justify-content: center;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.trust-band-icon {
+    flex-shrink: 0;
+    color: #2563eb; /* PACE blue */
+    width: 28px;
+    height: 28px;
+}
+
+.trust-band-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+    min-width: 0;
+}
+
+.trust-band-headline {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #111827;
+}
+
+.trust-band-sub {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+@media (max-width: 640px) {
+    .trust-band {
+        padding: 1rem;
+    }
+
+    .trust-band-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .trust-band-headline {
+        font-size: 0.875rem;
+    }
+
+    .trust-band-sub {
+        font-size: 0.75rem;
+    }
+}
+
+/* Customer Showcase */
+.customers-section {
+    padding: var(--space-section) 0;
+    text-align: center;
+}
+
+/* Marquee viewport — fixed-height single row that fades at the edges.
+   The track inside scrolls horizontally on a loop; duplicated logos in the
+   HTML make the loop seamless. Hover pauses; prefers-reduced-motion stops it. */
+.customers-logo {
+    overflow: hidden;
     margin-top: 2rem;
+    position: relative;
+    /* Soft fade-out on the left and right edges so logos appear to dissolve into the page */
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+.customers-logo-track {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: max-content; /* shrink-wrap to content so the animation distance equals one set */
+    animation: customers-marquee 45s linear infinite;
+    will-change: transform;
+}
+
+/* Pause on hover so a visitor can read a specific logo */
+.customers-logo:hover .customers-logo-track,
+.customers-logo:focus-within .customers-logo-track {
+    animation-play-state: paused;
+}
+
+@keyframes customers-marquee {
+    from { transform: translateX(0); }
+    /* -50% lands the duplicated set exactly where the original started, looping seamlessly */
+    to   { transform: translateX(-50%); }
 }
 
 .customers-logo-container {
@@ -1548,6 +1816,7 @@ a:focus-visible {
     border-radius: 0.5rem;
     border: 1px solid #e5e7eb;
     padding: 1rem;
+    flex-shrink: 0; /* prevent the track from squeezing logos */
     transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -1570,8 +1839,9 @@ a:focus-visible {
 }
 
 @media (max-width: 768px) {
-    .customers-logo {
+    .customers-logo-track {
         gap: 1rem;
+        animation-duration: 30s; /* slightly faster on mobile since logos are smaller */
     }
 
     .customers-logo-container {
@@ -1581,15 +1851,22 @@ a:focus-visible {
     }
 }
 
-/* FAQ Section */
-.faq-section {
-    padding: 3rem 0;
+/* Accessibility: respect reduced-motion preference.
+   Stop the marquee and let the user swipe horizontally instead. */
+@media (prefers-reduced-motion: reduce) {
+    .customers-logo {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+                mask-image: none;
+    }
+    .customers-logo-track {
+        animation: none;
+    }
 }
 
-@media (min-width: 640px) {
-    .faq-section {
-        padding: 5rem 0;
-    }
+/* FAQ Section */
+.faq-section {
+    padding: var(--space-section) 0;
 }
 
 .faq-wrapper {
@@ -1664,15 +1941,9 @@ a:focus-visible {
     line-height: 1.75;
 }
 
-/* CTA Section */
+/* CTA Section — uses loose padding to give a deliberate "pause" before the close */
 .cta-section {
-    padding: 3rem 0;
-}
-
-@media (min-width: 640px) {
-    .cta-section {
-        padding: 5rem 0;
-    }
+    padding: var(--space-section-loose) 0;
 }
 
 .cta-card {
@@ -1700,7 +1971,7 @@ a:focus-visible {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.1;
+    opacity: 0.15; /* Microstructure as a deliberate brand moment, not background noise */
 }
 
 .cta-gradient-overlay {
@@ -1768,6 +2039,7 @@ a:focus-visible {
     flex-direction: column;
     gap: 0.75rem;
     justify-content: center;
+    align-items: center;
 }
 
 @media (min-width: 640px) {
@@ -1775,6 +2047,31 @@ a:focus-visible {
         flex-direction: row;
         gap: 1rem;
     }
+}
+
+/* Tertiary text-link CTA — sits alongside the primary/secondary buttons */
+.cta-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    padding: 0.625rem 0.5rem;
+    min-height: 44px;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.cta-text-link:hover {
+    color: #1d4ed8;
+    gap: 0.5rem;
+}
+
+.cta-text-link:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+    border-radius: 4px;
 }
 
 /* Footer */

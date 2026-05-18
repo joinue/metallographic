@@ -117,6 +117,16 @@
 <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -143,20 +153,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -366,35 +384,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -439,111 +453,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -752,36 +696,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -818,73 +760,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -922,44 +827,93 @@
     </div>
 </nav>
 
-    <!-- Toggle Tab - Visible from xl (1280px) to 3xl (1800px) -->
-    <button
-      id="guide-nav-toggle"
-      class="guide-nav-toggle"
-      aria-label="Open navigation"
-      aria-expanded="false"
-    >
-      <svg class="guide-nav-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path class="guide-nav-toggle-arrow" d="M9 18l6-6-6-6"/>
-      </svg>
-    </button>
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
 
-    <!-- Overlay - Only on xl screens when open -->
-    <div
-      id="guide-nav-overlay"
-      class="guide-nav-overlay"
-      aria-hidden="true"
-    ></div>
+    <!-- Side-nav toggle + overlay + container are injected by /js/guide-nav.js -->
 
-    <!-- Navigation -->
+    <!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
+<!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
+        <!-- Notice Banner
+        <div class="notice-banner" role="alert">
+            <div class="notice-content">
+                <svg class="notice-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <p>
+                    We've updated our site! Please clear your browser cache for the best experience. Also, our old shop pages are now retired. Please shop online at 
+                    <strong><a href="https://shop.metallographic.com" class="notice-link" target="_blank" rel="noopener noreferrer">shop.metallographic.com</a></strong>.
+                  </p>
+                  
+                                  <button class="notice-close" aria-label="Close notice">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -1048,6 +1002,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
@@ -1093,7 +1048,7 @@
                     </button>
                 </div>
                 <ul class="sub-menu-mobile" data-section="consumables">
-                    <li><a href="https://shop.metallographic.com/" class="shop-link-button"><span>E-Commerce Shop</span>
+                    <li><a href="https://shop.metallographic.com/" class="shop-link-button" target="_blank" rel="noopener noreferrer"><span>E-Commerce Shop</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1168,35 +1123,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1241,110 +1192,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -1436,12 +1318,13 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
-                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html"><span>Hand / Belt Grinders</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html"><span>Manual Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html"><span>Semi-Auto Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html"><span>Automated Abrasive Dispenser</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html"><span>Controlled Removal Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html"><span>Vibratory Polishers</span></a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
                     </li>
                     <li>
@@ -1492,7 +1375,7 @@
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="https://shop.metallographic.com/" class="shop-link-button"><span>E-Commerce Shop</span></a></li>
+                    <li><a href="https://shop.metallographic.com/" class="shop-link-button" target="_blank" rel="noopener noreferrer"><span>E-Commerce Shop</span></a></li>
                     <li><a href="/metallographic-consumables/sectioning.html"><span>Sectioning                                    
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
@@ -1552,41 +1435,40 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
                 <a href="/resources.html">
-                    <span>Resources<svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <span>Resources
+                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
@@ -1617,76 +1499,40 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                </ul>
-            </li>
-            <li>
-              <a href="https://shop.metallographic.com" class="shop-link">
+              <a href="https://shop.metallographic.com" class="shop-link" target="_blank" rel="noopener noreferrer">
                 <span>Online Shop&nbsp;<svg class="shop-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
                 </svg></span>
@@ -1719,6 +1565,33 @@
         </div>
     </div>
 </nav>
+
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
         </div>
       </div>
     </nav>
@@ -1753,7 +1626,10 @@
                         <li><a href="#grinding">Grinding</a></li>
                         <li><a href="#polishing">Polishing</a></li>
                         <li><a href="#etching">Etching</a></li>
+                        <li><a href="#quantitative-analysis">Quantitative Analysis</a></li>
+                        <li><a href="#sem-eds">SEM, EDS &amp; EBSD</a></li>
                         <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#additional-reading">Additional Reading</a></li>
                     </ul>
                 </div>
 
@@ -1792,21 +1668,23 @@
                             appropriate mounting, gentle grinding, and careful polishing apply to all.
                         </p>
                         <p>
-                            The goal of composite preparation is to achieve a flat, scratch-free surface that preserves 
-                            the original structure, maintains fiber orientation, reveals the matrix-fiber interface, and 
-                            allows for accurate microstructural analysis. Unlike monolithic materials, composites often rely 
-                            more heavily on contrast from polishing rather than etching to reveal structure. The difference 
-                            in hardness between matrix and fiber phases creates natural contrast when polished correctly, 
-                            with softer matrices polishing faster than harder fibers, creating slight relief that enhances 
-                            visibility under the microscope.
+                            The goal of composite preparation is a flat, scratch-free surface that preserves the original
+                            structure, maintains fiber orientation, and reveals the matrix–fiber interface for accurate
+                            microstructural analysis. Unlike monolithic materials, composites often rely on contrast from
+                            careful polishing rather than chemical etching. Differential hardness between matrix and fiber
+                            does produce a small amount of relief, which improves visibility under differential interference
+                            contrast (DIC) or polarized light. Excessive relief, however, is a defect — it distorts fiber
+                            geometry, hides interface detail, and is the single most common reason quantitative analysis
+                            (fiber volume fraction per ASTM D3171, fiber spacing, void content) fails. Control relief; do
+                            not rely on it.
                         </p>
                         <div class="guide-info-box">
                             <h4>Composite Material Characteristics</h4>
                             <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                                <li><strong>CFRP (Carbon Fiber Reinforced Polymer):</strong> Very hard carbon fibers in polymer matrix, requires careful handling to prevent fiber pullout</li>
-                                <li><strong>GFRP (Glass Fiber Reinforced Polymer):</strong> Glass fibers in polymer matrix, sensitive to thermal damage during sectioning</li>
-                                <li><strong>MMC (Metal Matrix Composites):</strong> Ceramic or carbon fibers in metal matrix, may allow some etching of matrix phase. Common examples include aluminum matrix composites and titanium matrix composites</li>
-                                <li><strong>CMC (Ceramic Matrix Composites):</strong> Fibers in ceramic matrix, very hard, requires diamond abrasives throughout</li>
+                                <li><strong>CFRP (Carbon Fiber Reinforced Polymer):</strong> Stiff, brittle carbon fibers (modulus 230–700 GPa, Mohs ~1–3) in a polymer matrix. Carbon fibers are not particularly hard but are highly abrasive due to their stiffness and brittleness, and they fracture and pull out easily under aggressive preparation.</li>
+                                <li><strong>GFRP (Glass Fiber Reinforced Polymer):</strong> Glass fibers in a polymer matrix. The polymer matrix — not the fiber — is heat-sensitive; matrix degradation begins at 100–250 °C depending on resin chemistry, while E-glass fibers tolerate 500–700 °C.</li>
+                                <li><strong>MMC (Metal Matrix Composites):</strong> A metal matrix (typically Al, Mg, Ti, or Cu) reinforced with ceramic or carbon. Two major sub-classes: <em>particulate-reinforced (PRMMCs)</em> such as SiC<sub>p</sub>/Al, Al<sub>2</sub>O<sub>3</sub><sub>p</sub>/Al, B<sub>4</sub>C<sub>p</sub>/Al, and TiC/steel — these are commercially common; and <em>continuous-fiber MMCs</em> such as SCS-6/Ti. Matrix etching is possible with conventional reagents (Keller's, Kroll's, etc.).</li>
+                                <li><strong>CMC (Ceramic Matrix Composites):</strong> Fibers in a ceramic matrix. Hardness varies widely with chemistry: SiC/SiC and C/SiC are extremely hard and require diamond abrasives throughout; oxide/oxide (Al<sub>2</sub>O<sub>3</sub>/Al<sub>2</sub>O<sub>3</sub>) systems are softer and more porous.</li>
                             </ul>
                         </div>
                     </section>
@@ -1821,11 +1699,17 @@
                         </p>
                         <h3>Cutting Parameters</h3>
                         <ul>
-                            <li><strong>Cutting Speed:</strong> Slow speeds to minimize heat and mechanical damage. Polymer matrix composites are especially heat-sensitive and require the slowest practical cutting speed</li>
-                            <li><strong>Blade Selection:</strong> MAX-E series thin abrasive cut-off wheels (0.5-1.0 mm) for most composites, or diamond blades for very hard ceramic reinforcements</li>
-                            <li><strong>Cooling:</strong> Continuous cooling with water or cutting fluid is essential. Use adequate flow rate to prevent thermal damage to polymer matrices</li>
-                            <li><strong>Feed Rate:</strong> Slow, steady feed (0.5-1.0 mm/min) to avoid excessive pressure and delamination</li>
-                            <li><strong>Cutting Direction:</strong> Consider fiber orientation - cut perpendicular to fiber direction when possible to minimize pullout</li>
+                            <li><strong>Cutting Speed:</strong> Use the slowest practical wheel speed. Polymer matrix composites are heat-sensitive; reduce speed and increase coolant flow rather than forcing the cut.</li>
+                            <li><strong>Blade Selection:</strong> Choose by matrix–reinforcement system, not by habit:
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>CFRP / GFRP (polymer matrix):</strong> A precision <strong>diamond wafering blade</strong> (low-concentration metal-bonded, 0.3–0.5 mm) is generally preferred. Abrasive wheels can glaze on cured resin and generate more heat. If a precision saw is unavailable, MAX-E thin abrasive wheels (0.5–1.0 mm) at low feed are acceptable.</li>
+                                    <li><strong>MMC:</strong> MAX-E abrasive wheels for soft reinforcements; <strong>diamond blades</strong> for SiC, B<sub>4</sub>C, Al<sub>2</sub>O<sub>3</sub>, or any reinforcement above ~9 Mohs.</li>
+                                    <li><strong>CMC:</strong> Diamond blades exclusively.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Cooling:</strong> Continuous flood cooling is essential. For polymer composites that absorb water through cut edges, a light cutting oil or non-aqueous coolant can reduce post-cut swelling and analysis artifacts.</li>
+                            <li><strong>Feed Rate:</strong> 0.5–1.0 mm/min on a precision saw; let the blade cut under its own weight on automatic units. Excess feed causes delamination far more often than excess speed does.</li>
+                            <li><strong>Cutting Direction:</strong> Choose the cut plane by the analysis you need (transverse, longitudinal, or off-axis). When the cut goes <em>across</em> unidirectional fibers, each fiber is sheared individually — use a sharper/finer blade, lower feed, and rigid clamping to limit fiber fracture and tear-out. Cutting <em>along</em> fiber length is mechanically gentler but produces a different — often less useful — view of the microstructure.</li>
                         </ul>
                         <div class="guide-image-wrapper" style="max-width: 500px;">
                             <a href="https://shop.metallographic.com/collections/abrasive-blades" target="_blank" rel="noopener noreferrer" class="guide-link">
@@ -1842,22 +1726,21 @@
                         <div class="guide-info-box">
                             <h4>By Composite Type</h4>
                             <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                                <li><strong>CFRP (Carbon Fiber Reinforced Polymer):</strong> Use MAX-E blades at slow speed. Carbon fibers are very hard and can cause blade wear. Monitor blade condition and replace when cutting efficiency decreases. Use continuous water cooling.</li>
-                                <li><strong>GFRP (Glass Fiber Reinforced Polymer):</strong> Use MAX-E blades at slow speed. Glass fibers are brittle and can shatter if cut too aggressively. Very sensitive to heat — ensure adequate cooling throughout the cut.</li>
-                                <li><strong>MMC (Metal Matrix Composites):</strong> Use MAX-E or diamond blades depending on reinforcement hardness. Diamond blades recommended for SiC or B₄C reinforcements.</li>
-                                <li><strong>CMC (Ceramic Matrix Composites):</strong> Use diamond blades exclusively at slow speed. These materials are very hard and abrasive — diamond blades are essential for clean cuts.</li>
+                                <li><strong>CFRP:</strong> Precision diamond wafering blade preferred; MAX-E thin abrasive acceptable on conventional cutoff saws. Carbon fibers are stiff and abrasive (not hard) — they polish a blade's bond matrix and reduce cut efficiency over time. Monitor blade dress and re-dress or replace when feed rate climbs or burning appears.</li>
+                                <li><strong>GFRP:</strong> Same blade options as CFRP. The matrix is the limiting constraint — keep coolant flow high and feed low to avoid resin smearing and interface degradation.</li>
+                                <li><strong>MMC:</strong> MAX-E or diamond depending on reinforcement. Diamond blades for SiC, B<sub>4</sub>C, Al<sub>2</sub>O<sub>3</sub>, and TiC reinforcements; abrasive wheels are fine for soft particulate or short-fiber MMCs.</li>
+                                <li><strong>CMC:</strong> Diamond blades only. Slow feed; pre-load against rigid fixtures to limit chipping at the cut exit.</li>
                             </ul>
                         </div>
                         <h3>Best Practices</h3>
                         <ul>
-                            <li>Use thin blades (0.5-1.0 mm) to minimize kerf loss and reduce heat generation</li>
-                            <li>Maintain constant cooling throughout the cut to prevent matrix damage - flow rate should be sufficient to keep the cut area flooded</li>
-                            <li>Avoid excessive pressure - let the blade do the work. Excessive force can cause delamination or fiber damage</li>
-                            <li>For polymer matrix composites, use lower cutting speeds to prevent melting or thermal degradation</li>
-                            <li>For metal matrix composites with very hard reinforcements (SiC, B4C), consider using diamond blades</li>
-                            <li>Support the sample properly to prevent flexing and delamination - use appropriate fixtures or clamps</li>
-                            <li>Consider the fiber orientation when planning the cut direction - cutting perpendicular to fiber direction minimizes pullout</li>
-                            <li>Mark the fiber orientation on the sample before cutting if it's not obvious, to maintain reference during preparation</li>
+                            <li>Use thin blades (0.3–1.0 mm) to minimize kerf loss and heat input.</li>
+                            <li>Flood the kerf — surface coolant alone is not enough for laminated composites where heat can be trapped between plies.</li>
+                            <li>Let the blade do the work. Force does not cut faster; it delaminates.</li>
+                            <li>Use diamond blades for any reinforcement at or above ~9 Mohs (SiC, B<sub>4</sub>C, Al<sub>2</sub>O<sub>3</sub>).</li>
+                            <li>Rigidly support thin laminates with a sacrificial backer to prevent flexing-induced delamination at the exit edge.</li>
+                            <li>Mark fiber orientation and the desired analysis plane on the sample with a permanent marker before the first cut — it is easy to lose reference once the sample is mounted.</li>
+                            <li>Dry-cut only as a last resort, and only on small CMC sections; expect to re-prep the surface aggressively.</li>
                         </ul>
                         <div class="guide-info-box" style="background: #fefce8; border-left-color: #ca8a04;">
                             <p>
@@ -1885,20 +1768,32 @@
                             <li><strong>Edge Retention:</strong> Ensure good edge retention to preserve fiber ends and interfaces</li>
                             <li><strong>Chemical Compatibility:</strong> Avoid mounting materials that may react with composite constituents</li>
                         </ul>
-                        <h3>Compression Mounting</h3>
+                        <h3>Compression (Hot) Mounting</h3>
                         <p>
-                            For metal matrix composites and some ceramic matrix composites, compression mounting with epoxy 
-                            resins is preferred due to lower curing temperatures compared to phenolic. Epoxy resins cure at 
-                            150-180°C, which is generally safe for metal matrices but may still damage some polymer matrices. 
-                            Phenolic resins should be avoided for polymer matrix composites due to higher curing temperatures.
+                            Compression mounting is suitable for <strong>MMCs and most CMCs</strong>. It is <strong>not</strong>
+                            appropriate for polymer-matrix composites — use castable mounting instead. For MMC/CMC work,
+                            hot epoxies (e.g., PACE EPOMET-style mineral-filled epoxy) are generally preferred over
+                            phenolics for compositional reasons, <em>not</em> thermal ones: both phenolic and hot-mount
+                            epoxy systems cure in the same 150–180 °C range. Epoxy is chosen because it has lower
+                            shrinkage, better adhesion to the sample, and better edge retention — all critical when the
+                            matrix–fiber interface within a few microns of the mount boundary is what you need to see.
                         </p>
                         <ol>
-                            <li>Clean the sample thoroughly to remove cutting fluid and debris</li>
-                            <li>Place sample in mounting press with epoxy resin</li>
-                            <li>Apply moderate pressure: 2000-3000 psi for epoxy (lower than typical metal mounting)</li>
-                            <li>Heat to 150-180°C and hold for 5-8 minutes</li>
-                            <li>Cool slowly to room temperature under pressure to minimize thermal stress</li>
+                            <li>Clean the sample thoroughly — residual cutting fluid is the most common cause of mount porosity.</li>
+                            <li>Place sample in the mounting press with the analysis face down on the ram.</li>
+                            <li>Apply standard pressure (~4200 psi / 290 bar typical; some labs run 2900 psi / 200 bar for delicate composites).</li>
+                            <li>Heat to 150–180 °C and hold long enough to fully cure (5–10 min depending on mount diameter and resin system).</li>
+                            <li>Cool to below 70 °C under pressure before releasing. For composites with very different CTEs between matrix and reinforcement, use the press's slow-cool program to limit residual stress at the interface.</li>
                         </ol>
+                        <div class="guide-info-box">
+                            <h4>Choose the right hot-mount resin for the job</h4>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li><strong>Mineral- or glass-filled epoxy (edge-retention grade):</strong> First choice for MMCs and CMCs. The hard filler particles polish at a rate close to the sample, eliminating the matrix–mount step that causes interface rounding.</li>
+                                <li><strong>Conductive (carbon- or copper-filled) resin:</strong> Required if the mount must be conductive for SEM/EDS or EBSD analysis.</li>
+                                <li><strong>Standard phenolic:</strong> Acceptable for non-critical MMC work where edge retention is not the limiting factor. Avoid for any quantitative interface measurement.</li>
+                                <li><strong>Clear acrylic (e.g., transoptic):</strong> Use only when transparency is needed; poor edge retention makes it a bad choice for composites.</li>
+                            </ul>
+                        </div>
                         <h3>Castable Mounting (also known as Cold Mounting)</h3>
                         <p>
                             Castable mounting is strongly recommended for polymer matrix composites (CFRP, GFRP) to completely 
@@ -1923,14 +1818,29 @@
                             <li>Pour into mounting cup, ensuring sample is properly positioned</li>
                             <li>Allow to cure at room temperature (typically 4-8 hours, or overnight for best results)</li>
                         </ol>
-                        <p>Castable mounting eliminates risk of thermal damage to polymer matrices and interfaces.</p>
+                        <p>Castable mounting eliminates the risk of thermal damage to polymer matrices and interfaces.</p>
+
+                        <h3>Vacuum Impregnation</h3>
+                        <p>
+                            Vacuum impregnation is <strong>mandatory</strong> for any composite that is porous, damaged,
+                            cracked, or that will be analyzed for void content per ASTM D2734 / D3171. It is also strongly
+                            recommended for any CMC and for CFRP/GFRP samples taken from in-service parts. Without it,
+                            air-filled voids collapse during grinding and polishing, debris is pumped into and out of pores
+                            on every revolution, and apparent void content reads low while pullout reads high.
+                        </p>
+                        <ol>
+                            <li>Pre-soak the sample in low-viscosity castable epoxy in the mounting cup (do not yet add hardener if the resin's pot life is short).</li>
+                            <li>Place the cup in a vacuum impregnation chamber. Draw vacuum to 25–100 mbar.</li>
+                            <li>Hold under vacuum for 1–5 minutes — watch for bubble evolution from the sample. When bubbling stops, the pore network is degassed.</li>
+                            <li>Slowly release vacuum to atmospheric. The pressure differential drives resin into evacuated pores.</li>
+                            <li>Cure normally (room temperature or per resin spec).</li>
+                        </ol>
                         <div class="guide-info-box guide-info-box-blue">
                             <p>
-                                <strong>Special Consideration:</strong> For composites with soft matrices, use mounting 
-                                materials with similar hardness to prevent relief during polishing. Vacuum impregnation 
-                                may be necessary for porous composites or those with internal voids to ensure complete 
-                                infiltration and support. For composites with high fiber volume fractions, consider using 
-                                mounting materials with good edge retention properties.
+                                <strong>Soft-matrix / high-fiber-fraction note:</strong> When the matrix is much softer than
+                                the reinforcement, choose a mount with hardness close to the matrix to limit edge rounding.
+                                For CFRP and CMC laminates with high fiber volume fractions, use mineral-filled (edge-retention)
+                                castable epoxy. Combine with vacuum impregnation for cracked or delaminated samples.
                             </p>
                         </div>
                         <p>
@@ -1957,21 +1867,41 @@
                             </a>
                             <p class="guide-image-caption">Silicon carbide (SiC) grinding papers in various grit sizes for progressive grinding. Use light pressure and rotate sample 90° between each grit to prevent fiber pullout.</p>
                         </div>
-                        <h3>Grinding Sequence</h3>
+                        <h3>SiC Paper Grinding Sequence</h3>
+                        <p>
+                            <strong>Grit standards note:</strong> ANSI/CAMI and FEPA (P-grade) grit numbers are not
+                            interchangeable. ANSI 240 ≈ 58 μm; FEPA P240 ≈ 53 μm. The mismatch is small at fine grits
+                            and larger at coarse grits (ANSI 120 ≈ 102 μm vs. P120 ≈ 125 μm). Grit numbers below are
+                            given as ANSI grit with FEPA P-grade in parentheses where they differ meaningfully.
+                        </p>
                         <ol>
-                            <li><strong>120 grit:</strong> Remove sectioning damage (30-60 seconds per step) - use very light pressure</li>
-                            <li><strong>240 grit:</strong> Remove previous scratches (30-60 seconds)</li>
-                            <li><strong>400 grit:</strong> Further refinement (30-60 seconds)</li>
-                            <li><strong>600 grit:</strong> Final grinding step (30-60 seconds)</li>
-                            <li><strong>800 grit:</strong> Optional for composites requiring finer surfaces (20-40 seconds)</li>
+                            <li><strong>240 grit (P240) or 320 grit (P320):</strong> Planarize and remove sectioning damage (30-60 s). For CFRP/GFRP, start here — not coarser. 120 grit will fracture fibers and create deep subsurface damage that takes many more steps to remove.</li>
+                            <li><strong>400 grit (P400):</strong> Refine surface, remove 240/320 scratches (30-60 s).</li>
+                            <li><strong>600 grit (P600):</strong> Intermediate step (30-60 s).</li>
+                            <li><strong>800 grit (P800):</strong> Optional final SiC step before diamond polishing (20-40 s).</li>
+                            <li><strong>1200 grit (P1200):</strong> Optional; useful for soft-matrix composites where the 9 μm diamond step would otherwise leave excessive relief.</li>
                         </ol>
+
+                        <div class="guide-info-box guide-info-box-blue">
+                            <h4>Alternative: Rigid Diamond Grinding</h4>
+                            <p style="margin-top: 0.5rem;">
+                                Modern composite protocols increasingly skip SiC paper entirely. A single rigid
+                                diamond grinding disc (e.g., a perforated or resin-bonded diamond platen at ~74 μm /
+                                P220 equivalent) followed by 9 μm diamond suspension on a hard, non-napped surface
+                                produces flatter samples with less subsurface damage than a four-step SiC sequence.
+                                This is the preferred approach for CMCs and for any composite that will undergo image
+                                analysis. SiC paper remains the lower-cost, more forgiving option for routine work.
+                            </p>
+                        </div>
+
                         <h3>Grinding Parameters</h3>
                         <ul>
-                            <li><strong>Pressure:</strong> Very light pressure (1-3 lbs per sample) to prevent fiber pullout</li>
-                            <li><strong>Rotation:</strong> Rotate sample 90° between each grit to ensure complete scratch removal</li>
-                            <li><strong>Water Flow:</strong> Continuous water flow to remove debris and prevent loading</li>
-                            <li><strong>Speed:</strong> 240-300 RPM for grinding wheels</li>
-                            <li><strong>Time:</strong> Shorter times per step compared to metals - monitor frequently</li>
+                            <li><strong>Force:</strong> Very light — 5–15 N per sample (≈1–3 lbf). Composites pull out under loads that metals shrug off; if in doubt, reduce force and increase time.</li>
+                            <li><strong>Rotation:</strong> Rotate sample 90° between grits to confirm previous scratches are fully removed.</li>
+                            <li><strong>Water flow:</strong> Continuous flood; the goal is debris removal as much as cooling. Loaded paper is the leading cause of pullout in this step.</li>
+                            <li><strong>Speed:</strong> 240–300 RPM for fixed-platen grinders; 150 RPM for hand grinding.</li>
+                            <li><strong>Direction (head vs. platen):</strong> On automatic polishers, use complementary rotation (head and platen turning the same direction) for general work; counter-rotation removes material faster but is harder on fibers.</li>
+                            <li><strong>Time per step:</strong> Shorter than for monolithic metals. Inspect under the microscope between grits — do not run on the clock alone.</li>
                         </ul>
                         <div class="guide-info-box">
                             <h4>Grinding Tips for Composites</h4>
@@ -2025,48 +1955,91 @@
                         </div>
                         <h3>Diamond Polishing Sequence</h3>
                         <p>
-                            Use polycrystalline diamond suspensions for consistent cutting action. The sequence below is 
-                            optimized to minimize fiber pullout while achieving a flat, scratch-free surface.
+                            Use <strong>polycrystalline diamond</strong> (PCD) suspensions throughout. PCD's multi-point
+                            cutting geometry resists rolling, cuts uniformly across hard and soft phases, and substantially
+                            reduces fiber pullout compared to monocrystalline diamond. Pad stiffness must <em>decrease</em>
+                            as abrasive size decreases — getting this backwards is the most common cause of fiber pullout in
+                            otherwise correctly run protocols.
                         </p>
                         <ol>
-                            <li><strong>9 μm diamond:</strong> 2-4 minutes on a medium-nap pad (e.g., Texpan or Nypad). Use polycrystalline diamond for better cutting consistency</li>
-                            <li><strong>3 μm diamond:</strong> 2-4 minutes on a soft napped pad (e.g., Micropad). Monitor for fiber pullout - if observed, reduce pressure</li>
-                            <li><strong>1 μm diamond:</strong> 2-3 minutes on a soft napped pad. This step is critical for removing fine scratches while preserving fiber integrity</li>
-                            <li><strong>0.25 μm diamond:</strong> Optional - 1-2 minutes on a soft napped pad (e.g., Micropad or Atlantis). Only use if needed for very fine surfaces</li>
+                            <li><strong>9 μm PCD:</strong> 2–4 minutes on a <strong>low-nap, firm pad</strong> (TEXPAN non-woven or GOLD PAD low-nap). A medium- or high-nap cloth at 9 μm will cause edge rounding and excessive relief — avoid MICROPAD here.</li>
+                            <li><strong>3 μm PCD:</strong> 2–4 minutes on a <strong>low-nap pad</strong> (GOLD PAD or NYPAD silk). Still firm enough to resist rocking and preserve flatness. Monitor for pullout; reduce force, not time, if pullout appears.</li>
+                            <li><strong>1 μm PCD:</strong> 2–3 minutes on a low-nap pad (NYPAD or ATLANTIS low-nap final). This step bridges to the colloidal silica final polish.</li>
+                            <li><strong>0.25 μm PCD:</strong> Optional 1–2 minutes on ATLANTIS or a soft-nap pad. Useful for hard CMCs and for samples that will be analyzed by SEM at high magnification; usually skipped for routine light microscopy.</li>
                         </ol>
                         <h3>Final Polishing</h3>
                         <p>
-                            Final polishing with colloidal silica creates the natural contrast between matrix and fiber 
-                            phases that is essential for composite microstructural analysis.
+                            Colloidal silica final polishing provides both light chemical action and very fine mechanical
+                            polishing, producing the matrix–fiber contrast composites are known for under DIC and polarized
+                            light without requiring chemical etching.
                         </p>
                         <ol>
-                            <li><strong>0.05 μm colloidal silica:</strong> 30-90 seconds on a soft napped pad (e.g., Micropad or Atlantis). Use minimal pressure (1-2 lbs)</li>
-                            <li>Rinse thoroughly with water and dry with compressed air - avoid wiping which can cause fiber pullout</li>
-                            <li>For composites, final polish often provides sufficient contrast without etching. The differential polishing rates of matrix and fiber create natural contrast</li>
+                            <li><strong>0.05 μm colloidal silica:</strong> 30–90 seconds on a high-nap pad (MICROPAD) or compliant low-nap final pad (ATLANTIS). Force 5–10 N per sample.</li>
+                            <li>Switch to clean water on the same pad for the final 10–20 seconds to flush silica residue. <strong>Never let colloidal silica dry on the sample</strong> — dried silica is extremely difficult to remove and shows in SEM as bright contamination.</li>
+                            <li>Rinse with water, then ethanol; dry with clean compressed air. Do not wipe the polished face — wiping pulls fibers.</li>
                         </ol>
-                        <h3>Polishing Parameters</h3>
+                        <h3>Polishing Parameters &amp; Pad Map</h3>
+                        <div style="overflow-x:auto;">
+                            <table style="width:100%; border-collapse:collapse; margin: 0.75rem 0;">
+                                <thead>
+                                    <tr style="background:#f3f4f6;">
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Step</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Abrasive</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">PACE Pad</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Pad Character</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Force / sample</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Rough polish</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">9 μm PCD</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">TEXPAN or GOLD PAD</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Firm, low-nap</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">15–25 N (3–5 lbf)</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">2–4 min</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Intermediate</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">3 μm PCD</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">GOLD PAD or NYPAD</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Low-nap</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">10–15 N (2–3 lbf)</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">2–4 min</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Intermediate</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1 μm PCD</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">NYPAD or ATLANTIS</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Low-nap</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">10 N (2 lbf)</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">2–3 min</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Optional</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">0.25 μm PCD</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">ATLANTIS</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Compliant low-nap</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5–10 N (1–2 lbf)</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1–2 min</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Final</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">0.05 μm colloidal silica</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">MICROPAD or ATLANTIS</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">High-nap (or soft low-nap)</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5–10 N (1–2 lbf)</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">30–90 s</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <ul>
-                            <li><strong>Pressure:</strong> Very light pressure (1-3 lbs per sample) - critical to prevent fiber pullout. Use the minimum pressure that maintains contact</li>
-                            <li><strong>Speed:</strong> 120-150 RPM for diamond polishing. Lower speeds (100-120 RPM) may be beneficial for very sensitive composites</li>
-                            <li><strong>Pad Selection:</strong> Use soft pads throughout (e.g., Micropad, Texpan). Avoid hard pads which can cause excessive pullout</li>
-                            <li><strong>Lubricant:</strong> Polycrystalline diamond suspension in water-based lubricant. High-viscosity suspensions help maintain diamond particles in contact with the surface</li>
-                            <li><strong>Direction:</strong> Consider fiber orientation - polish perpendicular to fiber direction when possible. For random fiber orientations, use gentle circular motions</li>
-                            <li><strong>Time:</strong> Monitor frequently. Shorter times per step are often better than extended polishing which can cause relief</li>
+                            <li><strong>Speed:</strong> 120–150 RPM for diamond steps; drop to 100–120 RPM for sensitive systems (CFRP, soft-matrix PRMMC).</li>
+                            <li><strong>Lubricant:</strong> Water-based PCD suspension; use high-viscosity carrier for high-fiber-fraction composites to keep diamond particles engaged with the surface.</li>
+                            <li><strong>Head/platen rotation:</strong> Complementary (same direction) is gentler; counter-rotation removes material faster but stresses fibers more.</li>
+                            <li><strong>Time per step:</strong> Inspect frequently; over-polishing creates relief faster than it removes scratches.</li>
                         </ul>
                         <div class="guide-info-box guide-info-box-blue">
                             <p>
-                                <strong>Critical Consideration:</strong> Fiber pullout is the most common problem in composite 
-                                polishing. Use very light pressure, soft cloths, and monitor the surface frequently. If 
-                                pullout occurs, return to a previous polishing step and use even lighter pressure. The 
-                                matrix-fiber interface must be preserved to reveal the true microstructure.
+                                <strong>Critical Consideration:</strong> Fiber pullout is the most common defect in composite
+                                polishing. If you see pullout, the response is — in order — (1) reduce force, (2) switch to a
+                                firmer (lower-nap) pad at that step, (3) extend the previous step rather than the failing one,
+                                (4) shorten the failing step. Returning to a coarser grit is a last resort because it removes
+                                material that took effort to flatten.
                             </p>
                         </div>
-                        <h3>Maintaining Fiber Orientation</h3>
+
+                        <h3>Vibratory Polishing</h3>
                         <p>
-                            Throughout the polishing process, maintain awareness of fiber orientation. Polishing parallel 
-                            to fiber direction can cause excessive pullout, while polishing perpendicular to fibers helps 
-                            maintain interface integrity. For random fiber orientations, use gentle, circular motions with 
-                            very light pressure.
+                            Vibratory polishing is the <strong>gold standard final step</strong> for composites destined
+                            for image analysis, EBSD, or high-magnification SEM. The low-energy, multi-directional motion
+                            preserves fibers, removes subsurface damage that rotary polishing leaves behind, and produces
+                            essentially relief-free surfaces.
+                        </p>
+                        <ul>
+                            <li><strong>When to use it:</strong> Final step in lieu of (or after) the 0.05 μm rotary step; for high-fiber-fraction CFRP, all CMCs, and any sample being analyzed for fiber volume fraction or void content.</li>
+                            <li><strong>Setup:</strong> 0.05 μm colloidal silica on a soft napped cloth (MICROPAD or equivalent) on the vibratory bowl.</li>
+                            <li><strong>Sample weight:</strong> 100–300 g over the mount (sample plus weight). Heavier weights flatten faster but risk pullout.</li>
+                            <li><strong>Time:</strong> 1–8 hours depending on composite system and required surface quality. 2 hours is a good starting point for routine CFRP.</li>
+                            <li><strong>Cleaning:</strong> Replace or thoroughly rinse the cloth between samples — vibratory pads accumulate debris that scratches subsequent samples.</li>
+                        </ul>
+
+                        <h3>Direction Conventions (Hand vs. Automatic)</h3>
+                        <p>
+                            "Polish perpendicular to fiber direction" applies <strong>only to hand polishing</strong> on a
+                            stationary cloth, where the operator chooses a draw direction. On an automatic polisher with
+                            head and platen rotation, the sample sees every direction in every revolution, so fiber-relative
+                            direction is not under operator control. For hand work on unidirectional composites, draw the
+                            sample across the cloth with strokes oriented along the fiber length, then rotate 90° between
+                            strokes to average orientation. For random or woven fiber preforms, gentle circular motion with
+                            minimal pressure works well.
                         </p>
                         <p>
                             For more information on polishing supplies, visit our <a href="https://shop.metallographic.com/collections/diamond-abrasives" target="_blank" rel="noopener noreferrer" class="guide-link">Polycrystalline Diamond Abrasives</a>, <a href="https://shop.metallographic.com/collections/polishing-pads" target="_blank" rel="noopener noreferrer" class="guide-link">Soft Polishing Cloths</a>, and <a href="https://shop.metallographic.com/collections/final-polishing" target="_blank" rel="noopener noreferrer" class="guide-link">Colloidal Silica</a> collections.
@@ -2091,19 +2064,24 @@
                         </div>
                         <h3>Etching Considerations</h3>
                         <ul>
-                            <li><strong>Polymer Matrix Composites:</strong> Generally not etched - rely on polishing contrast. This applies to CFRP and GFRP materials</li>
-                            <li><strong>Metal Matrix Composites:</strong> May benefit from standard metal etchants applied to the matrix. Aluminum matrix composites can be etched with Keller's reagent, while titanium matrix composites may respond to Kroll's reagent</li>
-                            <li><strong>Ceramic Matrix Composites:</strong> Limited etching options - often rely on polishing contrast</li>
-                            <li><strong>Interface Revelation:</strong> Polishing-induced contrast often reveals interfaces better than etching</li>
+                            <li><strong>Polymer matrix composites (CFRP, GFRP):</strong> Do not etch. There is no chemical etchant that selectively attacks one phase without damaging the other in any useful way. Rely on DIC, polarized light, or low-angle illumination for contrast.</li>
+                            <li><strong>Aluminum-matrix MMC:</strong> Keller's reagent for general matrix etching; <strong>Barker's electrolytic anodizing</strong> (1.8% HBF<sub>4</sub>, 30 V DC, 30–90 s) under polarized light for grain visualization in SiC<sub>p</sub>/Al, Al<sub>2</sub>O<sub>3</sub><sub>p</sub>/Al; <strong>Weck's reagent</strong> (4 g KMnO<sub>4</sub> + 1 g NaOH in 100 mL H<sub>2</sub>O) as a color etch for phase contrast in heat-treated Al-MMCs.</li>
+                            <li><strong>Titanium-matrix MMC:</strong> Kroll's reagent (2 mL HF + 6 mL HNO<sub>3</sub> + 92 mL H<sub>2</sub>O) for matrix; <strong>Weck's reagent for Ti</strong> (50 mL H<sub>2</sub>O + 25 mL ethanol + 1 g NH<sub>4</sub>HF<sub>2</sub>) for α/β phase color etching.</li>
+                            <li><strong>Steel-matrix MMC</strong> (TiC, WC, or TiB<sub>2</sub> reinforced tool steels): Nital (2–4% HNO<sub>3</sub> in ethanol) to reveal matrix; <strong>Murakami's reagent</strong> (10 g K<sub>3</sub>Fe(CN)<sub>6</sub> + 10 g KOH in 100 mL H<sub>2</sub>O) to differentiate carbide types. Often used sequentially: Nital first, then a brief Murakami swab.</li>
+                            <li><strong>CMC (SiC/SiC, C/SiC):</strong> <strong>Murakami's at 60 °C</strong> for boiling-immersion etching of SiC grain boundaries; molten salt etches (KOH/NaOH at 350–500 °C) for harder ceramic grain boundary revelation. These are aggressive procedures — protective equipment and fume containment are non-negotiable.</li>
+                            <li><strong>Oxide CMC (Al<sub>2</sub>O<sub>3</sub>/Al<sub>2</sub>O<sub>3</sub>):</strong> Thermal etching at 1400–1500 °C in air for 30 min is the standard grain-boundary technique; chemical etchants are generally ineffective.</li>
+                            <li><strong>Interface revelation:</strong> Etching can darken matrix and outline fibers, but DIC and oblique illumination usually reveal interfaces more clearly without removing material.</li>
                         </ul>
                         <h3>Polishing-Induced Contrast</h3>
                         <p>
-                            For most composites, the best contrast is achieved through careful polishing rather than 
-                            etching. The different hardnesses of the matrix and fiber phases create natural contrast 
-                            when polished properly. Soft matrices polish faster than hard fibers, creating slight relief 
-                            that enhances visibility under the microscope. This relief is typically on the order of 
-                            0.1-0.5 μm, which is sufficient for good contrast under brightfield illumination and 
-                            excellent contrast under differential interference contrast (DIC) microscopy.
+                            For most composites, the matrix–fiber boundary is revealed by a small, controlled height
+                            difference between the softer matrix and harder reinforcement after polishing. Under DIC,
+                            sub-100 nm height differences are sufficient for excellent phase contrast; under brightfield,
+                            slightly larger relief helps but is not necessary. <strong>Aim for the minimum relief that
+                            produces usable contrast</strong> — relief that is large enough to be visible without DIC is
+                            usually large enough to bias quantitative measurements. If your application is qualitative
+                            and DIC is unavailable, a longer final polish on a softer pad can be used deliberately to
+                            generate visible relief.
                         </p>
                         <div class="guide-image-wrapper">
                             <img 
@@ -2114,22 +2092,28 @@
                             />
                             <p class="guide-image-caption">Polymer-graphite composite, as-polished (no etching), 200X magnification. This image demonstrates excellent contrast achieved through careful polishing alone, with clear distinction between matrix and fiber phases.</p>
                         </div>
-                        <h3>Limited Etching Options</h3>
+                        <h3>Etching Procedure for MMC</h3>
                         <p>
-                            When etching is attempted for metal matrix composites, use standard etchants for the matrix 
-                            material (e.g., Keller's reagent for aluminum matrix composites, Nital for steel matrix). However, 
-                            etching times should be reduced, and the process should be monitored carefully to avoid 
-                            over-etching the matrix or damaging the fiber-matrix interface.
+                            Composites etch faster than monolithic materials of the same matrix because the reinforcement
+                            disrupts diffusion at the surface and creates galvanic micro-cells with the matrix. Reduce
+                            etch times by ~30–50% versus the monolithic recipe and monitor continuously.
                         </p>
-                        <h3>Etching Procedure (if applicable)</h3>
                         <ol>
-                            <li>Ensure sample is clean and dry before etching</li>
-                            <li>Apply etchant sparingly using cotton swab (for metal matrix composites only)</li>
-                            <li>Etch for shorter times than for monolithic materials (5-15 seconds)</li>
-                            <li>Monitor etching progress carefully</li>
-                            <li>Rinse immediately with water, then alcohol</li>
-                            <li>Dry with compressed air</li>
+                            <li>Confirm the sample is clean and dry — residual colloidal silica will produce a mottled etch.</li>
+                            <li>Apply etchant sparingly with a cotton swab, or immerse briefly. Swab for short, controlled exposure; immerse for uniform reveal across the surface.</li>
+                            <li>Start at 5–15 s. Monitor for matrix darkening; pull when contrast is established. Do not chase a deeper etch by extending time — re-polish and re-etch if needed.</li>
+                            <li>Rinse immediately with water, then ethanol.</li>
+                            <li>Dry with compressed air. Do not wipe.</li>
                         </ol>
+                        <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
+                            <p>
+                                <strong>Safety:</strong> Several etchants on this page are hazardous — Kroll's contains HF
+                                and is acutely toxic with delayed-onset injury; Murakami's generates cyanide-containing
+                                fumes if mishandled; molten salt etching presents thermal and chemical hazards. Use only
+                                in a fume hood, with appropriate PPE, and follow the SDS for each reagent. New users
+                                should be trained and supervised before working with HF-containing etchants.
+                            </p>
+                        </div>
                         <div class="guide-info-box">
                             <h4>Best Practice</h4>
                             <p style="margin-top: 0.5rem;">
@@ -2139,6 +2123,67 @@
                                 microscopy to enhance contrast if available.
                             </p>
                         </div>
+                    </section>
+
+                    <section id="quantitative-analysis" class="guide-section">
+                        <h2>Quantitative Analysis Considerations</h2>
+                        <p>
+                            Most composite metallography is performed in service of a measurement — fiber volume fraction,
+                            void content, fiber diameter distribution, fiber spacing, ply thickness, or interface area.
+                            Preparation requirements for quantitative work are stricter than for qualitative inspection.
+                            The same sample that looks good under brightfield can produce biased measurements if relief,
+                            pullout, or pluck-out has altered apparent geometry.
+                        </p>
+                        <h3>Relevant Standards</h3>
+                        <ul>
+                            <li><strong>ASTM E3</strong> — Standard Guide for Preparation of Metallographic Specimens (general framework).</li>
+                            <li><strong>ASTM D3171</strong> — Constituent Content of Composite Materials (digestion + density methods; metallographic comparison).</li>
+                            <li><strong>ASTM D2734</strong> — Void Content of Reinforced Plastics.</li>
+                            <li><strong>ASTM E1245</strong> — Automatic Image Analysis (governs flatness and contrast requirements for stereological measurements).</li>
+                            <li><strong>ASTM E1382</strong> — Determining Average Grain Size Using Semiautomatic and Automatic Image Analysis (applicable to MMC matrix grain measurement).</li>
+                            <li><strong>ASTM D3878</strong> — Standard Terminology for Composite Materials.</li>
+                            <li><strong>ASTM E1920</strong> — Metallographic Preparation of Thermal Sprayed Coatings (procedural parallels to composites).</li>
+                            <li><strong>ISO 4499</strong> — Hardmetals — Metallographic determination of microstructure (relevant to particulate MMC).</li>
+                        </ul>
+                        <h3>What quantitative work demands of prep</h3>
+                        <ul>
+                            <li><strong>Flatness:</strong> Relief between matrix and fiber must be minimized — under 100 nm where possible. Use vibratory polishing as the final step.</li>
+                            <li><strong>Edge retention:</strong> Use mineral-filled epoxy mounting; the matrix–mount boundary must not round, or peripheral fibers appear shortened.</li>
+                            <li><strong>No pullout:</strong> Image analysis cannot distinguish a void from a pulled-out fiber. If pullout is suspected, re-prepare; do not threshold around it.</li>
+                            <li><strong>Vacuum impregnation:</strong> Mandatory for void content measurement — otherwise voids fill with abrasive, grinding swarf, and polishing debris during prep, biasing measurements low.</li>
+                            <li><strong>Statistical sampling:</strong> Single-section measurements are not representative of bulk composite properties. Use multiple sections per ASTM E1245 recommendations.</li>
+                        </ul>
+                    </section>
+
+                    <section id="sem-eds" class="guide-section">
+                        <h2>SEM, EDS, and EBSD Preparation</h2>
+                        <p>
+                            Electron-beam analysis adds requirements beyond light-microscopy prep: the sample must be
+                            conductive (or coated), the surface must be very flat (especially for EBSD), and contamination
+                            from prep chemicals must be minimized because EDS and WDS pick up residues that brightfield
+                            misses.
+                        </p>
+                        <h3>Mount Conductivity</h3>
+                        <p>
+                            Polymer-matrix composites and oxide-CMC samples are nonconductive. Options:
+                        </p>
+                        <ul>
+                            <li><strong>Conductive mounting resin:</strong> Carbon- or copper-filled compression resin (e.g., PACE conductive grade) is the cleanest solution — provides a continuous conductive path from sample to stage.</li>
+                            <li><strong>Conductive paint bridge:</strong> Apply colloidal silver or carbon paint from a small exposed area of the sample edge down the side of the mount to the stub. Acceptable for ad hoc analysis.</li>
+                            <li><strong>Sputter coating:</strong> Carbon (5–20 nm) for EDS; Au, Au-Pd, or Pt (5–10 nm) for high-resolution SEM. Carbon is preferred for EDS because it has no overlapping X-ray lines with most matrix or reinforcement elements. Avoid Au coating for EDS of Al-MMCs (overlap risk).</li>
+                        </ul>
+                        <h3>EBSD-Specific Requirements</h3>
+                        <ul>
+                            <li><strong>Subsurface damage must be removed.</strong> Vibratory polish for 4–8 hours with colloidal silica is standard; consider broad-ion-beam (BIB) milling as a final step for soft matrices.</li>
+                            <li><strong>No coating</strong> for routine EBSD; rely on conductive mounting or paint bridge.</li>
+                            <li><strong>Carbon-fiber composites</strong> are challenging for EBSD because carbon fibers diffract weakly. Focus EBSD work on MMC matrix grain orientation rather than fiber characterization.</li>
+                        </ul>
+                        <h3>Cleanliness</h3>
+                        <ul>
+                            <li>Final rinse with high-purity ethanol or isopropanol after the colloidal silica step. Dried silica shows up bright in BSE imaging and contributes a Si peak in EDS.</li>
+                            <li>Store finished samples in a desiccator. Polymer matrices absorb humidity, which causes outgassing in the SEM chamber and matrix-edge swelling that bias measurements between sessions.</li>
+                            <li>Avoid skin contact with the polished face; nitrile gloves only. Skin oils contaminate EDS and accumulate over time in stored samples.</li>
+                        </ul>
                     </section>
 
                     <section id="troubleshooting" class="guide-section">
@@ -2152,16 +2197,19 @@
                                 disrupted fiber orientation, visible voids in the microstructure
                             </p>
                             <p style="margin-bottom: 0.5rem;">
-                                <strong>Root Causes:</strong> Excessive polishing pressure, use of hard polishing cloths, 
-                                insufficient grit progression, polishing parallel to fiber direction, over-polishing
+                                <strong>Root Causes:</strong> Excessive force, wrong pad stiffness for the abrasive size
+                                (a high-nap pad at 9 μm or 3 μm is the most common error), skipped grits, over-polishing
+                                at any one step, residual subsurface damage from sectioning or coarse grinding.
                             </p>
                             <p style="margin-bottom: 0;">
-                                <strong>Solutions:</strong> Reduce polishing pressure significantly (1-2 lbs per sample), 
-                                use softer polishing pads (e.g., Micropad, Texpan), extend polishing times at each step 
-                                with lighter pressure, ensure proper grit progression (don't skip grits), consider vibratory 
-                                polishing for final steps, polish perpendicular to fiber direction when possible, use 
-                                polycrystalline diamond for more consistent cutting action, monitor surface frequently with 
-                                low-power microscopy to detect pullout early
+                                <strong>Solutions:</strong> Reduce force to 5–10 N per sample (≈1–2 lbf); confirm pad
+                                stiffness matches the abrasive size (low-nap firm pads such as TEXPAN or GOLD PAD for
+                                9 μm and 3 μm diamond; reserve MICROPAD for the colloidal silica final step); ensure
+                                proper grit progression — do not skip steps; switch to polycrystalline diamond if using
+                                monocrystalline; finish with vibratory polishing for stubborn cases; monitor frequently
+                                under the microscope rather than relying on time. If pullout persists after these
+                                adjustments, the root cause is usually subsurface damage from sectioning — return to a
+                                coarser grinding step and re-run the full sequence with lighter force.
                             </p>
                         </div>
 
@@ -2247,6 +2295,35 @@
                         </div>
                     </section>
 
+                    <section id="additional-reading" class="guide-section">
+                        <h2>Additional Reading</h2>
+                        <h3>Primary references</h3>
+                        <ul>
+                            <li>Zipperian, D.C. <em>Metallographic Handbook</em>. PACE Technologies, Tucson, AZ. — house reference; the chapters on composites and ceramics directly inform this guide.</li>
+                            <li><em>ASM Handbook, Vol. 9: Metallography and Microstructures</em>. ASM International, 2004. — sections on composite preparation (Slepian, Vander Voort) and on MMC/CMC etching.</li>
+                            <li><em>ASM Handbook, Vol. 21: Composites</em>. ASM International, 2001. — for fiber properties, matrix systems, and composite terminology.</li>
+                            <li>Vander Voort, G.F. <em>Metallography: Principles and Practice</em>. ASM International (reprint of McGraw-Hill 1984). — definitive reference on relief, polishing, and etching.</li>
+                            <li>Petzow, G. <em>Metallographic Etching</em>, 2nd ed. ASM International, 1999. — etchant formulations and procedures, including the entries used here.</li>
+                            <li>Chawla, K.K. <em>Composite Materials: Science and Engineering</em>, 3rd ed. Springer, 2012. — for fiber and matrix property data.</li>
+                        </ul>
+                        <h3>Standards</h3>
+                        <ul>
+                            <li>ASTM E3 — Preparation of Metallographic Specimens</li>
+                            <li>ASTM E1245 — Automatic Image Analysis</li>
+                            <li>ASTM E1382 — Average Grain Size by Image Analysis</li>
+                            <li>ASTM E1920 — Metallographic Preparation of Thermal Sprayed Coatings</li>
+                            <li>ASTM D3171 — Constituent Content of Composite Materials</li>
+                            <li>ASTM D2734 — Void Content of Reinforced Plastics</li>
+                            <li>ASTM D3878 — Standard Terminology for Composite Materials</li>
+                            <li>ISO 4499 — Hardmetals — Metallographic determination of microstructure</li>
+                        </ul>
+                        <h3>Application notes</h3>
+                        <ul>
+                            <li>Buehler, <em>SUM-MET: The Sum of Our Experience</em>. Buehler / ITW Test &amp; Measurement (current edition). Composite preparation tables and pad/abrasive selection guidance.</li>
+                            <li>Struers Application Notes — "Metallographic preparation of composites" and "Vacuum impregnation".</li>
+                        </ul>
+                    </section>
+
                     <!-- CTA Section -->
                     <div class="guide-cta">
                         <h2>Explore More Procedures</h2>
@@ -2280,6 +2357,7 @@
             </div>
         </div>
     </main>
+
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
@@ -2339,9 +2417,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -2353,7 +2459,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -2381,8 +2487,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -2454,9 +2559,43 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
     <script src="/js/guide-nav.js"></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

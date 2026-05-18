@@ -1583,6 +1583,78 @@
     }
 }
 
+/* Editorial-style resource links (top row) */
+.resource-editorial-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.resource-editorial-entry {
+    display: block;
+    padding: 1.75rem 0;
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.resource-editorial-entry:first-child {
+    border-top: 1px solid #e5e7eb;
+}
+
+.resource-editorial-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.resource-editorial-title {
+    font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    margin: 0;
+    color: #1f2937;
+    flex-shrink: 0;
+    transition: color 0.25s ease;
+}
+
+.resource-editorial-entry:hover .resource-editorial-title {
+    color: #36666e;
+}
+
+.resource-editorial-rule {
+    flex: 1;
+    height: 1px;
+    background: #d1d5db;
+    transition: background-color 0.25s ease;
+}
+
+.resource-editorial-entry:hover .resource-editorial-rule {
+    background: #36666e;
+}
+
+.resource-editorial-arrow {
+    font-size: 1.5rem;
+    color: #6b7280;
+    font-weight: 400;
+    flex-shrink: 0;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.resource-editorial-entry:hover .resource-editorial-arrow {
+    color: #36666e;
+    transform: translateX(6px);
+}
+
+.resource-editorial-description {
+    margin: 0;
+    font-size: 1rem;
+    color: #6b7280;
+    line-height: 1.6;
+    max-width: 60ch;
+}
+
 .resource-hex-card {
     background: white;
     border: 1px solid #e5e7eb;
@@ -2020,6 +2092,20 @@
 .class-hex-link-special:hover {
     background: linear-gradient(135deg, #2d5259 0%, #3d6f7a 100%);
     color: white;
+}
+
+/* Disabled state — database under reconstruction */
+.class-hex-card-disabled {
+    cursor: default;
+    opacity: 0.85;
+}
+.class-hex-card-disabled:hover {
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+}
+.class-hex-card-disabled .class-hex-link-special {
+    opacity: 0.75;
 }
 
 /* Responsive Design */

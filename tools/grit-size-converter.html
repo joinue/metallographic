@@ -44,6 +44,16 @@
     <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -70,20 +80,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -293,35 +311,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -366,111 +380,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -679,36 +623,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -745,73 +687,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -857,6 +762,7 @@
             <div class="quote-form-container">
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
                 <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
                     var hsLoaded = false;
                     function loadHubSpotForm() {
                         if (hsLoaded) return;
@@ -875,73 +781,189 @@
     </div>
 </div>
 
+
+
     <!-- Main Content -->
     <main class="tool-page">
         <div class="container-custom">
             <div class="tool-content">
                 <h1>Grit Size Converter</h1>
                 <p class="tool-intro">
-                    Convert between different grit size standards: FEPA, ANSI, JIS, and micron measurements.
+                    Convert between ANSI/CAMI, FEPA (P-grade), JIS, and micron-based grit sizing standards used in metallographic sample preparation. ANSI/CAMI is the standard PACE Technologies leads with for North American customers. Results update as you type.
                 </p>
 
-                <div class="tool-card">
-                    <div class="form-group">
-                        <label for="inputType">Input Type</label>
-                        <select id="inputType" class="form-control">
-                            <option value="fepa">FEPA (P-Grade)</option>
-                            <option value="ansi">ANSI</option>
-                            <option value="jis">JIS</option>
-                            <option value="micron">Micron (μm)</option>
-                        </select>
+                <div class="tool-card converter-card">
+                    <div class="input-row">
+                        <div class="form-group">
+                            <label for="inputType">From Standard</label>
+                            <select id="inputType" class="form-control">
+                                <option value="ansi">ANSI / CAMI</option>
+                                <option value="fepa">FEPA (P-Grade)</option>
+                                <option value="jis">JIS</option>
+                                <option value="micron">Micron (μm)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputValue">Value</label>
+                            <input type="text" id="inputValue" class="form-control" placeholder="e.g., 120 or 600" autocomplete="off" inputmode="text">
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="inputValue">Value</label>
-                        <input type="text" id="inputValue" class="form-control" placeholder="e.g., P120 or 120">
+                    <div class="quick-picks" aria-label="Common grit sizes">
+                        <span class="quick-picks-label">Quick picks:</span>
+                        <button type="button" class="quick-pick-btn" data-type="ansi" data-value="120">120</button>
+                        <button type="button" class="quick-pick-btn" data-type="ansi" data-value="240">240</button>
+                        <button type="button" class="quick-pick-btn" data-type="ansi" data-value="320">320</button>
+                        <button type="button" class="quick-pick-btn" data-type="ansi" data-value="400">400</button>
+                        <button type="button" class="quick-pick-btn" data-type="ansi" data-value="600">600</button>
+                        <button type="button" class="quick-pick-btn" data-type="ansi" data-value="800">800</button>
+                        <button type="button" class="quick-pick-btn" data-type="ansi" data-value="1200">1200</button>
+                        <button type="button" class="quick-pick-btn quick-pick-btn--alt" data-type="micron" data-value="9">9 μm</button>
+                        <button type="button" class="quick-pick-btn quick-pick-btn--alt" data-type="micron" data-value="1">1 μm</button>
+                        <button type="button" class="quick-pick-btn quick-pick-btn--alt" data-type="micron" data-value="0.05">0.05 μm</button>
                     </div>
 
-                    <button id="convertBtn" class="btn-primary">Convert</button>
+                    <div class="tool-actions">
+                        <button id="convertBtn" class="btn-primary">Convert</button>
+                        <button id="clearBtn" type="button" class="btn-secondary">Clear</button>
+                    </div>
                 </div>
 
-                <div id="results" class="tool-card" style="display: none;">
-                    <h2>Conversion Results</h2>
+                <div id="results" class="tool-card results-card" style="display: none;">
+                    <div class="results-header">
+                        <h2 id="resultsHeading">Conversion Results</h2>
+                        <span id="stageBadge" class="stage-badge" hidden></span>
+                    </div>
                     <div class="results-grid">
-                        <div class="result-item">
-                            <div class="result-label">FEPA</div>
-                            <div class="result-value" id="result-fepa">-</div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-label">ANSI</div>
+                        <div class="result-item" data-standard="ansi">
+                            <div class="result-label">ANSI / CAMI</div>
                             <div class="result-value" id="result-ansi">-</div>
+                            <button type="button" class="copy-btn" data-target="result-ansi" aria-label="Copy ANSI value">Copy</button>
                         </div>
-                        <div class="result-item">
+                        <div class="result-item" data-standard="fepa">
+                            <div class="result-label">FEPA (P-Grade)</div>
+                            <div class="result-value" id="result-fepa">-</div>
+                            <button type="button" class="copy-btn" data-target="result-fepa" aria-label="Copy FEPA value">Copy</button>
+                        </div>
+                        <div class="result-item" data-standard="jis">
                             <div class="result-label">JIS</div>
                             <div class="result-value" id="result-jis">-</div>
+                            <button type="button" class="copy-btn" data-target="result-jis" aria-label="Copy JIS value">Copy</button>
                         </div>
-                        <div class="result-item">
-                            <div class="result-label">Micron</div>
+                        <div class="result-item" data-standard="micron">
+                            <div class="result-label">Micron (μm)</div>
                             <div class="result-value" id="result-micron">-</div>
+                            <button type="button" class="copy-btn" data-target="result-micron" aria-label="Copy micron value">Copy</button>
+                        </div>
+                    </div>
+                    <div id="particleScale" class="particle-scale" hidden>
+                        <div class="scale-caption">Where this grit falls on the particle-size spectrum</div>
+                        <div class="scale-track" aria-hidden="true">
+                            <div class="scale-marker" id="scaleMarker"></div>
+                        </div>
+                        <div class="scale-labels" aria-hidden="true">
+                            <span><strong>Coarse</strong><br><small>~1800 μm</small></span>
+                            <span><strong>Mirror finish</strong><br><small>~0.02 μm</small></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="info-card">
-                    <h3>About Grit Sizes</h3>
+                    <h3>About the Standards</h3>
                     <p>
-                        Different standards use different numbering systems for abrasive grit sizes.
-                        This converter helps you find approximate equivalents across standards.
+                        Different standards use different numbering systems for abrasive grit sizes. This converter helps you find approximate equivalents across standards.
                     </p>
                     <ul>
-                        <li><strong>FEPA (P-Grade):</strong> ISO 6344 standard for coated abrasives. Micron values represent median particle size (d50).</li>
-                        <li><strong>ANSI/CAMI:</strong> US standard. Macrogrits (≤220) share the same designation numbers as FEPA P, though actual particle sizes differ slightly between standards. Above 220, ANSI uses a different numbering scale.</li>
-                        <li><strong>JIS:</strong> Japanese Industrial Standard R6001. Macrogrits use the same sieve-based numbering as FEPA/ANSI. Microgrits (above #220) diverge significantly in numbering.</li>
-                        <li><strong>Micron (μm):</strong> Particle size in micrometers per the FEPA P-grade specification.</li>
+                        <li><strong>ANSI / CAMI:</strong> The standard PACE Technologies uses for North American sample-prep consumables (ANSI B74.12 / B74.10). Macrogrits (≤220) share designation numbers with FEPA P. Above 220, ANSI uses a separate numbering scale.</li>
+                        <li><strong>FEPA (P-Grade):</strong> ISO 6344 standard for coated abrasives, common in Europe and on imported papers. Micron values represent median particle size (d50). Covered here: P12 through P5000.</li>
+                        <li><strong>JIS:</strong> Japanese Industrial Standard R6001. Macrogrits use the same sieve-based numbering as ANSI/FEPA. Microgrits (above #220) diverge in numbering and are matched here by closest particle size.</li>
+                        <li><strong>Micron (μm):</strong> Particle size in micrometers. Entering a micron value snaps to the closest known grit. Diamond and colloidal silica abrasives are graded by micron only; they have no grit number.</li>
                     </ul>
-                    <p style="font-size:0.8125rem;color:#6b7280;margin-top:0.75rem;margin-bottom:0;">
-                        <strong>Note:</strong> Cross-standard equivalents above P220 are approximate and matched by closest particle size, not by grit number.
-                        These standards define particle size differently (sieve analysis vs. sedimentation vs. laser diffraction), so exact equivalence is not possible.
-                        Always verify critical specifications with your abrasive supplier.
+                    <p class="info-note">
+                        <strong>Note:</strong> Cross-standard equivalents above ANSI 220 / P220 are approximate and matched by closest particle size, not by grit number. These standards define particle size differently (sieve analysis vs. sedimentation vs. laser diffraction), so exact equivalence is not possible. Always verify critical specifications with your abrasive supplier.
                     </p>
+                    <p class="info-note">
+                        <strong>Final-polish abrasives</strong> (diamond, colloidal silica, alumina) are graded by micron only; they have no ANSI / FEPA / JIS grit number. When you enter a micron value in the final-polishing range, the result will surface the matching diamond / CS / alumina sizes.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Grit Sizes by Preparation Stage</h3>
+                    <p>
+                        Sample preparation typically follows a sequence from coarse to fine, with each step removing the damage left by the previous one. Use this as a rough guide; the optimal sequence depends on the material, its hardness, and the prep equipment you have available.
+                    </p>
+                    <div class="stage-grid">
+                        <div class="stage-card" data-stage="planar">
+                            <div class="stage-card-label">Stage 1 · Planar Grinding</div>
+                            <div class="stage-card-grit">ANSI 60 – 240</div>
+                            <div class="stage-card-micron">~270 – 46 μm</div>
+                            <p>Aggressive material removal to flatten the sample and erase cutting damage. SiC paper or coarse-bonded diamond discs. The fastest step but introduces the deepest subsurface damage.</p>
+                        </div>
+                        <div class="stage-card" data-stage="fine">
+                            <div class="stage-card-label">Stage 2 · Fine Grinding</div>
+                            <div class="stage-card-grit">ANSI 320 – 1200</div>
+                            <div class="stage-card-micron">~30 – 7 μm</div>
+                            <p>Progressive refinement of the ground surface. Each step removes the scratches from the previous; rotating the sample 90° between steps makes the transition visible under the microscope.</p>
+                        </div>
+                        <div class="stage-card" data-stage="rough">
+                            <div class="stage-card-label">Stage 3 · Rough Polishing</div>
+                            <div class="stage-card-grit">9 – 3 μm Diamond</div>
+                            <div class="stage-card-micron">9 – 3 μm</div>
+                            <p>Diamond suspension or paste on a cloth pad removes the remaining fine-grinding scratches and begins to produce a reflective surface. Sometimes called "diamond polishing."</p>
+                        </div>
+                        <div class="stage-card" data-stage="final">
+                            <div class="stage-card-label">Stage 4 · Final Polishing</div>
+                            <div class="stage-card-grit">1 – 0.02 μm</div>
+                            <div class="stage-card-micron">1 – 0.02 μm</div>
+                            <p>Final mirror finish using fine diamond, colloidal silica, or alumina. Removes residual deformation so the sample is ready for etching, microscopy, and EBSD.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Common Abrasive Types</h3>
+                    <p>
+                        The same grit number can mean a different abrasive depending on the product. Knowing which abrasive you are working with matters as much as the grit size itself.
+                    </p>
+                    <div class="abrasive-grid">
+                        <div class="abrasive-card">
+                            <h4>Silicon Carbide (SiC)</h4>
+                            <p>The workhorse for grinding most metals. Available as coated papers from ANSI 60 through 1200 (FEPA P60 – P4000). SiC is friable: it fractures during use and keeps cutting edges sharp. Best for general-purpose grinding.</p>
+                        </div>
+                        <div class="abrasive-card">
+                            <h4>Aluminum Oxide (Al₂O₃)</h4>
+                            <p>Tougher and longer-lasting than SiC, used where higher impact strength is required. Common in coated belts, grinding wheels, and as a final-polish abrasive in 1.0, 0.3, and 0.05 μm sizes.</p>
+                        </div>
+                        <div class="abrasive-card">
+                            <h4>Diamond</h4>
+                            <p>The hardest abrasive available. Used as bonded discs for fast fine grinding (45–9 μm) and as suspensions or pastes for polishing (9–0.05 μm). Essential for hard materials, ceramics, and carbides.</p>
+                        </div>
+                        <div class="abrasive-card">
+                            <h4>Colloidal Silica</h4>
+                            <p>Chemo-mechanical polish at 0.02–0.05 μm. Produces strain-free surfaces ideal for EBSD, ion etching, and high-magnification microscopy of soft alloys and difficult materials.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Full Conversion Reference Table</h3>
+                    <p>
+                        Complete cross-standard table used by this converter. Click any row to load it into the converter above. Macrogrits (ANSI/P 12 – 220) share grit numbers across standards; microgrit equivalents are matched by closest particle size.
+                    </p>
+                    <div class="reference-table-wrapper">
+                        <table class="reference-table" id="referenceTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ANSI / CAMI</th>
+                                    <th scope="col">FEPA (P-Grade)</th>
+                                    <th scope="col">JIS</th>
+                                    <th scope="col">Micron (μm)</th>
+                                    <th scope="col">Stage</th>
+                                </tr>
+                            </thead>
+                            <tbody id="referenceTableBody"></tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <div class="help-card">
@@ -968,6 +990,7 @@
     <!-- Scripts -->
     <script src="/js/scripts.js"></script>
     <script src="/js/tools/grit-size-converter.js"></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 
 </html>

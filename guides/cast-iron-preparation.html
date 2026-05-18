@@ -117,6 +117,16 @@
 <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -143,20 +153,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -366,35 +384,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -439,111 +453,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -752,36 +696,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -818,73 +760,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -922,44 +827,93 @@
     </div>
 </nav>
 
-    <!-- Toggle Tab - Visible from xl (1280px) to 3xl (1800px) -->
-    <button
-      id="guide-nav-toggle"
-      class="guide-nav-toggle"
-      aria-label="Open navigation"
-      aria-expanded="false"
-    >
-      <svg class="guide-nav-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path class="guide-nav-toggle-arrow" d="M9 18l6-6-6-6"/>
-      </svg>
-    </button>
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
 
-    <!-- Overlay - Only on xl screens when open -->
-    <div
-      id="guide-nav-overlay"
-      class="guide-nav-overlay"
-      aria-hidden="true"
-    ></div>
+    <!-- Side-nav toggle + overlay + container are injected by /js/guide-nav.js -->
 
-    <!-- Navigation -->
+    <!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
+<!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
+        <!-- Notice Banner
+        <div class="notice-banner" role="alert">
+            <div class="notice-content">
+                <svg class="notice-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <p>
+                    We've updated our site! Please clear your browser cache for the best experience. Also, our old shop pages are now retired. Please shop online at 
+                    <strong><a href="https://shop.metallographic.com" class="notice-link" target="_blank" rel="noopener noreferrer">shop.metallographic.com</a></strong>.
+                  </p>
+                  
+                                  <button class="notice-close" aria-label="Close notice">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -1048,6 +1002,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
@@ -1093,7 +1048,7 @@
                     </button>
                 </div>
                 <ul class="sub-menu-mobile" data-section="consumables">
-                    <li><a href="https://shop.metallographic.com/" class="shop-link-button"><span>E-Commerce Shop</span>
+                    <li><a href="https://shop.metallographic.com/" class="shop-link-button" target="_blank" rel="noopener noreferrer"><span>E-Commerce Shop</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1168,35 +1123,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1241,110 +1192,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -1436,12 +1318,13 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
-                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html"><span>Hand / Belt Grinders</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html"><span>Manual Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html"><span>Semi-Auto Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html"><span>Automated Abrasive Dispenser</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html"><span>Controlled Removal Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html"><span>Vibratory Polishers</span></a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
                     </li>
                     <li>
@@ -1492,7 +1375,7 @@
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="https://shop.metallographic.com/" class="shop-link-button"><span>E-Commerce Shop</span></a></li>
+                    <li><a href="https://shop.metallographic.com/" class="shop-link-button" target="_blank" rel="noopener noreferrer"><span>E-Commerce Shop</span></a></li>
                     <li><a href="/metallographic-consumables/sectioning.html"><span>Sectioning                                    
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
@@ -1552,41 +1435,40 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
                 <a href="/resources.html">
-                    <span>Resources<svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <span>Resources
+                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
@@ -1617,76 +1499,40 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                </ul>
-            </li>
-            <li>
-              <a href="https://shop.metallographic.com" class="shop-link">
+              <a href="https://shop.metallographic.com" class="shop-link" target="_blank" rel="noopener noreferrer">
                 <span>Online Shop&nbsp;<svg class="shop-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
                 </svg></span>
@@ -1719,6 +1565,33 @@
         </div>
     </div>
 </nav>
+
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
         </div>
       </div>
     </nav>
@@ -1752,7 +1625,9 @@
                         <li><a href="#grinding">Grinding</a></li>
                         <li><a href="#polishing">Polishing</a></li>
                         <li><a href="#etching">Etching</a></li>
+                        <li><a href="#cleaning">Cleaning &amp; Corrosion</a></li>
                         <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#additional-reading">Additional Reading</a></li>
                     </ul>
                 </div>
 
@@ -1787,48 +1662,80 @@
                             Cast iron types vary significantly in their graphite morphology and matrix structure:
                         </p>
                         <ul>
-                            <li><strong>Gray Cast Iron:</strong> Flake graphite in pearlite or ferrite matrix (163-187 HB)</li>
-                            <li><strong>Ductile Cast Iron:</strong> Spheroidal (nodular) graphite in pearlite or ferrite matrix (217 HB)</li>
-                            <li><strong>Malleable Cast Iron:</strong> Temper carbon nodules in ferrite or pearlite matrix (163 HB)</li>
-                            <li><strong>Austempered Ductile Iron (ADI):</strong> Spheroidal graphite in bainitic matrix (310 HB, very hard)</li>
-                            <li><strong>Compacted Graphite Iron (CGI):</strong> Vermicular (compacted) graphite in pearlite matrix (230 HB)</li>
+                            <li><strong>Gray Cast Iron:</strong> Flake graphite in pearlite or ferrite matrix (163-187 HB). Some grades contain steadite (Fe-Fe<sub>3</sub>P phosphorus eutectic) as a wear-resistant network.</li>
+                            <li><strong>Ductile Cast Iron:</strong> Spheroidal (nodular) graphite in pearlite or ferrite matrix (217 HB).</li>
+                            <li><strong>Malleable Cast Iron:</strong> Temper carbon rosettes in ferrite or pearlite matrix (163 HB). Rosettes are friable and particularly difficult to retain during preparation.</li>
+                            <li><strong>Austempered Ductile Iron (ADI):</strong> Spheroidal graphite in ausferrite (needle-like ferrite + carbon-saturated retained austenite) matrix (310 HB). Looks like bainite under brightfield but contains no carbides.</li>
+                            <li><strong>Compacted Graphite Iron (CGI):</strong> Vermicular (compacted) graphite in pearlite matrix (230 HB). For acceptable CGI, ~80% of the graphite should be compacted (Type III/IV per ISO 945); the rest may be nodules. <strong>Flake graphite is unacceptable</strong> in CGI — flakes eliminate the strength and damping benefits the alloy is specified for.</li>
+                            <li><strong>White Cast Iron:</strong> Pearlite + ledeburite (eutectic of pearlite and cementite), no free graphite. Very hard (~HV 600 / ~57 HRC for unalloyed; harder still for Ni-hard grades with martensitic matrix and chromium carbides). Sectioning and grinding require different abrasives than the graphitic grades.</li>
+                            <li><strong>Austenitic Cast Iron:</strong> Cast iron with ≥20% Ni and 1-5.5% Cr, austenitic matrix with flake or spheroidal graphite. Used for corrosion-resistant pump housings and marine parts; particularly prone to smearing in preparation.</li>
                         </ul>
                         <p>
-                            Each type requires similar preparation techniques, but the graphite morphology affects how 
-                            easily it can be preserved. Spheroidal graphite (ductile iron) is generally easier to preserve 
-                            than flake graphite (gray iron), which can be more prone to pullout.
+                            Each type requires similar polishing techniques, but sectioning and grinding paths differ
+                            substantially between graphitic grades and the very hard white/ADI grades. Spheroidal graphite
+                            (ductile iron) is generally easier to retain than flake graphite (gray iron), and temper carbon
+                            (malleable) is the hardest of all to keep in place.
                         </p>
+
+                        <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
+                            <p>
+                                <strong>The single most important quality check — examine at 500×, not 100×.</strong> Routine
+                                cast iron inspection is done at 100×, where graphite appears black regardless of preparation
+                                quality. <strong>Well-polished graphite is grey, not black, when viewed at 500×.</strong> Black
+                                spots at 500× mean the cavity is filled with smeared matrix metal or contains pulled-out graphite
+                                masquerading as graphite proper. If you cannot see grey graphite at 500×, the preparation is not
+                                done — return to the diamond polish step.
+                            </p>
+                        </div>
+                        <div class="guide-info-box guide-info-box-blue">
+                            <p>
+                                <strong>The single most common preparation error:</strong> insufficient removal of smeared matrix
+                                metal after grinding. Soft ferritic and austenitic matrices smear over the graphite during grinding,
+                                obscuring its true shape and size. A thorough diamond polish on a rigid disc is what removes the
+                                smear; SiC paper alone cannot. Cast irons examined for graphite morphology require diamond fine
+                                grinding, not extended SiC sequences.
+                            </p>
+                        </div>
                     </section>
 
                     <section id="sectioning" class="guide-section">
                         <h2>Sectioning</h2>
                         <p>
-                            When sectioning cast iron samples, use standard cutting techniques similar to carbon steel. 
-                            Cast iron is generally softer than hardened steel, so standard abrasive cutoff wheels work well. 
-                            The key is to minimize damage that could affect graphite preservation later in the process.
+                            Minimize sectioning damage at the source — the deeper the cut damage, the more material the
+                            grinding step must remove, and every removed micron is another chance to smear matrix metal
+                            over graphite. Use abrasive cut-off wheels matched to the cast iron type.
                         </p>
                         <div class="guide-image-wrapper" style="max-width: 500px;">
                             <a href="https://shop.metallographic.com/collections/abrasive-blades" target="_blank" rel="noopener noreferrer" class="guide-link">
-                                <img 
+                                <img
                                     src="/images/consumables/sectioning/abrasive-cutting/maxcut-d.webp"
                                     alt="MAX-D abrasive cut-off blades for cast iron sectioning"
                                     loading="lazy"
                                     class="guide-image"
                                 />
                             </a>
-                            <p class="guide-image-caption">MAX-D abrasive cut-off blades designed for general ferrous metals including cast iron. For very hard cast irons like ADI, MAX-VHS series blades may be more appropriate.</p>
+                            <p class="guide-image-caption">MAX-D abrasive cut-off blades for general ferrous metals including cast iron. MAX-I thin blades are an alternative for smaller sections.</p>
                         </div>
+                        <h3>Blade Selection</h3>
                         <ul>
-                            <li>Use MAX-D series blades for general cast iron grades, or MAX-VHS series for very hard cast irons like ADI</li>
-                            <li>Use a standard abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
-                            <li>Apply steady, moderate pressure</li>
-                            <li>Use adequate coolant to prevent overheating</li>
-                            <li>Allow the wheel to do the cutting - avoid forcing</li>
+                            <li><strong>Graphitic cast iron (grey, ductile, malleable, CGI, austenitic):</strong> MAXCUT abrasive blade — <strong>MAX-D</strong> series (general purpose for ferrous metals) or <strong>MAX-I</strong> series (industrial thin blade). Both are alumina-bonded and well-suited to cast iron.</li>
+                            <li><strong>White cast iron (~HV 600, including Ni-hard grades):</strong> Use a harder alumina-bonded blade designed for hardened steels. <strong>MAX-VHS</strong> (alumina/resin-bonded for hard steels) is the PACE option; cubic boron nitride (CBN) cut-off wheels are the industry preference when available.</li>
                         </ul>
-                        <p>
-                            <strong>Note:</strong> For very hard cast irons like Austempered Ductile Iron (310 HB), 
-                            use slower cutting speeds similar to hardened steel to prevent excessive heat buildup.
-                        </p>
+                        <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
+                            <p>
+                                <strong>Never use diamond cut-off wheels on white cast iron.</strong> At cutting temperatures
+                                diamond reacts with iron, dulling the blade rapidly and producing a heavily damaged cut surface.
+                                Use alumina-bonded (MAX-VHS) or CBN wheels for white cast iron sectioning.
+                            </p>
+                        </div>
+                        <h3>Cutting Parameters</h3>
+                        <ul>
+                            <li>Thin abrasive cut-off wheel (0.5-1.0 mm).</li>
+                            <li>Apply steady, moderate pressure; let the wheel cut.</li>
+                            <li>Flood coolant — graphitic cast irons corrode in water, so cut quickly and move to grinding/cleaning without delay.</li>
+                            <li>For hard grades (white cast iron, ADI), reduce feed and increase coolant flow to manage heat.</li>
+                            <li>For large white-cast-iron sections, automatic sectioning is more efficient and gives cleaner cuts than manual.</li>
+                        </ul>
                         <p>
                             For more information on sectioning blades, visit our <a href="https://shop.metallographic.com/collections/abrasive-blades" target="_blank" rel="noopener noreferrer" class="guide-link">Abrasive Blades</a> collection.
                         </p>
@@ -1837,21 +1744,23 @@
                     <section id="mounting" class="guide-section">
                         <h2>Mounting</h2>
                         <p>
-                            Mounting provides edge retention and easier handling. For cast iron, both compression and castable
-                            mounting work well. The choice depends on whether edge retention is critical and the hardness 
-                            of the specific cast iron grade.
+                            Mounting provides edge retention and easier handling. For cast iron, compression mounting works well
+                            for routine work; quality-control samples taken directly from the casting line are often run unmounted
+                            for speed. Castable mounting is reserved for failure-analysis work where vacuum impregnation is needed
+                            to support a fragile microstructure.
                         </p>
                         <h3>Compression Mounting</h3>
                         <p>
-                            Compression mounting with phenolic or epoxy resins is suitable for most cast irons. Phenolic 
-                            provides better edge retention, which can be important for preserving graphite near edges.
+                            Compression mounting with phenolic, epoxy, or diallyl phthalate (DAP) resins is suitable for most cast
+                            irons. Phenolic is fine for general work; DAP and epoxy give better edge retention, which matters when
+                            you are evaluating graphite or steadite near the mount/sample boundary.
                         </p>
                         <ol>
-                            <li>Clean the sample thoroughly to remove cutting fluid and debris</li>
-                            <li>Place sample in mounting press with appropriate resin</li>
-                            <li>Apply pressure: 3000-4000 psi for phenolic, 2000-3000 psi for epoxy</li>
-                            <li>Heat to 150-180°C and hold for 5-8 minutes</li>
-                            <li>Cool under pressure to room temperature</li>
+                            <li>Clean the sample thoroughly to remove cutting fluid and debris.</li>
+                            <li>Place sample in mounting press with phenolic, epoxy, or DAP resin.</li>
+                            <li>Apply pressure: 3000-4000 psi for phenolic, 2000-3000 psi for epoxy, ~4200 psi for DAP.</li>
+                            <li>Heat to 150-180°C and hold 5-8 minutes (resin dependent).</li>
+                            <li>Cool under pressure to room temperature.</li>
                         </ol>
                         <h3>Castable Mounting (also known as Cold Mounting)</h3>
                         <p>
@@ -1872,41 +1781,37 @@
                     <section id="grinding" class="guide-section">
                         <h2>Grinding</h2>
                         <p>
-                            Grinding removes sectioning damage and prepares the surface for polishing. For cast iron, 
-                            use gentle grinding techniques to avoid damaging or removing graphite. The graphite is soft 
-                            and can be easily pulled out or smeared during grinding.
+                            For cast iron, use <strong>alumina (Al<sub>2</sub>O<sub>3</sub>) grinding paper</strong> rather than
+                            silicon carbide. Alumina cuts cast iron cleanly with less matrix smearing over the graphite —
+                            which is the dominant cast iron preparation failure. Two paper steps are enough; longer SiC
+                            sequences (P120 → P240 → P400 → P600) commonly used for steel are not needed and actively work
+                            against graphite retention because each additional step is another chance to smear matrix metal
+                            into the graphite cavities.
                         </p>
-                        <div class="guide-info-box" style="background: #fefce8; border-left-color: #ca8a04;">
-                            <p>
-                                <strong>Important:</strong> Use lighter pressure than you would for steel. Graphite is soft 
-                                and can be removed during grinding. Monitor the surface carefully and avoid over-grinding.
-                            </p>
-                        </div>
-                        <div class="guide-image-wrapper" style="max-width: 500px;">
-                            <a href="https://shop.metallographic.com/collections/sic-grinding" target="_blank" rel="noopener noreferrer" class="guide-link">
-                                <img 
-                                    src="/images/consumables/grinding-lapping/abrasive-grinding/sic-papers.webp"
-                                    alt="Silicon carbide grinding papers in various grit sizes for progressive grinding of cast iron"
-                                    loading="lazy"
-                                    class="guide-image"
-                                />
-                            </a>
-                            <p class="guide-image-caption">Silicon carbide (SiC) grinding papers in various grit sizes (120, 240, 400, 600) for progressive grinding. Use lighter pressure than for steel to preserve graphite.</p>
-                        </div>
                         <h3>Grinding Sequence</h3>
                         <ol>
-                            <li><strong>120 grit:</strong> Remove sectioning damage (30-60 seconds per step)</li>
-                            <li><strong>240 grit:</strong> Remove previous scratches (30-60 seconds)</li>
-                            <li><strong>400 grit:</strong> Further refinement (30-60 seconds)</li>
-                            <li><strong>600 grit:</strong> Final grinding step (30-60 seconds)</li>
+                            <li><strong>500 grit alumina paper (P500):</strong> Plane-grind until the surface is flat and all sectioning damage is removed. Water lubricant, 5-10 lbs per sample, 200 RPM head and platen (complementary rotation).</li>
+                            <li><strong>1200 grit alumina paper (P1200):</strong> Fine grind, 1 minute. Same parameters — water, 5-10 lbs, 200 RPM complementary.</li>
                         </ol>
                         <p>
-                            Use lighter pressure than for steel throughout the grinding sequence. Rotate the
-                            sample 90° between each grit and use water as a lubricant. Monitor the surface
-                            between steps — if graphite starts to pull out, reduce pressure further.
+                            Rotate the sample 90° between steps. Inspect the surface — at this point graphite should be visible
+                            but the matrix may still show fine grinding scratches. The diamond polish step removes these.
                         </p>
+                        <div class="guide-info-box guide-info-box-blue">
+                            <p>
+                                <strong>Why alumina paper instead of SiC for cast iron?</strong> The Struers and Buehler tables
+                                often start with SiC P220. SiC works, but on a soft ferritic or austenitic matrix it smears
+                                more aggressively than alumina, and that smear is what blocks graphite from showing its true
+                                shape at 500×. Don Zipperian's procedure uses alumina 500 grit → 1200 grit specifically to minimize
+                                this smearing.
+                            </p>
+                        </div>
+                        <h3>White Cast Iron and ADI</h3>
                         <p>
-                            For more information on grinding supplies, visit our <a href="https://shop.metallographic.com/collections/sic-grinding" target="_blank" rel="noopener noreferrer" class="guide-link">Silicon Carbide Grinding Papers</a> collection.
+                            For very hard cast irons (white cast iron at ~HV 600, ADI at 310 HB), the alumina paper sequence
+                            above still works but is slow. An alternative is a rigid diamond grinding disc for plane grinding
+                            (~75 μm grit) followed by diamond suspension on a rigid disc, eliminating paper entirely. This is
+                            standard practice in cast-iron laboratories that handle white cast iron volume.
                         </p>
                     </section>
 
@@ -1951,26 +1856,56 @@
                             </div>
                         </div>
                         <h3>Diamond Polishing</h3>
+                        <p>
+                            The cast iron polishing sequence is deliberately short. Adding intermediate 6 μm and 3 μm
+                            diamond steps does not improve graphite retention — it adds more opportunities to smear matrix
+                            metal over the graphite. Go directly from the 1200 grit alumina paper (P1200) to 1 μm diamond on a low-nap pad.
+                        </p>
                         <ol>
-                            <li><strong>6 μm diamond:</strong> 2-4 minutes on a medium-hard, low-nap cloth</li>
-                            <li><strong>3 μm diamond:</strong> 2-4 minutes on a medium-hard cloth</li>
-                            <li><strong>1 μm diamond:</strong> 2-3 minutes on a soft cloth</li>
+                            <li><strong>1 μm DIAMAT polycrystalline diamond on GOLDPAD:</strong> 2 minutes, 5-10 lbs per sample, 200 RPM head and platen (complementary rotation), DIALUBE Purple Extender as lubricant.</li>
                         </ol>
                         <h3>Final Polishing</h3>
-                        <ol>
-                            <li><strong>0.05 μm colloidal silica:</strong> 1-2 minutes on a soft cloth with very light pressure</li>
-                            <li>Rinse thoroughly with water and dry with compressed air</li>
-                        </ol>
                         <p>
-                            Use lighter pressure throughout than you would for steel — graphite is soft and
-                            easily pulled out or smeared. Monitor the surface between steps; graphite should
-                            remain clearly visible. Avoid extended polishing times, which can progressively
-                            remove graphite from the surface.
+                            Cast iron's final polish uses <strong>alumina, not colloidal silica</strong>. 0.05 μm Nanometer
+                            alumina on a TRICOTE pad gives the matte finish needed to see graphite as grey at 500× without
+                            the chemical action of colloidal silica, which can attack interfacial regions and cause graphite
+                            pullout in soft-matrix grades.
+                        </p>
+                        <ol>
+                            <li><strong>0.05 μm Nanometer alumina on TRICOTE:</strong> 1 minute, 5-10 lbs per sample, 100 RPM head and platen (complementary rotation).</li>
+                            <li>Rinse with cold water, then ethanol; dry with warm air. Do not wipe the polished face — wiping can pull graphite.</li>
+                        </ol>
+                        <h3>Pad Map &amp; Parameters Summary</h3>
+                        <div style="overflow-x:auto;">
+                            <table style="width:100%; border-collapse:collapse; margin: 0.75rem 0;">
+                                <thead>
+                                    <tr style="background:#f3f4f6;">
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Step</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Surface</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Abrasive / Lubricant</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Force / sample</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Speed (head/base)</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Plane grind</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">500 grit Al<sub>2</sub>O<sub>3</sub> paper (P500)</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Water</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5-10 lbs</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">200 / 200 RPM</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Until plane</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Fine grind</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1200 grit Al<sub>2</sub>O<sub>3</sub> paper (P1200)</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Water</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5-10 lbs</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">200 / 200 RPM</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1 min</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Diamond polish</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">GOLDPAD</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1 μm DIAMAT + DIALUBE Purple</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5-10 lbs</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">200 / 200 RPM</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">2 min</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Final polish</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">TRICOTE</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">0.05 μm Nanometer Al<sub>2</sub>O<sub>3</sub></td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5-10 lbs</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">100 / 100 RPM</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1 min</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+                            For cast irons that corrode during polishing (some austenitic grades, free-machining grey iron),
+                            substitute a non-aqueous diamond suspension and lubricant at the 1 μm step. Rinse with anhydrous
+                            ethanol only — no water — and dry immediately.
                         </p>
                         <p>
-                            After polishing, examine the sample under the microscope. The graphite should be clearly visible 
-                            as dark areas (flakes, nodules, or compacted shapes depending on the cast iron type). If graphite 
-                            is missing or appears damaged, you may need to reduce pressure or use softer cloths.
+                            <strong>After polishing, inspect at 500×.</strong> Graphite should be grey, not black. Black at 500×
+                            means the cavity is filled with smeared matrix or the graphite has pulled out and the cavity has
+                            re-filled with debris during subsequent polishing. The fix in either case is to return to the 1 μm
+                            diamond step on a fresh cloth.
                         </p>
                         <p>
                             For more information on polishing supplies, visit our <a href="https://shop.metallographic.com/collections/diamond-abrasives" target="_blank" rel="noopener noreferrer" class="guide-link">Diamond Abrasives</a> and <a href="https://shop.metallographic.com/collections/polishing-pads" target="_blank" rel="noopener noreferrer" class="guide-link">Polishing Pads</a> collections.
@@ -1980,10 +1915,25 @@
                     <section id="etching" class="guide-section">
                         <h2>Etching</h2>
                         <p>
-                            Etching reveals the <strong>matrix structure</strong> (ferrite, pearlite, bainite) but does not 
-                            reveal graphite - graphite is visible in the polished state. The same etchants used for carbon 
-                            steel work well for cast iron matrices. Nital (nitric acid in ethanol) is the most common etchant.
+                            Cast iron is unusual among metallographic samples in that <strong>the most important examination
+                            happens before any etchant touches the sample</strong>. Graphite morphology, size, and distribution
+                            are evaluated on the as-polished surface against standard reference charts. Only after that
+                            evaluation is the matrix revealed by etching.
                         </p>
+                        <h3>Examination Protocol</h3>
+                        <ol>
+                            <li><strong>Examine unetched at 100× and 500×.</strong> At 100×, evaluate graphite morphology, size, and distribution against <strong>ISO 945-1</strong> or <strong>ASTM A247</strong> reference charts. At 500×, verify graphite retention — properly polished graphite is grey, not black.</li>
+                            <li><strong>Photograph the as-polished view first.</strong> For ductile iron QC, count nodularity and measure nodule size per ISO 945-4 or ASTM E2567 on this image — etched images can shift apparent nodule boundaries.</li>
+                            <li><strong>Then etch</strong> to reveal the matrix.</li>
+                        </ol>
+                        <div class="guide-info-box guide-info-box-blue">
+                            <p>
+                                <strong>Graphite classification (ISO 945-1):</strong> Form I (flake), Form II (crab/temper carbon),
+                                Form III (vermicular/compacted), Form IV (irregular nodular), Form V (modular), Form VI (spheroidal).
+                                For CGI quality control, at least ~80% should be Form III/IV; any Form I flake graphite is a defect.
+                                For ductile iron, Form V/VI nodularity above 80-90% is typical specification.
+                            </p>
+                        </div>
                         <div class="guide-image-wrapper">
                             <img
                                 src="/images/microstructures/CI-nodular-100X-etch-2.jpg"
@@ -1993,13 +1943,29 @@
                             />
                             <p class="guide-image-caption">Nodular cast iron after etching, 100X. The matrix structure (ferrite/pearlite) is revealed by etching, while the spheroidal graphite is preserved from polishing.</p>
                         </div>
-                        <h3>Common Etchants for Cast Iron</h3>
+                        <h3>Standard Black-and-White Etchants</h3>
                         <ul>
-                            <li><strong>2% Nital:</strong> General purpose for most cast irons. Reveals ferrite grain boundaries and pearlite structure (2% HNO₃ in ethanol)</li>
-                            <li><strong>4% Picral:</strong> Excellent for revealing pearlite and cementite without attacking ferrite boundaries. Particularly useful for pearlitic cast irons (2-4g picric acid per 100ml ethanol)</li>
-                            <li><strong>Higher Nital concentrations:</strong> For harder cast irons like ADI, 3-5% Nital may be needed</li>
-                            <li><strong>Klemm's II:</strong> Tint etchant for phase differentiation — colors ferrite blue, martensite brown/black, retained austenite remains white. Particularly valuable for ADI and heat-treated cast irons (50ml saturated Na₂S₂O₃ solution + 5g K₂S₂O₅, immerse 60-120 sec, warming to 40°C enhances staining)</li>
+                            <li><strong>2% Nital:</strong> General-purpose etchant for most cast iron matrices. Reveals ferrite grain boundaries and pearlite structure (2 mL HNO₃ in 98 mL ethanol). Swab; 5-15 seconds.</li>
+                            <li><strong>3% Nital:</strong> For harder grades — ADI, white cast iron, alloyed cast irons. Same procedure as 2% Nital but slightly more aggressive.</li>
+                            <li><strong>4% Picral:</strong> Excellent for revealing pearlite and cementite without attacking ferrite grain boundaries. Particularly useful when measuring pearlite content per ASTM E407 (4 g picric acid in 100 mL ethanol). Swab; 10-30 seconds.</li>
+                            <li><strong>Sequential Nital → Picral:</strong> For complex matrices in alloyed cast irons (Nital first to reveal ferrite/pearlite contrast, brief Picral to differentiate carbides).</li>
                         </ul>
+                        <h3>Color (Tint) Etchants</h3>
+                        <p>
+                            Color etching is the standard approach for distinguishing phases in ADI (ausferrite vs. retained austenite vs. martensite) and for revealing fine compositional banding in cast irons.
+                        </p>
+                        <ul>
+                            <li><strong>Modified Beraha for cast iron:</strong> Stock solution = 1000 mL water + 200 mL HCl + 24 g ammonium bifluoride (NH₄HF₂). Working solution = 100 mL stock + 1 g potassium metabisulfite (K₂S₂O₅), prepared just before use. Immerse until the surface develops color (30 seconds to 2 minutes). The standard color etchant for ADI and for distinguishing α-ferrite from retained austenite.</li>
+                            <li><strong>Klemm's II:</strong> 50 mL saturated aqueous sodium thiosulfate + 5 g potassium metabisulfite. Immerse 60-120 seconds; warming to ~40 °C enhances staining. Colors ferrite blue, martensite brown/black; retained austenite stays white. Useful alternative to Beraha for ADI.</li>
+                        </ul>
+                        <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
+                            <p>
+                                <strong>Safety:</strong> The modified Beraha reagent contains hydrochloric acid and ammonium
+                                bifluoride — the latter releases hydrogen fluoride in solution. Use only in a fume hood with
+                                appropriate PPE (HF-rated gloves, face shield). Picric acid is a shock-sensitive explosive when
+                                dry — keep solutions wet and dispose of through hazardous waste channels.
+                            </p>
+                        </div>
                         <div class="guide-image-wrapper" style="max-width: 500px;">
                             <a href="https://shop.metallographic.com/collections/etchants" target="_blank" rel="noopener noreferrer" class="guide-link">
                                 <img 
@@ -2013,51 +1979,88 @@
                         </div>
                         <h3>Etching Procedure</h3>
                         <ol>
-                            <li>Ensure sample is clean and dry after polishing</li>
-                            <li>Examine polished surface first - graphite should be visible</li>
-                            <li>Apply etchant with cotton swab or immerse sample</li>
-                            <li>Etch for 10-30 seconds (time varies by cast iron type and hardness)</li>
-                            <li>Immediately rinse with water, then alcohol</li>
-                            <li>Dry with compressed air</li>
+                            <li>Confirm sample is clean and dry. Residual polishing debris will give a mottled etch.</li>
+                            <li>Apply by swab for Nital/Picral; immerse for Beraha/Klemm color etches.</li>
+                            <li>Etch 5-15 seconds for Nital, 10-30 seconds for Picral, 30 s-2 min for color etches.</li>
+                            <li>Rinse with cold water briefly, then ethanol. <strong>Do not leave the sample in water</strong> — cast iron corrodes quickly.</li>
+                            <li>Dry with warm air immediately. Do not wipe.</li>
                         </ol>
                         <p>
-                            <strong>Important Notes:</strong>
+                            <strong>Sample-conserving option:</strong> Photograph the as-polished view first, then over-etch
+                            slightly if needed and re-polish briefly to recover the as-polished surface. Or run two sections —
+                            one for as-polished imaging, one for etched matrix examination.
                         </p>
-                        <ul>
-                            <li>Graphite is <strong>not revealed by etching</strong> - it should already be visible after polishing</li>
-                            <li>Etching reveals the matrix structure (ferrite, pearlite, bainite)</li>
-                            <li>Start with shorter etching times (10-15 seconds) and increase if needed</li>
-                            <li>For softer cast irons like Gray Cast Iron and Malleable Cast Iron, use 2% Nital</li>
-                            <li>For harder cast irons like Austempered Ductile Iron, use 3-5% Nital</li>
-                            <li>Picral is excellent for revealing pearlite structure in pearlitic cast irons</li>
-                        </ul>
                         <p>
                             For more information on etchants, visit our <a href="https://shop.metallographic.com/collections/etchants" target="_blank" rel="noopener noreferrer" class="guide-link">Etchants</a> collection.
                         </p>
+                    </section>
+
+                    <section id="cleaning" class="guide-section">
+                        <h2>Cleaning &amp; Corrosion Protection</h2>
+                        <p>
+                            Cast iron corrodes quickly when wet. Even tap water left on the surface for a minute will leave
+                            a hazy oxide film that obscures graphite and contaminates the matrix view. Cleaning protocol:
+                        </p>
+                        <ol>
+                            <li>Rinse with cold water briefly — no hot water, no soak.</li>
+                            <li>Immediately rinse with ethanol or isopropanol.</li>
+                            <li>Dry with a strong stream of warm air. Do not wipe.</li>
+                            <li>Store finished samples in a desiccator; humidity will surface-stain cast iron within hours.</li>
+                        </ol>
+                        <p>
+                            For cast irons that corrode aggressively during polishing — some austenitic grades and high-sulfur
+                            grey iron in particular — use water-free diamond suspensions and lubricants at the 1 μm step, and
+                            rinse with anhydrous ethanol only.
+                        </p>
+                        <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
+                            <p>
+                                <strong>Do not electropolish cast iron with graphite.</strong> The electrolyte washes graphite
+                                out of the surface — the prepared sample looks beautifully flat and scratch-free but no graphite
+                                is visible. Electropolishing has very limited use for cast iron: only when matrix microstructure
+                                is the sole interest and graphite morphology will not be reported. White cast iron has no free
+                                graphite and can be electropolished if needed.
+                            </p>
+                        </div>
                     </section>
 
                     <section id="troubleshooting" class="guide-section">
                         <h2>Troubleshooting</h2>
                         <h3>Common Issues and Solutions</h3>
                         <ul>
-                            <li><strong>Graphite pullout or missing graphite:</strong> Too much pressure during grinding or polishing. Reduce pressure, use softer cloths, and monitor the surface carefully. Graphite is soft and easily removed.</li>
-                            <li><strong>Graphite appears smeared:</strong> Over-polishing or too aggressive polishing. Reduce polishing time and pressure, use softer cloths.</li>
-                            <li><strong>Scratches remaining:</strong> Insufficient grinding/polishing time or skipped grits. Ensure complete scratch removal at each step, but use lighter pressure.</li>
-                            <li><strong>Graphite not visible after polishing:</strong> May have been removed during preparation. Start over with lighter pressure throughout the process.</li>
-                            <li><strong>Relief around graphite:</strong> Over-polishing or too soft a cloth. Reduce polishing time or use slightly harder cloth, but still maintain light pressure.</li>
-                            <li><strong>Contamination:</strong> Clean between steps, use fresh abrasives, and ensure proper sample cleaning.</li>
-                            <li><strong>Poor edge retention:</strong> Consider using phenolic mounting material or different mounting technique.</li>
-                            <li><strong>Over-etching:</strong> Reduce etching time or use lower Nital concentration. Start with shorter times (10-15 seconds).</li>
-                            <li><strong>Under-etching:</strong> Increase etching time or use higher Nital concentration. Ensure sample is clean before etching.</li>
-                            <li><strong>Matrix structure not revealed:</strong> May need longer etching time or different etchant. Try Picral for pearlitic structures.</li>
+                            <li><strong>Graphite appears black at 500×:</strong> Smeared matrix metal is filling the graphite cavity (most common cast iron preparation error). Return to the 1 μm DIAMAT step on GOLDPAD; extend the time by 1-2 minutes; verify the pad is not loaded. If still black, the matrix smear was generated during grinding — re-grind on fresh alumina paper with lighter pressure.</li>
+                            <li><strong>Graphite pullout:</strong> Excessive force during grinding or polishing, or a pad that is too soft for the abrasive. Reduce force to the lower end (5 lbs/sample); confirm GOLDPAD is used at 1 μm (not a high-nap pad). For temper-carbon malleable iron, even Don's procedure can struggle — try a rigid composite disc surface (SIRIUS or ORION) at the fine grinding step.</li>
+                            <li><strong>Scratches remaining after 1 μm diamond:</strong> Pad loaded with debris, or 1200 grit paper step was too short. Use a fresh GOLDPAD and re-run 1 μm DIAMAT for 2-3 minutes. If scratches persist, re-grind at 1200 grit and confirm complete scratch removal before moving on.</li>
+                            <li><strong>Relief around graphite:</strong> Over-polishing at the alumina final step, or too compliant a pad. Reduce final-polish time to 30-45 seconds; verify TRICOTE is the pad in use (not a high-nap final cloth).</li>
+                            <li><strong>Surface staining/corrosion after polishing:</strong> Water was left on the sample. Rinse with ethanol immediately after water; dry with warm air; for corrosion-prone grades, eliminate water from the final steps.</li>
+                            <li><strong>Poor edge retention:</strong> Use DAP or epoxy compression mount; phenolic is acceptable for routine work but rounds the edge.</li>
+                            <li><strong>Over-etching:</strong> Reduce time or dilute the etchant. 2% Nital finishes in 5-15 seconds; 4% Picral in 10-30 seconds.</li>
+                            <li><strong>Under-etching:</strong> Extend time, increase concentration to 3% Nital, or for hard alloyed grades try sequential Nital then Picral.</li>
+                            <li><strong>ADI matrix details indistinct:</strong> Standard Nital cannot distinguish ausferrite from martensite from retained austenite. Switch to modified Beraha or Klemm's II color etch.</li>
                         </ul>
                         <div class="guide-info-box" style="background: #fefce8; border-left-color: #ca8a04;">
                             <p>
-                                <strong>Remember:</strong> The most common mistake in cast iron preparation is using too much 
-                                pressure, which removes or damages the graphite. Always err on the side of lighter pressure 
-                                and gentler techniques.
+                                <strong>The dominant cast iron preparation failure mode</strong> is matrix metal smeared
+                                over graphite, hiding its true shape. At 100× this is invisible — graphite always looks
+                                black. At 500× the difference is unmistakable: properly polished graphite is grey, smeared
+                                graphite is black. Inspect at 500× before declaring the sample done.
                             </p>
                         </div>
+                    </section>
+
+                    <section id="additional-reading" class="guide-section">
+                        <h2>Additional Reading</h2>
+                        <ul>
+                            <li>Zipperian, D.C. <em>Metallographic Handbook</em>, Section 11.3.2 (Cast Irons). PACE Technologies, Tucson, AZ — the house reference. The grinding, polishing, and pad recommendations in this guide come directly from this source.</li>
+                            <li>Weidmann, E. and Guesnier, A. "Metallographic Preparation of Cast Iron." Struers Application Notes — source for the modified Beraha color etch, white-cast-iron diamond-wheel warning, and corrosion handling guidance.</li>
+                            <li><em>ASM Handbook, Vol. 9: Metallography and Microstructures</em>. ASM International — section on cast iron preparation, etchants, and graphite morphology classification.</li>
+                            <li>ISO 945-1 — Microstructure of cast irons — Part 1: Graphite classification by visual analysis (Forms I-VI).</li>
+                            <li>ISO 945-4 — Microstructure of cast irons — Part 4: Test method for evaluating nodularity in spheroidal graphite cast iron.</li>
+                            <li>ASTM A247 — Standard Test Method for Evaluating the Microstructure of Graphite in Iron Castings (graphite form, size, distribution charts).</li>
+                            <li>ASTM E2567 — Standard Test Method for Determining Nodularity And Nodule Count in Ductile Iron Using Image Analysis.</li>
+                            <li>ASTM E407 — Standard Practice for Microetching Metals and Alloys (cast iron etchant compositions).</li>
+                            <li>ASTM E3 — Standard Guide for Preparation of Metallographic Specimens.</li>
+                            <li>Petzow, G. <em>Metallographic Etching</em>, 2nd ed. ASM International — comprehensive reference for Nital, Picral, Beraha, and Klemm etchant formulations.</li>
+                        </ul>
                     </section>
 
                     <!-- CTA Section -->
@@ -2094,6 +2097,7 @@
             </div>
         </div>
     </main>
+
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
@@ -2153,9 +2157,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -2167,7 +2199,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -2195,8 +2227,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -2268,9 +2299,43 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
     <script src="/js/guide-nav.js"></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

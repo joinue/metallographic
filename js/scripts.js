@@ -66,26 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Return-to-top visibility + footer avoidance
-    if (returnToTop) {
-      if (scrollY > 500) {
-        returnToTop.classList.add("visible");
-        returnToTop.style.opacity = "1";
-        returnToTop.style.visibility = "visible";
-      } else {
-        returnToTop.classList.remove("visible");
-        returnToTop.style.opacity = "0";
-        returnToTop.style.visibility = "hidden";
-      }
-      if (footer) {
-        const footerTop = footer.getBoundingClientRect().top;
-        if (footerTop < window.innerHeight) {
-          returnToTop.style.bottom = `${window.innerHeight - footerTop + 20}px`;
-        } else {
-          returnToTop.style.bottom = "30px";
-        }
-      }
-    }
   }
 
   // Modern Mobile Navigation Toggle
@@ -262,16 +242,68 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("quote-modal");
   const btn = document.getElementById("quote-request-btn");
   const span = document.querySelector(".close");
+  let quoteModalLastTrigger = null;
+
+  // Preconnect to HubSpot's CDN at idle time so DNS/TLS is already done by click time.
+  // Cuts ~200–400 ms off perceived load on first open.
+  function warmQuoteFormConnections() {
+    if (warmQuoteFormConnections.done) return;
+    warmQuoteFormConnections.done = true;
+    ['https://js.hsforms.net', 'https://forms.hsforms.com', 'https://forms-na1.hsforms.com'].forEach((href) => {
+      const link = document.createElement('link');
+      link.rel = 'preconnect';
+      link.href = href;
+      link.crossOrigin = '';
+      document.head.appendChild(link);
+    });
+  }
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(warmQuoteFormConnections, { timeout: 2000 });
+  } else {
+    setTimeout(warmQuoteFormConnections, 1500);
+  }
+
+  // Watch for HubSpot to mount its iframe inside the form container, then mark
+  // the container as loaded so the CSS spinner disappears. (Belt-and-suspenders
+  // alongside the CSS `:has(iframe)` selector for browsers without :has support.)
+  function watchQuoteFormReady() {
+    const container = document.querySelector('.quote-form-container');
+    if (!container || container.classList.contains('is-loaded')) return;
+    if (container.querySelector('iframe')) {
+      container.classList.add('is-loaded');
+      return;
+    }
+    const observer = new MutationObserver(() => {
+      if (container.querySelector('iframe')) {
+        container.classList.add('is-loaded');
+        observer.disconnect();
+      }
+    });
+    observer.observe(container, { childList: true, subtree: true });
+  }
 
   function openQuoteModal() {
     if (modal) {
+      quoteModalLastTrigger = document.activeElement;
       modal.style.display = "block";
+      // Force a reflow so the opacity transition actually runs on the first open.
+      // eslint-disable-next-line no-unused-expressions
+      modal.offsetHeight;
       modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      modal.setAttribute('aria-modal', 'true');
       document.body.style.overflow = 'hidden';
-      
-      // Load HubSpot form when modal opens
+
+      // Load HubSpot form when modal opens (no-op if already warmed by hover/focus)
       if (typeof loadHubSpotForm === 'function') {
         loadHubSpotForm();
+      }
+      watchQuoteFormReady();
+
+      // Move focus to the close button for keyboard/screen-reader users.
+      if (span) {
+        // Defer so the modal is painted first.
+        requestAnimationFrame(() => span.focus());
       }
     }
   }
@@ -282,6 +314,19 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       openQuoteModal();
     });
+
+    // Warm-up: start downloading the HubSpot script as soon as the user shows
+    // intent (hover or keyboard focus). By the time they click, the form is
+    // usually already mounted — so the modal feels instant instead of blank.
+    const warmForm = () => {
+      warmQuoteFormConnections();
+      if (typeof loadHubSpotForm === 'function') {
+        loadHubSpotForm();
+      }
+    };
+    btn.addEventListener('mouseenter', warmForm, { once: true });
+    btn.addEventListener('focus', warmForm, { once: true });
+    btn.addEventListener('touchstart', warmForm, { once: true, passive: true });
   }
 
   // Mobile quote button removed - no longer needed
@@ -292,20 +337,42 @@ document.addEventListener("DOMContentLoaded", () => {
   //   });
   // }
 
+  function closeQuoteModalUI() {
+    if (!modal) return;
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    // Wait for the fade-out transition before removing from the layout, so the
+    // close animation is visible.
+    const finish = () => {
+      modal.style.display = 'none';
+      modal.removeEventListener('transitionend', finish);
+    };
+    modal.addEventListener('transitionend', finish);
+    // Fallback in case transitionend doesn't fire (e.g. reduced-motion).
+    setTimeout(finish, 350);
+    // Restore focus to whatever triggered the modal.
+    if (quoteModalLastTrigger && typeof quoteModalLastTrigger.focus === 'function') {
+      quoteModalLastTrigger.focus();
+    }
+  }
+
   if (modal && span) {
-    span.addEventListener("click", () => {
-      modal.style.display = "none";
-      modal.classList.remove('show');
-      document.body.style.overflow = '';
-    });
+    span.addEventListener("click", closeQuoteModalUI);
   }
 
   if (modal) {
-    window.addEventListener("click", (event) => {
+    // Click on backdrop (the modal element itself, not its content) closes.
+    modal.addEventListener("click", (event) => {
       if (event.target === modal) {
-        modal.style.display = "none";
-        modal.classList.remove('show');
-        document.body.style.overflow = '';
+        closeQuoteModalUI();
+      }
+    });
+
+    // Escape key closes the modal when it's open.
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('show')) {
+        closeQuoteModalUI();
       }
     });
   }
@@ -389,20 +456,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Handle Scroll to Show Return to Top
-  const returnToTop = document.querySelector(".return-to-top");
-  const footer = document.querySelector("footer");
-
-  // Only set up return-to-top click if the element exists
-  if (returnToTop) {
-    returnToTop.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      returnToTop.style.transform = 'scale(0.95)';
-      setTimeout(() => { returnToTop.style.transform = 'scale(1)'; }, 150);
-    });
-  }
-
   // Mobile Menu Items Toggle
   const menuItems = document.querySelectorAll(".nav-links-mobile > li > a");
 
@@ -469,26 +522,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Quote Request Modal (kept for other potential uses, but buttons now navigate to /quote.html)
-  const quoteModal = document.getElementById('quote-modal');
-  const closeBtn = document.querySelector('.close');
-
-  function closeQuoteModal() {
-    quoteModal.style.display = 'none';
-    quoteModal.classList.remove('show');
-    document.body.style.overflow = ''; // Restore background scrolling
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeQuoteModal);
-  }
-
-  // Close modal when clicking outside
-  window.addEventListener('click', (e) => {
-    if (e.target === quoteModal) {
-      closeQuoteModal();
-    }
-  });
+  // (Quote Request Modal close handlers consolidated above — closeQuoteModalUI
+  // handles Escape, backdrop click, and the .close button via a single path.)
 });
 
 // Material Detail Page Tab Switching

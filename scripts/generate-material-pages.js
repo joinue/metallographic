@@ -12,7 +12,11 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const TEMPLATE_PATH = path.join(ROOT, 'materials', 'zamak-3.html');
+// Template source. Switched from zamak-3.html to 5052-aluminum.html on 2026-05-13
+// because zamak-3.html became corrupted (4× duplicate <!DOCTYPE>) during prior
+// generator runs that incorrectly read the FOOTER marker. 5052-aluminum.html
+// has a single clean copy of nav/footer and identical structural markers.
+const TEMPLATE_PATH = path.join(ROOT, 'materials', '5052-aluminum.html');
 const CSV_PATH = path.join(ROOT, 'materials_rows.csv');
 const OUT_DIR = path.join(ROOT, 'materials');
 
@@ -137,6 +141,18 @@ function parseCSV(text) {
 // ---------------------------------------------------------------------------
 // Bracket-list parser  (handles both  [a,b,c]  and  ["a","b","c"] )
 // ---------------------------------------------------------------------------
+
+/**
+ * Parse a CSV cell that may contain JSON (array or object). Returns the parsed
+ * value, or null if the cell is empty or fails to parse.
+ */
+function parseJsonCell(val) {
+  if (!val || typeof val !== 'string') return null;
+  const trimmed = val.trim();
+  if (!trimmed) return null;
+  if (!(trimmed.startsWith('[') || trimmed.startsWith('{'))) return null;
+  try { return JSON.parse(trimmed); } catch (e) { return null; }
+}
 
 function parseBracketList(val) {
   if (!val || typeof val !== 'string') return [];
@@ -264,11 +280,118 @@ function buildOverviewTab(m) {
   return html;
 }
 
+// ---------------------------------------------------------------------------
+// Multi-condition table formatters (new schema columns)
+// ---------------------------------------------------------------------------
+
+/**
+ * Format a range like "105\u2013116" / "60" (single) / "" (empty).
+ * Inputs may be null/undefined.
+ */
+function fmtRange(min, max, unit) {
+  if (min == null && max == null) return '';
+  const u = unit ? ' ' + unit : '';
+  if (min != null && max != null && min !== max) return `${min}\u2013${max}${u}`;
+  return `${min != null ? min : max}${u}`;
+}
+
+/**
+ * Join non-empty value pieces with " / "
+ */
+function joinPieces(pieces) {
+  return pieces.filter(Boolean).join(' / ');
+}
+
+function formatHardnessCell(c) {
+  const pieces = [];
+  // Bulk hardness (paired scales)
+  const hb = fmtRange(c.hb_min, c.hb_max, 'HB');
+  const hrc = fmtRange(c.hrc_min, c.hrc_max, 'HRC');
+  const hrb = fmtRange(c.hrb_min, c.hrb_max, 'HRB');
+  const hra = fmtRange(c.hra_min, c.hra_max, 'HRA');
+  const hv = fmtRange(c.hv_min, c.hv_max, 'HV');
+  const hk = fmtRange(c.hk_min, c.hk_max, 'HK');
+  const mohs = fmtRange(c.mohs_min, c.mohs_max, 'Mohs');
+  const shoreD = fmtRange(c.shore_d_min, c.shore_d_max, 'Shore D');
+  const bulk = joinPieces([hb, hrc, hrb, hra, hv, hk, mohs, shoreD]);
+  if (bulk) pieces.push(bulk);
+  // Surface (case-hardened/coated)
+  const sHrc = fmtRange(c.surface_hrc_min, c.surface_hrc_max, 'HRC');
+  const sHv = fmtRange(c.surface_hv_min, c.surface_hv_max, 'HV');
+  const sHb = fmtRange(c.surface_hb_min, c.surface_hb_max, 'HB');
+  const surface = joinPieces([sHrc, sHv, sHb]);
+  if (surface) pieces.push(`Surface: ${surface}`);
+  // Core
+  const cHb = fmtRange(c.core_hb_min, c.core_hb_max, 'HB');
+  const cHrc = fmtRange(c.core_hrc_min, c.core_hrc_max, 'HRC');
+  const core = joinPieces([cHb, cHrc]);
+  if (core) pieces.push(`Core: ${core}`);
+  return pieces.join('<br>');
+}
+
+function formatStrengthCell(c) {
+  const pieces = [];
+  const uts = fmtRange(c.uts_mpa_min, c.uts_mpa_max, 'MPa');
+  if (uts) pieces.push(`UTS: ${uts}`);
+  const ys = fmtRange(c.ys_mpa_min, c.ys_mpa_max, 'MPa');
+  if (ys) pieces.push(`YS: ${ys}`);
+  const e = fmtRange(c.elongation_pct_min, c.elongation_pct_max, '%');
+  if (e) pieces.push(`Elong: ${e}`);
+  const ra = fmtRange(c.reduction_area_pct_min, c.reduction_area_pct_max, '%');
+  if (ra) pieces.push(`RA: ${ra}`);
+  const mod = fmtRange(c.modulus_gpa_min, c.modulus_gpa_max, 'GPa');
+  if (mod) pieces.push(`E: ${mod}`);
+  const impact = fmtRange(c.impact_j_min, c.impact_j_max, 'J');
+  if (impact) pieces.push(`Impact: ${impact}`);
+  return pieces.join('<br>');
+}
+
+function buildConditionsTable(title, conditions, valueFormatter) {
+  if (!Array.isArray(conditions) || conditions.length === 0) return '';
+  const rows = conditions.map(c => {
+    const cond = escHtml(c.condition || '');
+    const value = valueFormatter(c); // already contains formatted HTML (with <br>)
+    const note = c.note ? `<div class="condition-note">${escHtml(c.note)}</div>` : '';
+    // c.source may have been expanded by the merge step into one or more full
+    // citations joined by "; ". Split and render each on its own line so they
+    // read cleanly instead of running together with awkward "Hot-Wrought.;".
+    let sourceHtml = '';
+    if (c.source) {
+      const refs = String(c.source).split(/\s*;\s+(?=[A-Z])/).filter(Boolean);
+      sourceHtml = refs.map(r => `<div class="condition-source">${escHtml(r)}</div>`).join('');
+    }
+    return `<tr>
+        <td class="cond-name">${cond}</td>
+        <td class="cond-value">${value}${note}</td>
+        <td class="cond-source">${sourceHtml}</td>
+      </tr>`;
+  }).join('');
+  return `<div class="material-section"><h2 class="section-title">${escHtml(title)}</h2>
+    <div class="section-content">
+      <table class="conditions-table">
+        <thead><tr><th>Condition</th><th>Value</th><th>Source</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div></div>`;
+}
+
+function buildSourcesSection(m) {
+  const sources = parseJsonCell(m.sources);
+  if (!Array.isArray(sources) || sources.length === 0) return '';
+  const lis = sources.map((s, i) => `<li><span class="source-num">[${i + 1}]</span> ${escHtml(s)}</li>`).join('');
+  return `<div class="material-section sources-section"><h2 class="section-title">Sources &amp; References</h2>
+    <div class="section-content"><ol class="sources-list">${lis}</ol></div></div>`;
+}
+
 function buildPropertiesTab(m) {
   let html = '';
 
-  // Mechanical Properties
-  html += '<div class="material-section"><h2 class="section-title">Mechanical Properties</h2><div class="section-content">';
+  // Multi-condition tables (preferred when populated)
+  const hardnessConds = parseJsonCell(m.hardness_conditions);
+  const strengthConds = parseJsonCell(m.strength_conditions);
+
+  // Mechanical Properties \u2014 typical values (still rendered for the at-a-glance summary)
+  html += '<div class="material-section"><h2 class="section-title">Mechanical Properties (Typical)</h2><div class="section-content">';
   if (m.hardness) html += propertyRow('Hardness', escHtml(m.hardness));
   if (m.hardness_hb) html += propertyRow('Hardness (HB)', escHtml(m.hardness_hb) + ' HB');
   if (m.hardness_hrc) html += propertyRow('Hardness (HRC)', escHtml(m.hardness_hrc) + ' HRC');
@@ -276,7 +399,12 @@ function buildPropertiesTab(m) {
   if (m.hardness_category) html += propertyRow('Hardness Category', badge(m.hardness_category, 'primary'));
   if (m.tensile_strength_mpa) html += propertyRow('Tensile Strength', escHtml(m.tensile_strength_mpa) + ' MPa');
   if (m.yield_strength_mpa) html += propertyRow('Yield Strength', escHtml(m.yield_strength_mpa) + ' MPa');
+  if (m.temper_condition) html += propertyRow('Reported Condition', badge(m.temper_condition, 'gray'));
   html += '</div></div>';
+
+  // Multi-condition tables (new schema)
+  html += buildConditionsTable('Hardness by Condition', hardnessConds, formatHardnessCell);
+  html += buildConditionsTable('Strength by Condition', strengthConds, formatStrengthCell);
 
   // Physical Properties
   html += '<div class="material-section"><h2 class="section-title">Physical Properties</h2><div class="section-content">';
@@ -289,7 +417,11 @@ function buildPropertiesTab(m) {
   html += propertyRow('Work Hardening', yesNoBadge(m.work_hardening));
   html += propertyRow('Magnetic', yesNoBadge(m.magnetic));
   if (m.corrosion_resistance) html += propertyRow('Corrosion Resistance', badge(m.corrosion_resistance, 'primary'));
+  if (m.material_grade) html += propertyRow('Material Grade (UNS)', badge(m.material_grade, 'gray'));
   html += '</div></div>';
+
+  // Sources (bottom of Properties tab \u2014 appears only when populated)
+  html += buildSourcesSection(m);
 
   return html;
 }
@@ -457,14 +589,21 @@ function buildPage(m, navHtml, footerAndScripts) {
   const slug = m.slug;
   const category = m.category;
   const microstructure = m.microstructure || '';
-  const description = `Material properties and preparation information for ${name}. ${category} with ${microstructure} microstructure.`;
+  // Use only the first sentence/clause of microstructure to keep meta description
+  // SEO-friendly (target ~150 chars). Rebuilt rows have multi-sentence descriptions
+  // and would blow out the limit if we concatenated the whole thing.
+  const microShort = microstructure.split(/\.\s+/)[0].slice(0, 110);
+  const description = `Material properties and preparation information for ${name}. ${category}${microShort ? `; ${microShort}.` : '.'}`;
   const altNames = parseBracketList(m.alternative_names);
   const tags = parseBracketList(m.tags);
+  // First clause of microstructure only — keeps the keywords tag from ballooning
+  // when the row has a detailed multi-sentence description.
+  const microKeyword = microstructure.split(/[.,;]/)[0].trim().toLowerCase().slice(0, 80);
   const keywords = ['metallography', 'sample preparation', 'metallographic analysis',
     name.toLowerCase(), category.toLowerCase(),
-    microstructure.toLowerCase(),
+    microKeyword,
     ...tags.map(t => t.toLowerCase())
-  ].join(', ');
+  ].filter(Boolean).join(', ');
 
   const canonicalUrl = `https://www.metallographic.com/materials/${slug}.html`;
 
@@ -718,9 +857,17 @@ function extractTemplateParts(templateHtml) {
 
   const navHtml = templateHtml.substring(navStart, navEndFull);
 
-  // Extract footer + scripts: from "    <!-- FOOTER -->" to end of file
-  const footerStart = templateHtml.indexOf('    <!-- FOOTER -->');
-  const footerAndScripts = templateHtml.substring(footerStart);
+  // Extract footer + scripts: from the line containing "<!-- FOOTER -->" to end of file.
+  // (Old code searched for a 4-space-indented marker which never matched, causing
+  //  String.substring(-1) to return the WHOLE template — including its <head> and
+  //  <body> — appended after every generated page. Visible in any pre-rebuild
+  //  material page as multiple <!DOCTYPE html> entries.)
+  const footerMarkerRe = /^[ \t]*<!-- FOOTER -->/m;
+  const footerMatch = templateHtml.match(footerMarkerRe);
+  if (!footerMatch) {
+    throw new Error('Template missing "<!-- FOOTER -->" marker — refusing to generate to avoid duplicate-content bug.');
+  }
+  const footerAndScripts = templateHtml.substring(footerMatch.index);
 
   return { navHtml, footerAndScripts };
 }
@@ -729,7 +876,28 @@ function extractTemplateParts(templateHtml) {
 // Main
 // ---------------------------------------------------------------------------
 
+/**
+ * Parse CLI args. Supports:
+ *   --all                 regenerate every published material in the CSV
+ *   --category "Name"     regenerate all published materials in this category
+ *   --slugs s1,s2,s3      regenerate this comma-separated list of slugs
+ * With no args, falls back to the legacy hardcoded TARGET_SLUGS list (kept for
+ * historical scripts that depend on it).
+ */
+function parseArgs(argv) {
+  const args = { all: false, category: null, slugs: null };
+  for (let i = 2; i < argv.length; i++) {
+    const a = argv[i];
+    if (a === '--all') args.all = true;
+    else if (a === '--category') args.category = argv[++i];
+    else if (a === '--slugs') args.slugs = argv[++i].split(',').map(s => s.trim()).filter(Boolean);
+  }
+  return args;
+}
+
 function main() {
+  const args = parseArgs(process.argv);
+
   console.log('Reading template from:', TEMPLATE_PATH);
   const templateHtml = fs.readFileSync(TEMPLATE_PATH, 'utf8');
   const { navHtml, footerAndScripts } = extractTemplateParts(templateHtml);
@@ -754,6 +922,7 @@ function main() {
   }
 
   const materialsBySlug = {};
+  const allPublished = [];
   for (let r = 1; r < rows.length; r++) {
     const row = rows[r];
     if (row.length < headers.length) continue; // skip incomplete rows
@@ -763,14 +932,31 @@ function main() {
     }
     if (obj.slug) {
       materialsBySlug[obj.slug] = obj;
+      if (obj.status === 'published') allPublished.push(obj);
     }
   }
 
-  console.log(`Loaded ${Object.keys(materialsBySlug).length} materials from CSV.`);
+  console.log(`Loaded ${Object.keys(materialsBySlug).length} materials from CSV (${allPublished.length} published).`);
+
+  // Determine target slug set based on CLI args
+  let targets;
+  if (args.all) {
+    targets = allPublished.map(m => m.slug);
+    console.log(`Mode: --all  (${targets.length} slugs)`);
+  } else if (args.category) {
+    targets = allPublished.filter(m => m.category === args.category).map(m => m.slug);
+    console.log(`Mode: --category "${args.category}"  (${targets.length} slugs)`);
+  } else if (args.slugs) {
+    targets = args.slugs;
+    console.log(`Mode: --slugs  (${targets.length} slugs)`);
+  } else {
+    targets = TARGET_SLUGS;
+    console.log(`Mode: legacy TARGET_SLUGS  (${targets.length} slugs)`);
+  }
 
   const created = [];
 
-  for (const slug of TARGET_SLUGS) {
+  for (const slug of targets) {
     const m = materialsBySlug[slug];
     if (!m) {
       console.warn(`WARNING: Slug "${slug}" not found in CSV. Skipping.`);

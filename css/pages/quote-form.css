@@ -1,0 +1,462 @@
+/* ============================================================
+   Quote page — /quote.html
+   Form-first: the HubSpot form is the page's reason to exist.
+   Hero is compact so the form sits above the fold. Sidebar
+   provides trust signals without competing for attention.
+   ============================================================ */
+
+/* Override .first-container padding so .quote pages align with guides/tools/docs
+   (1440px max-width, 2rem total horizontal padding). */
+.first-container:has(.quote) {
+  padding: 0 1rem;
+  max-width: 1440px;
+}
+
+.quote {
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  color: #111827;
+  /* Width and side padding come from the parent .first-container. */
+  /* Matches guides/tools: 8rem / 9rem / 10rem clears the fixed .navigation. */
+  padding: 8rem 1rem 5rem;
+}
+
+@media (min-width: 768px) {
+  .quote {
+    padding-top: 9rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .quote {
+    padding-top: 10rem;
+  }
+}
+
+/* ---------- Compact hero (text only — no competing panel) ---------- */
+.quote-hero {
+  padding: 0.5rem 0 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.quote-hero-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin-bottom: 0.875rem;
+}
+
+.quote-hero h1 {
+  font-size: clamp(2rem, 3.6vw, 2.625rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+  color: #0f172a;
+  line-height: 1.1;
+  max-width: 36rem;
+}
+
+.quote-hero-sub {
+  font-size: 1.0625rem;
+  color: #4b5563;
+  max-width: 38rem;
+  margin: 0 0 1rem;
+  line-height: 1.55;
+}
+
+.quote-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.quote-hero-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quote-hero-meta-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.quote-hero-meta-dot.is-closed {
+  background: #9ca3af;
+  box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.15);
+}
+
+/* ---------- Main: form + trust sidebar ----------------------------- */
+.quote-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+/* Form card — the visual anchor of the page */
+.quote-form {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.875rem;
+  padding: 2rem 2rem 1.75rem;
+  scroll-margin-top: 6rem;
+}
+
+.quote-form-header {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.quote-form-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.quote-form-header p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #4b5563;
+}
+
+/* HubSpot form frame quietly inherits the card */
+.quote-form .hs-form-frame { margin: 0 !important; }
+
+/* ---------- Sidebar -------------------------------------------------- */
+.quote-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 6rem;
+}
+
+/* Response-time accent card — uses a light brand wash so the
+   trust message reads without shouting. */
+.quote-response {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.125rem;
+  background: linear-gradient(180deg, #eff6ff, #f8fafc);
+  border: 1px solid #dbeafe;
+  border-radius: 0.625rem;
+}
+
+.quote-response-icon {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: #2563eb;
+  color: #fff;
+}
+
+.quote-response-text { line-height: 1.35; }
+
+.quote-response-label {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.quote-response-detail {
+  display: block;
+  font-size: 0.8125rem;
+  color: #4b5563;
+  margin-top: 0.125rem;
+}
+
+/* "What you'll receive" — restrained checklist, not a marketing chest-thump */
+.quote-expectations {
+  padding: 1.25rem 1.25rem 1.125rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.625rem;
+}
+
+.quote-expectations h3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin: 0 0 0.75rem;
+}
+
+.quote-expectations ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quote-expectations li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  color: #0f172a;
+  line-height: 1.45;
+}
+
+.quote-expectations li svg {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  color: #2563eb;
+  margin-top: 0.1875rem;
+}
+
+/* Direct contact channels — small, scannable */
+.quote-direct {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quote-channel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.625rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease;
+}
+
+.quote-channel:hover { border-color: #2563eb; }
+
+.quote-channel-icon {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.quote-channel-text { line-height: 1.35; flex: 1; min-width: 0; }
+
+.quote-channel-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 0.125rem;
+}
+
+.quote-channel-value {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #0f172a;
+  word-break: break-word;
+}
+
+/* ---------- FAQ ---------------------------------------------------- */
+.quote-faq { scroll-margin-top: 6rem; }
+
+.quote-faq-header { margin-bottom: 1.25rem; }
+
+.quote-faq-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.375rem;
+  color: #0f172a;
+}
+
+.quote-faq-header p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #4b5563;
+}
+
+.quote-faq-list { border-top: 1px solid #e5e7eb; }
+
+.quote-faq-item {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.quote-faq-item > summary {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.125rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.15s ease;
+}
+
+.quote-faq-item > summary::-webkit-details-marker { display: none; }
+.quote-faq-item > summary::marker { display: none; }
+.quote-faq-item > summary:hover { color: #2563eb; }
+
+.quote-faq-icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  margin-top: 0.125rem;
+  transition: transform 0.2s ease, color 0.15s ease;
+}
+
+.quote-faq-item[open] > summary .quote-faq-icon {
+  transform: rotate(45deg);
+  color: #2563eb;
+}
+
+.quote-faq-answer {
+  padding: 0 0.5rem 1.25rem;
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 0.9375rem;
+  max-width: 52rem;
+}
+
+.quote-faq-answer p { margin: 0 0 0.5rem; }
+.quote-faq-answer p:last-child { margin-bottom: 0; }
+
+.quote-faq-answer a {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.quote-faq-answer a:hover { color: #1d4ed8; }
+
+/* ---------- Closing strip: alternative contact paths -------------- */
+.quote-closer {
+  margin-top: 3rem;
+  padding: 1.75rem 2rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.875rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.quote-closer-text { line-height: 1.4; min-width: 0; }
+
+.quote-closer-text h2 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: #0f172a;
+  letter-spacing: -0.005em;
+}
+
+.quote-closer-text p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #4b5563;
+}
+
+.quote-closer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.quote-closer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #0f172a;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  min-height: 0;
+}
+
+.quote-closer-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.quote-closer-btn.is-primary {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #fff;
+}
+
+.quote-closer-btn.is-primary:hover {
+  background: #1e293b;
+  border-color: #1e293b;
+  color: #fff;
+}
+
+.quote-closer-btn svg { width: 16px; height: 16px; }
+
+/* ---------- Responsive -------------------------------------------- */
+@media (max-width: 960px) {
+  .quote-main {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .quote-sidebar {
+    position: static;
+    top: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .quote { padding: 4rem 1rem 4rem; }
+  .quote-hero { padding: 0 0 1.25rem; margin-bottom: 1.5rem; }
+  .quote-hero h1 { font-size: 1.875rem; }
+  .quote-hero-sub { font-size: 1rem; }
+  .quote-form { padding: 1.5rem 1.25rem 1.25rem; }
+  .quote-closer { padding: 1.25rem; flex-direction: column; align-items: flex-start; }
+  .quote-faq-item > summary { font-size: 0.9375rem; padding: 1rem 0.25rem; }
+  .quote-faq-answer { padding: 0 0.25rem 1.125rem; font-size: 0.9375rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-faq-icon,
+  .quote-channel { transition: none !important; }
+}

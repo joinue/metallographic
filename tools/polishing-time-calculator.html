@@ -44,6 +44,16 @@
     <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -70,20 +80,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -293,35 +311,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -366,111 +380,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -679,36 +623,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -745,73 +687,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -857,20 +762,26 @@
             <div class="quote-form-container">
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
                 <script>
-                    (function() {
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
                         var script = document.createElement('script');
                         script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
-                        script.defer = true;
                         script.onerror = function() {
                             console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
                         };
                         document.head.appendChild(script);
-                    })();
+                    }
                 </script>
             </div>
         </section>
     </div>
 </div>
+
+
 
     <!-- Main Content -->
     <main class="tool-page">
@@ -878,80 +789,185 @@
             <div class="tool-content">
                 <h1>Polishing Time Calculator</h1>
                 <p class="tool-intro">
-                    Calculate optimal polishing times for each step in your polishing sequence. These times are for polishing with a specific grit size 
-                    after the sample has been prepared through previous grinding and polishing steps.
+                    Recommended polishing time, cloth, pressure, and notes for a single polishing step, based on PACE Technologies' 11-class preparation scheme. Pick a material class and an abrasive size; results update live.
                 </p>
 
-                <div class="info-card" style="background: #dbeafe; border-left: 4px solid #2563eb;">
-                    <p style="margin: 0;">
-                        <strong>Important:</strong> These times are for <strong>one polishing step</strong> in a sequence (e.g., polishing with 3 μm diamond 
-                        after completing 9 μm and 6 μm steps). The sample should already be polished through coarser grits before using these recommendations.
+                <div class="info-card info-card--callout">
+                    <p>
+                        <strong>Heads up:</strong> these times are for <strong>one polishing step</strong> in a sequence (e.g., 3 μm diamond after completing 9 μm and 6 μm). The sample should already be polished through the previous, coarser abrasive before this step.
                     </p>
                 </div>
 
-                <div class="tool-card">
-                    <div class="form-group">
-                        <label for="materialType">Material Type</label>
-                        <select id="materialType" class="form-control">
-                            <option value="">Select material type...</option>
-                            <option value="hard">Hard Materials</option>
-                            <option value="soft">Soft Materials</option>
-                            <option value="work-hardening">Work-Hardening Materials</option>
-                            <option value="multi-phase">Multi-Phase Materials</option>
-                        </select>
-                        <p id="materialExamples" class="text-sm" style="margin-top: 0.5rem; color: #6b7280; display: none;"></p>
+                <div class="tool-card polish-form-card">
+                    <div class="polish-form-grid">
+                        <div class="form-group">
+                            <label for="materialType">Material Preparation Class</label>
+                            <select id="materialType" class="form-control">
+                                <option value="">Select preparation class…</option>
+                                <option value="1">Class 1 — Soft, Ductile</option>
+                                <option value="2">Class 2 — Refractory Metals</option>
+                                <option value="3">Class 3 — Lower Ductility Metals</option>
+                                <option value="4">Class 4 — Soft Brittle Non-metals</option>
+                                <option value="5">Class 5 — Medium Hard / Ductile</option>
+                                <option value="6">Class 6 — Tough, Hard Non-ferrous</option>
+                                <option value="7">Class 7 — Coatings & Surface Treatments</option>
+                                <option value="8">Class 8 — Hardened Steels</option>
+                                <option value="9">Class 9 — Metal Matrix Composites</option>
+                                <option value="10">Class 10 — Engineered Ceramics</option>
+                                <option value="11">Class 11 — Very Hard Brittle Materials</option>
+                            </select>
+                            <p id="materialExamples" class="field-hint" hidden></p>
+                            <p class="field-hint">
+                                Not sure which class? <a href="/support/procedures.html" class="help-link">Browse the 11-class preparation procedures</a>.
+                            </p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gritSize">Polishing Step (abrasive size)</label>
+                            <select id="gritSize" class="form-control">
+                                <option value="">Select a class first…</option>
+                            </select>
+                            <p class="field-hint">Available steps depend on the material class. Coarser abrasives appear first.</p>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="gritSize">Grit/Abrasive Size</label>
-                        <select id="gritSize" class="form-control">
-                            <option value="">Select grit size...</option>
-                            <option value="9">9 μm (Coarse Diamond)</option>
-                            <option value="6">6 μm (Diamond)</option>
-                            <option value="3">3 μm (Fine Diamond)</option>
-                            <option value="1">1 μm (Very Fine Diamond)</option>
-                            <option value="0.5">0.5 μm (Ultra Fine Diamond)</option>
-                            <option value="0.25">0.25 μm (Ultra Fine Diamond)</option>
-                            <option value="0.05">0.05 μm (Colloidal Silica/Alumina)</option>
-                        </select>
+                    <div class="tool-actions">
+                        <button id="calculateBtn" class="btn-primary">Calculate Time</button>
+                        <button id="resetBtn" type="button" class="btn-secondary">Reset</button>
                     </div>
-
-                    <button id="calculateBtn" class="btn-primary" disabled>Calculate Polishing Time</button>
                 </div>
 
-                <div id="results" class="tool-card" style="display: none;">
-                    <h2>Recommended Polishing Parameters</h2>
-                    <div id="userSelection" style="margin-bottom: 1.5rem; padding: 1rem; background: #f9fafb; border-radius: 0.5rem;"></div>
-                    <div id="timeResult" style="margin-bottom: 1.5rem; padding: 1rem; background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 0.5rem;"></div>
-                    <div id="parameters"></div>
+                <div id="results" class="tool-card results-card" style="display: none;">
+                    <h2 id="resultsHeading">Polishing Parameters</h2>
+                    <div id="resultsContent"></div>
                 </div>
 
                 <div class="info-card">
-                    <h3>About Polishing Times</h3>
+                    <h3>PACE 11 Preparation Classes</h3>
                     <p>
-                        Polishing times are guidelines based on typical metallographic preparation procedures. 
-                        Actual times may vary depending on:
+                        Don Zipperian's 11-class scheme groups materials by the properties that actually drive sample-prep choices: hardness, ductility, brittleness, and how the material responds to abrasion. Use the class to pick a procedure, not just the alloy name.
+                    </p>
+                    <div class="prep-class-grid">
+                        <div class="prep-class-card" data-cls="1">
+                            <div class="prep-class-num">1</div>
+                            <div class="prep-class-name">Soft, Ductile</div>
+                            <div class="prep-class-examples">Al, Cu, Pb, Sn, soft brass, precious metals</div>
+                        </div>
+                        <div class="prep-class-card" data-cls="2">
+                            <div class="prep-class-num">2</div>
+                            <div class="prep-class-name">Refractory Metals</div>
+                            <div class="prep-class-examples">W, Mo, Ta, Nb, V</div>
+                        </div>
+                        <div class="prep-class-card" data-cls="3">
+                            <div class="prep-class-num">3</div>
+                            <div class="prep-class-name">Lower Ductility Metals</div>
+                            <div class="prep-class-examples">Mg alloys, Zn alloys, some Al alloys</div>
+                        </div>
+                        <div class="prep-class-card" data-cls="4">
+                            <div class="prep-class-num">4</div>
+                            <div class="prep-class-name">Soft Brittle Non-metals</div>
+                            <div class="prep-class-examples">Graphite, soft polymers, foams</div>
+                        </div>
+                        <div class="prep-class-card" data-cls="5">
+                            <div class="prep-class-num">5</div>
+                            <div class="prep-class-name">Medium Hard / Ductile</div>
+                            <div class="prep-class-examples">Low-C steel, cast iron, bronze, soft tool steels</div>
+                        </div>
+                        <div class="prep-class-card" data-cls="6">
+                            <div class="prep-class-num">6</div>
+                            <div class="prep-class-name">Tough, Hard Non-ferrous</div>
+                            <div class="prep-class-examples">Ti, Ni superalloys, austenitic / duplex stainless</div>
+                        </div>
+                        <div class="prep-class-card" data-cls="7">
+                            <div class="prep-class-num">7</div>
+                            <div class="prep-class-name">Coatings & Surface Treatments</div>
+                            <div class="prep-class-examples">Thermal spray, hard chrome, nitride / PVD / CVD</div>
+                        </div>
+                        <div class="prep-class-card" data-cls="8">
+                            <div class="prep-class-num">8</div>
+                            <div class="prep-class-name">Hardened Steels</div>
+                            <div class="prep-class-examples">Tool steels (D2, M2), bearing steels, Q&T</div>
+                        </div>
+                        <div class="prep-class-card" data-cls="9">
+                            <div class="prep-class-num">9</div>
+                            <div class="prep-class-name">Metal Matrix Composites</div>
+                            <div class="prep-class-examples">SiC/Al, B₄C/Al, fiber-reinforced metals</div>
+                        </div>
+                        <div class="prep-class-card" data-cls="10">
+                            <div class="prep-class-num">10</div>
+                            <div class="prep-class-name">Engineered Ceramics</div>
+                            <div class="prep-class-examples">Al₂O₃, SiC, Si₃N₄, ZrO₂</div>
+                        </div>
+                        <div class="prep-class-card" data-cls="11">
+                            <div class="prep-class-num">11</div>
+                            <div class="prep-class-name">Very Hard Brittle Materials</div>
+                            <div class="prep-class-examples">Sintered carbides, CVD diamond, cermets, PCD/PCBN</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>How the Polishing Sequence Works</h3>
+                    <p>
+                        A polishing procedure is a sequence of decreasing abrasive sizes. Each step has a job: remove the scratches left by the previous, coarser step. If a step is skipped or cut short, the next step inherits the coarser damage and runs much longer, or never recovers.
                     </p>
                     <ul>
-                        <li>Sample size and geometry</li>
-                        <li>Polishing equipment and speed</li>
-                        <li>Condition of polishing cloth and abrasive</li>
-                        <li>Operator technique and experience</li>
-                        <li>Quality of previous preparation steps</li>
+                        <li><strong>Coarse → fine, always.</strong> Typical metals go 9 → 6 → 3 → 1 → 0.05 μm. Hard ceramics and carbides start at 15 μm and may include intermediate 0.25 / 0.5 μm steps.</li>
+                        <li><strong>Inspect between steps.</strong> Before moving to the next finer grit, the surface should show a uniform scratch pattern with no remnants from the previous step. Look at 100× or higher.</li>
+                        <li><strong>Rotate the sample 90° between steps.</strong> The new scratch direction makes leftover coarser scratches obvious, since they run perpendicular to the new ones.</li>
+                        <li><strong>One step's time depends on the prior step's quality.</strong> The numbers in this calculator assume the preceding step was completed properly. A rushed 9 μm step makes the 6 μm step run twice as long.</li>
                     </ul>
-                    <p style="margin-top: 1rem;">
-                        <strong>Remember:</strong> These times are for individual polishing steps in a sequence. A complete polishing procedure typically 
-                        involves multiple steps progressing from coarse to fine abrasives (e.g., 9 μm → 6 μm → 3 μm → 1 μm → 0.05 μm). Each step should 
-                        remove scratches from the previous step before proceeding to the next finer grit.
+                </div>
+
+                <div class="info-card">
+                    <h3>Pressure Guidelines</h3>
+                    <p>
+                        Pressure values in the results refer to the downward force applied to the sample on a manual polisher, or the equivalent platen pressure on an auto-polisher. Too much pressure causes deformation, smearing, and edge rounding; too little leaves coarse scratches uncleared.
+                    </p>
+                    <div class="pressure-grid">
+                        <div class="pressure-card" data-level="very-light">
+                            <div class="pressure-card-label">Very Light</div>
+                            <div class="pressure-card-range">1 – 3 lbs</div>
+                            <p>Soft / ductile materials and final polishing steps. Just enough weight to keep the sample flat on the cloth.</p>
+                        </div>
+                        <div class="pressure-card" data-level="light">
+                            <div class="pressure-card-label">Light</div>
+                            <div class="pressure-card-range">2 – 5 lbs</div>
+                            <p>Fine polishing on most metals and intermediate steps on hard materials.</p>
+                        </div>
+                        <div class="pressure-card" data-level="moderate">
+                            <div class="pressure-card-label">Moderate</div>
+                            <div class="pressure-card-range">4 – 8 lbs</div>
+                            <p>The workhorse range. Covers coarse polishing on steels, superalloys, and most metals.</p>
+                        </div>
+                        <div class="pressure-card" data-level="high">
+                            <div class="pressure-card-label">High</div>
+                            <div class="pressure-card-range">8 – 12 lbs</div>
+                            <p>Hard ceramics, sintered carbides, and other materials that resist removal at lower pressures.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Polishing Tips</h3>
+                    <ul>
+                        <li><strong>Keep the cloth wet and the abrasive fresh.</strong> A drying cloth or depleted suspension stops cutting and starts smearing. That's the most common cause of an unexpectedly long polishing step.</li>
+                        <li><strong>Check the cloth for embedded coarser grit.</strong> Cross-contamination ruins fine steps. Dedicate a cloth to one abrasive size and protect them from each other.</li>
+                        <li><strong>Use the right diamond type.</strong> Polycrystalline diamond cuts faster (good for hard materials); monocrystalline gives a finer finish (better for soft / ductile materials).</li>
+                        <li><strong>Vibratory polish for hard-to-finish materials.</strong> Stainless, Ni superalloys, ceramics, and composites often benefit from a final vibratory step with colloidal silica. Far better surface than time-on-platen alone.</li>
+                        <li><strong>Don't chase a single bad scratch.</strong> Extending a fine step to remove one leftover coarse scratch causes relief everywhere else. Go back one step.</li>
+                    </ul>
+                    <p class="info-note">
+                        Looking for the right cloth or abrasive? Browse <a href="/metallographic-consumables/polishing/polishing-pads.html" class="help-link">PACE polishing pads</a> and <a href="/metallographic-consumables/polishing/polycrystalline-diamond.html" class="help-link">diamond suspensions</a>.
                     </p>
                 </div>
 
                 <div class="help-card">
                     <h3>Need More Help?</h3>
                     <p>
-                        Check out our comprehensive guides on polishing methods and material-specific preparation techniques.
+                        Check out our guides on polishing methods and material-specific preparation techniques.
                     </p>
-                    <a href="/guides.html" class="help-link">View Polishing Methods Guide ></a>
+                    <a href="/guides/polishing.html" class="help-link">View Polishing Methods Guide &rsaquo;</a>
                 </div>
             </div>
         </div>
@@ -970,6 +986,7 @@
     <!-- Scripts -->
     <script src="/js/scripts.js"></script>
     <script src="/js/tools/polishing-time-calculator.js"></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 
 </html>

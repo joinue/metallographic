@@ -16,7 +16,7 @@
 /* Footer Container - Glassmorphic Design */
 .footer-container {
   width: 100%;
-  background-color: rgba(17, 24, 39, 0.95);
+  background-color: rgba(27, 21, 21, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid rgba(31, 41, 55, 0.3);
@@ -98,7 +98,7 @@
 }
 
 .footer-logo-img {
-  height: 8rem;
+  height: 3.5rem; /* 56px — modern footer logo size; was 8rem (128px) which felt bottom-heavy */
   width: auto;
 }
 
@@ -533,4 +533,107 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+}
+
+/* ============================================================================
+   Back to Top Button
+   ============================================================================ */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 900;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #2563eb; /* PACE blue */
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.2), 0 4px 8px -2px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.2s ease;
+  padding: 0;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #1d4ed8;
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.01s linear;
+    transform: none;
+  }
+}
+
+/* ============================================================================
+   Footer Contact Block (inside footer-brand column)
+   ============================================================================ */
+.footer-contact {
+  font-style: normal; /* reset <address> italic */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1rem;
+  color: #d1d5db;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.footer-contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.footer-contact-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.footer-contact-link {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-link:hover {
+  color: #ffffff;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

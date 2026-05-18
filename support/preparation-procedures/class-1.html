@@ -38,10 +38,8 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/components/navigation.css">
     <link rel="stylesheet" href="/css/components/footer.css">
-    <link rel="stylesheet" href="/css/pages/classes.css">
     <link rel="stylesheet" href="/css/base/styles.css">
-    <link rel="stylesheet" href="/css/pages/prep.css">
-    <link rel="stylesheet" href="/css/pages/class-materials.css">
+    <link rel="stylesheet" href="/css/pages/class-page.css">
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -186,6 +184,16 @@
 </head>
 
     
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -212,20 +220,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -435,35 +451,35 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/build.html"><span>Lab Builder</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -508,111 +524,35 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
+                            <li><a href="/support/procedures.html">Procedures</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -821,36 +761,38 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/build.html"><span>Lab Builder
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -887,73 +829,31 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
+                            <li><a href="/support/procedures.html"><span>Procedures</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -997,266 +897,466 @@
         <button class="close" aria-label="Close">&times;</button>
         <section class="quote-request" aria-labelledby="quote-request-heading">
             <div class="quote-form-container">
-                <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
             </div>
         </section>
     </div>
 </div>
 
-<!-- HEADER -->
 
-<div class="top-header">
-  <header>
-    <div class="top-header-content">
-      <div class="top-header-inner">
-        <h1 class="page-title">CLASS 1 Material Preparation Guide</h1>
-        <div class="text-content"></div>
-      </div>
-    </div>
-  </header>
-</div>
 
-<div class="first-container">
-<div class="material-card">
-    <div class="material-header">
-        <a href="/support/procedures.html" class="back-button" id="back-button" aria-label="Back to previous page">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
+<!-- CLASS PAGE -->
+<article class="class-page">
+
+    <header class="cp-hero">
+        <a href="/support/procedures.html" class="cp-back" aria-label="Back to procedures">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Recommended Procedures
         </a>
-        <div class="material-icon">
-            <i class="fas fa-microscope"></i>
+        <div class="cp-hero-inner">
+            <div class="cp-hero-content">
+                <span class="cp-eyebrow">Class 1</span>
+                <h1 class="cp-title">Soft, Ductile Materials</h1>
+                <div class="cp-chips">
+                    <span class="cp-chip"><span class="cp-chip-label">Hardness</span> &lt;150 HV typical</span>
+                    <span class="cp-chip"><span class="cp-chip-label">Typical</span> Al &middot; Cu &middot; Mg &middot; Zn</span>
+                    <span class="cp-chip"><span class="cp-chip-label">Key challenge</span> Deformation &amp; smearing</span>
+                </div>
+                <p class="cp-lede">Soft, highly ductile metals that deform, smear, and embed abrasives during preparation. Careful technique &mdash; sharp abrasives, light pressure, thorough cleaning &mdash; is essential to reveal true microstructure.</p>
+            </div>
+            <figure class="cp-hero-figure">
+                <img src="/images/microstructures/6061-Aluminum.jpg" alt="6061 Aluminum microstructure showing typical Class 1 material grain structure">
+                <figcaption>6061 Aluminum: typical Class 1 microstructure</figcaption>
+            </figure>
         </div>
-        <h2 class="material-title">Class 1: Soft, Ductile Materials</h2>
-        <div class="material-header-image">
-            <img src="/images/microstructures/6061-Aluminum.jpg" alt="6061 Aluminum microstructure showing typical Class 1 material grain structure" class="header-microstructure-img">
-        </div>
+    </header>
+
+    <div class="cp-layout">
+        <aside class="cp-sidebar" aria-label="On this page">
+            <p class="cp-sidebar-title">On this page</p>
+            <nav class="cp-nav">
+                <a href="#overview" class="cp-nav-link is-active">Overview</a>
+                <a href="#challenges" class="cp-nav-link">Challenges</a>
+                <a href="#materials" class="cp-nav-link">Materials</a>
+                <a href="#procedure" class="cp-nav-link">Procedure</a>
+                <a href="#verify" class="cp-nav-link">Quality checks</a>
+            </nav>
+        </aside>
+
+        <main class="cp-main">
+
+            <section id="overview" class="cp-section">
+                <h2 class="cp-section-title">Overview</h2>
+                <p class="cp-section-lede">Most Class 1 materials fall below 150 HV, though certain alloys (beryllium copper, aluminum bronzes, manganese bronzes) exceed this in hardened tempers; they remain in Class 1 because their preparation behavior aligns with the group.</p>
+            </section>
+
+            <section id="challenges" class="cp-section">
+                <h2 class="cp-section-title">Preparation Challenges</h2>
+                <p class="cp-section-lede">Seven properties drive every choice in the prep procedure. Tap a card for the full reasoning.</p>
+                <div class="cp-challenge-grid">
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Deformation &amp; Smearing</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Plastic flow smears grain boundaries and second-phase particles.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Low hardness and high ductility cause material to plastically deform and smear over grain boundaries and second-phase particles during cutting, grinding, and polishing. Use sharp, fresh abrasives with light, consistent pressure and avoid excessive grinding steps to minimize subsurface damage.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Abrasive Embedding</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">SiC and diamond particles lodge in soft surfaces and mimic inclusions.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Soft surfaces trap abrasive particles from SiC papers and diamond compounds, leaving permanent artifacts that can be mistaken for inclusions. Thorough ultrasonic cleaning between preparation steps is essential. Diamond grinding discs can reduce embedding compared to conventional SiC paper.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Work Hardening</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Cold-worked layer distorts etch response and apparent microstructure.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Many Class 1 materials, especially aluminum and copper alloys, work harden during preparation. This altered surface layer can affect etching response and may be mistaken for intentional heat treatment effects. Minimize deformation at each step and use a final vibratory polish to help remove the affected layer.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Relief &amp; Edge Rounding</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Phases polish at different rates; nap clothes round edges.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Different phases and constituents polish at different rates, creating height differences that obscure fine microstructural features. Napped polishing cloths worsen relief and round specimen edges. Use napless or low-nap cloths and edge-retaining mounting compounds to maintain flatness.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Thermal Sensitivity</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Low melting points and age-hardened tempers can't take hot mounting.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Low melting points (lead, tin, zinc) and age-sensitivity (2xxx, 6xxx, 7xxx aluminum; beryllium copper) require careful temperature control. Compression mounting temperatures (150-180&deg;C) can over-age precipitation-hardened alloys or deform low-melting materials. Use castable mounting for heat-sensitive specimens and ensure adequate coolant during sectioning.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Oxide &amp; Surface Layer Preservation</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Anodized/corrosion layers need edge-retaining mounts.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">When analyzing anodized layers, corrosion products, or surface treatments in cross-section, oxide layers must be preserved through careful sectioning away from the area of interest and edge-retaining mounting media. For standard bulk microstructure examination, this is not typically a concern.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Grain Boundary Revelation</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Residual damage blocks the etch; finish with colloidal silica or vibratory.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Residual deformation from over-grinding or aggressive polishing prevents grain boundaries from etching cleanly, even with the correct etchant. The deformation layer must be fully removed. A final polish with colloidal silica or a vibratory polishing step is often necessary before etching.</p>
+                    </details>
+
+                </div>
+            </section>
+
+            <section id="materials" class="cp-section">
+                <h2 class="cp-section-title">Class 1 Materials</h2>
+                <p class="cp-section-lede">Expand any group to view materials. Click a material name to open its dedicated prep procedure.</p>
+                <div class="cp-materials">
+
+                    <details class="cp-material-group" open>
+                        <summary>
+                            <span>Aluminum Alloys</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">24</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>1100 Aluminum</li>
+                            <li>2011 Aluminum</li>
+                            <li>2017 Aluminum</li>
+                            <li>2024 Aluminum</li>
+                            <li>2024-T3 Aluminum</li>
+                            <li>3003 Aluminum</li>
+                            <li>3004 Aluminum</li>
+                            <li>5052 Aluminum</li>
+                            <li>5056 Aluminum</li>
+                            <li>5083 Aluminum</li>
+                            <li>5086 Aluminum</li>
+                            <li>5454 Aluminum</li>
+                            <li>5456 Aluminum</li>
+                            <li>6005 Aluminum</li>
+                            <li>6013 Aluminum</li>
+                            <li>6061 Aluminum</li>
+                            <li>6063 Aluminum</li>
+                            <li>6082 Aluminum</li>
+                            <li>7050 Aluminum</li>
+                            <li>7075 Aluminum</li>
+                            <li>7475 Aluminum</li>
+                            <li>A356 Cast Aluminum</li>
+                            <li>A380 Cast Aluminum</li>
+                            <li>AM AlSi10Mg (SLM)</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Copper Alloys</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">12</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>C11000 Electrolytic Tough Pitch Copper</li>
+                            <li>C17200 Beryllium Copper<span class="cp-condition-note">aged temper exceeds 150 HV; still Class 1 prep behavior</span></li>
+                            <li>C26000 Cartridge Brass</li>
+                            <li>C36000 Free-Cutting Brass</li>
+                            <li>C46400 Naval Brass</li>
+                            <li>C51000 Phosphor Bronze</li>
+                            <li>C63000 Aluminum Nickel Bronze<span class="cp-condition-note">higher hardness in aged condition</span></li>
+                            <li>C71500 Cupronickel 70-30</li>
+                            <li>C86300 Manganese Bronze<span class="cp-condition-note">higher hardness in as-cast condition</span></li>
+                            <li>C90700 Tin Bronze</li>
+                            <li>C93200 Leaded Tin Bronze</li>
+                            <li>C95400 Aluminum Bronze<span class="cp-condition-note">heat-treated condition may exceed Class 1 range</span></li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Magnesium Alloys</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">5</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>AM60 Magnesium</li>
+                            <li>AZ31 Magnesium</li>
+                            <li>AZ31B Magnesium</li>
+                            <li>AZ91 Magnesium</li>
+                            <li>WE43 Magnesium</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Zinc Alloys</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">2</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Zamak 3</li>
+                            <li>Zamak 5</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Lead &amp; Tin</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">2</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Pure Lead</li>
+                            <li>Pure Tin</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Solder Alloys</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">2</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Sn-37Pb Eutectic Solder</li>
+                            <li>SAC305 Lead-Free Solder</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Bearing Alloys</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">1</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Babbitt Bearing Alloy</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Precious Metals</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">3</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Pure Gold</li>
+                            <li>Pure Platinum</li>
+                            <li>Pure Silver</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Polymer Matrix Composites</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">3</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Aramid Fiber Reinforced Polymer</li>
+                            <li>Carbon Fiber Reinforced Polymer (CFRP)</li>
+                            <li>Glass Fiber Reinforced Polymer (GFRP)</li>
+                        </ul>
+                    </details>
+
+                </div>
+            </section>
+
+            <section id="procedure" class="cp-section">
+                <h2 class="cp-section-title">Recommended Procedure</h2>
+                <p class="cp-section-lede">Five-stage workflow. Each step shows the headline first. Expand for the full technical detail.</p>
+                <ol class="cp-steps">
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">1</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Sectioning</h3>
+                            <p class="cp-step-lede">Low-speed abrasive cutting with continuous coolant; aluminum oxide blade for non-ferrous metals, diamond wafering for composites.</p>
+                            <p class="cp-safety"><strong>Safety:</strong> Magnesium alloys produce pyrophoric particles when sectioned dry. Always use water-based coolant; keep a Class D fire extinguisher accessible.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Use low-speed abrasive cutting with continuous coolant flow and minimal feed rate to limit subsurface damage. Aluminum oxide blades are typical for non-ferrous metals. For small or delicate samples, precision wafering with a diamond blade provides the cleanest cut. For polymer composites, use diamond wafering blades to prevent fiber pullout and delamination.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">2</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Mounting</h3>
+                            <p class="cp-step-lede">Castable (cold) mounting preferred for heat-sensitive alloys and low-melting metals. Vacuum-impregnate porous composites.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Castable (cold) mounting is preferred for heat-sensitive alloys such as age-hardened aluminum, tempered beryllium copper, and low-melting-point metals (lead, tin, solder, babbitt). Compression mounting is acceptable for non-heat-sensitive materials. Use edge-retaining compounds when edge preservation matters. For porous polymer composites, vacuum impregnation with low-viscosity epoxy is essential to fill voids and prevent fiber pullout during grinding.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">3</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Grinding</h3>
+                            <p class="cp-step-lede">For aluminum, start with 1200 grit ALO paper to avoid SiC embedding. For copper and other soft non-ferrous, start 240-320 grit SiC and step through 400 / 600 / 800 / 1200.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p><strong>Aluminum (Don &sect;11.1.1):</strong> Start with <strong>1200 grit ALO paper</strong> (water, 5-10 lb, 100/100 rpm, until plane), then 800 grit (P2400) SiC paper and 1200 grit (P4000) SiC paper, 1 minute each. ALO paper at the plane-grinding step avoids the SiC embedding that is a primary concern for soft aluminum surfaces.</p>
+                                    <p><strong>Copper and other soft non-ferrous:</strong> Start at 240-320 grit SiC and progress through 400, 600, 800, and 1200 grit. Use light, consistent pressure (5-10 lb / 22-45 N); heavy loads cause deformation that propagates into subsequent steps. Clean thoroughly between grits to prevent carryover. Diamond grinding discs are an alternative that reduces abrasive embedding.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">4</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Polishing</h3>
+                            <p class="cp-step-lede">Aluminum and copper share the same rough polish: 1 &micro;m DIAMAT on ATLANTIS. Final polish &mdash; alumina on NAPPAD for routine work, or colloidal silica + chemical additive on MICROPAD for color etching / cold-worked Cu / Cu<sub>2</sub>O retention.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p><strong>Aluminum (Don &sect;11.1.1):</strong> A single <strong>1 &micro;m DIAMAT diamond step on ATLANTIS polishing pad</strong> with DIALUBE Purple Extender (5-10 lb, 100/100 rpm, 2 minutes) is sufficient when grinding finished at 1200 grit. Final polish with <strong>0.05 &micro;m Nanometer alumina on NAPPAD</strong> (5-10 lb, 100/100 rpm, 1 minute). Don &sect;11.1.1 specifies alumina rather than colloidal silica for the final step; alumina preserves oxide inclusions at their true position rather than lifting them with the slight chemical attack of silica. For heat-treated and cast Al-Si alloys, insert an optional 3 &micro;m DIAMAT on ATLANTIS step before the 1 &micro;m polish.</p>
+                                    <p><strong>Copper (Don &sect;11.1.2):</strong> Same procedure through rough polish as aluminum &mdash; <strong>1 &micro;m DIAMAT on ATLANTIS</strong> (DIALUBE Purple Extender, 5-10 lb, 100/100 rpm, 2 minutes). The <em>final</em> polish has two paths chosen by the analytical goal:</p>
+                                    <ul>
+                                        <li><strong>Standard final &mdash; 0.05 &micro;m Nanometer alumina on NAPPAD</strong> (5-10 lb, 100/100 rpm, 1 minute): Routine grain size, twin density, phase ID, hardness testing, general microstructure documentation. Don's primary recipe.</li>
+                                        <li><strong>Advanced final &mdash; colloidal silica + chemical additive on MICROPAD</strong> (chemical-mechanical/attack polish): When prepping for <strong>color etching</strong> (Klemm's, Beraha's), for <strong>cold-worked pure Cu</strong>, for <strong>Tough-Pitch Cu<sub>2</sub>O retention</strong>, or for <strong>quantitative inclusion analysis</strong>. Additives: 1% ferric (III) nitrate for pure copper; 96 mL silica + 2 mL NH&#8324;OH (25%) + 2 mL 3% H&#8322;O&#8322; for alloys. Polish in 1-minute cycles with microscope inspection; switch to plain water for last 20-30 seconds.</li>
+                                    </ul>
+                                    <p>Vibratory polishing (1-4 hours with colloidal silica) is an excellent optional supplement to either final-polish path when image-analysis-grade flatness is required.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">5</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Etching</h3>
+                            <p class="cp-step-lede">Short immersion or swab. Precious metals use glycerol-modified aqua regia; silver tarnishes. Examine immediately.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Soft materials etch quickly. Start with short immersion times and increase as needed. Swab etching offers better control than immersion for many Class 1 materials. Verify that the deformation layer has been fully removed before etching; residual damage will obscure grain boundaries regardless of etchant selection.</p>
+                                    <p>Precious metals are the exception: gold and platinum are chemically inert; the standard metallographic etchants are dilute or glycerol-modified aqua regia (e.g., 8 HCl : 1 HNO&#8323; : 1 glycerol for controlled grain-boundary attack), with platinum often heated to 50-70&deg;C; full-strength aqua regia dissolves these metals and is too aggressive for routine metallography. Silver responds to potassium dichromate or ferric chloride but tarnishes within minutes after etching and must be examined immediately.</p>
+                                </div>
+                            </details>
+
+                            <div class="cp-etchants">
+                                <h4 class="cp-etchants-title">Common etchants by family</h4>
+                                <dl class="cp-etchants-list">
+                                    <div class="cp-etchant-row"><dt>Aluminum alloys</dt><dd>Keller's reagent (general); Barker's anodic (grain structure under polarized light); Tucker's (cast Al); Weck's tint etch</dd></div>
+                                    <div class="cp-etchant-row"><dt>Copper alloys</dt><dd>50% NH&#8324;OH + 50% H&#8322;O&#8322; (general); FeCl&#8323; in HCl (brasses/bronzes); Klemm's tint etch (phase ID); Beraha's sulfide</dd></div>
+                                    <div class="cp-etchant-row"><dt>Magnesium</dt><dd>Acetic-picral (general); acetic glycol (AZ alloys); glycol etch (cast Mg)</dd></div>
+                                    <div class="cp-etchant-row"><dt>Zinc / Zamak</dt><dd>Palmerton's reagent (CrO&#8323; in Na&#8322;SO&#8324;)</dd></div>
+                                    <div class="cp-etchant-row"><dt>Lead, Tin, Solder</dt><dd>Glacial acetic + HNO&#8323; (lead/tin); 3 HCl : 1 HNO&#8323; + glycerol (solder); ammonium molybdate for grain contrast</dd></div>
+                                    <div class="cp-etchant-row"><dt>Babbitt bearing alloys</dt><dd>2% nital (Sb/Sn structure); FeCl&#8323; in HCl for tin-base; ammonium persulfate for lead-base</dd></div>
+                                    <div class="cp-etchant-row"><dt>Precious metals</dt><dd>Au, Pt: glycerol-modified aqua regia (8 HCl : 1 HNO&#8323; : 1 glycerol). Ag: K&#8322;Cr&#8322;O&#8327; or FeCl&#8323;; examine immediately (tarnish).</dd></div>
+                                    <div class="cp-etchant-row"><dt>Polymer matrix composites</dt><dd>Typically not chemically etched. Use polarized or differential interference contrast; specialty stains (KMnO&#8324;-based) for fiber/matrix contrast.</dd></div>
+                                </dl>
+                                <p class="cp-etchants-cta">
+                                    <a href="/etchant-guides/aluminum" class="cp-etchants-link">Aluminum etchant guide &rarr;</a>
+                                    <a href="/etchant-guides/copper-alloy" class="cp-etchants-link">Copper alloy etchant guide &rarr;</a>
+                                    <a href="/etchant-guides/zinc-alloy" class="cp-etchants-link">Zinc etchant guide &rarr;</a>
+                                    <a href="/metallographic-consumables/Metallography-Etching.htm" class="cp-etchants-link">Etching consumables &amp; supplies &rarr;</a>
+                                    <a href="https://shop.metallographic.com/" target="_blank" rel="noopener noreferrer" class="cp-etchants-link">Shop etchants &rarr;</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                </ol>
+            </section>
+
+            <section id="verify" class="cp-section">
+                <h2 class="cp-section-title">Quality Checks</h2>
+                <ul class="cp-checks">
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        No deformation visible under polarized light
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Grain boundaries etch clearly and uniformly
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Second-phase particles intact, not smeared
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        No embedded abrasive particles on the polished surface
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Minimal relief between phases
+                    </li>
+                </ul>
+            </section>
+
+        </main>
     </div>
-    
-    <p class="material-description">
-        Class 1 materials are characterized by their softness and high ductility. Most fall below 150 HV, though certain alloys (beryllium copper, aluminum bronzes, and manganese bronzes) can significantly exceed this in hardened tempers. They remain in Class 1 because their ductility and general preparation behavior align with this group. These materials are prone to deformation, smearing, and abrasive embedding during preparation, requiring careful technique to reveal true microstructural features.
-    </p>
+</article>
 
-    <div class="material-properties">
-        <div class="property-item">
-            <div class="property-label">Hardness Range</div>
-            <div class="property-value">Most below 150 HV; varies by alloy and temper</div>
-        </div>
-        <div class="property-item">
-            <div class="property-label">Typical Materials</div>
-            <div class="property-value">Aluminum, Copper, Magnesium, Zinc, Lead, Tin, Solder, Precious Metals, Composites</div>
-        </div>
-        <div class="property-item">
-            <div class="property-label">Preparation Challenge</div>
-            <div class="property-value">Deformation, Smearing &amp; Embedding</div>
-        </div>
-    </div>
-</div>
+<script src="/js/class-page.js" defer></script>
 
-<section class="preparation-challenges">
-    <h3 class="section-title">Preparation Characteristics &amp; Challenges</h3>
-    <div class="challenges-content">
-        <div class="properties-image-container">
-            <img src="/images/microstructures/70-30-Brass-etched-200x-007.jpg" alt="70-30 Brass microstructure showing grain boundaries typical of Class 1 materials" class="properties-microstructure-img">
-            <p class="image-caption">70-30 Brass, etched, 200X. Example of Class 1 material microstructure</p>
-        </div>
-        <p>Class 1 materials exhibit several distinctive properties that directly impact how they must be prepared:</p>
-        <div class="challenges-grid">
-            <div class="challenge-card">
-                <h5>Deformation &amp; Smearing</h5>
-                <p>Low hardness and high ductility cause material to plastically deform and smear over grain boundaries and second-phase particles during cutting, grinding, and polishing. Use sharp, fresh abrasives with light, consistent pressure and avoid excessive grinding steps to minimize subsurface damage.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Abrasive Embedding</h5>
-                <p>Soft surfaces trap abrasive particles from SiC papers and diamond compounds, leaving permanent artifacts that can be mistaken for inclusions. Thorough ultrasonic cleaning between preparation steps is essential. Diamond grinding discs can reduce embedding compared to conventional SiC paper.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Work Hardening</h5>
-                <p>Many Class 1 materials, especially aluminum and copper alloys, work harden during preparation. This altered surface layer can affect etching response and may be mistaken for intentional heat treatment effects. Minimize deformation at each step and use a final vibratory polish to help remove the affected layer.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Relief &amp; Edge Rounding</h5>
-                <p>Different phases and constituents polish at different rates, creating height differences that obscure fine microstructural features. Napped polishing cloths worsen relief and round specimen edges. Use napless or low-nap cloths and edge-retaining mounting compounds to maintain flatness.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Thermal Sensitivity</h5>
-                <p>Low melting points (lead, tin, zinc) and age-sensitivity (2xxx, 6xxx, 7xxx aluminum; beryllium copper) require careful temperature control. Compression mounting temperatures (150-180&deg;C) can over-age precipitation-hardened alloys or deform low-melting materials. Use castable mounting for heat-sensitive specimens and ensure adequate coolant during sectioning.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Oxide &amp; Surface Layer Preservation</h5>
-                <p>When analyzing anodized layers, corrosion products, or surface treatments in cross-section, oxide layers must be preserved through careful sectioning away from the area of interest and edge-retaining mounting media. For standard bulk microstructure examination, this is not typically a concern.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Grain Boundary Revelation</h5>
-                <p>Residual deformation from over-grinding or aggressive polishing prevents grain boundaries from etching cleanly, even with the correct etchant. The deformation layer must be fully removed. A final polish with colloidal silica or a vibratory polishing step is often necessary before etching.</p>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="class1-materials-list">
-    <h3 class="section-title">Class 1 Materials</h3>
-    <p class="materials-intro">The following materials are classified as Class 1 (Soft, Ductile Materials). Click on any material to view its detailed preparation procedures.</p>
-    
-    <div class="materials-list-container">
-        <h4>Aluminum Alloys</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/1100-aluminum.html#preparation">1100 Aluminum</a></li>
-            <li><a href="/materials/2011-aluminum.html#preparation">2011 Aluminum</a></li>
-            <li><a href="/materials/2017-aluminum.html#preparation">2017 Aluminum</a></li>
-            <li><a href="/materials/2024-aluminum.html#preparation">2024 Aluminum</a></li>
-            <li><a href="/materials/2024t3-aluminum.html#preparation">2024-T3 Aluminum</a></li>
-            <li><a href="/materials/3003-aluminum.html#preparation">3003 Aluminum</a></li>
-            <li><a href="/materials/3004-aluminum.html#preparation">3004 Aluminum</a></li>
-            <li><a href="/materials/5052-aluminum.html#preparation">5052 Aluminum</a></li>
-            <li><a href="/materials/5056-aluminum-1.html#preparation">5056 Aluminum</a></li>
-            <li><a href="/materials/5083-aluminum-1.html#preparation">5083 Aluminum</a></li>
-            <li><a href="/materials/5086-aluminum-1.html#preparation">5086 Aluminum</a></li>
-            <li><a href="/materials/5454-aluminum.html#preparation">5454 Aluminum</a></li>
-            <li><a href="/materials/5456-aluminum-1.html#preparation">5456 Aluminum</a></li>
-            <li><a href="/materials/6005-aluminum-1.html#preparation">6005 Aluminum</a></li>
-            <li><a href="/materials/6013-aluminum-1.html#preparation">6013 Aluminum</a></li>
-            <li><a href="/materials/6061-aluminum-1.html#preparation">6061 Aluminum</a></li>
-            <li><a href="/materials/6063-aluminum.html#preparation">6063 Aluminum</a></li>
-            <li><a href="/materials/6082-aluminum.html#preparation">6082 Aluminum</a></li>
-            <li><a href="/materials/7050-aluminum.html#preparation">7050 Aluminum</a></li>
-            <li><a href="/materials/7075-aluminum.html#preparation">7075 Aluminum</a></li>
-            <li><a href="/materials/7475-aluminum.html#preparation">7475 Aluminum</a></li>
-            <li><a href="/materials/a356-cast-aluminum.html#preparation">A356 Cast Aluminum</a></li>
-            <li><a href="/materials/a380-cast-aluminum.html#preparation">A380 Cast Aluminum</a></li>
-            <li><a href="/materials/am-alsi10mg.html#preparation">AM AlSi10Mg (SLM)</a></li>
-        </ul>
-
-        <h4>Copper Alloys</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/c11000-electrolytic-tough-pitch-copper.html#preparation">C11000 Electrolytic Tough Pitch Copper</a></li>
-            <li><a href="/materials/c17200-beryllium-copper.html#preparation">C17200 Beryllium Copper</a> <span class="condition-note">(aged temper exceeds 150 HV; still Class 1 prep behavior)</span></li>
-            <li><a href="/materials/c26000-cartridge-brass.html#preparation">C26000 Cartridge Brass</a></li>
-            <li><a href="/materials/c36000-freecutting-brass.html#preparation">C36000 Free-Cutting Brass</a></li>
-            <li><a href="/materials/c46400-naval-brass.html#preparation">C46400 Naval Brass</a></li>
-            <li><a href="/materials/c51000-phosphor-bronze.html#preparation">C51000 Phosphor Bronze</a></li>
-            <li><a href="/materials/c63000-aluminum-nickel-bronze.html#preparation">C63000 Aluminum Nickel Bronze</a> <span class="condition-note">(higher hardness in aged condition)</span></li>
-            <li><a href="/materials/c71500-cupronickel-7030.html#preparation">C71500 Cupronickel 70-30</a></li>
-            <li><a href="/materials/c86300-manganese-bronze.html#preparation">C86300 Manganese Bronze</a> <span class="condition-note">(higher hardness in as-cast condition)</span></li>
-            <li><a href="/materials/c90700-tin-bronze.html#preparation">C90700 Tin Bronze</a></li>
-            <li><a href="/materials/c93200-leaded-tin-bronze.html#preparation">C93200 Leaded Tin Bronze</a></li>
-            <li><a href="/materials/c95400-aluminum-bronze.html#preparation">C95400 Aluminum Bronze</a> <span class="condition-note">(heat-treated condition may exceed Class 1 range)</span></li>
-        </ul>
-
-        <h4>Magnesium Alloys</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/am60-magnesium.html#preparation">AM60 Magnesium</a></li>
-            <li><a href="/materials/az31-magnesium.html#preparation">AZ31 Magnesium</a></li>
-            <li><a href="/materials/az31b-magnesium.html#preparation">AZ31B Magnesium</a></li>
-            <li><a href="/materials/az91-magnesium.html#preparation">AZ91 Magnesium</a></li>
-            <li><a href="/materials/we43-magnesium.html#preparation">WE43 Magnesium</a></li>
-        </ul>
-
-        <h4>Zinc Alloys</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/zamak-3.html#preparation">Zamak 3</a></li>
-            <li><a href="/materials/zamak-5.html#preparation">Zamak 5</a></li>
-        </ul>
-
-        <h4>Lead &amp; Tin</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/pure-lead.html#preparation">Pure Lead</a></li>
-            <li><a href="/materials/pure-tin.html#preparation">Pure Tin</a></li>
-        </ul>
-
-        <h4>Solder Alloys</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/sn-37pb-eutectic-solder.html#preparation">Sn-37Pb Eutectic Solder</a></li>
-            <li><a href="/materials/sac305-lead-free-solder.html#preparation">SAC305 Lead-Free Solder</a></li>
-        </ul>
-
-        <h4>Bearing Alloys</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/babbitt-bearing-alloy.html#preparation">Babbitt Bearing Alloy</a></li>
-        </ul>
-
-        <h4>Precious Metals</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/pure-gold.html#preparation">Pure Gold</a></li>
-            <li><a href="/materials/pure-platinum.html#preparation">Pure Platinum</a></li>
-            <li><a href="/materials/pure-silver.html#preparation">Pure Silver</a></li>
-        </ul>
-
-        <h4>Polymer Matrix Composites</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/aramid-fiber-reinforced-polymer.html#preparation">Aramid Fiber Reinforced Polymer</a></li>
-            <li><a href="/materials/carbon-fiber-reinforced-polymer-cfrp.html#preparation">Carbon Fiber Reinforced Polymer (CFRP)</a></li>
-            <li><a href="/materials/glass-fiber-reinforced-polymer-gfrp.html#preparation">Glass Fiber Reinforced Polymer (GFRP)</a></li>
-        </ul>
-    </div>
-</section>
-
-<section class="preparation-guide">
-    <h3 class="section-title">Preparation Guide</h3>
-
-    <div class="guide-section">
-        <h4>Recommended Preparation Steps</h4>
-        <div class="steps-grid">
-            <div class="step-card">
-                <h5>Sectioning</h5>
-                <p>Use low-speed abrasive cutting with continuous coolant flow and minimal feed rate to limit subsurface damage. Aluminum oxide blades are typical for non-ferrous metals. For small or delicate samples, precision wafering with a diamond blade provides the cleanest cut. For polymer composites, use diamond wafering blades to prevent fiber pullout and delamination.</p>
-                <p class="safety-note"><strong>Safety:</strong> Magnesium alloys produce pyrophoric particles when sectioned dry. Always use water-based coolant and never allow dry cutting. Keep a Class D fire extinguisher accessible when working with magnesium.</p>
-            </div>
-            <div class="step-card">
-                <h5>Mounting</h5>
-                <p>Castable (cold) mounting is preferred for heat-sensitive alloys such as age-hardened aluminum, tempered beryllium copper, and low-melting-point metals (lead, tin, solder, babbitt). Compression mounting is acceptable for non-heat-sensitive materials. Use edge-retaining compounds when edge preservation matters. For porous polymer composites, vacuum impregnation with low-viscosity epoxy is essential to fill voids and prevent fiber pullout during grinding.</p>
-            </div>
-            <div class="step-card">
-                <h5>Grinding</h5>
-                <p>Start at 240-320 grit SiC after proper sectioning and progress through 400, 600, 800, and 1200 grit. Use light, consistent pressure; heavy loads cause deformation that propagates into subsequent steps. Clean thoroughly between grits to prevent carryover. Diamond grinding discs are an alternative that reduces abrasive embedding.</p>
-            </div>
-            <div class="step-card">
-                <h5>Polishing</h5>
-                <p>Use napless or low-nap cloths to minimize relief and edge rounding. Polish with 9 &micro;m then 3 &micro;m diamond suspension, followed by a final step with 0.05 &micro;m colloidal silica on a napless cloth. Vibratory polishing (1-4 hours) as a final step produces excellent surface quality and removes residual deformation. Use contra-rotation to reduce directional smearing.</p>
-            </div>
-            <div class="step-card">
-                <h5>Etching</h5>
-                <p>Soft materials etch quickly. Start with short immersion times and increase as needed. Swab etching offers better control than immersion for many Class 1 materials. Verify that the deformation layer has been fully removed before etching; residual damage will obscure grain boundaries regardless of etchant selection. Precious metals are the exception: gold and platinum are chemically inert and require aqua regia (platinum often heated to 50-70&deg;C); silver responds to potassium dichromate or ferric chloride but tarnishes within minutes after etching and must be examined immediately.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="guide-section">
-        <h4>Quality Verification</h4>
-        <div class="verification-grid">
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Check for absence of deformation under polarized light</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Verify grain boundaries etch clearly and uniformly</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Ensure second-phase particles are intact, not smeared</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Confirm no embedded abrasive particles on polished surface</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Check for minimal relief between different phases</p>
-            </div>
-        </div>
-    </div>
-</section>
-</div>
-
-<br><br>
-
-<a href="#top" class="return-to-top" aria-label="Return to top">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
-        <path d="M12 4l-8 8h16z"></path>
-    </svg>
-</a>
 
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
@@ -1317,9 +1417,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1331,7 +1459,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1359,8 +1487,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1432,6 +1559,39 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
           </div>
         </div>
@@ -1465,5 +1625,6 @@
             }
         })();
     </script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

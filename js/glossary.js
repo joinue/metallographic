@@ -408,7 +408,7 @@
     const letters = getUniqueLetters();
     const letterContainer = document.getElementById('glossary-letters');
     if (letterContainer) {
-      let html = '<span class="glossary-letters-label">Jump to:</span>';
+      let html = '';
       letters.forEach(letter => {
         html += `<button class="glossary-letter-btn" data-letter="${letter}">${letter}</button>`;
       });

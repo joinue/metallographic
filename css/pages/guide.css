@@ -135,11 +135,19 @@
   max-width: 100%;
 }
 
-.guide-section {
+.guide-section,
+.guide-article :is(h2, h3, h4)[id] {
   margin-bottom: 0.75rem;
-  scroll-margin-top: 2rem;
+  scroll-margin-top: 5rem; /* Clear the fixed navigation header (which condenses to ~3rem after scroll) */
   width: 100%;
   max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .guide-section,
+  .guide-article :is(h2, h3, h4)[id] {
+    scroll-margin-top: 6rem;
+  }
 }
 
 /* Ensure all direct children in guide sections are properly constrained */
@@ -1193,4 +1201,325 @@ body.guide-nav-open .guide-nav-toggle {
 }
 
 /* Don't adjust content when nav is open - it overlays instead */
+
+/* ============================================================================
+   Intro guide additions: founder pull-quote, reveals panel, desktop TOC,
+   inline back-to-top anchors, floating top button.
+   ============================================================================ */
+
+/* Founder pull-quote */
+.guide-pullquote {
+  margin: 1.5rem 0 2rem;
+  padding: 1.5rem 1.75rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+  border-left: 4px solid var(--color-primary, #2563eb);
+  border-radius: 0.5rem;
+}
+.guide-pullquote blockquote {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-style: italic;
+  color: var(--color-text-primary, #111827);
+}
+.guide-pullquote blockquote::before {
+  content: "\201C";
+  font-size: 2.75rem;
+  line-height: 0;
+  vertical-align: -0.55rem;
+  color: var(--color-primary, #2563eb);
+  margin-right: 0.25rem;
+  font-style: normal;
+}
+.guide-pullquote figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary, #6b7280);
+}
+.guide-pullquote cite {
+  font-style: italic;
+}
+
+/* "What metallography reveals" panel */
+.guide-reveals-panel {
+  background: var(--color-gray-50, #f9fafb);
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0 1.5rem;
+}
+.guide-reveals-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem 1rem;
+}
+@media (min-width: 540px) {
+  .guide-reveals-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 768px) {
+  .guide-reveals-list { grid-template-columns: repeat(3, 1fr); }
+}
+.guide-reveals-list li {
+  font-size: 0.9rem;
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.45;
+}
+.guide-reveals-list li::before {
+  content: "▸";
+  color: var(--color-primary, #2563eb);
+  font-size: 0.8rem;
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+}
+.guide-reveals-caption {
+  margin: 1rem 0 0;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary, #6b7280);
+  font-style: italic;
+}
+
+/* Show inline TOC on desktop too, in a denser 2-column compact layout */
+@media (min-width: 1024px) {
+  .guide-toc-mobile {
+    display: block;
+  }
+  .guide-toc-mobile ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.4rem 1.5rem;
+  }
+}
+
+/* Inline "back to top" anchor between sections */
+.guide-section-end {
+  text-align: right;
+  margin: -0.25rem 0 1.25rem;
+  font-size: 0.78rem;
+}
+.guide-section-end a {
+  color: var(--color-text-secondary, #6b7280);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+}
+.guide-section-end a:hover {
+  color: var(--color-primary, #2563eb);
+  border-bottom-color: currentColor;
+}
+
+/* Floating "Back to top" button (tablet/desktop) */
+.guide-floating-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--color-primary, #2563eb);
+  color: #fff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  z-index: 50;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  pointer-events: none;
+}
+.guide-floating-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+@media (min-width: 768px) {
+  .guide-floating-top { display: flex; }
+}
+.guide-floating-top:hover {
+  background: #1d4ed8;
+}
+
+/* ----- Reveals visual strip (small representative micrographs) ----- */
+.guide-reveals-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+@media (min-width: 540px) {
+  .guide-reveals-strip { grid-template-columns: repeat(6, 1fr); }
+}
+.guide-reveals-strip figure {
+  margin: 0;
+  text-align: center;
+}
+.guide-reveals-strip img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 0.375rem;
+  display: block;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.guide-reveals-strip figcaption {
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  color: var(--color-text-secondary, #6b7280);
+  line-height: 1.2;
+}
+
+/* ----- Phase cards with side thumbnails (denser than full-width cards) ----- */
+.guide-phases-grid--with-thumbs .guide-phase-card--with-thumb {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 0.85rem;
+  align-items: center;
+  padding: 0.85rem 1rem;
+}
+.guide-phase-thumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 0.375rem;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.guide-phases-grid--with-thumbs .guide-phase-card--with-thumb h4 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+.guide-phases-grid--with-thumbs .guide-phase-card--with-thumb p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+/* ----- Compact horizontal prep-process flow ----- */
+.guide-prep-flow {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  counter-reset: prep;
+}
+@media (min-width: 768px) {
+  .guide-prep-flow {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.65rem;
+  }
+}
+.guide-prep-flow li {
+  margin: 0;
+  display: flex;
+}
+.guide-prep-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: var(--color-gray-50, #f9fafb);
+  padding: 1rem 0.9rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid transparent;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  flex: 1;
+}
+.guide-prep-step:hover {
+  border-color: var(--color-primary, #2563eb);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.08);
+}
+.guide-prep-num {
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 50%;
+  background: var(--color-primary, #2563eb);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+.guide-prep-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text-primary, #111827);
+}
+.guide-prep-desc {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--color-text-secondary, #6b7280);
+}
+
+/* ----- Essential books: compact 2x2 grid with colored spine ----- */
+.guide-books-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin: 1.25rem 0 0.5rem;
+}
+@media (min-width: 700px) {
+  .guide-books-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.guide-book {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  background: var(--color-gray-50, #f9fafb);
+  border-radius: 0.5rem;
+  align-items: stretch;
+}
+.guide-book-spine {
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, #475569 0%, #334155 100%);
+  box-shadow: inset -3px 0 0 rgba(0,0,0,0.18);
+  min-height: 84px;
+}
+.guide-book-spine[data-color="brand"] {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+.guide-book-spine[data-color="forest"] {
+  background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+}
+.guide-book-spine[data-color="rust"] {
+  background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
+}
+.guide-book-spine[data-color="slate"] {
+  background: linear-gradient(135deg, #475569 0%, #334155 100%);
+}
+.guide-book-meta h4 {
+  margin: 0 0 0.15rem;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+.guide-book-author {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary, #6b7280);
+}
+.guide-book-meta p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
 

@@ -22,6 +22,377 @@
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/pages/tools.css">
 
+    <!-- Page-scoped styles for the Mounting Material Calculator -->
+    <style>
+      /* Page-level density tweaks */
+      .tool-content > h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+      .tool-content > .tool-intro {
+        font-size: 1rem;
+        line-height: 1.65;
+        margin-bottom: 1.5rem;
+        max-width: 44rem;
+      }
+
+      /* Constrain the form card; reference sections below use full width */
+      .tool-card.tool-form { max-width: 44rem; }
+      .tool-card.tool-form,
+      .tool-card.tool-results { padding: 1.5rem; margin-bottom: 1.25rem; }
+      .tool-card.tool-form .form-group { margin-bottom: 1rem; }
+      .tool-card.tool-form .form-control { padding: 0.625rem 0.875rem; font-size: 0.9375rem; }
+
+      /* Method selector — segmented buttons */
+      .method-selector {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+        padding: 0.25rem;
+        margin-bottom: 1rem;
+        background: #f3f4f6;
+        border-radius: 0.5rem;
+      }
+      @media (min-width: 480px) { .method-selector { grid-template-columns: repeat(2, 1fr); } }
+      .method-btn {
+        appearance: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.125rem;
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 0.375rem;
+        padding: 0.625rem 0.75rem;
+        font: inherit;
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: #4b5563;
+        cursor: pointer;
+        text-align: center;
+        line-height: 1.2;
+        transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+      }
+      .method-btn small {
+        display: block;
+        font-size: 0.6875rem;
+        font-weight: 500;
+        color: #6b7280;
+        line-height: 1.25;
+      }
+      .method-btn:hover { background: #e5e7eb; color: #111827; }
+      .method-btn[aria-checked="true"] {
+        background: #fff;
+        color: #1d4ed8;
+        border-color: #c7d2fe;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+      }
+      .method-btn[aria-checked="true"] small { color: #4b5563; }
+      .method-btn:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+
+      /* Info pill (notes under controls) */
+      .input-note {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.375rem;
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-left: 3px solid #2563eb;
+        border-radius: 0.5rem;
+        padding: 0.625rem 0.75rem;
+        margin: -0.25rem 0 1rem;
+        font-size: 0.8125rem;
+        color: #4b5563;
+        line-height: 1.5;
+      }
+      .input-note svg { flex-shrink: 0; color: #2563eb; margin-top: 1px; }
+
+      /* Action row */
+      .tool-actions { display: flex; gap: 0.625rem; flex-wrap: wrap; }
+      .tool-actions .btn-primary { flex: 1 1 220px; width: auto; }
+      .btn-secondary {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.25rem;
+        background: #fff;
+        color: #374151;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .btn-secondary:hover { border-color: #9ca3af; background: #f9fafb; color: #111827; }
+
+      /* Sample dimension grid */
+      .sample-dim-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.625rem;
+      }
+      .sample-dim-grid > div > label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: #6b7280;
+        margin-bottom: 0.25rem;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      /* Results */
+      .result-headline {
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        color: #fff;
+        border-radius: 0.625rem;
+        padding: 1.375rem 1.5rem;
+        margin-bottom: 1.125rem;
+      }
+      .result-headline-label {
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.85);
+        margin-bottom: 0.25rem;
+      }
+      .result-headline-value {
+        font-size: 2.25rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+      .result-headline-desc {
+        font-size: 0.875rem;
+        color: rgba(255,255,255,0.92);
+        margin-top: 0.375rem;
+      }
+      .result-error {
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        color: #991b1b;
+        border-radius: 0.5rem;
+        padding: 0.875rem 1rem;
+        font-size: 0.875rem;
+      }
+      .results-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+      @media (min-width: 560px) { .results-grid { grid-template-columns: repeat(2, 1fr); } }
+      .result-item {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 0.875rem 1rem;
+      }
+      .result-label {
+        font-size: 0.75rem;
+        color: #6b7280;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+        letter-spacing: 0.02em;
+      }
+      .result-value {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        color: #111827;
+        line-height: 1.3;
+      }
+      .result-note {
+        background: #eff6ff;
+        border: 1px solid #bfdbfe;
+        border-radius: 0.5rem;
+        padding: 0.875rem 1rem;
+        margin-top: 0.875rem;
+        font-size: 0.8125rem;
+        color: #1e3a8a;
+        line-height: 1.55;
+      }
+
+      /* Info section */
+      .info-wrap { margin-top: 2.5rem; }
+      .info-divider {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 0 0 1.25rem;
+        color: #6b7280;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+      }
+      .info-divider::before, .info-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: #e5e7eb;
+      }
+      .info-section {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 1.75rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+      .info-section > h2 {
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0 0 0.75rem;
+        letter-spacing: -0.01em;
+      }
+      .info-section > h3 {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        color: #111827;
+        margin: 1.5rem 0 0.625rem;
+      }
+      .info-section p {
+        font-size: 0.9375rem;
+        color: #374151;
+        line-height: 1.7;
+        margin: 0 0 0.875rem;
+      }
+      .info-section ul {
+        font-size: 0.9375rem;
+        color: #374151;
+        line-height: 1.7;
+        padding-left: 1.25rem;
+        margin: 0 0 0.875rem;
+      }
+      .info-section ul li { margin-bottom: 0.375rem; }
+      .info-section strong { color: #111827; font-weight: 600; }
+      .section-eyebrow {
+        display: inline-block;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #1d4ed8;
+        background: #eff6ff;
+        border-radius: 9999px;
+        padding: 0.25rem 0.625rem;
+        margin-bottom: 0.625rem;
+      }
+
+      /* Compression-vs-castable comparison */
+      .compare-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 0.875rem 0;
+      }
+      @media (min-width: 640px) { .compare-grid { grid-template-columns: repeat(2, 1fr); } }
+      .compare-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 0.625rem;
+        padding: 1.125rem 1.25rem;
+        background: #fff;
+      }
+      .compare-card h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0 0 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .compare-card .compare-tag {
+        font-size: 0.625rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #fff;
+        background: #2563eb;
+        border-radius: 9999px;
+        padding: 0.125rem 0.5rem;
+      }
+      .compare-card.castable .compare-tag { background: #0d9488; }
+      .compare-card p {
+        font-size: 0.8125rem;
+        color: #4b5563;
+        line-height: 1.55;
+        margin: 0 0 0.5rem;
+      }
+      .compare-card ul { font-size: 0.8125rem; line-height: 1.55; padding-left: 1.125rem; margin: 0.25rem 0 0; }
+      .compare-card ul li { margin-bottom: 0.25rem; }
+
+      /* Resin table */
+      .resin-table-wrap {
+        overflow-x: auto;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        margin: 0.875rem 0 1rem;
+      }
+      .resin-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.8125rem;
+        min-width: 720px;
+      }
+      .resin-table th, .resin-table td {
+        text-align: left;
+        padding: 0.625rem 0.875rem;
+        border-bottom: 1px solid #e5e7eb;
+        color: #374151;
+        vertical-align: top;
+      }
+      .resin-table th {
+        background: #f9fafb;
+        font-weight: 600;
+        color: #111827;
+        font-size: 0.6875rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .resin-table tbody tr:last-child td { border-bottom: none; }
+      .resin-table tbody tr:hover { background: #f9fafb; }
+      .resin-table td strong { color: #111827; }
+
+      /* FAQ */
+      .faq-list { display: flex; flex-direction: column; gap: 0.5rem; }
+      .faq-item {
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        background: #fff;
+        overflow: hidden;
+      }
+      .faq-item summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 0.875rem 1rem;
+        font-weight: 600;
+        font-size: 0.9375rem;
+        color: #111827;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+        transition: background 0.15s;
+      }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after {
+        content: "+";
+        font-size: 1.25rem;
+        font-weight: 400;
+        color: #6b7280;
+        flex-shrink: 0;
+      }
+      .faq-item[open] summary::after { content: "−"; }
+      .faq-item summary:hover { background: #f9fafb; }
+      .faq-content {
+        padding: 0 1rem 1rem;
+        font-size: 0.875rem;
+        color: #4b5563;
+        line-height: 1.65;
+      }
+      .faq-content p { font-size: 0.875rem; margin: 0 0 0.5rem; }
+      .faq-content p:last-child { margin-bottom: 0; }
+    </style>
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/pt-favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/pt-favicon/favicon-32x32.png">
@@ -43,6 +414,16 @@
 <body>
     <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
 
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
@@ -70,20 +451,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -293,35 +682,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -366,111 +751,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -679,36 +994,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -745,73 +1058,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -857,20 +1133,26 @@
             <div class="quote-form-container">
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
                 <script>
-                    (function() {
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
                         var script = document.createElement('script');
                         script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
-                        script.defer = true;
                         script.onerror = function() {
                             console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
                         };
                         document.head.appendChild(script);
-                    })();
+                    }
                 </script>
             </div>
         </section>
     </div>
 </div>
+
+
 
     <!-- Main Content -->
     <main class="tool-page">
@@ -882,15 +1164,41 @@
                     based on your sample and mold dimensions. This helps reduce waste and ensures you have enough material.
                 </p>
 
-                <div class="tool-card">
+                <div class="tool-card tool-form">
                     <div class="form-group">
-                        <label for="mountingType">Mounting Type</label>
-                        <select id="mountingType" class="form-control">
-                            <option value="compression">Compression Mounting</option>
-                            <option value="castable">Castable Mounting</option>
+                        <label id="mountingTypeLabel">Mounting Type</label>
+                        <div role="radiogroup" aria-labelledby="mountingTypeLabel" class="method-selector" id="mountingTypeSelector">
+                            <button type="button" class="method-btn" role="radio" aria-checked="true" data-method="compression">
+                                Compression
+                                <small>Hot-cure pellets / powder</small>
+                            </button>
+                            <button type="button" class="method-btn" role="radio" aria-checked="false" data-method="castable">
+                                Castable
+                                <small>Two-part liquid resin</small>
+                            </button>
+                        </div>
+                        <div class="input-note">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            <span id="mountingTypeNote">Uses resin pellets/powder. Includes 10% safety margin for material loss.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resinType">Resin</label>
+                        <select id="resinType" class="form-control">
+                            <option value="phenolic" data-density="1.40" data-group="compression" selected>Phenolic (Bakelite) — compression</option>
+                            <option value="conductive-phenolic" data-density="1.45" data-group="compression">Conductive Phenolic — compression</option>
+                            <option value="diallyl-phthalate" data-density="1.35" data-group="compression">Diallyl Phthalate (glass-filled) — compression</option>
+                            <option value="epoxy" data-density="1.15" data-group="castable">Epoxy — castable</option>
+                            <option value="acrylic" data-density="1.18" data-group="castable">Acrylic — castable</option>
+                            <option value="polyester" data-density="1.20" data-group="castable">Polyester — castable</option>
                         </select>
-                        <p id="mountingTypeNote" class="text-sm" style="margin-top: 0.25rem; color: #6b7280; font-size: 0.75rem;">
-                            Uses resin pellets. Includes 10% safety margin for material loss.
+                        <p class="text-sm" style="margin-top: 0.375rem; color: #6b7280; font-size: 0.75rem;">
+                            Density of the selected resin is used to convert volume → grams.
                         </p>
                     </div>
 
@@ -917,53 +1225,242 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Sample Dimensions (mm) - Optional</label>
-                        <p class="text-sm" style="margin-top: 0.25rem; color: #6b7280; font-size: 0.75rem; margin-bottom: 0.75rem;">
-                            Enter sample dimensions for more accurate calculation. If left blank, will estimate based on 5% of mold volume.
+                        <label for="sampleShape">Sample Shape</label>
+                        <select id="sampleShape" class="form-control">
+                            <option value="rectangular" selected>Rectangular / prismatic</option>
+                            <option value="cylindrical">Cylindrical (rod / disk)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sample Dimensions (mm) <span style="font-weight:500;color:#6b7280;">— optional</span></label>
+                        <p class="text-sm" style="margin: 0.25rem 0 0.625rem; color: #6b7280; font-size: 0.75rem;">
+                            Leave blank to assume the sample is ≈5% of mold volume. For cylindrical samples, enter Length = Width = diameter.
                         </p>
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;">
+                        <div class="sample-dim-grid">
                             <div>
-                                <label for="sampleLength" style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.25rem; display: block;">Length</label>
+                                <label for="sampleLength">Length / Ø</label>
                                 <input type="number" id="sampleLength" class="form-control" step="0.1" min="0" placeholder="Length">
                             </div>
                             <div>
-                                <label for="sampleWidth" style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.25rem; display: block;">Width</label>
+                                <label for="sampleWidth">Width / Ø</label>
                                 <input type="number" id="sampleWidth" class="form-control" step="0.1" min="0" placeholder="Width">
                             </div>
                             <div>
-                                <label for="sampleHeight" style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.25rem; display: block;">Height</label>
+                                <label for="sampleHeight">Height</label>
                                 <input type="number" id="sampleHeight" class="form-control" step="0.1" min="0" placeholder="Height">
                             </div>
                         </div>
                     </div>
 
-                    <button id="calculateBtn" class="btn-primary">Calculate Material Needed</button>
+                    <div class="tool-actions">
+                        <button id="calculateBtn" class="btn-primary" type="button">Calculate Material</button>
+                        <button id="resetBtn" class="btn-secondary" type="button">Reset</button>
+                    </div>
                 </div>
 
-                <div id="results" class="tool-card" style="display: none;">
-                    <h2>Material Requirements</h2>
+                <div id="results" class="tool-card tool-form tool-results" style="display: none;" aria-live="polite">
                     <div id="resultsContent"></div>
                 </div>
 
-                <div class="info-card">
-                    <h3>About Mounting Material Calculation</h3>
-                    <p>
-                        The amount of mounting material needed depends on:
-                    </p>
-                    <ul>
-                        <li><strong>Mold size:</strong> Standard molds are 1", 1.25", 1.5", or 2" diameter</li>
-                        <li><strong>Sample size:</strong> Larger samples require less mounting material</li>
-                        <li><strong>Mounting type:</strong> Castable mounting may require more material due to shrinkage</li>
-                        <li><strong>Safety margin:</strong> Extra material accounts for handling loss and ensures complete filling</li>
-                    </ul>
-                </div>
+                <!-- =====================================================
+                     About Mounting Materials — Reference & Background
+                     ===================================================== -->
+                <div class="info-wrap">
+                    <div class="info-divider">Reference &amp; Background</div>
 
-                <div class="help-card">
-                    <h3>Need More Help?</h3>
-                    <p>
-                        Learn more about mounting methods and best practices in our comprehensive guide.
-                    </p>
-                    <a href="/guides.html" class="help-link">View Mounting Guide ></a>
+                    <!-- 1. Concept -->
+                    <section class="info-section">
+                        <span class="section-eyebrow">Why we mount</span>
+                        <h2>What mounting does</h2>
+                        <p>
+                            <strong>Mounting</strong> encapsulates a metallographic specimen in a polymer cylinder so it can be ground, polished, and handled in a repeatable way. A good mount protects the edge of the specimen, supports irregular shapes, and gives the operator (or an automated holder) a uniform surface to clamp.
+                        </p>
+                        <p>
+                            The right mounting workflow depends on three things: <strong>specimen sensitivity to heat and pressure</strong>, <strong>edge-retention requirements</strong>, and <strong>throughput</strong>. The two families below cover almost every metallographic case.
+                        </p>
+                    </section>
+
+                    <!-- 2. Compression vs Castable -->
+                    <section class="info-section">
+                        <span class="section-eyebrow">Method choice</span>
+                        <h2>Compression vs. castable mounting</h2>
+                        <div class="compare-grid">
+                            <div class="compare-card">
+                                <h4>Compression <span class="compare-tag">Hot mount</span></h4>
+                                <p>Resin pellets or powder are cured under pressure (≈30 MPa) at 150–180 °C in a mounting press. Cycle time is 5–10 minutes per mount.</p>
+                                <ul>
+                                    <li><strong>Best for:</strong> heat-tolerant alloys, routine throughput, edge-retention work.</li>
+                                    <li><strong>Avoid for:</strong> heat-sensitive (low-melt) alloys, electronics, polymer composites, large or hollow parts.</li>
+                                    <li>Typical safety margin: <strong>~10%</strong> for fill consistency and pellet/powder loss.</li>
+                                </ul>
+                            </div>
+                            <div class="compare-card castable">
+                                <h4>Castable <span class="compare-tag">Cold mount</span></h4>
+                                <p>Two-part liquid resin (resin + hardener) is poured into a cup at room temperature and cures over minutes to hours. No press required.</p>
+                                <ul>
+                                    <li><strong>Best for:</strong> heat-sensitive parts, large or irregular samples, porous infiltration, vacuum or pressure impregnation.</li>
+                                    <li><strong>Avoid for:</strong> high-throughput labs where cycle time matters more than versatility.</li>
+                                    <li>Typical safety margin: <strong>~15%</strong> for shrinkage on cure and mixing loss.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 3. Resin Reference Table -->
+                    <section class="info-section">
+                        <span class="section-eyebrow">Resin properties</span>
+                        <h2>Resin reference table</h2>
+                        <p>Properties drive both polishability and how much material you need. Density determines the volume-to-mass conversion the calculator uses.</p>
+                        <div class="resin-table-wrap">
+                            <table class="resin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Resin</th>
+                                        <th>Type</th>
+                                        <th>Density (g/cm³)</th>
+                                        <th>Hardness</th>
+                                        <th>Key trait</th>
+                                        <th>Best for</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Phenolic (Bakelite)</strong></td>
+                                        <td>Compression</td>
+                                        <td>1.40</td>
+                                        <td>Medium-hard</td>
+                                        <td>Workhorse, fast cure</td>
+                                        <td>Routine ferrous &amp; non-ferrous QA.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Conductive Phenolic</strong></td>
+                                        <td>Compression</td>
+                                        <td>1.45</td>
+                                        <td>Medium-hard</td>
+                                        <td>Cu/graphite filler</td>
+                                        <td>SEM/EDS, EBSD, electroplating prep.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Diallyl Phthalate (glass-filled)</strong></td>
+                                        <td>Compression</td>
+                                        <td>1.35</td>
+                                        <td>Hard, low shrink</td>
+                                        <td>Excellent edge retention</td>
+                                        <td>Coatings, thin layers, plated parts.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Epoxy</strong></td>
+                                        <td>Castable</td>
+                                        <td>1.15</td>
+                                        <td>Hard</td>
+                                        <td>Low shrinkage, vacuum-compatible</td>
+                                        <td>Porosity infiltration, PCBs, ceramics.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Acrylic</strong></td>
+                                        <td>Castable</td>
+                                        <td>1.18</td>
+                                        <td>Medium</td>
+                                        <td>Fast cure (~10 min)</td>
+                                        <td>High-throughput cold mounts.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Polyester</strong></td>
+                                        <td>Castable</td>
+                                        <td>1.20</td>
+                                        <td>Medium</td>
+                                        <td>Clear, low-cost</td>
+                                        <td>Display mounts, transparent inspection.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="font-size:0.8125rem;color:#6b7280;margin-top:-0.25rem;">
+                            Density values are typical vendor-published averages and vary by formulation; use the supplier datasheet for tight-tolerance work.
+                        </p>
+                    </section>
+
+                    <!-- 4. How the math works -->
+                    <section class="info-section">
+                        <span class="section-eyebrow">Under the hood</span>
+                        <h2>How the calculator works</h2>
+                        <p>For a cylindrical mold of diameter <em>D</em> and height <em>H</em>, the resin needed is the cavity volume minus the specimen volume, multiplied by a safety margin and the resin density:</p>
+                        <ul>
+                            <li><strong>Mold volume</strong> &nbsp;=&nbsp; π · (D/2)² · H</li>
+                            <li><strong>Specimen volume</strong> &nbsp;=&nbsp; L·W·H (rectangular) or π·(Ø/2)²·H (cylindrical)</li>
+                            <li><strong>Resin volume</strong> &nbsp;=&nbsp; (V<sub>mold</sub> − V<sub>specimen</sub>) × margin</li>
+                            <li><strong>Resin mass</strong> &nbsp;=&nbsp; V<sub>resin</sub> × ρ<sub>resin</sub></li>
+                        </ul>
+                        <p>Standard PACE compression molds use a 0.75&nbsp;in (19.05&nbsp;mm) cavity height. For castable cups or non-standard cavities, choose "Custom Size" and enter the actual values.</p>
+                    </section>
+
+                    <!-- 5. Tips -->
+                    <section class="info-section">
+                        <span class="section-eyebrow">Practice</span>
+                        <h2>Tips for clean, repeatable mounts</h2>
+                        <ul>
+                            <li><strong>Weigh, don't scoop.</strong> Compression resin is forgiving by volume but a gram balance gives reproducible fill levels and pressure profiles run-to-run.</li>
+                            <li><strong>Orient the specimen first.</strong> Place the face you want to polish against the bottom of the cavity. The opposite face becomes the back of the mount.</li>
+                            <li><strong>Use mold release.</strong> A thin film prevents the cured mount from sticking and extends mold life, especially for castable cups.</li>
+                            <li><strong>Mind the cure profile.</strong> Compression mounts need cooling under pressure to prevent radial cracking. Castable epoxies generally prefer slow, low-temperature cures for low shrinkage.</li>
+                            <li><strong>Match resin hardness to the specimen.</strong> Hard specimens in soft resin "round off" at the edge during polishing; soft specimens in glass-filled resin can suffer relief. Aim for hardness parity.</li>
+                            <li><strong>Vacuum-infiltrate porous parts.</strong> Castable epoxy + a small vacuum chamber pulls resin into voids. Essential for castings, sintered powder, thermal-spray coatings, and concrete.</li>
+                        </ul>
+                    </section>
+
+                    <!-- 6. FAQ -->
+                    <section class="info-section">
+                        <span class="section-eyebrow">Common questions</span>
+                        <h2>Frequently asked questions</h2>
+                        <div class="faq-list">
+                            <details class="faq-item">
+                                <summary>How does mold size affect material usage?</summary>
+                                <div class="faq-content">
+                                    <p>Mounting material scales with cavity volume; volume goes as the diameter squared. A 2″ mold uses ~4× the resin of a 1″ mold for the same cavity height. The calculator handles this directly; pick the smallest mold that comfortably accommodates the specimen.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Why two different safety margins (10% vs 15%)?</summary>
+                                <div class="faq-content">
+                                    <p>Compression resins lose a few percent to pellet-to-pellet packing and minor flash; 10% covers it. Castable resins additionally shrink several percent during cure (especially polyester) and lose volume in mixing cups and meniscus, so 15% is more realistic.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>I left the sample dimensions blank. What does the calculator assume?</summary>
+                                <div class="faq-content">
+                                    <p>It assumes the specimen displaces <strong>≈5% of mold volume</strong>, which is conservative for most metallography samples (typical specimens occupy 2–10%). Entering actual dimensions gives a tighter estimate and avoids over-ordering resin for batch work.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Which resin gives the best edge retention?</summary>
+                                <div class="faq-content">
+                                    <p>Glass-filled diallyl phthalate (compression) and certain mineral-filled epoxies (castable) hold the specimen edge sharpest during polishing. That's critical for coating thickness measurements, case-depth work, and any plated layer. Standard phenolic and acrylic round off slightly under aggressive polishing pressure.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Do I need conductive resin for SEM?</summary>
+                                <div class="faq-content">
+                                    <p>Yes. For EDS/EBSD or any high-resolution SEM imaging, the mount needs to be conductive to prevent charging. Conductive phenolic (copper- or graphite-filled) is the simplest path; alternatives are carbon coating or silver-paint bridges from specimen to stub.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Can I re-use the same mold for compression and castable?</summary>
+                                <div class="faq-content">
+                                    <p>Compression molds are steel cavities designed for the press; castable cups are disposable silicone or plastic. They are not interchangeable. If your shop runs both methods, keep separate inventories.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </section>
+
+                    <!-- 7. Help card -->
+                    <div class="help-card">
+                        <h3>Need more help?</h3>
+                        <p>
+                            Browse our mounting consumables, presses, and castable systems, or talk to a metallographer about a specific specimen.
+                        </p>
+                        <a href="/metallographic-consumables/mounting.html" class="help-link">View Mounting Consumables &rsaquo;</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -982,6 +1479,7 @@
     <!-- Scripts -->
     <script src="/js/scripts.js"></script>
     <script src="/js/tools/mounting-material-calculator.js"></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 
 </html>

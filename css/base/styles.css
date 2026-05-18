@@ -523,9 +523,12 @@ button:hover,
 .top-header {
   position: relative;
   width: 100%;
-  padding-top: 160px;
+  /* padding-top sized for the compact nav (~75px desktop / ~60px mobile).
+     Reduced from 160/140 — old values were calibrated for the previous
+     180px-logo / 12px-wrapper nav and left a visible gap above the H1. */
+  padding-top: 125px;
   padding-bottom: 0;
-  min-height: 280px;
+  min-height: 245px;
   background: #1a202c;
   overflow: hidden;
   z-index: 10;
@@ -667,8 +670,8 @@ button:hover,
 
 @media (max-width: 768px) {
   .top-header {
-    padding-top: 140px;
-    min-height: 240px;
+    padding-top: 110px;
+    min-height: 210px;
   }
 
   .top-header-content {
@@ -781,7 +784,8 @@ section {
   position: relative;
   width: 100%;
   background: linear-gradient(to bottom right, #111827, #1f2937, #111827);
-  padding-top: calc(100px + var(--spacing-xl)); /* Account for fixed nav + extra spacing */
+  /* Account for fixed nav + extra spacing — sized for the compact nav (~75px). */
+  padding-top: calc(70px + var(--spacing-xl));
   padding-bottom: var(--spacing-lg);
   margin-bottom: 0;
   border-radius: 0 0 1.5rem 1.5rem;
@@ -1872,51 +1876,6 @@ input[type="text"]:focus {
   
   .custom-result-item p {
     font-size: 0.8125rem;
-  }
-}
-
-/* ================================
-   Return to Top Button
-   ================================ */
-
-.return-to-top {
-  position: fixed;
-  bottom: 1.875rem;
-  left: 50%;
-  transform: translateX(-50%) scale(0.9);
-  background-color: rgba(37, 40, 68, 0.75);
-  padding: 0.625rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: opacity 0.3s, background-color 0.3s, box-shadow 0.3s;
-  z-index: 100;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.return-to-top svg {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.return-to-top.visible {
-  opacity: 1;
-  transform: translateX(-50%) scale(1);
-  visibility: visible;
-  transition: opacity 0.3s, transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-}
-
-.return-to-top:hover {
-  background-color: rgba(0, 0, 0, 0.9);
-  transform: translateX(-50%) scale(1);
-}
-
-@media (max-width: 768px) {
-  .return-to-top {
-    display: none;
   }
 }
 

@@ -24,9 +24,7 @@
     <link rel="stylesheet" href="/css/components/navigation.css">
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/base/styles.css">
-    <link rel="stylesheet" href="/css/pages/classes.css">
-    <link rel="stylesheet" href="/css/pages/class-materials.css">
-    <link rel="stylesheet" href="/css/pages/prep.css">
+    <link rel="stylesheet" href="/css/pages/class-page.css">
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -52,6 +50,16 @@
       // You can expand your custom JS logic here if needed
     </script>
 </head>
+
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
 
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
@@ -79,20 +87,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -302,35 +318,35 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/build.html"><span>Lab Builder</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -375,111 +391,35 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
+                            <li><a href="/support/procedures.html">Procedures</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -688,36 +628,38 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/build.html"><span>Lab Builder
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -754,73 +696,31 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
+                            <li><a href="/support/procedures.html"><span>Procedures</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -864,215 +764,371 @@
         <button class="close" aria-label="Close">&times;</button>
         <section class="quote-request" aria-labelledby="quote-request-heading">
             <div class="quote-form-container">
-                <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
             </div>
         </section>
     </div>
 </div>
 
-<!-- HEADER -->
 
-<div class="top-header">
-  <header>
-    <div class="top-header-content">
-      <div class="top-header-inner">
-        <h1 class="page-title">CLASS 8 Material Preparation Guide</h1>
-        <div class="text-content"></div>
-      </div>
-    </div>
-  </header>
-</div>
 
-<div class="first-container">
-<div class="material-card">
-    <div class="material-header">
-        <a href="/support/procedures.html" class="back-button" id="back-button" aria-label="Back to previous page">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
+<!-- CLASS PAGE -->
+<article class="class-page">
+
+    <header class="cp-hero">
+        <a href="/support/procedures.html" class="cp-back" aria-label="Back to procedures">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Recommended Procedures
         </a>
-        <div class="material-icon">
-            <i class="fas fa-microscope"></i>
+        <div class="cp-hero-inner">
+            <div class="cp-hero-content">
+                <span class="cp-eyebrow">Class 8</span>
+                <h1 class="cp-title">Hardened &amp; Heat Treated Steels</h1>
+                <div class="cp-chips">
+                    <span class="cp-chip"><span class="cp-chip-label">Hardness</span> 28&ndash;67 HRC (~290&ndash;940 HV)</span>
+                    <span class="cp-chip"><span class="cp-chip-label">Typical</span> Tool &middot; High-speed &middot; Nitrided</span>
+                    <span class="cp-chip"><span class="cp-chip-label">Key challenge</span> Carbide retention &amp; edges</span>
+                </div>
+                <p class="cp-lede">Class 8 covers tool steels and surface-hardened steels whose high hardness and carbide content set them apart from the medium-hardness ferrous alloys in Class 5. Cold-work steels (A2, D2, O1, W1) contain massive primary carbides and operate at 58-65 HRC. High-speed steels (M2, M42, T1, T15) add vanadium and tungsten carbides that are harder than the matrix and notoriously prone to pull-out. Hot-work steels (H11, H13, H21) and shock-resisting steels (S1, S5, S7) run at somewhat lower hardness but still demand careful abrasive selection. Nitrided steels add the complication of a graded hardness profile from a very hard nitrogen-diffused surface to a softer core. Across the class, the preparation challenges center on retaining hard carbides, preserving specimen edges for case depth measurement, and revealing martensite morphology without introducing grinding-induced transformation artifacts.</p>
+            </div>
+            <figure class="cp-hero-figure">
+                <img src="/images/microstructures/High-alloy-tool-steel.jpg" alt="High-alloy tool steel microstructure showing typical Class 8 hardened steel structure">
+                <figcaption>High-alloy tool steel: typical Class 8 microstructure</figcaption>
+            </figure>
         </div>
-        <h2 class="material-title">Class 8: Hardened & Heat Treated Steels</h2>
-        <div class="material-header-image">
-            <img src="/images/microstructures/High-alloy-tool-steel.jpg" alt="High-alloy tool steel microstructure showing typical Class 8 hardened steel structure" class="header-microstructure-img">
-        </div>
+    </header>
+
+    <div class="cp-layout">
+        <aside class="cp-sidebar" aria-label="On this page">
+            <p class="cp-sidebar-title">On this page</p>
+            <nav class="cp-nav">
+                <a href="#overview" class="cp-nav-link is-active">Overview</a>
+                <a href="#challenges" class="cp-nav-link">Challenges</a>
+                <a href="#materials" class="cp-nav-link">Materials</a>
+                <a href="#procedure" class="cp-nav-link">Procedure</a>
+                <a href="#verify" class="cp-nav-link">Quality checks</a>
+            </nav>
+        </aside>
+
+        <main class="cp-main">
+
+            <section id="overview" class="cp-section">
+                <h2 class="cp-section-title">Overview</h2>
+                <p class="cp-section-lede">Class 8 materials are hard enough that subsurface deformation during grinding is minimal compared to softer classes, but their hardness and carbide content create a different set of challenges: abrasive wear, carbide retention, edge integrity, and the risk of grinding-induced transformation artifacts.</p>
+            </section>
+
+            <section id="challenges" class="cp-section">
+                <h2 class="cp-section-title">Preparation Challenges</h2>
+                <p class="cp-section-lede">Seven properties drive the prep procedure. Tap a card for full detail.</p>
+                <div class="cp-challenge-grid">
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Carbide Distribution &amp; Pull-Out</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Hard primary carbides get ripped from the softer matrix on napped cloths.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Tool steels contain primary carbides (Cr&#8327;C&#8323; in D2, VC in T15 and M2, M&#8326;C in high-speed steels) that are significantly harder than the martensitic matrix. During polishing on napped cloths, the cloth fibers catch carbide edges and rip them from the matrix, leaving voids that inflate apparent porosity. Napless cloths with moderate diamond loads retain carbides best.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Edge Chipping &amp; Retention</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Brittle martensite chips at edges where case depth measurements live.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">High-hardness martensite is brittle, and specimen edges chip easily during sectioning and grinding. For nitrided and carburized steels, the hard case surface and the case-core transition zone sit at the specimen edge, making edge retention critical for accurate case depth measurement. Edge-retention mounting compounds and careful grinding orientation are essential.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Grinding-Induced Transformation</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Heat from coarse grinding can temper or re-austenitize a surface white layer.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Excessive heat during sectioning or coarse grinding can temper the martensitic matrix (softening it) or create re-austenitized "white layers" at the surface that misrepresent the actual heat treatment. These artifacts are invisible until etching reveals an unexpected microstructure. Abundant coolant and moderate feed rates prevent thermal damage.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Retained Austenite</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Untransformed austenite needs tint etchants and is easily transformed by grinding.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Incompletely transformed austenite is present in many hardened steels, particularly high-carbon and high-alloy grades (D2, high-speed steels). Retained austenite can transform to martensite during aggressive grinding, producing a false hardness reading. It also requires specific etchants (Klemm's I or 10% sodium metabisulfite tint etch, which color martensite while leaving retained austenite light) to distinguish from martensite. LePera's reagent is reserved for dual-phase automotive sheet steels, not tool steels.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Rapid Abrasive Wear</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">High-speed steel carbides chew through SiC paper in seconds.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">The high hardness and carbide content of these steels wears through SiC grinding papers very quickly, especially for high-speed steels with vanadium and tungsten carbides. Frequent paper changes or switching to diamond grinding discs prevents the loss of grinding efficiency and avoids introducing thermal damage from dull abrasive.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Case-Core Hardness Gradient</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Soft core polishes faster than hard case, creating relief at the transition.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Nitrided and carburized steels have a continuous hardness gradient from very hard surface (60-70 HRC equivalent) to a softer core (20-30 HRC). The soft core grinds and polishes faster than the hard case, creating relief at the transition zone. Napless cloths and short polishing times minimize this differential removal.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Martensite Morphology &amp; Etching</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Lath vs. plate martensite respond differently to nital and picral timing.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Different tool steels produce different martensite types: lath martensite in lower-carbon grades (H13, S7), plate martensite in higher-carbon grades (D2, W1). Each responds differently to nital and picral. Over-etching darkens the entire structure, while under-etching fails to resolve grain boundaries. Timing and etchant choice must be matched to the specific steel grade.</p>
+                    </details>
+
+                </div>
+            </section>
+
+            <section id="materials" class="cp-section">
+                <h2 class="cp-section-title">Class 8 Materials</h2>
+                <p class="cp-section-lede">Expand any group to view materials grouped by tool-steel family.</p>
+                <div class="cp-materials">
+
+                    <details class="cp-material-group" open>
+                        <summary>
+                            <span>Cold-Work Tool Steels</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">6</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>A2 Air-Hardening Tool Steel</li>
+                            <li>A4 Air-Hardening Tool Steel</li>
+                            <li>A6 Air-Hardening Tool Steel</li>
+                            <li>D2 Tool Steel</li>
+                            <li>O1 Oil-Hardening Tool Steel</li>
+                            <li>W1 Water-Hardening Tool Steel</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Hot-Work &amp; Mold Steels</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">4</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>H11 Hot-Work Tool Steel</li>
+                            <li>H13 Hot-Work Tool Steel</li>
+                            <li>H21 Hot-Work Tool Steel</li>
+                            <li>P20 Plastic Mold Steel</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>High-Speed Steels</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">4</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>M2 High-Speed Steel</li>
+                            <li>M42 High-Speed Steel</li>
+                            <li>T1 High-Speed Steel</li>
+                            <li>T15 High-Speed Steel</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Shock-Resisting Tool Steels</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">3</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>S1 Shock-Resisting Tool Steel</li>
+                            <li>S5 Shock-Resisting Tool Steel</li>
+                            <li>S7 Shock-Resisting Tool Steel</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Surface-Hardened Steels</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">1</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Nitrided Steel Cross-Section</li>
+                        </ul>
+                    </details>
+
+                </div>
+            </section>
+
+            <section id="procedure" class="cp-section">
+                <h2 class="cp-section-title">Recommended Procedure</h2>
+                <p class="cp-section-lede">Five-stage workflow tuned to retain carbides, preserve edges, and avoid grinding-induced transformation.</p>
+                <ol class="cp-steps">
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">1</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Sectioning</h3>
+                            <p class="cp-step-lede">Aluminum-oxide ferrous blades with generous coolant; moderate feed rates so the cut face does not temper.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Use ferrous-metal abrasive blades (aluminum oxide) with generous coolant flow. These steels are brittle at high hardness and chip easily, so clamp firmly and use moderate feed rates. For nitrided or carburized specimens, cut perpendicular to the case surface to preserve the case-core transition. Precision wafering with diamond blades produces less subsurface damage for critical case depth measurements. Avoid excessive cutting speed, which generates heat and can temper the martensitic structure at the cut face. <strong>Note on hardened stainless:</strong> fully hardened martensitic (440C aged, heat-treated 410/420) and precipitation-hardening (17-4 PH H900, 15-5 PH H1025) stainless grades follow the <a href="/support/preparation-procedures/class-5.html">Class 5 stainless preparation procedure</a> for grinding, polishing, and final-polish (Nanometer alumina on TRICOTE), but step up the sectioning blade to <a href="https://shop.metallographic.com/collections/abrasive-blades">MAXCUT MAX-VHS</a> (HRC&nbsp;&gt;&nbsp;45). See also the <a href="/guides/stainless-steel-preparation.html">Stainless Steel Preparation Guide</a>.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">2</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Mounting</h3>
+                            <p class="cp-step-lede">Per Don &sect;11.8.1: epoxy or DAP compression mounts (phenolic NOT recommended for hardened steels &mdash; shrinkage compromises edge retention). Mineral-filled epoxy for case-depth work.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Don &sect;11.8.1 specifies <strong>epoxy or diallyl phthalate (DAP)</strong> compression resin for tool steels and nitrided steel &mdash; <strong>phenolic is not on Don's list</strong>. Phenolic shrinks more than epoxy or DAP, producing gaps at the mount-sample boundary that compromise edge retention exactly where case-depth, decarburization, or carbide-rich edge measurements are made. For case-hardened cross-sections (nitrided, carburized), use mineral-filled (edge-retention grade) epoxy &mdash; the hard filler particles polish at a rate close to the steel, eliminating the matrix-mount step that causes interface rounding. The thermal cycle (150-180 &deg;C) is well below tempering temperature for most tool steels and will not affect hardness.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">3</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Grinding</h3>
+                            <p class="cp-step-lede">Per Don &sect;11.8.1: single 120 &micro;m diamond grinding disc plane grind (replaces SiC paper progression). Water, 5-10 lb, 200/200 rpm, until plane.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Don &sect;11.8.1 replaces multi-step SiC paper progressions with a <strong>single 120 &micro;m diamond grinding disc</strong> plane-grind step (water, 5-10 lb, 200/200 rpm, until plane). The rigid diamond disc cuts hardened steels (HRC 60+) cleanly and uniformly &mdash; SiC papers wear quickly against these materials, glaze partway through, and produce inconsistent removal. The rigid disc also maintains flatness across the carbide-rich microstructure, which is what preserves carbides through the subsequent polishing steps. This single disc replaces the entire SiC paper progression and the multi-step diamond grinding disc sequence (75/40/15 &micro;m) used in some Buehler/Struers procedures. Maintain consistent 5-10 lb force; excessive pressure can fracture brittle carbides at the plane-grind stage and propagate damage into all subsequent steps.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">4</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Polishing</h3>
+                            <p class="cp-step-lede">9 &micro;m DIAMAT on SIRIUS &rarr; 3 &micro;m DIAMAT on ORION &rarr; 1 &micro;m DIAMAT on GOLDPAD &rarr; 0.05 &micro;m Nanometer alumina on TRICOTE. Rigid composite discs preserve carbides.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Don &sect;11.8.1 polishing sequence: <strong>9 &micro;m DIAMAT on SIRIUS composite disc</strong> (DIALUBE Purple Extender, 5-10 lb, 200/200 rpm, 3 min) &rarr; <strong>3 &micro;m DIAMAT on ORION composite disc</strong> (DIALUBE Purple Extender, 5-10 lb, 200/200 rpm, 3 min) &rarr; <strong>1 &micro;m DIAMAT on GOLDPAD polishing pad</strong> (DIALUBE Purple Extender, 5-10 lb, 200/200 rpm, 2 min) &rarr; <strong>0.05 &micro;m Nanometer alumina on TRICOTE polishing pad</strong> (5-10 lb, 100/100 rpm, 1 min). The rigid composite discs (SIRIUS, ORION) at the 9/3 &micro;m steps are essential &mdash; carbides (M<sub>6</sub>C, MC, M<sub>2</sub>C, M<sub>23</sub>C<sub>6</sub>, M<sub>7</sub>C<sub>3</sub>) polish at a different rate than the martensite matrix, and woven cloths at these intermediate steps produce visible relief around carbides. Don's procedure applies identically to nitrided steel (&sect;11.8.2). For HSS and high-carbide grades (M2, M42, D2, T15), stay strictly within this recipe &mdash; substituting woven cloths anywhere in the sequence produces noticeable carbide relief.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">5</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Etching</h3>
+                            <p class="cp-step-lede">2&ndash;5% nital is the workhorse; 4% picral for high-alloy grades, Vilella's for prior-austenite grain, tint etchants for retained austenite.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Nital (2-5%) is the standard etchant for most hardened steels; swab 5-10 seconds. 4% Picral is preferred for high-alloy tool steels (D2, M2, T15) because it reveals carbide boundaries more clearly without darkening the martensitic matrix as aggressively as nital. Vilella's reagent reveals prior austenite grain boundaries in quenched steels. For retained austenite identification, use a 10% sodium metabisulfite tint etch, which colors martensite dark while leaving austenite white.</p>
+                                </div>
+                            </details>
+
+                            <div class="cp-etchants">
+                                <h4 class="cp-etchants-title">Common etchants by tool-steel family</h4>
+                                <dl class="cp-etchants-list">
+                                    <div class="cp-etchant-row"><dt>Cold-work tool steels (A, D, O, W)</dt><dd>2&ndash;4% nital (matrix); 4% picral (carbides); Vilella's (tempered structures)</dd></div>
+                                    <div class="cp-etchant-row"><dt>High-speed steels (M, T)</dt><dd>Vilella's (general); Marble's reagent; modified Murakami's for carbide-type ID</dd></div>
+                                    <div class="cp-etchant-row"><dt>Hot-work tool steels (H-series)</dt><dd>2% nital; 4% picral; Vilella's for tempered martensite</dd></div>
+                                    <div class="cp-etchant-row"><dt>Shock-resisting steels (S-series)</dt><dd>2% nital; Vilella's</dd></div>
+                                    <div class="cp-etchant-row"><dt>Nitrided / nitrocarburized cases</dt><dd>2% nital (case structure); modified Marble's; Murakami's for nitride ID</dd></div>
+                                    <div class="cp-etchant-row"><dt>Carburized cases</dt><dd>2% nital; 4% picral for cementite networks &amp; case depth</dd></div>
+                                </dl>
+                                <p class="cp-etchants-cta">
+                                    <a href="/etchant-guides/high-carbon-steel" class="cp-etchants-link">High-carbon &amp; tool steel etchant guide &rarr;</a>
+                                    <a href="/metallographic-consumables/Metallography-Etching.htm" class="cp-etchants-link">Etching consumables &amp; supplies &rarr;</a>
+                                    <a href="https://shop.metallographic.com/" target="_blank" rel="noopener noreferrer" class="cp-etchants-link">Shop etchants &rarr;</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                </ol>
+            </section>
+
+            <section id="verify" class="cp-section">
+                <h2 class="cp-section-title">Quality Checks</h2>
+                <ul class="cp-checks">
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Martensite structure clearly resolved without grinding-induced transformation artifacts
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Carbides retained in place with no pull-out voids or edge rounding
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Specimen edges sharp with no chipping (especially for case depth measurement)
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        No thermal discoloration or white-layer artifacts from sectioning
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Case-core transition (if applicable) clearly visible with a measurable boundary
+                    </li>
+                </ul>
+            </section>
+
+        </main>
     </div>
+</article>
+
+<script src="/js/class-page.js" defer></script>
+
     
-    <p class="material-description">
-        Class 8 covers tool steels and surface-hardened steels whose high hardness and carbide content set them apart from the medium-hardness ferrous alloys in Class 5. Cold-work steels (A2, D2, O1, W1) contain massive primary carbides and operate at 58-65 HRC. High-speed steels (M2, M42, T1, T15) add vanadium and tungsten carbides that are harder than the matrix and notoriously prone to pull-out. Hot-work steels (H11, H13, H21) and shock-resisting steels (S1, S5, S7) run at somewhat lower hardness but still demand careful abrasive selection. Nitrided steels add the complication of a graded hardness profile from a very hard nitrogen-diffused surface to a softer core. Across the class, the preparation challenges center on retaining hard carbides, preserving specimen edges for case depth measurement, and revealing martensite morphology without introducing grinding-induced transformation artifacts.
-    </p>
-
-    <div class="material-properties">
-        <div class="property-item">
-            <div class="property-label">Hardness Range</div>
-            <div class="property-value">28 HRC (P20 pre-hardened) to 67 HRC (T15 high-speed steel); approximately 290-940 HV</div>
-        </div>
-        <div class="property-item">
-            <div class="property-label">Typical Materials</div>
-            <div class="property-value">Cold-Work Tool Steels (A, D, O, W), Hot-Work Tool Steels (H), High-Speed Steels (M, T), Nitrided Steel</div>
-        </div>
-        <div class="property-item">
-            <div class="property-label">Preparation Challenge</div>
-            <div class="property-value">Carbide Preservation, Edge Retention &amp; Martensite Contrast</div>
-        </div>
-    </div>
-</div>
-
-<section class="preparation-challenges">
-    <h3 class="section-title">Preparation Characteristics &amp; Challenges</h3>
-    <div class="challenges-content">
-        <div class="properties-image-container">
-            <img src="/images/microstructures/Hardened-steels.png" alt="Hardened steel microstructure showing martensitic structure typical of Class 8 materials" class="properties-microstructure-img">
-            <p class="image-caption">Hardened tool steel, nital etch</p>
-        </div>
-        <p>Class 8 materials are hard enough that subsurface deformation during grinding is minimal compared to softer classes, but their hardness and carbide content create a different set of challenges: abrasive wear, carbide retention, edge integrity, and the risk of grinding-induced transformation artifacts.</p>
-        <div class="challenges-grid">
-            <div class="challenge-card">
-                <h5>Carbide Distribution &amp; Pull-Out</h5>
-                <p>Tool steels contain primary carbides (Cr&#8327;C&#8323; in D2, VC in T15 and M2, M&#8326;C in high-speed steels) that are significantly harder than the martensitic matrix. During polishing on napped cloths, the cloth fibers catch carbide edges and rip them from the matrix, leaving voids that inflate apparent porosity. Napless cloths with moderate diamond loads retain carbides best.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Edge Chipping &amp; Retention</h5>
-                <p>High-hardness martensite is brittle, and specimen edges chip easily during sectioning and grinding. For nitrided and carburized steels, the hard case surface and the case-core transition zone sit at the specimen edge, making edge retention critical for accurate case depth measurement. Edge-retention mounting compounds and careful grinding orientation are essential.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Grinding-Induced Transformation</h5>
-                <p>Excessive heat during sectioning or coarse grinding can temper the martensitic matrix (softening it) or create re-austenitized "white layers" at the surface that misrepresent the actual heat treatment. These artifacts are invisible until etching reveals an unexpected microstructure. Abundant coolant and moderate feed rates prevent thermal damage.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Retained Austenite</h5>
-                <p>Incompletely transformed austenite is present in many hardened steels, particularly high-carbon and high-alloy grades (D2, high-speed steels). Retained austenite can transform to martensite during aggressive grinding, producing a false hardness reading. It also requires specific etchants (sodium metabisulfite tint etch, or LePera's reagent) to distinguish from martensite.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Rapid Abrasive Wear</h5>
-                <p>The high hardness and carbide content of these steels wears through SiC grinding papers very quickly, especially for high-speed steels with vanadium and tungsten carbides. Frequent paper changes or switching to diamond grinding discs prevents the loss of grinding efficiency and avoids introducing thermal damage from dull abrasive.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Case-Core Hardness Gradient</h5>
-                <p>Nitrided and carburized steels have a continuous hardness gradient from very hard surface (60-70 HRC equivalent) to a softer core (20-30 HRC). The soft core grinds and polishes faster than the hard case, creating relief at the transition zone. Napless cloths and short polishing times minimize this differential removal.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Martensite Morphology &amp; Etching</h5>
-                <p>Different tool steels produce different martensite types: lath martensite in lower-carbon grades (H13, S7), plate martensite in higher-carbon grades (D2, W1). Each responds differently to nital and picral. Over-etching darkens the entire structure, while under-etching fails to resolve grain boundaries. Timing and etchant choice must be matched to the specific steel grade.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="class8-materials-list">
-    <h3 class="section-title">Class 8 Materials</h3>
-    <p class="materials-intro">The following materials are classified as Class 8 (Hardened Steels). Click on any material to view its detailed preparation procedures.</p>
-
-    <div class="materials-list-container">
-        <h4>Cold-Work Tool Steels</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/a2-airhardening-tool-steel.html#preparation">A2 Air-Hardening Tool Steel</a></li>
-            <li><a href="/materials/a4-airhardening-tool-steel.html#preparation">A4 Air-Hardening Tool Steel</a></li>
-            <li><a href="/materials/a6-airhardening-tool-steel.html#preparation">A6 Air-Hardening Tool Steel</a></li>
-            <li><a href="/materials/d2-tool-steel.html#preparation">D2 Tool Steel</a></li>
-            <li><a href="/materials/o1-oilhardening-tool-steel.html#preparation">O1 Oil-Hardening Tool Steel</a></li>
-            <li><a href="/materials/w1-water-hardening-tool-steel.html#preparation">W1 Water-Hardening Tool Steel</a></li>
-        </ul>
-
-        <h4>Hot-Work &amp; Mold Steels</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/h11-hotwork-tool-steel.html#preparation">H11 Hot-Work Tool Steel</a></li>
-            <li><a href="/materials/h13-hotwork-tool-steel.html#preparation">H13 Hot-Work Tool Steel</a></li>
-            <li><a href="/materials/h21-hotwork-tool-steel.html#preparation">H21 Hot-Work Tool Steel</a></li>
-            <li><a href="/materials/p20-plastic-mold-steel.html#preparation">P20 Plastic Mold Steel</a></li>
-        </ul>
-
-        <h4>High-Speed Steels</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/m2-highspeed-steel.html#preparation">M2 High-Speed Steel</a></li>
-            <li><a href="/materials/m42-highspeed-steel.html#preparation">M42 High-Speed Steel</a></li>
-            <li><a href="/materials/t1-highspeed-steel.html#preparation">T1 High-Speed Steel</a></li>
-            <li><a href="/materials/t15-highspeed-steel.html#preparation">T15 High-Speed Steel</a></li>
-        </ul>
-
-        <h4>Shock-Resisting Tool Steels</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/s1-shockresisting-tool-steel.html#preparation">S1 Shock-Resisting Tool Steel</a></li>
-            <li><a href="/materials/s5-shockresisting-tool-steel.html#preparation">S5 Shock-Resisting Tool Steel</a></li>
-            <li><a href="/materials/s7-shockresisting-tool-steel.html#preparation">S7 Shock-Resisting Tool Steel</a></li>
-        </ul>
-
-        <h4>Surface-Hardened Steels</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/nitrided-steel-cross-section.html#preparation">Nitrided Steel Cross-Section</a></li>
-        </ul>
-    </div>
-</section>
-
-<section class="preparation-guide">
-    <h3 class="section-title">Preparation Guide</h3>
-
-    <div class="guide-section">
-        <h4>Recommended Preparation Steps</h4>
-        <div class="steps-grid">
-            <div class="step-card">
-                <h5>Sectioning</h5>
-                <p>Use ferrous-metal abrasive blades (aluminum oxide) with generous coolant flow. These steels are brittle at high hardness and chip easily, so clamp firmly and use moderate feed rates. For nitrided or carburized specimens, cut perpendicular to the case surface to preserve the case-core transition. Precision wafering with diamond blades produces less subsurface damage for critical case depth measurements. Avoid excessive cutting speed, which generates heat and can temper the martensitic structure at the cut face.</p>
-            </div>
-            <div class="step-card">
-                <h5>Mounting</h5>
-                <p>Compression mounting with phenolic or diallyl phthalate (DAP) resin works well because these hard steels easily tolerate the mounting temperature and pressure. For case depth measurement or any edge-critical evaluation, use mineral-filled edge-retention resins or add alumina filler to castable epoxy. The mounting material must support the specimen edge to prevent rounding during grinding. Castable epoxy with edge-retention filler is required for nitrided steel cross-sections.</p>
-            </div>
-            <div class="step-card">
-                <h5>Grinding</h5>
-                <p>Start at 180-240 grit SiC (these materials are hard enough for aggressive initial grinding without subsurface deformation). Progress through 320, 400, and 600 grit. Change papers frequently because hardened steels and their carbides wear SiC rapidly. Diamond grinding discs (75 and 40 &micro;m) are preferred for high-speed steels (M2, M42, T15) where vanadium and tungsten carbides destroy SiC paper almost immediately. Use moderate pressure (25-30 N) with contra-rotation.</p>
-            </div>
-            <div class="step-card">
-                <h5>Polishing</h5>
-                <p>Polish with 9 &micro;m polycrystalline diamond on a napless cloth, then 3 &micro;m diamond on a napless cloth. Final polish with 0.05 &micro;m colloidal silica on a short-nap cloth for 1-2 minutes to remove the last deformation layer. Napless cloths are critical for this class: they minimize relief between hard carbide particles and the softer martensitic matrix, and they prevent carbide pull-out. Avoid extended polishing on napped cloths, which rounds carbide edges and creates artificial relief around inclusions.</p>
-            </div>
-            <div class="step-card">
-                <h5>Etching</h5>
-                <p>Nital (2-5% HNO&#8323; in ethanol) is the standard etchant for most hardened steels; swab 5-10 seconds. Picral (4% picric acid in ethanol) is preferred for high-alloy tool steels (D2, M2, T15) because it reveals carbide boundaries more clearly without darkening the martensitic matrix as aggressively as nital. Vilella's reagent (1 g picric acid, 5 mL HCl, 100 mL ethanol) reveals prior austenite grain boundaries in quenched steels. For retained austenite identification, use sodium metabisulfite tint etch (10% Na&#8322;S&#8322;O&#8325; in water) which colors martensite dark while leaving austenite white.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="guide-section">
-        <h4>Quality Verification</h4>
-        <div class="verification-grid">
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Martensite structure clearly resolved without grinding-induced transformation artifacts</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Carbides retained in place with no pull-out voids or edge rounding</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Specimen edges sharp with no chipping (especially for case depth measurement)</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>No thermal discoloration or white layer artifacts from sectioning</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Case-core transition (if applicable) clearly visible with a measurable boundary</p>
-            </div>
-        </div>
-    </div>
-</section>
-    </div>   
-
-    <br><br>
-
-    <a href="#top" class="return-to-top" aria-label="Return to top">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
-            <path d="M12 4l-8 8h16z"></path>
-        </svg>
-    </a>
     
-    <!-- FOOTER -->
+<!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
     <div class="footer-container">
@@ -1131,9 +1187,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1145,7 +1229,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1173,8 +1257,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1246,6 +1329,39 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
           </div>
         </div>
@@ -1279,5 +1395,6 @@
             }
         })();
     </script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

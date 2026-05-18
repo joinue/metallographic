@@ -94,38 +94,38 @@ const data = [
     // Consumables - Main Categories
     
     // Consumables - Sectioning
-    { title: "Sectioning Consumables", description: "Precision sectioning blades and cutting supplies for accurate sample preparation.", link: "/metallographic-consumables/sectioning.html", keywords: "sectioning consumables cutting blades wafering abrasive cutting diamond blades sectioning supplies" },
-    { title: "Abrasive Cutting Blades", description: "High-quality abrasive cutting blades for efficient material sectioning.", link: "/metallographic-consumables/sectioning/abrasive-cutting.html", keywords: "abrasive cutting blades sectioning blades abrasive sectioning cutting supplies" },
-    { title: "Precision Wafering Blades", description: "Precision wafering blades for delicate sample preparation and thin section cutting.", link: "/metallographic-consumables/sectioning/precision-wafering.html", keywords: "precision wafering blades thin section cutting wafering blades precision cutting" },
+    { title: "Sectioning Consumables", description: "Precision sectioning blades and cutting supplies for accurate sample preparation.", link: "/metallographic-consumables/sectioning.html", keywords: "sectioning consumables cutting blades wafering abrasive cutting diamond blades sectioning supplies MAXCUT MAXCUT2 DIACUT DIACUT2 rubber bonded abrasive blades cutting fluid emulsion oil soluble lubricant" },
+    { title: "Abrasive Cutting Blades", description: "High-quality abrasive cutting blades for efficient material sectioning.", link: "/metallographic-consumables/sectioning/abrasive-cutting.html", keywords: "abrasive cutting blades sectioning blades abrasive sectioning cutting supplies MAXCUT MAXCUT2 rubber bonded abrasive blades cutting fluid emulsion oil soluble" },
+    { title: "Precision Wafering Blades", description: "Precision wafering blades for delicate sample preparation and thin section cutting.", link: "/metallographic-consumables/sectioning/precision-wafering.html", keywords: "precision wafering blades thin section cutting wafering blades precision cutting DIACUT DIACUT2 cutting fluid lubricant oil based" },
     
     // Consumables - Mounting
-    { title: "Mounting Consumables", description: "High-quality mounting compounds and supplies for sample preparation.", link: "/metallographic-consumables/mounting.html", keywords: "mounting consumables mounting compounds compression castable mounting supplies embedding compounds" },
-    { title: "Castable Mounting Compounds", description: "Castable mounting compounds for flexible sample mounting applications including epoxy and acrylic resins.", link: "/metallographic-consumables/mounting/castable.html", keywords: "castable mounting compounds castable mounting resins embedding compounds epoxy acrylic resins mounting materials" },
-    { title: "Compression Mounting Compounds", description: "Compression mounting compounds for robust sample mounting applications including phenolic and epoxy resins.", link: "/metallographic-consumables/mounting/compression.html", keywords: "compression mounting compounds compression mounting resins phenolic mounting epoxy resins mounting materials" },
+    { title: "Mounting Consumables", description: "High-quality mounting compounds and supplies for sample preparation.", link: "/metallographic-consumables/mounting.html", keywords: "mounting consumables mounting compounds compression castable mounting supplies embedding compounds ACRYLIC Plus CASTAMOUNT EPOCOMP EPOCOMP Plus EPOXY EPOXY 2 EPOXY ELITE EPOXY ELITE 2 EPOXY PLUS QUICKMOUNT QUICKMOUNT 2 ULTRATHIN ULTRATHIN Plus ULTRATHIN2 SUPERMOUNT TRANSACRYLIC TRANSACRYLIC Premium PREMIUM Acrylic POLYCAST PHENOLIC Phenolic Premium PHENOLICS CONDUCTOMOUNT CONDUCTO Copper Graphite PCC 5000 PCC 7500 Diallyl Phthalate mold release silicon mold release UV-032 hardener resin" },
+    { title: "Castable Mounting Compounds", description: "Castable mounting compounds for flexible sample mounting applications including epoxy and acrylic resins.", link: "/metallographic-consumables/mounting/castable.html", keywords: "castable mounting compounds castable mounting resins embedding compounds epoxy acrylic resins mounting materials ACRYLIC Plus liquid powder CASTAMOUNT EPOCOMP EPOCOMP Plus EPOXY EPOXY 2 EPOXY ELITE EPOXY ELITE 2 EPOXY PLUS QUICKMOUNT QUICKMOUNT 2 ULTRATHIN ULTRATHIN Plus ULTRATHIN2 SUPERMOUNT TRANSACRYLIC TRANSACRYLIC Premium PREMIUM Acrylic POLYCAST Diallyl Phthalate mold release silicon mold release UV-032 hardener resin" },
+    { title: "Compression Mounting Compounds", description: "Compression mounting compounds for robust sample mounting applications including phenolic and epoxy resins.", link: "/metallographic-consumables/mounting/compression.html", keywords: "compression mounting compounds compression mounting resins phenolic mounting epoxy resins mounting materials PHENOLIC Phenolic Premium PHENOLICS CONDUCTOMOUNT Copper Graphite CONDUCTO CU Premium Copper CONDUCTO G Premium Graphite PCC 5000 PCC 7500 thermoset" },
     
     // Consumables - Grinding
-    { title: "Grinding Consumables", description: "Complete range of grinding supplies for material removal and surface preparation.", link: "/metallographic-consumables/grinding.html", keywords: "grinding consumables grinding papers grinding disks grinding belts abrasive grinding supplies" },
-    { title: "Abrasive Grinding Papers", description: "Various abrasive grinding papers for different stages of sample preparation.", link: "/metallographic-consumables/grinding/abrasive-grinding.html", keywords: "abrasive grinding papers grinding papers grit sic alumina zirconia silicon carbide" },
-    { title: "Grinding Belts, Rolls & Powders", description: "Grinding belts, rolls, and powders for efficient material removal.", link: "/metallographic-consumables/grinding/belts-rolls-powders.html", keywords: "grinding belts grinding rolls grinding powders belt grinding material removal" },
-    { title: "Composite Grinding Disks", description: "Composite grinding disks for efficient material removal and surface preparation.", link: "/metallographic-consumables/grinding/composite-disks.html", keywords: "composite grinding disks grinding disks composite abrasive grinding" },
-    { title: "Diamond Grinding Disks", description: "Premium diamond grinding disks for efficient material removal and surface preparation.", link: "/metallographic-consumables/grinding/diamond-grinding.html", keywords: "diamond grinding disks diamond grinding diamond discs abrasive diamond grinding" },
-    { title: "Lapping Films", description: "Precision lapping films for achieving ultra-smooth surfaces in sample preparation.", link: "/metallographic-consumables/grinding/lapping-films.html", keywords: "lapping films precision lapping surface finish lapping films" },
+    { title: "Grinding Consumables", description: "Complete range of grinding supplies for material removal and surface preparation.", link: "/metallographic-consumables/grinding.html", keywords: "grinding consumables grinding papers grinding disks grinding belts abrasive grinding supplies SiC silicon carbide ZrO zirconia alumina diamond powders lapping films dressing stick" },
+    { title: "Abrasive Grinding Papers", description: "Various abrasive grinding papers for different stages of sample preparation.", link: "/metallographic-consumables/grinding/abrasive-grinding.html", keywords: "abrasive grinding papers grinding papers grit sic alumina zirconia silicon carbide SiC grinding papers ZrO zirconia grinding papers" },
+    { title: "Grinding Belts, Rolls & Powders", description: "Grinding belts, rolls, and powders for efficient material removal.", link: "/metallographic-consumables/grinding/belts-rolls-powders.html", keywords: "grinding belts grinding rolls grinding powders belt grinding material removal SiC powders silicon carbide alumina powders diamond powders dressing stick" },
+    { title: "Composite Grinding Disks", description: "Composite grinding disks for efficient material removal and surface preparation.", link: "/metallographic-consumables/grinding/composite-disks.html", keywords: "composite grinding disks grinding disks composite abrasive grinding diamond resin bonded" },
+    { title: "Diamond Grinding Disks", description: "Premium diamond grinding disks for efficient material removal and surface preparation.", link: "/metallographic-consumables/grinding/diamond-grinding.html", keywords: "diamond grinding disks diamond grinding diamond discs abrasive diamond grinding diamond powders" },
+    { title: "Lapping Films", description: "Precision lapping films for achieving ultra-smooth surfaces in sample preparation.", link: "/metallographic-consumables/grinding/lapping-films.html", keywords: "lapping films precision lapping surface finish lapping films diamond lapping films alumina lapping films SiC silicon carbide lapping films lapping film lubricant" },
     
     // Consumables - Polishing
-    { title: "Polishing Consumables", description: "Specialized polishing supplies for achieving superior surface finishes.", link: "/metallographic-consumables/polishing.html", keywords: "polishing consumables polishing cloths polishing pads polishing suspensions diamond polishing supplies" },
-    { title: "Polishing Pads and Cloths", description: "Specialized polishing pads and cloths for achieving superior surface finishes.", link: "/metallographic-consumables/polishing/polishing-pads.html", keywords: "polishing pads polishing cloths polishing media polishing discs polishing wheels polishing sheets" },
-    { title: "Monocrystalline Diamond Suspensions", description: "High-quality monocrystalline diamond suspensions for precise polishing applications.", link: "/metallographic-consumables/polishing/monocrystalline-diamond.html", keywords: "monocrystalline diamond suspensions diamond polishing monocrystalline diamond slurries" },
-    { title: "Polycrystalline Diamond Suspensions", description: "Polycrystalline diamond suspensions for efficient polishing applications.", link: "/metallographic-consumables/polishing/polycrystalline-diamond.html", keywords: "polycrystalline diamond suspensions diamond polishing polycrystalline diamond slurries" },
+    { title: "Polishing Consumables", description: "Specialized polishing supplies for achieving superior surface finishes.", link: "/metallographic-consumables/polishing.html", keywords: "polishing consumables polishing cloths polishing pads polishing suspensions diamond polishing supplies DIAMAT monocrystalline polycrystalline water-based diamond diamond paste diamond powders SIAMAT colloidal silica NANO Alumina Nanometer alumina acidic alumina DIALUBE DIALUBE Blue Purple POLYLUBE POLYLUBE RED PACE LUBE EVERLUBE lapping film lubricant" },
+    { title: "Polishing Pads and Cloths", description: "Specialized polishing pads and cloths for achieving superior surface finishes.", link: "/metallographic-consumables/polishing/polishing-pads.html", keywords: "polishing pads polishing cloths polishing media polishing discs polishing wheels polishing sheets napless napped woven felt synthetic" },
+    { title: "Monocrystalline Diamond Suspensions", description: "High-quality monocrystalline diamond suspensions for precise polishing applications.", link: "/metallographic-consumables/polishing/monocrystalline-diamond.html", keywords: "monocrystalline diamond suspensions diamond polishing monocrystalline diamond slurries DIAMAT DIAMAT monocrystalline diamond paste" },
+    { title: "Polycrystalline Diamond Suspensions", description: "Polycrystalline diamond suspensions for efficient polishing applications.", link: "/metallographic-consumables/polishing/polycrystalline-diamond.html", keywords: "polycrystalline diamond suspensions diamond polishing polycrystalline diamond slurries DIAMAT DIAMAT polycrystalline water-based diamond" },
     { title: "Magnetic Polishing System", description: "Magnetic polishing system for automated polishing applications.", link: "/metallographic-consumables/polishing/magnetic-system.html", keywords: "magnetic polishing system automated polishing magnetic polishing" },
     
     // Consumables - Final Polishing
-    { title: "Final Polishing Solutions", description: "Specialized solutions for achieving mirror-like finishes in final polishing.", link: "/metallographic-consumables/final-polishing.html", keywords: "final polishing solutions mirror finish final polishing compounds polishing solutions" },
-    
+    { title: "Final Polishing Solutions", description: "Specialized solutions for achieving mirror-like finishes in final polishing.", link: "/metallographic-consumables/final-polishing.html", keywords: "final polishing solutions mirror finish final polishing compounds polishing solutions SIAMAT SIAMAT 2 SIAMAT Blue colloidal silica CMP slurry chemical mechanical polishing NANO Alumina Nanometer alumina acidic alumina oxide polishing" },
+
     // Consumables - Etching
-    { title: "Etching Solutions", description: "Comprehensive range of etching solutions for revealing material microstructures.", link: "/metallographic-consumables/etching.html", keywords: "etching solutions microstructure etchant chemical etchants metallographic etching nital picral keller's reagent" },
-    
+    { title: "Etching Solutions", description: "Comprehensive range of etching solutions for revealing material microstructures.", link: "/metallographic-consumables/etching.html", keywords: "etching solutions microstructure etchant chemical etchants metallographic etching nital nital salt picral keller's reagent Kellers Vilellas Marbles Marbles Modified Murakamis Klemms II Krolls Wecks Wecks No 1 Wecks KMnO4 Frys Inconel Ammonium hydroxide Ammonium persulfate Berahas Berahas2 Kallings Kallings No2 Waterless Kallings Carpenters SS stainless steel Oberhoffers Dichromate NaOH Al-NaOH ASTM 30 ASTM 97 ASTM 157 Copper Etchant No1 No2 Copper sulfate passivation Cable TA Lepitos Mayville McWane Modified Tuckers Nickel Etch Nickel Etchant Parker Hannifin PS-41 Ralphs Titanium attack polish Winsteards V2A PACE CrO3 Adler Diallyl Phthalate Ethylene glycol" },
+
     // Consumables - Cleaning
-    { title: "Cleaning Solutions", description: "Specialized cleaning solutions for maintaining equipment and preparing samples.", link: "/metallographic-consumables/cleaning.html", keywords: "cleaning solutions maintenance equipment cleaning sample cleaning cleaning supplies" },
+    { title: "Cleaning Solutions", description: "Specialized cleaning solutions for maintaining equipment and preparing samples.", link: "/metallographic-consumables/cleaning.html", keywords: "cleaning solutions maintenance equipment cleaning sample cleaning cleaning supplies ULTRACLEAN ULTRACLEAN 2 Ultrasonic Degreaser PCC 5000 PCC 7500 air filter oil" },
     
     // Consumables - Hardness Testing
     { title: "Hardness Testing Consumables", description: "Supplies and accessories for hardness testing applications.", link: "/metallographic-consumables/hardness-testing.html", keywords: "hardness testing consumables hardness testing supplies hardness testing accessories" },
@@ -306,24 +306,35 @@ const data = [
     { title: "Magnesium Preparation", description: "Specialized techniques for preparing magnesium and magnesium alloys. Learn how to handle reactive materials and avoid oxidation artifacts.", link: "/guides/magnesium-preparation.html", keywords: "magnesium alloys reactive materials oxidation artifacts", type: "guide", category: "Material-Specific", difficulty: "Advanced" },
     { title: "Ceramics Preparation", description: "Complete guide to preparing ceramic samples for metallographic analysis. Covers sectioning hard materials, avoiding chipping, and revealing grain boundaries.", link: "/guides/ceramics-preparation.html", keywords: "ceramics preparation hard materials chipping grain boundaries", type: "guide", category: "Material-Specific", difficulty: "Advanced" },
     { title: "Composites Preparation", description: "In-depth techniques for preparing composite materials including fiber-reinforced composites. Learn to avoid pullout, maintain fiber orientation, and reveal interfaces.", link: "/guides/composites-preparation.html", keywords: "composites fiber reinforced pullout fiber orientation interfaces", type: "guide", category: "Material-Specific", difficulty: "Advanced" },
-    
-    // Guides - Application-Specific (external links)
-    { title: "Failure Analysis Guide", description: "Learn about failure analysis techniques in metallography, including fracture analysis, root cause investigation, and material failure mechanisms.", link: "https://metallography.org/guides/failure-analysis", keywords: "failure analysis fracture analysis root cause investigation material failure mechanisms", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
-    { title: "Castings and Foundry Analysis", description: "Complete guide to metallographic analysis of cast materials including solidification structure analysis, dendrite arm spacing measurement, casting defect identification, and grain size control.", link: "https://metallography.org/guides/castings-foundry-analysis", keywords: "castings foundry solidification dendrite arm spacing casting defects grain size", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
-    { title: "Hardness Testing Preparation", description: "In-depth specialized preparation techniques for samples that will undergo hardness testing. Ensure accurate results with proper surface preparation.", link: "https://metallography.org/guides/hardness-testing-preparation", keywords: "hardness testing preparation surface preparation accurate results", type: "guide", category: "Application-Specific", difficulty: "Intermediate" },
-    { title: "Heat Treatment Verification", description: "Complete guide to verifying heat treatment effectiveness through metallographic analysis, including case depth measurement, decarburization detection, and microstructure validation for different heat treatment processes.", link: "https://metallography.org/guides/heat-treatment-verification", keywords: "heat treatment verification case depth decarburization microstructure validation", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
-    { title: "Quality Control and Inspection", description: "In-depth guide on how to evaluate sample quality, identify preparation artifacts, and ensure your samples meet industry standards for metallographic analysis.", link: "https://metallography.org/guides/quality-control-inspection", keywords: "quality control inspection sample quality preparation artifacts industry standards", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
-    { title: "Welding Analysis and Weld Zone Preparation", description: "Complete guide to preparing weld samples for metallographic analysis, including weld zone, HAZ, and fusion boundary preparation for different welding methods.", link: "https://metallography.org/guides/welding-analysis", keywords: "welding analysis weld zone HAZ fusion boundary welding methods", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
-    { title: "Additive Manufacturing (3D Printing) Sample Preparation", description: "Complete guide to preparing additive manufacturing samples for metallographic analysis. Learn techniques for handling porosity, layer boundaries, support structures, and revealing build direction and process defects.", link: "https://metallography.org/guides/additive-manufacturing-preparation", keywords: "additive manufacturing 3D printing porosity layer boundaries support structures build direction", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
-    { title: "Aerospace Applications Guide", description: "Comprehensive guide to metallographic analysis for aerospace applications, covering titanium and superalloy preparation, fatigue and creep damage assessment, coating analysis, and industry-specific standards.", link: "https://metallography.org/guides/aerospace-applications", keywords: "aerospace titanium superalloys fatigue creep damage coating analysis", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
-    { title: "Automotive Applications Guide", description: "Complete guide to metallographic analysis for automotive applications, covering steel and aluminum processing verification, heat treatment validation, weld quality assessment, and industry-specific quality requirements.", link: "https://metallography.org/guides/automotive-applications", keywords: "automotive steel aluminum heat treatment weld quality", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
-    { title: "Medical Device Applications Guide", description: "Comprehensive guide to metallographic analysis for medical device applications, covering biocompatible material preparation, surface finish requirements, implant material characterization, and regulatory compliance considerations.", link: "https://metallography.org/guides/medical-device-applications", keywords: "medical devices biocompatible surface finish implants regulatory compliance", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
-    { title: "PCB and Chip Sample Preparation", description: "Complete guide to preparing printed circuit boards (PCBs) and semiconductor chips for metallographic analysis. Learn controlled removal techniques, ATTO polishing, and precision preparation methods essential for electronics failure analysis and quality control.", link: "https://metallography.org/guides/pcb-chip-preparation", keywords: "PCB chip semiconductor controlled removal ATTO polishing electronics failure analysis", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Precious Metals Preparation", description: "Comprehensive guide to preparing precious metals (gold, silver, platinum) for metallographic analysis. Covers sectioning, mounting, grinding, polishing, and etching techniques for soft, ductile materials.", link: "/guides/precious-metals-preparation.html", keywords: "precious metals gold silver platinum Au Ag Pt soft ductile class 1 preparation", type: "guide", category: "Material-Specific", difficulty: "Intermediate" },
+    { title: "Refractory Metals Preparation", description: "Comprehensive guide to preparing refractory metals (tungsten, rhenium, niobium, molybdenum) for metallographic analysis. Covers sectioning, mounting, grinding, polishing, and etching techniques for high-melting-point alloys.", link: "/guides/refractory-metals-preparation.html", keywords: "refractory metals tungsten rhenium niobium molybdenum W Re Nb Mo high melting point class 2 preparation", type: "guide", category: "Material-Specific", difficulty: "Advanced" },
+    { title: "Powder Metallurgy Preparation", description: "Comprehensive guide to preparing powder metallurgy (PM) materials and sintered alloys for metallographic analysis. Covers sectioning, mounting, grinding, polishing, and etching techniques for porous and multi-phase microstructures.", link: "/guides/powder-metallurgy-preparation.html", keywords: "powder metallurgy PM sintered alloys porosity multi-phase preparation", type: "guide", category: "Material-Specific", difficulty: "Intermediate" },
+    { title: "Cermets and Technical Glasses Preparation", description: "Comprehensive guide to preparing cermets (tungsten carbide, TiC-Ni) and technical glasses (borosilicate, fused silica) for metallographic analysis. Covers sectioning, mounting, grinding, polishing, and etching techniques for hard, brittle materials.", link: "/guides/cermets-technical-glasses-preparation.html", keywords: "cermets technical glasses tungsten carbide WC TiC-Ni borosilicate fused silica hard brittle class 10 class 11 preparation", type: "guide", category: "Material-Specific", difficulty: "Advanced" },
+    { title: "Thermal Spray Coatings Preparation", description: "Comprehensive guide to preparing thermal spray coatings (WC-Co, chromium carbide, ceramic coatings) for metallographic analysis. Covers sectioning, mounting, grinding, polishing, and etching techniques for evaluating coating integrity and porosity.", link: "/guides/thermal-spray-coatings-preparation.html", keywords: "thermal spray coatings WC-Co chromium carbide ceramic coatings HVOF plasma spray porosity coating integrity class 7 surface treatments preparation", type: "guide", category: "Material-Specific", difficulty: "Advanced" },
+
+    // Guides - Application-Specific
+    { title: "Failure Analysis Guide", description: "Learn about failure analysis techniques in metallography, including fracture analysis, root cause investigation, and material failure mechanisms.", link: "/guides/failure-analysis.html", keywords: "failure analysis fracture analysis root cause investigation material failure mechanisms", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Castings and Foundry Analysis", description: "Complete guide to metallographic analysis of cast materials including solidification structure analysis, dendrite arm spacing measurement, casting defect identification, and grain size control.", link: "/guides/castings-foundry-analysis.html", keywords: "castings foundry solidification dendrite arm spacing casting defects grain size", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Hardness Testing Preparation", description: "In-depth specialized preparation techniques for samples that will undergo hardness testing. Ensure accurate results with proper surface preparation.", link: "/guides/hardness-testing-preparation.html", keywords: "hardness testing preparation surface preparation accurate results", type: "guide", category: "Application-Specific", difficulty: "Intermediate" },
+    { title: "Heat Treatment Verification", description: "Complete guide to verifying heat treatment effectiveness through metallographic analysis, including case depth measurement, decarburization detection, and microstructure validation for different heat treatment processes.", link: "/guides/heat-treatment-verification.html", keywords: "heat treatment verification case depth decarburization microstructure validation", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Quality Control and Inspection", description: "In-depth guide on how to evaluate sample quality, identify preparation artifacts, and ensure your samples meet industry standards for metallographic analysis.", link: "/guides/quality-control-inspection.html", keywords: "quality control inspection sample quality preparation artifacts industry standards", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Welding Analysis and Weld Zone Preparation", description: "Complete guide to preparing weld samples for metallographic analysis, including weld zone, HAZ, and fusion boundary preparation for different welding methods.", link: "/guides/welding-analysis.html", keywords: "welding analysis weld zone HAZ fusion boundary welding methods", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Additive Manufacturing (3D Printing) Sample Preparation", description: "Complete guide to preparing additive manufacturing samples for metallographic analysis. Learn techniques for handling porosity, layer boundaries, support structures, and revealing build direction and process defects.", link: "/guides/additive-manufacturing-preparation.html", keywords: "additive manufacturing 3D printing porosity layer boundaries support structures build direction", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Aerospace Applications Guide", description: "Comprehensive guide to metallographic analysis for aerospace applications, covering titanium and superalloy preparation, fatigue and creep damage assessment, coating analysis, and industry-specific standards.", link: "/guides/aerospace-applications.html", keywords: "aerospace titanium superalloys fatigue creep damage coating analysis", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Automotive Applications Guide", description: "Complete guide to metallographic analysis for automotive applications, covering steel and aluminum processing verification, heat treatment validation, weld quality assessment, and industry-specific quality requirements.", link: "/guides/automotive-applications.html", keywords: "automotive steel aluminum heat treatment weld quality", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "Medical Device Applications Guide", description: "Comprehensive guide to metallographic analysis for medical device applications, covering biocompatible material preparation, surface finish requirements, implant material characterization, and regulatory compliance considerations.", link: "/guides/medical-device-applications.html", keywords: "medical devices biocompatible surface finish implants regulatory compliance", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
+    { title: "PCB and Chip Sample Preparation", description: "Complete guide to preparing printed circuit boards (PCBs) and semiconductor chips for metallographic analysis. Learn controlled removal techniques, ATTO polishing, and precision preparation methods essential for electronics failure analysis and quality control.", link: "/guides/pcb-chip-preparation.html", keywords: "PCB chip semiconductor controlled removal ATTO polishing electronics failure analysis", type: "guide", category: "Application-Specific", difficulty: "Advanced" },
     
     // Guides - Troubleshooting
-    { title: "Troubleshooting Common Issues", description: "Comprehensive solutions to common problems in metallographic sample preparation including scratches, contamination, relief, and poor contrast issues.", link: "/support.html", keywords: "troubleshooting common issues scratches contamination relief poor contrast", type: "guide", category: "Troubleshooting", difficulty: "Intermediate" },
+    { title: "Troubleshooting Common Issues", description: "Diagnose and fix metallographic preparation problems by symptom: scratches, comet tails, smearing, pull-outs, relief, edge rounding, etch stains, and mounting voids. Practical root causes and step-by-step corrections.", link: "/guides/troubleshooting-common-issues.html", keywords: "troubleshooting common issues scratches comet tails smearing pull-outs relief edge rounding etch stains mounting voids contamination poor contrast", type: "guide", category: "Troubleshooting", difficulty: "Intermediate" },
 ];
-    
+
+// Expose the search index globally so the inline overlay (search-overlay.js) can consume it
+// without re-fetching or duplicating the data. The /search.html fallback page also uses this file.
+if (typeof window !== 'undefined') {
+    window.PACE_SEARCH_DATA = data;
+}
+
 // Debounce function to limit the rate of search function execution
 function debounce(func, wait) {
     let timeout;
@@ -342,21 +353,26 @@ function getActiveFilter() {
 
 function customSearch(query) {
     if (!query) {
-        displayCustomResults([]); // Clear results if query is empty
+        // Empty query → restore the idle placeholder (quick-link cards + recent/popular chips)
+        showSearchPlaceholder();
         return;
     }
 
     const activeFilter = getActiveFilter();
-    const queryLower = query.toLowerCase().trim();
+    // "MSDS" (Material Safety Data Sheet) is the older term for "SDS" — treat
+    // it as an alias so either word reveals SDS sheets and actually matches
+    // entries whose keywords say "SDS".
+    const queryLower = query.toLowerCase().trim().replace(/\bmsds\b/g, 'sds');
     // Filter out very short words and common stop words
     const queryWords = queryLower.split(/\s+/).filter(w => w.length > 2 && !['the', 'and', 'for', 'are', 'but', 'not', 'you', 'all', 'can', 'her', 'was', 'one', 'our', 'out', 'day', 'get', 'has', 'him', 'his', 'how', 'its', 'may', 'new', 'now', 'old', 'see', 'two', 'way', 'who', 'boy', 'did', 'its', 'let', 'put', 'say', 'she', 'too', 'use'].includes(w));
 
     // Filter and score results
     const results = data
         .map(item => {
-            // SDS files only appear if "sds" is in the search terms
+            // SDS files only appear if "sds" (or its alias "msds") is in the search terms.
+            // queryLower has already had "msds" normalized to "sds" above.
             if (item.priority === 'low' && !queryLower.includes('sds')) {
-                return null; // Don't include SDS files unless "sds" is in the search
+                return null; // Don't include SDS files unless "sds"/"msds" is in the search
             }
             
             // Apply type filter
@@ -464,10 +480,20 @@ function customSearch(query) {
             });
             
             // Boost equipment/consumables when query matches product patterns
-            if ((item.link.includes('/metallographic-equipment/') || 
-                 item.link.includes('/metallographic-consumables/')) && 
+            if ((item.link.includes('/metallographic-equipment/') ||
+                 item.link.includes('/metallographic-consumables/')) &&
                 queryHasProductCode) {
                 score += 100; // Equipment/consumables with product codes get boost
+            }
+
+            // Brand / chemistry queries should land on the consumables page that
+            // sells the product, not an equipment page that mentions it in
+            // passing (e.g. "colloidal silica" → Final Polishing Solutions, not
+            // the ZETA dispenser). If the query missed the title but hit
+            // keywords/description, give consumables pages an edge.
+            if (score > 0 && !titleLower.includes(queryLower) &&
+                item.link.includes('/metallographic-consumables/')) {
+                score += 80;
             }
             
             // Only return items that have a meaningful match
@@ -502,62 +528,93 @@ function customSearch(query) {
 
 function displayCustomResults(results, query = '') {
     const container = document.getElementById('customResultsContainer');
+    const summary = document.getElementById('searchSummary');
     const loadingIndicator = document.getElementById('customLoadingIndicator');
-    container.innerHTML = ''; // Clear previous results
+    if (!container) return;
 
-    if (results.length === 0) {
-        container.innerHTML = '<div class="search-no-results"><p>No results found. Try different keywords or check our <a href="/equipment.html">Equipment</a>, <a href="/consumables.html">Consumables</a>, and <a href="/guides.html">Guides</a> pages.</p></div>';
-        loadingIndicator.style.display = 'none';
+    // Reset keyboard-nav state on every render so ↑/↓ start fresh.
+    __searchKeyboardIdx = -1;
+
+    container.innerHTML = '';
+
+    // --- No query and no results → restore the idle placeholder ----------
+    if (results.length === 0 && !query) {
+        if (summary) { summary.hidden = true; summary.innerHTML = ''; }
+        showSearchPlaceholder();
+        if (loadingIndicator) loadingIndicator.style.display = 'none';
         return;
     }
 
-    // Group results by category/type for better organization
+    // --- Query with zero results → friendly no-results card --------------
+    if (results.length === 0) {
+        if (summary) {
+            summary.hidden = false;
+            summary.innerHTML = `No results for <strong>${escapeSearchHTML(query)}</strong>.`;
+        }
+        container.innerHTML =
+            '<div class="search-no-results">' +
+                `<p class="search-no-results-title">No matches for "${escapeSearchHTML(query)}"</p>` +
+                '<p>Try different keywords, check spelling, or browse a section directly:</p>' +
+                '<div class="search-no-results-actions">' +
+                    '<a href="/equipment.html">Equipment</a>' +
+                    '<a href="/consumables.html">Consumables</a>' +
+                    '<a href="/guides.html">Guides</a>' +
+                    '<a href="/support.html">Support</a>' +
+                    '<a href="/support/sds.html">SDS</a>' +
+                '</div>' +
+            '</div>';
+        if (loadingIndicator) loadingIndicator.style.display = 'none';
+        return;
+    }
+
+    // --- Has results: render summary then grouped sections ---------------
+    if (summary) {
+        const noun = results.length === 1 ? 'result' : 'results';
+        summary.hidden = false;
+        summary.innerHTML = `<strong>${results.length}</strong> ${noun} for <mark>${escapeSearchHTML(query)}</mark>`;
+    }
+
     const groupedResults = groupResultsByCategory(results);
-    
-    // Define the order for displaying categories
     const categoryOrder = ['Equipment', 'Consumables', 'Guides', 'Support & Resources', 'Other'];
-    
-    // Display grouped results in the specified order
+
+    let runningIdx = 0;
     categoryOrder.forEach(category => {
         const categoryResults = groupedResults[category];
         if (!categoryResults || categoryResults.length === 0) return;
-        
+
         const categorySection = document.createElement('div');
         categorySection.className = 'results-category-section';
         categorySection.setAttribute('data-category', category);
-        
+
         const categoryHeader = document.createElement('div');
         categoryHeader.className = 'results-category-header';
         categoryHeader.innerHTML = `
-            <h3 class="results-category-title">${category}</h3>
+            <h2 class="results-category-title">${category}</h2>
             <span class="results-category-count">${categoryResults.length} ${categoryResults.length === 1 ? 'result' : 'results'}</span>
         `;
         categorySection.appendChild(categoryHeader);
-        
+
         const resultsList = document.createElement('div');
         resultsList.className = 'results-list';
-        
+
         categoryResults.forEach(result => {
             const resultItem = document.createElement('div');
             resultItem.classList.add('custom-result-item');
             if (result.type === 'guide') {
                 resultItem.classList.add('result-item-guide');
             }
+            resultItem.setAttribute('data-result-idx', String(runningIdx++));
 
             const highlightedTitle = highlightCustomText(result.title, query);
             const highlightedDescription = highlightCustomText(result.description, query);
-
-            // Determine category and icon based on URL or guide type
             const categoryInfo = getCategoryInfo(result.link, result);
-
             const difficultyBadge = result.difficulty ? `<span class="difficulty-badge difficulty-${result.difficulty.toLowerCase()}">${result.difficulty}</span>` : '';
             const guideCategory = result.category ? `<span class="guide-category-badge">${result.category}</span>` : '';
             const externalLink = result.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : '';
-
-            // Format URL like Google (show domain/path)
             const urlDisplay = formatUrlForDisplay(result.link);
-            
+
             resultItem.setAttribute('data-category', categoryInfo.category);
+            resultItem.setAttribute('data-link', result.link);
             resultItem.innerHTML = `
                 <div class="result-header">
                     <div class="result-content">
@@ -571,14 +628,29 @@ function displayCustomResults(results, query = '') {
                     </div>
                 </div>
             `;
+
+            // Whole-row click navigates (better target than just the H3 link).
+            resultItem.addEventListener('click', function (e) {
+                // Let real link clicks (cmd/ctrl-click, middle-click) behave normally.
+                if (e.target.closest('a')) return;
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+                const input = document.getElementById('customSearchInput');
+                if (input) pushRecentSearchShared(input.value);
+                if (externalLink) {
+                    window.open(result.link, '_blank', 'noopener,noreferrer');
+                } else {
+                    window.location.href = result.link;
+                }
+            });
+
             resultsList.appendChild(resultItem);
         });
-        
+
         categorySection.appendChild(resultsList);
         container.appendChild(categorySection);
     });
-    
-    loadingIndicator.style.display = 'none';
+
+    if (loadingIndicator) loadingIndicator.style.display = 'none';
 }
 
 function groupResultsByCategory(results) {
@@ -696,39 +768,252 @@ const handleCustomSearch = debounce(function() {
     customSearch(query);
 }, 300);
 
-// Initialize search functionality
-document.addEventListener('DOMContentLoaded', function() {
+/* ----- Idle-state + keyboard nav state shared across module ------------- */
+// Recent searches are stored under the SAME localStorage key the inline
+// overlay (js/search-overlay.js) uses, so chips on /search.html stay in sync
+// with the overlay's recent list.
+const SEARCH_RECENT_KEY = 'pace_search_recent_v1';
+const SEARCH_RECENT_MAX = 5;
+// Popular searches mirror the overlay so the empty state feels identical
+// between the modal and this page.
+const SEARCH_POPULAR = [
+    'Stainless steel preparation',
+    'Etchant Selector',
+    'PICO precision saw',
+    'Aluminum preparation',
+    'Grinding papers',
+    'Vibratory polisher'
+];
+
+// Captured at init so we can re-render the idle state after a search is cleared.
+let __searchPlaceholderHTML = null;
+let __searchKeyboardIdx = -1;
+
+function escapeSearchHTML(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+        return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
+    });
+}
+
+function getRecentSearchesShared() {
+    try {
+        const raw = localStorage.getItem(SEARCH_RECENT_KEY);
+        if (!raw) return [];
+        const arr = JSON.parse(raw);
+        return Array.isArray(arr) ? arr.slice(0, SEARCH_RECENT_MAX) : [];
+    } catch (e) { return []; }
+}
+
+function pushRecentSearchShared(query) {
+    const q = (query || '').trim();
+    if (!q || q.length < 2) return;
+    try {
+        const current = getRecentSearchesShared().filter(function (r) { return r.toLowerCase() !== q.toLowerCase(); });
+        current.unshift(q);
+        localStorage.setItem(SEARCH_RECENT_KEY, JSON.stringify(current.slice(0, SEARCH_RECENT_MAX)));
+    } catch (e) { /* localStorage blocked — fine */ }
+}
+
+function renderSearchSuggestions() {
+    const target = document.getElementById('searchSuggestions');
+    if (!target) return;
+    const recent = getRecentSearchesShared();
+    let html = '';
+    if (recent.length) {
+        html += '<div class="search-suggestion-block">' +
+            '<p class="search-suggestion-label"><i class="fas fa-clock-rotate-left" aria-hidden="true"></i> Recent</p>' +
+            '<ul class="search-suggestion-chips">' +
+            recent.map(function (q) {
+                return '<li><button type="button" class="search-suggestion-chip" data-query="' + escapeSearchHTML(q) + '">' + escapeSearchHTML(q) + '</button></li>';
+            }).join('') +
+            '</ul></div>';
+    }
+    html += '<div class="search-suggestion-block">' +
+        '<p class="search-suggestion-label"><i class="fas fa-fire" aria-hidden="true"></i> Popular</p>' +
+        '<ul class="search-suggestion-chips">' +
+        SEARCH_POPULAR.map(function (q) {
+            return '<li><button type="button" class="search-suggestion-chip" data-query="' + escapeSearchHTML(q) + '">' + escapeSearchHTML(q) + '</button></li>';
+        }).join('') +
+        '</ul></div>';
+    target.innerHTML = html;
+}
+
+function showSearchPlaceholder() {
+    const container = document.getElementById('customResultsContainer');
+    const summary = document.getElementById('searchSummary');
+    if (summary) { summary.hidden = true; summary.innerHTML = ''; }
+    if (container && __searchPlaceholderHTML !== null) {
+        container.innerHTML = __searchPlaceholderHTML;
+    }
+    renderSearchSuggestions();
+}
+
+function updateSearchClearButton() {
+    const input = document.getElementById('customSearchInput');
+    const clearBtn = document.getElementById('searchClearBtn');
+    if (input && clearBtn) {
+        clearBtn.hidden = input.value.length === 0;
+    }
+}
+
+function setActiveSearchResult(idx) {
+    const items = document.querySelectorAll('.custom-result-item');
+    if (!items.length) {
+        __searchKeyboardIdx = -1;
+        return;
+    }
+    if (idx < 0) idx = items.length - 1;
+    if (idx >= items.length) idx = 0;
+    __searchKeyboardIdx = idx;
+    items.forEach(function (el, i) {
+        if (i === idx) {
+            el.classList.add('is-active');
+            el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        } else {
+            el.classList.remove('is-active');
+        }
+    });
+}
+
+function openActiveSearchResult() {
+    const items = document.querySelectorAll('.custom-result-item');
+    if (!items.length) return false;
+    const target = __searchKeyboardIdx >= 0 ? items[__searchKeyboardIdx] : items[0];
+    if (!target) return false;
+    const link = target.getAttribute('data-link') || (target.querySelector('a[href]') && target.querySelector('a[href]').getAttribute('href'));
+    if (!link) return false;
+    const input = document.getElementById('customSearchInput');
+    if (input) pushRecentSearchShared(input.value);
+    const anchor = target.querySelector('a[href]');
+    if (anchor && anchor.target === '_blank') {
+        window.open(link, '_blank', 'noopener,noreferrer');
+    } else {
+        window.location.href = link;
+    }
+    return true;
+}
+
+// ----- Initialize -------------------------------------------------------
+document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('customSearchInput');
+    const clearBtn = document.getElementById('searchClearBtn');
+    const container = document.getElementById('customResultsContainer');
+
+    // Snapshot the server-rendered placeholder so we can restore the idle
+    // state when the input is cleared. The clone strips data-animate
+    // attributes — the FOUC-prevention rule hides anything with [data-animate]
+    // until the IntersectionObserver fires, but that observer only runs once
+    // at load. Without stripping, re-injecting the cached HTML would leave
+    // the quick-link cards permanently invisible.
+    if (container) {
+        const clone = container.cloneNode(true);
+        clone.querySelectorAll('[data-animate]').forEach(function (el) {
+            el.removeAttribute('data-animate');
+            el.removeAttribute('data-animate-delay');
+            el.removeAttribute('data-animate-duration');
+            el.removeAttribute('data-animate-offset');
+        });
+        __searchPlaceholderHTML = clone.innerHTML;
+    }
+
     if (searchInput) {
-        searchInput.addEventListener('input', handleCustomSearch);
-        
-        // Handle Enter key
-        searchInput.addEventListener('keydown', function(e) {
+        searchInput.addEventListener('input', function () {
+            updateSearchClearButton();
+            handleCustomSearch();
+        });
+
+        searchInput.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setActiveSearchResult(__searchKeyboardIdx + 1);
+                return;
+            }
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setActiveSearchResult(__searchKeyboardIdx - 1);
+                return;
+            }
             if (e.key === 'Enter') {
                 e.preventDefault();
-                const query = searchInput.value.toLowerCase();
-                if (query.length > 0) {
-                    customSearch(query);
+                // If a row is keyboard-selected, open it. Otherwise just
+                // commit the current input as a search (pushes to recents).
+                const handled = openActiveSearchResult();
+                if (!handled) {
+                    const query = searchInput.value.toLowerCase().trim();
+                    if (query.length > 0) {
+                        pushRecentSearchShared(searchInput.value);
+                        customSearch(query);
+                    }
+                }
+                return;
+            }
+            if (e.key === 'Escape') {
+                if (searchInput.value) {
+                    searchInput.value = '';
+                    updateSearchClearButton();
+                    customSearch('');
                 }
             }
         });
     }
-    
-    // Initialize filter buttons if they exist
+
+    if (clearBtn && searchInput) {
+        clearBtn.addEventListener('click', function () {
+            searchInput.value = '';
+            updateSearchClearButton();
+            customSearch('');
+            searchInput.focus();
+        });
+    }
+
+    // Filter pills: also update aria-selected for accessibility.
     const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
+    filterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            filterButtons.forEach(function (b) {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
             this.classList.add('active');
-            
-            // Trigger search with current query
-            const query = document.getElementById('customSearchInput').value.toLowerCase();
-            if (query.length > 0) {
-                customSearch(query);
-            }
+            this.setAttribute('aria-selected', 'true');
+            const query = (searchInput && searchInput.value.toLowerCase()) || '';
+            if (query.length > 0) customSearch(query);
         });
     });
+
+    // Suggestion chips (recent + popular): delegated so they keep working
+    // after the placeholder is re-rendered.
+    if (container) {
+        container.addEventListener('click', function (e) {
+            const chip = e.target.closest('.search-suggestion-chip');
+            if (!chip || !searchInput) return;
+            const q = chip.getAttribute('data-query') || '';
+            searchInput.value = q;
+            updateSearchClearButton();
+            searchInput.focus();
+            customSearch(q.toLowerCase());
+        });
+    }
+
+    // Render recent + popular into the idle state on first paint.
+    renderSearchSuggestions();
+    updateSearchClearButton();
+
+    // Deep-link support: ?q=... pre-fills the input and runs the search.
+    if (searchInput) {
+        try {
+            const params = new URLSearchParams(window.location.search);
+            const q = params.get('q');
+            if (q) {
+                searchInput.value = q;
+                updateSearchClearButton();
+                customSearch(q.toLowerCase());
+                // Don't auto-focus on mobile (would pop the keyboard).
+                if (window.matchMedia && !window.matchMedia('(max-width: 768px)').matches) {
+                    searchInput.focus();
+                }
+            }
+        } catch (e) { /* URLSearchParams unsupported — fine */ }
+    }
 });
 

@@ -8,21 +8,22 @@
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="google-site-verification" content="LzR4wVONWG6uIX3m2QcGuvf3rBxuHBCijv-Pl1tccFs">
     <meta name="norton-safeweb-site-verification" content="kw254olmyzhm98ttscnebx59npy7ji28spxv77ktnnqwpg2entz0hsfozhba0gzvjvrfj6z0-c00djzn-iq1hw-z1vdcna8ug093xtjit61oop1s26erotk-0ruemld5">
-    <meta name="description" content="Comprehensive resources for metallographic sample preparation: tools, calculators, guides, databases, reference charts, video tutorials, and support materials from PACE Technologies.">
-    <meta name="keywords" content="metallography resources, sample preparation resources, metallographic tools, preparation guides, materials database, etchants database, standards database, video tutorials, reference charts">
+    <meta name="description" content="PACE Technologies resources portal: preparation guides, calculators and tools, documentation library, preparation procedures, and the PACE YouTube channel. All in one place.">
+    <meta name="keywords" content="metallography resources, sample preparation resources, metallographic tools, preparation guides, preparation procedures, metallography videos, PACE documentation">
     <meta name="author" content="PACE Technologies">
     <meta name="theme-color" content="#ffffff">
     <meta name="msapplication-TileColor" content="#da532c">
     <link rel="canonical" href="https://www.metallographic.com/resources.html">
 
     <!-- Page Title -->
-    <title>Resources | PACE Technologies - Tools, Guides, Databases & More</title>
+    <title>Resources | Guides, Tools, Procedures & Videos | PACE Technologies</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/base/styles.css">
     <link rel="stylesheet" href="/css/components/navigation.css">
     <link rel="stylesheet" href="/css/components/footer.css">
-    <link rel="stylesheet" href="/css/pages/resources.css">
+    <link rel="stylesheet" href="/css/pages/docs.css?v=2">
+    <link rel="stylesheet" href="/css/utilities/animations.css">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/pt-favicon/apple-touch-icon.png">
@@ -49,8 +50,8 @@
     </script>
 
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Resources | PACE Technologies - Tools, Guides, Databases & More">
-    <meta property="og:description" content="Comprehensive resources for metallographic sample preparation: tools, calculators, guides, databases, reference charts, and video tutorials.">
+    <meta property="og:title" content="Resources | PACE Technologies | Guides, Tools, Procedures & Videos">
+    <meta property="og:description" content="One portal for PACE preparation guides, calculators and tools, documentation, procedures, and the PACE YouTube channel.">
     <meta property="og:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
     <meta property="og:url" content="https://www.metallographic.com/resources.html">
     <meta property="og:type" content="website">
@@ -58,7 +59,7 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Resources | PACE Technologies">
-    <meta name="twitter:description" content="Comprehensive resources for metallographic sample preparation: tools, guides, databases, and more.">
+    <meta name="twitter:description" content="One portal for PACE preparation guides, calculators and tools, documentation, procedures, and the PACE YouTube channel.">
     <meta name="twitter:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
 
     <!-- Schema Markup: CollectionPage -->
@@ -67,10 +68,48 @@
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       "name": "Metallographic Resources",
-      "description": "Comprehensive resources for metallographic sample preparation including tools, guides, databases, and reference materials",
-      "url": "https://www.metallographic.com/resources.html"
+      "description": "PACE Technologies resources portal: preparation guides, tools and calculators, documentation library, preparation procedures, and the PACE YouTube channel.",
+      "url": "https://www.metallographic.com/resources.html",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "PACE Technologies",
+        "url": "https://www.metallographic.com"
+      },
+      "hasPart": [
+        { "@type": "WebPage", "name": "Preparation Guides", "url": "https://www.metallographic.com/guides.html" },
+        { "@type": "WebPage", "name": "Tools & Calculators", "url": "https://www.metallographic.com/tools.html" },
+        { "@type": "WebPage", "name": "Library", "url": "https://www.metallographic.com/library.html" },
+        { "@type": "WebPage", "name": "Preparation Procedures", "url": "https://www.metallographic.com/support/procedures.html" },
+        { "@type": "WebSite", "name": "PACE Technologies YouTube Channel", "url": "https://www.youtube.com/@pacetechnologies" }
+      ]
     }
     </script>
+
+    <!-- Resource hub color variants (extends docs.css) -->
+    <style>
+      .docs-hub[data-hub="tools"]      .docs-hub-icon { background: #eff6ff; color: #2563eb; }
+      .docs-hub[data-hub="documents"]  .docs-hub-icon { background: #f5f3ff; color: #7c3aed; }
+      .docs-hub[data-hub="procedures"] .docs-hub-icon { background: #f0fdf4; color: #16a34a; }
+      .docs-hub[data-hub="youtube"]    .docs-hub-icon { background: #fef2f2; color: #dc2626; }
+      .docs-feature[data-feature="guides"] {
+        background: linear-gradient(135deg, #f8fafc 0%, #f5f3ff 100%);
+      }
+      .docs-feature[data-feature="guides"] .docs-feature-badge {
+        color: #6d28d9;
+        background: #ede9fe;
+      }
+      .docs-feature[data-feature="guides"]:hover {
+        border-color: #7c3aed;
+        box-shadow: 0 10px 26px -14px rgba(109, 40, 217, 0.22);
+      }
+      .docs-feature[data-feature="guides"] .docs-feature-cta { color: #6d28d9; }
+      .docs-feature[data-feature="guides"] .docs-feature-image img {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+      }
+    </style>
 
     <!-- Schema Markup: BreadcrumbList -->
     <script type="application/ld+json">
@@ -100,6 +139,16 @@
 <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -126,20 +175,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -349,35 +406,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -422,111 +475,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -735,36 +718,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -801,73 +782,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -905,6 +849,33 @@
     </div>
 </nav>
 
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
+
 <div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
     <div class="modal-content">
         <button class="close" aria-label="Close">&times;</button>
@@ -928,517 +899,101 @@
 </div>
 
     <!-- Main Content -->
-    <main class="resources-page" id="main-content">
-        <div class="container-custom">
-            <!-- Header Section -->
-            <div class="resources-header">
-                <h1>Resources</h1>
-                <p class="resources-intro">
-                    Comprehensive collection of <strong>tools</strong>, <strong>guides</strong>, <strong>databases</strong>, 
-                    and <strong>reference materials</strong> to support your metallographic sample preparation work.
-                </p>
+    <div class="first-container">
+    <main id="main-content">
+      <section class="docs" aria-labelledby="resources-heading">
+
+        <!-- Compact hero -->
+        <header class="docs-hero">
+          <span class="docs-hero-eyebrow">PACE Technologies Resources</span>
+          <h1 id="resources-heading" class="docs-hero-title">Resources</h1>
+          <p class="docs-hero-sub">Preparation guides, tools and calculators, documentation, procedures, and our YouTube channel. All in one place.</p>
+        </header>
+
+        <!-- Featured: Preparation Guides -->
+        <a href="/guides.html" class="docs-feature" data-feature="guides" aria-label="Browse all preparation guides">
+          <div class="docs-feature-image">
+            <img
+              src="/images/don-sample.webp"
+              alt="Dr. Donald Zipperian, PACE Technologies founder, holding a polished metallographic sample"
+              width="350" height="263" decoding="async" loading="eager">
+          </div>
+          <div class="docs-feature-body">
+            <span class="docs-feature-badge">Featured</span>
+            <h2 class="docs-feature-title">Preparation Guides</h2>
+            <p class="docs-feature-desc">Step-by-step guides spanning basics, processes, materials, applications, and troubleshooting. The most complete collection on the site.</p>
+            <span class="docs-feature-cta">
+              Browse all guides
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- 4 hub destinations -->
+        <div class="docs-hubs" role="list">
+          <a href="/tools.html" class="docs-hub" data-hub="tools" role="listitem">
+            <div class="docs-hub-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              </svg>
             </div>
+            <h3 class="docs-hub-title">Tools &amp; Calculators</h3>
+            <p class="docs-hub-desc">Grit converters, polishing time, grain size, mounting volume, and the etchant selector.</p>
+            <span class="docs-hub-cta">Open tools<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </a>
 
-            <!-- Search Bar -->
-            <div class="resources-search">
-                <div class="search-wrapper">
-                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
-                    <input 
-                        type="text" 
-                        id="search-input" 
-                        placeholder="Search resources..." 
-                        class="search-input"
-                        aria-label="Search resources"
-                    >
-                </div>
+          <a href="/library.html" class="docs-hub" data-hub="documents" role="listitem">
+            <div class="docs-hub-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="9" y1="13" x2="15" y2="13"></line>
+                <line x1="9" y1="17" x2="15" y2="17"></line>
+              </svg>
             </div>
+            <h3 class="docs-hub-title">Library</h3>
+            <p class="docs-hub-desc">Catalog, brochures, manuals, Safety Data Sheets, and etchant references. The full documentation library.</p>
+            <span class="docs-hub-cta">Open library<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </a>
 
-            <!-- Category Filter -->
-            <div class="resources-filters">
-                <div class="filter-buttons" id="category-filters" role="group" aria-label="Filter resources by category">
-                    <button class="filter-btn active" data-category="all">All</button>
-                    <button class="filter-btn" data-category="Tools">Tools & Calculators</button>
-                    <button class="filter-btn" data-category="Guides">Guides</button>
-                    <button class="filter-btn" data-category="Databases">Databases</button>
-                    <button class="filter-btn" data-category="Reference">Reference Materials</button>
-                    <button class="filter-btn" data-category="Video">Video Resources</button>
-                    <button class="filter-btn" data-category="Support">Support Materials</button>
-                </div>
+          <a href="/support/procedures.html" class="docs-hub" data-hub="procedures" role="listitem">
+            <div class="docs-hub-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 2h6l5 5v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path>
+                <polyline points="9 12 11 14 15 10"></polyline>
+              </svg>
             </div>
+            <h3 class="docs-hub-title">Preparation Procedures</h3>
+            <p class="docs-hub-desc">Recommended step-by-step procedures across the 11-class material system.</p>
+            <span class="docs-hub-cta">Open procedures<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </a>
 
-            <!-- Resources Content -->
-            <div id="resources-content">
-                <!-- Tools & Calculators Section -->
-                <section class="resources-section" data-category="Tools">
-                    <div class="section-header">
-                        <h2>Tools & Calculators</h2>
-                    </div>
-                    <p class="section-description">
-                        Interactive calculators and conversion tools for grit sizes, polishing times, grain sizes, and more.
-                    </p>
-                    <div class="resources-grid">
-                        <div class="resource-card" data-resource="grit-size-converter">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 3h18v18H3z"></path>
-                                    <path d="M9 9h6v6H9z"></path>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Calculator</span>
-                            <h3>Grit Size Converter</h3>
-                            <p>Convert between different grit size standards (FEPA, ANSI, JIS, micron). Essential for selecting the right abrasive.</p>
-                            <a href="/tools/grit-size-converter.html" class="btn-primary">Use Tool →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="polishing-time-calculator">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Calculator</span>
-                            <h3>Polishing Time Calculator</h3>
-                            <p>Calculate optimal polishing times based on material type, grit size, and sample characteristics.</p>
-                            <a href="/tools/polishing-time-calculator.html" class="btn-primary">Use Tool →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="grain-size-calculator">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                                    <line x1="12" y1="3" x2="12" y2="21"></line>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Calculator</span>
-                            <h3>Grain Size Calculator</h3>
-                            <p>Calculate ASTM grain size numbers and convert between different grain size measurement systems.</p>
-                            <a href="/tools/grain-size-calculator.html" class="btn-primary">Use Tool →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="mounting-material-calculator">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Calculator</span>
-                            <h3>Mounting Material Calculator</h3>
-                            <p>Calculate the amount of mounting material needed for compression or castable mounting based on sample and mold size.</p>
-                            <a href="/tools/mounting-material-calculator.html" class="btn-primary">Use Tool →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="procedure-time-estimator">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Calculator</span>
-                            <h3>Total Procedure Time Estimator</h3>
-                            <p>Estimate total time for complete sample preparation including sectioning, mounting, grinding, and polishing.</p>
-                            <a href="/tools/procedure-time-estimator.html" class="btn-primary">Use Tool →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="etchant-selector">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 11a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"></path>
-                                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"></path>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Reference Tool</span>
-                            <h3>Etchant Selector</h3>
-                            <p>Find the right etchant for your material and application. Search by material type or etchant name.</p>
-                            <a href="/etchant-selector.html" class="btn-primary">Use Tool →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="mold-compatibility-checker">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Reference Tool</span>
-                            <h3>Sample Size/Mold Compatibility Checker</h3>
-                            <p>Check if your sample fits in standard mounting molds and get size recommendations for optimal mounting.</p>
-                            <a href="/tools/mold-compatibility-checker.html" class="btn-primary">Use Tool →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="lab-builder">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Planning Tool</span>
-                            <h3>Lab Builder</h3>
-                            <p>Get equipment and consumable recommendations based on your sample specifications and workflow requirements.</p>
-                            <a href="/build.html" class="btn-primary">Use Tool →</a>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Guides Section -->
-                <section class="resources-section" data-category="Guides">
-                    <div class="section-header">
-                        <h2>Preparation Guides</h2>
-                    </div>
-                    <p class="section-description">
-                        Step-by-step guides organized by topic: Basics, Process, Material-Specific, Application-Specific, and Troubleshooting.
-                    </p>
-                    <div class="resources-grid">
-                        <div class="resource-card" data-resource="guides">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Guide Collection</span>
-                            <h3>All Preparation Guides</h3>
-                            <p>Comprehensive collection of step-by-step guides covering all aspects of metallographic sample preparation.</p>
-                            <a href="/guides.html" class="btn-primary">Browse Guides →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="basics-guides">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="2" x2="12" y2="6"></line>
-                                    <line x1="12" y1="18" x2="12" y2="22"></line>
-                                    <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
-                                    <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
-                                    <line x1="2" y1="12" x2="6" y2="12"></line>
-                                    <line x1="18" y1="12" x2="22" y2="12"></line>
-                                    <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
-                                    <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Basics</span>
-                            <h3>Basics Guides</h3>
-                            <p>Introduction to metallography, equipment overview, safety fundamentals, and common misconceptions.</p>
-                            <a href="/guides.html?category=Basics" class="btn-primary">View Basics →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="process-guides">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Process</span>
-                            <h3>Process Guides</h3>
-                            <p>Detailed guides on sectioning, mounting, grinding techniques, polishing methods, and etching procedures.</p>
-                            <a href="/guides.html?category=Process" class="btn-primary">View Process →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="material-guides">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Material-Specific</span>
-                            <h3>Material-Specific Guides</h3>
-                            <p>Preparation procedures for stainless steel, aluminum, copper, titanium, carbon steel, and more.</p>
-                            <a href="/guides.html?category=Material-Specific" class="btn-primary">View Materials →</a>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Databases Section -->
-                <section class="resources-section" data-category="Databases">
-                    <div class="section-header">
-                        <h2>Databases</h2>
-                    </div>
-                    <p class="section-description">
-                        Searchable databases of materials, etchants, and standards for quick reference and research.
-                    </p>
-                    <div class="resources-grid">
-                        <div class="resource-card" data-resource="materials-database">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Database</span>
-                            <h3>Materials Database</h3>
-                            <p>Comprehensive database of materials with preparation procedures, properties, and recommended techniques. Search by material type or alloy composition.</p>
-                            <a href="/materials.html" class="btn-primary">Browse Materials →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="etchants-database">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 11a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"></path>
-                                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"></path>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Database</span>
-                            <h3>Etchants Database</h3>
-                            <p>Complete reference of etching reagents with compositions, applications, safety information, and material compatibility.</p>
-                            <a href="/etchants.html" class="btn-primary">Browse Etchants →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="standards-database">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                                    <polyline points="10 9 9 9 8 9"></polyline>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Database</span>
-                            <h3>Standards Database</h3>
-                            <p>Reference database of ASTM and ISO standards relevant to metallography, including preparation methods and testing procedures.</p>
-                            <a href="/standards.html" class="btn-primary">Browse Standards →</a>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Reference Materials Section -->
-                <section class="resources-section" data-category="Reference">
-                    <div class="section-header">
-                        <h2>Reference Materials</h2>
-                    </div>
-                    <p class="section-description">
-                        Quick reference charts, glossaries, and checklists for daily use in the laboratory.
-                    </p>
-                    <div class="resources-grid">
-                        <div class="resource-card" data-resource="glossary">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Reference</span>
-                            <h3>Metallography Glossary</h3>
-                            <p>Comprehensive dictionary of metallography terms, definitions, and concepts. Search and browse technical terminology.</p>
-                            <a href="/glossary.html" class="btn-primary">View Glossary →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="procedures">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Reference</span>
-                            <h3>Recommended Procedures</h3>
-                            <p>Step-by-step recommended procedures for various materials and applications. Downloadable PDF resources.</p>
-                            <a href="/support/procedures.html" class="btn-primary">View Procedures →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="etchant-info">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Reference</span>
-                            <h3>Etchant Information</h3>
-                            <p>Detailed information about common etchants, their compositions, applications, and safety considerations.</p>
-                            <a href="/support/etchant-information.html" class="btn-primary">View Information →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="databases-overview">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Overview</span>
-                            <h3>All Databases</h3>
-                            <p>Overview page with links to all databases: Materials, Etchants, and Standards. Quick access to all searchable resources.</p>
-                            <a href="/databases.html" class="btn-primary">View All →</a>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Video Resources Section -->
-                <section class="resources-section" data-category="Video">
-                    <div class="section-header">
-                        <h2>Video Resources</h2>
-                    </div>
-                    <p class="section-description">
-                        Free video tutorials demonstrating equipment operation, sample preparation techniques, and best practices.
-                    </p>
-                    <div class="resources-grid">
-                        <div class="resource-card" data-resource="youtube-channel">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Video Channel</span>
-                            <h3>PACE Technologies YouTube Channel</h3>
-                            <p>Free video tutorials by Dr. Donald Zipperian, founder of PACE Technologies. Watch step-by-step demonstrations of sectioning, mounting, grinding, and polishing equipment and techniques.</p>
-                            <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer" class="btn-primary">Watch Videos →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="equipment-demos">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
-                                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Video Tutorials</span>
-                            <h3>Equipment Operation Demos</h3>
-                            <p>Watch detailed demonstrations of PACE Technologies equipment including grinder-polishers, mounting presses, precision saws, and microscopy systems.</p>
-                            <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer" class="btn-primary">Watch Demos →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="technique-videos">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polygon points="10 8 16 12 10 16 10 8"></polygon>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Video Tutorials</span>
-                            <h3>Sample Preparation Techniques</h3>
-                            <p>Video walkthroughs of complete sample preparation workflows covering sectioning, mounting, grinding, polishing, and etching for various materials.</p>
-                            <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer" class="btn-primary">Watch Tutorials →</a>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Support Materials Section -->
-                <section class="resources-section" data-category="Support">
-                    <div class="section-header">
-                        <h2>Support Materials</h2>
-                    </div>
-                    <p class="section-description">
-                        Product literature, safety data sheets, brochures, and technical support resources.
-                    </p>
-                    <div class="resources-grid">
-                        <div class="resource-card" data-resource="brochures">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Documentation</span>
-                            <h3>Brochures & Manuals</h3>
-                            <p>Product brochures, equipment manuals, and technical documentation. Download PDFs for detailed product information.</p>
-                            <a href="/support/brochures.html" class="btn-primary">View Documents →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="sds">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Safety</span>
-                            <h3>Safety Data Sheets (SDS)</h3>
-                            <p>Access Safety Data Sheets for all PACE Technologies products. Essential safety information for laboratory use.</p>
-                            <a href="/support/sds.html" class="btn-primary">View SDS →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="catalog">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Catalog</span>
-                            <h3>Product Catalog</h3>
-                            <p>Complete product catalog with specifications, features, and ordering information for all PACE Technologies equipment and consumables.</p>
-                            <a href="/catalog.html" class="btn-primary">View Catalog →</a>
-                        </div>
-
-                        <div class="resource-card" data-resource="support">
-                            <div class="resource-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                                </svg>
-                            </div>
-                            <span class="resource-type-badge">Support</span>
-                            <h3>Technical Support</h3>
-                            <p>Get help with equipment operation, troubleshooting, and technical questions. Contact our support team for assistance.</p>
-                            <a href="/support.html" class="btn-primary">Get Support →</a>
-                        </div>
-                    </div>
-                </section>
+          <a href="https://www.youtube.com/@pacetechnologies" class="docs-hub" data-hub="youtube" role="listitem" target="_blank" rel="noopener noreferrer">
+            <div class="docs-hub-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"></polygon>
+              </svg>
             </div>
-
-            <!-- Empty State -->
-            <div id="empty-state" class="empty-state" style="display: none;">
-                <p>No resources found matching your search.</p>
-            </div>
-
-            <!-- CTA Section -->
-            <div class="resources-cta">
-                <div class="cta-hexagons">
-                    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid slice">
-                        <polygon points="40,20 70,40 70,70 40,90 10,70 10,40" fill="none" stroke="white" stroke-width="1" opacity="0.08" />
-                        <polygon points="140,60 170,80 170,110 140,130 110,110 110,80" fill="none" stroke="white" stroke-width="1.1" opacity="0.06" />
-                        <polygon points="280,30 310,50 310,80 280,100 250,80 250,50" fill="none" stroke="white" stroke-width="1" opacity="0.07" />
-                        <polygon points="200,150 230,170 230,200 200,220 170,200 170,170" fill="none" stroke="white" stroke-width="1" opacity="0.05" />
-                        <polygon points="420,80 450,100 450,130 420,150 390,130 390,100" fill="none" stroke="white" stroke-width="1.1" opacity="0.07" />
-                        <polygon points="560,40 590,60 590,90 560,110 530,90 530,60" fill="none" stroke="white" stroke-width="1" opacity="0.06" />
-                        <polygon points="500,180 530,200 530,230 500,250 470,230 470,200" fill="none" stroke="white" stroke-width="1" opacity="0.05" />
-                        <polygon points="700,100 730,120 730,150 700,170 670,150 670,120" fill="none" stroke="white" stroke-width="1.1" opacity="0.08" />
-                        <polygon points="830,50 860,70 860,100 830,120 800,100 800,70" fill="none" stroke="white" stroke-width="1" opacity="0.06" />
-                        <polygon points="760,200 790,220 790,250 760,270 730,250 730,220" fill="none" stroke="white" stroke-width="1" opacity="0.05" />
-                        <polygon points="950,70 980,90 980,120 950,140 920,120 920,90" fill="none" stroke="white" stroke-width="1.1" opacity="0.07" />
-                        <polygon points="1080,120 1110,140 1110,170 1080,190 1050,170 1050,140" fill="none" stroke="white" stroke-width="1" opacity="0.06" />
-                        <polygon points="1160,40 1190,60 1190,90 1160,110 1130,90 1130,60" fill="none" stroke="white" stroke-width="1" opacity="0.07" />
-                    </svg>
-                </div>
-                <div class="cta-glow"></div>
-                <div class="cta-accent"></div>
-
-                <h2>Need More Help?</h2>
-                <p class="cta-description">
-                    Can't find what you're looking for? Our technical support team is here to help.
-                </p>
-                <div class="cta-buttons">
-                    <a href="/support.html" class="btn-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="16" x2="12" y2="12"></line>
-                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                        </svg>
-                        Contact Support
-                    </a>
-                    <a href="/contact.html" class="btn-tertiary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        Contact Us
-                    </a>
-                </div>
-            </div>
+            <h3 class="docs-hub-title">YouTube Channel</h3>
+            <p class="docs-hub-desc">Free video tutorials by Dr. Donald Zipperian covering equipment operation and preparation techniques.</p>
+            <span class="docs-hub-cta">Watch videos<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </a>
         </div>
+
+        <!-- Compact quick links -->
+        <nav class="docs-quicklinks" aria-label="Related resources">
+          <span class="docs-quicklinks-label">Also useful</span>
+          <a href="/glossary.html">Glossary</a>
+          <a href="/build.html">Lab Builder</a>
+          <a href="/search.html">Site Search</a>
+          <a href="/support.html">Help &amp; FAQ</a>
+        </nav>
+
+      </section>
     </main>
+    </div>
+
 
 
 <!-- FOOTER -->
@@ -1497,12 +1052,40 @@
           <!-- Company/Brand Section -->
           <div class="footer-brand">
             <div class="footer-brand-header">
-              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
+              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async" loading="lazy">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1514,7 +1097,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1542,8 +1125,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1615,88 +1197,43 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
 
-    <script>
-        // Search functionality
-        const searchInput = document.getElementById('search-input');
-        const resourceCards = document.querySelectorAll('.resource-card');
-        const emptyState = document.getElementById('empty-state');
-        const resourcesContent = document.getElementById('resources-content');
-
-        searchInput.addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase().trim();
-            let visibleCount = 0;
-
-            resourceCards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const description = card.querySelector('p').textContent.toLowerCase();
-                const matches = title.includes(searchTerm) || description.includes(searchTerm);
-
-                if (matches) {
-                    card.style.display = 'flex';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            // Show/hide sections based on visible cards
-            document.querySelectorAll('.resources-section').forEach(section => {
-                const sectionCards = section.querySelectorAll('.resource-card');
-                const hasVisible = Array.from(sectionCards).some(card => card.style.display !== 'none');
-                if (!hasVisible && searchTerm) {
-                    section.style.display = 'none';
-                } else {
-                    section.style.display = 'block';
-                }
-            });
-
-            // Show empty state if no results
-            if (visibleCount === 0 && searchTerm) {
-                emptyState.style.display = 'block';
-                resourcesContent.style.display = 'none';
-            } else {
-                emptyState.style.display = 'none';
-                resourcesContent.style.display = 'block';
-            }
-        });
-
-        // Filter functionality
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        filterButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Update active state
-                filterButtons.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-
-                const category = this.dataset.category;
-                const sections = document.querySelectorAll('.resources-section');
-
-                sections.forEach(section => {
-                    if (category === 'all' || section.dataset.category === category) {
-                        section.style.display = 'block';
-                    } else {
-                        section.style.display = 'none';
-                    }
-                });
-
-                // Clear search when filtering
-                searchInput.value = '';
-                resourceCards.forEach(card => {
-                    card.style.display = 'flex';
-                });
-                emptyState.style.display = 'none';
-            });
-        });
-    </script>
     <script src="/js/scripts.js" defer></script>
-    
-    <!-- Return to Top Button -->
-    <a href="#top" class="return-to-top" aria-label="Return to top">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
-            <path d="M12 4l-8 8h16z"></path>
-        </svg>
-    </a>
+    <script src="/js/animations.js" defer></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

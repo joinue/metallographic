@@ -10,10 +10,10 @@
     <meta name="norton-safeweb-site-verification" content="kw254olmyzhm98ttscnebx59npy7ji28spxv77ktnnqwpg2entz0hsfozhba0gzvjvrfj6z0-c00djzn-iq1hw-z1vdcna8ug093xtjit61oop1s26erotk-0ruemld5">
   
     <!-- Page Title -->
-    <title>Services & Support - Installation, Training & Maintenance | PACE Technologies</title>
+    <title>Services & Support | Installation, Training & Maintenance | PACE Technologies</title>
   
     <!-- SEO -->
-    <meta name="description" content="Installation, training, maintenance, and KeepPACE service plans to keep your metallographic lab running at peak performance.">
+    <meta name="description" content="Installation, training, maintenance, and KeepPACE service plans for metallographic labs. On-site or remote, scheduled when you need them.">
     <meta name="keywords" content="metallographic services, service plans, lab consultation, equipment installation, equipment training, maintenance services, KeepPACE service plans, on-site installation, training programs">
   
     <!-- Canonical -->
@@ -29,7 +29,7 @@
     <link rel="mask-icon" href="/images/pt-favicon/safari-pinned-tab.svg" color="#5bbad5">
 
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://js.hsforms.net https://*.hubspot.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://js.hsforms.net https://*.hubspot.com;">
+    <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://js.hsforms.net https://*.hubspot.com https://*.hsforms.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://js.hsforms.net https://*.hubspot.com https://*.hsforms.com;">
 
     <!-- Styles -->
     <link rel="preload" href="/css/components/navigation.css" as="style">
@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="/css/components/navigation.css" media="all">
     <link rel="stylesheet" href="/css/layouts/homepage-styles.css" media="all">
     <link rel="stylesheet" href="/css/components/footer.css" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="stylesheet" href="/css/pages/services.css">
     <link rel="stylesheet" href="/css/utilities/animations.css">
     <!-- Critical inline style to prevent animation FOUC -->
     <style>
@@ -70,548 +71,6 @@
             }
         }
         
-        /* Services Page Specific Styles */
-        .services-hero {
-            position: relative;
-            min-height: 48vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin-bottom: 3rem;
-            padding-top: 6rem; /* Account for fixed navigation - pushes content down */
-            padding-bottom: 1.5rem;
-        }
-
-        @media (min-width: 768px) {
-            .services-hero {
-                padding-top: 6.5rem; /* Slightly more padding on larger screens */
-                min-height: 52vh;
-            }
-        }
-        
-        .services-hero-background {
-            position: absolute;
-            top: -6rem; /* Extend upward to show top of image behind navigation */
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 0;
-            height: calc(100% + 6rem); /* Extend height to include the upward extension */
-        }
-        
-        @media (min-width: 768px) {
-            .services-hero-background {
-                top: -6.5rem;
-                height: calc(100% + 6.5rem);
-            }
-        }
-        
-        .services-hero-background img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 25%; /* Center horizontally, focus on upper portion */
-            filter: grayscale(30%) brightness(0.85);
-        }
-        
-        .services-hero-overlay {
-            position: absolute;
-            top: -6rem; /* Match background extension */
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: calc(100% + 6rem); /* Match background height */
-            background: linear-gradient(to bottom right, rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.65), rgba(17, 24, 39, 0.75));
-            z-index: 1;
-        }
-        
-        @media (min-width: 768px) {
-            .services-hero-overlay {
-                top: -6.5rem;
-                height: calc(100% + 6.5rem);
-            }
-        }
-        
-        .services-hero-content {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem 0 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .services-hero-content {
-                padding: 3rem 0 2rem;
-            }
-        }
-        
-        .services-hero-content > div {
-            width: 100%;
-            text-align: center;
-        }
-        
-        .services-hero h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        @media (min-width: 768px) {
-            .services-hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .services-hero h1 {
-                font-size: 3rem;
-            }
-        }
-        
-        .services-hero p {
-            font-size: 1.125rem;
-            color: rgba(243, 244, 246, 1);
-            max-width: 48rem;
-            margin: 0 auto;
-            line-height: 1.75;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        
-        @media (min-width: 768px) {
-            .services-hero p {
-                font-size: 1.25rem;
-            }
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-        
-        @media (min-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        /* Service offering cards grid - stays at 2 columns on larger screens */
-        .service-offerings-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .service-offerings-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        /* Keep 2 columns even on larger screens for service-offering cards */
-        @media (min-width: 1024px) {
-            .service-offerings-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        .service-card {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .service-card:hover {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: #d1d5db;
-        }
-        
-        .service-card-link {
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .service-card-popular {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: linear-gradient(to bottom right, #2563eb, #1d4ed8);
-            color: white;
-            padding: 0.375rem 0.75rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border-bottom-left-radius: 0.5rem;
-            z-index: 10;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-card-icon {
-            width: 3rem;
-            height: 3rem;
-            flex-shrink: 0;
-            background: linear-gradient(to bottom right, #dbeafe, #eff6ff);
-            border-radius: 0.5rem;
-            padding: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-        }
-        
-        .service-card-icon svg {
-            width: 1.5rem;
-            height: 1.5rem;
-            color: #2563eb;
-        }
-        
-        .service-card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .service-card h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #111827;
-            margin: 0;
-        }
-        
-        .service-card:hover h2 {
-            color: #2563eb;
-        }
-        
-        .service-card p {
-            color: #4b5563;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-        
-        .service-card-footer {
-            display: flex;
-            align-items: center;
-            color: #2563eb;
-            font-weight: 600;
-            margin-top: auto;
-            gap: 0.25rem;
-        }
-        
-        .service-card-footer svg {
-            width: 1rem;
-            height: 1rem;
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover .service-card-footer svg {
-            transform: translateX(4px);
-        }
-        
-        .service-offering-card {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-        }
-        
-        .service-offering-image {
-            width: 100%;
-            height: 16rem;
-            margin-bottom: 1rem;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            background: #f3f4f6;
-        }
-        
-        .service-offering-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .service-offering-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 0.75rem;
-        }
-        
-        .service-offering-card p {
-            color: #374151;
-            margin-bottom: 1rem;
-        }
-        
-        .service-offering-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .service-offering-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            color: #374151;
-        }
-        
-        .service-offering-list svg {
-            width: 1rem;
-            height: 1rem;
-            color: #2563eb;
-            flex-shrink: 0;
-            margin-top: 0.25rem;
-        }
-        
-        .service-cta-box {
-            margin-top: 2rem;
-            background: #eff6ff;
-            border-left: 4px solid #2563eb;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-        }
-        
-        .service-cta-box p {
-            color: #374151;
-            margin-bottom: 1rem;
-        }
-        
-        .service-cta-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        @media (min-width: 640px) {
-            .service-cta-buttons {
-                flex-direction: row;
-            }
-        }
-        
-        .btn-service-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: #2563eb;
-            color: white;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background-color 0.2s;
-        }
-        
-        .btn-service-primary:hover {
-            background: #1d4ed8;
-            color: white;
-        }
-        
-        .btn-service-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: white;
-            border: 2px solid #2563eb;
-            color: #2563eb;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background-color 0.2s;
-        }
-        
-        .btn-service-secondary:hover {
-            background: #eff6ff;
-        }
-        
-        .service-cta-section {
-            position: relative;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #111827 70%, #0f172a 100%);
-            border-radius: 1rem;
-            padding: 3rem 1rem 2.5rem;
-            text-align: center;
-            color: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.05);
-            overflow: hidden;
-        }
-
-        .service-cta-section .cta-hexagons {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .service-cta-section .cta-glow {
-            position: absolute;
-            top: -20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 70%;
-            background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .service-cta-section .cta-accent {
-            position: absolute;
-            top: 0;
-            left: 10%;
-            right: 10%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #2563eb, #3b82f6, #2563eb, transparent);
-            border-radius: 0 0 2px 2px;
-            z-index: 1;
-        }
-
-        .service-cta-section h2,
-        .service-cta-section p,
-        .service-cta-buttons-large {
-            position: relative;
-            z-index: 1;
-        }
-
-        @media (min-width: 768px) {
-            .service-cta-section {
-                padding: 4.5rem 2rem 4rem;
-            }
-        }
-
-        .service-cta-section h2 {
-            font-size: 1.875rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-            letter-spacing: -0.01em;
-        }
-
-        @media (min-width: 768px) {
-            .service-cta-section h2 {
-                font-size: 2.25rem;
-            }
-        }
-
-        .service-cta-section p {
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            max-width: 42rem;
-            margin-left: auto;
-            margin-right: auto;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.7;
-        }
-
-        .service-cta-buttons-large {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            justify-content: center;
-            align-items: center;
-        }
-
-        @media (min-width: 640px) {
-            .service-cta-buttons-large {
-                flex-direction: row;
-            }
-        }
-
-        .btn-cta-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1.25rem;
-            background: white;
-            color: #111827;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 0.9375rem;
-            text-decoration: none;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-            width: auto;
-        }
-
-        .btn-cta-primary:hover {
-            background: #f0f7ff;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 20px rgba(37, 99, 235, 0.15);
-            transform: translateY(-3px);
-        }
-
-        .btn-cta-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1.25rem;
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(12px);
-            color: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 0.9375rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            width: auto;
-        }
-
-        .btn-cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.3);
-            color: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .btn-cta-primary svg,
-        .btn-cta-secondary svg {
-            width: 1.25rem;
-            height: 1.25rem;
-            transition: transform 0.3s;
-        }
-
-        .btn-cta-primary:hover svg,
-        .btn-cta-secondary:hover svg {
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 640px) {
-            .service-cta-section {
-                padding: 2rem 1rem 1.5rem;
-            }
-            .service-cta-section .cta-accent {
-                left: 5%;
-                right: 5%;
-            }
-        }
     </style>
     <noscript>
         <link rel="stylesheet" href="/css/components/footer.css">
@@ -635,8 +94,8 @@
     </script>
   
     <!-- Open Graph -->
-    <meta property="og:title" content="Services & Support - Installation, Training & Maintenance | PACE Technologies">
-    <meta property="og:description" content="Installation, training, maintenance, and KeepPACE service plans to keep your metallographic lab running at peak performance.">
+    <meta property="og:title" content="Services & Support | Installation, Training & Maintenance | PACE Technologies">
+    <meta property="og:description" content="Installation, training, maintenance, and KeepPACE service plans for metallographic labs. On-site or remote, scheduled when you need them.">
     <meta property="og:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
     <meta property="og:url" content="https://www.metallographic.com/services.html">
     <meta property="og:type" content="website">
@@ -645,8 +104,8 @@
   
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Services & Support - Installation, Training & Maintenance | PACE Technologies">
-    <meta name="twitter:description" content="Installation, training, maintenance, and KeepPACE service plans to keep your metallographic lab running at peak performance.">
+    <meta name="twitter:title" content="Services & Support | PACE Technologies">
+    <meta name="twitter:description" content="Installation, training, maintenance, and KeepPACE service plans for metallographic labs.">
     <meta name="twitter:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
   
     <!-- Schema: WebPage -->
@@ -676,6 +135,16 @@
 <!--                NAVIGATION                    -->
 <!-- ============================================ -->
 
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -702,20 +171,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -925,35 +402,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -998,111 +471,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -1311,36 +714,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -1377,73 +778,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -1481,6 +845,35 @@
     </div>
 </nav>
 
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
 <!-- ============================================ -->
 <!--                MAIN CONTENT                  -->
 <!-- ============================================ -->
@@ -1495,10 +888,10 @@
         </div>
         
         <div class="container-custom services-hero-content">
-            <div style="text-align: center; max-width: 64rem; margin: 0 auto;" data-animate="up" data-animate-delay="100">
-                <h1>Services & Support</h1>
-                <p>
-                    Your equipment is only as good as the support behind it. From the day we install your first machine through years of daily operation, PACE's service team keeps your lab producing reliable, repeatable results.
+            <div class="services-hero-text" data-animate="up" data-animate-delay="100">
+                <h1 class="services-hero-title">Services & Support</h1>
+                <p class="services-hero-description">
+                    From the day we install your first machine through years of daily operation, PACE's service team keeps your lab running — installation, training, maintenance, and repair.
                 </p>
             </div>
         </div>
@@ -1511,78 +904,76 @@
             <p style="font-size: 1.125rem; color: #4b5563;">Ongoing coverage, new lab design, or one-on-one expert advice. Pick the starting point that fits your situation.</p>
         </div>
         <div class="services-grid">
-            <!-- KeepPACE Service Plans -->
-            <a href="/keeppace.html" class="service-card-link" data-animate="up" data-animate-delay="150">
-                <div class="service-card" style="background: linear-gradient(to bottom right, rgba(239, 246, 255, 0.5), white); border-color: #bfdbfe;">
-                    <div class="service-card-popular">Popular</div>
+            <!-- Professional Services -->
+            <a href="#individual-services" class="service-card" data-animate="up" data-animate-delay="100">
+                <div class="service-card-content">
                     <div class="service-card-header">
-                        <div class="service-card-icon" style="background: white; padding: 0.375rem;">
-                            <img src="/images/pace/keeppacelogo.png" alt="KeepPACE" style="width: 100%; height: 100%; object-fit: contain;">
-                        </div>
-                        <h2>KeepPACE Service Plans</h2>
-                    </div>
-                    <p>
-                        Annual service plans that bundle maintenance, training, and priority support into predictable yearly coverage for your entire lab.
-                    </p>
-                    <div class="service-card-footer">
-                        View Plans
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Build Your Lab -->
-            <a href="/build.html" class="service-card-link" data-animate="up" data-animate-delay="200">
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <div class="service-card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
                             </svg>
                         </div>
-                        <h2>Build Your Lab</h2>
+                        <h3 class="service-card-title">Professional Services</h3>
                     </div>
-                    <p>
-                        Planning a new lab or expanding an existing one? Walk through our guided tool to spec the right equipment for your workflow and budget.
+                    <p class="service-card-description">
+                        On-site training, lab consulting, and equipment repairs delivered by PACE technicians, scheduled when you need them.
                     </p>
-                    <div class="service-card-footer">
-                        Get Started
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
+                    <div class="service-card-link">
+                        View Services
+                        <svg class="arrow-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-arrow-right"/></svg>
                     </div>
                 </div>
             </a>
 
-            <!-- Lab Consultation -->
-            <a href="/contact.html" class="service-card-link" data-animate="up" data-animate-delay="250">
-                <div class="service-card">
+            <!-- KeepPACE Plans -->
+            <a href="/keeppace.html" class="service-card service-card-featured" data-animate="up" data-animate-delay="200">
+                <div class="service-badge">Popular</div>
+                <div class="service-card-content">
                     <div class="service-card-header">
-                        <div class="service-card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="3"/>
-                                <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
+                        <div class="service-icon-wrapper">
+                            <img src="/images/pace/keeppacelogo.webp" alt="KeepPACE" class="service-icon-image" width="1024" height="1024" decoding="async">
+                        </div>
+                        <h3 class="service-card-title">KeepPACE Plans</h3>
+                    </div>
+                    <p class="service-card-description">
+                        Preventative maintenance plans and extended warranties that keep your equipment calibrated, supported, and covered.
+                    </p>
+                    <div class="service-card-link">
+                        View Plans
+                        <svg class="arrow-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-arrow-right"/></svg>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Bespoke Services -->
+            <a href="/contact.html" class="service-card" data-animate="up" data-animate-delay="300">
+                <div class="service-card-content">
+                    <div class="service-card-header">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="4" y1="6" x2="20" y2="6"/>
+                                <line x1="4" y1="12" x2="20" y2="12"/>
+                                <line x1="4" y1="18" x2="20" y2="18"/>
+                                <circle cx="9" cy="6" r="2.5" fill="var(--service-icon-bg, #fff)"/>
+                                <circle cx="15" cy="12" r="2.5" fill="var(--service-icon-bg, #fff)"/>
+                                <circle cx="7" cy="18" r="2.5" fill="var(--service-icon-bg, #fff)"/>
                             </svg>
                         </div>
-                        <h2>Lab Consultation</h2>
+                        <h3 class="service-card-title">Bespoke Services</h3>
                     </div>
-                    <p>
-                        Have a specific question or challenge? Talk one-on-one with a PACE applications engineer about materials, methods, or troubleshooting.
+                    <p class="service-card-description">
+                        Need something different? We tailor service engagements to your team's workflow, sample volume, and equipment mix. Tell us what you're working with.
                     </p>
-                    <div class="service-card-footer">
-                        Request Consultation
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
+                    <div class="service-card-link">
+                        Talk to Us
+                        <svg class="arrow-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-arrow-right"/></svg>
                     </div>
                 </div>
             </a>
         </div>
 
         <!-- Professional Service Offerings -->
-        <div style="margin-bottom: 4rem;" data-animate="up" data-animate-delay="300">
+        <div id="individual-services" style="margin-bottom: 4rem; scroll-margin-top: 6rem;" data-animate="up" data-animate-delay="300">
             <div style="margin-bottom: 2rem;">
                 <h2 style="font-size: 1.875rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem;">Individual Services</h2>
                 <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 1rem;">
@@ -1597,7 +988,7 @@
                 <!-- On-Site Installation -->
                 <div class="service-offering-card" data-animate="up" data-animate-delay="400">
                     <div class="service-offering-image">
-                        <img src="/images/trainings-distributors/QS7.jpg" alt="On-site equipment installation" style="object-position: center 20%;">
+                        <img loading="lazy" src="/images/trainings-distributors/QS7.jpg" alt="On-site equipment installation" style="object-position: center 20%;">
                     </div>
                     <h3>On-Site Installation</h3>
                     <p>
@@ -1623,7 +1014,7 @@
                                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                                 <polyline points="22 4 12 14.01 9 11.01"/>
                             </svg>
-                            <span>Utility and space-requirement guidance
+                            <span>Utility and space-requirement guidance</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1638,7 +1029,7 @@
                 <!-- Training Services -->
                 <div class="service-offering-card" data-animate="up" data-animate-delay="450">
                     <div class="service-offering-image">
-                        <img src="/images/trainings-distributors/QS5.jpg" alt="Equipment training session">
+                        <img loading="lazy" src="/images/trainings-distributors/QS5.jpg" alt="Equipment training session">
                     </div>
                     <h3>Training</h3>
                     <p>
@@ -1681,7 +1072,7 @@
                 <!-- As-Needed Maintenance Visits -->
                 <div class="service-offering-card" data-animate="up" data-animate-delay="500">
                     <div class="service-offering-image">
-                        <img src="/images/pace/4.jpg" alt="Laboratory technicians working with metallographic equipment">
+                        <img loading="lazy" src="/images/pace/4.jpg" alt="Laboratory technicians working with metallographic equipment">
                     </div>
                     <h3>Maintenance Visits</h3>
                     <p>
@@ -1722,7 +1113,7 @@
                 <!-- Additional Support Services -->
                 <div class="service-offering-card" data-animate="up" data-animate-delay="550">
                     <div class="service-offering-image">
-                        <img src="/images/pace/1.jpg" alt="Metallographic laboratory with technicians operating equipment" style="object-position: center 65%;">
+                        <img loading="lazy" src="/images/pace/1.jpg" alt="Metallographic laboratory with technicians operating equipment" style="object-position: center 65%;">
                     </div>
                     <h3>Upgrades & Optimization</h3>
                     <p>
@@ -1814,6 +1205,8 @@
 </main>
 
 <!-- ============================================ -->
+
+
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
@@ -1870,12 +1263,40 @@
           <!-- Company/Brand Section -->
           <div class="footer-brand">
             <div class="footer-brand-header">
-              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
+              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async" loading="lazy">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1887,7 +1308,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1915,8 +1336,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1988,8 +1408,42 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

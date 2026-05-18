@@ -46,7 +46,7 @@
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Metallographic Consumables for Sample Preparation | PACE Technologies">
-  <meta name="twitter:description" content="Explore polishing and cutting consumables from PACE Technologies for metallographic sample preparation.">
+  <meta name="twitter:description" content="Polishing cloths, diamond suspensions, mounting resins, and cutting blades from PACE Technologies.">
   <meta name="twitter:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
 
   <!-- Favicon -->
@@ -204,6 +204,7 @@
   <link rel="stylesheet" href="/css/components/footer.css" media="print" onload="this.media='all'; this.onload=null;">
   <link rel="stylesheet" href="/css/layouts/homepage.css" media="print" onload="this.media='all'; this.onload=null;">
   <link rel="stylesheet" href="/css/utilities/animations.css" media="print" onload="this.media='all'; this.onload=null;">
+  <link rel="stylesheet" href="/css/pages/consumables-hub.css">
 
   <!-- Noscript fallbacks for async CSS -->
   <noscript>
@@ -212,238 +213,6 @@
     <link rel="stylesheet" href="/css/utilities/animations.css">
   </noscript>
 
-  <!-- Inline CSS for shop arrow icon and consumables page styles -->
-  <style>
-    .shop-arrow-icon {
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 4px;
-      transition: transform 0.2s ease;
-    }
-    .shop-link:hover .shop-arrow-icon {
-      transform: translateX(2px);
-    }
-    
-    /* Hero Quick Navigation - Integrated into Hero Section */
-    .hero-quick-nav {
-      margin: var(--spacing-lg) 0 var(--spacing-md) 0;
-    }
-    
-    .hero-quick-nav-list {
-      display: inline-flex;
-      flex-wrap: nowrap;
-      gap: 0.5rem;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    @media (max-width: 1024px) {
-      .hero-quick-nav-list {
-        flex-wrap: wrap;
-      }
-    }
-    
-    .hero-quick-nav-link {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 0.875rem;
-      font-weight: 500;
-      border-radius: 0.375rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-    
-    .hero-quick-nav-link:hover,
-    .hero-quick-nav-link:focus {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.3);
-      transform: translateY(-1px);
-      outline: 2px solid rgba(255, 255, 255, 0.5);
-      outline-offset: 2px;
-    }
-    
-    .hero-quick-nav-link.active {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.25);
-      border-color: rgba(255, 255, 255, 0.4);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-    
-    @media (min-width: 640px) {
-      .hero-quick-nav-link {
-        padding: 0.625rem 1.25rem;
-        font-size: 0.9375rem;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .hero-quick-nav-list {
-        gap: 0.375rem;
-      }
-      
-      .hero-quick-nav-link {
-        padding: 0.5rem 0.875rem;
-        font-size: 0.8125rem;
-      }
-    }
-    
-    /* Anchor offset for timeline steps - accounts for fixed navigation */
-    .timeline-step[id] {
-      scroll-margin-top: 120px;
-    }
-    
-    /* Hero Section Equipment Specific Styles */
-    .hero-section-equipment {
-      margin-bottom: var(--spacing-md);
-      padding-top: calc(100px + var(--spacing-2xl));
-    }
-
-    /* Timeline section padding override (matches equipment page) */
-    .timeline-section {
-      padding: 2rem 0;
-    }
-    @media (min-width: 640px) {
-      .timeline-section {
-        padding: 3rem 0;
-      }
-    }
-    
-    .hero-section-equipment .hero-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .hero-section-equipment .hero-grid > div {
-      padding-top: var(--spacing-lg);
-    }
-    
-    @media (min-width: 640px) {
-      .hero-section-equipment .hero-grid > div {
-        padding-top: var(--spacing-xl);
-      }
-    }
-    
-    /* Timeline content styles */
-    .timeline-container {
-      max-width: 90rem;
-    }
-
-    .timeline-video img {
-      width: 100%;
-      height: auto;
-    }
-
-    .timeline-step-text {
-      margin-bottom: 1.25rem;
-      line-height: 1.65;
-    }
-
-    /* FAQ Section */
-    .faq-section {
-      padding: 1.5rem 0 2rem;
-    }
-
-    .faq-heading {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #1e293b;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      max-width: 50rem;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      border: 1px solid #e5e7eb;
-      border-radius: 0.5rem;
-      overflow: hidden;
-      transition: box-shadow 0.2s ease;
-    }
-
-    .faq-item[open] {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .faq-item summary {
-      padding: 1rem 1.25rem;
-      font-weight: 500;
-      color: #1e293b;
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary::after {
-      content: '+';
-      font-size: 1.25rem;
-      font-weight: 300;
-      color: #6b7280;
-      flex-shrink: 0;
-      margin-left: 1rem;
-    }
-
-    .faq-item[open] summary::after {
-      content: '\2212';
-    }
-
-    .faq-item summary:hover {
-      background: #f9fafb;
-    }
-
-    .faq-item p {
-      padding: 0 1.25rem 1rem;
-      color: #4b5563;
-      line-height: 1.65;
-      margin: 0;
-    }
-
-    /* CTA Section (service-style with hexagons) */
-    .service-cta-section {
-      position: relative;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #111827 70%, #0f172a 100%);
-      border-radius: 1rem;
-      padding: 3rem 1rem 2.5rem;
-      text-align: center;
-      color: white;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.05);
-      overflow: hidden;
-      margin: 2rem 0 4rem;
-    }
-    .service-cta-section .cta-hexagons { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
-    .service-cta-section .cta-glow { position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 60%; height: 70%; background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.12) 0%, transparent 70%); pointer-events: none; z-index: 0; }
-    .service-cta-section .cta-accent { position: absolute; top: 0; left: 10%; right: 10%; height: 3px; background: linear-gradient(90deg, transparent, #2563eb, #3b82f6, #2563eb, transparent); border-radius: 0 0 2px 2px; z-index: 1; }
-    .service-cta-section h2, .service-cta-section p, .service-cta-buttons-large { position: relative; z-index: 1; }
-    .service-cta-section h2 { font-size: 1.875rem; font-weight: 700; margin-bottom: 1rem; color: white; letter-spacing: -0.01em; }
-    .service-cta-section p { font-size: 1.125rem; margin-bottom: 2rem; max-width: 42rem; margin-left: auto; margin-right: auto; color: rgba(255, 255, 255, 0.85); line-height: 1.7; }
-    .service-cta-buttons-large { display: flex; flex-direction: column; gap: 0.75rem; justify-content: center; align-items: center; }
-    .btn-cta-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.625rem 1.25rem; background: white; color: #111827; border-radius: 9999px; font-weight: 600; font-size: 0.9375rem; text-decoration: none; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1); transition: all 0.3s; width: auto; }
-    .btn-cta-primary:hover { background: #f0f7ff; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 20px rgba(37, 99, 235, 0.15); transform: translateY(-3px); }
-    .btn-cta-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.625rem 1.25rem; background: rgba(255, 255, 255, 0.06); backdrop-filter: blur(12px); color: rgba(255, 255, 255, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 9999px; font-weight: 600; font-size: 0.9375rem; text-decoration: none; transition: all 0.3s; width: auto; }
-    .btn-cta-secondary:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.3); color: white; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transform: translateY(-3px); }
-    .btn-cta-primary svg, .btn-cta-secondary svg { width: 1.25rem; height: 1.25rem; transition: transform 0.3s; }
-    .btn-cta-primary:hover svg, .btn-cta-secondary:hover svg { transform: scale(1.1); }
-    @media (min-width: 640px) { .service-cta-buttons-large { flex-direction: row; } }
-    @media (min-width: 768px) { .service-cta-section { padding: 4.5rem 2rem 4rem; } .service-cta-section h2 { font-size: 2.25rem; } }
-    @media (max-width: 640px) { .service-cta-section { padding: 2rem 1rem 1.5rem; } .service-cta-section .cta-accent { left: 5%; right: 5%; } }
-  </style>
 
 </head>
 
@@ -451,6 +220,16 @@
 
 <!-- Skip to Main Content -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
 
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
@@ -478,20 +257,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -701,35 +488,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -774,111 +557,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -1087,36 +800,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -1153,73 +864,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -1264,10 +938,29 @@
         <section class="quote-request" aria-labelledby="quote-request-heading">
             <div class="quote-form-container">
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
             </div>
         </section>
     </div>
 </div>
+
+
+
+
 
 <!-- HEADER - Modern Hero Section -->
 
@@ -1290,7 +983,7 @@
         </nav>
         <h1 class="hero-headline">Metallographic Consumables</h1>
         <p class="hero-description">
-          Blades, abrasives, polishing suspensions, and mounting compounds for reliable, repeatable metallographic results.
+          Blades, abrasives, polishing suspensions, and mounting compounds for metallographic sample preparation.
         </p>
         <!-- Quick Navigation Menu - Integrated into Hero -->
         <nav class="hero-quick-nav" aria-label="Quick Navigation">
@@ -1343,7 +1036,13 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/consumables/sectioning/abrasive-cutting.webp" alt="Sectioning consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
+                                    <picture>
+                                        <img src="/images/consumables/sectioning/abrasive-cutting.webp"
+                                             alt="Sectioning consumables for metallographic sample preparation"
+                                             width="2048" height="1536"
+                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                                             fetchpriority="high" decoding="async">
+                                    </picture>
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1384,7 +1083,13 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/consumables/mounting/compression mounting/compression-mounting-cover.webp" alt="Mounting consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
+                                    <picture>
+                                        <img loading="lazy" src="/images/consumables/mounting/compression mounting/compression-mounting-cover.webp"
+                                             alt="Mounting consumables for metallographic sample preparation"
+                                             width="2000" height="2000"
+                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                                             loading="lazy" decoding="async">
+                                    </picture>
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1425,7 +1130,13 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/consumables/grinding-lapping/grinding-lapping-cover.webp" alt="Grinding and lapping consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
+                                    <picture>
+                                        <img loading="lazy" src="/images/consumables/grinding-lapping/grinding-lapping-cover.webp"
+                                             alt="Grinding and lapping consumables for metallographic sample preparation"
+                                             width="800" height="800"
+                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                                             loading="lazy" decoding="async">
+                                    </picture>
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1493,7 +1204,13 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/consumables/rough polishing/rough-polishing-cover.webp" alt="Rough polishing consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
+                                    <picture>
+                                        <img loading="lazy" src="/images/consumables/rough polishing/rough-polishing-cover.webp"
+                                             alt="Rough polishing consumables for metallographic sample preparation"
+                                             width="800" height="800"
+                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                                             loading="lazy" decoding="async">
+                                    </picture>
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1552,7 +1269,13 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/consumables/final polishing & analysis/final polishing & analysis-cover.webp" alt="Final polishing consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
+                                    <picture>
+                                        <img loading="lazy" src="/images/consumables/final polishing & analysis/final polishing & analysis-cover.webp"
+                                             alt="Final polishing consumables for metallographic sample preparation"
+                                             width="2000" height="2000"
+                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                                             loading="lazy" decoding="async">
+                                    </picture>
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1593,7 +1316,13 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/consumables/final polishing & analysis/etching/etching.webp" alt="Cleaning and etching consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
+                                    <picture>
+                                        <img loading="lazy" src="/images/consumables/final polishing & analysis/etching/etching.webp"
+                                             alt="Cleaning and etching consumables for metallographic sample preparation"
+                                             width="800" height="800"
+                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                                             loading="lazy" decoding="async">
+                                    </picture>
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1634,7 +1363,13 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-step-content">
                                 <div class="timeline-video">
-                                    <img src="/images/consumables/final polishing & analysis/hardness testing/hardness testing.webp" alt="Hardness testing consumables for metallographic sample preparation" loading="lazy" width="800" height="600">
+                                    <picture>
+                                        <img loading="lazy" src="/images/consumables/final polishing & analysis/hardness testing/hardness testing.webp"
+                                             alt="Hardness testing consumables for metallographic sample preparation"
+                                             width="2000" height="2000"
+                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                                             loading="lazy" decoding="async">
+                                    </picture>
                                 </div>
                                 <div class="timeline-content">
                                     <div class="timeline-card">
@@ -1666,41 +1401,57 @@
         </section>
 
         <!-- FAQ Section -->
-        <section class="faq-section">
+        <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
             <div class="container-custom">
                 <h2 class="faq-heading">Frequently Asked Questions</h2>
                 <div class="faq-list">
-                    <details class="faq-item">
-                        <summary>What consumables do I need for metallographic sample preparation?</summary>
-                        <p>It depends on what you're preparing and what you're looking for, but a typical setup includes sectioning blades and cutting fluid, mounting material (compression or castable), grinding discs or papers, polishing pads with diamond suspension, final polishing cloth with colloidal silica, and etching reagent. If you're not sure what's right for your material, call us and we'll walk you through it.</p>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">What consumables do I need for metallographic sample preparation?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">It depends on what you're preparing and what you're looking for, but a typical setup includes sectioning blades and cutting fluid, mounting material (compression or castable), grinding discs or papers, polishing pads with diamond suspension, final polishing cloth with colloidal silica, and etching reagent. If you're not sure what's right for your material, call us and we'll walk you through it.</p>
+                        </div>
                     </details>
-                    <details class="faq-item">
-                        <summary>What is the difference between polycrystalline and monocrystalline diamond?</summary>
-                        <p>Polycrystalline diamond is made up of many small crystals that break down during use, constantly exposing fresh cutting edges. It's a good all-around choice for most materials and gives you fast, consistent removal. Monocrystalline diamond is a single crystal. It's harder, sharper, and better for very hard materials or when you need the best possible surface finish with minimal subsurface damage.</p>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">What is the difference between polycrystalline and monocrystalline diamond?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Polycrystalline diamond is made up of many small crystals that break down during use, constantly exposing fresh cutting edges. It's a good all-around choice for most materials and gives you fast, consistent removal. Monocrystalline diamond is a single crystal. It's harder, sharper, and better for very hard materials or when you need the best possible surface finish with minimal subsurface damage.</p>
+                        </div>
                     </details>
-                    <details class="faq-item">
-                        <summary>How do I choose the right mounting material?</summary>
-                        <p>For most routine work, compression mounting is the way to go. It's fast, gives you strong edge retention, and the resulting mount is easy to handle. Use castable resins when your sample can't take heat or pressure, or when it's an odd shape that won't fit in a mold. If your material is porous or has cracks you need to fill, vacuum impregnation is the best option. Not sure? Give us a call.</p>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">How do I choose the right mounting material?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">For most routine work, compression mounting is the way to go. It's fast, gives you strong edge retention, and the resulting mount is easy to handle. Use castable resins when your sample can't take heat or pressure, or when it's an odd shape that won't fit in a mold. If your material is porous or has cracks you need to fill, vacuum impregnation is the best option. Not sure? Give us a call.</p>
+                        </div>
                     </details>
-                    <details class="faq-item">
-                        <summary>How often should I replace my polishing pads?</summary>
-                        <p>It depends on how heavily you use them and what materials you're polishing, but a good rule of thumb is to replace a pad when you start seeing inconsistent finishes, longer polishing times, or scratches that weren't there before. Some labs get weeks out of a pad, others change them daily. If you're mixing different diamond sizes on the same pad, that will shorten its life too. When in doubt, start fresh. A worn pad costs you more in rework than a new one costs to replace.</p>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">How often should I replace my polishing pads?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">It depends on how heavily you use them and what materials you're polishing, but a good rule of thumb is to replace a pad when you start seeing inconsistent finishes, longer polishing times, or scratches that weren't there before. Some labs get weeks out of a pad, others change them daily. If you're mixing different diamond sizes on the same pad, that will shorten its life too. When in doubt, start fresh. A worn pad costs you more in rework than a new one costs to replace.</p>
+                        </div>
                     </details>
-                    <details class="faq-item">
-                        <summary>What sectioning blade should I use for my material?</summary>
-                        <p>The short answer: match the blade to the material hardness. For soft metals like aluminum or copper, use a harder bond blade so it doesn't wear too fast. For hard materials like tool steels or ceramics, use a softer bond that exposes fresh abrasive as it cuts. We also make specialty blades for composites and heat-sensitive materials. If you tell us what you're cutting, we can recommend the right blade.</p>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">What sectioning blade should I use for my material?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">The short answer: match the blade to the material hardness. For soft metals like aluminum or copper, use a harder bond blade so it doesn't wear too fast. For hard materials like tool steels or ceramics, use a softer bond that exposes fresh abrasive as it cuts. We also make specialty blades for composites and heat-sensitive materials. If you tell us what you're cutting, we can recommend the right blade.</p>
+                        </div>
                     </details>
-                    <details class="faq-item">
-                        <summary>Can I use the same polishing suspension for different materials?</summary>
-                        <p>You can, but you'll get better results if you don't. Different materials respond differently to abrasive types and concentrations. A polycrystalline diamond suspension works well as a general-purpose option, but if you're preparing something specific, like a soft non-ferrous alloy or a very hard ceramic, a suspension matched to that material will give you a cleaner surface in less time. Cross-contamination between samples is also a concern if you're switching materials on the same pad.</p>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">Can I use the same polishing suspension for different materials?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">You can, but you'll get better results if you don't. Different materials respond differently to abrasive types and concentrations. A polycrystalline diamond suspension works well as a general-purpose option, but if you're preparing something specific, like a soft non-ferrous alloy or a very hard ceramic, a suspension matched to that material will give you a cleaner surface in less time. Cross-contamination between samples is also a concern if you're switching materials on the same pad.</p>
+                        </div>
                     </details>
-                    <details class="faq-item">
-                        <summary>What's the difference between colloidal silica and alumina for final polishing?</summary>
-                        <p>Both work for final polishing, but they behave differently. Colloidal silica has a slight chemical polishing action in addition to the mechanical removal, which helps produce a flatter, more artifact-free surface, especially on metals. Alumina is purely mechanical and works well for harder materials or when you need to avoid chemical effects. For most metallographic work, colloidal silica is the go-to choice for final polish.</p>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">What's the difference between colloidal silica and alumina for final polishing?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Both work for final polishing, but they behave differently. Colloidal silica has a slight chemical polishing action in addition to the mechanical removal, which helps produce a flatter, more artifact-free surface, especially on metals. Alumina is purely mechanical and works well for harder materials or when you need to avoid chemical effects. For most metallographic work, colloidal silica is the go-to choice for final polish.</p>
+                        </div>
                     </details>
-                    <details class="faq-item">
-                        <summary>Do you ship consumables internationally?</summary>
-                        <p>Yes. We ship to labs around the world and have been doing it for decades. Some items like certain cutting fluids or etching chemicals may have shipping restrictions depending on the destination, but we'll work through that with you. Just give us a call or place your order through the shop and we'll take care of the rest.</p>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">Do you ship consumables internationally?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Yes. We ship to labs around the world and have been doing it for decades. Some items like certain cutting fluids or etching chemicals may have shipping restrictions depending on the destination, but we'll work through that with you. Just give us a call or place your order through the shop and we'll take care of the rest.</p>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1758,11 +1509,8 @@
 </main>
 </div>
 
-<a href="#top" class="return-to-top" aria-label="Return to top">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
-        <path d="M12 4l-8 8h16z"></path>
-    </svg>
-</a>
+
+
 
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
@@ -1820,12 +1568,40 @@
           <!-- Company/Brand Section -->
           <div class="footer-brand">
             <div class="footer-brand-header">
-              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
+              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async" loading="lazy">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1837,7 +1613,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1865,8 +1641,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1938,6 +1713,39 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
 
     <script src="/js/scripts.js" defer></script>
@@ -2002,5 +1810,6 @@
       }
     });
     </script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

@@ -24,9 +24,7 @@
     <link rel="stylesheet" href="/css/components/navigation.css">
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/base/styles.css">
-    <link rel="stylesheet" href="/css/pages/classes.css">
-    <link rel="stylesheet" href="/css/pages/class-materials.css">
-    <link rel="stylesheet" href="/css/pages/prep.css">
+    <link rel="stylesheet" href="/css/pages/class-page.css">
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -52,6 +50,16 @@
       // You can expand your custom JS logic here if needed
     </script>
 </head>
+
+
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
 
 
 <!-- Navigation -->
@@ -80,20 +88,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -303,35 +319,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -376,111 +388,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -689,36 +631,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -755,73 +695,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -865,196 +768,339 @@
         <button class="close" aria-label="Close">&times;</button>
         <section class="quote-request" aria-labelledby="quote-request-heading">
             <div class="quote-form-container">
-                <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
             </div>
         </section>
     </div>
 </div>
 
-<!-- HEADER -->
 
-<div class="top-header">
-  <header>
-    <div class="top-header-content">
-      <div class="top-header-inner">
-        <h1 class="page-title">CLASS 10 Material Preparation Guide</h1>
-        <div class="text-content"></div>
-      </div>
-    </div>
-  </header>
-</div>
 
-<div class="first-container">
-<div class="material-card">
-    <div class="material-header">
-        <a href="/support/procedures.html" class="back-button" id="back-button" aria-label="Back to previous page">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
+<!-- CLASS PAGE -->
+<article class="class-page">
+
+    <header class="cp-hero">
+        <a href="/support/procedures.html" class="cp-back" aria-label="Back to procedures">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Recommended Procedures
         </a>
-        <div class="material-icon">
-            <i class="fas fa-microscope"></i>
+        <div class="cp-hero-inner">
+            <div class="cp-hero-content">
+                <span class="cp-eyebrow">Class 10</span>
+                <h1 class="cp-title">Engineered Ceramics</h1>
+                <div class="cp-chips">
+                    <span class="cp-chip"><span class="cp-chip-label">Hardness</span> 1200&ndash;3000+ HV</span>
+                    <span class="cp-chip"><span class="cp-chip-label">Typical</span> Al&#8322;O&#8323; &middot; SiC &middot; ZrO&#8322; &middot; Si&#8323;N&#8324;</span>
+                    <span class="cp-chip"><span class="cp-chip-label">Key challenge</span> Diamond grinding &amp; subsurface damage</span>
+                </div>
+                <p class="cp-lede">Class 10 covers sintered and single-crystal structural ceramics whose extreme hardness and brittleness require a fundamentally different preparation approach than metals. The class includes oxide ceramics (alumina, zirconia, sapphire), non-oxide ceramics (silicon carbide, silicon nitride, boron carbide), and ceramic matrix composites (CMCs). SiC abrasive papers are useless against materials of equal or greater hardness, so diamond abrasives are mandatory from the first grinding step through final polish. Ceramics fail by intergranular fracture rather than plastic deformation, meaning excessive grinding force pulls entire grains from the surface instead of creating scratches. Chemical-mechanical polishing with colloidal silica is typically required to remove the last subsurface damage layer, and grain boundaries are often invisible without thermal etching at temperatures approaching the original sintering temperature.</p>
+            </div>
+            <figure class="cp-hero-figure">
+                <img src="/images/microstructures/Engineered-ceramics-zirconia.png" alt="Zirconia engineered ceramic microstructure showing typical Class 10 ceramic structure">
+                <figcaption>Zirconia: typical Class 10 microstructure</figcaption>
+            </figure>
         </div>
-        <h2 class="material-title">Class 10: Engineered Ceramics</h2>
-        <div class="material-header-image">
-            <img src="/images/microstructures/Engineered-ceramics-zirconia.png" alt="Zirconia engineered ceramic microstructure showing typical Class 10 ceramic structure" class="header-microstructure-img">
-        </div>
+    </header>
+
+    <div class="cp-layout">
+        <aside class="cp-sidebar" aria-label="On this page">
+            <p class="cp-sidebar-title">On this page</p>
+            <nav class="cp-nav">
+                <a href="#overview" class="cp-nav-link is-active">Overview</a>
+                <a href="#challenges" class="cp-nav-link">Challenges</a>
+                <a href="#materials" class="cp-nav-link">Materials</a>
+                <a href="#procedure" class="cp-nav-link">Procedure</a>
+                <a href="#verify" class="cp-nav-link">Quality checks</a>
+            </nav>
+        </aside>
+
+        <main class="cp-main">
+
+            <section id="overview" class="cp-section">
+                <h2 class="cp-section-title">Overview</h2>
+                <p class="cp-section-lede">Engineered ceramics require a fundamentally different preparation philosophy than metals. The failure mode is fracture rather than deformation, material removal rates are very low, and conventional SiC abrasives are ineffective. Every step must use diamond abrasives, minimize applied force, and account for the subsurface damage layer left by the previous step.</p>
+            </section>
+
+            <section id="challenges" class="cp-section">
+                <h2 class="cp-section-title">Preparation Challenges</h2>
+                <p class="cp-section-lede">Seven properties drive the prep procedure. Tap a card for full detail.</p>
+                <div class="cp-challenge-grid">
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Diamond-Only Abrasive Requirement</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">SiC papers are useless on ceramics; diamond is mandatory from first grind through final polish.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">SiC grinding papers (hardness ~2500 HV) are useless against silicon carbide and boron carbide, and barely effective against alumina or silicon nitride. Diamond abrasives are mandatory from the first grinding step. This means diamond grinding discs replace SiC paper entirely, and every polishing step uses diamond suspension. The cost and time per specimen are significantly higher than for metals.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Intergranular Fracture &amp; Grain Pull-Out</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Excessive force fractures whole grains free, leaving voids that mimic sintering porosity.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Ceramics fail by crack propagation along grain boundaries, not plastic deformation. Excessive grinding force causes entire grains to fracture free from the surface, leaving voids indistinguishable from real sintering porosity. Once a grain pulls out, the void cannot be repaired. Light pressure (10-15 N) and rigid grinding surfaces are essential to keep forces below the intergranular fracture threshold.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Subsurface Microcracking</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Each grind buries microcracks that surface as false features after thermal etching.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Each grinding step introduces a layer of microcracks below the polished surface. These cracks are invisible under the microscope until thermal etching reveals them as apparent grain boundary features, creating false microstructural detail. Each successive step must remove the damage layer from the previous step, typically requiring removal of 2-3x the previous abrasive size in depth.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Very Low Material Removal Rates</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Grinding times 5-10x longer than steel; impatience causes fracture, not faster removal.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">The extreme hardness of these materials means grinding and polishing times are much longer than for metals. A grinding step that takes 2 minutes on steel may take 10-15 minutes on alumina or SiC. Impatience leads to excessive force, which causes fracture damage rather than faster removal. Automated preparation with consistent force and time is highly recommended.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Low Optical Reflectivity</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Most ceramics appear dark and featureless; sputter coating or DIC restores contrast.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Most ceramics appear dark and nearly featureless under standard reflected-light microscopy. Grain boundaries are often invisible even on a perfectly polished surface without thermal etching. After etching, sputter coating with gold or platinum (5-10 nm) dramatically improves reflectivity and contrast. Differential interference contrast (DIC) or Nomarski illumination can reveal surface topography without coating.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Porosity Preservation</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Smeared debris fills pores; vacuum impregnation and ultrasonic cleaning protect them.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Sintered ceramics contain process porosity that is critical for density assessment and quality control. Grinding debris and smeared material can fill or obscure pores. Vacuum impregnation during mounting fills surface-connected pores with epoxy, stabilizing them against collapse, while ultrasonic cleaning between steps keeps pores free of abrasive contamination.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">CMC Fiber-Matrix Interface</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Minimal hardness contrast between SiC fibers and SiC matrix masks real bonding defects.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Ceramic matrix composites contain ceramic fibers (often SiC) in a ceramic matrix (SiC or oxide), producing minimal hardness contrast between fiber and matrix. Interface damage from preparation is difficult to distinguish from real bonding defects. Extended chemical-mechanical polishing with colloidal silica is the most effective way to reveal the fiber-matrix interface without introducing artifacts.</p>
+                    </details>
+
+                </div>
+            </section>
+
+            <section id="materials" class="cp-section">
+                <h2 class="cp-section-title">Class 10 Materials</h2>
+                <p class="cp-section-lede">Seven engineered ceramics across three families. Expand any group to view its members.</p>
+                <div class="cp-materials">
+
+                    <details class="cp-material-group" open>
+                        <summary>
+                            <span>Oxide Ceramics</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">3</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Alumina (Al&#8322;O&#8323;)</li>
+                            <li>Sapphire (Single-Crystal Alumina)</li>
+                            <li>Zirconia (ZrO&#8322;)</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Non-Oxide Ceramics</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">3</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Boron Carbide (B&#8324;C)</li>
+                            <li>Silicon Carbide (SiC)</li>
+                            <li>Silicon Nitride (Si&#8323;N&#8324;)</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Ceramic Matrix Composites</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">1</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Ceramic Matrix Composite (CMC)</li>
+                        </ul>
+                    </details>
+
+                </div>
+            </section>
+
+            <section id="procedure" class="cp-section">
+                <h2 class="cp-section-title">Recommended Procedure</h2>
+                <p class="cp-section-lede">Five-stage workflow. Diamond throughout, light pressure, long times.</p>
+                <ol class="cp-steps">
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">1</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Sectioning</h3>
+                            <p class="cp-step-lede">Diamond wafering blades only, slow feed with generous coolant, rubber-jaw clamping to spread force.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Diamond wafering blades are the only effective cutting tool for these materials. Use slow feed rates and generous coolant to minimize thermal shock and mechanical fracture. Clamp with rubber or soft jaws to distribute clamping force and prevent corner chipping. SiC abrasive blades are ineffective against materials of equal or greater hardness. For single-crystal sapphire, orient the cut relative to the crystal axis to minimize cleavage fracture. For CMCs, cut perpendicular to the fiber direction for interface evaluation.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">2</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Mounting</h3>
+                            <p class="cp-step-lede">Castable epoxy with vacuum impregnation for most ceramics. Compression mounting is acceptable only for dense, robust samples where edge retention is critical.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Castable epoxy with vacuum impregnation is the first choice for fragile, thin, or porous ceramics; ceramic coatings; and any sample with pre-existing cracks. The epoxy fills surface-connected porosity and stabilizes individual grains against pull-out during grinding. Use low-shrinkage resins to avoid gap formation at the specimen-mount interface. For CMCs, vacuum impregnation fills inter-fiber porosity that is critical for accurate density assessment.</p>
+                                    <p><strong>Compression mounting is acceptable</strong> for dense, robust ceramics (bulk Al<sub>2</sub>O<sub>3</sub>, sintered SiC, dense Si<sub>3</sub>N<sub>4</sub>) where edge retention near the mount boundary is the primary concern. Use mineral-filled epoxy for these cases; the hard filler polishes at a rate close to the ceramic, eliminating the matrix-mount step that causes interface rounding. Avoid compression mounting on thin, fragile, or pre-cracked samples; the combination of heat (150-180&deg;C) and pressure can crack them.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">3</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Grinding</h3>
+                            <p class="cp-step-lede">Diamond discs only: 75 &rarr; 40 &rarr; 15 &micro;m. Light pressure (10-15 N), rigid flat surface, automated preferred.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Use diamond grinding discs exclusively: 75, 40, and 15 &micro;m. SiC abrasive paper is ineffective against these materials. Apply light pressure (10-15 N) on rigid, flat grinding surfaces to avoid uneven removal. Each diamond step must remove the subsurface damage layer introduced by the previous step, typically requiring removal of 2-3x the abrasive size in depth. Grinding times are significantly longer than for metals. Contra-rotation with consistent force is preferred; automated preparation produces the most reliable results.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">4</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Polishing</h3>
+                            <p class="cp-step-lede">9 &rarr; 3 &rarr; 1 &micro;m DIAMAT diamond on TEXPAN &rarr; GOLD PAD &rarr; NYPAD/ATLANTIS, then 0.05 &micro;m colloidal silica CMP on MICROPAD for 1-15 minutes.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Polish with 9 &micro;m DIAMAT polycrystalline diamond on <strong>TEXPAN</strong> (firm low-nap, 5 min), then 3 &micro;m DIAMAT on <strong>GOLD PAD</strong> (low-nap, 3 min), then 1 &micro;m DIAMAT on <strong>NYPAD or ATLANTIS</strong> (low-nap, 2 min). Final polish with 0.05 &micro;m colloidal silica on <strong>MICROPAD</strong> (high-napped final) for 1-2 minutes routine work, or 5-15 minutes for hardest grades (SiC, B<sub>4</sub>C, dense WC). The colloidal silica step provides combined chemical and mechanical action that removes the final subsurface damage layer without introducing new damage. Switch to plain water on the cloth for the last 20-30 seconds to flush silica residue. Extended vibratory polishing with colloidal silica on MICROPAD (1-4 hours) produces the best results for grain boundary revelation and porosity analysis, often eliminating the need for thermal etching.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">5</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Etching</h3>
+                            <p class="cp-step-lede">Thermal etching is primary: near-sintering temperatures reveal grain boundaries. Chemical etchants are material-specific.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Most ceramic evaluations are performed as-polished for porosity measurement and inclusion identification. To reveal grain boundaries, thermal etching is the primary method: heat the polished specimen in air (or inert atmosphere for non-oxides) to 50-100&deg;C below the sintering temperature for 15-30 minutes. Alumina: 1450-1500&deg;C for 20 minutes. Zirconia: 1350-1400&deg;C for 15 minutes. Chemical etching is possible for some ceramics: boiling phosphoric acid etches alumina grain boundaries; molten KOH at 400-500&deg;C etches silicon nitride. SiC requires Murakami's reagent at elevated temperature or electrolytic etching. After thermal etching, sputter coating with gold or platinum (5-10 nm) improves reflectivity for optical microscopy.</p>
+                                </div>
+                            </details>
+
+                            <div class="cp-etchants">
+                                <h4 class="cp-etchants-title">Common etchants by material</h4>
+                                <p class="cp-section-lede">Most engineered ceramics require thermal etching at near-sintering temperatures. Chemical etching is reserved for specific phase identification.</p>
+                                <dl class="cp-etchants-list">
+                                    <div class="cp-etchant-row"><dt>Alumina (Al&#8322;O&#8323;)</dt><dd>Thermal etch 1500&ndash;1600&deg;C in air for grain boundaries; boiling H&#8323;PO&#8324; (250&deg;C) chemical alternative</dd></div>
+                                    <div class="cp-etchant-row"><dt>Zirconia (ZrO&#8322;)</dt><dd>Thermal etch 1300&ndash;1400&deg;C; HF + H&#8322;SO&#8324; chemical alternative</dd></div>
+                                    <div class="cp-etchant-row"><dt>Silicon carbide (SiC)</dt><dd>Molten Murakami's (NaOH + K&#8323;Fe(CN)&#8326;); thermal etch at 1500&deg;C</dd></div>
+                                    <div class="cp-etchant-row"><dt>Silicon nitride (Si&#8323;N&#8324;)</dt><dd>Molten NaOH; HF + HNO&#8323; for grain boundaries</dd></div>
+                                    <div class="cp-etchant-row"><dt>Boron carbide (B&#8324;C)</dt><dd>Molten KOH; aqua regia at temperature</dd></div>
+                                    <div class="cp-etchant-row"><dt>Sapphire (single-crystal Al&#8322;O&#8323;)</dt><dd>Polarized light only; rarely chemically etched</dd></div>
+                                    <div class="cp-etchant-row"><dt>Ceramic matrix composites (CMC)</dt><dd>As-polished examination with polarized light or SEM; chemical etch disrupts interface</dd></div>
+                                </dl>
+                                <p class="cp-etchants-cta">
+                                    <a href="/etchant-guides/ceramic" class="cp-etchants-link">Ceramic etchant guide &rarr;</a>
+                                    <a href="/metallographic-consumables/Metallography-Etching.htm" class="cp-etchants-link">Etching consumables &amp; supplies &rarr;</a>
+                                    <a href="https://shop.metallographic.com/" target="_blank" rel="noopener noreferrer" class="cp-etchants-link">Shop etchants &rarr;</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                </ol>
+            </section>
+
+            <section id="verify" class="cp-section">
+                <h2 class="cp-section-title">Quality Checks</h2>
+                <ul class="cp-checks">
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        No grain pull-out voids visible at 500&times;
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Surface free of subsurface microcracking (verify by DIC or thermal etch)
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Porosity open and unsmeared, suitable for image analysis measurement
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Grain boundaries clearly visible after thermal etching with uniform groove depth
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        No edge chipping at specimen perimeter or mounting interface
+                    </li>
+                </ul>
+            </section>
+
+        </main>
     </div>
+</article>
+
+<script src="/js/class-page.js" defer></script>
+
     
-    <p class="material-description">
-        Class 10 covers sintered and single-crystal structural ceramics whose extreme hardness and brittleness require a fundamentally different preparation approach than metals. The class includes oxide ceramics (alumina, zirconia, sapphire), non-oxide ceramics (silicon carbide, silicon nitride, boron carbide), and ceramic matrix composites (CMCs). SiC abrasive papers are useless against materials of equal or greater hardness, so diamond abrasives are mandatory from the first grinding step through final polish. Ceramics fail by intergranular fracture rather than plastic deformation, meaning excessive grinding force pulls entire grains from the surface instead of creating scratches. Chemical-mechanical polishing with colloidal silica is typically required to remove the last subsurface damage layer, and grain boundaries are often invisible without thermal etching at temperatures approaching the original sintering temperature.
-    </p>
-
-    <div class="material-properties">
-        <div class="property-item">
-            <div class="property-label">Hardness Range</div>
-            <div class="property-value">1200 HV (zirconia) to 3000+ HV (boron carbide, silicon carbide)</div>
-        </div>
-        <div class="property-item">
-            <div class="property-label">Typical Materials</div>
-            <div class="property-value">Alumina, Zirconia, Sapphire, Silicon Carbide, Silicon Nitride, Boron Carbide, CMC</div>
-        </div>
-        <div class="property-item">
-            <div class="property-label">Preparation Challenge</div>
-            <div class="property-value">Diamond-Only Grinding, Subsurface Damage Removal &amp; Thermal Etching</div>
-        </div>
-    </div>
-</div>
-
-<section class="preparation-challenges">
-    <h3 class="section-title">Preparation Characteristics &amp; Challenges</h3>
-    <div class="challenges-content">
-        <div class="properties-image-container">
-            <img src="/images/microstructures/CMC-composite.png" alt="Ceramic matrix composite microstructure showing fiber-matrix interface" class="properties-microstructure-img">
-            <p class="image-caption">Ceramic matrix composite (CMC), as-polished cross-section</p>
-        </div>
-        <p>Engineered ceramics require a fundamentally different preparation philosophy than metals. The failure mode is fracture rather than deformation, material removal rates are very low, and conventional SiC abrasives are ineffective. Every step must use diamond abrasives, minimize applied force, and account for the subsurface damage layer left by the previous step.</p>
-        <div class="challenges-grid">
-            <div class="challenge-card">
-                <h5>Diamond-Only Abrasive Requirement</h5>
-                <p>SiC grinding papers (hardness ~2500 HV) are useless against silicon carbide and boron carbide, and barely effective against alumina or silicon nitride. Diamond abrasives are mandatory from the first grinding step. This means diamond grinding discs replace SiC paper entirely, and every polishing step uses diamond suspension. The cost and time per specimen are significantly higher than for metals.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Intergranular Fracture &amp; Grain Pull-Out</h5>
-                <p>Ceramics fail by crack propagation along grain boundaries, not plastic deformation. Excessive grinding force causes entire grains to fracture free from the surface, leaving voids indistinguishable from real sintering porosity. Once a grain pulls out, the void cannot be repaired. Light pressure (10-15 N) and rigid grinding surfaces are essential to keep forces below the intergranular fracture threshold.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Subsurface Microcracking</h5>
-                <p>Each grinding step introduces a layer of microcracks below the polished surface. These cracks are invisible under the microscope until thermal etching reveals them as apparent grain boundary features, creating false microstructural detail. Each successive step must remove the damage layer from the previous step, typically requiring removal of 2-3x the previous abrasive size in depth.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Very Low Material Removal Rates</h5>
-                <p>The extreme hardness of these materials means grinding and polishing times are much longer than for metals. A grinding step that takes 2 minutes on steel may take 10-15 minutes on alumina or SiC. Impatience leads to excessive force, which causes fracture damage rather than faster removal. Automated preparation with consistent force and time is highly recommended.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Low Optical Reflectivity</h5>
-                <p>Most ceramics appear dark and nearly featureless under standard reflected-light microscopy. Grain boundaries are often invisible even on a perfectly polished surface without thermal etching. After etching, sputter coating with gold or platinum (5-10 nm) dramatically improves reflectivity and contrast. Differential interference contrast (DIC) or Nomarski illumination can reveal surface topography without coating.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Porosity Preservation</h5>
-                <p>Sintered ceramics contain process porosity that is critical for density assessment and quality control. Grinding debris and smeared material can fill or obscure pores. Vacuum impregnation during mounting fills surface-connected pores with epoxy, stabilizing them against collapse, while ultrasonic cleaning between steps keeps pores free of abrasive contamination.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>CMC Fiber-Matrix Interface</h5>
-                <p>Ceramic matrix composites contain ceramic fibers (often SiC) in a ceramic matrix (SiC or oxide), producing minimal hardness contrast between fiber and matrix. Interface damage from preparation is difficult to distinguish from real bonding defects. Extended chemical-mechanical polishing with colloidal silica is the most effective way to reveal the fiber-matrix interface without introducing artifacts.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="class10-materials-list">
-    <h3 class="section-title">Class 10 Materials</h3>
-    <p class="materials-intro">The following materials are classified as Class 10 (Engineered Ceramics). Click on any material to view its detailed preparation procedures.</p>
-
-    <div class="materials-list-container">
-        <h4>Oxide Ceramics</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/alumina-al2o3.html#preparation">Alumina (Al&#8322;O&#8323;)</a></li>
-            <li><a href="/materials/sapphire-single-crystal.html#preparation">Sapphire (Single-Crystal Alumina)</a></li>
-            <li><a href="/materials/zirconia-zro2.html#preparation">Zirconia (ZrO&#8322;)</a></li>
-        </ul>
-
-        <h4>Non-Oxide Ceramics</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/boron-carbide-b4c.html#preparation">Boron Carbide (B&#8324;C)</a></li>
-            <li><a href="/materials/silicon-carbide-sic.html#preparation">Silicon Carbide (SiC)</a></li>
-            <li><a href="/materials/silicon-nitride-si3n4.html#preparation">Silicon Nitride (Si&#8323;N&#8324;)</a></li>
-        </ul>
-
-        <h4>Ceramic Matrix Composites</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/ceramic-matrix-composite-cmc.html#preparation">Ceramic Matrix Composite (CMC)</a></li>
-        </ul>
-    </div>
-</section>
-
-<section class="preparation-guide">
-    <h3 class="section-title">Preparation Guide</h3>
-
-    <div class="guide-section">
-        <h4>Recommended Preparation Steps</h4>
-        <div class="steps-grid">
-            <div class="step-card">
-                <h5>Sectioning</h5>
-                <p>Diamond wafering blades are the only effective cutting tool for these materials. Use slow feed rates and generous coolant to minimize thermal shock and mechanical fracture. Clamp with rubber or soft jaws to distribute clamping force and prevent corner chipping. SiC abrasive blades are ineffective against materials of equal or greater hardness. For single-crystal sapphire, orient the cut relative to the crystal axis to minimize cleavage fracture. For CMCs, cut perpendicular to the fiber direction for interface evaluation.</p>
-            </div>
-            <div class="step-card">
-                <h5>Mounting</h5>
-                <p>Castable epoxy with vacuum impregnation is required. The epoxy fills surface-connected porosity and stabilizes individual grains against pull-out during grinding. Use low-shrinkage resins to avoid gap formation at the specimen-mount interface. Never use compression mounting: the combination of heat (150-180&deg;C) and pressure causes thermal shock cracking in most ceramics. For CMCs, vacuum impregnation fills inter-fiber porosity that is critical for accurate density assessment.</p>
-            </div>
-            <div class="step-card">
-                <h5>Grinding</h5>
-                <p>Use diamond grinding discs exclusively: 75, 40, and 15 &micro;m. SiC abrasive paper is ineffective against these materials. Apply light pressure (10-15 N) on rigid, flat grinding surfaces to avoid uneven removal. Each diamond step must remove the subsurface damage layer introduced by the previous step, typically requiring removal of 2-3x the abrasive size in depth. Grinding times are significantly longer than for metals. Contra-rotation with consistent force is preferred; automated preparation produces the most reliable results.</p>
-            </div>
-            <div class="step-card">
-                <h5>Polishing</h5>
-                <p>Polish with 9 &micro;m diamond on a napless cloth, then 3 &micro;m diamond on a napless cloth, then 1 &micro;m diamond on a napless cloth. Final polish with 0.05 &micro;m colloidal silica (chemical-mechanical polishing) on a short-nap cloth for 5-15 minutes. The colloidal silica step is critical: it provides combined chemical and mechanical action that removes the final subsurface damage layer without introducing new damage. Extended vibratory polishing with colloidal silica (1-4 hours) produces the best results for grain boundary and porosity analysis.</p>
-            </div>
-            <div class="step-card">
-                <h5>Etching</h5>
-                <p>Most ceramic evaluations are performed as-polished for porosity measurement and inclusion identification. To reveal grain boundaries, thermal etching is the primary method: heat the polished specimen in air (or inert atmosphere for non-oxides) to 50-100&deg;C below the sintering temperature for 15-30 minutes. Alumina: 1450-1500&deg;C for 20 minutes. Zirconia: 1350-1400&deg;C for 15 minutes. Chemical etching is possible for some ceramics: boiling phosphoric acid etches alumina grain boundaries; molten KOH at 400-500&deg;C etches silicon nitride. SiC requires Murakami's reagent at elevated temperature or electrolytic etching. After thermal etching, sputter coating with gold or platinum (5-10 nm) improves reflectivity for optical microscopy.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="guide-section">
-        <h4>Quality Verification</h4>
-        <div class="verification-grid">
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>No grain pull-out voids visible at 500X</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Surface free of subsurface microcracking (verify by DIC or thermal etch)</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Porosity open and unsmeared, suitable for image analysis measurement</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Grain boundaries clearly visible after thermal etching with uniform groove depth</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>No edge chipping at specimen perimeter or mounting interface</p>
-            </div>
-        </div>
-    </div>
-</section>
-    </div>
     
-    <br><br>
-
-    <a href="#top" class="return-to-top" aria-label="Return to top">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
-            <path d="M12 4l-8 8h16z"></path>
-        </svg>
-    </a>
-    
-    <!-- FOOTER -->
+<!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
     <div class="footer-container">
@@ -1113,9 +1159,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1127,7 +1201,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1155,8 +1229,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1228,6 +1301,39 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
 
 
@@ -1256,5 +1362,6 @@
     })();
 </script>
 
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

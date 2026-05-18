@@ -1,0 +1,748 @@
+/* ============================================================
+   Materials Prep landing page
+   /materials-prep/index.html
+
+   Design language: quiet, monochrome, border-driven utility.
+   Geist + black-on-white + Lucide. Compact density. Color only
+   to carry status (done / in-progress / queued) and hazard
+   (etchant safety). No decorative ornament.
+
+   All selectors prefixed with .mp- to scope this page only;
+   the site nav and footer retain their own (PACE) styling.
+   ============================================================ */
+
+:root {
+  /* Type */
+  --mp-font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+  --mp-font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  /* Neutrals */
+  --mp-bg:           #ffffff;
+  --mp-bg-soft:      #fafafa;
+  --mp-bg-inset:     #f5f5f5;
+  --mp-border:       #e5e5e5;
+  --mp-border-soft:  #efefef;
+  --mp-border-strong:#0a0a0a;
+  --mp-fg:           #0a0a0a;
+  --mp-fg-soft:      #404040;
+  --mp-fg-dim:       #737373;
+
+  /* Status (saturated, used only on small surfaces) */
+  --mp-status-done:     #16a34a;  /* emerald */
+  --mp-status-progress: #d97706;  /* amber */
+  --mp-status-queued:   #a3a3a3;  /* zinc */
+  --mp-hazard-fg:       #b91c1c;
+  --mp-hazard-bg:       #fef2f2;
+  --mp-hazard-border:   #fecaca;
+}
+
+/* ------------------------------------------------------------
+   Page reset
+   ------------------------------------------------------------ */
+.mp-page {
+  background: var(--mp-bg);
+  color: var(--mp-fg);
+  font-family: var(--mp-font-sans);
+  font-weight: 400;
+  line-height: 1.55;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Clear the fixed site nav. */
+  padding-top: 80px;
+}
+
+.mp-page * { box-sizing: border-box; }
+
+.mp-page a {
+  color: var(--mp-fg);
+  text-decoration: underline;
+  text-decoration-color: var(--mp-border);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 120ms ease;
+}
+.mp-page a:hover { text-decoration-color: var(--mp-fg); }
+
+/* Mono utility */
+.mp-mono {
+  font-family: var(--mp-font-mono);
+  font-feature-settings: "tnum";
+  letter-spacing: 0;
+}
+
+.mp-dim { color: var(--mp-fg-dim); }
+
+/* ------------------------------------------------------------
+   Horizontal rules between sections
+   ------------------------------------------------------------ */
+.mp-rule {
+  border: 0;
+  border-top: 1px solid var(--mp-border);
+  margin: 0;
+}
+
+/* ------------------------------------------------------------
+   Buttons
+   Scoped with .mp-page so they beat the generic `.mp-page a` rule
+   (which would otherwise force black text + an underline onto
+   button-shaped anchors).
+   ------------------------------------------------------------ */
+.mp-page .mp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 0.95rem;
+  font-family: var(--mp-font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.005em;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+  white-space: nowrap;
+}
+.mp-page .mp-btn:hover { text-decoration: none; }
+.mp-page .mp-btn:focus-visible {
+  outline: 2px solid var(--mp-fg);
+  outline-offset: 2px;
+}
+.mp-page .mp-btn .mp-icon { flex: 0 0 auto; }
+
+.mp-page .mp-btn-solid {
+  background: var(--mp-fg);
+  color: var(--mp-bg);
+  border-color: var(--mp-fg);
+}
+.mp-page .mp-btn-solid:hover {
+  background: #262626;
+  color: var(--mp-bg);
+  border-color: #262626;
+}
+
+.mp-page .mp-btn-ghost {
+  background: var(--mp-bg);
+  color: var(--mp-fg);
+  border-color: var(--mp-border);
+}
+.mp-page .mp-btn-ghost:hover {
+  background: var(--mp-bg-soft);
+  color: var(--mp-fg);
+  border-color: var(--mp-fg-soft);
+}
+
+.mp-page .mp-btn-large {
+  padding: 0.8rem 1.15rem;
+  font-size: 0.95rem;
+}
+
+/* ------------------------------------------------------------
+   Labels / eyebrows
+   ------------------------------------------------------------ */
+.mp-eyebrow,
+.mp-section-label,
+.mp-feature-label,
+.mp-tag {
+  font-family: var(--mp-font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mp-fg-dim);
+}
+
+.mp-section-label { display: inline-block; margin-bottom: 0.7rem; }
+
+/* ------------------------------------------------------------
+   Hero
+   ------------------------------------------------------------ */
+.mp-hero {
+  padding: 3.5rem 0 4.5rem;
+}
+
+.mp-hero-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--mp-border);
+}
+
+.mp-brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.mp-brand-mark {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.mp-brand-wordmark {
+  font-family: var(--mp-font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: -0.005em;
+  color: var(--mp-fg);
+}
+
+.mp-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.mp-hero-copy { min-width: 0; }
+
+.mp-hero-title {
+  font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.028em;
+  margin: 0 0 1.1rem;
+  color: var(--mp-fg);
+  max-width: 18ch;
+}
+
+.mp-hero-sub {
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: var(--mp-fg-soft);
+  margin: 0 0 1.8rem;
+  max-width: 48ch;
+}
+
+.mp-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* Screenshot frame — chrome that reads as a product window */
+.mp-hero-visual { min-width: 0; }
+.mp-frame {
+  margin: 0;
+  border: 1px solid var(--mp-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--mp-bg);
+}
+.mp-frame-head {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.85rem;
+  border-bottom: 1px solid var(--mp-border);
+  background: var(--mp-bg-soft);
+}
+.mp-frame-dots {
+  display: inline-flex;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+.mp-frame-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #d4d4d4;
+  display: inline-block;
+}
+.mp-frame-url {
+  font-size: 0.72rem;
+  color: var(--mp-fg-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mp-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ------------------------------------------------------------
+   Generic sections
+   ------------------------------------------------------------ */
+.mp-section { padding: 4.5rem 0; }
+
+.mp-section-head { margin-bottom: 2.5rem; }
+.mp-section-title {
+  font-family: var(--mp-font-sans);
+  font-size: clamp(1.55rem, 2.6vw, 2rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--mp-fg);
+}
+.mp-section-sub {
+  font-size: 1rem;
+  color: var(--mp-fg-soft);
+  margin: 0.9rem 0 0;
+  max-width: 60ch;
+}
+
+.mp-lede {
+  font-size: 1.1rem;
+  line-height: 1.55;
+  margin: 0 0 0.85rem;
+  color: var(--mp-fg);
+}
+.mp-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 0.85rem;
+  color: var(--mp-fg-soft);
+}
+.mp-body a { text-decoration-color: var(--mp-fg-dim); }
+
+/* Two-column layout used in "What is an ELN" */
+.mp-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.mp-row-head { padding-top: 0.4rem; }
+.mp-row-body { max-width: 64ch; }
+
+/* ------------------------------------------------------------
+   The problem table — a vertical list of row dividers,
+   no card chrome, mono tags in left column
+   ------------------------------------------------------------ */
+.mp-problem-table {
+  border-top: 1px solid var(--mp-border);
+}
+.mp-problem-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--mp-border);
+}
+.mp-problem-row .mp-tag { padding-top: 0.15rem; }
+.mp-problem-row p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--mp-fg);
+}
+
+/* ------------------------------------------------------------
+   Feature grid — 2x2 of bordered cells sharing edges
+   ------------------------------------------------------------ */
+.mp-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid var(--mp-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--mp-bg);
+}
+.mp-feature {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  background: var(--mp-bg);
+  border-right: 1px solid var(--mp-border);
+  border-bottom: 1px solid var(--mp-border);
+  min-width: 0;
+}
+.mp-feature:nth-child(2n)         { border-right: none; }
+.mp-feature:nth-last-child(-n+2)  { border-bottom: none; }
+
+.mp-feature-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1.3rem;
+  color: var(--mp-fg);
+}
+.mp-feature-head .mp-icon { color: var(--mp-fg); }
+.mp-feature-title {
+  font-family: var(--mp-font-sans);
+  font-size: 1.18rem;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  line-height: 1.25;
+  margin: 0 0 0.6rem;
+  color: var(--mp-fg);
+}
+.mp-feature-body {
+  font-size: 0.97rem;
+  line-height: 1.55;
+  color: var(--mp-fg-soft);
+  margin: 0 0 1.4rem;
+}
+
+/* Mock content sits flush at the bottom of each card */
+.mp-feature-mock,
+.mp-feature-screenshot {
+  margin-top: auto;
+  border: 1px solid var(--mp-border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--mp-bg);
+}
+.mp-feature-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* --- Samples mock: compact table with mono IDs + status orbs --- */
+.mp-mock-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mp-font-sans);
+  font-size: 0.82rem;
+}
+.mp-mock-table th,
+.mp-mock-table td {
+  text-align: left;
+  padding: 0.55rem 0.85rem;
+  vertical-align: middle;
+}
+.mp-mock-table th {
+  font-family: var(--mp-font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mp-fg-dim);
+  background: var(--mp-bg-soft);
+  border-bottom: 1px solid var(--mp-border);
+}
+.mp-mock-table tbody tr + tr td { border-top: 1px solid var(--mp-border-soft); }
+.mp-mock-table td.mp-mono { font-size: 0.78rem; }
+
+/* Status orb + label */
+.mp-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: var(--mp-fg);
+}
+.mp-orb {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  background: var(--mp-status-queued);
+  flex: 0 0 auto;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.02);
+}
+.mp-status-done     .mp-orb { background: var(--mp-status-done); }
+.mp-status-progress .mp-orb { background: var(--mp-status-progress); }
+.mp-status-queued   .mp-orb { background: var(--mp-status-queued); }
+
+/* --- Recipe mock: numbered steps + hazard chip on Etch --- */
+.mp-recipe-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  border-bottom: 1px solid var(--mp-border);
+  background: var(--mp-bg-soft);
+  font-size: 0.7rem;
+}
+.mp-recipe {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mp-recipe li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 0.65rem;
+  align-items: baseline;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.86rem;
+}
+.mp-recipe li + li { border-top: 1px solid var(--mp-border-soft); }
+.mp-step {
+  font-size: 0.72rem;
+  color: var(--mp-fg-dim);
+}
+.mp-recipe-body strong { font-weight: 600; }
+.mp-recipe-body .mp-dim { font-size: 0.83rem; }
+
+/* Etchant safety chip — the rare place a saturated color appears */
+.mp-safety {
+  display: inline-block;
+  font-family: var(--mp-font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+.mp-safety-warn {
+  background: var(--mp-hazard-bg);
+  color: var(--mp-hazard-fg);
+  border: 1px solid var(--mp-hazard-border);
+}
+
+/* --- Atlas mock: 3x2 grid of bordered tiles with mono captions --- */
+.mp-feature-mock-atlas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--mp-bg);
+}
+.mp-atlas-tile {
+  margin: 0;
+  padding: 0.5rem;
+  border-right: 1px solid var(--mp-border-soft);
+  border-bottom: 1px solid var(--mp-border-soft);
+}
+.mp-atlas-tile:nth-child(3n)         { border-right: none; }
+.mp-atlas-tile:nth-last-child(-n+3)  { border-bottom: none; }
+.mp-atlas-img {
+  display: block;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border-radius: 3px;
+  background-color: var(--mp-bg-inset);
+  background-size: cover;
+  margin-bottom: 0.35rem;
+}
+.mp-atlas-tile figcaption { font-size: 0.66rem; }
+
+/* Simulated micrograph fills — grayscale only, no chroma */
+.mp-atlas-img-1 { background-image:
+    radial-gradient(circle at 30% 30%, #c4c4c4 0 18%, transparent 19%),
+    radial-gradient(circle at 70% 60%, #a3a3a3 0 14%, transparent 15%),
+    linear-gradient(135deg, #e7e7e7, #d1d1d1); }
+.mp-atlas-img-2 { background-image: repeating-linear-gradient(45deg, #d1d1d1 0 4px, #e7e7e7 4px 9px); }
+.mp-atlas-img-3 { background-image:
+    radial-gradient(circle at 50% 50%, #9a9a9a 0 10%, transparent 11%),
+    linear-gradient(135deg, #ededed, #c4c4c4); }
+.mp-atlas-img-4 { background-image: repeating-linear-gradient(0deg, #c4c4c4 0 2px, #ededed 2px 7px); }
+.mp-atlas-img-5 { background-image:
+    radial-gradient(circle at 25% 75%, #9a9a9a 0 12%, transparent 13%),
+    radial-gradient(circle at 75% 25%, #c4c4c4 0 16%, transparent 17%),
+    linear-gradient(180deg, #e7e7e7, #ededed); }
+.mp-atlas-img-6 { background-image: repeating-linear-gradient(-30deg, #c4c4c4 0 3px, #ededed 3px 8px); }
+
+/* ------------------------------------------------------------
+   Reports section
+   ------------------------------------------------------------ */
+.mp-reports {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3rem;
+  align-items: start;
+}
+.mp-reports-copy { max-width: 56ch; }
+.mp-reports-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--mp-border);
+}
+.mp-reports-list li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--mp-border);
+  font-size: 0.97rem;
+  color: var(--mp-fg);
+}
+.mp-reports-list .mp-mono { font-size: 0.72rem; }
+
+/* ------------------------------------------------------------
+   Audience grid — 4 cells across, shared borders
+   ------------------------------------------------------------ */
+.mp-audience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--mp-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.mp-audience-card {
+  padding: 1.6rem 1.4rem;
+  border-right: 1px solid var(--mp-border);
+  background: var(--mp-bg);
+}
+.mp-audience-card:last-child { border-right: none; }
+.mp-audience-tag {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--mp-fg-dim);
+}
+.mp-audience-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  margin: 0 0 0.45rem;
+  color: var(--mp-fg);
+}
+.mp-audience-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--mp-fg-soft);
+}
+
+/* ------------------------------------------------------------
+   Final CTA — keeps the monochrome contract, no dark band
+   ------------------------------------------------------------ */
+.mp-cta {
+  padding: 5rem 0 5.5rem;
+}
+.mp-cta-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.mp-cta-title {
+  font-family: var(--mp-font-sans);
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: -0.024em;
+  line-height: 1.1;
+  margin: 0.7rem 0 0.7rem;
+  color: var(--mp-fg);
+}
+.mp-cta-sub {
+  font-size: 1.05rem;
+  color: var(--mp-fg-soft);
+  margin: 0 auto 1.8rem;
+  max-width: 50ch;
+}
+.mp-cta-actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.mp-cta-attr {
+  font-size: 0.85rem;
+  color: var(--mp-fg-dim);
+  margin: 0;
+}
+
+/* ------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------ */
+@media (max-width: 960px) {
+  .mp-hero { padding: 3rem 0 3.5rem; }
+  .mp-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .mp-hero-title { max-width: 100%; }
+
+  .mp-row,
+  .mp-problem-row { grid-template-columns: 1fr; gap: 0.4rem; }
+
+  .mp-feature-grid { grid-template-columns: 1fr; }
+  .mp-feature        { border-right: none; }
+  .mp-feature:nth-child(2n)        { border-right: none; }
+  .mp-feature:not(:last-child)     { border-bottom: 1px solid var(--mp-border); }
+  .mp-feature:nth-last-child(-n+2) { border-bottom: 1px solid var(--mp-border); }
+  .mp-feature:last-child           { border-bottom: none; }
+
+  .mp-audience-grid { grid-template-columns: repeat(2, 1fr); }
+  .mp-audience-card                  { border-right: 1px solid var(--mp-border); border-bottom: 1px solid var(--mp-border); }
+  .mp-audience-card:nth-child(2n)    { border-right: none; }
+  .mp-audience-card:nth-last-child(-n+2) { border-bottom: none; }
+  .mp-audience-card:last-child       { border-right: none; }
+
+  .mp-reports { grid-template-columns: 1fr; gap: 1.5rem; }
+  .mp-section { padding: 3.5rem 0; }
+}
+
+@media (max-width: 600px) {
+  .mp-page { padding-top: 64px; }
+  .mp-hero { padding: 2.5rem 0 3rem; }
+  .mp-hero-bar { margin-bottom: 2.25rem; padding-bottom: 1.1rem; }
+  .mp-hero-title { font-size: clamp(1.85rem, 7vw, 2.4rem); }
+  .mp-hero-sub { font-size: 1rem; }
+  .mp-hero-actions .mp-btn,
+  .mp-cta-actions .mp-btn {
+    /* Primary CTA must be tappable above the fold on 375px wide */
+    width: 100%;
+    justify-content: center;
+  }
+  .mp-feature { padding: 1.5rem 1.25rem; }
+  .mp-audience-grid { grid-template-columns: 1fr; }
+  .mp-audience-card                  { border-right: none; border-bottom: 1px solid var(--mp-border); }
+  .mp-audience-card:nth-child(2n)    { border-right: none; }
+  .mp-audience-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--mp-border); }
+  .mp-audience-card:last-child       { border-bottom: none; }
+  .mp-section { padding: 3rem 0; }
+  .mp-cta { padding: 3.5rem 0 4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mp-btn,
+  .mp-page a { transition: none; }
+}
+
+/* ------------------------------------------------------------
+   FAQ (uses native <details>/<summary>)
+   Used on /etchant-selector.html (Materials Prep etchants ad).
+   ------------------------------------------------------------ */
+.mp-faq {
+  border-top: 1px solid var(--mp-border);
+  max-width: 64rem;
+}
+
+.mp-faq-item {
+  border-bottom: 1px solid var(--mp-border);
+}
+
+.mp-faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.15rem 2.5rem 1.15rem 0;
+  position: relative;
+  font-weight: 500;
+  color: var(--mp-fg);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.mp-faq-item > summary::-webkit-details-marker { display: none; }
+
+.mp-faq-item > summary::after {
+  content: "+";
+  position: absolute;
+  right: 0.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--mp-font-mono);
+  font-size: 1.25rem;
+  color: var(--mp-fg-dim);
+  transition: transform 150ms ease;
+}
+
+.mp-faq-item[open] > summary::after {
+  content: "\2212"; /* en-dash style minus */
+  color: var(--mp-fg);
+}
+
+.mp-faq-item > summary:hover { color: var(--mp-fg); }
+.mp-faq-item > summary:focus-visible {
+  outline: 2px solid var(--mp-fg);
+  outline-offset: 4px;
+}
+
+.mp-faq-item > p {
+  margin: 0 0 1.25rem;
+  color: var(--mp-fg-soft);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 60ch;
+}

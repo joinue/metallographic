@@ -53,7 +53,7 @@ body.build-page-active {
 .builder-container {
   max-width: 896px; /* max-w-5xl */
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1.25rem 1rem;
 }
 
 @media (min-width: 640px) {
@@ -64,15 +64,28 @@ body.build-page-active {
 
 /* Header */
 .builder-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
+@media (min-width: 640px) {
+  .builder-header {
+    margin-bottom: 1.5rem;
+  }
+}
+
 .builder-title {
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.375rem;
   color: #111827;
+}
+
+@media (min-width: 640px) {
+  .builder-title {
+    font-size: 1.875rem;
+    margin-bottom: 0.75rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -82,10 +95,17 @@ body.build-page-active {
 }
 
 .builder-description {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: #4b5563;
   max-width: 42rem;
   margin: 0 auto;
+  line-height: 1.45;
+}
+
+@media (min-width: 640px) {
+  .builder-description {
+    font-size: 0.875rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -131,18 +151,97 @@ body.build-page-active {
   color: #1e3a8a;
 }
 
+/* Warning Banner (Starter-tool disclaimer) — collapsed by default on mobile */
+.builder-warning-banner {
+  margin: 0 0 1rem 0;
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .builder-warning-banner {
+    padding: 0.875rem 1rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.builder-warning-banner .builder-info-content svg {
+  color: #b45309;
+}
+
+.builder-warning-text {
+  font-size: 0.75rem;
+  color: #78350f;
+  line-height: 1.45;
+}
+
+@media (min-width: 640px) {
+  .builder-warning-text {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+}
+
+.builder-warning-text strong {
+  color: #78350f;
+}
+
+.builder-warning-link {
+  font-weight: 600;
+  color: #b45309;
+  text-decoration: underline;
+}
+
+.builder-warning-link:hover {
+  color: #78350f;
+}
+
+/* Collapsible disclaimer (details/summary) */
+details.builder-warning-banner > summary {
+  list-style: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+details.builder-warning-banner > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.builder-warning-banner > summary::after {
+  content: "+";
+  margin-left: auto;
+  color: #b45309;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+details.builder-warning-banner[open] > summary::after {
+  content: "\2212"; /* minus */
+}
+
+.builder-warning-detail {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(245, 158, 11, 0.3);
+}
+
 /* Progress Steps */
 .builder-progress {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem;
+  gap: 0.125rem;
 }
 
 @media (min-width: 640px) {
   .builder-progress {
     gap: 0.5rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -150,6 +249,7 @@ body.build-page-active {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 0;
 }
 
 @media (min-width: 640px) {
@@ -159,8 +259,8 @@ body.build-page-active {
 }
 
 .builder-progress-circle {
-  width: 2rem;
-  height: 2rem;
+  width: 1.625rem;
+  height: 1.625rem;
   border-radius: 50%;
   border: 2px solid #d1d5db;
   display: flex;
@@ -171,6 +271,7 @@ body.build-page-active {
   color: #9ca3af;
   background: white;
   transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 @media (min-width: 640px) {
@@ -224,7 +325,9 @@ body.build-page-active {
 }
 
 .builder-progress-line {
-  width: 2rem;
+  flex: 1;
+  min-width: 0.75rem;
+  max-width: 2rem;
   height: 0.125rem;
   background: #d1d5db;
   transition: all 0.2s ease;
@@ -259,46 +362,89 @@ body.build-page-active {
   }
 }
 
+.builder-step-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.builder-step-heading-row .builder-step-title {
+  margin-bottom: 0;
+}
+
+.builder-step-heading-row .builder-stage-actions {
+  margin-bottom: 0;
+}
+
 .builder-step-title {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.625rem;
   color: #111827;
 }
 
 @media (min-width: 640px) {
   .builder-step-title {
     font-size: 1.25rem;
+    margin-bottom: 1rem;
   }
 }
 
 .builder-step-description {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: #4b5563;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.45;
 }
 
-/* Process Stages */
+@media (min-width: 640px) {
+  .builder-step-description {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Process Stages — compact tile grid */
 .builder-stages-list {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+@media (min-width: 480px) {
+  .builder-stages-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.625rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .builder-stages-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .builder-stage-option {
+  position: relative;
   display: flex;
-  align-items: flex-start;
-  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.75rem 0.5rem;
   border-radius: 0.5rem;
   border: 2px solid #e5e7eb;
   background: white;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
+  min-height: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .builder-stage-option:hover {
-  border-color: #d1d5db;
+  border-color: #93c5fd;
   background: #f9fafb;
 }
 
@@ -307,44 +453,77 @@ body.build-page-active {
   background: #eff6ff;
 }
 
-.builder-stage-checkbox {
-  margin-top: 0.25rem;
-  margin-right: 0.75rem;
+.builder-stage-option.selected::after {
+  content: "";
+  position: absolute;
+  top: 0.375rem;
+  right: 0.375rem;
   width: 1rem;
   height: 1rem;
-  color: #2563eb;
-  border-color: #d1d5db;
-  border-radius: 0.25rem;
-  cursor: pointer;
+  border-radius: 50%;
+  background: #2563eb url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/0.625rem no-repeat;
+}
+
+/* Hide the native checkbox visually but keep it focusable for a11y */
+.builder-stage-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  pointer-events: none;
+}
+
+.builder-stage-option:focus-within {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .builder-stage-content {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;
+  width: 100%;
 }
 
 .builder-stage-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
 }
 
 .builder-stage-icon {
-  font-size: 1.25rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #4b5563;
   flex-shrink: 0;
+  transition: all 0.15s ease;
 }
 
 .builder-stage-icon svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.builder-stage-option.selected .builder-stage-icon {
+  background: #2563eb;
+  color: white;
 }
 
 .builder-stage-label {
+  font-size: 0.8125rem;
   font-weight: 600;
   color: #111827;
+  line-height: 1.2;
 }
 
 .builder-stage-option.selected .builder-stage-label {
@@ -352,31 +531,42 @@ body.build-page-active {
 }
 
 .builder-stage-description {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
+  line-height: 1.35;
   color: #6b7280;
+}
+
+@media (max-width: 479px) {
+  .builder-stage-description {
+    display: none;
+  }
 }
 
 .builder-stage-option.selected .builder-stage-description {
   color: #374151;
 }
 
-/* Stage Actions */
+/* Stage Actions — small inline links */
 .builder-stage-actions {
   display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  justify-content: flex-end;
 }
 
 .builder-action-button {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
   font-weight: 500;
-  color: #374151;
-  background: #f3f4f6;
-  border-radius: 0.5rem;
-  border: none;
+  color: #4b5563;
+  background: transparent;
+  border-radius: 0.375rem;
+  border: 1px solid #e5e7eb;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
+  min-height: 0;
+  position: static;
+  z-index: auto;
 }
 
 .builder-action-button:hover {
@@ -387,13 +577,14 @@ body.build-page-active {
 .builder-form-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 0.875rem;
+  margin-bottom: 1.25rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .builder-form-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 }
 
@@ -411,17 +602,69 @@ body.build-page-active {
 }
 
 .builder-form-label {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
   font-size: 0.75rem;
   font-weight: 600;
   color: #374151;
   margin-bottom: 0.25rem;
 }
 
+/* Small "ⓘ" tooltip button rendered next to field labels. Explicit resets
+   required to override global button rules (min-height 44px, pill radius). */
+.builder-help-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 50%;
+  background: white;
+  color: #64748b;
+  font-size: 0.625rem;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 0;
+  flex-shrink: 0;
+  position: relative;
+  z-index: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.builder-help-toggle::before {
+  /* Invisible expanded tap target so touch users get a 32px hit zone */
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+}
+
+.builder-help-toggle:hover,
+.builder-help-toggle[aria-expanded="true"] {
+  background: #eff6ff;
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
 .builder-form-help {
   font-size: 0.75rem;
   color: #6b7280;
-  margin-top: 0.25rem;
+  margin-top: 0.375rem;
+  padding: 0.5rem 0.625rem;
+  background: #f8fafc;
+  border-left: 3px solid #cbd5e1;
+  border-radius: 0.25rem;
+  line-height: 1.45;
+}
+
+.builder-form-help[hidden] {
+  display: none;
 }
 
 .required {
@@ -472,14 +715,29 @@ body.build-page-active {
 /* Select */
 .builder-select {
   width: 100%;
+  min-height: 2.75rem;
   padding: 0.5rem 0.75rem;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   border: 1px solid #d1d5db;
   border-radius: 0.5rem;
   background: white;
   color: #111827;
   cursor: pointer;
   transition: all 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+  background-size: 1rem;
+  padding-right: 2.25rem;
+}
+
+@media (min-width: 640px) {
+  .builder-select {
+    font-size: 0.875rem;
+    min-height: 2.5rem;
+  }
 }
 
 .builder-select:focus {
@@ -531,14 +789,14 @@ body.build-page-active {
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* Checkbox Grid */
+/* Checkbox Grid — pill-style chips for tap friendliness */
 .builder-checkbox-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .builder-checkbox-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -549,6 +807,23 @@ body.build-page-active {
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: white;
+  transition: all 0.15s ease;
+  min-height: 2.5rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.builder-checkbox-label:hover {
+  border-color: #93c5fd;
+  background: #f9fafb;
+}
+
+.builder-checkbox-label:has(input:checked) {
+  border-color: #2563eb;
+  background: #eff6ff;
 }
 
 .builder-checkbox-label input[type="checkbox"] {
@@ -558,11 +833,14 @@ body.build-page-active {
   border-color: #d1d5db;
   border-radius: 0.25rem;
   cursor: pointer;
+  accent-color: #2563eb;
+  flex-shrink: 0;
 }
 
 .builder-checkbox-label span {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: #374151;
+  line-height: 1.2;
 }
 
 /* Form Section Header */
@@ -585,19 +863,43 @@ body.build-page-active {
   border-top: 1px solid #e5e7eb;
 }
 
-/* Step Actions */
+/* Step Actions — sticky mobile bar */
 .builder-step-actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   gap: 0.75rem;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
-@media (min-width: 640px) {
+@media (max-width: 639px) {
   .builder-step-actions {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 0.625rem 1rem calc(0.625rem + env(safe-area-inset-bottom, 0px));
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Push card content above the fixed bar */
+  .builder-step-card {
+    padding-bottom: 4.5rem;
+  }
+
+  /* Hide verbose inline errors inside the fixed bar — disabled button signals state */
+  .builder-step-actions .builder-error-message {
+    display: none !important;
+  }
+
+  /* When only one button is in the bar (Step 1), center/right-align it */
+  .builder-step-actions:not(:has(.builder-secondary-button)) {
+    justify-content: flex-end;
   }
 }
 
@@ -1070,7 +1372,7 @@ body.build-page-active {
   background: white;
   border-radius: 0.5rem;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  max-width: 42rem;
+  max-width: 64rem;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
@@ -1078,6 +1380,216 @@ body.build-page-active {
 }
 
 .builder-modal-small {
+  max-width: 28rem;
+}
+
+/* HubSpot embed inside the Expert Review modal */
+.builder-prefill-note {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: #f0fdf4;
+  border-left: 4px solid #10b981;
+  padding: 0.875rem 1rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #065f46;
+}
+
+@media (min-width: 640px) {
+  .builder-prefill-note {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+
+.builder-prefill-note-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.builder-prefill-note-text > svg {
+  flex-shrink: 0;
+  margin-top: 0.1875rem;
+  color: #10b981;
+}
+
+.builder-prefill-note-text strong {
+  color: #064e3b;
+}
+
+.builder-prefill-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* Small pill buttons used inside the prefill note. Explicit resets are required
+   because css/base/styles.css sets min-height: 44px and border-radius: 9999px
+   on every <button>, which would make these look like full-size CTAs. */
+.builder-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.4375rem 0.875rem;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  min-height: 0;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.05s;
+  text-decoration: none;
+  position: static;
+  z-index: auto;
+}
+
+.builder-pill-btn:active {
+  transform: translateY(1px);
+}
+
+.builder-pill-btn-primary {
+  background: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+}
+
+.builder-pill-btn-primary:hover {
+  background: #059669;
+  border-color: #059669;
+  color: #ffffff;
+}
+
+.builder-pill-btn-secondary {
+  background: #ffffff;
+  color: #047857;
+  border-color: #10b981;
+}
+
+.builder-pill-btn-secondary:hover {
+  background: #ecfdf5;
+  color: #064e3b;
+}
+
+.builder-pill-btn.is-copied,
+.builder-pill-btn.is-copied:hover {
+  background: #047857;
+  border-color: #047857;
+  color: #ffffff;
+}
+
+.builder-summary-preview {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  max-height: 16rem;
+  overflow-y: auto;
+}
+
+.builder-summary-preview pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #374151;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+}
+
+.builder-hubspot-container {
+  min-height: 18rem;
+  position: relative;
+}
+
+.builder-hubspot-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 18rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.builder-hubspot-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid #e5e7eb;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: builder-spin 0.8s linear infinite;
+}
+
+@keyframes builder-spin {
+  to { transform: rotate(360deg); }
+}
+
+.builder-hubspot-error {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  color: #92400e;
+}
+
+.builder-hubspot-error p {
+  margin: 0;
+}
+
+/* HubSpot success state (rendered by JS after successful submission) */
+.builder-hubspot-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  gap: 1rem;
+}
+
+.builder-hubspot-success-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: #d1fae5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #047857;
+}
+
+.builder-hubspot-success-icon svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.builder-hubspot-success-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.builder-hubspot-success-text {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin: 0;
   max-width: 28rem;
 }
 

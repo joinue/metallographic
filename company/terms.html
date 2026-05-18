@@ -85,6 +85,16 @@
 <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -111,20 +121,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -334,35 +352,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -407,111 +421,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -720,36 +664,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -786,73 +728,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -896,12 +801,28 @@
         <button class="close" aria-label="Close">&times;</button>
         <section class="quote-request" aria-labelledby="quote-request-heading">
             <div class="quote-form-container">
-                <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
             </div>
         </section>
     </div>
 </div>
+
+
 
 <!-- HEADER -->
 
@@ -921,149 +842,447 @@
 <div class="first-container">
 
     <div class="legal">
-        <div class="legal-content">
-            <p><strong>Last Updated:</strong> February 9, 2026</p>
+        <div class="legal-meta">
+            <div class="legal-meta-row">
+                <span class="legal-effective">Effective <strong>May 13, 2026</strong></span>
+                <span class="legal-divider">·</span>
+                <span class="legal-version">Version 2.0</span>
+            </div>
+            <p class="legal-intro">
+                These Terms govern the sale of PACE Technologies equipment, consumables, software, and services. They apply to every order unless we have signed a separate written agreement with you that says otherwise.
+            </p>
+        </div>
 
-            <h3>1. LIMITED WARRANTY AND DISCLAIMER</h3>
-            <p><strong>Summary:</strong> Equipment comes with a 2-year warranty against defects. Consumables are not covered. Warranty requires proper use and maintenance.</p>
+        <div class="legal-layout">
+            <aside class="legal-toc" aria-label="Table of contents">
+                <p class="legal-toc-label">Contents</p>
+                <ol class="legal-toc-list">
+                    <li><a href="#s1"><span class="legal-toc-num">01</span> Agreement Formation</a></li>
+                    <li><a href="#s2"><span class="legal-toc-num">02</span> Limited Warranty</a></li>
+                    <li><a href="#s3"><span class="legal-toc-num">03</span> Limitation of Liability</a></li>
+                    <li><a href="#s4"><span class="legal-toc-num">04</span> Delivery</a></li>
+                    <li><a href="#s5"><span class="legal-toc-num">05</span> Inspection &amp; Acceptance</a></li>
+                    <li><a href="#s6"><span class="legal-toc-num">06</span> Payment</a></li>
+                    <li><a href="#s7"><span class="legal-toc-num">07</span> Default &amp; Termination</a></li>
+                    <li><a href="#s8"><span class="legal-toc-num">08</span> Returns &amp; Restocking</a></li>
+                    <li><a href="#s9"><span class="legal-toc-num">09</span> Hazardous Materials</a></li>
+                    <li><a href="#s10"><span class="legal-toc-num">10</span> Intellectual Property</a></li>
+                    <li><a href="#s11"><span class="legal-toc-num">11</span> Software &amp; Firmware</a></li>
+                    <li><a href="#s12"><span class="legal-toc-num">12</span> Data &amp; Privacy</a></li>
+                    <li><a href="#s13"><span class="legal-toc-num">13</span> Service &amp; Maintenance</a></li>
+                    <li><a href="#s14"><span class="legal-toc-num">14</span> Force Majeure</a></li>
+                    <li><a href="#s15"><span class="legal-toc-num">15</span> International Sales</a></li>
+                    <li><a href="#s16"><span class="legal-toc-num">16</span> Export Controls</a></li>
+                    <li><a href="#s17"><span class="legal-toc-num">17</span> Website Terms of Use</a></li>
+                    <li><a href="#s18"><span class="legal-toc-num">18</span> Indemnification</a></li>
+                    <li><a href="#s19"><span class="legal-toc-num">19</span> Dispute Resolution</a></li>
+                    <li><a href="#s20"><span class="legal-toc-num">20</span> Miscellaneous</a></li>
+                </ol>
+            </aside>
+
+            <article class="legal-content">
+                <section class="legal-section" id="s1">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">01</span>
+                        <h3 class="legal-section-title">Agreement Formation and Order of Precedence</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>These Terms govern every PACE sale. Conflicting language in a customer's purchase order or other paperwork is rejected unless we agree to it in writing.</p>
+                    </aside>
+                    <p>
+                        These Terms and Conditions ("Terms") govern all quotations, order acknowledgments, sales, and shipments of Equipment, Consumables, software, and services by PACE Technologies ("PACE"). PACE's acceptance of any order is expressly made conditional on the Customer's assent to these Terms. Any additional, different, or conflicting terms contained in the Customer's purchase order, request for quotation, acknowledgment, or other document, whether issued before, contemporaneously with, or after these Terms, are hereby objected to and rejected, and shall not become part of the agreement between the parties, even if PACE proceeds with performance without specific objection to such terms. No course of dealing, course of performance, or trade usage shall be relied upon to modify these Terms.
+                    </p>
+                    <p>
+                        In the event of conflict, the order of precedence shall be: (i) a written agreement between the parties signed by an authorized officer of PACE expressly modifying these Terms; (ii) the PACE Order Acknowledgment; (iii) these Terms; (iv) the PACE quotation. Terms used in capitalized form herein and not otherwise defined have the meanings given in the Order Acknowledgment.
+                    </p>
+                </section>
+
+                <section class="legal-section" id="s2">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">02</span>
+                        <h3 class="legal-section-title">Limited Warranty and Disclaimer</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Equipment is warranted for 2 years from date of shipment against defects. Consumables are not covered. Warranty requires proper use and maintenance. All other warranties are disclaimed. Claims must be brought within 1 year.</p>
+                    </aside>
             <p>
-                PACE Technologies Equipment is under warranty for two years from the purchase date to be free from defects in material and workmanship under correct use, normal operating conditions, and proper application. "Normal operating conditions" are defined as the operational environment specified in the product manual or technical specifications. Warranty is void if equipment is used outside these conditions, modified without written authorization, or if recommended maintenance is not performed. Consumables are excluded from warranty coverage.
+                PACE Equipment is warranted, beginning on <strong>the date of shipment from PACE's facility</strong> (as evidenced by PACE's bill of lading or shipping documentation) and continuing for <strong>twenty-four (24) months</strong> thereafter, to be free from defects in material and workmanship under correct use, normal operating conditions, and proper application. "Normal operating conditions" are defined as the operational environment specified in the product manual or technical specifications. Warranty is void if equipment is used outside these conditions, modified without written authorization, or if recommended maintenance is not performed. Consumables (including but not limited to abrasives, mounting compounds, polishing pads, etchants, lubricants, and replacement parts) are excluded from warranty coverage.
             </p>
             <p>
-                PACE Technologies' obligation under this warranty shall be limited to the repair or exchange, at PACE Technologies' discretion, of any PACE Technologies equipment or part which proves to be defective as provided herein. Repair or replacement processes, including turnaround times, are subject to change. PACE Technologies reserves the right to either inspect the product at the Buyer's location or require it to be returned to the factory for inspection. The Buyer is responsible for freight to and from the factory on all warranty claims. This warranty does not extend to Consumables, goods damaged or subjected to accident, abuse, misuse after release from PACE Technologies' warehouse, nor goods altered or repaired by anyone other than specifically authorized PACE Technologies representatives without written approval. Regular maintenance as specified in the equipment manual is required to maintain warranty coverage. Failure to perform recommended maintenance may void warranty.
+                PACE's obligation under this warranty shall be limited to the repair or exchange, at PACE's discretion, of any PACE equipment or part which proves to be defective as provided herein. Repair or replacement processes, including turnaround times, are subject to change and are not guaranteed. PACE reserves the right to either inspect the product at the Customer's location or require it to be returned to the factory for inspection. The Customer is responsible for freight to and from the factory on all warranty claims. This warranty does not extend to Consumables, goods damaged or subjected to accident, abuse, misuse after release from PACE's warehouse, nor goods altered or repaired by anyone other than specifically authorized PACE representatives without written approval. Regular maintenance as specified in the equipment manual is required to maintain warranty coverage. Failure to perform recommended maintenance may void warranty. Corrosion is considered a maintenance issue and is not a warranty issue.
             </p>
             <p>
-                Equipment requiring installation must be installed by qualified personnel in accordance with local codes and regulations. PACE Technologies does not provide installation services for all equipment. Customer is responsible for ensuring proper installation and may void warranty if installation is performed incorrectly.
+                Equipment requiring installation must be installed by qualified personnel in accordance with local codes and regulations. PACE does not provide installation services for all equipment. Customer is responsible for ensuring proper installation; warranty may be voided if installation is performed incorrectly. For equipment custom-built or modified to Customer's specifications, PACE makes no warranty as to the suitability, performance, or non-infringement of such specifications, and Customer assumes responsibility for the adequacy of any specifications it provides.
             </p>
             <p>
-                Note: Corrosion is considered a maintenance issue and not a warranty issue.
+                PACE MAKES NO EXPRESS WARRANTIES OTHER THAN THOSE WHICH ARE SPECIFICALLY DESCRIBED HEREIN. Any description of the goods, including Customer's specifications and any description in catalogs, circulars, marketing materials, salesperson statements, or other written or oral material, is solely for identification and does not create an express warranty that the goods shall conform to such description. THIS WARRANTY IS EXPRESSLY IN LIEU OF ALL OTHER WARRANTIES, EXPRESS OR IMPLIED. THERE ARE NO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. THIS WARRANTY STATES PACE'S ENTIRE AND EXCLUSIVE LIABILITY AND THE CUSTOMER'S EXCLUSIVE REMEDY FOR ANY CLAIM FOR DAMAGES IN CONNECTION WITH THE PRODUCTS.
             </p>
             <p>
-                PACE TECHNOLOGIES MAKES NO EXPRESS WARRANTIES OTHER THAN THOSE WHICH ARE SPECIFICALLY DESCRIBED HEREIN. Any description of the goods, including Buyer's specifications and any description in catalogs, circulars, and other written material, is solely for identification and does not create an express warranty that the goods shall conform to such description. THIS WARRANTY IS EXPRESSLY IN LIEU OF ALL OTHER WARRANTIES, EXPRESSED OR IMPLIED. THERE ARE NO IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. THIS WARRANTY STATES PACE TECHNOLOGIES' ENTIRE AND EXCLUSIVE LIABILITY AND THE BUYER'S EXCLUSIVE REMEDY FOR ANY CLAIM FOR DAMAGES IN CONNECTION WITH THE PRODUCTS. PACE TECHNOLOGIES WILL NOT BE LIABLE FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES WHATSOEVER, NOR FOR ANY SUM IN EXCESS OF THE PURCHASE PRICE.
+                <strong>Limitation of Actions.</strong> Any action by Customer for breach of warranty, breach of contract, or any other claim arising out of or relating to the Products or these Terms must be commenced within <strong>one (1) year</strong> after the cause of action has accrued. Any claim not brought within this one-year period is permanently waived and barred.
             </p>
-        
-            <h3>2. LIABILITY CAP</h3>
-            <p><strong>Summary:</strong> Our maximum liability is limited to the purchase price. We're not responsible for lost profits or business interruption.</p>
+                </section>
+
+                <section class="legal-section" id="s3">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">03</span>
+                        <h3 class="legal-section-title">Limitation of Liability</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Our maximum liability is capped at the purchase price. We're not responsible for lost profits or consequential damages. This cap does not limit your obligations to us.</p>
+                    </aside>
             <p>
-                PACE Technologies' maximum aggregate liability for loss and damage arising under, resulting from, or in connection with the supply or use of the Equipment and Consumables, whether such liability arises from any one or more claims for breach of contract, tort (including negligence), delayed completion, warranty, indemnity, strict liability, or otherwise, shall be limited to one hundred percent (100%) of the purchase price, excluding lost profits, business interruption, indirect damages, and consequential damages.
-            </p>
-        
-            <h3>3. DELIVERY</h3>
-            <p><strong>Summary:</strong> Once we ship, you own it and are responsible for any damage during shipping. File claims with the shipping company.</p>
-            <p>
-                The Customer assumes and shall bear the risk of all loss or damage to the Products from every cause whatsoever, whether or not insured, and title to such Products shall pass to the Customer upon PACE Technologies' delivery of the Products to the common carrier of PACE Technologies' choice, or the carrier specified in writing by the Customer, for shipment to the Customer. Any claims for breakage, loss, delay, or damage shall be made to the carrier by the Customer, and PACE Technologies will render reasonable assistance in prosecuting such claims.
-            </p>
-        
-            <h3>4. ACCEPTANCE</h3>
-            <p><strong>Summary:</strong> Inspect your order within 10 days. Report any problems within 30 days or you accept it as-is.</p>
-            <p>
-                Upon receipt of delivery, the Customer is obligated to inspect the Products within ten (10) business days. This inspection should include a verification of product specifications, condition, and completeness against the order details. If the Customer finds any damages, errors, or shortages in the Products, they must submit a written objection to <a href="mailto:pace@metallographic.com">pace@metallographic.com</a> within thirty (30) business days from the date of delivery as recorded by the carrier. This objection email should include the corresponding invoice number noted in the subject line. The objection should include detailed descriptions and any relevant documentation, such as photographs, to support the claim. Failure to conduct an inspection or to submit any claim within this thirty (30) business day period, commencing from the carrier's recorded delivery date, will be deemed as the Customer's acceptance of the Products as is. This acceptance constitutes a waiver of any right to make future claims regarding the condition or completeness of the received Products. The Customer's acknowledgment of receipt is not required to initiate this inspection period.
-            </p>
-        
-            <h3>5. PAYMENT</h3>
-            <p><strong>Summary:</strong> Net 30 for domestic customers with credit approval. International customers pre-pay. Late fees may apply.</p>
-            <p>
-                Payment Terms: Net 30 days for domestic customers with approved credit. International customers are required to pre-pay unless alternative arrangements are made in writing. Credit approval required for all Net 30 terms. The Customer agrees to provide timely payment for the Products in accordance with the terms of payment that are set forth on the corresponding Order Acknowledgment sent from an authorized PACE Technologies representative. PACE Technologies reserves the right to charge interest on late payments at the lesser of 12% per annum or the maximum rate allowed by law, and may suspend future shipments until account is current.
-            </p>
-        
-            <h3>6. DEFAULT</h3>
-            <p><strong>Summary:</strong> If you don't pay, your warranty is suspended until you're current. No warranty extension for default periods.</p>
-            <p>
-                If the Buyer is in default under the work or purchase order or any other agreement between the Buyer and Seller, including but not limited to failure to pay all amounts due and payable, the Buyer's rights under the warranty shall be suspended during any period of such default. The original warranty period will not be extended beyond its original expiration date despite such suspension of warranty rights.
-            </p>
-        
-            <h3>7. MISCELLANEOUS PROVISIONS</h3>
-            <p><strong>Summary:</strong> Arizona law governs. Disputes go to arbitration in Pima County. Each party pays their own costs.</p>
-            <p>
-                This agreement is exclusively governed and interpreted in accordance with the laws of the State of Arizona, without regard to its conflict of law principles. Any disputes, controversies, or claims arising out of or relating to the purchase of the equipment, including but not limited to its validity, interpretation, performance, breach, or termination, shall be resolved through binding arbitration. However, both parties agree that before proceeding to arbitration, they will attempt to resolve disputes through mutual negotiation or mediation. Arbitration shall be conducted in Pima County, Arizona, under the rules of the American Arbitration Association (AAA), but with the following stipulations:
-            </p>
-            <ul>
-                <li>Each party shall bear its own costs related to the arbitration, regardless of the outcome. This includes attorney fees, administrative fees, and other expenses incurred during the arbitration process.</li>
-                <li>The arbitrator’s authority shall be limited to making determinations under the existing terms of this Agreement and shall not have the authority to award punitive or exemplary damages.</li>
-                <li>The arbitration award shall be final and binding, and judgment on the award rendered by the arbitrator(s) may be entered in any court having jurisdiction thereof.</li>
-            </ul>
-            <p>
-                These terms and conditions, along with the product descriptions as outlined in the accompanying Order Acknowledgment or other official PACE Technologies documentation, constitute the entire agreement between the parties regarding this sale. This agreement supersedes all prior or contemporaneous agreements, negotiations, representations, and proposals, written or oral, related to its subject matter. Any amendment or modification to this Agreement is effective only if it is in writing and signed by duly authorized representatives of both parties. A waiver by either party of any breach or default under this Agreement shall not constitute a waiver of any subsequent breach or default and will not in any way affect the other terms of this Agreement.
-            </p>
-        
-            <h3>8. RETURNS AND RESTOCKING FEE</h3>
-            <p><strong>Summary:</strong> 15% restocking fee on returns. Consumables must be unopened. All returns must be in original condition.</p>
-            <p>
-                Equipment returns are subject to a 15% restocking fee unless determined to be non-conforming. Consumables may be returned within 30 days if unopened and in resaleable condition, subject to a 15% restocking fee. Opened consumables are not returnable. All returns must be in original condition with packaging and documentation.
+                PACE's maximum aggregate liability for loss and damage arising under, resulting from, or in connection with the supply or use of the Equipment, Consumables, software, or services, whether such liability arises from any one or more claims for breach of contract, tort (including negligence), delayed completion, warranty, indemnity, strict liability, or otherwise, shall be limited to <strong>one hundred percent (100%) of the purchase price</strong> of the specific Product giving rise to the claim. IN NO EVENT SHALL PACE BE LIABLE FOR LOST PROFITS, LOST REVENUE, LOSS OF USE, BUSINESS INTERRUPTION, LOSS OF DATA, COST OF SUBSTITUTE GOODS, OR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, REGARDLESS OF THE THEORY OF LIABILITY AND EVEN IF PACE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
             </p>
             <p>
-                In the event of a return due to non-conforming goods, PACE Technologies will conduct a thorough inspection and verification process. If the products are confirmed to be non-conforming, PACE Technologies will waive the restocking fee and may, at its discretion, offer a replacement, repair, or refund for the non-conforming goods. Failure to return goods in their original condition may result in additional charges or refusal of the return. PACE Technologies reserves the right to amend the restocking fee policy for specific categories of products, special orders, or in cases of bulk purchases, as detailed in the Order Acknowledgment at the time of sale.
+                The limitations in this Section apply only to PACE's liability to Customer and do not limit (i) Customer's payment obligations, (ii) Customer's indemnification obligations under Section 18, (iii) Customer's obligations regarding intellectual property, confidentiality, hazardous materials, or export controls, or (iv) any liability that cannot be limited under applicable law. The limitations in this Section shall survive termination or expiration of any agreement between the parties.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s4">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">04</span>
+                        <h3 class="legal-section-title">Delivery</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Risk of loss passes to you when we ship (FCA PACE's facility). File claims with the shipping company. Delivery dates are estimates, not guarantees.</p>
+                    </aside>
+            <p>
+                The Customer assumes and shall bear the risk of all loss or damage to the Products from every cause whatsoever, whether or not insured, and title to such Products shall pass to the Customer upon PACE's delivery of the Products to the common carrier of PACE's choice, or the carrier specified in writing by the Customer, for shipment to the Customer (FCA PACE's facility, Incoterms 2020). Any claims for breakage, loss, delay, or damage shall be made to the carrier by the Customer, and PACE will render reasonable assistance in prosecuting such claims for a period of ninety (90) days following delivery. Delivery dates communicated by PACE are estimates only; time is not of the essence with respect to delivery unless expressly agreed in a writing signed by an authorized officer of PACE.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s5">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">05</span>
+                        <h3 class="legal-section-title">Inspection and Acceptance</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Inspect your order within 10 business days. Report any problems in writing within 30 business days or you accept it as-is.</p>
+                    </aside>
+            <p>
+                Upon receipt of delivery, the Customer is obligated to inspect the Products within ten (10) business days. This inspection should include verification of product specifications, condition, and completeness against the order details. If the Customer finds any damages, errors, or shortages in the Products, they must submit a written objection to <a href="mailto:pace@metallographic.com">pace@metallographic.com</a> within thirty (30) business days from the date of delivery as recorded by the carrier. This objection email should include the corresponding invoice number in the subject line and detailed descriptions and supporting documentation, such as photographs. Failure to conduct an inspection or to submit any claim within this thirty (30) business day period, commencing from the carrier's recorded delivery date, will be deemed as the Customer's acceptance of the Products as is. This acceptance constitutes a waiver of any right to make future claims regarding the condition or completeness of the received Products. The Customer's acknowledgment of receipt is not required to initiate this inspection period.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s6">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">06</span>
+                        <h3 class="legal-section-title">Payment</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Net 30 for approved domestic customers. International customers pre-pay. Late fees and collection costs apply. Pricing may be adjusted if material costs change before shipment. Taxes are your responsibility.</p>
+                    </aside>
+            <p>
+                Payment Terms: Net 30 days for domestic customers with approved credit. International customers are required to pre-pay unless alternative arrangements are made in writing. Credit approval is required for all Net 30 terms. The Customer agrees to provide timely payment for the Products in accordance with the terms of payment set forth on the corresponding Order Acknowledgment sent from an authorized PACE representative. PACE reserves the right to charge interest on late payments at the lesser of 1.5% per month (18% per annum) or the maximum rate allowed by law, and may suspend future shipments until the account is current.
+            </p>
+            <p>
+                Quotations are valid for thirty (30) days from issuance unless otherwise stated. PACE reserves the right to adjust pricing prior to shipment to reflect material increases of more than ten percent (10%) in raw material, component, energy, or freight costs occurring between the date of the Order Acknowledgment and the date of shipment; in such case, Customer may cancel the affected portion of the order without penalty by written notice within ten (10) business days of PACE's price-adjustment notice.
+            </p>
+            <p>
+                All prices are exclusive of any sales, use, value-added, excise, or similar taxes, duties, or governmental charges, all of which are the responsibility of the Customer. If PACE is required to collect any such tax, it will be added to the invoice unless Customer provides a valid exemption certificate prior to invoicing.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s7">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">07</span>
+                        <h3 class="legal-section-title">Default and Termination</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>If you don't pay or breach these terms, we can suspend shipments, demand immediate payment, repossess equipment, and recover collection costs and attorney fees. Warranty is suspended during default.</p>
+                    </aside>
+            <p>
+                If the Customer is in default under any work order, purchase order, or other agreement between the Customer and PACE (including but not limited to failure to pay all amounts due and payable when due), then in addition to any other remedies available at law or in equity, PACE may: (i) accelerate all payments due or to become due; (ii) suspend or cancel any pending shipments or services; (iii) place the Customer's account on credit hold; (iv) repossess Equipment for which payment has not been received in full, with Customer hereby granting PACE a purchase-money security interest in such Equipment until payment in full; (v) pursue any and all collection remedies; and (vi) recover all costs of collection, including reasonable attorney fees and court or arbitration costs.
+            </p>
+            <p>
+                The Customer's rights under the warranty shall be suspended during any period of default, and the original warranty period will not be extended beyond its original expiration date despite such suspension. The Customer's payment obligations are absolute and unconditional, and Customer waives any right of set-off, counterclaim, recoupment, or deduction.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s8">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">08</span>
+                        <h3 class="legal-section-title">Returns and Restocking Fee</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Returns require a written RMA within 30 days. 15% restocking fee. Consumables must be unopened. Custom or special-order items are non-returnable.</p>
+                    </aside>
+            <p>
+                No Product may be returned without a written Return Material Authorization (RMA) issued by PACE in advance. Eligible Equipment returns must be requested within thirty (30) days of delivery, are subject to a fifteen percent (15%) restocking fee, and must be received in original factory condition with all packaging, manuals, and accessories. Consumables may be returned within thirty (30) days only if unopened and in resaleable condition, and are subject to the same fifteen percent (15%) restocking fee. Opened consumables, custom-manufactured items, special-order items, and items modified at Customer's request are non-returnable.
+            </p>
+            <p>
+                In the event of a return due to non-conforming goods confirmed by PACE inspection, PACE will waive the restocking fee and may, at its discretion, offer a replacement, repair, or refund. Failure to return goods in their original condition may result in additional charges or refusal of the return. PACE reserves the right to amend the restocking fee policy for specific categories of products, special orders, or bulk purchases, as detailed in the Order Acknowledgment at the time of sale.
             </p>
             <p>
                 Consumables should be stored according to manufacturer recommendations. Customer is responsible for checking expiration dates and proper storage conditions as indicated on product packaging.
             </p>
-        
-            <h3>9. DATA AND PRIVACY</h3>
-            <p><strong>Summary:</strong> We follow our Privacy Policy. You're responsible for backing up your data before service work.</p>
-            <p>
-                Customer data handling is governed by our Privacy Policy, available on our website. Customer is responsible for data backup before any service or maintenance work. PACE Technologies is not liable for data loss during service or maintenance.
-            </p>
-        
-            <h3>10. INTELLECTUAL PROPERTY PROTECTION</h3>
-            <p><strong>Summary:</strong> Don't reverse engineer or copy our equipment. Don't resell without permission. Keep our trademarks visible.</p>
-            <p>
-                Customer may not reverse engineer, copy, or modify equipment without written authorization. All proprietary information remains confidential. Customer may not resell equipment without written permission. Trademark and copyright notices must remain visible. Any unauthorized modification voids warranty and may result in termination of support services.
-            </p>
-        
-            <h3>11. FORCE MAJEURE</h3>
-            <p><strong>Summary:</strong> We're not responsible for delays due to events beyond our control (natural disasters, pandemics, etc.). Either party can cancel if delay exceeds 90 days.</p>
-            <p>
-                PACE Technologies shall not be liable for delays or failures in performance due to circumstances beyond its reasonable control, including but not limited to acts of God, war, terrorism, pandemic, government action, supplier delays, material shortages, labor disputes, or transportation issues. Either party may terminate this agreement if such delay exceeds 90 days.
-            </p>
-        
-            <h3>12. DEFAULT AND TERMINATION</h3>
-            <p><strong>Summary:</strong> If you don't pay, we can stop shipments, demand immediate payment, and take back equipment. You pay all collection costs.</p>
-            <p>
-                If Customer is in default, PACE Technologies may accelerate all payments, suspend shipments, place account on credit hold, and pursue collection remedies. Customer is responsible for all collection costs, including attorney fees. PACE Technologies reserves the right to repossess equipment if payments are not made as agreed.
-            </p>
-        
-            <h3>13. SERVICE AND MAINTENANCE</h3>
-            <p><strong>Summary:</strong> Service calls cost extra after warranty. You provide proper utilities. We don't guarantee response times. Training may be required.</p>
-            <p>
-                Service calls outside warranty are subject to travel and labor charges. Customer is responsible for proper electrical and utility connections. Service response times are not guaranteed. Training requirements may apply for certain equipment. Customer must comply with all safety regulations and local codes.
-            </p>
-        
-            <h3>14. INTERNATIONAL SALES</h3>
-            <p><strong>Summary:</strong> You pay all customs, taxes, and import fees. Currency changes may affect pricing. You handle all import paperwork.</p>
-            <p>
-                International customers are responsible for all customs duties, taxes, and import fees. Currency fluctuations may affect pricing. Customer must comply with all export and import regulations. International warranty terms may differ from domestic terms. Customer is responsible for obtaining necessary import licenses and permits.
-            </p>
-        
-            <h3>15. SOFTWARE AND FIRMWARE</h3>
-            <p><strong>Summary:</strong> Software is licensed, not owned. Don't copy or modify it. Keep software updated. License ends if you sell the equipment.</p>
-            <p>
-                Software is licensed, not sold. Customer may not copy, modify, or distribute software. Updates and support are provided at PACE Technologies' discretion. Customer is responsible for maintaining current software versions. Software license terminates with equipment sale or transfer.
-            </p>
+                </section>
 
-            <h3>16. WEBSITE TERMS OF USE</h3>
-            <p><strong>Summary:</strong> Our website content is for general informational purposes only. It is not a substitute for professional advice. Use of the site constitutes acceptance of these terms.</p>
+                <section class="legal-section" id="s9">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">09</span>
+                        <h3 class="legal-section-title">Hazardous Materials and Chemicals</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Etchants, acids, and other hazardous chemicals require trained users. You agree to follow safety data sheets, dispose of waste lawfully, and not repackage or relabel our products.</p>
+                    </aside>
             <p>
-                By accessing and using the PACE Technologies website (metallographic.com), you agree to the following terms. All content on this website, including but not limited to guides, etchant databases, preparation procedures, calculators, material data, and educational resources, is provided for general informational purposes only and does not constitute professional, scientific, or safety advice. While we strive for accuracy, PACE Technologies makes no warranties or representations regarding the completeness, accuracy, reliability, or suitability of any information on this website.
+                PACE sells etchants, acids, abrasive compounds, solvents, and other materials that may be hazardous if mishandled. By purchasing such materials, the Customer represents and warrants that:
             </p>
+            <ul>
+                <li>Personnel handling the materials are trained in accordance with the OSHA Hazard Communication Standard (29 CFR 1910.1200) or equivalent local regulations;</li>
+                <li>The Customer has reviewed the applicable Safety Data Sheet (SDS) for each material and will make the SDS available to all users;</li>
+                <li>The Customer will provide and require the use of appropriate personal protective equipment;</li>
+                <li>The Customer will use, store, transport, and dispose of all materials in compliance with the Resource Conservation and Recovery Act (RCRA), applicable state and local regulations, and all other applicable laws;</li>
+                <li>The Customer will not repackage, relabel, dilute, or otherwise alter PACE chemical products in any manner that removes or obscures original hazard labels or SDS information; and</li>
+                <li>The Customer will not resell or distribute hazardous chemicals except in original PACE packaging with original labeling.</li>
+            </ul>
             <p>
-                Users are solely responsible for evaluating the appropriateness and safety of any procedures, techniques, chemicals, or equipment described on this site for their specific application. Always follow applicable safety data sheets (SDS), institutional protocols, and local regulations when handling chemicals, etchants, or operating equipment. PACE Technologies shall not be liable for any injury, damage, or loss resulting from the use of information obtained from this website.
+                The Customer assumes all risk associated with the handling, use, storage, transportation, and disposal of hazardous materials and shall indemnify, defend, and hold harmless PACE from and against any and all claims, injuries, damages, fines, penalties, remediation costs, or losses arising from or related to such materials, regardless of cause, except to the extent caused by PACE's gross negligence or willful misconduct.
             </p>
-            <p>
-                You may not reproduce, distribute, or republish any content from this website without prior written consent from PACE Technologies. Unauthorized use of this website, including but not limited to data scraping, automated access, or attempts to interfere with site functionality, is prohibited.
-            </p>
+                </section>
 
-            <h3>17. INDEMNIFICATION</h3>
-            <p><strong>Summary:</strong> You agree to hold us harmless for claims arising from your misuse of our products, failure to follow safety procedures, or violations of these terms.</p>
+                <section class="legal-section" id="s10">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">10</span>
+                        <h3 class="legal-section-title">Intellectual Property Protection</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Don't reverse engineer, copy, or modify our equipment or software. Don't resell without permission. Keep our trademarks visible.</p>
+                    </aside>
             <p>
-                The Customer agrees to indemnify, defend, and hold harmless PACE Technologies, its officers, directors, employees, and agents from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable attorney fees) arising out of or relating to: (a) the Customer's misuse or improper handling of equipment, consumables, chemicals, or etchants; (b) failure to follow applicable safety data sheets, product documentation, or recommended procedures; (c) the Customer's violation of any applicable law, regulation, or safety standard; (d) claims by third parties arising from the Customer's use of PACE Technologies products; or (e) the Customer's breach of any provision of these Terms and Conditions. This indemnification obligation shall survive termination of any agreement between the parties.
+                Customer may not reverse engineer, decompile, disassemble, copy, or modify Equipment, software, firmware, or documentation without PACE's prior written authorization. All proprietary information, drawings, specifications, manuals, and technical data provided by PACE remain the confidential and proprietary property of PACE and may be used by Customer only in connection with its authorized use of the Products. Customer may not resell, sublicense, lease, or transfer Equipment outside its enterprise without PACE's prior written permission. Trademark, patent, and copyright notices must remain visible on all Products and documentation. Any unauthorized modification, copying, or transfer voids the warranty, may result in termination of support services, and may be pursued through all available legal remedies.
             </p>
+                </section>
 
-            <h3>18. SEVERABILITY</h3>
-            <p><strong>Summary:</strong> If any part of these terms is found to be unenforceable, the rest remains in full effect.</p>
+                <section class="legal-section" id="s11">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">11</span>
+                        <h3 class="legal-section-title">Software and Firmware</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Software is licensed, not sold. Use it only on the equipment we shipped it with. No reverse engineering or copying. Software is provided AS IS. License ends if you transfer the equipment.</p>
+                    </aside>
             <p>
-                If any provision of these Terms and Conditions is found by a court of competent jurisdiction or arbitrator to be invalid, illegal, or unenforceable, such finding shall not affect the validity of the remaining provisions, which shall continue in full force and effect. The invalid or unenforceable provision shall be modified to the minimum extent necessary to make it valid and enforceable while preserving the original intent of the parties.
+                All software and firmware provided with PACE Equipment, whether embedded or separately installed ("Software"), is licensed and not sold. PACE grants Customer a limited, non-exclusive, non-transferable, revocable license to use the Software solely in conjunction with the specific Equipment on which it was delivered, and solely for Customer's internal business purposes. Customer shall not: (i) copy, modify, adapt, translate, or create derivative works of the Software; (ii) reverse engineer, decompile, or disassemble the Software, except to the limited extent expressly permitted by applicable law notwithstanding this restriction; (iii) rent, lease, lend, sell, sublicense, or distribute the Software; (iv) remove or alter any proprietary notices; or (v) circumvent any technical protection measures.
             </p>
+            <p>
+                Software updates and support are provided at PACE's discretion. Customer is responsible for maintaining current Software versions where required for safe or proper operation. The Software license terminates automatically upon sale, transfer, or other disposition of the Equipment, unless PACE consents in writing to a transfer of the license. THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, AND ALL WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT ARE DISCLAIMED. The Software may include open-source components subject to their own license terms; a list of such components and their licenses is available upon written request.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s12">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">12</span>
+                        <h3 class="legal-section-title">Data and Privacy</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Personal data is handled per our Privacy Policy. You're responsible for backing up your data before service work.</p>
+                    </aside>
+            <p>
+                Customer data handling is governed by our <a href="/privacy.html">Privacy Policy</a>, available on our website. Customer is solely responsible for backing up any data, configurations, sample records, or images stored on or associated with the Equipment before any service, maintenance, repair, or shipment. PACE is not liable for data loss, corruption, or unauthorized access during service, maintenance, or transit. Customer represents that any data provided to PACE in connection with service does not contain personal data of third parties, classified information, or export-controlled technical data without PACE's prior written agreement.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s13">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">13</span>
+                        <h3 class="legal-section-title">Service and Maintenance</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Out-of-warranty service is billable. You're responsible for utilities and site readiness. Response times are not guaranteed. Training may be required.</p>
+                    </aside>
+            <p>
+                Service calls outside the warranty period are subject to PACE's then-current travel, labor, and parts charges. Customer is responsible for providing proper electrical, water, ventilation, and other utility connections meeting PACE's published specifications, and for ensuring site readiness prior to any installation or service visit. Customer is responsible for any costs arising from inadequate site preparation. Service response times are not guaranteed. Training requirements may apply for certain Equipment, and operation by untrained personnel may void warranty and trigger Customer's indemnification obligations under Section 18. Customer shall comply with all applicable safety regulations and local codes and shall ensure that PACE service personnel have safe access to the Equipment.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s14">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">14</span>
+                        <h3 class="legal-section-title">Force Majeure</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>We're not liable for delays caused by events beyond our control. Either party can cancel if a delay exceeds 90 days.</p>
+                    </aside>
+            <p>
+                PACE shall not be liable for delays or failures in performance due to circumstances beyond its reasonable control, including but not limited to acts of God, war, terrorism, pandemic, epidemic, government action, embargo, supplier delays, material shortages, labor disputes, cyberattack, utility or telecommunications outages, or transportation issues. PACE's time for performance shall be extended for the duration of any such event. Either party may terminate the affected portion of the agreement, without further liability, if such delay exceeds ninety (90) days.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s15">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">15</span>
+                        <h3 class="legal-section-title">International Sales</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>International buyers pay all customs and import fees and handle their own paperwork. Currency changes may affect pricing.</p>
+                    </aside>
+            <p>
+                International Customers are responsible for all customs duties, taxes, value-added taxes, and import fees imposed by the destination country. Currency fluctuations occurring between order acknowledgment and shipment may, at PACE's option, be reflected in the final invoice. The Customer must comply with all applicable export and import regulations and is responsible for obtaining any necessary import licenses, permits, or registrations. International warranty terms, response times, and remedies may differ from domestic terms and are subject to local availability of parts and service.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s16">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">16</span>
+                        <h3 class="legal-section-title">Export Controls and Trade Compliance</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Our products are subject to US export and sanctions laws. You agree not to ship to sanctioned countries or restricted parties, not to use our products for weapons programs, and to comply with anti-boycott and anti-bribery laws.</p>
+                    </aside>
+            <p>
+                PACE Products, software, technology, and technical data may be subject to the U.S. Export Administration Regulations (EAR), the International Traffic in Arms Regulations (ITAR), regulations administered by the Office of Foreign Assets Control (OFAC), and similar laws of other jurisdictions ("Trade Laws"). The Customer represents, warrants, and covenants that:
+            </p>
+            <ul>
+                <li>It is not a resident or national of, and will not export, re-export, transfer, or divert any Product to, any country, region, entity, or individual subject to U.S. embargo or comprehensive sanctions (including, as of the date of these Terms, Cuba, Iran, North Korea, Syria, and the Crimea, Donetsk, and Luhansk regions of Ukraine), or any party identified on any U.S. government restricted-party list (including the Denied Persons List, Entity List, Specially Designated Nationals List, or equivalent lists);</li>
+                <li>It will not use the Products in connection with the design, development, production, stockpiling, or use of nuclear weapons, chemical or biological weapons, missile technology, or any unauthorized military end use;</li>
+                <li>It will not re-export, transfer, or release any Product, software, or technology in violation of applicable Trade Laws;</li>
+                <li>It will comply with all U.S. and applicable foreign anti-boycott laws, including the Export Administration Act anti-boycott provisions and Section 999 of the U.S. Internal Revenue Code;</li>
+                <li>It will comply with all applicable anti-bribery and anti-corruption laws, including the U.S. Foreign Corrupt Practices Act and the UK Bribery Act, and will not offer or pay any improper benefit in connection with the Products;</li>
+                <li>It will obtain at its own cost any export, re-export, import, or other government authorization required for its use of the Products;</li>
+                <li>It will provide PACE with end-use and end-user certifications upon request.</li>
+            </ul>
+            <p>
+                The Customer shall indemnify, defend, and hold harmless PACE from and against any claims, fines, penalties, damages, or costs arising from the Customer's violation of any Trade Laws. PACE may suspend, delay, or refuse to fulfill any order it believes in good faith may violate Trade Laws, without liability to Customer.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s17">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">17</span>
+                        <h3 class="legal-section-title">Website Terms of Use</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Our website content is for general informational purposes only. It is not a substitute for professional advice. Use of the site constitutes acceptance of these terms.</p>
+                    </aside>
+            <p>
+                By accessing and using the PACE website (metallographic.com), you agree to the following terms. All content on this website, including but not limited to guides, etchant references, preparation procedures, calculators, material data, and educational resources, is provided for general informational purposes only and does not constitute professional, scientific, or safety advice. While we strive for accuracy, PACE makes no warranties or representations regarding the completeness, accuracy, reliability, or suitability of any information on this website.
+            </p>
+            <p>
+                Users are solely responsible for evaluating the appropriateness and safety of any procedures, techniques, chemicals, or equipment described on this site for their specific application. Always follow applicable Safety Data Sheets (SDS), institutional protocols, and local regulations when handling chemicals, etchants, or operating equipment. PACE shall not be liable for any injury, damage, or loss resulting from the use of information obtained from this website.
+            </p>
+            <p>
+                You may not reproduce, distribute, or republish any content from this website without prior written consent from PACE. Unauthorized use of this website, including but not limited to data scraping, automated access, use for training artificial intelligence or machine-learning models, or attempts to interfere with site functionality, is prohibited.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s18">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">18</span>
+                        <h3 class="legal-section-title">Indemnification</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>You agree to defend and hold us harmless for claims arising from your misuse of our products, failure to follow safety procedures, violations of law, or breach of these terms. This obligation is not capped by Section 3.</p>
+                    </aside>
+            <p>
+                The Customer agrees to indemnify, defend, and hold harmless PACE, its officers, directors, employees, agents, and affiliates from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable attorney fees and arbitration costs) arising out of or relating to: (a) the Customer's misuse, improper handling, or unsafe operation of Equipment, Consumables, chemicals, or etchants; (b) failure to follow applicable Safety Data Sheets, product documentation, manuals, or recommended procedures; (c) the Customer's violation of any applicable law, regulation, or safety standard, including Trade Laws under Section 16 and hazardous materials obligations under Section 9; (d) claims by third parties (including Customer's employees, contractors, or invitees) arising from the Customer's use of PACE Products; (e) any unauthorized modification, alteration, repair, or combination of the Products with other items; or (f) the Customer's breach of any provision of these Terms. This indemnification obligation is not subject to the limitation of liability in Section 3 and shall survive termination of any agreement between the parties.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s19">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">19</span>
+                        <h3 class="legal-section-title">Dispute Resolution, Arbitration &amp; Class Action Waiver</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Disputes go to binding arbitration in Pima County, Arizona under AAA Commercial Rules. Class actions and jury trials are waived. We can still go to court for emergency IP or confidentiality protection. Arizona law governs.</p>
+                    </aside>
+            <p>
+                <strong>(a) Negotiation.</strong> Before initiating arbitration, the parties shall attempt in good faith to resolve any dispute, controversy, or claim arising out of or relating to these Terms or the Products (each, a "Dispute") through mutual negotiation, and shall consider mediation if direct negotiation fails.
+            </p>
+            <p>
+                <strong>(b) Binding Arbitration.</strong> Any Dispute that is not resolved by negotiation shall be resolved by final and binding arbitration administered by the American Arbitration Association ("AAA") under its Commercial Arbitration Rules then in effect. The arbitration shall be conducted in Pima County, Arizona, before a single arbitrator, in the English language. Each party shall bear its own costs of arbitration, including attorney fees, except that the arbitrator may award fees and costs to PACE in connection with collection actions or where otherwise authorized by these Terms or applicable law. The arbitrator's authority shall be limited to making determinations under the existing terms of this Agreement and shall not include the authority to award punitive, exemplary, or consequential damages, or any damages beyond the limitations set forth in Section 3. The arbitration award shall be final and binding, and judgment on the award rendered by the arbitrator may be entered in any court of competent jurisdiction.
+            </p>
+            <p>
+                <strong>(c) Class Action Waiver.</strong> ALL DISPUTES SHALL BE ARBITRATED ON AN INDIVIDUAL BASIS ONLY. THE PARTIES EXPRESSLY WAIVE ANY RIGHT TO PARTICIPATE AS A REPRESENTATIVE OR MEMBER OF ANY CLASS, COLLECTIVE, CONSOLIDATED, OR MASS ACTION, OR TO ACT AS A PRIVATE ATTORNEY GENERAL. The arbitrator shall have no authority to consolidate Disputes involving more than one Customer or to preside over any form of class, collective, or representative proceeding. If this class action waiver is found to be unenforceable in any proceeding, then the entirety of this Section 19 (other than this sentence and subsection (d)) shall be null and void with respect to that proceeding, and any such Dispute shall instead proceed in court under subsection (d).
+            </p>
+            <p>
+                <strong>(d) Jury Trial Waiver; Court Venue.</strong> If for any reason any Dispute proceeds in court rather than arbitration, EACH PARTY KNOWINGLY, VOLUNTARILY, AND IRREVOCABLY WAIVES ANY RIGHT TO A TRIAL BY JURY in respect of any such proceeding. The exclusive venue for any such court proceeding shall be the state or federal courts located in Pima County, Arizona, and each party submits to the personal jurisdiction of those courts.
+            </p>
+            <p>
+                <strong>(e) Equitable Relief.</strong> Notwithstanding the foregoing, either party may seek temporary, preliminary, or permanent injunctive or other equitable relief in any court of competent jurisdiction to prevent or restrain a breach of its intellectual property rights, confidentiality obligations, or the export-controls or hazardous-materials obligations under Sections 9 and 16, without first proceeding to arbitration and without posting a bond where permitted by law.
+            </p>
+            <p>
+                <strong>(f) Governing Law.</strong> These Terms are governed by and construed in accordance with the laws of the State of Arizona, without regard to its conflict-of-law principles. The United Nations Convention on Contracts for the International Sale of Goods does not apply.
+            </p>
+                </section>
+
+                <section class="legal-section" id="s20">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">20</span>
+                        <h3 class="legal-section-title">Miscellaneous</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Standard wrap-up: this is the full agreement, no oral changes, no assignment without consent, written notices, no third-party beneficiaries, key terms survive termination, severability.</p>
+                    </aside>
+            <p>
+                <strong>(a) Entire Agreement.</strong> These Terms, together with the PACE Order Acknowledgment and any signed written amendments, constitute the entire agreement between the parties regarding the sale of the Products and supersede all prior or contemporaneous agreements, negotiations, representations, proposals, marketing materials, salesperson statements, and catalogs, whether written or oral, related to its subject matter.
+            </p>
+            <p>
+                <strong>(b) Amendments.</strong> No amendment or modification of these Terms is effective unless in writing and signed by duly authorized representatives of both parties.
+            </p>
+            <p>
+                <strong>(c) Waiver.</strong> A waiver by either party of any breach or default shall not constitute a waiver of any subsequent breach or default, and will not in any way affect the other terms of these Terms.
+            </p>
+            <p>
+                <strong>(d) Assignment.</strong> Customer may not assign or transfer these Terms or any rights or obligations hereunder, by operation of law or otherwise, without PACE's prior written consent. Any attempted assignment in violation of this Section is void. PACE may assign these Terms in connection with a merger, acquisition, reorganization, or sale of all or substantially all of its assets.
+            </p>
+            <p>
+                <strong>(e) Notices.</strong> All legal notices must be in writing and delivered to PACE Technologies, 3601 E. 34th Street, Tucson, Arizona 85713, USA, with a copy to <a href="mailto:pace@metallographic.com">pace@metallographic.com</a>. Notices to Customer may be sent to the address or email on file with PACE.
+            </p>
+            <p>
+                <strong>(f) No Third-Party Beneficiaries.</strong> These Terms confer no rights or remedies on any person or entity other than the parties hereto and their permitted successors and assigns.
+            </p>
+            <p>
+                <strong>(g) Survival.</strong> The following Sections survive termination or expiration of these Terms: Section 2 (Limited Warranty and Disclaimer, including the Limitation of Actions), Section 3 (Limitation of Liability), Section 6 (Payment, as to amounts owed), Section 7 (Default and Termination), Section 9 (Hazardous Materials), Section 10 (Intellectual Property), Section 11 (Software, license restrictions only), Section 12 (Data and Privacy), Section 16 (Export Controls), Section 18 (Indemnification), Section 19 (Dispute Resolution), and this Section 20.
+            </p>
+            <p>
+                <strong>(h) Severability.</strong> If any provision of these Terms is found by a court or arbitrator of competent jurisdiction to be invalid, illegal, or unenforceable, such finding shall not affect the validity of the remaining provisions, which shall continue in full force and effect. The invalid or unenforceable provision shall be modified to the minimum extent necessary to make it valid and enforceable while preserving the original intent of the parties.
+            </p>
+                </section>
+            </article>
         </div>
+
+        <script>
+            (function () {
+                const links = document.querySelectorAll('.legal-toc-list a');
+                const sections = document.querySelectorAll('.legal-section');
+                if (!links.length || !sections.length) return;
+                const map = new Map();
+                links.forEach(l => map.set(l.getAttribute('href').slice(1), l));
+                const io = new IntersectionObserver(entries => {
+                    entries.forEach(e => {
+                        const link = map.get(e.target.id);
+                        if (link && e.isIntersecting) {
+                            links.forEach(l => l.classList.remove('is-active'));
+                            link.classList.add('is-active');
+                        }
+                    });
+                }, { rootMargin: '-15% 0px -70% 0px' });
+                sections.forEach(s => io.observe(s));
+            })();
+        </script>
     </div>
     
       
@@ -1072,11 +1291,7 @@
         
 <br><br>
 
-<a href="#top" class="return-to-top" aria-label="Return to top">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
-        <path d="M12 4l-8 8h16z"></path>
-    </svg>
-</a>
+
 
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
@@ -1137,9 +1352,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1151,7 +1394,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1179,8 +1422,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1252,6 +1494,39 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
           </div>
         </div>
@@ -1265,5 +1540,6 @@
 </footer>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

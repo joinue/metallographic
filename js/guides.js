@@ -131,7 +131,7 @@ const guides = [
     description: 'Complete guide to preparing stainless steel samples for metallographic analysis, covering all preparation steps from sectioning to etching.',
     category: 'Material-Specific',
     readTime: '15 min read',
-    microstructureImage: '/images/microstructures/431ss.png',
+    image: '/images/microstructures/431ss.png',
     difficulty: 'Intermediate',
   },
   {
@@ -140,7 +140,7 @@ const guides = [
     description: 'In-depth guide for preparing aluminum samples without smearing or deformation. Learn proper techniques for soft materials and avoid common pitfalls.',
     category: 'Material-Specific',
     readTime: '12 min read',
-    microstructureImage: '/images/microstructures/6061-Aluminum.jpg',
+    image: '/images/microstructures/6061-Aluminum.jpg',
     difficulty: 'Intermediate',
   },
   {
@@ -149,7 +149,7 @@ const guides = [
     description: 'In-depth preparation methods for copper and its alloys, including brass and bronze. Learn techniques to avoid smearing and reveal true microstructures.',
     category: 'Material-Specific',
     readTime: '11 min read',
-    microstructureImage: '/images/microstructures/Tough-Pitch-copper-2.jpg',
+    image: '/images/microstructures/Tough-Pitch-copper-2.jpg',
     difficulty: 'Intermediate',
   },
   {
@@ -158,7 +158,7 @@ const guides = [
     description: 'In-depth specialized techniques for preparing titanium samples, including handling reactive surfaces and proper etching methods for alpha and beta phases.',
     category: 'Material-Specific',
     readTime: '13 min read',
-    microstructureImage: '/images/microstructures/Ti6Al4V.jpg',
+    image: '/images/microstructures/Ti6Al4V.jpg',
     difficulty: 'Advanced',
   },
   {
@@ -167,7 +167,7 @@ const guides = [
     description: 'In-depth procedures for preparing carbon and low alloy steel samples. Covers proper etching for pearlite, ferrite, and martensite structures.',
     category: 'Material-Specific',
     readTime: '12 min read',
-    microstructureImage: '/images/microstructures/1018FC.jpg',
+    image: '/images/microstructures/1018FC.jpg',
     difficulty: 'Intermediate',
   },
   {
@@ -176,7 +176,7 @@ const guides = [
     description: 'Complete guide to preparing cast iron samples with emphasis on preserving graphite structure. Covers all cast iron types.',
     category: 'Material-Specific',
     readTime: '14 min read',
-    microstructureImage: '/images/microstructures/CI-nodular-200X-AP-2.jpg',
+    image: '/images/microstructures/CI-nodular-200X-AP-2.jpg',
     difficulty: 'Intermediate',
   },
   {
@@ -185,7 +185,7 @@ const guides = [
     description: 'Comprehensive guide for preparing tool steels and hardened steels. Learn techniques for preserving carbides and revealing complex microstructures.',
     category: 'Material-Specific',
     readTime: '16 min read',
-    microstructureImage: '/images/microstructures/1095wq.jpg',
+    image: '/images/microstructures/High-alloy-tool-steel.jpg',
     difficulty: 'Advanced',
   },
   {
@@ -194,7 +194,7 @@ const guides = [
     description: 'Comprehensive guide for preparing nickel and cobalt superalloys. Learn techniques for handling high-temperature alloys and revealing complex microstructures.',
     category: 'Material-Specific',
     readTime: '14 min read',
-    microstructureImage: '/images/microstructures/Hastelloy-adlers-etch-200X-DIC.jpg',
+    image: '/images/microstructures/Hastelloy-adlers-etch-200X-DIC.jpg',
     difficulty: 'Advanced',
   },
   {
@@ -203,7 +203,6 @@ const guides = [
     description: 'Specialized techniques for preparing magnesium and magnesium alloys. Learn how to handle reactive materials and avoid oxidation artifacts.',
     category: 'Material-Specific',
     readTime: '13 min read',
-    microstructureImage: '/images/microstructures/B4Cmgl2.jpg',
     difficulty: 'Advanced',
   },
   {
@@ -212,7 +211,7 @@ const guides = [
     description: 'Complete guide to preparing ceramic samples for metallographic analysis. Covers sectioning hard materials and revealing grain boundaries.',
     category: 'Material-Specific',
     readTime: '16 min read',
-    microstructureImage: '/images/microstructures/Al2O3.jpg',
+    image: '/images/microstructures/Al2O3.jpg',
     difficulty: 'Advanced',
   },
   {
@@ -221,7 +220,7 @@ const guides = [
     description: 'In-depth techniques for preparing composite materials including fiber-reinforced composites. Learn to avoid pullout, maintain fiber orientation, and reveal interfaces.',
     category: 'Material-Specific',
     readTime: '15 min read',
-    microstructureImage: '/images/microstructures/carbon-carbon-composite.jpg',
+    image: '/images/microstructures/carbon-carbon-composite.jpg',
     difficulty: 'Advanced',
   },
   {
@@ -230,7 +229,6 @@ const guides = [
     description: 'Complete guide to preparing precious metals (gold, silver, platinum) samples for metallographic analysis. Learn techniques for handling extremely soft materials and avoiding smearing.',
     category: 'Material-Specific',
     readTime: '12 min read',
-    microstructureImage: '/images/microstructures/Copper.jpg',
     difficulty: 'Advanced',
   },
   {
@@ -239,7 +237,7 @@ const guides = [
     description: 'Comprehensive guide for preparing refractory metals (tungsten, rhenium, niobium, molybdenum). Learn techniques for handling extremely hard and brittle materials.',
     category: 'Material-Specific',
     readTime: '14 min read',
-    microstructureImage: '/images/microstructures/Refractory-metals.png',
+    image: '/images/microstructures/Refractory-metals.png',
     difficulty: 'Advanced',
   },
   {
@@ -248,7 +246,7 @@ const guides = [
     description: 'Complete guide to preparing powder metallurgy (PM) materials and sintered alloys. Learn vacuum impregnation techniques and methods to preserve porosity structure.',
     category: 'Material-Specific',
     readTime: '13 min read',
-    microstructureImage: '/images/microstructures/Powder-metals.png',
+    image: '/images/microstructures/Powder-metals.png',
     difficulty: 'Advanced',
   },
   {
@@ -257,7 +255,7 @@ const guides = [
     description: 'Comprehensive guide for preparing thermal spray coatings including WC-Co, chromium carbide, and ceramic coatings. Learn to preserve coating-substrate interfaces.',
     category: 'Material-Specific',
     readTime: '15 min read',
-    microstructureImage: '/images/microstructures/Thermal-spray-coating.jpg',
+    image: '/images/microstructures/Thermal-spray-coating.jpg',
     difficulty: 'Advanced',
   },
   {
@@ -266,7 +264,7 @@ const guides = [
     description: 'Complete guide to preparing cermets (tungsten carbide, TiC-Ni) and technical glasses (borosilicate, fused silica). Learn techniques for extremely hard and brittle materials.',
     category: 'Material-Specific',
     readTime: '16 min read',
-    microstructureImage: '/images/microstructures/W-Co-200X.jpg',
+    image: '/images/microstructures/W-Co-200X.jpg',
     difficulty: 'Advanced',
   },
   // Application-Specific Guides
@@ -391,13 +389,26 @@ const iconMap = {
   ChevronRight: '<polyline points="9 18 15 12 9 6"></polyline>',
 };
 
-// Category descriptions
-const categoryDescriptions = {
-  'Basics': 'Fundamentals for beginners.',
-  'Process': 'Step-by-step preparation techniques.',
-  'Material-Specific': 'Detailed guides for specific materials.',
-  'Application-Specific': 'Advanced techniques for specialized applications.',
-  'Troubleshooting': 'Solutions for common preparation issues.',
+// Image fallbacks by slug for guides without an `image` field on the data entry.
+// Only maps to existing PACE assets; guides with no real asset show the line icon.
+const guideImages = {
+  // Process
+  'sectioning': '/videos/process/sectioning-poster.webp',
+  'mounting': '/videos/process/compression-mounting-poster.webp',
+  'grinding-techniques': '/videos/process/grinding-poster.webp',
+  'polishing-methods': '/videos/process/polishing-poster.webp',
+  'etching-procedures': '/videos/process/etching-poster.webp',
+  'microstructural-analysis': '/images/equipment/microscopy/metallurgical/im-7000/im-7000-cover.webp',
+  // Basics
+  'introduction-to-metallography': '/images/pace/4.jpg',
+  'purpose-and-applications': '/images/pace/samples_in_vices.webp',
+  'history-of-metallography': '/images/pace/don-sample.webp',
+  'equipment-overview': '/images/pace/equipment-800.webp',
+  'common-misconceptions': '/images/trainings-distributors/QS4.jpg',
+  // Application-Specific
+  'hardness-testing-preparation': '/videos/process/hardness-testing-poster.webp',
+  // Troubleshooting
+  'troubleshooting-common-issues': '/images/microstructures/Inclusion-oxide-2.webp',
 };
 
 // Initialize guides page
@@ -526,35 +537,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Render guide card
   function renderGuideCard(guide, index) {
-    const icon = guide.category === 'Process' && guide.processIcon 
-      ? getIconSVG(guide.processIcon, 'process-icon')
-      : (guide.icon ? getIconSVG(guide.icon, '') : '');
-    
-    const microstructureImg = guide.microstructureImage 
-      ? `<div class="guide-microstructure">
-           <img src="${guide.microstructureImage}" alt="${guide.title} microstructure" loading="lazy">
-         </div>`
-      : '';
+    // Resolve image — explicit field on the guide, or slug-keyed fallback
+    const imageUrl = guide.image || guideImages[guide.slug];
 
-    const difficultyBadge = guide.difficulty
-      ? `<span class="difficulty-badge ${getDifficultyClass(guide.difficulty)}">${guide.difficulty}</span>`
-      : '';
+    const media = imageUrl
+      ? `<div class="guide-card-media"><img src="${imageUrl}" alt="" loading="lazy"></div>`
+      : `<div class="guide-card-media guide-card-media-empty" aria-hidden="true"></div>`;
 
-    const readTime = guide.readTime
-      ? `<span class="read-time">${guide.readTime}</span>`
+    const metaParts = [];
+    if (guide.readTime) metaParts.push(guide.readTime);
+    if (guide.difficulty) metaParts.push(guide.difficulty);
+    const meta = metaParts.length
+      ? `<p class="guide-card-meta">${metaParts.join(' · ')}</p>`
       : '';
 
     // Determine link - basics guides and process guides are local, troubleshooting goes to resources, others to metallography.org
     const localGuides = ['introduction-to-metallography', 'purpose-and-applications', 'history-of-metallography', 'equipment-overview', 'safety-fundamentals', 'common-misconceptions', 'sectioning', 'mounting', 'grinding-techniques', 'polishing-methods', 'etching-procedures', 'microstructural-analysis', 'aluminum-sample-preparation', 'carbon-steel-preparation', 'cast-iron-preparation', 'ceramics-preparation', 'composites-preparation', 'magnesium-preparation', 'stainless-steel-preparation', 'titanium-preparation', 'copper-alloys-preparation', 'tool-steel-preparation', 'nickel-alloys-preparation', 'precious-metals-preparation', 'refractory-metals-preparation', 'powder-metallurgy-preparation', 'thermal-spray-coatings-preparation', 'cermets-technical-glasses-preparation', 'failure-analysis', 'castings-foundry-analysis', 'hardness-testing-preparation', 'heat-treatment-verification', 'quality-control-inspection', 'welding-analysis', 'additive-manufacturing-preparation', 'aerospace-applications', 'automotive-applications', 'medical-device-applications', 'pcb-chip-preparation', 'troubleshooting-common-issues'];
-    
+
     // Special cases for guides with different file names than slugs
     const slugToFileMap = {
       'copper-alloys-preparation': 'copper-and-copper-alloys-preparation'
     };
-    
+
     let link;
     if (slugToFileMap[guide.slug]) {
-      // Handle guides with different file names
       link = `/guides/${slugToFileMap[guide.slug]}.html`;
     } else if (localGuides.includes(guide.slug)) {
       link = `/guides/${guide.slug}.html`;
@@ -565,20 +571,12 @@ document.addEventListener('DOMContentLoaded', function() {
     return `
       <article class="guide-card" data-index="${index}">
         <a href="${link}" class="guide-card-link" ${link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-          <div class="guide-card-header">
-            <div class="guide-card-icons">
-              ${microstructureImg}
-              ${icon}
-              ${difficultyBadge}
-            </div>
-            ${readTime}
+          ${media}
+          <div class="guide-card-body">
+            <h3 class="guide-card-title">${guide.title}</h3>
+            <p class="guide-card-description">${guide.description}</p>
+            ${meta}
           </div>
-          <h3 class="guide-card-title">${guide.title}</h3>
-          <p class="guide-card-description">${guide.description}</p>
-          <span class="guide-card-link-text">
-            Read Guide
-            ${getIconSVG('ChevronRight', 'link-arrow')}
-          </span>
         </a>
       </article>
     `;
@@ -611,15 +609,12 @@ document.addEventListener('DOMContentLoaded', function() {
           const categoryGuides = guidesByCategory[category] || [];
           if (categoryGuides.length === 0) return;
 
-          const description = categoryDescriptions[category] || '';
-          
           html += `
             <section class="guide-section" data-category="${category}">
               <div class="guide-section-header">
                 <h2 class="guide-section-title">${category}</h2>
                 <span class="guide-section-count">(${categoryGuides.length} ${categoryGuides.length === 1 ? 'guide' : 'guides'})</span>
               </div>
-              ${description ? `<p class="guide-section-description">${description}</p>` : ''}
               <div class="guide-cards-grid">
                 ${categoryGuides.map((guide, index) => renderGuideCard(guide, index)).join('')}
               </div>

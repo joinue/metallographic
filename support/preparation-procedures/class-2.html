@@ -24,9 +24,7 @@
     <link rel="stylesheet" href="/css/components/navigation.css">
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/base/styles.css">
-    <link rel="stylesheet" href="/css/pages/classes.css">
-    <link rel="stylesheet" href="/css/pages/class-materials.css">
-    <link rel="stylesheet" href="/css/pages/prep.css">
+    <link rel="stylesheet" href="/css/pages/class-page.css">
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -47,6 +45,16 @@
 </head>
 
   
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -73,20 +81,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -296,35 +312,35 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/build.html"><span>Lab Builder</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -369,111 +385,35 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
+                            <li><a href="/support/procedures.html">Procedures</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -682,36 +622,38 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/build.html"><span>Lab Builder
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -748,73 +690,31 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
+                            <li><a href="/support/procedures.html"><span>Procedures</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -858,192 +758,312 @@
         <button class="close" aria-label="Close">&times;</button>
         <section class="quote-request" aria-labelledby="quote-request-heading">
             <div class="quote-form-container">
-                <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
             </div>
         </section>
     </div>
 </div>
 
+
+
 <body>
   
-<!-- HEADER -->
+<!-- CLASS PAGE -->
+<article class="class-page">
 
-<div class="top-header">
-  <header>
-    <div class="top-header-content">
-      <div class="top-header-inner">
-        <h1 class="page-title">CLASS 2 Material Preparation Guide</h1>
-        <div class="text-content"></div>
-      </div>
-    </div>
-  </header>
-</div>
- 
-<div class="first-container">
-<div class="material-card">
-    <div class="material-header">
-        <a href="/support/procedures.html" class="back-button" id="back-button" aria-label="Back to previous page">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
+    <header class="cp-hero">
+        <a href="/support/procedures.html" class="cp-back" aria-label="Back to procedures">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Recommended Procedures
         </a>
-        <div class="material-icon">
-            <i class="fas fa-microscope"></i>
+        <div class="cp-hero-inner">
+            <div class="cp-hero-content">
+                <span class="cp-eyebrow">Class 2</span>
+                <h1 class="cp-title">Refractory Metals</h1>
+                <div class="cp-chips">
+                    <span class="cp-chip"><span class="cp-chip-label">Hardness</span> 80&ndash;350 HV (Re to ~800 cold-worked)</span>
+                    <span class="cp-chip"><span class="cp-chip-label">Typical</span> W &middot; Mo &middot; Ta &middot; Nb</span>
+                    <span class="cp-chip"><span class="cp-chip-label">Key challenge</span> Embedding &amp; oxidation</span>
+                </div>
+                <p class="cp-lede">Tungsten, molybdenum, tantalum, niobium, rhenium, hafnium, zirconium, beryllium. High melting points but moderate room-temperature hardness: soft enough to embed abrasive, brittle enough to chip. Each element needs its own etchant, and beryllium is a severe inhalation hazard.</p>
+            </div>
+            <figure class="cp-hero-figure">
+                <img src="/images/microstructures/Tungsten.jpg" alt="Tungsten microstructure showing typical Class 2 refractory metal grain structure">
+                <figcaption>Tungsten: typical Class 2 microstructure</figcaption>
+            </figure>
         </div>
-        <h2 class="material-title">Class 2: Refractory Metals</h2>
-        <div class="material-header-image">
-            <img src="/images/microstructures/Tungsten.jpg" alt="Tungsten microstructure showing typical Class 2 refractory metal grain structure" class="header-microstructure-img">
-        </div>
+    </header>
+
+    <div class="cp-layout">
+        <aside class="cp-sidebar" aria-label="On this page">
+            <p class="cp-sidebar-title">On this page</p>
+            <nav class="cp-nav">
+                <a href="#overview" class="cp-nav-link is-active">Overview</a>
+                <a href="#challenges" class="cp-nav-link">Challenges</a>
+                <a href="#materials" class="cp-nav-link">Materials</a>
+                <a href="#procedure" class="cp-nav-link">Procedure</a>
+                <a href="#verify" class="cp-nav-link">Quality checks</a>
+            </nav>
+        </aside>
+
+        <main class="cp-main">
+
+            <section id="overview" class="cp-section">
+                <h2 class="cp-section-title">Overview</h2>
+                <p class="cp-section-lede">These elements share high melting points, low room-temperature ductility, and rapid surface oxidation. Despite their reputation as "hard" refractories, several (Nb ~80 HV, Ta ~120 HV) embed abrasives like soft metals; harder ones (W, Re) chip and fracture at edges.</p>
+            </section>
+
+            <section id="challenges" class="cp-section">
+                <h2 class="cp-section-title">Preparation Challenges</h2>
+                <p class="cp-section-lede">Seven properties drive the prep procedure. Tap a card for full detail.</p>
+                <div class="cp-challenge-grid">
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Abrasive Embedding</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Nb (80 HV) and Ta (120 HV) trap SiC particles aggressively.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Despite their high melting points, most refractory metals are soft enough at room temperature to trap abrasive particles from SiC papers. Niobium (80 HV) and tantalum (120 HV) are particularly susceptible. Embedded particles create permanent artifacts that can be mistaken for inclusions or second-phase particles. Diamond grinding discs reduce embedding compared to conventional SiC paper. Thorough ultrasonic cleaning between every preparation step is essential to prevent carryover.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Low Ductility &amp; Edge Chipping</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">W and Re fracture at edges instead of deforming plastically.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Refractory metals have limited ductility at room temperature and tend to chip, crack, and fracture at edges during sectioning and grinding rather than deform plastically. Tungsten and rhenium are particularly brittle. Use moderate feed rates during sectioning, avoid coarse starting grits, and orient specimens so edges trail the grinding direction. Edge-retaining mounting compounds provide mechanical support to reduce chipping.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Rapid Surface Oxidation</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Ta, Nb, Zr, Hf grow tenacious oxide layers in seconds.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Tantalum, niobium, zirconium, and hafnium form tenacious oxide layers rapidly when freshly exposed surfaces contact air. These oxides can obscure microstructural features and affect etching response. Prepare specimens promptly after polishing and etch without delay. Zirconium is especially reactive and can ignite as fine particles or thin shavings; keep water-based coolant flowing during all cutting operations.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Element-Specific Etching</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">No single etchant works across the class; each metal has its own.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">No single etchant works across the class. Each refractory metal requires its own etchant: Murakami's reagent for tungsten, acid mixtures for tantalum and niobium, HF-based solutions for zirconium and hafnium, acidified hydrogen peroxide for molybdenum, and specialized acid mixtures for rhenium. Beryllium responds to dilute HF or ammonium bifluoride solutions. Etchant concentration and immersion time must be determined for each element individually.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Work Hardening</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Mo, W, Be develop altered surface layers under heavy grinding.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Molybdenum and tungsten work harden during aggressive grinding, creating an altered surface layer that changes the etching response and can be mistaken for heat treatment effects. Beryllium also work hardens readily. Minimize deformation at each step by using light pressure and fresh abrasives. A final vibratory polish with colloidal silica or alumina removes the work-hardened layer before etching.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Beryllium Toxicity</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Dust causes chronic beryllium disease; HEPA containment required.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Beryllium dust and fumes cause chronic beryllium disease (CBD), a serious and potentially fatal lung condition. All dry operations (cutting, grinding without coolant, polishing debris) must be performed under HEPA-filtered containment. Wet cutting and grinding with continuous coolant suppress airborne particles. Follow OSHA beryllium standard (29 CFR 1910.1024). Dedicate preparation equipment to beryllium work or decontaminate thoroughly before use on other materials.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Wide Hardness Variation</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Match pressure and starting grit per material, not per class.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">The class spans a very wide hardness range. Niobium at 80 HV and tantalum at 120 HV are genuinely soft and embed abrasive aggressively. Tungsten at 350 HV and rhenium (~250 HV annealed, up to ~800 HV cold-worked) are harder and resist embedding but are more prone to brittle fracture. Match grinding pressure and starting grit to the specific material rather than using a single procedure across the class.</p>
+                    </details>
+
+                </div>
+            </section>
+
+            <section id="materials" class="cp-section">
+                <h2 class="cp-section-title">Class 2 Materials</h2>
+                <p class="cp-section-lede">Eight pure elements. Each requires element-specific grinding, polishing, and etching adjustments.</p>
+                <div class="cp-materials">
+                    <details class="cp-material-group" open>
+                        <summary>
+                            <span>Refractory Metals</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">8</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Beryllium</li>
+                            <li>Hafnium</li>
+                            <li>Molybdenum</li>
+                            <li>Niobium</li>
+                            <li>Rhenium</li>
+                            <li>Tantalum</li>
+                            <li>Tungsten</li>
+                            <li>Zirconium (Unalloyed)</li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <section id="procedure" class="cp-section">
+                <h2 class="cp-section-title">Recommended Procedure</h2>
+                <p class="cp-section-lede">Five-stage workflow. Adjust starting grit and pressure to each element.</p>
+                <ol class="cp-steps">
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">1</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Sectioning</h3>
+                            <p class="cp-step-lede">Low-speed diamond wafering at 100&ndash;200 RPM with continuous coolant. Avoid forcing the cut.</p>
+                            <p class="cp-safety"><strong>Safety:</strong> Beryllium dust causes chronic beryllium disease. Wet cutting with full containment is mandatory (OSHA 29 CFR 1910.1024). Zirconium fines are pyrophoric; always use water-based coolant.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Use low-speed precision diamond wafering saws with continuous coolant at 100-200 RPM and minimal feed pressure. These metals are brittle and chip at edges; avoid forcing the cut. For harder materials (tungsten, rhenium), CBN or diamond blades cut more efficiently than aluminum oxide. For softer refractory metals (niobium, tantalum), standard abrasive cut-off with continuous coolant is acceptable but diamond wafering produces less edge damage. Zirconium fine particles are pyrophoric; never cut dry.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">2</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Mounting</h3>
+                            <p class="cp-step-lede">Compression mounting acceptable; castable epoxy preferred for beryllium or when edge retention matters.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Compression mounting is acceptable for all refractory metals, which easily tolerate the mounting temperature (150-180&deg;C). Castable (cold) epoxy is preferred when edge preservation is needed or when preparing beryllium (to avoid generating airborne particles during hot mounting). Use edge-retaining, mineral-filled epoxy when oxide layers or surface features must be preserved for cross-sectional analysis. For porous or powdered refractory metal specimens, vacuum impregnation fills voids and provides mechanical support.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">3</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Grinding</h3>
+                            <p class="cp-step-lede">Soft metals (Nb, Ta, Be): start 320 grit or diamond discs. Hard metals (W, Re, Hf): start 240 grit. Step through 400 / 600 / 800 / 1200.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>For softer refractory metals (Nb, Ta, Be), start at 320 grit SiC or use diamond grinding discs to minimize embedding. For harder materials (W, Re, Hf), start at 240 grit. Progress through 400, 600, 800, and 1200 grit. Use light to moderate pressure (10-25 N per 30 mm sample) and contra-rotation. Thorough ultrasonic cleaning between every grit change is critical, as embedded particles from softer metals will scratch subsequent polishing surfaces. Etch briefly with the appropriate reagent between grinding steps to remove the embedded particle layer if embedding is severe.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">4</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Polishing</h3>
+                            <p class="cp-step-lede">Napless cloths, 6 &rarr; 3 &rarr; 1 &micro;m diamond, finish 0.05 &micro;m colloidal silica or alumina. Vibratory polish removes work-hardened layer.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Use napless or low-nap cloths throughout to minimize relief and edge rounding. Polish with 6 &micro;m then 3 &micro;m then 1 &micro;m diamond suspension, followed by 0.05 &micro;m colloidal silica or colloidal alumina as a final step. Use light pressure (10-20 N) and contra-rotation. Vibratory polishing (2-6 hours with colloidal silica) as a final step is highly effective for removing the work-hardened surface layer, especially on molybdenum, tungsten, and beryllium. Colloidal alumina may be preferred over colloidal silica for contamination-sensitive applications.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">5</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Etching</h3>
+                            <p class="cp-step-lede">Each element has its own etchant. HF-containing reagents require fume hood, full PPE, and calcium gluconate gel on hand.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Each refractory metal requires a specific etchant. Murakami's reagent reveals grain boundaries in tungsten. Acidified hydrogen peroxide or Murakami's works for molybdenum. HF-based mixed-acid etchants are used for tantalum and niobium. HF-based solutions or Keller's-type reagents etch zirconium and hafnium. Rhenium responds to mixed-acid etchants. Beryllium etches with dilute HF (1-2%) or ammonium bifluoride solution. Always work in a fume hood; HF-containing etchants require specialized PPE and calcium gluconate gel on hand for first aid.</p>
+                                </div>
+                            </details>
+
+                            <div class="cp-etchants">
+                                <h4 class="cp-etchants-title">Common etchants by element</h4>
+                                <dl class="cp-etchants-list">
+                                    <div class="cp-etchant-row"><dt>Tungsten</dt><dd>Murakami's reagent (10 g K&#8323;Fe(CN)&#8326; + 10 g NaOH + 100 mL H&#8322;O); 30% H&#8322;O&#8322; in NH&#8324;OH</dd></div>
+                                    <div class="cp-etchant-row"><dt>Molybdenum</dt><dd>Murakami's; acidified 30% H&#8322;O&#8322; (1:1 with NH&#8324;OH)</dd></div>
+                                    <div class="cp-etchant-row"><dt>Tantalum</dt><dd>HF + HNO&#8323; + H&#8322;SO&#8324; (Cain's etch); HF + HNO&#8323; + lactic acid</dd></div>
+                                    <div class="cp-etchant-row"><dt>Niobium</dt><dd>HF + HNO&#8323; + lactic acid; HF + HNO&#8323; (1:1)</dd></div>
+                                    <div class="cp-etchant-row"><dt>Rhenium</dt><dd>H&#8322;O&#8322; + NH&#8324;OH; electrolytic in 5% NaOH</dd></div>
+                                    <div class="cp-etchant-row"><dt>Hafnium / Zirconium</dt><dd>HF + HNO&#8323; + H&#8322;O (1:1:30); Kroll's reagent (HF + HNO&#8323; + glycerol)</dd></div>
+                                    <div class="cp-etchant-row"><dt>Beryllium</dt><dd>1&ndash;2% HF in water; ammonium bifluoride solution; HEPA containment required</dd></div>
+                                </dl>
+                                <p class="cp-etchants-cta">
+                                    <a href="/metallographic-consumables/Metallography-Etching.htm" class="cp-etchants-link">Etching consumables &amp; supplies &rarr;</a>
+                                    <a href="https://shop.metallographic.com/" target="_blank" rel="noopener noreferrer" class="cp-etchants-link">Shop etchants &rarr;</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                </ol>
+            </section>
+
+            <section id="verify" class="cp-section">
+                <h2 class="cp-section-title">Quality Checks</h2>
+                <ul class="cp-checks">
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        No embedded abrasive particles visible at 200&times;
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Grain boundaries etch cleanly with no work-hardening artifacts
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Edges intact, with no chipping or fracture
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Oxide layers not obscuring microstructural features
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        No cross-contamination between grinding and polishing steps
+                    </li>
+                </ul>
+            </section>
+
+        </main>
     </div>
+</article>
 
-    <p class="material-description">
-        Class 2 covers the refractory metals: tungsten, molybdenum, tantalum, niobium, rhenium, hafnium, zirconium, and beryllium. These elements share extremely high melting points, relatively low ductility at room temperature, and rapid surface oxidation when freshly exposed. Despite their high melting points, many are moderately soft at room temperature (molybdenum ~250 HV, niobium ~80 HV, tantalum ~120 HV), making them susceptible to abrasive embedding during grinding. Their low ductility causes edge chipping and fracture rather than the smearing seen in soft ductile metals. Specialized etchants are required for each element, and beryllium presents a severe inhalation toxicity hazard requiring strict containment during all dry operations.
-    </p>
-
-    <div class="material-properties">
-        <div class="property-item">
-            <div class="property-label">Hardness Range</div>
-            <div class="property-value">80 HV (niobium) to 350 HV (tungsten); rhenium reaches 1350 HV</div>
-        </div>
-        <div class="property-item">
-            <div class="property-label">Typical Materials</div>
-            <div class="property-value">Tungsten, Molybdenum, Tantalum, Niobium, Rhenium, Hafnium, Zirconium, Beryllium</div>
-        </div>
-        <div class="property-item">
-            <div class="property-label">Preparation Challenge</div>
-            <div class="property-value">Abrasive Embedding, Edge Chipping, Oxidation &amp; Specialized Etching</div>
-        </div>
-    </div>
-</div>
-
-<section class="preparation-challenges">
-    <h3 class="section-title">Preparation Characteristics &amp; Challenges</h3>
-    <div class="challenges-content">
-        <div class="properties-image-container">
-            <img src="/images/microstructures/Niobium.jpg" alt="Niobium microstructure showing typical Class 2 refractory metal structure" class="properties-microstructure-img">
-            <p class="image-caption">Niobium microstructure. Example of Class 2 refractory metal</p>
-        </div>
-        <p>Refractory metals exhibit several distinctive properties that directly impact how they must be prepared:</p>
-        <div class="challenges-grid">
-            <div class="challenge-card">
-                <h5>Abrasive Embedding</h5>
-                <p>Despite their high melting points, most refractory metals are soft enough at room temperature to trap abrasive particles from SiC papers. Niobium (80 HV) and tantalum (120 HV) are particularly susceptible. Embedded particles create permanent artifacts that can be mistaken for inclusions or second-phase particles. Diamond grinding discs reduce embedding compared to conventional SiC paper. Thorough ultrasonic cleaning between every preparation step is essential to prevent carryover.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Low Ductility &amp; Edge Chipping</h5>
-                <p>Refractory metals have limited ductility at room temperature and tend to chip, crack, and fracture at edges during sectioning and grinding rather than deform plastically. Tungsten and rhenium are particularly brittle. Use moderate feed rates during sectioning, avoid coarse starting grits, and orient specimens so edges trail the grinding direction. Edge-retaining mounting compounds provide mechanical support to reduce chipping.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Rapid Surface Oxidation</h5>
-                <p>Tantalum, niobium, zirconium, and hafnium form tenacious oxide layers rapidly when freshly exposed surfaces contact air. These oxides can obscure microstructural features and affect etching response. Prepare specimens promptly after polishing and etch without delay. Zirconium is especially reactive and can ignite as fine particles or thin shavings; keep water-based coolant flowing during all cutting operations.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Element-Specific Etching</h5>
-                <p>No single etchant works across the class. Each refractory metal requires its own etchant: Murakami's reagent for tungsten, acid mixtures for tantalum and niobium, HF-based solutions for zirconium and hafnium, acidified hydrogen peroxide for molybdenum, and specialized acid mixtures for rhenium. Beryllium responds to dilute HF or ammonium bifluoride solutions. Etchant concentration and immersion time must be determined for each element individually.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Work Hardening</h5>
-                <p>Molybdenum and tungsten work harden during aggressive grinding, creating an altered surface layer that changes the etching response and can be mistaken for heat treatment effects. Beryllium also work hardens readily. Minimize deformation at each step by using light pressure and fresh abrasives. A final vibratory polish with colloidal silica or alumina removes the work-hardened layer before etching.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Beryllium Toxicity</h5>
-                <p>Beryllium dust and fumes cause chronic beryllium disease (CBD), a serious and potentially fatal lung condition. All dry operations (cutting, grinding without coolant, polishing debris) must be performed under HEPA-filtered containment. Wet cutting and grinding with continuous coolant suppress airborne particles. Follow OSHA beryllium standard (29 CFR 1910.1024). Dedicate preparation equipment to beryllium work or decontaminate thoroughly before use on other materials.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Wide Hardness Variation</h5>
-                <p>The class spans a very wide hardness range. Niobium at 80 HV and tantalum at 120 HV are genuinely soft and embed abrasive aggressively. Tungsten at 350 HV and rhenium at up to 1350 HV are quite hard and resist embedding but are more prone to brittle fracture. Match grinding pressure and starting grit to the specific material rather than using a single procedure across the class.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="class2-materials-list">
-    <h3 class="section-title">Class 2 Materials</h3>
-    <p class="materials-intro">The following materials are classified as Class 2 (Refractory Metals). Click on any material to view its detailed preparation procedures.</p>
-
-    <div class="materials-list-container">
-        <ul class="materials-list">
-            <li><a href="/materials/beryllium.html#preparation">Beryllium</a></li>
-            <li><a href="/materials/hafnium.html#preparation">Hafnium</a></li>
-            <li><a href="/materials/molybdenum.html#preparation">Molybdenum</a></li>
-            <li><a href="/materials/niobium.html#preparation">Niobium</a></li>
-            <li><a href="/materials/rhenium.html#preparation">Rhenium</a></li>
-            <li><a href="/materials/tantalum.html#preparation">Tantalum</a></li>
-            <li><a href="/materials/tungsten.html#preparation">Tungsten</a></li>
-            <li><a href="/materials/zirconium.html#preparation">Zirconium (Unalloyed)</a></li>
-        </ul>
-    </div>
-</section>
-
-<section class="preparation-guide">
-    <h3 class="section-title">Preparation Guide</h3>
-
-    <div class="guide-section">
-        <h4>Recommended Preparation Steps</h4>
-        <div class="steps-grid">
-            <div class="step-card">
-                <h5>Sectioning</h5>
-                <p>Use low-speed precision diamond wafering saws with continuous coolant at 100-200 RPM and minimal feed pressure. These metals are brittle and chip at edges; avoid forcing the cut. For harder materials (tungsten, rhenium), CBN or diamond blades cut more efficiently than aluminum oxide. For softer refractory metals (niobium, tantalum), standard abrasive cut-off with continuous coolant is acceptable but diamond wafering produces less edge damage. Zirconium fine particles are pyrophoric; never cut dry.</p>
-                <p class="safety-note"><strong>Safety:</strong> Beryllium dust is a severe inhalation hazard causing chronic beryllium disease. Wet cutting with full containment is mandatory. Follow OSHA beryllium standard (29 CFR 1910.1024). Zirconium fines are pyrophoric; always use water-based coolant.</p>
-            </div>
-            <div class="step-card">
-                <h5>Mounting</h5>
-                <p>Compression mounting is acceptable for all refractory metals, which easily tolerate the mounting temperature (150-180&deg;C). Castable (cold) epoxy is preferred when edge preservation is needed or when preparing beryllium (to avoid generating airborne particles during hot mounting). Use edge-retaining, mineral-filled epoxy when oxide layers or surface features must be preserved for cross-sectional analysis. For porous or powdered refractory metal specimens, vacuum impregnation fills voids and provides mechanical support.</p>
-            </div>
-            <div class="step-card">
-                <h5>Grinding</h5>
-                <p>For softer refractory metals (Nb, Ta, Be), start at 320 grit SiC or use diamond grinding discs to minimize embedding. For harder materials (W, Re, Hf), start at 240 grit. Progress through 400, 600, 800, and 1200 grit. Use light to moderate pressure (10-25 N per 30 mm sample) and contra-rotation. Thorough ultrasonic cleaning between every grit change is critical, as embedded particles from softer metals will scratch subsequent polishing surfaces. Etch briefly with the appropriate reagent between grinding steps to remove the embedded particle layer if embedding is severe.</p>
-            </div>
-            <div class="step-card">
-                <h5>Polishing</h5>
-                <p>Use napless or low-nap cloths throughout to minimize relief and edge rounding. Polish with 6 &micro;m then 3 &micro;m then 1 &micro;m diamond suspension, followed by 0.05 &micro;m colloidal silica or colloidal alumina as a final step. Use light pressure (10-20 N) and contra-rotation. Vibratory polishing (2-6 hours with colloidal silica) as a final step is highly effective for removing the work-hardened surface layer, especially on molybdenum, tungsten, and beryllium. Colloidal alumina may be preferred over colloidal silica for contamination-sensitive applications.</p>
-            </div>
-            <div class="step-card">
-                <h5>Etching</h5>
-                <p>Each refractory metal requires a specific etchant. Murakami's reagent (potassium ferricyanide + KOH) reveals grain boundaries in tungsten. Acidified hydrogen peroxide or Murakami's works for molybdenum. Acid mixtures (HF + HNO3 + lactic acid) are used for tantalum and niobium. HF-based solutions or Keller's-type reagents etch zirconium and hafnium. Rhenium responds to mixed acid solutions (HCl + HNO3 + acetic acid). Beryllium etches with dilute HF (1-2%) or ammonium bifluoride solution. Always work in a fume hood; HF-containing etchants require specialized PPE and calcium gluconate gel on hand for first aid.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="guide-section">
-        <h4>Quality Verification</h4>
-        <div class="verification-grid">
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>No embedded abrasive particles visible under 200x magnification</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Grain boundaries etch cleanly without residual work-hardening artifacts</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Edges intact without chipping or fracture from preparation</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Oxide layers not obscuring microstructural features</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>No cross-contamination between grinding and polishing steps</p>
-            </div>
-        </div>
-    </div>
-</section>
-</div>
+<script src="/js/class-page.js" defer></script>
 
 
-</body>
-
-<br><br>
-
-<a href="#top" class="return-to-top" aria-label="Return to top">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
-        <path d="M12 4l-8 8h16z"></path>
-    </svg>
-</a>
 
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
@@ -1104,9 +1124,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1118,7 +1166,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1146,8 +1194,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1219,6 +1266,39 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
           </div>
         </div>
@@ -1252,5 +1332,6 @@
             }
         })();
     </script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,314 @@
+/* ============================================================
+   Documentation Library — /docs.html
+   Nexus page: 5 destinations + a quick-link strip. Compact,
+   image-forward, intended to fit above the fold on desktop.
+   ============================================================ */
+
+.docs,
+.docs *,
+.docs *::before,
+.docs *::after {
+  box-sizing: border-box;
+}
+
+/* Override .first-container padding on this page so docs content aligns with
+   guides/tools (which use 2rem total horizontal padding and don't carry the
+   3rem first-container side padding). */
+.first-container:has(.docs) {
+  padding: 0 1rem;
+  max-width: 1440px;
+}
+
+.docs {
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  color: #111827;
+  /* Matches guides/tools: 8rem / 9rem / 10rem clears the fixed .navigation. */
+  padding: 8rem 1rem 3rem;
+}
+
+@media (min-width: 768px) {
+  .docs {
+    padding-top: 9rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .docs {
+    padding-top: 10rem;
+  }
+}
+
+/* ---------- Hero (very compact) ---------------------------------- */
+.docs-hero {
+  padding: 0 0 1.25rem;
+  border-bottom: 1px solid #e5e7eb;
+  margin: 0 0 1.5rem;
+  max-width: 56rem;
+}
+
+.docs-hero-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin: 0 0 0.5rem;
+}
+
+.docs-hero-title {
+  font-size: clamp(1.625rem, 2.8vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.4rem;
+  color: #0f172a;
+  line-height: 1.15;
+}
+
+.docs-hero-sub {
+  font-size: 0.9375rem;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.5;
+  max-width: 42rem;
+}
+
+/* ---------- Featured catalog tile -------------------------------- */
+.docs-feature {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem 1.75rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 0.875rem;
+  text-decoration: none;
+  color: inherit;
+  margin: 0 0 1rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.docs-feature:hover {
+  border-color: #2563eb;
+  box-shadow: 0 10px 26px -14px rgba(37, 99, 235, 0.22);
+}
+
+.docs-feature-image {
+  flex: 0 0 180px;
+  width: 180px;
+  display: block;
+}
+
+.docs-feature-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0.25rem;
+  box-shadow: 0 14px 30px -14px rgba(15, 23, 42, 0.35),
+              0 4px 10px -6px rgba(15, 23, 42, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.docs-feature:hover .docs-feature-image img {
+  transform: translateY(-2px) rotate(-0.5deg);
+  box-shadow: 0 20px 40px -14px rgba(15, 23, 42, 0.4),
+              0 6px 14px -6px rgba(15, 23, 42, 0.22);
+}
+
+.docs-feature-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.docs-feature-badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+  background: #dbeafe;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  margin: 0 0 0.625rem;
+}
+
+.docs-feature-title {
+  font-size: clamp(1.375rem, 2vw, 1.625rem);
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.4rem;
+  line-height: 1.2;
+}
+
+.docs-feature-desc {
+  font-size: 0.9375rem;
+  color: #4b5563;
+  margin: 0 0 0.875rem;
+  line-height: 1.55;
+  max-width: 36rem;
+}
+
+.docs-feature-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.docs-feature-cta svg { transition: transform 0.15s ease; flex-shrink: 0; }
+.docs-feature:hover .docs-feature-cta svg { transform: translateX(4px); }
+
+/* ---------- 4-up hub row ----------------------------------------- */
+.docs-hubs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0 0 1.25rem;
+}
+
+.docs-hub {
+  display: flex;
+  flex-direction: column;
+  padding: 1.125rem 1.125rem 1rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.625rem;
+  text-decoration: none;
+  color: inherit;
+  min-width: 0;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.docs-hub:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 18px -10px rgba(15, 23, 42, 0.18);
+  transform: translateY(-2px);
+}
+
+.docs-hub-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0.75rem;
+  flex-shrink: 0;
+}
+
+.docs-hub[data-hub="brochures"]  .docs-hub-icon { background: #ecfeff; color: #0891b2; }
+.docs-hub[data-hub="sds"]        .docs-hub-icon { background: #fef2f2; color: #dc2626; }
+.docs-hub[data-hub="procedures"] .docs-hub-icon { background: #f0fdf4; color: #16a34a; }
+.docs-hub[data-hub="etchants"]   .docs-hub-icon { background: #fff7ed; color: #ea580c; }
+
+.docs-hub-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.3rem;
+  line-height: 1.25;
+}
+
+.docs-hub-desc {
+  font-size: 0.8125rem;
+  color: #4b5563;
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.docs-hub-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.docs-hub-cta svg { transition: transform 0.15s ease; flex-shrink: 0; }
+.docs-hub:hover .docs-hub-cta svg { transform: translateX(3px); }
+
+/* ---------- Quick links strip ------------------------------------ */
+.docs-quicklinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  padding: 0.875rem 1.25rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+}
+
+.docs-quicklinks-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-right: 0.25rem;
+}
+
+.docs-quicklinks a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.docs-quicklinks a:hover {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+/* ---------- Tablet ----------------------------------------------- */
+@media (max-width: 960px) {
+  .docs-hubs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+  .docs-feature-image { flex-basis: 150px; width: 150px; }
+}
+
+/* ---------- Mobile ----------------------------------------------- */
+@media (max-width: 640px) {
+  .docs { padding: 3rem 1rem 2.5rem; }
+  .docs-hero { padding-bottom: 1rem; margin-bottom: 1.25rem; }
+
+  .docs-feature {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 1.5rem 1.25rem;
+  }
+  .docs-feature-image { flex-basis: auto; width: 140px; }
+  .docs-feature-desc { margin-left: auto; margin-right: auto; }
+  .docs-feature-cta { margin: 0 auto; }
+
+  .docs-hubs { grid-template-columns: 1fr; gap: 0.625rem; }
+  .docs-hub { padding: 1rem 1.125rem; }
+
+  .docs-quicklinks { padding: 0.875rem 1rem; gap: 0.4rem 1rem; }
+  .docs-quicklinks-label { width: 100%; margin: 0 0 0.25rem; }
+}
+
+/* ---------- Reduced motion --------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .docs-feature,
+  .docs-feature-image img,
+  .docs-feature-cta svg,
+  .docs-hub,
+  .docs-hub-cta svg,
+  .docs-quicklinks a {
+    transition: none !important;
+    transform: none !important;
+  }
+}

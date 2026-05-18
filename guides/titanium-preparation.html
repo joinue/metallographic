@@ -117,6 +117,16 @@
 <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -143,20 +153,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -366,35 +384,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -439,111 +453,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -752,36 +696,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -818,73 +760,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -922,44 +827,93 @@
     </div>
 </nav>
 
-    <!-- Toggle Tab - Visible from xl (1280px) to 3xl (1800px) -->
-    <button
-      id="guide-nav-toggle"
-      class="guide-nav-toggle"
-      aria-label="Open navigation"
-      aria-expanded="false"
-    >
-      <svg class="guide-nav-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path class="guide-nav-toggle-arrow" d="M9 18l6-6-6-6"/>
-      </svg>
-    </button>
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
 
-    <!-- Overlay - Only on xl screens when open -->
-    <div
-      id="guide-nav-overlay"
-      class="guide-nav-overlay"
-      aria-hidden="true"
-    ></div>
+    <!-- Side-nav toggle + overlay + container are injected by /js/guide-nav.js -->
 
-    <!-- Navigation -->
+    <!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
+<!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
+        <!-- Notice Banner
+        <div class="notice-banner" role="alert">
+            <div class="notice-content">
+                <svg class="notice-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <p>
+                    We've updated our site! Please clear your browser cache for the best experience. Also, our old shop pages are now retired. Please shop online at 
+                    <strong><a href="https://shop.metallographic.com" class="notice-link" target="_blank" rel="noopener noreferrer">shop.metallographic.com</a></strong>.
+                  </p>
+                  
+                                  <button class="notice-close" aria-label="Close notice">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -1048,6 +1002,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
@@ -1093,7 +1048,7 @@
                     </button>
                 </div>
                 <ul class="sub-menu-mobile" data-section="consumables">
-                    <li><a href="https://shop.metallographic.com/" class="shop-link-button"><span>E-Commerce Shop</span>
+                    <li><a href="https://shop.metallographic.com/" class="shop-link-button" target="_blank" rel="noopener noreferrer"><span>E-Commerce Shop</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1168,35 +1123,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1241,110 +1192,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -1436,12 +1318,13 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
-                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html"><span>Hand / Belt Grinders</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html"><span>Manual Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html"><span>Semi-Auto Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html"><span>Automated Abrasive Dispenser</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html"><span>Controlled Removal Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html"><span>Vibratory Polishers</span></a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
                     </li>
                     <li>
@@ -1492,7 +1375,7 @@
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="https://shop.metallographic.com/" class="shop-link-button"><span>E-Commerce Shop</span></a></li>
+                    <li><a href="https://shop.metallographic.com/" class="shop-link-button" target="_blank" rel="noopener noreferrer"><span>E-Commerce Shop</span></a></li>
                     <li><a href="/metallographic-consumables/sectioning.html"><span>Sectioning                                    
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
@@ -1552,41 +1435,40 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
                 <a href="/resources.html">
-                    <span>Resources<svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <span>Resources
+                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
@@ -1617,76 +1499,40 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                </ul>
-            </li>
-            <li>
-              <a href="https://shop.metallographic.com" class="shop-link">
+              <a href="https://shop.metallographic.com" class="shop-link" target="_blank" rel="noopener noreferrer">
                 <span>Online Shop&nbsp;<svg class="shop-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
                 </svg></span>
@@ -1719,6 +1565,33 @@
         </div>
     </div>
 </nav>
+
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
         </div>
       </div>
     </nav>
@@ -1753,6 +1626,7 @@
                         <li><a href="#polishing">Polishing</a></li>
                         <li><a href="#etching">Etching</a></li>
                         <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#additional-reading">Additional Reading</a></li>
                     </ul>
                 </div>
 
@@ -1761,57 +1635,82 @@
                     <section id="introduction" class="guide-section">
                         <h2>Introduction</h2>
                         <p>
-                            Titanium and its alloys are important materials in aerospace, medical, and industrial 
-                            applications. Proper preparation is essential to reveal the true microstructure without 
-                            introducing artifacts such as deformation, scratches, or contamination. Titanium is 
-                            particularly challenging due to its reactivity and tendency to form surface oxides. 
-                            This guide will walk you through the complete preparation process.
-                        </p>
-                        <p>
-                            Common titanium alloys include Ti-6Al-4V (Grade 5), 
-                            the most widely used titanium alloy, as well as commercially pure titanium (Grade 2) 
-                            and various alpha-beta alloys like Ti-3Al-2.5V (Grade 9). 
-                            Titanium can be challenging due to its reactivity with oxygen and tendency to form 
-                            surface contamination. The key is to use appropriate abrasives, maintain consistent 
-                            pressure, and avoid contamination throughout the process. Titanium alloys vary in 
-                            hardness, with some being relatively soft while others can be quite hard.
+                            Titanium and its alloys combine high strength-to-weight ratio with excellent corrosion
+                            resistance, making them essential in aerospace (Ti-6Al-4V airframe and engine components),
+                            biomedical (hip implants, pacemaker casings, dental work), chemical processing, and sports
+                            equipment. Per Don &sect;11.6.2, metallographic preparation of titanium is fairly straightforward
+                            by conventional techniques &mdash; the harder problem is etching, where the same corrosion
+                            resistance that makes titanium useful also resists most reagents.
                         </p>
                         <div class="guide-image-wrapper">
-                            <img 
+                            <img
                                 src="/images/microstructures/Ti6Al4V.jpg"
                                 alt="Ti-6Al-4V titanium alloy microstructure showing alpha and beta phases, properly prepared and etched"
                                 loading="lazy"
                                 class="guide-image"
                             />
-                            <p class="guide-image-caption">Ti-6Al-4V titanium alloy microstructure showing alpha and beta phases, properly prepared and etched. This image demonstrates the proper microstructure revealed through correct preparation techniques.</p>
+                            <p class="guide-image-caption">Ti-6Al-4V titanium alloy microstructure showing alpha and beta phases, etched with Kroll's reagent.</p>
+                        </div>
+
+                        <div class="guide-info-box">
+                            <h4>Titanium Alloy Families at a Glance</h4>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li><strong>Commercially pure (CP-Ti, Grades 1-4):</strong> 99%+ Ti, all &alpha;-phase (HCP). Soft, ductile, corrosion-resistant. Used for chemical processing and biomedical implants.</li>
+                                <li><strong>&alpha;-alloys (Ti-5Al-2.5Sn, etc.):</strong> &alpha;-stabilized; non-heat-treatable. Aerospace structural.</li>
+                                <li><strong>Near-&alpha; (Ti-6242, Ti-1100):</strong> Mostly &alpha; with small &beta; addition. High-temperature aerospace.</li>
+                                <li><strong>&alpha;-&beta; alloys (Ti-6Al-4V Grade 5, Ti-3Al-2.5V Grade 9):</strong> The most-used family; both phases present at room temperature. Heat-treatable; aerospace and biomedical.</li>
+                                <li><strong>Near-&beta; and &beta; alloys (Ti-5553, Ti-15-3, Beta-21S):</strong> &beta;-stabilized; high-strength forgings, springs.</li>
+                            </ul>
+                        </div>
+
+                        <div class="guide-info-box guide-info-box-blue">
+                            <p>
+                                <strong>Alpha case is a common QC target.</strong> Forged, cast, and hot-formed titanium parts
+                                develop an oxygen-enriched, brittle <strong>&alpha;-case</strong> surface layer (5-100 &micro;m
+                                typical). Cross-sectional metallography per ASTM E1558 / AMS 2249 is the standard method to
+                                measure &alpha;-case depth before parts go into service. The case appears lighter and
+                                near-featureless next to the bulk microstructure after etching with Kroll's.
+                            </p>
+                        </div>
+
+                        <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
+                            <p>
+                                <strong>Safety:</strong> Titanium chips and fines are <strong>pyrophoric</strong> &mdash; fine
+                                Ti dust can ignite spontaneously in air at elevated temperature. Never dry-cut or dry-grind
+                                titanium; always use flood coolant. Dispose of cutting and grinding swarf in a wet container
+                                and never let it accumulate in dry collection systems. Most titanium etchants also contain
+                                <strong>hydrofluoric acid (HF)</strong>, which causes deep tissue burns that may not be
+                                immediately painful. HF-rated gloves, face shield, fume hood, and calcium gluconate gel
+                                within reach are mandatory.
+                            </p>
                         </div>
                     </section>
 
                     <section id="sectioning" class="guide-section">
                         <h2>Sectioning</h2>
                         <p>
-                            When sectioning titanium samples, use a slow cutting speed to minimize heat generation 
-                            and deformation. Harder alloys like Ti-6Al-4V
-                            may require slower speeds. Titanium's reactivity requires careful handling to prevent contamination.
+                            Per Don &sect;11.6.2, use a <strong>MAXCUT MAX-C or MAX-I series blade</strong>. MAX-C is
+                            specifically the silicon-carbide / resin-rubber bonded blade designed for hard non-ferrous
+                            metals (titanium, zirconium); MAX-I is a thinner industrial alternative. Standard alumina
+                            blades (MAX-D, MAX-E, MAX-VHS) are formulated for steels and are wrong for titanium.
                         </p>
                         <div class="guide-image-wrapper" style="max-width: 500px;">
                             <a href="https://shop.metallographic.com/collections/abrasive-blades" target="_blank" rel="noopener noreferrer" class="guide-link">
-                                <img 
-                                    src="/images/consumables/sectioning/abrasive-cutting/maxcut-d.webp"
-                                    alt="Abrasive cut-off blades for titanium sectioning"
+                                <img
+                                    src="/images/consumables/sectioning/abrasive-cutting/maxcut-c.webp"
+                                    alt="MAX-C abrasive cut-off blades for titanium sectioning"
                                     loading="lazy"
                                     class="guide-image"
                                 />
                             </a>
-                            <p class="guide-image-caption">MAX-D or MAX-VHS abrasive cut-off blades suitable for titanium. For harder titanium alloys, MAX-VHS series blades may be more appropriate. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
+                            <p class="guide-image-caption">MAX-C silicon-carbide / resin-rubber bonded cut-off blade, designed for hard non-ferrous metals including titanium and zirconium. MAX-I is the industrial thin-blade alternative.</p>
                         </div>
                         <ul>
-                            <li>Use MAX-D series blades for general titanium alloys, or MAX-VHS series for harder titanium alloys</li>
-                            <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
-                            <li>Apply steady, moderate pressure</li>
-                            <li>Use adequate coolant to prevent overheating and contamination</li>
-                            <li>Allow the wheel to do the cutting - avoid forcing</li>
-                            <li>Clean sample immediately after sectioning to remove cutting fluid and prevent contamination</li>
+                            <li><strong>Blade:</strong> MAX-C (preferred) or MAX-I for general titanium work. SiC abrasive resists the work-hardening and gummy behavior titanium exhibits against alumina blades.</li>
+                            <li><strong>Coolant:</strong> Flood coolant continuously &mdash; <strong>never dry-cut titanium</strong>. Fine Ti swarf is pyrophoric and can ignite. Water-based cutting fluid is standard.</li>
+                            <li><strong>Feed rate:</strong> Slow, steady. Excessive force burns the blade and work-hardens the cut surface.</li>
+                            <li><strong>Blade thickness:</strong> Thin (0.5-1.0 mm) precision blades minimize heat input and HAZ depth.</li>
+                            <li><strong>Clean immediately</strong> after sectioning to remove cutting fluid and prevent contamination during mounting.</li>
                         </ul>
                         <p>
                             For more information on sectioning blades, visit our <a href="https://shop.metallographic.com/collections/abrasive-blades" target="_blank" rel="noopener noreferrer" class="guide-link">Abrasive Blades</a> collection.
@@ -1849,34 +1748,35 @@
                     <section id="grinding" class="guide-section">
                         <h2>Grinding</h2>
                         <p>
-                            Grinding removes sectioning damage and prepares the surface for polishing. Start with 
-                            coarse grits and progressively move to finer grits. For titanium, we recommend the 
-                            following sequence. Titanium can work-harden, so maintain consistent pressure and 
-                            avoid excessive grinding time.
+                            Don &sect;11.6.2 specifies a <strong>5-step SiC progression</strong> from 240 grit through 1200 grit
+                            (P220 &rarr; P500 &rarr; P1200 &rarr; P2400 &rarr; P4000). The full sequence is needed because titanium
+                            work-hardens and smears under coarse abrasive; jumping grit steps leaves subsurface deformation
+                            that no amount of polishing fully removes.
                         </p>
                         <div class="guide-image-wrapper" style="max-width: 500px;">
                             <a href="https://shop.metallographic.com/collections/sic-grinding" target="_blank" rel="noopener noreferrer" class="guide-link">
-                                <img 
+                                <img
                                     src="/images/consumables/grinding-lapping/abrasive-grinding/sic-papers.webp"
-                                    alt="Silicon carbide grinding papers in various grit sizes for progressive grinding"
+                                    alt="Silicon carbide grinding papers in various grit sizes for progressive grinding of titanium"
                                     loading="lazy"
                                     class="guide-image"
                                 />
                             </a>
-                            <p class="guide-image-caption">Silicon carbide (SiC) grinding papers in various grit sizes (120, 240, 400, 600) for progressive grinding. Rotate sample 90° between each grit to ensure complete scratch removal.</p>
+                            <p class="guide-image-caption">Silicon carbide (SiC) grinding papers. The full P220 &rarr; P4000 progression is needed for titanium to control work-hardening and smearing. Rotate the sample 90&deg; between each grit.</p>
                         </div>
-                        <h3>Grinding Sequence</h3>
+                        <h3>Grinding Sequence (Don &sect;11.6.2)</h3>
                         <ol>
-                            <li><strong>120 grit:</strong> Remove sectioning damage (30-60 seconds per step)</li>
-                            <li><strong>240 grit:</strong> Remove previous scratches (30-60 seconds)</li>
-                            <li><strong>400 grit:</strong> Further refinement (30-60 seconds)</li>
-                            <li><strong>600 grit:</strong> Final grinding step (30-60 seconds)</li>
+                            <li><strong>240 grit (P220) SiC:</strong> Water lubricant, 5-10 lb, 200/200 rpm head/base, grind until plane.</li>
+                            <li><strong>360 grit (P500) SiC:</strong> Water, 5-10 lb, 200/200 rpm, 1 minute.</li>
+                            <li><strong>600 grit (P1200) SiC:</strong> Water, 5-10 lb, 200/200 rpm, 1 minute.</li>
+                            <li><strong>800 grit (P2400) SiC:</strong> Water, 5-10 lb, 200/200 rpm, 1 minute.</li>
+                            <li><strong>1200 grit (P4000) SiC:</strong> Water, 5-10 lb, 200/200 rpm, 1 minute.</li>
                         </ol>
                         <p>
-                            <strong>Important:</strong> Rotate the sample 90° between each grit to ensure complete 
-                            removal of previous scratches. Use water as a lubricant and maintain consistent pressure. 
-                            Clean the sample thoroughly between steps to prevent contamination. Titanium can work-harden, 
-                            so avoid excessive grinding time.
+                            <strong>Important:</strong> Rotate the sample 90&deg; between each grit to confirm complete
+                            scratch removal. Use water lubrication and maintain consistent 5-10 lb force. Clean the sample
+                            ultrasonically between steps to prevent contamination from coarser SiC particles carrying
+                            forward.
                         </p>
                         <p>
                             For more information on grinding supplies, visit our <a href="https://shop.metallographic.com/collections/sic-grinding" target="_blank" rel="noopener noreferrer" class="guide-link">Silicon Carbide Grinding Papers</a> collection.
@@ -1916,23 +1816,73 @@
                                 <p class="guide-image-caption">Various polishing pads for different polishing stages. Select pad hardness based on titanium alloy and polishing stage.</p>
                             </div>
                         </div>
-                        <h3>Diamond Polishing</h3>
+                        <p>
+                            Don's handbook documents <strong>two polishing paths</strong> for titanium: a conventional
+                            mechanical path (&sect;11.6.2) used for most aerospace and industrial work, and an
+                            <strong>attack-polishing path</strong> (&sect;11.6.3, contributed by Medtronic) used for
+                            biomedical titanium where high-contrast phase imaging is required. Pick the path by goal.
+                        </p>
+
+                        <h3>Standard Path &mdash; Conventional Polishing (Don &sect;11.6.2)</h3>
+                        <p>
+                            <strong>Use for:</strong> Routine grain size, alpha/beta phase identification, alpha-case
+                            measurement, weld analysis, fatigue/failure analysis. The default for aerospace and industrial
+                            titanium work.
+                        </p>
                         <ol>
-                            <li><strong>9 μm diamond:</strong> 3-5 minutes on a hard pad (e.g., Texpan)</li>
-                            <li><strong>3 μm diamond:</strong> 3-5 minutes on a medium-hard pad</li>
-                            <li><strong>1 μm diamond:</strong> 2-3 minutes on a soft pad</li>
+                            <li><strong>6 &micro;m DIAMAT diamond on TEXPAN polishing pad:</strong> DIALUBE Purple Extender lubricant, 5-10 lb, 200/200 rpm head/base, 3 minutes.</li>
+                            <li><strong>1 &micro;m DIAMAT diamond on GOLDPAD polishing pad:</strong> DIALUBE Purple Extender, 5-10 lb, 200/200 rpm, 2 minutes.</li>
+                            <li><strong>0.05 &micro;m Nanometer alumina on ATLANTIS polishing pad:</strong> 5-10 lb, 100/100 rpm, 1 minute.</li>
+                            <li>Rinse thoroughly with water, then ethanol; dry with compressed air.</li>
                         </ol>
-                        <h3>Final Polishing</h3>
+
+                        <h3>Pad Map &amp; Parameters Summary (Standard Path)</h3>
+                        <div style="overflow-x:auto;">
+                            <table style="width:100%; border-collapse:collapse; margin: 0.75rem 0;">
+                                <thead>
+                                    <tr style="background:#f3f4f6;">
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Step</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Surface</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Abrasive / Lubricant</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Force / sample</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Speed (head/base)</th>
+                                        <th style="text-align:left; padding:0.5rem; border:1px solid #e5e7eb;">Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Plane grind</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">240 (P220) SiC paper</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Water</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5-10 lb</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">200/200 rpm</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Until plane</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Fine grind</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">360 (P500) SiC paper</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Water</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5-10 lb</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">200/200 rpm</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1 min</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Fine grind</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">600 (P1200) SiC paper</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Water</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5-10 lb</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">200/200 rpm</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1 min</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Fine grind</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">800 (P2400) SiC paper</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Water</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5-10 lb</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">200/200 rpm</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1 min</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Fine grind</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1200 (P4000) SiC paper</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">Water</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5-10 lb</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">200/200 rpm</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1 min</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Rough polish</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">TEXPAN</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">6 &micro;m DIAMAT + DIALUBE Purple</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5-10 lb</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">200/200 rpm</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">3 min</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Intermediate</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">GOLDPAD</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1 &micro;m DIAMAT + DIALUBE Purple</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5-10 lb</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">200/200 rpm</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">2 min</td></tr>
+                                    <tr><td style="padding:0.5rem; border:1px solid #e5e7eb;">Final polish</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">ATLANTIS</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">0.05 &micro;m Nanometer alumina</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">5-10 lb</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">100/100 rpm</td><td style="padding:0.5rem; border:1px solid #e5e7eb;">1 min</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Attack Polishing Path (Don &sect;11.6.3, biomedical)</h3>
+                        <p>
+                            <strong>Use for:</strong> Biomedical titanium &mdash; hip implants, pacemaker casings, dental
+                            work &mdash; where enhanced microstructural contrast is needed. Contributed to Don's handbook by
+                            Jim Hallquist at Medtronic. The chemo-mechanical action of colloidal silica with H<sub>2</sub>O<sub>2</sub>
+                            and Kroll's reagent simultaneously polishes and etches, producing surfaces with strong phase
+                            contrast under both brightfield and polarized light without a separate etch step.
+                        </p>
                         <ol>
-                            <li><strong>0.05 μm colloidal silica:</strong> 1-2 minutes on a soft pad</li>
-                            <li>Rinse thoroughly with water and dry with compressed air</li>
+                            <li><strong>180 grit SiC paper:</strong> Water, 5-10 lb, 200/200 rpm, until plane.</li>
+                            <li><strong>240 (P220) grit SiC paper:</strong> Water, 5-10 lb, 200/200 rpm, 1 minute.</li>
+                            <li><strong>320 (P360) grit SiC paper:</strong> Water, 5-10 lb, 200/200 rpm, 1 minute.</li>
+                            <li><strong>9 &micro;m DIAMAT diamond on TEXPAN polishing pad:</strong> 5-10 lb, 200/200 rpm, 10 minutes.</li>
+                            <li><strong>Attack polish:</strong> 100 mL SIAMAT colloidal silica + 20 mL H<sub>2</sub>O<sub>2</sub> (3%) + 10 mL Kroll's reagent. 5-10 lb, 100/100 rpm, 10 minutes.</li>
                         </ol>
                         <p>
-                            Use appropriate polishing lubricants and maintain consistent pressure. Over-polishing 
-                            can introduce relief, especially around inclusions or second phases. Clean the sample 
-                            thoroughly between steps to prevent contamination. Titanium is reactive, so avoid 
-                            prolonged exposure to polishing solutions.
+                            <strong>Safety:</strong> The attack-polish slurry contains HF (from the Kroll's reagent component).
+                            Mix in a fume hood with HF-rated gloves and face shield. Calcium gluconate gel within reach.
+                            Discard after each session &mdash; don't store the mixed slurry.
                         </p>
+
                         <p>
                             For more information on polishing supplies, visit our <a href="https://shop.metallographic.com/collections/diamond-abrasives" target="_blank" rel="noopener noreferrer" class="guide-link">Diamond Abrasives</a> and <a href="https://shop.metallographic.com/collections/polishing-pads" target="_blank" rel="noopener noreferrer" class="guide-link">Polishing Pads</a> collections.
                         </p>
@@ -1941,51 +1891,124 @@
                     <section id="etching" class="guide-section">
                         <h2>Etching</h2>
                         <p>
-                            Etching reveals the microstructure by selectively attacking grain boundaries and phases. 
-                            The choice of etchant depends on the titanium alloy and what features you want to reveal. 
-                            Common etchants include Kroll's reagent, hydrofluoric acid solutions, and various 
-                            electrolytic solutions. Titanium requires careful etching due to its reactivity.
+                            Titanium and its alloys resist most metallographic etchants because the same passive oxide
+                            that gives titanium its corrosion resistance also protects it from chemical attack. Successful
+                            titanium etchants are nearly all HF-based. <strong>Kroll's reagent</strong> is the standard
+                            first choice for general microstructure imaging; specialty reagents handle specific tasks
+                            (color etching, beta-phase revelation, Cu-bearing alloys, etc.).
                         </p>
-                        <h3>Common Etchants for Titanium</h3>
-                        <ul>
-                            <li><strong>Kroll's Reagent:</strong> General purpose, most commonly used for titanium. Reveals grain boundaries and alpha/beta structure (2-3ml HF, 5-6ml HNO₃, 100ml H₂O). Works well for Ti-6Al-4V and most alpha-beta alloys.</li>
-                            <li><strong>Modified Kroll's:</strong> For alpha-beta titanium alloys. More aggressive (1-2ml HF, 2-3ml HNO₃, 100ml H₂O). Useful for harder alloys that require more aggressive etching.</li>
-                            <li><strong>Weck's Reagent:</strong> For revealing grain boundaries in alpha titanium (100ml H₂O, 4g NaOH, 4g KMnO₄). Particularly effective for commercially pure titanium (Grade 2) and other alpha-phase materials.</li>
-                            <li><strong>Electrolytic Etching:</strong> For sensitive microstructures. Use appropriate voltage and time settings. Can be useful for Ti-3Al-2.5V and other alloys where chemical etching may be too aggressive.</li>
-                            <li><strong>Hydrofluoric Acid (HF):</strong> Dilute solutions (0.5-2%) for general etching</li>
-                        </ul>
-                        <div class="guide-image-wrapper" style="max-width: 500px;">
-                            <a href="https://shop.metallographic.com/collections/etchants" target="_blank" rel="noopener noreferrer" class="guide-link">
-                                <img 
-                                    src="/images/consumables/final%20polishing%20%26%20analysis/etching/etching.webp"
-                                    alt="Etching solutions and reagents for titanium"
-                                    loading="lazy"
-                                    class="guide-image"
-                                />
-                            </a>
-                            <p class="guide-image-caption">Etching solutions and reagents for titanium. Common etchants include Kroll's Reagent, Modified Kroll's, Weck's Reagent, and electrolytic solutions. Etching time typically ranges from 5-30 seconds depending on the etchant and alloy. <strong>Warning:</strong> Hydrofluoric acid is extremely hazardous and requires proper safety equipment.</p>
-                        </div>
-                        <h3>Etching Procedure</h3>
-                        <ol>
-                            <li>Ensure sample is clean and dry</li>
-                            <li>Apply etchant with cotton swab or immerse sample</li>
-                            <li>Etch for 5-30 seconds (time varies by etchant and alloy)</li>
-                            <li>Immediately rinse with water, then alcohol</li>
-                            <li>Dry with compressed air</li>
-                        </ol>
+
                         <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
                             <p>
-                                <strong>Important Safety Note:</strong> Many titanium etchants contain hydrofluoric acid (HF), 
-                                which is extremely hazardous. Always use appropriate personal protective equipment (PPE) 
-                                including gloves, safety glasses, and proper ventilation. Have calcium gluconate gel 
-                                available as first aid for HF exposure.
+                                <strong>HF safety &mdash; read first.</strong> Hydrofluoric acid causes deep tissue burns
+                                that may not be immediately painful. By the time symptoms develop, serious damage can already
+                                be done. HF-rated gloves (typically butyl rubber or neoprene), face shield, fume hood, and
+                                calcium gluconate gel within reach are mandatory. New users should be trained and supervised
+                                before handling HF-containing reagents. Mix small batches fresh and dispose properly.
                             </p>
                         </div>
+
+                        <h3>Microetchants for Titanium (Don's Table LI)</h3>
+                        <ul>
+                            <li>
+                                <strong>Kroll's Reagent</strong> &mdash; first choice for Ti alloys; very good general etch revealing &alpha;/&beta; phases and grain boundaries.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 1-3 mL HF + 2-6 mL HNO<sub>3</sub> + 100 mL DI water</li>
+                                    <li><strong>Use:</strong> Swab 3-10 seconds, or immerse 10-30 seconds. Standard reagent for Ti-6Al-4V, CP-Ti, most alpha-beta alloys.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Keller's Reagent (for Ti)</strong> &mdash; etches Ti alloys (note: same reagent name as aluminum's Keller, but different recipe).
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 1 mL HF + 3 mL HCl + 5 mL HNO<sub>3</sub> + 190 mL DI water</li>
+                                    <li><strong>Use:</strong> Immerse 3-10 seconds.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>R-Etch</strong> &mdash; specialized for Ti-Al and Ti-Al-Zr alloys.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 25 mL HF + 18.5 mg benzalkonium chloride + 35 mL ethanol + 40 mL glycerin</li>
+                                    <li><strong>Use:</strong> Swab up to 20 seconds, or immerse up to 90 seconds with agitation.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Smith Reagent</strong> &mdash; for &beta;-Ti alloys heat-treated below &beta;-transus; reveals grain boundaries.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 60 mL propionic acid + 20 mL HNO<sub>3</sub> + 10 mL HF</li>
+                                    <li><strong>Use:</strong> Swab.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Gallagher Reagent</strong> &mdash; for Ti-Cu alloys specifically.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 60 mL lactic acid + 20 mL HNO<sub>3</sub> + 10 mL HF + 10 mL DI water</li>
+                                    <li><strong>Use:</strong> Immerse 3-10 seconds.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Gurevich Reagent</strong> &mdash; reveals &beta; phase in Ti alloys.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 10 mL HF + 10 mL HNO<sub>3</sub> + 10 mL H<sub>2</sub>SO<sub>4</sub> + 1 g succinic acid</li>
+                                    <li><strong>Use:</strong> Heat to 40-50 &deg;C; immerse 20-180 seconds.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Ogden &amp; Holden Reagent</strong> &mdash; differentiates phases in &alpha;-&beta; alloys; HF-free.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 1-4 mL HCl + 1 mL H<sub>2</sub>SO<sub>4</sub> + 95-98 mL DI water</li>
+                                    <li><strong>Use:</strong> Use boiling, 3-10 minutes. Slower but avoids HF if equipment is unavailable.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <h3>Color (Tint) Etchants</h3>
+                        <ul>
+                            <li>
+                                <strong>Weck's Tint Etch (for Ti)</strong> &mdash; colors &alpha; grains and twins according to crystal orientation; excellent for grain-orientation imaging. Note: Weck's for Ti is a different reagent than Weck's for Al.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 5 g ammonium bifluoride (NH<sub>4</sub>HF<sub>2</sub>) + 100 mL DI water</li>
+                                    <li><strong>Use:</strong> Immerse at 20 &deg;C for a few seconds. Don's Fig 11-49 uses this for wrought Ti.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Beraha's Tint Etch (for Ti)</strong> &mdash; for as-cast Ti alloys; colors &alpha; matrix blue or green, intermetallics yellow or dark brown.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 2-3 g sodium molybdate + 5 mL HCl + 1-2 g ammonium bifluoride + 100 mL DI water</li>
+                                    <li><strong>Use:</strong> Immerse at 20 &deg;C until surface is colored.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <h3>Stain Removal</h3>
                         <p>
-                            <strong>Tip:</strong> Start with shorter etching times (5-10 seconds) and increase if needed. 
-                            Over-etching can obscure fine details and create pitting. For electrolytic etching, 
-                            use appropriate voltage and time settings. Kroll's reagent is the most commonly used 
-                            etchant for titanium and typically provides good results for most alloys.
+                            Titanium etchants frequently leave stains, particularly on alpha-rich regions. Don's recommended stain-removal recipe:
+                        </p>
+                        <ul>
+                            <li><strong>Composition:</strong> 1 mL HF + 2 mL HNO<sub>3</sub> + 50 mL H<sub>2</sub>O<sub>2</sub> + 47 mL DI water</li>
+                            <li><strong>Use:</strong> Immerse sample for several seconds. Works on most titanium and titanium alloys.</li>
+                        </ul>
+
+                        <h3>Macroetchants (Don's Table LII)</h3>
+                        <ul>
+                            <li><strong>General Ti macroetch:</strong> 50 mL DI water + 40 mL HNO<sub>3</sub> + 10 mL HF (40%). Etch 5-8 min at 60-80 &deg;C. (HF content may be reduced.) For Ti, Ti-base, and Ti-Al-Mo alloys.</li>
+                            <li><strong>Flow lines and defects:</strong> 75 mL DI water + 15 mL HNO<sub>3</sub> + 10 mL HF. Etch ~2 min.</li>
+                            <li><strong>General &alpha; + &beta;:</strong> 50 mL HCl + 50 mL DI water. Etch ~2 min.</li>
+                            <li><strong>Macro contrast:</strong> 30 mL DI water + 10 mL HF (40%) + 60 mL H<sub>2</sub>O<sub>2</sub> (30%). Swab until desired contrast.</li>
+                            <li><strong>Welded seams:</strong> 200 mL DI water + 10 mL HF (40%) + 10 g Fe(NO<sub>3</sub>)<sub>3</sub>&middot;9H<sub>2</sub>O. Etch seconds to minutes at 50-60 &deg;C.</li>
+                        </ul>
+
+                        <h3>Etching Procedure</h3>
+                        <ol>
+                            <li>Ensure sample is clean and dry. Residual colloidal silica from polishing gives mottled etch results.</li>
+                            <li>Apply etchant per the recipe &mdash; swab for short exposures (Kroll's, Keller's, R-etch), immerse for color etches (Weck's, Beraha's) and boiling/heated etches (Ogden-Holden, Gurevich).</li>
+                            <li>Etch for the recommended time. Start at the short end of any range.</li>
+                            <li>Rinse immediately with water, then ethanol. For HF-containing etchants, neutralize and dispose of waste per HF protocol.</li>
+                            <li>Dry with compressed air. Do not wipe.</li>
+                        </ol>
+                        <p>
+                            <strong>Tip:</strong> Most HF-containing titanium etchants lose activity within 30-60 minutes of
+                            mixing &mdash; make small batches fresh. If a Kroll's etch leaves stains, use the stain-removal
+                            recipe above and re-examine; if the structure is now too faint, repeat the etch.
                         </p>
                         <p>
                             For more information on etchants, visit our <a href="https://shop.metallographic.com/collections/etchants" target="_blank" rel="noopener noreferrer" class="guide-link">Etchants</a> collection.
@@ -1996,15 +2019,32 @@
                         <h2>Troubleshooting</h2>
                         <h3>Common Issues and Solutions</h3>
                         <ul>
-                            <li><strong>Scratches remaining:</strong> Insufficient grinding/polishing time or skipped grits. Ensure complete scratch removal at each step.</li>
-                            <li><strong>Contamination:</strong> Titanium is highly reactive. Clean between steps thoroughly, use fresh abrasives, and avoid cross-contamination from other materials.</li>
-                            <li><strong>Surface oxidation:</strong> Titanium forms oxides easily. Minimize exposure to air, clean immediately after polishing, and etch promptly after final polish.</li>
-                            <li><strong>Relief around second phases:</strong> Over-polishing or too soft a pad. Reduce polishing time or use slightly harder pad.</li>
-                            <li><strong>Work-hardening:</strong> Excessive grinding or polishing can work-harden titanium. Use appropriate pressure and avoid excessive time.</li>
-                            <li><strong>Over-etching:</strong> Reduce etching time or dilute etchant. Start with shorter times (5-10 seconds).</li>
-                            <li><strong>Pitting after etching:</strong> Etchant too strong or etching time too long. Dilute etchant or reduce time. HF-based etchants are particularly aggressive.</li>
-                            <li><strong>Poor edge retention:</strong> Consider using phenolic mounting material or different mounting technique.</li>
-                            <li><strong>Inconsistent etching:</strong> Ensure sample is clean and dry before etching. Surface contamination can cause uneven etching.</li>
+                            <li><strong>Scratches reappear after Kroll's etch (smeared/work-hardened layer):</strong> Classic Ti problem. The polish produced a smeared layer that hides scratches; the etch dissolves the smear and the scratches reappear. Fix: extend the 1 &micro;m DIAMAT step (3-4 min instead of 2) at lighter force (5-6 lb); confirm the GOLDPAD is fresh. If scratches persist, return to 1200 grit (P4000) SiC with fresh paper.</li>
+                            <li><strong>Scratches remaining after polish:</strong> Insufficient time at one of the SiC grinding steps, or skipped grit. Don's 5-step ladder (240&rarr;360&rarr;600&rarr;800&rarr;1200) must be run in full; skipping leaves subsurface deformation that the diamond steps cannot remove in reasonable time.</li>
+                            <li><strong>Stains after Kroll's etch:</strong> Common with Ti. Use the stain-removal recipe (1 mL HF + 2 mL HNO<sub>3</sub> + 50 mL H<sub>2</sub>O<sub>2</sub> + 47 mL water, immerse a few seconds). Re-etch if structure becomes too faint.</li>
+                            <li><strong>Mottled or uneven etch:</strong> Residual colloidal silica or polishing debris on the sample. Rinse thoroughly with ethanol before etching. Verify the sample is fully dry.</li>
+                            <li><strong>No etch / weak structure:</strong> Etchant past its useful life (HF-containing reagents drop in activity within 30-60 minutes of mixing). Mix fresh and retry. Or switch from swab to immerse for harder alloys.</li>
+                            <li><strong>Pitting after etching:</strong> Time too long or etchant too aggressive. Reduce time, dilute etchant, or switch to the HF-free Ogden-Holden boiling reagent.</li>
+                            <li><strong>Alpha-case ambiguous on imaging:</strong> The brittle oxygen-enriched surface layer (typical 5-100 &micro;m) sometimes etches more slowly than the bulk. View at 200&times; brightfield after Kroll's etch &mdash; case appears lighter, more featureless. For quantitative case-depth measurement per ASTM E1558 / AMS 2249, use Weck's tint etch with polarized light for better contrast at the case/bulk boundary.</li>
+                            <li><strong>Relief around second phases or interstitials:</strong> Over-polishing or too soft a pad at the final step. Reduce alumina-on-ATLANTIS time to 30-45 seconds; confirm ATLANTIS is the pad (not a higher-nap final).</li>
+                            <li><strong>Cross-contamination with iron particles:</strong> Ti can pick up Fe from prior steel samples on the same equipment. Use dedicated wheels/pads for Ti when possible; clean ultrasonically between sample types.</li>
+                            <li><strong>Surface oxidation between polish and etch:</strong> Ti forms a passive oxide quickly. Etch promptly after final polish; if delay is unavoidable, store in desiccator and re-polish briefly on alumina-on-ATLANTIS before etching.</li>
+                            <li><strong>Smeared structure on biomedical Ti:</strong> Conventional polishing leaves smear that hides fine microstructural features. Switch to the attack-polishing path (Don &sect;11.6.3): 9 &micro;m DIAMAT on TEXPAN for 10 min, then SIAMAT silica + H<sub>2</sub>O<sub>2</sub> + Kroll's for 10 min. The chemical action lifts smear that mechanical polishing alone cannot.</li>
+                        </ul>
+                    </section>
+
+                    <section id="additional-reading" class="guide-section">
+                        <h2>Additional Reading</h2>
+                        <ul>
+                            <li>Zipperian, D.C. <em>Metallographic Handbook</em>, &sect;11.6.2 (Titanium Conventional) and &sect;11.6.3 (Titanium Attack Polishing, contributed by Jim Hallquist, Medtronic Inc.). PACE Technologies, Tucson, AZ &mdash; the house reference. The grinding, polishing, and etchant recipes in this guide come from these sources.</li>
+                            <li>Vander Voort, G.F. <em>Metallography: Principles and Practice</em>. ASM International &mdash; comprehensive reference for Ti etchant procedures and color metallography techniques.</li>
+                            <li>Petzow, G. <em>Metallographic Etching</em>, 2nd ed. ASM International &mdash; comprehensive reference for Kroll's, Keller's, Weck's, Beraha's, and specialty Ti reagent formulations.</li>
+                            <li><em>ASM Handbook, Vol. 9: Metallography and Microstructures</em>. ASM International &mdash; titanium preparation, etching, and phase identification.</li>
+                            <li>ASTM E407 &mdash; Standard Practice for Microetching Metals and Alloys (titanium etchants section).</li>
+                            <li>ASTM E1558 &mdash; Standard Guide for Electrolytic Polishing of Metallographic Specimens (and alpha-case evaluation reference).</li>
+                            <li>AMS 2249 &mdash; Chemical Check Analysis Limits, Titanium and Titanium Alloys (alpha-case depth specifications).</li>
+                            <li>ASTM E3 &mdash; Standard Guide for Preparation of Metallographic Specimens.</li>
+                            <li>ASTM E112 &mdash; Standard Test Methods for Determining Average Grain Size.</li>
                         </ul>
                     </section>
 
@@ -2041,6 +2081,7 @@
             </div>
         </div>
     </main>
+
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
@@ -2100,9 +2141,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -2114,7 +2183,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -2142,8 +2211,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -2215,9 +2283,43 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
     <script src="/js/guide-nav.js"></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

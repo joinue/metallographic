@@ -150,6 +150,16 @@
 <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -176,20 +186,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -399,35 +417,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -472,111 +486,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -785,36 +729,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -851,73 +793,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -961,12 +866,28 @@
         <button class="close" aria-label="Close">&times;</button>
         <section class="quote-request" aria-labelledby="quote-request-heading">
             <div class="quote-form-container">
-                <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
             </div>
         </section>
     </div>
 </div>
+
+
 
 <!-- HEADER - Modern Hero Section -->
 
@@ -991,7 +912,7 @@
         </nav>
         <h1 class="hero-headline">Abrasive Belts, Rolls & Powders</h1>
         <p class="hero-description">
-          PACE Technologies' abrasive belts, rolls, and powders are designed to meet the rigorous demands of metallographic sample preparation. Available in silicon carbide, alumina, and zirconia variants, these consumables provide flexible, high-efficiency material removal across metals, ceramics, and composites.
+          PACE Technologies' abrasive belts, rolls, and powders are designed to meet the rigorous demands of metallographic sample preparation. Silicon carbide (SiC) is our most comprehensive offering, covering belts, rolls, and powders across a full grit range. Alumina and zirconia belts are also available for applications where their specific properties (less embedding on soft metals for alumina, longer life on tough metals for zirconia) justify the choice.
         </p>
         <div class="hero-cta-group">
           <a href="https://shop.metallographic.com/collections/grinding?filter.p.product_type=Grinding+Belts+-+Alumina&filter.p.product_type=Grinding+Belts+-+SiC&filter.p.product_type=Grinding+Belts+-+Zirconia&filter.p.product_type=Grinding+Powders+-+SiC&filter.p.product_type=Grinding+Rolls+-+SiC" class="btn-modern btn-modern-white" target="_blank" rel="noopener noreferrer">Shop Online</a>
@@ -1020,7 +941,7 @@
         </div>
         <div class="feature-item-modern">
           <h3>Choose the Correct Abrasive</h3>
-          <p>Silicon carbide is ideal for rapid stock removal with minimal deformation, especially on non-ferrous metals and ceramics. Consider alumina or zirconia for extended durability.</p>
+          <p>Silicon carbide is the go-to abrasive for ferrous metals and most general grinding, with the broadest product range. Alumina belts reduce abrasive embedding on soft, ductile metals (aluminum, copper, brass). Zirconia belts last longer on tough materials such as stainless steels and superalloys. For dense ceramics and cemented carbides, use diamond instead (see Diamond Grinding).</p>
         </div>
         <div class="feature-item-modern">
           <h3>Control Grit Progression</h3>
@@ -1044,7 +965,10 @@
 <div class="container-custom">
 <h2 class="consumables-header">Introduction</h2>
 <p class="consumables-text">
-    Abrasive belts, rolls, and powders from PACE Technologies offer versatile solutions for metallographic grinding across a wide range of materials. These silicon carbide (SiC)-based consumables provide sharp, fast-cutting performance ideal for routine material removal and surface conditioning. Rolls allow for custom sizes, belts are designed for automated systems, and powders are used with cloths or composite surfaces for maximum flexibility. Whether working with soft metals, ceramics, or composites, these abrasives are optimized to minimize surface deformation, improve workflow efficiency, and deliver reproducible results throughout the preparation process.
+    Abrasive belts, rolls, and powders from PACE Technologies offer versatile solutions for metallographic grinding across a wide range of materials. <strong>Silicon carbide (SiC)</strong> is our most comprehensive offering and is the workhorse abrasive for ferrous metals across the full hardness range, with a sharp, self-sharpening cutting action ideal for routine material removal and surface conditioning. <strong>Alumina belts</strong> are available for soft, ductile non-ferrous metals where SiC's tendency to embed becomes a problem. <strong>Zirconia belts</strong> offer extended life on tough, hard-to-grind materials such as stainless steels, nickel-based superalloys, and titanium alloys.
+</p>
+<p class="consumables-text">
+    Rolls allow for custom sizes, belts are designed for hand and belt grinders, and powders are used with cloths, lapping plates, or composite surfaces for maximum flexibility. Note that dense engineered ceramics and cemented carbides require diamond abrasives rather than SiC, alumina, or zirconia — see our diamond grinding page.
 </p>
 </div>
 
@@ -1052,45 +976,60 @@
 <div class="section-anchor" id="Guideline"></div>
 <div class="container-custom">
 <h2 class="consumables-header">Abrasive Grinding Guideline</h2>
-  <p class="consumables-text">Select the appropriate abrasive and grit progression based on your material type and preparation objectives.</p>
+  <p class="consumables-text">Select the appropriate abrasive type, format, and grit progression based on your material and preparation objective. Grit values below are <strong>ANSI/CAMI</strong>; SiC belts on this page top out at 240 grit, so finer steps require SiC rolls, papers, or composite disks.</p>
 <table class="TableGeneral-2c2 specifications-table">
     <thead>
         <tr>
             <th>Material</th>
             <th>Objective</th>
-            <th>Recommended SiC Product Format</th>
+            <th>Recommended Format & Grit (ANSI/CAMI)</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td data-label="Material">Soft non-ferrous metals (Aluminum, Brass, Zinc)</td>
-            <td data-label="Objective">Minimize embedding & deformation</td>
-            <td data-label="Recommendation">P240-P1200 grit SiC Belts or Rolls</td>
+            <td data-label="Material">Soft non-ferrous metals (Al, Cu, Brass, Zn)</td>
+            <td data-label="Objective">Minimize abrasive embedding & deformation</td>
+            <td data-label="Recommendation">Alumina belts for coarse work (best at minimizing embedding); transition to alumina papers 240→1200 grit (see <a href="/metallographic-consumables/grinding/abrasive-grinding.html">Abrasive Grinding</a>). SiC belts/rolls can substitute when alumina is not available.</td>
         </tr>
         <tr>
-            <td data-label="Material">Ferrous metals (Low carbon steel, Stainless steel)</td>
+            <td data-label="Material">Ferrous metals (Low/medium carbon, austenitic stainless)</td>
             <td data-label="Objective">Reduce deformation & prepare for polishing</td>
-            <td data-label="Recommendation">P180-P600 grit SiC Belts or Rolls</td>
+            <td data-label="Recommendation">SiC belts 60-240 grit for coarse stock removal; SiC rolls 240-600 grit for intermediate. Zirconia belts extend life on austenitic SS.</td>
         </tr>
         <tr>
-            <td data-label="Material">Tool steels, case-hardened alloys</td>
-            <td data-label="Objective">Planarize & minimize work hardening</td>
-            <td data-label="Recommendation">P120-P320 grit SiC Belts or Rolls</td>
+            <td data-label="Material">Tool steels, case-hardened, martensitic SS</td>
+            <td data-label="Objective">Planarize hard surface & minimize subsurface damage</td>
+            <td data-label="Recommendation">SiC belts 60-180 grit for coarse work; SiC rolls 240-600 grit for intermediate. Zirconia belts recommended for high-volume work.</td>
         </tr>
         <tr>
-            <td data-label="Material">Refractory metals (W, Mo, Ti)</td>
-            <td data-label="Objective">Avoid smearing & surface damage</td>
-            <td data-label="Recommendation">P320-P800 grit SiC Rolls or Loose Powder</td>
+            <td data-label="Material">Tough alloys (Ni-based superalloys, stainless steels)</td>
+            <td data-label="Objective">Extend abrasive life on hard-to-grind metals</td>
+            <td data-label="Recommendation">Zirconia belts 60-180 grit (significantly longer life than SiC); follow with SiC rolls 240-600 grit.</td>
         </tr>
         <tr>
-            <td data-label="Material">Ceramics & minerals</td>
+            <td data-label="Material">Refractory metals: tungsten, molybdenum</td>
+            <td data-label="Objective">Coarse stock removal with low surface damage</td>
+            <td data-label="Recommendation">SiC rolls 320-800 grit, or SiC loose powder 15-30 µm on a lapping plate.</td>
+        </tr>
+        <tr>
+            <td data-label="Material">Titanium and titanium alloys</td>
+            <td data-label="Objective">Avoid smearing, embedding & contamination</td>
+            <td data-label="Recommendation">Best prepared with diamond on composite disks (see <a href="/metallographic-consumables/grinding/composite-disks.html">SIRIUS/ORION</a>). If using SiC, use rolls or powders with frequent abrasive changes.</td>
+        </tr>
+        <tr>
+            <td data-label="Material">Soft minerals & geological specimens</td>
             <td data-label="Objective">Remove surface defects with minimal chipping</td>
-            <td data-label="Recommendation">240-400 grit SiC Belts; or 15-30µm SiC Powder</td>
+            <td data-label="Recommendation">SiC belts 60-240 grit or SiC powder 15-30 µm.</td>
+        </tr>
+        <tr>
+            <td data-label="Material">Dense engineered ceramics & cemented carbides</td>
+            <td data-label="Objective">Cut hard ceramic without subsurface damage</td>
+            <td data-label="Recommendation">Diamond required (SiC, alumina, and zirconia are not hard enough). See <a href="/metallographic-consumables/grinding/diamond-grinding.html">Diamond Grinding</a>.</td>
         </tr>
         <tr>
             <td data-label="Material">Composites (MMCs, PMCs)</td>
             <td data-label="Objective">Preserve matrix & minimize edge rounding</td>
-            <td data-label="Recommendation">P240-P400 grit SiC Belts or Rolls</td>
+            <td data-label="Recommendation">SiC rolls or papers 240-400 grit. Belts are typically too aggressive for the matrix.</td>
         </tr>
     </tbody>
 </table>
@@ -1112,18 +1051,17 @@
   <img src="/images/consumables/grinding-lapping/belts-rolls-powders/belts.webp" alt="Silicon Carbide abrasive belts" width="600" height="450" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px;">
 </div>
 <p class="consumables-text">
-    Silicon Carbide abrasive belts are designed for efficient material removal and fine finishing in metallographic sample preparation. Featuring high-quality silicon carbide grains, these belts provide superior cutting performance and durability. Ideal for use with belt grinders and hand-held grinding equipment.
-    <br><br>
+    Silicon Carbide abrasive belts are designed for efficient material removal and surface conditioning in metallographic sample preparation. SiC's sharp, self-sharpening grain delivers fast cutting on ferrous metals across the full hardness range and is the most economical choice for coarse stock removal. Ideal for use with belt grinders and hand-held grinding equipment.
+</p>
 <ul class="consumables-list">
     <li><strong>Standard Size</strong>: 4" x 36" (fits PENTA Series and similar belt grinders)</li>
-    <li><strong>Grit Range</strong>: 60 to 240 grit for coarse to medium grinding applications</li>
+    <li><strong>Grit Range</strong>: 60 to 240 grit (ANSI). Belts are a coarse-grinding format; transition to SiC rolls or papers for finer steps.</li>
     <li><strong>Packaging</strong>: 10 belts per box for convenient bulk use</li>
-    <li><strong>Applications</strong>: Material removal, surface preparation, deburring, and edge rounding control</li>
+    <li><strong>Applications</strong>: Coarse stock removal, surface preparation, deburring, and edge rounding control</li>
 </ul>
-</p>
 
 <!-- SiC Belts Product Table -->
-<h3 class="consumables-header">Silicon Carbide Belts - 10/pkg</h3>
+<h4 class="consumables-subtitle">Silicon Carbide Belts - 10/pkg</h4>
 <table class="TableGeneral-2c2 specifications-table">
   <thead>
 <tr>
@@ -1177,6 +1115,36 @@
   </div>
 </div>
 
+<!-- Alumina Belts Section -->
+<div class="container-custom" style="margin-top: 3rem;">
+<h3 class="consumables-subtitle">Alumina Abrasive Belts</h3>
+<p class="consumables-text">
+    Alumina (Al₂O₃) belts are the right choice when grinding <strong>soft, ductile non-ferrous metals</strong> such as aluminum, copper, brass, gold, and silver. Although alumina is slightly softer than SiC (≈2000 HV vs. ≈2500 HV), its grain is tougher and less friable, so it resists fracturing into shards that embed in soft specimen surfaces. For these materials, alumina produces cleaner finishes with fewer embedded abrasive artifacts than SiC.
+</p>
+<ul class="consumables-list">
+    <li><strong>When to choose alumina over SiC</strong>: Soft non-ferrous metals where SiC embedding is a concern, refractory metals (rhenium, tungsten, vanadium) prone to surface contamination.</li>
+    <li><strong>Format</strong>: 4" x 36" belts, available in a limited set of grits (not as comprehensive as our SiC range).</li>
+</ul>
+<div style="margin-top: 1.5rem; text-align: center;">
+    <a href="https://shop.metallographic.com/collections/alumina-abrasive-belts" class="btn-modern btn-modern-primary" target="_blank" rel="noopener noreferrer">Shop Alumina Belts</a>
+</div>
+</div>
+
+<!-- Zirconia Belts Section -->
+<div class="container-custom" style="margin-top: 3rem;">
+<h3 class="consumables-subtitle">Zirconia Abrasive Belts</h3>
+<p class="consumables-text">
+    Zirconia alumina belts combine zirconium oxide (ZrO₂) with aluminum oxide to produce a tough, self-sharpening abrasive. Unlike SiC, which fractures to expose new cutting edges, zirconia alumina undergoes <em>micro-fracturing</em> that continuously refreshes sharp cutting points while preserving the structural integrity of the grain. The result is significantly longer belt life on tough, hard-to-grind materials.
+</p>
+<ul class="consumables-list">
+    <li><strong>When to choose zirconia over SiC</strong>: Tough, hard-to-grind materials including stainless steels, nickel-based superalloys, and titanium alloys, especially in production environments processing high specimen volumes.</li>
+    <li><strong>Format</strong>: 4" x 36" belts, available in a limited set of grits (not as comprehensive as our SiC range).</li>
+</ul>
+<div style="margin-top: 1.5rem; text-align: center;">
+    <a href="https://shop.metallographic.com/collections/zirconia-abrasive-belts" class="btn-modern btn-modern-primary" target="_blank" rel="noopener noreferrer">Shop Zirconia Belts</a>
+</div>
+</div>
+
 <!-- Silicon Carbide Grinding Rolls Section -->
 <div class="container-custom" style="margin-top: 3rem;">
 <h3 class="consumables-subtitle">Silicon Carbide Grinding Rolls</h3>
@@ -1185,17 +1153,16 @@
 </div>
 <p class="consumables-text">
     Silicon Carbide grinding rolls provide effective material removal and surface preparation for metallographic samples. These rolls offer consistent performance and durability, ensuring smooth and precise finishes on a variety of materials. Each roll is 60 feet in length with a 3-7/16-inch diameter and 1-inch core, compatible with belt/roll grinding equipment.
-    <br><br>
+</p>
 <ul class="consumables-list">
     <li><strong>Roll Dimensions</strong>: 3-7/16" diameter, 60 feet length, 1" core</li>
-    <li><strong>Grit Range</strong>: 120 to 1200 grit for complete grinding progression</li>
+    <li><strong>Grit Range</strong>: 120 to 1200 grit (ANSI/CAMI) for complete grinding progression</li>
     <li><strong>Packaging</strong>: 1 roll per box</li>
     <li><strong>Material</strong>: High-quality silicon carbide abrasive</li>
 </ul>
-</p>
 
 <!-- SiC Rolls Product Table -->
-<h3 class="consumables-header">Silicon Carbide Rolls - 60 ft/roll</h3>
+<h4 class="consumables-subtitle">Silicon Carbide Rolls - 60 ft/roll</h4>
 <table class="TableGeneral-2c2 specifications-table">
   <thead>
 <tr>
@@ -1274,21 +1241,20 @@
 <div class="container-custom" style="margin-top: 3rem;">
 <h3 class="consumables-subtitle">Silicon Carbide Abrasive Grinding Powders</h3>
 <div style="margin-bottom: 1.5rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
-  <img src="/images/consumables/grinding-lapping/belts-rolls-powders/powders.webp" alt="Silicon Carbide abrasive powders" width="600" height="450" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px;">
+  <img src="/images/consumables/grinding-lapping/belts-rolls-powders/grinding-sic-powders.webp" alt="Silicon Carbide abrasive powders" width="600" height="450" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px;">
 </div>
 <p class="consumables-text">
     Silicon Carbide abrasive grinding powders are loose abrasives used for lapping, grinding, and polishing applications. These high-quality powders provide controlled material removal and are ideal for manual lapping operations, charging lapping plates, or creating custom grinding slurries. Available in 1 lb and 5 lb packages.
-    <br><br>
+</p>
 <ul class="consumables-list">
-    <li><strong>Grit Range</strong>: 120 to 1200 grit (P120 to P4000 European equivalent)</li>
+    <li><strong>Grit Range</strong>: 120 to 1200 grit (ANSI/CAMI). See the table below for approximate P-grade equivalents.</li>
     <li><strong>Packaging Options</strong>: Available in 1 lb and 5 lb containers</li>
     <li><strong>Material</strong>: High-purity silicon carbide powder</li>
     <li><strong>Applications</strong>: Lapping plates, loose abrasive grinding, slurry preparation, surface finishing</li>
 </ul>
-</p>
 
 <!-- SiC Powders Product Table -->
-<h3 class="consumables-header">Silicon Carbide Powders - 1 lb containers</h3>
+<h4 class="consumables-subtitle">Silicon Carbide Powders - 1 lb containers</h4>
 <table class="TableGeneral-2c2 specifications-table">
   <thead>
 <tr>
@@ -1337,21 +1303,21 @@
 </tr>
 <tr>
   <td data-label="Grit">800</td>
-  <td data-label="P-Grade">P2400</td>
+  <td data-label="P-Grade">~P1500</td>
   <td data-label="Part Number">SIC-800-1LB</td>
   <td data-label="SKU">1069461588204</td>
   <td data-label="Price">$36.00</td>
 </tr>
 <tr>
   <td data-label="Grit">1000</td>
-  <td data-label="P-Grade">P3000</td>
+  <td data-label="P-Grade">~P2000</td>
   <td data-label="Part Number">SIC-1000-1LB</td>
   <td data-label="SKU">1069461588242</td>
   <td data-label="Price">$36.00</td>
 </tr>
 <tr>
   <td data-label="Grit">1200</td>
-  <td data-label="P-Grade">P4000</td>
+  <td data-label="P-Grade">~P2500</td>
   <td data-label="Part Number">SIC-1200-1LB</td>
   <td data-label="SKU">1069461588280</td>
   <td data-label="Price">$36.00</td>
@@ -1359,7 +1325,7 @@
 </tbody>
 </table>
 <p class="consumables-text" style="margin-top: 1rem; font-style: italic; font-size: 0.9rem;">
-    Note: 5 lb packages also available at higher price points. Contact sales for bulk pricing.
+    Note: 5 lb packages also available at higher price points. Contact sales for bulk pricing. P-grade equivalents are approximate; ANSI/CAMI and FEPA P-grades use different particle-size distributions and diverge at fine grits — see our <a href="/tools/grit-size-converter.html">Grit Size Converter</a> for detailed conversion.
 </p>
   <div style="margin-top: 1.5rem; text-align: center;">
     <a href="https://shop.metallographic.com/collections/sic-powders" class="btn-modern btn-modern-primary" target="_blank" rel="noopener noreferrer">Shop SiC Powders</a>
@@ -1456,7 +1422,7 @@
         <summary class="faq-question" itemprop="name">What type of lubricant should I use with abrasive belts and rolls?</summary>
         <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
           <div itemprop="text">
-            <p>Water is the most common lubricant for silicon carbide belts and rolls, providing cooling and debris removal. For materials sensitive to water (like certain steels prone to corrosion), use petroleum-based cutting fluids or specialized grinding lubricants. The lubricant should maintain a consistent flow during grinding to prevent overheating and loading of the abrasive. For loose powders on lapping plates, water or light oil works well depending on the material being prepared.</p>
+            <p>Water is the standard lubricant for silicon carbide belts and rolls, providing cooling and debris removal. Steels, aluminum, copper, and most metals are routinely wet-ground with water. For genuinely water-reactive materials such as magnesium and its alloys, sodium- or potassium-bearing specimens, and materials with water-soluble phases, use water-soluble oils or petroleum-based cutting fluids. The lubricant should maintain a consistent flow during grinding to prevent overheating and loading of the abrasive. For loose powders on lapping plates, water or light oil works well depending on the material being prepared.</p>
           </div>
         </div>
       </details>
@@ -1476,12 +1442,8 @@
   Shop Online
 </a>
 
-  <a href="#top" class="return-to-top" aria-label="Return to top">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
-          <path d="M12 4l-8 8h16z"></path>
-      </svg>
-    </a>
   
+
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
@@ -1541,9 +1503,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1555,7 +1545,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1583,8 +1573,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1656,6 +1645,39 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
           </div>
         </div>
@@ -1670,5 +1692,6 @@
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
     <script src="/js/section-nav.js" defer></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

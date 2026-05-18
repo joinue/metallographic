@@ -149,27 +149,28 @@
     <header class="builder-header">
       <h1 class="builder-title">Lab Builder</h1>
       <p class="builder-description">
-        Get general equipment and consumable recommendations based on your sample specifications 
-        and workflow requirements.
+        Get general equipment recommendations from your sample and workflow inputs.
       </p>
     </header>
 
     <!-- Info Banner - Only show on Step 1 -->
-    <div id="info-banner" class="builder-info-banner" style="display: none;">
-      <div class="builder-info-content">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="16" x2="12" y2="12"></line>
-          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+    <details id="info-banner" class="builder-warning-banner" style="display: none;">
+      <summary class="builder-info-content">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
         </svg>
-        <div>
-          <p class="builder-info-text">
-            <strong>General Recommendations:</strong> This tool provides general equipment types and consumables appropriate for your use case. For specific product recommendations, use this tool and send your results to one of our experts or 
-            <a href="/quote.html" class="builder-info-link">request a quote</a>.
-          </p>
-        </div>
+        <span class="builder-warning-text"><strong>Starter tool.</strong> Generic recommendations only &mdash; tap for details.</span>
+      </summary>
+      <div class="builder-warning-detail">
+        <p class="builder-warning-text">
+          Recommendations are generic equipment categories based on the inputs you provide. They do not account for specific alloys, regulatory standards, mount diameter, fixture compatibility, or the dozens of other variables that drive an accurate lab quote. For detailed, accurate recommendations for your specific application, please
+          <a href="mailto:pace@metallographic.com?subject=Lab%20Builder%20-%20Detailed%20Recommendations%20Request" class="builder-warning-link">email our team</a>
+          or <a href="/quote.html" class="builder-warning-link">request a quote</a>.
+        </p>
       </div>
-    </div>
+    </details>
 
     <!-- Progress Steps -->
     <div class="builder-progress">
@@ -197,19 +198,17 @@
     <!-- Step 1: Process Stages Selection -->
     <div id="step-1" class="builder-step" tabindex="-1">
       <div class="builder-step-card">
-        <h2 class="builder-step-title">Process Stages Selection</h2>
-        <p class="builder-step-description">
-          Select which process stages you need equipment recommendations for. You can select one or more stages.
-        </p>
-        
+        <div class="builder-step-heading-row">
+          <h2 class="builder-step-title">Which stages do you need?</h2>
+          <div class="builder-stage-actions">
+            <button type="button" id="select-all-stages" class="builder-action-button">All</button>
+            <button type="button" id="deselect-all-stages" class="builder-action-button">None</button>
+          </div>
+        </div>
+        <p class="builder-step-description">Tap one or more stages to include in your lab recommendations.</p>
+
         <div class="builder-stages-list" id="stages-list">
           <!-- Stages will be populated by JavaScript -->
-        </div>
-
-        <!-- Select All / Deselect All -->
-        <div class="builder-stage-actions">
-          <button type="button" id="select-all-stages" class="builder-action-button">Select All</button>
-          <button type="button" id="deselect-all-stages" class="builder-action-button">Deselect All</button>
         </div>
 
         <!-- Next Button -->
@@ -246,6 +245,7 @@
               <option value="Titanium">Titanium</option>
               <option value="Copper/Brass">Copper/Brass</option>
               <option value="Nickel Alloys">Nickel Alloys</option>
+              <option value="Tin Alloys">Tin / Lead / Soft Bearing Alloys</option>
               <option value="Hard Metals (Carbides)">Hard Metals (Carbides)</option>
               <option value="Ceramics">Ceramics</option>
               <option value="Other">Other</option>
@@ -256,14 +256,17 @@
           <div class="builder-form-field">
             <label class="builder-form-label" for="material-hardness">
               Material Hardness <span class="required">*</span>
+              <button type="button" class="builder-help-toggle" data-help-target="help-material-hardness" aria-label="More info on hardness" aria-expanded="false">i</button>
             </label>
             <select id="material-hardness" class="builder-select" required>
               <option value="">Select hardness level...</option>
-              <option value="Soft (< 30 HRC)">Soft (< 30 HRC)</option>
+              <option value="Unknown">Unknown / TBD</option>
+              <option value="Soft (< 30 HRC)">Soft (&lt; 30 HRC)</option>
               <option value="Medium (30-50 HRC)">Medium (30-50 HRC)</option>
               <option value="Hard (50-65 HRC)">Hard (50-65 HRC)</option>
-              <option value="Very Hard (> 65 HRC)">Very Hard (> 65 HRC)</option>
+              <option value="Very Hard (> 65 HRC)">Very Hard (&gt; 65 HRC)</option>
             </select>
+            <p class="builder-form-help" id="help-material-hardness" hidden>Soft = Al, Cu, annealed steels. Medium = mild &amp; low-alloy steels. Hard = hardened tool steels. Very Hard = nitrided, case-hardened, ceramics, carbides. Cemented carbides and ceramics are typically rated in HRA or HV &mdash; pick "Very Hard" or "Unknown" if HRC doesn't apply.</p>
           </div>
 
           <!-- Sample Size -->
@@ -292,6 +295,23 @@
               <option value="Thin">Thin Section</option>
               <option value="Small">Small/Delicate</option>
             </select>
+          </div>
+
+          <!-- Mount Diameter -->
+          <div class="builder-form-field">
+            <label class="builder-form-label" for="mount-diameter">
+              Typical Mount Diameter
+              <button type="button" class="builder-help-toggle" data-help-target="help-mount-diameter" aria-label="More info on mount diameter" aria-expanded="false">i</button>
+            </label>
+            <select id="mount-diameter" class="builder-select">
+              <option value="">Not applicable / unsure</option>
+              <option value="1 inch (25 mm)">1 inch (25 mm)</option>
+              <option value="1.25 inch (30 mm)">1.25 inch (30 mm)</option>
+              <option value="1.5 inch (40 mm)">1.5 inch (40 mm)</option>
+              <option value="2 inch (50 mm)">2 inch (50 mm)</option>
+              <option value="Mixed sizes">Mixed sizes</option>
+            </select>
+            <p class="builder-form-help" id="help-mount-diameter" hidden>Mount diameter affects fixture and platen sizing on automated prep equipment.</p>
           </div>
 
           <!-- Applications -->
@@ -384,31 +404,30 @@
           <div class="builder-form-field">
             <label class="builder-form-label" for="budget">
               Equipment Tier <span class="required">*</span>
+              <button type="button" class="builder-help-toggle" data-help-target="help-budget" aria-label="More info on equipment tier" aria-expanded="false">i</button>
             </label>
-            <p class="builder-form-help">Select the capability level that matches your needs</p>
             <select id="budget" class="builder-select" required>
               <option value="">Select equipment tier...</option>
-              <option value="Essential">Essential - Core equipment for basic sample preparation</option>
-              <option value="Standard">Standard - Balanced setup for routine metallography work</option>
-              <option value="Advanced">Advanced - Enhanced capabilities for demanding applications</option>
-              <option value="Comprehensive">Comprehensive - Complete system with full automation and features</option>
+              <option value="Essential">Essential &mdash; basic prep</option>
+              <option value="Standard">Standard &mdash; routine metallography</option>
+              <option value="Advanced">Advanced &mdash; demanding applications</option>
+              <option value="Comprehensive">Comprehensive &mdash; full automation</option>
             </select>
+            <p class="builder-form-help" id="help-budget" hidden>Essential covers core equipment for basic sample preparation. Standard is a balanced setup for routine metallography. Advanced adds enhanced capabilities for demanding applications. Comprehensive is a complete system with full automation.</p>
           </div>
 
           <!-- Surface Finish -->
           <div class="builder-form-field">
             <label class="builder-form-label" for="surface-finish">
               Required Surface Finish
+              <button type="button" class="builder-help-toggle" data-help-target="help-surface-finish" aria-label="More info on surface finish" aria-expanded="false">i</button>
             </label>
             <select id="surface-finish" class="builder-select">
-              <option value="">Standard (General metallography)</option>
-              <option value="High Quality">High Quality (Research, failure analysis)</option>
-              <option value="Extremely Flat">Extremely Flat (EBSD, advanced characterization)</option>
-              <option value="EBSD">EBSD Preparation</option>
+              <option value="">Standard (general metallography)</option>
+              <option value="High Quality">High quality (research / failure analysis)</option>
+              <option value="EBSD">EBSD / extremely flat</option>
             </select>
-            <p class="builder-form-help">
-              Select based on your analysis needs. EBSD and advanced techniques require extremely flat, deformation-free surfaces.
-            </p>
+            <p class="builder-form-help" id="help-surface-finish" hidden>EBSD and advanced techniques require extremely flat, deformation-free surfaces and trigger additional prep recommendations (vibratory polisher, colloidal silica, conductive mounting).</p>
           </div>
         </div>
 
@@ -440,6 +459,24 @@
 
     <!-- Step 4: Results -->
     <div id="step-4" class="builder-step" style="display: none;" tabindex="-1">
+      <!-- Results-page disclaimer (always visible on results) -->
+      <div class="builder-warning-banner" role="alert">
+        <div class="builder-info-content">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <div>
+            <p class="builder-warning-text">
+              <strong>Starter recommendations only.</strong> The items below are generic equipment and consumable categories based on the answers you provided. They are a starting point, not a final lab specification. Specific alloy, regulatory standards (ASTM/ISO), mount diameter, sample fixture, edge-retention needs, and many other variables can change the right answer. For detailed, application-specific recommendations,
+              <a href="mailto:pace@metallographic.com?subject=Lab%20Builder%20-%20Detailed%20Recommendations%20Request" class="builder-warning-link">email our team</a>
+              or click <strong>Get Expert Review</strong> below to send these results to our team.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div id="recommendations-section" class="builder-results">
         <!-- Results will be populated by JavaScript -->
       </div>
@@ -504,72 +541,45 @@
       </div>
       <div class="builder-modal-body">
         <p class="builder-modal-description">
-          Fill out the form below and we'll generate a pre-filled email with all your lab builder information. 
-          You can review and send it directly to our sales team for expert review.
+          Send your Lab Builder recommendations to PACE so we can review your inputs and follow up with detailed pricing. Replies within 4 business hours.
         </p>
-        
-        <form id="expert-review-form">
-          <div class="builder-form-grid">
-            <div class="builder-form-field">
-              <label class="builder-form-label" for="review-name">
-                Name <span class="required">*</span>
-              </label>
-              <input type="text" id="review-name" class="builder-input" required>
-            </div>
-            
-            <div class="builder-form-field">
-              <label class="builder-form-label" for="review-email">
-                Email <span class="required">*</span>
-              </label>
-              <input type="email" id="review-email" class="builder-input" required>
-            </div>
-            
-            <div class="builder-form-field">
-              <label class="builder-form-label" for="review-phone">
-                Phone (Optional)
-              </label>
-              <input type="tel" id="review-phone" class="builder-input">
-            </div>
-            
-            <div class="builder-form-field">
-              <label class="builder-form-label" for="review-company">
-                Company (Optional)
-              </label>
-              <input type="text" id="review-company" class="builder-input">
-            </div>
-            
-            <div class="builder-form-field builder-form-field-full">
-              <label class="builder-form-label" for="review-message">
-                Additional Message (Optional)
-              </label>
-              <textarea id="review-message" class="builder-textarea" rows="4" placeholder="Any specific questions or requirements you'd like to mention..."></textarea>
-            </div>
-          </div>
-          
-          <div class="builder-modal-actions">
-            <button type="button" id="cancel-expert-review" class="builder-secondary-button">
-              Cancel
-            </button>
-            <button type="submit" id="submit-expert-review" class="builder-primary-button">
-              Open Email Client
-            </button>
-          </div>
-        </form>
-        
-        <div class="builder-info-banner">
-          <div class="builder-info-content">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+
+        <div class="builder-prefill-note">
+          <div class="builder-prefill-note-text">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
             </svg>
-            <div>
-              <p class="builder-info-text">
-                <strong>Note:</strong> Clicking "Open Email Client" will open your default email application with a pre-filled message 
-                containing all your lab builder information. You can review and edit the email before sending it to our sales team.
-              </p>
-            </div>
+            <span><strong>Step 1:</strong> Copy your Lab Builder summary, then paste it into the <strong>Inquiry Details</strong> field on page 2 of the form.</span>
           </div>
+          <div class="builder-prefill-actions">
+            <button type="button" id="copy-summary-btn" class="builder-pill-btn builder-pill-btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              <span>Copy summary</span>
+            </button>
+            <button type="button" id="toggle-summary-preview" class="builder-pill-btn builder-pill-btn-secondary" aria-expanded="false" aria-controls="summary-preview">View</button>
+          </div>
+        </div>
+
+        <div id="summary-preview" class="builder-summary-preview" style="display: none;" aria-live="polite">
+          <pre id="summary-preview-content"></pre>
+        </div>
+
+        <div id="hubspot-form-container" class="builder-hubspot-container">
+          <div class="builder-hubspot-loading" id="hubspot-loading">
+            <div class="builder-hubspot-spinner" aria-hidden="true"></div>
+            <span>Loading form&hellip;</span>
+          </div>
+        </div>
+
+        <div id="hubspot-form-error" class="builder-hubspot-error" style="display: none;" role="alert">
+          <p>
+            Trouble loading the form? You can also
+            <a id="hubspot-fallback-link" href="mailto:pace@metallographic.com" class="builder-warning-link">email our team directly</a>.
+          </p>
         </div>
       </div>
     </div>

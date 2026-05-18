@@ -803,3 +803,139 @@
   }
 }
 
+
+/* ============================================================================
+   Conditions Tables & Sources Section  (rebuild schema v1)
+   Added 2026-05-13 — renders hardness_conditions / strength_conditions JSON
+   columns and the row-level Sources & References list.
+   ============================================================================ */
+
+.conditions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.conditions-table thead th {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  background: var(--color-gray-50, #f8fafc);
+  border-bottom: 2px solid var(--color-gray-200, #e2e8f0);
+  font-weight: 600;
+  color: var(--color-gray-700, #334155);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.conditions-table tbody td {
+  padding: 0.75rem 0.8rem;
+  border-bottom: 1px solid var(--color-gray-100, #f1f5f9);
+  vertical-align: top;
+}
+
+.conditions-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.conditions-table td.cond-name {
+  font-weight: 600;
+  color: var(--color-gray-900, #0f172a);
+  white-space: nowrap;
+  width: 1%;
+  padding-right: 1.5rem;
+}
+
+.conditions-table td.cond-value {
+  color: var(--color-gray-800, #1e293b);
+  line-height: 1.5;
+}
+
+.conditions-table td.cond-source {
+  font-size: 0.8rem;
+  color: var(--color-gray-500, #64748b);
+  font-style: italic;
+  width: 35%;
+}
+
+.conditions-table .condition-note {
+  margin-top: 0.4rem;
+  padding: 0.4rem 0.6rem;
+  background: var(--color-amber-50, #fffbeb);
+  border-left: 3px solid var(--color-amber-300, #fcd34d);
+  border-radius: 2px;
+  font-size: 0.85rem;
+  color: var(--color-gray-700, #334155);
+  font-style: italic;
+  font-weight: normal;
+}
+
+.conditions-table .condition-source + .condition-source {
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .conditions-table {
+    font-size: 0.85rem;
+  }
+  .conditions-table thead {
+    display: none;
+  }
+  .conditions-table tr {
+    display: block;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-gray-200, #e2e8f0);
+  }
+  .conditions-table td {
+    display: block;
+    border-bottom: none !important;
+    padding: 0.2rem 0;
+  }
+  .conditions-table td.cond-name {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+    white-space: normal;
+    width: auto;
+    padding-right: 0;
+  }
+  .conditions-table td.cond-source {
+    width: auto;
+    margin-top: 0.4rem;
+  }
+}
+
+/* Sources & References --------------------------------------------------- */
+
+.sources-section {
+  margin-top: 1.5rem;
+}
+
+.sources-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  counter-reset: source;
+}
+
+.sources-list li {
+  padding: 0.4rem 0 0.4rem 2.5rem;
+  position: relative;
+  font-size: 0.85rem;
+  color: var(--color-gray-700, #334155);
+  line-height: 1.5;
+  border-bottom: 1px dashed var(--color-gray-100, #f1f5f9);
+}
+
+.sources-list li:last-child {
+  border-bottom: none;
+}
+
+.sources-list .source-num {
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  font-weight: 600;
+  color: var(--color-gray-500, #64748b);
+  font-variant-numeric: tabular-nums;
+}

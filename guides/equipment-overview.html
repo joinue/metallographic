@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="LzR4wVONWG6uIX3m2QcGuvf3rBxuHBCijv-Pl1tccFs">
-    <meta name="description" content="Learn about the essential equipment used in metallography, from sectioning and mounting to grinding, polishing, and microscopy. Understand what equipment you need to set up a metallography laboratory.">
+    <meta name="description" content="A complete map of the metallography workflow and the equipment behind each stage — sectioning, mounting, grinding &amp; polishing, microscopy, and hardness testing — with PACE Technologies machines for every step and a quick equipment chooser for new and growing labs.">
     <meta name="keywords" content="metallography equipment, metallographic equipment, sample preparation equipment, metallography lab setup, sectioning equipment, mounting equipment, grinding polishing equipment, metallurgical microscopes">
     <meta name="theme-color" content="#ffffff">
     <meta name="msapplication-TileColor" content="#da532c">
@@ -49,7 +49,7 @@
 
     <!-- Open Graph Tags for Social Sharing -->
     <meta property="og:title" content="Metallography Equipment Overview | PACE Technologies">
-    <meta property="og:description" content="Learn about the essential equipment used in metallography, from sectioning and mounting to grinding, polishing, and microscopy.">
+    <meta property="og:description" content="The metallography workflow, end to end — and the PACE Technologies equipment behind each stage.">
     <meta property="og:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
     <meta property="og:url" content="https://www.metallographic.com/guides/equipment-overview.html">
     <meta property="og:type" content="article">
@@ -57,7 +57,7 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Metallography Equipment Overview">
-    <meta name="twitter:description" content="Learn about the essential equipment used in metallography, from sectioning and mounting to grinding, polishing, and microscopy.">
+    <meta name="twitter:description" content="The metallography workflow, end to end — and the PACE Technologies equipment behind each stage.">
     <meta name="twitter:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
 
     <!-- Schema Markup: Article -->
@@ -111,11 +111,329 @@
       ]
     }
     </script>
+
+    <!-- Page-scoped styles for equipment-overview UI -->
+    <style>
+      /* Brand-blue gradient used in hero workflow strip */
+      :root {
+        --eq-brand: #2563eb;
+        --eq-brand-dark: #1d4ed8;
+        --eq-brand-soft: #eff6ff;
+        --eq-line: #e5e7eb;
+      }
+
+      /* ====================================================================
+         Hero workflow strip — visual map of the metallography pipeline
+         ==================================================================== */
+      .eq-workflow {
+        margin: 0 0 2.5rem 0;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+        border: 1px solid #dbeafe;
+        border-radius: 0.75rem;
+      }
+      .eq-workflow-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .eq-workflow-head h2 {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .eq-workflow-head .hint {
+        font-size: 0.8125rem;
+        color: #4b5563;
+        margin: 0;
+      }
+      .eq-workflow-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+      }
+      @media (min-width: 640px) { .eq-workflow-grid { grid-template-columns: repeat(3, 1fr); } }
+      @media (min-width: 900px) { .eq-workflow-grid { grid-template-columns: repeat(6, 1fr); } }
+
+      .eq-workflow-step {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.875rem 0.75rem;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.625rem;
+        text-decoration: none;
+        color: #111827;
+        transition: all 0.18s ease;
+        min-height: 100%;
+      }
+      .eq-workflow-step:hover,
+      .eq-workflow-step:focus {
+        border-color: var(--eq-brand);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.16);
+        background: #ffffff;
+        color: #111827; /* hold base text color on hover */
+      }
+      .eq-workflow-step .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 0.375rem;
+        background: var(--eq-brand);
+        color: #ffffff;
+        font-size: 0.75rem;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .eq-workflow-step .label {
+        font-size: 0.9375rem;
+        font-weight: 600;
+        line-height: 1.25;
+        color: #111827;
+      }
+      .eq-workflow-step .sub {
+        font-size: 0.75rem;
+        color: #6b7280;
+        line-height: 1.35;
+      }
+      .eq-workflow-step:hover .label,
+      .eq-workflow-step:focus .label { color: var(--eq-brand-dark); }
+      .eq-workflow-step:hover .sub,
+      .eq-workflow-step:focus .sub { color: #6b7280; }
+      .eq-workflow-step:hover .num,
+      .eq-workflow-step:focus .num { color: #ffffff; }
+      /* Arrow connectors between desktop steps */
+      @media (min-width: 900px) {
+        .eq-workflow-step + .eq-workflow-step::before {
+          content: "";
+          position: absolute;
+          left: -0.5rem;
+          top: 50%;
+          width: 0.625rem;
+          height: 1px;
+          background: #cbd5e1;
+          transform: translateY(-50%);
+        }
+      }
+
+      /* ====================================================================
+         Quick-CTA pin (compact "Build Your Lab" near top)
+         ==================================================================== */
+      .eq-quickcta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+        background: #ffffff;
+        border: 1px solid #dbeafe;
+        border-radius: 0.625rem;
+        margin: 0 0 2.5rem 0;
+      }
+      .eq-quickcta-text {
+        font-size: 0.9375rem;
+        color: #111827;
+        margin: 0;
+        line-height: 1.5;
+      }
+      .eq-quickcta-text strong { color: var(--eq-brand-dark); }
+      .eq-quickcta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .eq-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.5rem 0.875rem;
+        border-radius: 9999px;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.15s ease;
+        white-space: nowrap;
+      }
+      .eq-pill-primary,
+      .eq-pill-primary:link,
+      .eq-pill-primary:visited {
+        background: var(--eq-brand);
+        color: #ffffff;
+        border: 1px solid var(--eq-brand);
+      }
+      .eq-pill-primary:hover,
+      .eq-pill-primary:focus,
+      .eq-pill-primary:active {
+        background: var(--eq-brand-dark);
+        border-color: var(--eq-brand-dark);
+        color: #ffffff; /* lock text white so global a:hover can't overpower it */
+      }
+      .eq-pill-ghost,
+      .eq-pill-ghost:link,
+      .eq-pill-ghost:visited {
+        background: #ffffff;
+        color: var(--eq-brand-dark);
+        border: 1px solid #dbeafe;
+      }
+      .eq-pill-ghost:hover,
+      .eq-pill-ghost:focus,
+      .eq-pill-ghost:active {
+        background: var(--eq-brand-soft);
+        border-color: var(--eq-brand);
+        color: var(--eq-brand-dark);
+      }
+
+      /* ====================================================================
+         Stage badges + spec strip above section H2s
+         ==================================================================== */
+      .eq-stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.625rem;
+        margin: 0 0 0.5rem 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--eq-brand-dark);
+      }
+      .eq-stage-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.25rem 0.625rem;
+        background: var(--eq-brand-soft);
+        border: 1px solid #dbeafe;
+        border-radius: 9999px;
+      }
+      .eq-stage-badge .dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 9999px;
+        background: var(--eq-brand);
+      }
+      .eq-stage-meta {
+        font-size: 0.75rem;
+        color: #6b7280;
+        font-weight: 500;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+
+      /* ====================================================================
+         Normalize "lonely" single phase cards — wrap them in a single-column
+         "phases-grid" so they share the same look as multi-card sections.
+         ==================================================================== */
+      .eq-single-wrap {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem 0;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* ====================================================================
+         Decision matrix — "Which equipment do I need?"
+         ==================================================================== */
+      .eq-decision {
+        margin: 1.5rem 0 2rem;
+        background: #ffffff;
+        border: 1px solid var(--eq-line);
+        border-radius: 0.625rem;
+        overflow: hidden;
+      }
+      .eq-decision-head {
+        background: var(--eq-brand-soft);
+        padding: 0.875rem 1rem;
+        border-bottom: 1px solid #dbeafe;
+      }
+      .eq-decision-head h3 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #111827;
+      }
+      .eq-decision-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.875rem;
+      }
+      .eq-decision-table th,
+      .eq-decision-table td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--eq-line);
+        vertical-align: top;
+      }
+      .eq-decision-table thead th {
+        background: #f9fafb;
+        font-weight: 600;
+        color: #374151;
+        font-size: 0.8125rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .eq-decision-table tbody tr:last-child td { border-bottom: none; }
+      .eq-decision-table .need {
+        font-weight: 600;
+        color: #111827;
+        white-space: nowrap;
+      }
+      .eq-decision-table a {
+        color: var(--eq-brand);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .eq-decision-table a:hover { text-decoration: underline; }
+      @media (max-width: 640px) {
+        .eq-decision-table .hide-sm { display: none; }
+      }
+
+      /* ====================================================================
+         Card normalization — ensure every guide-phase-card on this page
+         shares the same baseline spacing and link-style.
+         ==================================================================== */
+      .guide-phase-card .eq-card-cta {
+        margin-top: 0.75rem;
+        font-weight: 600;
+      }
+      .guide-phase-card .eq-card-cta a {
+        color: var(--eq-brand);
+        text-decoration: none;
+      }
+      .guide-phase-card .eq-card-cta a:hover { text-decoration: underline; }
+    </style>
 </head>
 
 <body>
 <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
 
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
@@ -143,20 +461,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -366,35 +692,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -439,111 +761,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -752,36 +1004,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -818,73 +1068,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -922,44 +1135,96 @@
     </div>
 </nav>
 
-    <!-- Toggle Tab - Visible from xl (1280px) to 3xl (1800px) -->
-    <button
-      id="guide-nav-toggle"
-      class="guide-nav-toggle"
-      aria-label="Open navigation"
-      aria-expanded="false"
-    >
-      <svg class="guide-nav-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path class="guide-nav-toggle-arrow" d="M9 18l6-6-6-6"/>
-      </svg>
-    </button>
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
 
-    <!-- Overlay - Only on xl screens when open -->
-    <div
-      id="guide-nav-overlay"
-      class="guide-nav-overlay"
-      aria-hidden="true"
-    ></div>
+    <!-- Side-nav toggle + overlay + container are injected by /js/guide-nav.js
+         (do not add #guide-nav-toggle / #guide-nav-overlay markup here without also adding
+         #guide-side-nav, or the JS will append a duplicate set and clicks will be intercepted
+         by the duplicate that has no event handler). -->
 
-    <!-- Navigation -->
+    <!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
+<!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
+        <!-- Notice Banner
+        <div class="notice-banner" role="alert">
+            <div class="notice-content">
+                <svg class="notice-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <p>
+                    We've updated our site! Please clear your browser cache for the best experience. Also, our old shop pages are now retired. Please shop online at 
+                    <strong><a href="https://shop.metallographic.com" class="notice-link" target="_blank" rel="noopener noreferrer">shop.metallographic.com</a></strong>.
+                  </p>
+                  
+                                  <button class="notice-close" aria-label="Close notice">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -1048,6 +1313,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
@@ -1093,7 +1359,7 @@
                     </button>
                 </div>
                 <ul class="sub-menu-mobile" data-section="consumables">
-                    <li><a href="https://shop.metallographic.com/" class="shop-link-button"><span>E-Commerce Shop</span>
+                    <li><a href="https://shop.metallographic.com/" class="shop-link-button" target="_blank" rel="noopener noreferrer"><span>E-Commerce Shop</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1168,35 +1434,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1241,110 +1503,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -1436,12 +1629,13 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
-                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html"><span>Hand / Belt Grinders</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html"><span>Manual Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html"><span>Semi-Auto Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html"><span>Automated Abrasive Dispenser</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html"><span>Controlled Removal Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html"><span>Vibratory Polishers</span></a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
                     </li>
                     <li>
@@ -1492,7 +1686,7 @@
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="https://shop.metallographic.com/" class="shop-link-button"><span>E-Commerce Shop</span></a></li>
+                    <li><a href="https://shop.metallographic.com/" class="shop-link-button" target="_blank" rel="noopener noreferrer"><span>E-Commerce Shop</span></a></li>
                     <li><a href="/metallographic-consumables/sectioning.html"><span>Sectioning                                    
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
@@ -1552,41 +1746,40 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
                 <a href="/resources.html">
-                    <span>Resources<svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <span>Resources
+                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
@@ -1617,76 +1810,40 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                </ul>
-            </li>
-            <li>
-              <a href="https://shop.metallographic.com" class="shop-link">
+              <a href="https://shop.metallographic.com" class="shop-link" target="_blank" rel="noopener noreferrer">
                 <span>Online Shop&nbsp;<svg class="shop-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
                 </svg></span>
@@ -1719,6 +1876,33 @@
         </div>
     </div>
 </nav>
+
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
         </div>
       </div>
     </nav>
@@ -1737,22 +1921,72 @@
                     <span class="guide-category">Basics Guide</span>
                     <h1>Metallography Equipment Overview</h1>
                     <p class="guide-description">
-                        Learn about the essential equipment used in metallography, from sectioning and mounting to grinding, 
-                        polishing, and microscopy. Understand what equipment you need to set up a metallography laboratory.
+                        Every metallography lab is built around the same five-stage workflow — sectioning, mounting, grinding &amp; polishing, microscopy, and hardness testing. This guide walks the workflow stage by stage, shows the PACE Technologies equipment behind each step, and ends with a quick chooser for new and growing labs.
                     </p>
                 </header>
+
+                <!-- Hero: Workflow visualization -->
+                <section class="eq-workflow" aria-labelledby="eq-workflow-heading">
+                    <div class="eq-workflow-head">
+                        <h2 id="eq-workflow-heading">The Metallography Workflow</h2>
+                        <p class="hint">Tap any stage to jump to its equipment.</p>
+                    </div>
+                    <div class="eq-workflow-grid">
+                        <a class="eq-workflow-step" href="#sectioning-equipment">
+                            <span class="num">1</span>
+                            <span class="label">Sectioning</span>
+                            <span class="sub">Cut samples with minimal damage</span>
+                        </a>
+                        <a class="eq-workflow-step" href="#mounting-equipment">
+                            <span class="num">2</span>
+                            <span class="label">Mounting</span>
+                            <span class="sub">Encapsulate for handling &amp; edge retention</span>
+                        </a>
+                        <a class="eq-workflow-step" href="#grinding-polishing">
+                            <span class="num">3</span>
+                            <span class="label">Grinding &amp; Polishing</span>
+                            <span class="sub">Flatten and refine to a mirror finish</span>
+                        </a>
+                        <a class="eq-workflow-step" href="#microscopy-equipment">
+                            <span class="num">4</span>
+                            <span class="label">Microscopy</span>
+                            <span class="sub">Examine and document microstructure</span>
+                        </a>
+                        <a class="eq-workflow-step" href="#hardness-testing">
+                            <span class="num">5</span>
+                            <span class="label">Hardness Testing</span>
+                            <span class="sub">Quantify mechanical properties</span>
+                        </a>
+                        <a class="eq-workflow-step" href="#consumables">
+                            <span class="num">+</span>
+                            <span class="label">Consumables &amp; Lab</span>
+                            <span class="sub">Pads, abrasives, etchants, lab furniture</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Compact Build-Your-Lab pin -->
+                <div class="eq-quickcta">
+                    <p class="eq-quickcta-text">
+                        <strong>Not sure what you need?</strong> Get a personalized equipment and consumables recommendation in a few minutes.
+                    </p>
+                    <div class="eq-quickcta-actions">
+                        <a href="/build.html" class="eq-pill eq-pill-primary">Build Your Lab →</a>
+                        <a href="#equipment-selection" class="eq-pill eq-pill-ghost">Equipment chooser</a>
+                    </div>
+                </div>
 
                 <!-- Table of Contents - Mobile/Tablet -->
                 <div class="guide-toc-mobile">
                     <h2>Table of Contents</h2>
                     <ul>
                         <li><a href="#introduction">Introduction</a></li>
-                        <li><a href="#sectioning-equipment">Sectioning Equipment</a></li>
-                        <li><a href="#mounting-equipment">Mounting Equipment</a></li>
-                        <li><a href="#grinding-polishing">Grinding & Polishing Equipment</a></li>
-                        <li><a href="#microscopy-equipment">Microscopy Equipment</a></li>
-                        <li><a href="#hardness-testing">Hardness Testing Equipment</a></li>
-                        <li><a href="#consumables">Consumables & Accessories</a></li>
+                        <li><a href="#sectioning-equipment">Stage 1 — Sectioning</a></li>
+                        <li><a href="#mounting-equipment">Stage 2 — Mounting</a></li>
+                        <li><a href="#grinding-polishing">Stage 3 — Grinding &amp; Polishing</a></li>
+                        <li><a href="#microscopy-equipment">Stage 4 — Microscopy</a></li>
+                        <li><a href="#hardness-testing">Stage 5 — Hardness Testing</a></li>
+                        <li><a href="#consumables">Consumables &amp; Accessories</a></li>
                         <li><a href="#lab-setup">Laboratory Setup</a></li>
                         <li><a href="#equipment-selection">Selecting Equipment</a></li>
                     </ul>
@@ -1763,27 +1997,14 @@
                     <section id="introduction" class="guide-section">
                         <h2>Introduction</h2>
                         <p>
-                            A well-equipped metallography laboratory requires specialized equipment for each step of the sample 
-                            preparation process. From cutting samples to examining microstructures, each piece of equipment plays 
-                            a critical role in producing high-quality metallographic specimens. Understanding the equipment options 
-                            available helps you make informed decisions when setting up or upgrading your laboratory.
+                            A metallography lab is a sequence of dependent steps: a poor cut limits what mounting can fix, a poor mount limits what grinding can fix, and so on down the line. Each stage of the workflow has its own equipment family — and within each family, the choice between manual, automated, pneumatic, hydraulic, or specialty systems comes down to sample volume, materials, and required precision.
                         </p>
                         <p>
-                            This guide provides an overview of the essential equipment categories used in metallography, with 
-                            examples of PACE Technologies equipment. While specific models and features vary by manufacturer, the 
-                            fundamental equipment types and their purposes remain consistent across the industry.
+                            This page walks the workflow stage by stage, showing the PACE Technologies equipment behind each step alongside the fundamentals that apply across the industry. Specific models and features vary by manufacturer; the equipment categories and their purposes do not.
                         </p>
-                        <div class="guide-info-box guide-info-box-blue">
-                            <p>
-                                <strong>Note:</strong> Equipment selection depends on your specific needs, sample volume, material types, 
-                                and budget. This guide provides general information to help you understand what equipment is available 
-                                and what to consider when making purchasing decisions.
-                            </p>
-                        </div>
                         <div class="guide-info-box guide-info-box-primary">
                             <p>
-                                <strong>📹 Video Tutorials:</strong> Dr. Donald Zipperian, founder of PACE Technologies, has created 
-                                instructional videos demonstrating equipment usage. Watch these videos in our process guides:
+                                <strong>📹 Video Tutorials by Dr. Donald Zipperian.</strong> The founder of PACE Technologies has recorded equipment-in-use demonstrations for every stage of the workflow:
                             </p>
                             <ul>
                                 <li><a href="/guides/sectioning.html#precision-wafering" class="guide-link">Precision Sectioning</a></li>
@@ -1799,6 +2020,10 @@
                     </section>
 
                     <section id="sectioning-equipment" class="guide-section">
+                        <div class="eq-stage">
+                            <span class="eq-stage-badge"><span class="dot"></span>Stage 1 of 5</span>
+                            <span class="eq-stage-meta">Abrasive cutters · Precision wafering saws · 4 product families</span>
+                        </div>
                         <h2>Sectioning Equipment</h2>
                         <p>
                             Sectioning equipment is used to cut samples from larger workpieces. The type of sectioning equipment 
@@ -1938,6 +2163,10 @@
                         </div>
                     </section>
                     <section id="mounting-equipment" class="guide-section">
+                        <div class="eq-stage">
+                            <span class="eq-stage-badge"><span class="dot"></span>Stage 2 of 5</span>
+                            <span class="eq-stage-meta">Compression presses · Castable resin systems · 5 product families</span>
+                        </div>
                         <h2>Mounting Equipment</h2>
                         <p>
                             Mounting equipment embeds samples in resin to create standardized, easy-to-handle mounts. Different 
@@ -2077,7 +2306,11 @@
                     </section>
 
                     <section id="grinding-polishing" class="guide-section">
-                        <h2>Grinding & Polishing Equipment</h2>
+                        <div class="eq-stage">
+                            <span class="eq-stage-badge"><span class="dot"></span>Stage 3 of 5</span>
+                            <span class="eq-stage-meta">Manual · Semi-automated · Controlled removal · Vibratory · 5 product families</span>
+                        </div>
+                        <h2>Grinding &amp; Polishing Equipment</h2>
                         <p>
                             Grinding and polishing equipment creates flat, scratch-free surfaces suitable for microscopic examination. 
                             Equipment ranges from manual systems to fully automated polishers.
@@ -2130,12 +2363,16 @@
                                         >
                                     </a>
                                 </div>
-                                <h4>Hand & Belt Grinders</h4>
+                                <h4>Hand &amp; Belt Grinders</h4>
                                 <p>
-                                    Belt grinding systems for initial material removal and rough grinding. Useful for removing large 
-                                    amounts of material quickly.
+                                    Belt grinding systems for initial material removal on large or irregular workpieces, fixturing prep, and rough flattening before mounted-sample grinding begins.
                                 </p>
-                                <p style="margin-top: 0.75rem;">
+                                <ul>
+                                    <li>Fast bulk material removal</li>
+                                    <li>Robust construction for shop-floor use</li>
+                                    <li>Coolant-flow ports on PENTA Series</li>
+                                </ul>
+                                <p class="eq-card-cta">
                                     <a href="/metallographic-equipment/grinding-polishing/penta.html" class="guide-link">
                                         View Belt Grinders →
                                     </a>
@@ -2152,26 +2389,32 @@
                             for automated system protocols.
                         </p>
 
-                        <div class="guide-phase-card" style="max-width: 600px; margin: 2rem auto;">
-                            <div class="guide-phase-image">
-                                <a href="/metallographic-equipment/grinding-polishing/femto.html" class="guide-link">
-                                    <img 
-                                        src="/images/equipment/grinding & polishing/semi-auto grinder polishers/femto-1100s/femto-1100s-cover.webp"
-                                        alt="Semi-automated grinder polisher"
-                                        loading="lazy"
-                                    >
-                                </a>
+                        <div class="eq-single-wrap">
+                            <div class="guide-phase-card">
+                                <div class="guide-phase-image">
+                                    <a href="/metallographic-equipment/grinding-polishing/femto.html" class="guide-link">
+                                        <img
+                                            src="/images/equipment/grinding & polishing/semi-auto grinder polishers/femto-1100s/femto-1100s-cover.webp"
+                                            alt="Semi-automated grinder polisher"
+                                            loading="lazy"
+                                        >
+                                    </a>
+                                </div>
+                                <h4>Semi-Automated Systems</h4>
+                                <p>
+                                    Programmable preparation cycles with automatic head movement and force control. Operator loads samples and selects the program; the system handles pressure, time, and rotation. Consistent results with reduced operator time.
+                                </p>
+                                <ul>
+                                    <li>Programmable force and time per step</li>
+                                    <li>Repeatable across batches and operators</li>
+                                    <li>Attachment heads available for manual polisher upgrade</li>
+                                </ul>
+                                <p class="eq-card-cta">
+                                    <a href="/metallographic-equipment/grinding-polishing/femto.html" class="guide-link">
+                                        View Semi-Automated Systems →
+                                    </a>
+                                </p>
                             </div>
-                            <h4>Semi-Automated Systems</h4>
-                            <p>
-                                Programmable preparation cycles with automatic head movement. Operator loads samples and selects 
-                                program. Consistent results with reduced operator time.
-                            </p>
-                            <p style="margin-top: 0.75rem;">
-                                <a href="/metallographic-equipment/grinding-polishing/femto.html" class="guide-link">
-                                    View Semi-Automated Systems →
-                                </a>
-                            </p>
                         </div>
 
                         <h3>Controlled Removal Polishers</h3>
@@ -2181,32 +2424,32 @@
                             case depth measurements.
                         </p>
 
-                        <div class="guide-phase-card" style="max-width: 600px; margin: 2rem auto;">
-                            <div class="guide-phase-image">
-                                <a href="/metallographic-equipment/grinding-polishing/atto.html" class="guide-link">
-                                    <img 
-                                        src="/images/equipment/grinding & polishing/controlled removal polisher/atto-1000s/atto-polisher-cover.webp"
-                                        alt="Controlled removal polisher"
-                                        loading="lazy"
-                                    >
-                                </a>
+                        <div class="eq-single-wrap">
+                            <div class="guide-phase-card">
+                                <div class="guide-phase-image">
+                                    <a href="/metallographic-equipment/grinding-polishing/atto.html" class="guide-link">
+                                        <img
+                                            src="/images/equipment/grinding & polishing/controlled removal polisher/atto-1000s/atto-polisher-cover.webp"
+                                            alt="Controlled removal polisher"
+                                            loading="lazy"
+                                        >
+                                    </a>
+                                </div>
+                                <h4>Controlled Removal Systems</h4>
+                                <p>
+                                    Precise material-removal control for applications where exact depth or planarity matters. Ideal for plano-parallel preparation, thin-section work, and any application where the amount removed must be measured rather than estimated.
+                                </p>
+                                <ul>
+                                    <li>Precise depth control and measurement</li>
+                                    <li>Ideal for thin sections and coatings</li>
+                                    <li>Essential for PCB and electronic-component preparation</li>
+                                </ul>
+                                <p class="eq-card-cta">
+                                    <a href="/metallographic-equipment/grinding-polishing/atto.html" class="guide-link">
+                                        View Controlled Removal Systems →
+                                    </a>
+                                </p>
                             </div>
-                            <h4>Controlled Removal Systems</h4>
-                            <p>
-                                Precise material removal control for applications requiring exact depth measurements or controlled 
-                                material removal rates. Ideal for plano-parallel sample preparation and applications where material 
-                                removal must be precisely controlled.
-                            </p>
-                            <ul>
-                                <li>Precise depth control and measurement</li>
-                                <li>Ideal for thin sections and coatings</li>
-                                <li>Essential for PCB and electronic component preparation</li>
-                            </ul>
-                            <p style="margin-top: 0.75rem;">
-                                <a href="/metallographic-equipment/grinding-polishing/atto.html" class="guide-link">
-                                    View Controlled Removal Systems →
-                                </a>
-                            </p>
                         </div>
 
                         <h3>Vibratory Polishers</h3>
@@ -2218,38 +2461,43 @@
                             and <a href="/metallographic-consumables/polishing.html" class="guide-link">polishing consumables</a>.
                         </p>
 
-                        <div class="guide-phase-card" style="max-width: 600px; margin: 2rem auto;">
-                            <div class="guide-phase-image">
-                                <a href="/metallographic-equipment/grinding-polishing/giga.html" class="guide-link">
-                                    <img 
-                                        src="/images/equipment/grinding & polishing/vibratory polisher/giga-s-cover.webp"
-                                        alt="Vibratory polisher"
-                                        loading="lazy"
-                                    >
-                                </a>
+                        <div class="eq-single-wrap">
+                            <div class="guide-phase-card">
+                                <div class="guide-phase-image">
+                                    <a href="/metallographic-equipment/grinding-polishing/giga.html" class="guide-link">
+                                        <img
+                                            src="/images/equipment/grinding & polishing/vibratory polisher/giga-s-cover.webp"
+                                            alt="Vibratory polisher"
+                                            loading="lazy"
+                                        >
+                                    </a>
+                                </div>
+                                <h4>Vibratory Polishing Systems</h4>
+                                <p>
+                                    Cost-effective alternative for final polishing that eliminates subsurface damage and produces superior flatness and planarity. Ideal for batch processing and any application requiring minimal mechanical deformation.
+                                </p>
+                                <ul>
+                                    <li>Eliminates subsurface damage</li>
+                                    <li>Superior flatness and planarity</li>
+                                    <li>Ideal for EBSD preparation</li>
+                                    <li>Batch processing capability</li>
+                                    <li>Reduces operator variability</li>
+                                </ul>
+                                <p class="eq-card-cta">
+                                    <a href="/metallographic-equipment/grinding-polishing/giga.html" class="guide-link">
+                                        View Vibratory Polishers →
+                                    </a>
+                                </p>
                             </div>
-                            <h4>Vibratory Polishing Systems</h4>
-                            <p>
-                                Cost-effective alternative for final polishing that eliminates subsurface damage and produces superior 
-                                flatness and planarity. Ideal for batch processing and applications requiring minimal deformation.
-                            </p>
-                            <ul>
-                                <li>Eliminates subsurface damage</li>
-                                <li>Superior flatness and planarity</li>
-                                <li>Ideal for EBSD preparation</li>
-                                <li>Batch processing capability</li>
-                                <li>Reduces operator variability</li>
-                            </ul>
-                            <p style="margin-top: 0.75rem;">
-                                <a href="/metallographic-equipment/grinding-polishing/giga.html" class="guide-link">
-                                    View Vibratory Polishers →
-                                </a>
-                            </p>
                         </div>
 
                     </section>
 
                     <section id="microscopy-equipment" class="guide-section">
+                        <div class="eq-stage">
+                            <span class="eq-stage-badge"><span class="dot"></span>Stage 4 of 5</span>
+                            <span class="eq-stage-meta">Metallurgical · Stereo · Image analysis · 3 product families</span>
+                        </div>
                         <h2>Microscopy Equipment</h2>
                         <p>
                             Microscopes are essential for examining prepared samples and analyzing microstructures. The type of 
@@ -2331,30 +2579,40 @@
                             for available options.
                         </p>
 
-                        <div class="guide-phase-card" style="max-width: 600px; margin: 2rem auto;">
-                            <div class="guide-phase-image">
-                                <a href="/metallographic-equipment/microscopy/image-analysis.html" class="guide-link">
-                                    <img 
-                                        src="/images/equipment/microscopy/image analysis/material-plus-interface.webp"
-                                        alt="Material Plus image analysis software interface showing microstructural analysis"
-                                        loading="lazy"
-                                    >
-                                </a>
+                        <div class="eq-single-wrap">
+                            <div class="guide-phase-card">
+                                <div class="guide-phase-image">
+                                    <a href="/metallographic-equipment/microscopy/image-analysis.html" class="guide-link">
+                                        <img
+                                            src="/images/equipment/microscopy/image analysis/material-plus-interface.webp"
+                                            alt="Material Plus image analysis software interface showing microstructural analysis"
+                                            loading="lazy"
+                                        >
+                                    </a>
+                                </div>
+                                <h4>Image Analysis Systems</h4>
+                                <p>
+                                    Software and hardware for capturing, analyzing, and quantifying microstructural features — grain size, phase fraction, inclusion rating, defect counting, and other automated measurements that turn images into data.
+                                </p>
+                                <ul>
+                                    <li>Grain-size measurement (ASTM E112)</li>
+                                    <li>Phase and inclusion quantification</li>
+                                    <li>Automated reporting and traceability</li>
+                                </ul>
+                                <p class="eq-card-cta">
+                                    <a href="/metallographic-equipment/microscopy/image-analysis.html" class="guide-link">
+                                        View Image Analysis Systems →
+                                    </a>
+                                </p>
                             </div>
-                            <h4>Image Analysis Systems</h4>
-                            <p>
-                                Software and hardware for capturing, analyzing, and quantifying microstructural features. Includes 
-                                grain size measurement, phase quantification, and automated analysis.
-                            </p>
-                            <p style="margin-top: 0.75rem;">
-                                <a href="/metallographic-equipment/microscopy/image-analysis.html" class="guide-link">
-                                    View Image Analysis Systems →
-                                </a>
-                            </p>
                         </div>
                     </section>
 
                     <section id="hardness-testing" class="guide-section">
+                        <div class="eq-stage">
+                            <span class="eq-stage-badge"><span class="dot"></span>Stage 5 of 5</span>
+                            <span class="eq-stage-meta">Rockwell · Microhardness · Brinell &amp; Vickers · 3 product families</span>
+                        </div>
                         <h2>Hardness Testing Equipment</h2>
                         <p>
                             Hardness testing equipment measures material hardness, often on prepared metallographic samples. Different 
@@ -2424,7 +2682,11 @@
                     </section>
 
                     <section id="consumables" class="guide-section">
-                        <h2>Consumables & Accessories</h2>
+                        <div class="eq-stage">
+                            <span class="eq-stage-badge"><span class="dot"></span>Across every stage</span>
+                            <span class="eq-stage-meta">Blades · Resins · Abrasives · Pads · Suspensions · Etchants</span>
+                        </div>
+                        <h2>Consumables &amp; Accessories</h2>
                         <p>
                             In addition to equipment, metallography requires various consumables and accessories for sample preparation 
                             and examination. Quality consumables are essential for consistent, high-quality results. Browse our 
@@ -2470,6 +2732,10 @@
                     </section>
 
                     <section id="lab-setup" class="guide-section">
+                        <div class="eq-stage">
+                            <span class="eq-stage-badge"><span class="dot"></span>Lab planning</span>
+                            <span class="eq-stage-meta">Workflow layout · Utilities · Furniture</span>
+                        </div>
                         <h2>Laboratory Setup</h2>
                         <p>
                             A well-designed metallography laboratory arranges equipment in logical workflow sequence
@@ -2487,11 +2753,87 @@
                     </section>
 
                     <section id="equipment-selection" class="guide-section">
+                        <div class="eq-stage">
+                            <span class="eq-stage-badge"><span class="dot"></span>Decision guide</span>
+                            <span class="eq-stage-meta">Match your application to the right equipment family</span>
+                        </div>
                         <h2>Selecting Equipment</h2>
                         <p>
-                            Choosing the right equipment depends on your specific needs, budget, and workflow requirements. Consider 
-                            the following factors when making equipment decisions.
+                            The right equipment depends on what you cut, mount, and analyse, how many samples you process, and how much precision the work demands. The matrix below maps common applications to the equipment family that handles them best.
                         </p>
+
+                        <!-- Quick decision matrix -->
+                        <div class="eq-decision">
+                            <div class="eq-decision-head">
+                                <h3>Quick Equipment Chooser</h3>
+                            </div>
+                            <table class="eq-decision-table">
+                                <thead>
+                                    <tr>
+                                        <th>If you need to&hellip;</th>
+                                        <th>Start here</th>
+                                        <th class="hide-sm">Why</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="need">Cut steel, castings, or general production samples</td>
+                                        <td><a href="/metallographic-equipment/abrasive-sectioning.html">Abrasive cutters</a></td>
+                                        <td class="hide-sm">Fast, cost-effective; manual for low volume, automated for repeatability and throughput.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="need">Cut PCBs, ceramics, thin samples, or EBSD prep</td>
+                                        <td><a href="/metallographic-equipment/precision-wafering.html">Precision wafering saws</a></td>
+                                        <td class="hide-sm">Thin diamond/CBN blades minimise sectioning damage on delicate or brittle materials.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="need">Mount standard metal samples for high throughput</td>
+                                        <td><a href="/metallographic-equipment/compression-mounting.html">Compression presses</a></td>
+                                        <td class="hide-sm">Heat &amp; pressure cure in 5–15 min per cycle; excellent edge retention with phenolic / DAP / mineral-filled resins.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="need">Mount heat-sensitive materials (Al, polymers, composites)</td>
+                                        <td><a href="/metallographic-equipment/castable-mounting.html">Castable systems</a></td>
+                                        <td class="hide-sm">Room-temperature cure; vacuum impregnation for porous samples; UV cure for fast turnaround.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="need">Learn the craft or set up a low-volume lab</td>
+                                        <td><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual grinder polishers (NANO)</a></td>
+                                        <td class="hide-sm">Operator-controlled; teaches technique; flexible across materials and procedures.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="need">Run a consistent, repeatable preparation lab</td>
+                                        <td><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-automated systems (FEMTO)</a></td>
+                                        <td class="hide-sm">Programmable force and time; consistent results across operators and batches.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="need">Measure exact removal depth (case depth, thin films, PCB)</td>
+                                        <td><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled-removal polishers (ATTO)</a></td>
+                                        <td class="hide-sm">Material removal is metered and measured, not estimated.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="need">Prepare EBSD or eliminate subsurface damage</td>
+                                        <td><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory polishers (GIGA)</a></td>
+                                        <td class="hide-sm">Low-stress final polish; batch capable; produces a strain-free surface.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="need">Examine and document microstructures</td>
+                                        <td><a href="/metallographic-equipment/microscopy/metallurgical.html">Metallurgical microscopes</a></td>
+                                        <td class="hide-sm">Reflected-light scope with brightfield, darkfield, polarisation, and DIC; digital imaging for documentation.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="need">Measure macro hardness on the production floor</td>
+                                        <td><a href="/metallographic-equipment/hardness-testing/rockwell.html">Rockwell testers</a></td>
+                                        <td class="hide-sm">Direct readout, fast cycle, multiple scales for different material classes.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="need">Measure case depth or test individual phases</td>
+                                        <td><a href="/metallographic-equipment/hardness-testing/microhardness.html">Microhardness testers</a></td>
+                                        <td class="hide-sm">Vickers / Knoop indents at 10 g–1 kg; required for case-depth profiles and microstructural-feature hardness.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <div class="guide-info-box" style="background: var(--color-primary, #2563eb); border-left-color: var(--color-primary-dark, #1e40af); color: white; padding: 2rem;">
                             <h3 style="color: white; margin-top: 0;">Get Personalized Equipment Recommendations</h3>
@@ -2594,6 +2936,7 @@
             </div>
         </div>
     </main>
+
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
@@ -2653,9 +2996,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -2667,7 +3038,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -2695,8 +3066,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -2768,9 +3138,43 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
     <script src="/js/guide-nav.js"></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

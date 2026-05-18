@@ -85,6 +85,16 @@
 <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -111,20 +121,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -334,35 +352,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -407,111 +421,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -720,36 +664,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -786,73 +728,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -896,12 +801,28 @@
         <button class="close" aria-label="Close">&times;</button>
         <section class="quote-request" aria-labelledby="quote-request-heading">
             <div class="quote-form-container">
-                <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
             </div>
         </section>
     </div>
 </div>
+
+
 
 <!-- HEADER -->
 
@@ -920,291 +841,422 @@
 
 <div class="first-container">
     <div class="legal">
-      <div class="legal-content">
-        <p><strong>Last Updated:</strong> February 9, 2026</p>
-  
-        <h3>1. Introduction</h3>
-        <p><strong>Summary:</strong> We protect your privacy and handle your data responsibly. This policy explains how we collect, use, and protect your information.</p>
-        <p>
-          Welcome to PACE Technologies. Your privacy is important to us, and we are committed to safeguarding your personal information.
-          This Privacy Policy explains how we collect, use, and protect the data you share with us through our website, online forms, and business operations.
-        </p>
-  
-        <h3>2. Information We Collect</h3>
-        <p><strong>Summary:</strong> We collect information you provide directly, automatically through our website, and through business interactions. Our equipment does not collect data.</p>
-  
-        <p><strong>2.1 Personal Information You Provide</strong></p>
-        <p>We may collect the following personal information that you voluntarily provide:</p>
-        <ul>
-          <li>Full Name</li>
-          <li>Email Address</li>
-          <li>Phone Number</li>
-          <li>Company Name and Address</li>
-          <li>Job Title and Department</li>
-          <li>Geographical Location</li>
-          <li>Purchase and Quote Information</li>
-          <li>Technical Support Requests</li>
-          <li>Any additional information you choose to provide</li>
-        </ul>
-  
-        <p><strong>2.2 Automatically Collected Information</strong></p>
-        <p>
-          We may automatically collect certain technical data when you visit our website, including:
-        </p>
-        <ul>
-          <li>IP address and location data</li>
-          <li>Browser type, version, and language</li>
-          <li>Device type and operating system</li>
-          <li>Pages visited and time spent on site</li>
-          <li>Referring website and search terms</li>
-          <li>Cookies and similar tracking technologies</li>
-        </ul>
+        <div class="legal-meta">
+            <div class="legal-meta-row">
+                <span class="legal-effective">Effective <strong>May 13, 2026</strong></span>
+                <span class="legal-divider">·</span>
+                <span class="legal-version">Version 2.0</span>
+            </div>
+            <p class="legal-intro">
+                This Privacy Policy explains what personal information PACE Technologies collects, how we use and protect it, and the choices you have. It applies to our website (metallographic.com), online forms, e-commerce shop, and direct business interactions.
+            </p>
+        </div>
 
-        <p><strong>2.3 Business Information</strong></p>
-        <p>
-          We may collect information related to our business relationship, including:
-        </p>
-        <ul>
-          <li>Purchase history and order details</li>
-          <li>Technical support communications</li>
-          <li>Training records and certifications</li>
-          <li>Warranty and service agreements</li>
-        </ul>
+        <div class="legal-layout">
+            <aside class="legal-toc" aria-label="Table of contents">
+                <p class="legal-toc-label">Contents</p>
+                <ol class="legal-toc-list">
+                    <li><a href="#s1"><span class="legal-toc-num">01</span> Introduction</a></li>
+                    <li><a href="#s2"><span class="legal-toc-num">02</span> Information We Collect</a></li>
+                    <li><a href="#s3"><span class="legal-toc-num">03</span> How We Use It</a></li>
+                    <li><a href="#s4"><span class="legal-toc-num">04</span> Cookies &amp; Tracking</a></li>
+                    <li><a href="#s5"><span class="legal-toc-num">05</span> Third-Party Services</a></li>
+                    <li><a href="#s6"><span class="legal-toc-num">06</span> Sharing &amp; Disclosure</a></li>
+                    <li><a href="#s7"><span class="legal-toc-num">07</span> AI &amp; Machine Learning</a></li>
+                    <li><a href="#s8"><span class="legal-toc-num">08</span> International Transfers</a></li>
+                    <li><a href="#s9"><span class="legal-toc-num">09</span> Your Privacy Rights</a></li>
+                    <li><a href="#s10"><span class="legal-toc-num">10</span> Data Security</a></li>
+                    <li><a href="#s11"><span class="legal-toc-num">11</span> Data Retention</a></li>
+                    <li><a href="#s12"><span class="legal-toc-num">12</span> Breach Notification</a></li>
+                    <li><a href="#s13"><span class="legal-toc-num">13</span> Children's Privacy</a></li>
+                    <li><a href="#s14"><span class="legal-toc-num">14</span> Marketing Communications</a></li>
+                    <li><a href="#s15"><span class="legal-toc-num">15</span> Automated Decisions</a></li>
+                    <li><a href="#s16"><span class="legal-toc-num">16</span> Policy Updates</a></li>
+                    <li><a href="#s17"><span class="legal-toc-num">17</span> Contact Us</a></li>
+                </ol>
+            </aside>
 
-        <p><strong>2.4 Equipment Data</strong></p>
-        <p>
-          <strong>Important:</strong> Our metallographic equipment does not collect, store, or transmit personal data or usage information. 
-          Equipment operates independently without data collection capabilities.
-        </p>
-  
-        <h3>3. Use of Information</h3>
-        <p><strong>Summary:</strong> We use your information to provide services, communicate with you, and run our business. We don't sell your data to third parties.</p>
-        <p>We use the collected information for the following purposes:</p>
-        <ul>
-          <li>To respond to inquiries and provide requested services</li>
-          <li>To process orders, quotes, and business transactions</li>
-          <li>For sales, marketing, and customer support communications</li>
-          <li>To provide technical support and service assistance</li>
-          <li>To maintain warranty and service records</li>
-          <li>To improve our website, products, and services</li>
-          <li>To comply with applicable legal obligations</li>
-          <li>To protect the rights, privacy, safety, or property of our business and users</li>
-          <li>As part of a business transfer, merger, or acquisition</li>
-        </ul>
+            <article class="legal-content">
+                <section class="legal-section" id="s1">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">01</span>
+                        <h3 class="legal-section-title">Introduction</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>This explains what data we collect, how we use it, and the choices you have. It applies to our website, forms, online shop, and business dealings with us.</p>
+                    </aside>
+                    <p>
+                        PACE Technologies ("PACE," "we," "us," or "our") is a U.S.-based manufacturer of metallographic equipment and consumables, headquartered at 3601 E. 34th Street, Tucson, Arizona 85713, USA. We are the controller of the personal information described in this Privacy Policy.
+                    </p>
+                    <p>
+                        This Privacy Policy ("Policy") describes how we collect, use, disclose, and protect personal information when you visit metallographic.com (our "Site"), submit a form, request a quote, purchase through our online shop, attend our events, or otherwise interact with us. By using our Site or services, you acknowledge that you have read this Policy.
+                    </p>
+                </section>
 
-        <p><strong>Legal Basis for Processing (GDPR)</strong></p>
-        <p>For EU residents, we process your personal data based on:</p>
-        <ul>
-          <li><strong>Contract Performance:</strong> To fulfill our contractual obligations</li>
-          <li><strong>Legitimate Interest:</strong> For business operations and customer service</li>
-          <li><strong>Consent:</strong> For marketing communications (where required)</li>
-          <li><strong>Legal Obligation:</strong> To comply with applicable laws</li>
-        </ul>
-  
-        <h3>4. Cookies and Tracking Technologies</h3>
-        <p><strong>Summary:</strong> We use cookies and tracking to improve our website and analyze usage. You can control cookie settings in your browser.</p>
-        <p>
-          We use cookies and similar tracking technologies to enhance your experience on our website. Cookies are small text files stored on your device that help us:
-        </p>
-        <ul>
-          <li>Remember your preferences and settings</li>
-          <li>Analyze website traffic and usage patterns</li>
-          <li>Improve website functionality and performance</li>
-          <li>Provide personalized content and recommendations</li>
-        </ul>
+                <section class="legal-section" id="s2">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">02</span>
+                        <h3 class="legal-section-title">Information We Collect</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>We collect what you give us (name, email, company), what your browser shares automatically (IP, pages visited), and what we generate through doing business with you (orders, support tickets). Our equipment does not collect data.</p>
+                    </aside>
+                    <p><strong>2.1 Information You Provide</strong></p>
+                    <p>When you contact us, request a quote, place an order, register for an event, or sign up for communications, we collect what you provide, which may include:</p>
+                    <ul>
+                        <li>Name, job title, and department</li>
+                        <li>Email address and phone number</li>
+                        <li>Company name, billing address, and shipping address</li>
+                        <li>Country, state, and city</li>
+                        <li>Purchase and quote details, including products of interest and budgets</li>
+                        <li>Technical support requests and the contents of communications you send us</li>
+                        <li>Payment information, processed by our payment processor (we do not store full payment card numbers)</li>
+                        <li>Any other information you voluntarily provide</li>
+                    </ul>
+                    <p><strong>2.2 Information Collected Automatically</strong></p>
+                    <p>When you visit our Site, we and our service providers collect technical and usage information through cookies and similar technologies, including:</p>
+                    <ul>
+                        <li>IP address and approximate location derived from IP</li>
+                        <li>Browser type, version, language, and time zone</li>
+                        <li>Device type, operating system, and screen size</li>
+                        <li>Pages visited, links clicked, time on page, and referring site</li>
+                        <li>Search terms used to reach our Site</li>
+                        <li>Form interactions and downloaded files</li>
+                    </ul>
+                    <p><strong>2.3 Business Information</strong></p>
+                    <p>In the course of our business relationship we generate and retain:</p>
+                    <ul>
+                        <li>Purchase history, invoices, and shipping records</li>
+                        <li>Support and service communications</li>
+                        <li>Training records, attendance, and certifications you have earned</li>
+                        <li>Warranty and service agreement records</li>
+                    </ul>
+                    <p><strong>2.4 Sensitive Personal Information</strong></p>
+                    <p>We do not knowingly collect "sensitive personal information" as defined under the California Privacy Rights Act (CPRA) or comparable laws, including Social Security numbers, government IDs, precise geolocation, racial or ethnic origin, religious or philosophical beliefs, union membership, genetic or biometric data, or health information. If you submit such information unsolicited (for example, in the body of a support email), we will not use it for any purpose other than responding to your inquiry.</p>
+                    <p><strong>2.5 Equipment Data</strong></p>
+                    <p><strong>Our metallographic equipment does not collect, store, or transmit personal data or usage telemetry.</strong> Equipment operates as a standalone instrument under your control. If service or maintenance requires us to handle data from your equipment or attached computer (for example, diagnostic log files), we will treat that data as your confidential information and return or delete it after the service is complete.</p>
+                </section>
 
-        <p><strong>Types of Cookies We Use:</strong></p>
-        <ul>
-          <li><strong>Essential Cookies:</strong> Required for website functionality</li>
-          <li><strong>Analytics Cookies:</strong> Google Analytics to understand website usage</li>
-          <li><strong>Marketing Cookies:</strong> For targeted advertising and marketing</li>
-          <li><strong>Preference Cookies:</strong> To remember your settings and preferences</li>
-        </ul>
+                <section class="legal-section" id="s3">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">03</span>
+                        <h3 class="legal-section-title">How We Use Your Information</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>We use your information to respond to inquiries, fulfill orders, support customers, send relevant communications, and run our business. We do not sell or rent it.</p>
+                    </aside>
+                    <p>We use personal information for the following purposes:</p>
+                    <ul>
+                        <li>To respond to inquiries and provide requested information, quotes, samples, or documentation</li>
+                        <li>To process orders, invoices, shipping, and returns</li>
+                        <li>To deliver technical support, warranty service, training, and customer service</li>
+                        <li>To send service-related communications (order confirmations, shipping notifications, recalls)</li>
+                        <li>To send marketing communications about products, applications, and events where you have consented or where permitted by law (you can unsubscribe at any time)</li>
+                        <li>To operate, maintain, secure, and improve our Site and products</li>
+                        <li>To detect and prevent fraud, abuse, and security incidents</li>
+                        <li>To comply with applicable law, court orders, and lawful requests</li>
+                        <li>To establish, exercise, or defend legal claims</li>
+                        <li>In connection with a corporate transaction, including a merger, acquisition, financing, reorganization, or sale of assets</li>
+                    </ul>
+                    <p><strong>Legal Bases (EEA / UK Residents)</strong></p>
+                    <p>If you are in the European Economic Area or the United Kingdom, our legal basis for processing your personal data under the GDPR / UK GDPR is one or more of the following:</p>
+                    <ul>
+                        <li><strong>Performance of a contract</strong> with you, or steps you have asked us to take prior to entering into a contract (for example, processing your order or quote request);</li>
+                        <li><strong>Legitimate interests</strong> we or a third party pursue, such as responding to inquiries, securing our Site, marketing to existing customers, and analytics, balanced against your rights and freedoms;</li>
+                        <li><strong>Consent</strong> you have given for a specific purpose, such as marketing emails or non-essential cookies (you can withdraw consent at any time); and</li>
+                        <li><strong>Compliance with a legal obligation</strong> to which we are subject (tax, accounting, export-control recordkeeping, etc.).</li>
+                    </ul>
+                </section>
 
-        <p>
-          You can control cookies through your browser settings. However, disabling certain cookies may affect website functionality.
-        </p>
+                <section class="legal-section" id="s4">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">04</span>
+                        <h3 class="legal-section-title">Cookies and Tracking Technologies</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>We use cookies for site functionality, analytics, and marketing. You can manage them in your browser. We respect Global Privacy Control (GPC) signals as opt-outs of advertising cookies.</p>
+                    </aside>
+                    <p>Our Site uses cookies, pixels, and similar technologies for the following purposes:</p>
+                    <ul>
+                        <li><strong>Strictly necessary:</strong> required for the Site to function (load balancing, security, form submission, shopping cart). These cannot be disabled in our system.</li>
+                        <li><strong>Performance and analytics:</strong> help us understand how visitors use the Site. Provided primarily by Google Analytics 4, with IP anonymization where applicable.</li>
+                        <li><strong>Functional:</strong> remember preferences such as language or saved items.</li>
+                        <li><strong>Marketing:</strong> help us measure the performance of our advertising and content. These may include Google Ads conversion tracking, the HubSpot tracking pixel, and the LinkedIn Insight Tag where deployed, and may be set by us or our service providers.</li>
+                    </ul>
+                    <p>You can control cookies through your browser settings, by using the opt-out tools listed below, or by adjusting any cookie-banner preferences shown to you. Disabling certain cookies may affect Site functionality.</p>
+                    <p><strong>Global Privacy Control (GPC).</strong> Where required by law, we treat a Global Privacy Control signal sent by your browser as a valid request to opt out of the "sale" or "sharing" of personal information for cross-context behavioral advertising under the California Privacy Rights Act and comparable state laws.</p>
+                    <p><strong>Do Not Track (DNT).</strong> There is no industry-wide standard for how websites should respond to "Do Not Track" browser signals, and our Site does not currently respond to DNT signals separately from the GPC mechanism above.</p>
+                    <p><strong>Analytics opt-out tools.</strong> You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>, and out of cross-context advertising at <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">aboutads.info/choices</a> or <a href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener">youronlinechoices.eu</a>.</p>
+                </section>
 
-        <p><strong>Do Not Track Signals:</strong> Some browsers offer a "Do Not Track" (DNT) setting. There is currently no universally accepted standard for how companies should respond to DNT signals. At this time, our website does not respond to DNT signals. However, you may opt out of tracking by adjusting your browser's cookie settings or using the opt-out mechanisms provided by our analytics providers.</p>
+                <section class="legal-section" id="s5">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">05</span>
+                        <h3 class="legal-section-title">Third-Party Service Providers</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>We use vetted vendors to run our forms, analytics, payments, and shipping. They process data on our behalf and are contractually required to protect it.</p>
+                    </aside>
+                    <p>We share personal information with service providers (called "processors" under the GDPR and "service providers" under CCPA/CPRA) who perform functions on our behalf. These currently include:</p>
+                    <ul>
+                        <li><strong>HubSpot:</strong> web forms, marketing automation, customer relationship management, and live chat</li>
+                        <li><strong>Google:</strong> Analytics, Ads conversion tracking, and Google Workspace (email)</li>
+                        <li><strong>Payment processors:</strong> for secure online and invoiced payments (we do not store full payment card numbers)</li>
+                        <li><strong>Shipping and logistics partners:</strong> including UPS, FedEx, freight forwarders, and customs brokers</li>
+                        <li><strong>Hosting and content-delivery providers:</strong> for the secure operation of our Site and data backups</li>
+                        <li><strong>Email-delivery and event platforms:</strong> for transactional and marketing communications and webinars</li>
+                    </ul>
+                    <p>These service providers are bound by written agreements to use personal information only for the purposes we authorize, to apply appropriate security measures, and to assist with rights requests where applicable. Each has its own privacy policy that governs its independent use of information it collects directly from you.</p>
+                </section>
 
-        <h3>5. Third-Party Services</h3>
-        <p><strong>Summary:</strong> We use trusted third-party services for website functionality, analytics, and business operations. They have their own privacy policies.</p>
-        <p>
-          We may share your information with trusted third-party service providers who assist us in operating our business:
-        </p>
-        <ul>
-          <li><strong>Customer Relationship Management:</strong> Marketing automation and customer communication platforms</li>
-          <li><strong>Google Analytics:</strong> Website traffic analysis and user behavior tracking</li>
-          <li><strong>E-commerce Platform:</strong> Online shop functionality and order processing</li>
-          <li><strong>Payment Processors:</strong> Secure payment processing for online transactions</li>
-          <li><strong>Shipping Partners:</strong> Order fulfillment and delivery services</li>
-          <li><strong>Cloud Storage Providers:</strong> Secure data storage and backup services</li>
-        </ul>
+                <section class="legal-section" id="s6">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">06</span>
+                        <h3 class="legal-section-title">Data Sharing and Disclosure</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>We do not sell or rent your personal information. We share it only with the vendors above, when the law requires, in legal proceedings, or in a corporate transaction.</p>
+                    </aside>
+                    <p><strong>We do not sell your personal information for money.</strong> We do not "sell" or "share" your personal information for cross-context behavioral advertising as those terms are defined under the California Privacy Rights Act (CPRA), Virginia Consumer Data Protection Act (CDPA), Colorado Privacy Act (CPA), Connecticut Data Privacy Act (CTDPA), Texas Data Privacy and Security Act (TDPSA), or comparable state laws, except to the limited extent our use of advertising cookies described in Section 4 may technically meet the definition of "sharing", in which case you may opt out as described in Sections 4 and 9.</p>
+                    <p>We may share personal information in the following circumstances:</p>
+                    <ul>
+                        <li><strong>With service providers</strong> performing functions on our behalf, as described in Section 5;</li>
+                        <li><strong>For legal compliance:</strong> to comply with applicable law, court orders, subpoenas, or lawful requests from public authorities;</li>
+                        <li><strong>To enforce our rights:</strong> to investigate, prevent, or take action against suspected fraud, violations of our Terms, threats to safety, or other unlawful activity;</li>
+                        <li><strong>In a corporate transaction:</strong> in connection with a merger, acquisition, financing, reorganization, dissolution, or sale of all or a portion of our business or assets; and</li>
+                        <li><strong>With your consent:</strong> for any other purpose for which you have provided consent.</li>
+                    </ul>
+                </section>
 
-        <p>
-          These third parties are contractually obligated to protect your information and use it only for the purposes we specify. 
-          They have their own privacy policies that govern their use of your information.
-        </p>
+                <section class="legal-section" id="s7">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">07</span>
+                        <h3 class="legal-section-title">Artificial Intelligence and Machine Learning</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>We do not use your personal information or business communications to train third-party AI models. Where we use AI internally, we use enterprise tools with appropriate controls.</p>
+                    </aside>
+                    <p>We do not sell, license, or otherwise make available personal information you provide to us, including the contents of your support emails, quote requests, or order data, for the training of third-party generative AI or machine-learning models. We do not authorize our service providers to use your personal information for that purpose.</p>
+                    <p>We may use AI-assisted tools internally to improve customer service (for example, drafting responses, summarizing support tickets, or organizing technical documentation). When we do, we contract with providers that offer enterprise-grade privacy terms and we do not permit your data to be retained for the provider's general model improvement.</p>
+                    <p>We do not make significant decisions about you that are based solely on automated processing. See Section 15 for more.</p>
+                </section>
 
-        <h3>6. Data Sharing and Disclosure</h3>
-        <p><strong>Summary:</strong> We don't sell your data. We may share it with service providers, for legal compliance, or with your consent.</p>
-        <p>
-          We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:
-        </p>
-        <ul>
-          <li><strong>Service Providers:</strong> With trusted third parties who assist in our business operations</li>
-          <li><strong>Legal Compliance:</strong> When required by law or to protect our rights</li>
-          <li><strong>Business Transfers:</strong> In connection with mergers, acquisitions, or asset sales</li>
-          <li><strong>Consent:</strong> When you have given explicit consent to share your information</li>
-          <li><strong>Emergency Situations:</strong> To protect the safety and security of individuals</li>
-        </ul>
+                <section class="legal-section" id="s8">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">08</span>
+                        <h3 class="legal-section-title">International Data Transfers</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>We are based in the U.S., so if you contact us from outside the U.S. your data will be transferred here. For transfers from the EEA, UK, or Switzerland, we use the European Commission's Standard Contractual Clauses.</p>
+                    </aside>
+                    <p>PACE is based in the United States, and personal information we collect is stored and processed in the United States. If you are accessing our Site or services from outside the United States, you understand and consent to the transfer of your personal information to, and its processing in, the United States, which may have data-protection laws different from those of your country.</p>
+                    <p>For transfers of personal data from the European Economic Area, the United Kingdom, or Switzerland to the United States, we rely on one or more of the following safeguards:</p>
+                    <ul>
+                        <li>The European Commission's Standard Contractual Clauses (Implementing Decision (EU) 2021/914), with the UK International Data Transfer Addendum where applicable;</li>
+                        <li>Your explicit, informed consent;</li>
+                        <li>Adequacy decisions, where in force; and</li>
+                        <li>Other safeguards permitted by applicable law.</li>
+                    </ul>
+                    <p>You can request a copy of the relevant safeguard by contacting us (see Section 17).</p>
+                </section>
 
-        <h3>7. International Data Transfers</h3>
-        <p><strong>Summary:</strong> Your data may be transferred to and processed in the United States. We ensure appropriate safeguards are in place.</p>
-        <p>
-          PACE Technologies is based in the United States. If you are located outside the United States, your information may be transferred to and processed in the United States. 
-          We ensure appropriate safeguards are in place to protect your information during international transfers, including:
-        </p>
-        <ul>
-          <li>Standard contractual clauses approved by the European Commission</li>
-          <li>Adequacy decisions by relevant data protection authorities</li>
-          <li>Other appropriate safeguards as required by applicable law</li>
-        </ul>
+                <section class="legal-section" id="s9">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">09</span>
+                        <h3 class="legal-section-title">Your Privacy Rights</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Depending on where you live, you may have the right to see, correct, delete, or limit what we have, and to opt out of marketing and certain advertising. Email us to exercise any of these.</p>
+                    </aside>
+                    <p>Depending on where you reside, you may have some or all of the following rights regarding your personal information:</p>
+                    <ul>
+                        <li><strong>Access / Know:</strong> request a copy of the personal information we hold about you and information about how we process it;</li>
+                        <li><strong>Correction:</strong> request correction of inaccurate or incomplete information;</li>
+                        <li><strong>Deletion:</strong> request deletion of your personal information, subject to legal exceptions;</li>
+                        <li><strong>Portability:</strong> receive your personal information in a structured, commonly used, machine-readable format;</li>
+                        <li><strong>Restriction or Objection:</strong> restrict or object to certain processing, including processing based on our legitimate interests;</li>
+                        <li><strong>Opt out:</strong> opt out of the "sale" or "sharing" of personal information and of targeted advertising (see Section 4);</li>
+                        <li><strong>Withdraw consent:</strong> where processing is based on consent, withdraw it at any time;</li>
+                        <li><strong>Non-discrimination:</strong> exercise your rights without receiving discriminatory treatment;</li>
+                        <li><strong>Appeal:</strong> if we deny a rights request, appeal that decision where state law (for example, Virginia, Colorado, or Connecticut) provides an appeal mechanism; and</li>
+                        <li><strong>Complaint:</strong> lodge a complaint with your local data-protection or consumer-protection authority.</li>
+                    </ul>
+                    <p><strong>How to exercise your rights.</strong> Email <a href="mailto:pace@metallographic.com">pace@metallographic.com</a> with the subject line "Privacy Request" and include enough information for us to verify your identity (we may ask you to confirm details we already hold). We will respond within the timeframes required by applicable law, typically 45 days under U.S. state laws and one month under the GDPR, with an extension where necessary.</p>
+                    <p><strong>Authorized agents.</strong> California residents may use an authorized agent to make a request on their behalf, subject to the agent providing proof of authority and us verifying the resident's identity.</p>
+                    <p><strong>State-specific laws.</strong> The rights described above apply to residents of California (CCPA/CPRA), Virginia (CDPA), Colorado (CPA), Connecticut (CTDPA), Utah (UCPA), Texas (TDPSA), Oregon (OCPA), Montana (MCDPA), Iowa, Tennessee, Indiana, Delaware, New Hampshire, New Jersey, Minnesota, Maryland, and any other state with a comprehensive privacy law, to the extent each applies to you. We honor each set of rights in accordance with the applicable statute.</p>
+                </section>
 
-        <h3>8. Your Rights and Choices</h3>
-        <p><strong>Summary:</strong> You have rights to access, update, delete, and control your personal information. Contact us to exercise these rights.</p>
-        <p>You have the following rights regarding your personal information:</p>
-        <ul>
-          <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
-          <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information</li>
-          <li><strong>Deletion:</strong> Request deletion of your personal information (subject to legal obligations)</li>
-          <li><strong>Portability:</strong> Request transfer of your data to another service provider</li>
-          <li><strong>Restriction:</strong> Request limitation of how we process your information</li>
-          <li><strong>Objection:</strong> Object to processing based on legitimate interests</li>
-          <li><strong>Withdraw Consent:</strong> Withdraw consent for processing (where applicable)</li>
-        </ul>
+                <section class="legal-section" id="s10">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">10</span>
+                        <h3 class="legal-section-title">Data Security</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>We use reasonable safeguards (encryption in transit, access controls, employee training), but no system is 100% secure.</p>
+                    </aside>
+                    <p>We maintain reasonable administrative, technical, and physical safeguards designed to protect personal information against unauthorized access, use, disclosure, alteration, or destruction. These include:</p>
+                    <ul>
+                        <li>TLS encryption of personal information in transit between your browser and our Site;</li>
+                        <li>Role-based access controls and authentication for our internal systems;</li>
+                        <li>Periodic security reviews of our systems and service providers;</li>
+                        <li>Employee privacy and security awareness training; and</li>
+                        <li>An incident-response process for suspected security events.</li>
+                    </ul>
+                    <p>No method of transmission over the internet or electronic storage is completely secure, and we cannot guarantee absolute security. You are responsible for keeping any account credentials confidential.</p>
+                </section>
 
-        <p><strong>California Privacy Rights (CCPA)</strong></p>
-        <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act:</p>
-        <ul>
-          <li>Right to know what personal information is collected and how it's used</li>
-          <li>Right to delete personal information (with certain exceptions)</li>
-          <li>Right to opt-out of the sale of personal information (we do not sell personal information)</li>
-          <li>Right to non-discrimination for exercising privacy rights</li>
-        </ul>
+                <section class="legal-section" id="s11">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">11</span>
+                        <h3 class="legal-section-title">Data Retention</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>We keep your data only as long as we need it for the purpose we collected it, plus any legal recordkeeping requirements.</p>
+                    </aside>
+                    <p>We retain personal information for as long as necessary to fulfill the purposes set out in this Policy, unless a longer retention period is required or permitted by law. Indicative retention periods include:</p>
+                    <ul>
+                        <li><strong>Customer transaction records (orders, invoices, shipping):</strong> seven (7) years from the last transaction, to satisfy tax and accounting recordkeeping requirements;</li>
+                        <li><strong>Warranty and service records:</strong> ten (10) years from the start of the warranty period;</li>
+                        <li><strong>Quote and lead data:</strong> until you opt out, or up to three (3) years of inactivity, whichever is earlier;</li>
+                        <li><strong>Marketing contact data:</strong> until you unsubscribe, or up to three (3) years of inactivity;</li>
+                        <li><strong>Website analytics (Google Analytics):</strong> twenty-six (26) months by default;</li>
+                        <li><strong>Backups and disaster-recovery copies:</strong> aged out on the schedule of the underlying system, typically within ninety (90) days; and</li>
+                        <li><strong>Export-control records:</strong> as required by the EAR or ITAR, typically five (5) years.</li>
+                    </ul>
+                    <p>When personal information is no longer needed, we securely delete, de-identify, or aggregate it.</p>
+                </section>
 
-        <p>
-          To exercise any of these rights, please contact us at <a href="mailto:pace@metallographic.com">pace@metallographic.com</a>. 
-          We will respond to your request within the timeframes required by applicable law.
-        </p>
-  
-        <h3>9. Data Security</h3>
-        <p><strong>Summary:</strong> We use industry-standard security measures to protect your information from unauthorized access, use, or disclosure.</p>
-        <p>
-          We implement reasonable administrative, technical, and physical safeguards to protect your personal information from
-          unauthorized access, use, disclosure, alteration, or destruction. Our security measures include:
-        </p>
-        <ul>
-          <li>Secure servers and databases with access controls</li>
-          <li>Regular security assessments and updates</li>
-          <li>Employee training on data protection practices</li>
-          <li>Incident response procedures for security breaches</li>
-          <li>Secure data transmission protocols</li>
-        </ul>
+                <section class="legal-section" id="s12">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">12</span>
+                        <h3 class="legal-section-title">Data Breach Notification</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>If a breach affects your personal information, we'll investigate, contain it, and notify you and authorities in the timeframes the law requires.</p>
+                    </aside>
+                    <p>In the event of a personal-data breach that creates a risk to your rights, we will:</p>
+                    <ul>
+                        <li>Investigate and contain the incident as promptly as reasonably possible;</li>
+                        <li>Notify the relevant supervisory authority where required, including notification to EU data-protection authorities within 72 hours where the GDPR applies;</li>
+                        <li>Notify affected individuals without undue delay, and within the timeframes required by applicable law; and</li>
+                        <li>Provide information about the nature of the incident, the categories of data affected, and the steps taken or recommended.</li>
+                    </ul>
+                </section>
 
-        <p>
-          However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your information, 
-          we cannot guarantee absolute security.
-        </p>
+                <section class="legal-section" id="s13">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">13</span>
+                        <h3 class="legal-section-title">Children's Privacy</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Our site and products are for businesses and adults. We do not knowingly collect data from anyone under 16.</p>
+                    </aside>
+                    <p>Our Site and services are directed to businesses and adult professionals. We do not knowingly collect personal information from individuals under sixteen (16) years of age, and we do not knowingly sell, share, or use such information for targeted advertising. If you believe a child has provided personal information to us, please contact us and we will delete it promptly.</p>
+                </section>
 
-        <h3>10. Data Retention</h3>
-        <p><strong>Summary:</strong> We keep your information only as long as necessary for business purposes or as required by law.</p>
-        <p>
-          We retain your personal information for the following periods:
-        </p>
-        <ul>
-          <li><strong>Customer Data:</strong> 7 years after last business interaction</li>
-          <li><strong>Marketing Data:</strong> Until you opt out or 3 years of inactivity</li>
-          <li><strong>Website Analytics:</strong> 26 months (Google Analytics default)</li>
-          <li><strong>Legal Requirements:</strong> As required by applicable law (e.g., tax records)</li>
-          <li><strong>Warranty Records:</strong> 10 years for warranty and service purposes</li>
-        </ul>
+                <section class="legal-section" id="s14">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">14</span>
+                        <h3 class="legal-section-title">Marketing Communications</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Every marketing email has an unsubscribe link. You can opt out at any time. Transactional emails (order confirmations, shipping notices) will continue.</p>
+                    </aside>
+                    <p>We may send you marketing emails about products, applications, training, and events that we believe may interest you, where you have consented or where permitted by law. Every marketing email contains a one-click unsubscribe link. You may also unsubscribe by replying with the word "unsubscribe" or by emailing <a href="mailto:pace@metallographic.com">pace@metallographic.com</a>.</p>
+                    <p>Opting out of marketing emails does not affect transactional communications related to your orders, warranty, or technical support, which you will continue to receive while you remain a customer. We comply with the U.S. CAN-SPAM Act, Canada's Anti-Spam Legislation (CASL), and applicable consent rules in the EEA and UK.</p>
+                </section>
 
-        <p>
-          After the retention period expires, we will securely delete or anonymize your personal information, unless we are required to retain it for legal reasons.
-        </p>
+                <section class="legal-section" id="s15">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">15</span>
+                        <h3 class="legal-section-title">Automated Decision-Making</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>We do not make significant decisions about you using automation alone. A human is always involved.</p>
+                    </aside>
+                    <p>We do not engage in profiling or automated decision-making that produces legal or similarly significant effects concerning you without human involvement. Routine analytics, such as anonymized traffic reports or marketing-performance dashboards, are not "automated decision-making" for purposes of GDPR Article 22 or U.S. state privacy laws.</p>
+                </section>
 
-        <h3>11. Data Breach Notification</h3>
-        <p><strong>Summary:</strong> If we experience a data breach, we will notify affected individuals and authorities as required by law.</p>
-        <p>
-          In the event of a data breach that may affect your personal information, we will:
-        </p>
-        <ul>
-          <li>Investigate and contain the breach immediately</li>
-          <li>Notify affected individuals within 72 hours (where required)</li>
-          <li>Report to relevant data protection authorities</li>
-          <li>Provide information about the breach and steps taken</li>
-          <li>Offer assistance to affected individuals</li>
-        </ul>
+                <section class="legal-section" id="s16">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">16</span>
+                        <h3 class="legal-section-title">Changes to This Privacy Policy</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>We may update this policy. The version and date are at the top. Significant changes will be highlighted on our site or by email.</p>
+                    </aside>
+                    <p>We may revise this Policy from time to time to reflect changes in our practices, technology, legal requirements, or business operations. When we make material changes, we will:</p>
+                    <ul>
+                        <li>Update the "Effective" date and version number at the top of this Policy;</li>
+                        <li>Post the revised Policy on our website;</li>
+                        <li>Provide notice through our Site or by email for significant changes; and</li>
+                        <li>Obtain renewed consent where applicable law requires.</li>
+                    </ul>
+                    <p>We encourage you to review this Policy periodically.</p>
+                </section>
 
-        <h3>12. Children's Privacy</h3>
-        <p><strong>Summary:</strong> Our services are not intended for children under 13. We don't knowingly collect information from children.</p>
-        <p>
-          Our website and services are not intended for children under 13 years of age. We do not knowingly collect personal
-          information from children under 13. If we become aware that we have collected personal information from a child under 13, 
-          we will take steps to delete such information promptly.
-        </p>
+                <section class="legal-section" id="s17">
+                    <header class="legal-section-head">
+                        <span class="legal-section-num">17</span>
+                        <h3 class="legal-section-title">Contact Us</h3>
+                    </header>
+                    <aside class="plain-english">
+                        <span class="plain-english-label">Summary</span>
+                        <p>Email <a href="mailto:pace@metallographic.com">pace@metallographic.com</a> with the subject line "Privacy Request" for any privacy question or to exercise your rights.</p>
+                    </aside>
+                    <p>For questions about this Policy, our data practices, or to exercise your privacy rights:</p>
+                    <ul>
+                        <li><strong>Email:</strong> <a href="mailto:pace@metallographic.com">pace@metallographic.com</a> (subject line: "Privacy Request")</li>
+                        <li><strong>Phone:</strong> +1 (520) 882-6598</li>
+                        <li><strong>Mail:</strong> PACE Technologies, Attn: Privacy, 3601 E. 34th Street, Tucson, Arizona 85713, USA</li>
+                    </ul>
+                    <p>We will respond to your inquiry within the timeframes required by applicable law (generally 30–45 days). For privacy-related requests, we may need to verify your identity before processing your request.</p>
+                    <p>Thank you for placing your trust in PACE Technologies. We are committed to protecting your privacy and handling your personal information responsibly.</p>
+                </section>
+            </article>
+        </div>
 
-        <p>
-          If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately.
-        </p>
-
-        <h3>13. Changes to This Privacy Policy</h3>
-        <p><strong>Summary:</strong> We may update this policy periodically. We'll notify you of significant changes and update the date.</p>
-        <p>
-          We may revise this Privacy Policy periodically to reflect changes in our practices, technology, legal requirements, or other factors. 
-          When we make material changes, we will:
-        </p>
-        <ul>
-          <li>Update the "Last Updated" date at the top of this policy</li>
-          <li>Post the revised policy on our website</li>
-          <li>Notify you via email or website notice (for significant changes)</li>
-          <li>Obtain your consent where required by law</li>
-        </ul>
-
-        <p>
-          We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information.
-        </p>
-
-        <h3>14. Contact Us</h3>
-        <p><strong>Summary:</strong> Contact us with any questions about this privacy policy or to exercise your privacy rights.</p>
-        <p>
-          If you have any questions about this Privacy Policy, our data practices, or to exercise your privacy rights, please contact us:
-        </p>
-        <ul>
-          <li><strong>Email:</strong> <a href="mailto:pace@metallographic.com">pace@metallographic.com</a></li>
-          <li><strong>Phone:</strong> +1 (520) 882-6598</li>
-          <li><strong>Address:</strong> PACE Technologies, Tucson, Arizona, USA</li>
-        </ul>
-
-        <p>
-          We will respond to your inquiry within 30 days of receipt. For privacy-related requests, we may need to verify your identity before processing your request.
-        </p>
-
-        <p>
-          Thank you for placing your trust in PACE Technologies. We are committed to protecting your privacy and handling your personal information responsibly.
-        </p>
-      </div>
+        <script>
+            (function () {
+                const links = document.querySelectorAll('.legal-toc-list a');
+                const sections = document.querySelectorAll('.legal-section');
+                if (!links.length || !sections.length) return;
+                const map = new Map();
+                links.forEach(l => map.set(l.getAttribute('href').slice(1), l));
+                const io = new IntersectionObserver(entries => {
+                    entries.forEach(e => {
+                        const link = map.get(e.target.id);
+                        if (link && e.isIntersecting) {
+                            links.forEach(l => l.classList.remove('is-active'));
+                            link.classList.add('is-active');
+                        }
+                    });
+                }, { rootMargin: '-15% 0px -70% 0px' });
+                sections.forEach(s => io.observe(s));
+            })();
+        </script>
     </div>
 </div>
         
 <br><br>
 
-<a href="#top" class="return-to-top" aria-label="Return to top">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
-        <path d="M12 4l-8 8h16z"></path>
-    </svg>
-</a>
+
 
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
@@ -1265,9 +1317,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1279,7 +1359,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1307,8 +1387,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1380,6 +1459,39 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
           </div>
         </div>
@@ -1393,5 +1505,6 @@
 </footer>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

@@ -117,6 +117,16 @@
 <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -143,20 +153,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -366,35 +384,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -439,111 +453,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -752,36 +696,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -818,73 +760,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -921,6 +826,33 @@
         </div>
     </div>
 </nav>
+
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
     <!-- Main Content -->
     <main class="guide-page">
         <div class="container-custom">
@@ -951,6 +883,7 @@
                         <li><a href="#polishing">Polishing</a></li>
                         <li><a href="#etching">Etching</a></li>
                         <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#additional-reading">Additional Reading</a></li>
                     </ul>
                 </div>
 
@@ -959,13 +892,34 @@
                     <section id="introduction" class="guide-section">
                         <h2>Introduction</h2>
                         <p>
-                            Aluminum and its alloys are among the most commonly analyzed materials in metallography. 
-                            Common alloys include 6061 (the most widely used aluminum alloy), 
-                            7075 (high-strength aerospace alloy), and many others. 
-                            Proper preparation is essential to reveal the true microstructure without introducing 
-                            artifacts such as deformation, scratches, or contamination. This guide will walk you 
-                            through the complete preparation process.
+                            Aluminum and its alloys are relatively soft materials with a wide range of alloy applications &mdash; from soft pure 1xxx grades to high-strength precipitation-hardened 7075-T6. Common analytical targets include 6061 (the most widely used aluminum alloy), 7075 (high-strength aerospace), and cast Al-Si alloys such as A356 and A380.
                         </p>
+                        <div class="guide-info-box">
+                            <h4>Wrought and Cast Alloy Series at a Glance</h4>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li><strong>1xxx:</strong> Commercially pure Al (&ge;99% Al). Very soft; prone to smearing. Used for electrical conductors, foil, food packaging.</li>
+                                <li><strong>2xxx:</strong> Al-Cu (e.g., 2024). Age-hardenable, high strength, lower corrosion resistance. Aerospace.</li>
+                                <li><strong>3xxx:</strong> Al-Mn (e.g., 3003). Work-hardenable, moderate strength. Beverage cans, sheet metal.</li>
+                                <li><strong>4xxx:</strong> Al-Si. Welding filler wire and some casting alloys.</li>
+                                <li><strong>5xxx:</strong> Al-Mg (e.g., 5083, 5754). Marine and structural; soft and notoriously prone to smearing.</li>
+                                <li><strong>6xxx:</strong> Al-Mg-Si (e.g., 6061, 6063). Most-used general-purpose extrusion alloys; age-hardenable.</li>
+                                <li><strong>7xxx:</strong> Al-Zn (e.g., 7075). Highest-strength wrought alloys; aerospace.</li>
+                                <li><strong>8xxx:</strong> Special compositions (Al-Li, Al-Fe).</li>
+                                <li><strong>Cast 3xx.x:</strong> Al-Si-Mg (A356, A357). Strontium-modified for fibrous eutectic Si; foundry QC focuses on Si morphology and Mg<sub>2</sub>Si.</li>
+                                <li><strong>Cast 4xx.x:</strong> Al-Si (A380, 413). High-Si castings.</li>
+                            </ul>
+                        </div>
+                        <p>
+                            <strong>The primary preparation challenge for aluminum is preserving its oxide inclusions.</strong> Aluminum&apos;s microstructure routinely contains aluminum-oxide particles introduced during casting or processing &mdash; and those particles ARE the analysis target in many quality-control jobs. Proper preparation retains them in place. Improper preparation (too much force, too coarse an initial grit, embedding-prone abrasives) pulls them out, drags them across the surface, and produces an image that misrepresents the real microstructure.
+                        </p>
+                        <div class="guide-info-box guide-info-box-blue">
+                            <p>
+                                <strong>Soft alloys need extra care.</strong> Commercially pure 1xxx and Al-Mg 5xxx alloys are
+                                particularly prone to smearing &mdash; matrix metal flows over scratches and inclusions, hiding
+                                the true microstructure. Use lighter force (5-7 lb), extend the 1 &micro;m diamond polish step,
+                                and verify final-polish quality at 500&times; before declaring the sample done.
+                            </p>
+                        </div>
                         <div class="guide-image-wrapper">
                             <img
                                 src="/images/microstructures/6061-Aluminum.jpg"
@@ -976,9 +930,7 @@
                             <p class="guide-image-caption">6061 aluminum alloy microstructure, properly prepared and etched. Correct preparation reveals the true grain structure without introducing artifacts.</p>
                         </div>
                         <p>
-                            Aluminum can be challenging due to its softness and tendency to deform easily. The key 
-                            is to use appropriate abrasives, maintain light pressure, and avoid over-polishing which 
-                            can introduce relief and smearing.
+                            The recipe in this guide is PACE&apos;s house method for aluminum: <strong>aluminum-oxide (ALO) paper for plane grinding</strong> to avoid SiC embedding, <strong>light force throughout (5-10 lb / 22-45 N)</strong> to preserve oxide inclusions, a single <strong>1 &micro;m DIAMAT diamond</strong> rough polish, and a final <strong>0.05 &micro;m Nanometer alumina</strong> polish that preserves second-phase particles at their true position.
                         </p>
                     </section>
 
@@ -991,21 +943,21 @@
                         </p>
                         <div class="guide-image-wrapper" style="max-width: 500px;">
                             <a href="https://shop.metallographic.com/collections/abrasive-blades" target="_blank" rel="noopener noreferrer" class="guide-link">
-                                <img 
-                                    src="/images/consumables/sectioning/abrasive-cutting/maxcut-e.webp"
-                                    alt="MAX-E abrasive cut-off blades for aluminum sectioning"
+                                <img
+                                    src="/images/consumables/sectioning/abrasive-cutting/maxcut-c.webp"
+                                    alt="MAX-C abrasive cut-off blades for aluminum sectioning"
                                     loading="lazy"
                                     class="guide-image"
                                 />
                             </a>
-                            <p class="guide-image-caption">MAX-E abrasive cut-off blades designed for soft non-ferrous materials like aluminum. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
+                            <p class="guide-image-caption">MAX-C abrasive cut-off blades designed for soft non-ferrous materials like aluminum. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
                         </div>
                         <ul>
-                            <li>Use MAX-E series blades (designed for soft non-ferrous materials)</li>
-                            <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
-                            <li>Apply steady, light pressure — allow the wheel to do the cutting</li>
+                            <li>Use a <strong>MAXCUT abrasive blade (MAX-C or MAX-I series)</strong> &mdash; designed for soft and medium-soft non-ferrous metals</li>
+                            <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness) to minimize kerf and heat input</li>
+                            <li>Apply steady, light pressure &mdash; allow the wheel to do the cutting</li>
                             <li>Use adequate coolant to prevent overheating and smearing</li>
-                            <li>Use a slower feed rate than for harder materials</li>
+                            <li>Use a slower feed rate than for harder materials; controlling sectioning damage upstream makes the rest of the recipe work</li>
                         </ul>
                         <p>
                             For more information on sectioning blades, visit our <a href="https://shop.metallographic.com/collections/abrasive-blades" target="_blank" rel="noopener noreferrer" class="guide-link">Abrasive Blades</a> collection.
@@ -1015,28 +967,38 @@
                     <section id="mounting" class="guide-section">
                         <h2>Mounting</h2>
                         <p>
-                            Mounting provides edge retention and easier handling. For aluminum, compression 
-                            mounting with phenolic or epoxy resins works well. Castable mounting with epoxy is also
-                            suitable and avoids potential heat-related issues.
+                            Mounting provides edge retention and easier handling. The PACE default for aluminum is <strong>compression mounting</strong> with phenolic, epoxy, or diallyl phthalate (DAP) resins.
                         </p>
-                        <h3>Compression Mounting</h3>
+                        <p>
+                            <strong>Exception &mdash; heat-sensitive precipitation-hardened tempers:</strong> for 2024-T6, 6061-T6, 7075-T6, A356-T6, and similar age-hardened alloys, use <strong>castable epoxy</strong> instead. Compression mounting cycles run at 150-180&deg;C, which overlaps with the ageing temperatures these tempers were originally heat-treated at. A 150&deg;C mount cycle is effectively a small further age and can shift the precipitate distribution being analyzed. Castable epoxy cures at room temperature and leaves the microstructure intact.
+                        </p>
+                        <h3>Compression Mounting (default)</h3>
                         <ol>
                             <li>Clean the sample thoroughly to remove cutting fluid and debris</li>
-                            <li>Place sample in mounting press with appropriate resin</li>
+                            <li>Place sample in mounting press with phenolic, epoxy, or DAP resin</li>
                             <li>Apply pressure: 3000-4000 psi for phenolic, 2000-3000 psi for epoxy</li>
-                            <li>Heat to 150-180°C and hold for 5-8 minutes</li>
+                            <li>Heat to 150-180&deg;C and hold for 5-8 minutes</li>
                             <li>Cool under pressure to room temperature</li>
                         </ol>
-                        <h3>Castable Mounting (also known as Cold Mounting)</h3>
+                        <h3>Castable Mounting (for heat-sensitive tempers)</h3>
                         <ol>
                             <li>Clean and dry the sample</li>
                             <li>Place in mounting cup with epoxy resin</li>
                             <li>Allow to cure at room temperature (typically 4-8 hours)</li>
                         </ol>
+
+                        <h3>Anodised Aluminum Coatings</h3>
                         <p>
-                            Castable mounting avoids the heat exposure that could alter aluminum microstructure,
-                            making it the preferred method for heat-sensitive alloys.
+                            For SEM analysis of anodised aluminum oxide coatings (typically 2-150 &micro;m thick, often
+                            with structural pores 10-400 nm in diameter), edge retention of the thin, brittle oxide layer
+                            is critical:
                         </p>
+                        <ul>
+                            <li><strong>Wrap the sample in aluminum foil</strong> prior to cold mounting in castable epoxy under vacuum. The foil supports the anodic film during grinding and polishing, preventing edge chipping.</li>
+                            <li>Use the standard preparation procedure that follows; the anodic film polishes well at 1 &micro;m diamond and 0.05 &micro;m alumina.</li>
+                            <li>For SEM imaging, use <strong>backscattered electron (BSE) mode</strong> — the coating/substrate boundary shows clear compositional contrast that secondary electron imaging does not reveal on a perfectly flat polished surface. Alternative: chemical etching before sputter-coating to create topographic contrast.</li>
+                            <li>The sample must be conductive for SEM — either use a conductive mounting resin or sputter-coat with a thin layer of iridium, carbon, or Au-Pd.</li>
+                        </ul>
                         <p>
                             For more information on mounting equipment, visit our <a href="/metallographic-equipment/compression-mounting.html" class="guide-link">Compression Mounting</a> and <a href="/metallographic-equipment/castable-mounting.html" class="guide-link">Castable Mounting</a> equipment pages.
                         </p>
@@ -1045,87 +1007,81 @@
                     <section id="grinding" class="guide-section">
                         <h2>Grinding</h2>
                         <p>
-                            Grinding removes sectioning damage and prepares the surface for polishing. Start with 
-                            coarse grits and progressively move to finer grits. For aluminum, use lighter pressure 
-                            than for harder materials to avoid deformation. We recommend the following sequence:
+                            Grinding flattens the sample and removes sectioning damage while keeping oxide inclusions intact and the deformation layer shallow. The PACE method starts on <strong>aluminum-oxide (ALO) paper</strong> rather than silicon carbide for the plane step. ALO does not embed into aluminum the way SiC does, which protects surface integrity for the polish steps that follow. SiC papers are used afterward, at very fine grits where the embedding risk is much lower.
                         </p>
                         <div class="guide-image-wrapper" style="max-width: 500px;">
-                            <a href="https://shop.metallographic.com/collections/sic-grinding" target="_blank" rel="noopener noreferrer" class="guide-link">
-                                <img 
+                            <a href="https://shop.metallographic.com/collections/grinding-papers" target="_blank" rel="noopener noreferrer" class="guide-link">
+                                <img
                                     src="/images/consumables/grinding-lapping/abrasive-grinding/sic-papers.webp"
-                                    alt="Silicon carbide grinding papers in various grit sizes for progressive grinding"
+                                    alt="Grinding papers in various grit sizes for progressive aluminum grinding"
                                     loading="lazy"
                                     class="guide-image"
                                 />
                             </a>
-                            <p class="guide-image-caption">Silicon carbide (SiC) grinding papers in various grit sizes (120, 240, 400, 600) for progressive grinding. Rotate sample 90° between each grit to ensure complete scratch removal.</p>
+                            <p class="guide-image-caption">Progressive grinding for aluminum: aluminum-oxide (ALO) paper for plane grinding, then fine SiC papers at P2400 and P4000. Rotate the sample 90&deg; between steps.</p>
                         </div>
                         <h3>Grinding Sequence</h3>
                         <ol>
-                            <li><strong>120 grit:</strong> Remove sectioning damage (20-40 seconds per step)</li>
-                            <li><strong>240 grit:</strong> Remove previous scratches (20-40 seconds)</li>
-                            <li><strong>400 grit:</strong> Further refinement (20-40 seconds)</li>
-                            <li><strong>600 grit:</strong> Final grinding step (20-40 seconds)</li>
+                            <li><strong>1200 grit ALO paper:</strong> Water lubricant, light force (5-10 lb / 22-45 N), 100/100 rpm head/base, grind until the sample is plane.</li>
+                            <li><strong>800 grit (P2400) SiC paper:</strong> Water lubricant, 5-10 lb, 100/100 rpm.</li>
+                            <li><strong>1200 grit (P4000) SiC paper:</strong> Water lubricant, 5-10 lb, 100/100 rpm, 1 minute.</li>
                         </ol>
                         <p>
-                            <strong>Important:</strong> Rotate the sample 90° between each grit to ensure complete
-                            removal of previous scratches. Use water as a lubricant and maintain <strong>light</strong> pressure
-                            to avoid deformation. Aluminum generally requires less time per step than harder materials,
-                            though precipitation-hardened alloys may need slightly longer times.
+                            <strong>Important:</strong> Rotate the sample 90&deg; between each grit to confirm complete scratch removal from the previous step. Keep force in the 5-10 lb range; the goal is to remove sectioning damage and prepare a flat surface, not to remove material aggressively. Aluminum tolerates very little force before subsurface deformation begins to compromise the polish.
                         </p>
                         <p>
-                            For more information on grinding supplies, visit our <a href="https://shop.metallographic.com/collections/sic-grinding" target="_blank" rel="noopener noreferrer" class="guide-link">Silicon Carbide Grinding Papers</a> collection.
+                            For more information on grinding supplies, visit our <a href="/metallographic-consumables/grinding/abrasive-grinding.html" class="guide-link">Abrasive Grinding Papers</a> collection.
                         </p>
                     </section>
 
                     <section id="polishing" class="guide-section">
                         <h2>Polishing</h2>
                         <p>
-                            Polishing removes grinding scratches and prepares a mirror-like surface. For aluminum, 
-                            diamond polishing followed by oxide polishing typically yields excellent results. Use 
-                            softer cloths and lighter pressure to avoid smearing and relief.
+                            The polishing path for aluminum is short by design. A single 1 &micro;m diamond rough polish followed by a 0.05 &micro;m alumina final polish removes the residual SiC scratches from grinding without introducing additional deformation, and preserves oxide inclusions and second-phase particles at their true position. Final-polishing on alumina (rather than colloidal silica) avoids the slight chemical attack that can lift oxide inclusions out of the matrix.
                         </p>
                         <div class="guide-phases-grid">
                             <div class="guide-phase-card">
                                 <div class="guide-phase-image">
                                     <a href="https://shop.metallographic.com/collections/diamond-abrasives" target="_blank" rel="noopener noreferrer" class="guide-link">
-                                        <img 
+                                        <img
                                             src="/images/consumables/rough%20polishing/polycrystalline%20diamond/polycrystalline-diamond-high-viscosity.webp"
-                                            alt="Polycrystalline diamond polishing compound for aluminum"
+                                            alt="DIAMAT polycrystalline diamond suspension for aluminum"
                                             loading="lazy"
                                         />
                                     </a>
                                 </div>
-                                <p class="guide-image-caption">Polycrystalline diamond compound provides consistent cutting action for aluminum alloys.</p>
+                                <p class="guide-image-caption">DIAMAT polycrystalline diamond suspension provides consistent cutting on the ATLANTIS polishing pad with DIALUBE Purple Extender lubricant.</p>
                             </div>
                             <div class="guide-phase-card">
                                 <div class="guide-phase-image">
                                     <a href="https://shop.metallographic.com/collections/polishing-pads" target="_blank" rel="noopener noreferrer" class="guide-link">
-                                        <img 
+                                        <img
                                             src="/images/consumables/rough%20polishing/polishing%20pads/polishing-pads.webp"
-                                            alt="Polishing pads for different polishing stages"
+                                            alt="ATLANTIS and NAPPAD polishing pads for aluminum"
                                             loading="lazy"
                                         />
                                     </a>
                                 </div>
-                                <p class="guide-image-caption">Soft to medium polishing pads are recommended for aluminum to prevent smearing and excessive relief.</p>
+                                <p class="guide-image-caption">ATLANTIS pad for the 1 &micro;m DIAMAT rough polish; NAPPAD for the final 0.05 &micro;m Nanometer alumina polish.</p>
                             </div>
                         </div>
-                        <h3>Diamond Polishing</h3>
+                        <h3>Rough Polishing</h3>
                         <ol>
-                            <li><strong>9 μm diamond:</strong> 2-3 minutes on a medium-nap cloth</li>
-                            <li><strong>3 μm diamond:</strong> 2-3 minutes on a soft cloth</li>
-                            <li><strong>1 μm diamond:</strong> 1-2 minutes on a soft cloth</li>
+                            <li><strong>1 &micro;m DIAMAT diamond on ATLANTIS polishing pad:</strong> DIALUBE Purple Extender lubricant, light force (5-10 lb / 22-45 N), 100/100 rpm head/base, 2 minutes.</li>
                         </ol>
                         <h3>Final Polishing</h3>
                         <ol>
-                            <li><strong>0.05 μm colloidal silica:</strong> 30-60 seconds on a soft cloth</li>
-                            <li>Rinse thoroughly with water and dry with compressed air</li>
+                            <li><strong>0.05 &micro;m Nanometer alumina on NAPPAD polishing pad:</strong> Light force (5-10 lb), 100/100 rpm, 1 minute.</li>
+                            <li>Rinse thoroughly with water and dry with compressed air.</li>
                         </ol>
                         <p>
-                            <strong>Important:</strong> Use lighter pressure than for steel. Over-polishing can
-                            introduce relief around second phases and inclusions. Monitor the surface frequently
-                            to avoid smearing, which is common with soft aluminum alloys.
+                            <strong>For high-strength heat-treated alloys</strong> (2024-T6, 6061-T6, 7075-T6) <strong>and cast Al-Si alloys</strong> (A356, A380): insert an intermediate <strong>3 &micro;m DIAMAT diamond on ATLANTIS pad</strong> step between the SiC grinding and the 1 &micro;m DIAMAT rough polish (DIALUBE Purple Extender, 5-10 lb, 100/100 rpm, 2-3 minutes). These harder alloys leave residual SiC scratches that 1 &micro;m diamond alone won&apos;t fully clear; the 3 &micro;m step removes them efficiently.
+                        </p>
+                        <p>
+                            <strong>Important:</strong> Keep force light (5-10 lb) and check the surface between steps. Over-polishing introduces relief around second-phase particles and inclusions, and can begin to round the very oxide particles you are trying to preserve.
+                        </p>
+                        <p>
+                            <strong>Compressed air only &mdash; no heated drying:</strong> Aluminum can recrystallize at modest elevated temperatures, especially after the cold-work that grinding and polishing introduce in the near-surface layer. Hot-air dryers can alter the very grain structure you are trying to image. Use room-temperature compressed air after every rinse.
                         </p>
                         <p>
                             For more information on polishing supplies, visit our <a href="https://shop.metallographic.com/collections/diamond-abrasives" target="_blank" rel="noopener noreferrer" class="guide-link">Diamond Abrasives</a> and <a href="https://shop.metallographic.com/collections/polishing-pads" target="_blank" rel="noopener noreferrer" class="guide-link">Polishing Pads</a> collections.
@@ -1136,9 +1092,9 @@
                         <h2>Etching</h2>
                         <p>
                             Etching reveals the microstructure by selectively attacking grain boundaries and phases.
-                            The choice of etchant depends on the alloy and the features you want to reveal.
-                            Keller's reagent is typically the first choice for most aluminum alloys, with Weck's
-                            reagent and electrolytic methods available for more specialized analysis.
+                            The choice of etchant depends on the alloy series and the features you want to reveal.
+                            Keller's reagent is the standard first choice for most aluminum alloys; specialized etchants
+                            (Graff &amp; Sargent's, Barker's, Weck's color etch) cover specific use cases.
                         </p>
                         <div class="guide-image-wrapper">
                             <img
@@ -1149,36 +1105,97 @@
                             />
                             <p class="guide-image-caption">Aluminum-silicon alloy etched with Keller's reagent, 400X magnification. Proper etching reveals grain boundaries and phase structure without over-etching artifacts.</p>
                         </div>
+
+                        <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
+                            <p>
+                                <strong>HF safety — read first.</strong> Keller's, Graff &amp; Sargent's, Tucker's, and
+                                several other aluminum etchants contain hydrofluoric acid (HF). HF causes deep tissue
+                                burns that may not be immediately painful — by the time symptoms develop, serious damage
+                                can already be done. HF-rated gloves (typically butyl rubber or neoprene), face shield,
+                                fume hood, and calcium gluconate gel within reach are all mandatory. New users should
+                                be trained and supervised before handling HF-containing reagents.
+                            </p>
+                        </div>
+
                         <h3>Common Etchants for Aluminum</h3>
                         <ul>
-                            <li><strong>Keller's Reagent:</strong> General purpose, reveals grain boundaries and second phases (1% HF, 1.5% HCl, 2.5% HNO₃, 95% H₂O)</li>
-                            <li><strong>Weck's Reagent:</strong> Tint etchant for grain structure, dendritic segregation, and orientation contrast under bright-field (4g KMnO₄, 1g NaOH, 100ml H₂O)</li>
-                            <li><strong>Barker's Reagent:</strong> Electrolytic anodization for grain structure examination under polarized light (5ml HBF₄, 200ml H₂O, 20-30V DC)</li>
-                            <li><strong>Graff & Sargent's Reagent:</strong> For age-hardened alloys (15.5ml HNO₃, 0.5ml HF, 3g CrO₃, 84ml H₂O)</li>
+                            <li>
+                                <strong>Keller's Reagent</strong> — general-purpose for most wrought and cast Al alloys; reveals grain boundaries and constituent particles. The standard first choice.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 95 mL DI water + 2.5 mL HNO<sub>3</sub> + 1.5 mL HCl + 1.0 mL HF</li>
+                                    <li><strong>Use:</strong> Immerse 10-20 seconds. Rinse in warm water. Use only fresh.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Graff &amp; Sargent's Reagent</strong> — wrought aluminum alloys, particularly 2xxx and 7xxx age-hardened series.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 84 mL water + 15.5 mL HNO<sub>3</sub> + 0.5 mL HF + 3 g CrO<sub>3</sub></li>
+                                    <li><strong>Use:</strong> Immerse 20-60 seconds with mild agitation.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Tucker's Reagent</strong> — general-purpose for Al-Si cast alloys (A356, A380, etc.) and high-Si wrought alloys; more aggressive than Keller's.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 45 mL HCl + 15 mL HNO<sub>3</sub> + 15 mL HF + 25 mL water</li>
+                                    <li><strong>Use:</strong> Swab 10-15 seconds. Rinse immediately. Use only fresh.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>NaOH / NaF Etch</strong> — Al-Cu alloys (2xxx series); grain contrast and grain boundary lines.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 2 g NaOH + 5 g NaF + 93 mL DI water</li>
+                                    <li><strong>Use:</strong> Immerse 2-3 minutes.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Barker's Reagent</strong> — electrolytic anodizing for grain visualization under polarized light. The standard technique for measuring grain size in wrought aluminum.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 4-5 mL HBF<sub>4</sub> (48%) in 200 mL DI water</li>
+                                    <li><strong>Use:</strong> Sample as anode, stainless steel cathode, 20-30 V DC, 1-3 minutes. View under crossed polarizers — grains appear in color.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Weck's Reagent for Aluminum</strong> — color (tint) etch revealing grain structure, dendritic segregation, and orientation contrast in brightfield.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Composition:</strong> 100 mL DI water + 4 g KMnO<sub>4</sub> + 1 g NaOH</li>
+                                    <li><strong>Use:</strong> Immerse until surface develops color (typically 20-60 seconds).</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>1% NaOH (aqueous)</strong> — quick macro-etch for surface defect inspection, weld evaluation, and general orientation.
+                                <ul style="margin-top: 0.25rem;">
+                                    <li><strong>Use:</strong> Swab or immerse 30-60 seconds; rinse with concentrated HNO<sub>3</sub> to remove the resulting black smut.</li>
+                                </ul>
+                            </li>
                         </ul>
-                        <div class="guide-image-wrapper" style="max-width: 500px;">
-                            <a href="https://shop.metallographic.com/collections/etchants" target="_blank" rel="noopener noreferrer" class="guide-link">
-                                <img 
-                                    src="/images/consumables/final%20polishing%20%26%20analysis/etching/etching.webp"
-                                    alt="Etching solutions and reagents for aluminum"
-                                    loading="lazy"
-                                    class="guide-image"
-                                />
-                            </a>
-                            <p class="guide-image-caption">Etching solutions and reagents for aluminum. Common etchants include Keller's Reagent, Weck's Reagent, and electrolytic solutions. Etching time typically ranges from 5-30 seconds depending on the etchant and alloy.</p>
-                        </div>
+
+                        <h3>Cast Al-Si Alloys — Special Considerations</h3>
+                        <p>
+                            Cast Al-Si alloys (A356, A380, AlSi7Mg, etc.) are typically modified with small additions of
+                            strontium (~0.01-0.015 wt%) to transform the brittle acicular eutectic silicon into a fine
+                            fibrous morphology. Metallographic quality control of foundry castings centers on confirming
+                            this morphology change and on detecting Mg<sub>2</sub>Si precipitates that indicate incorrect
+                            heat treatment.
+                        </p>
+                        <ul>
+                            <li><strong>As-polished:</strong> Examine first under brightfield and DIC. Eutectic Si morphology (acicular vs. rounded/fibrous) is often visible without etching. Microporosity is also best assessed in the as-polished condition.</li>
+                            <li><strong>Keller's reagent:</strong> Reveals Al matrix grain structure and outlines eutectic Si.</li>
+                            <li><strong>Tucker's reagent:</strong> More aggressive — useful for revealing Si phase morphology in heavily modified castings.</li>
+                            <li><strong>Color etching:</strong> For QC of strontium modification and T6 heat treatment, color (tint) etching with Klemm's-style reagents or specialty dyes (e.g., phthalocyanine blue in nitrocellulose lacquer applied after a deep NaOH etch) provides excellent contrast between the α-Al matrix, eutectic Si, Mg<sub>2</sub>Si precipitates, and microporosity. Capillary action draws the dye into porosity, outlining pores in unstained relief — a powerful QC tool for casting defect detection.</li>
+                        </ul>
+
                         <h3>Etching Procedure</h3>
                         <ol>
-                            <li>Ensure sample is clean and dry</li>
-                            <li>Apply etchant with cotton swab or immerse sample</li>
-                            <li>Etch for 5-30 seconds (time varies by etchant and alloy)</li>
-                            <li>Immediately rinse with water, then alcohol</li>
-                            <li>Dry with compressed air</li>
+                            <li>Ensure sample is clean and dry; residual polishing debris will give mottled etch results.</li>
+                            <li>Apply etchant by swab for Keller's and similar; immerse for Barker's electrolytic and color etches.</li>
+                            <li>Etch for the recommended time (5-30 seconds for most chemical etches; 1-3 minutes for Barker's electrolytic).</li>
+                            <li>Rinse immediately with water, then alcohol.</li>
+                            <li>Dry with compressed air. Do not wipe.</li>
                         </ol>
                         <p>
-                            <strong>Tip:</strong> Start with shorter etching times (5-10 seconds) and increase if needed. 
-                            Over-etching can obscure fine details and create pitting. For electrolytic etching, 
-                            use appropriate voltage and time settings.
+                            <strong>Tip:</strong> Start with the short end of the time range and increase if needed.
+                            Over-etching obscures fine details and creates pitting. Most HF-containing etchants lose
+                            activity within 30-60 minutes of mixing — make small batches fresh.
                         </p>
                         <p>
                             For more information on etchants, visit our <a href="https://shop.metallographic.com/collections/etchants" target="_blank" rel="noopener noreferrer" class="guide-link">Etchants</a> collection.
@@ -1189,13 +1206,31 @@
                         <h2>Troubleshooting</h2>
                         <h3>Common Issues and Solutions</h3>
                         <ul>
-                            <li><strong>Scratches remaining:</strong> Insufficient grinding/polishing time or skipped grits. Ensure complete scratch removal at each step.</li>
-                            <li><strong>Smearing:</strong> Too much pressure or too hard a cloth. Use softer cloths and lighter pressure.</li>
-                            <li><strong>Relief around second phases:</strong> Over-polishing or too soft a cloth. Reduce polishing time or use slightly harder cloth.</li>
-                            <li><strong>Contamination:</strong> Clean between steps, use fresh abrasives, and ensure proper sample cleaning.</li>
-                            <li><strong>Deformation:</strong> Too much pressure during grinding or polishing. Use lighter pressure throughout.</li>
-                            <li><strong>Over-etching:</strong> Reduce etching time or dilute etchant. Start with shorter times.</li>
-                            <li><strong>Pitting after etching:</strong> Etchant too strong or etching time too long. Dilute etchant or reduce time.</li>
+                            <li><strong>Oxide inclusions pulled out (appear as black voids on the surface):</strong> Force was too high during grinding, or the grit was too coarse to start. Drop pressure to the 5-10 lb range, confirm the plane step is on ALO paper (not SiC), and re-section if the sample also shows deep cutoff damage. Pulled-out oxides cannot be recovered &mdash; only avoided.</li>
+                            <li><strong>Embedded abrasive particles (bright spots that don't move on rotation):</strong> If they are dark/grey under bright-field they are likely SiC pressed in from the fine-grind steps. Re-run the 1 &micro;m DIAMAT polish on a fresh ATLANTIS pad for a longer time, then re-check. The 0.05 &micro;m alumina final will lift most residual particles; if they remain, the SiC paper was glazed or over-loaded &mdash; replace it next time.</li>
+                            <li><strong>Scratches remaining:</strong> Insufficient time at one of the grinding steps, or skipped grit. For heat-treated and cast alloys, add the optional 3 &micro;m DIAMAT step described in the Polishing section.</li>
+                            <li><strong>Smearing:</strong> Too much pressure, or the polishing pad is too soft for the alloy. Use lighter pressure and ensure the ATLANTIS pad is the right hardness for the rough polish step.</li>
+                            <li><strong>Relief around second phases:</strong> Over-polishing or excessive force. Reduce the final polish time and confirm 5-10 lb force.</li>
+                            <li><strong>Contamination:</strong> Clean between steps, use fresh abrasives and lubricants, rinse the sample thoroughly before moving to the next pad.</li>
+                            <li><strong>Deformation (smeared "orange peel" surface after etching):</strong> Too much pressure during grinding or polishing &mdash; cold-work was driven deep enough that the etchant reveals the deformation layer instead of the true microstructure. Re-prep at lighter force.</li>
+                            <li><strong>Over-etching:</strong> Reduce etching time or dilute the etchant. Start with shorter times (5-10 seconds) and work up.</li>
+                            <li><strong>Pitting after etching:</strong> Etchant too strong or etching time too long. Dilute the etchant or reduce time.</li>
+                        </ul>
+                    </section>
+
+                    <section id="additional-reading" class="guide-section">
+                        <h2>Additional Reading</h2>
+                        <ul>
+                            <li>Zipperian, D.C. <em>Metallographic Handbook</em>, Section 11.1.1 (Aluminum and Aluminum Alloys). PACE Technologies, Tucson, AZ &mdash; the house reference. The grinding, polishing, and etchant recipes in this guide come directly from this source.</li>
+                            <li>Garc&iacute;a, L., Dietz, C., Criado, A.J., Mart&iacute;nez, J.A. "Colour metallography of cast aluminium alloys." <em>Practical Metallography</em> 51 (2014) 7, 514-529 &mdash; source for the phthalocyanine blue / NaOH deep-etch color metallography technique for cast Al-Si quality control.</li>
+                            <li>Long, J., Borissova, A., Wilson, A.D., Avelar-Batista Wilson, J.C. "Sample preparation of anodised aluminium oxide coatings for scanning electron microscopy." <em>Micron</em> 101 (2017), 87-94 &mdash; comparison of mechanical fracturing, cryogenic fracturing, and metallography for anodised Al; source for the Al-foil-wrap edge-retention technique.</li>
+                            <li><em>ASM Handbook, Vol. 9: Metallography and Microstructures</em>. ASM International &mdash; comprehensive aluminum alloy preparation and etching reference.</li>
+                            <li>Vander Voort, G.F., Asensio-Lozano, J., Su&aacute;rez-Pe&ntilde;a, B. "Color Metallography and Electron Microscopy Techniques Applied to the Characterization of 413.0 Aluminum Alloys." <em>Microscopy and Microanalysis</em> 19 (2013), 1019-1026 &mdash; for cast Al-Si color etching.</li>
+                            <li>Petzow, G. <em>Metallographic Etching</em>, 2nd ed. ASM International &mdash; comprehensive reference for Keller's, Graff &amp; Sargent's, Tucker's, Barker's, and other aluminum etchant formulations.</li>
+                            <li>ASTM E407 &mdash; Standard Practice for Microetching Metals and Alloys (aluminum etchants section).</li>
+                            <li>ASTM E3 &mdash; Standard Guide for Preparation of Metallographic Specimens.</li>
+                            <li>ASTM E112 &mdash; Standard Test Methods for Determining Average Grain Size (relevant for Barker's anodizing applications).</li>
+                            <li>EN 1706 &mdash; Aluminium and aluminium alloys &mdash; Castings &mdash; Chemical composition and mechanical properties.</li>
                         </ul>
                     </section>
 
@@ -1233,6 +1268,7 @@
             </div>
         </div>
     </main>
+
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
@@ -1292,9 +1328,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1306,7 +1370,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1334,8 +1398,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1407,9 +1470,43 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
     <script src="/js/guide-nav.js"></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

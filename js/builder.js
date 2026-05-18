@@ -44,6 +44,7 @@
     materialHardness: '',
     sampleSize: '',
     sampleShape: '',
+    mountDiameter: '',
     applications: [],
     throughput: '',
     automation: '',
@@ -270,6 +271,13 @@
         saveToStorage();
       });
     }
+    const mountDiameter = document.getElementById('mount-diameter');
+    if (mountDiameter) {
+      mountDiameter.addEventListener('change', (e) => {
+        formData.mountDiameter = e.target.value;
+        saveToStorage();
+      });
+    }
     if (throughput) {
       throughput.addEventListener('change', (e) => {
         formData.throughput = e.target.value;
@@ -333,7 +341,7 @@
     if (sendToExpertBeforeBack) {
       sendToExpertBeforeBack.addEventListener('click', () => {
         if (backConfirmationModal) backConfirmationModal.style.display = 'none';
-        if (expertReviewModal) expertReviewModal.style.display = 'flex';
+        openExpertReviewModal();
       });
     }
     
@@ -361,27 +369,61 @@
     // Expert review modal
     const getExpertReview = document.getElementById('get-expert-review');
     const closeExpertReview = document.getElementById('close-expert-review');
-    const cancelExpertReview = document.getElementById('cancel-expert-review');
-    const expertReviewForm = document.getElementById('expert-review-form');
     const expertReviewModal = document.getElementById('expert-review-modal');
 
     if (getExpertReview) {
-      getExpertReview.addEventListener('click', () => {
-        if (expertReviewModal) expertReviewModal.style.display = 'flex';
-      });
+      getExpertReview.addEventListener('click', openExpertReviewModal);
     }
     if (closeExpertReview) {
       closeExpertReview.addEventListener('click', () => {
         if (expertReviewModal) expertReviewModal.style.display = 'none';
       });
     }
-    if (cancelExpertReview) {
-      cancelExpertReview.addEventListener('click', () => {
-        if (expertReviewModal) expertReviewModal.style.display = 'none';
+
+    // Close expert review modal when clicking overlay
+    if (expertReviewModal) {
+      const overlay = expertReviewModal.querySelector('.builder-modal-overlay');
+      if (overlay) {
+        overlay.addEventListener('click', () => {
+          expertReviewModal.style.display = 'none';
+        });
+      }
+    }
+
+    // Toggle Lab Builder summary preview inside the modal
+    const toggleSummary = document.getElementById('toggle-summary-preview');
+    if (toggleSummary) {
+      toggleSummary.addEventListener('click', () => {
+        const preview = document.getElementById('summary-preview');
+        if (!preview) return;
+        const isOpen = preview.style.display !== 'none';
+        preview.style.display = isOpen ? 'none' : 'block';
+        toggleSummary.setAttribute('aria-expanded', String(!isOpen));
+        toggleSummary.textContent = isOpen ? 'View' : 'Hide';
       });
     }
-    if (expertReviewForm) {
-      expertReviewForm.addEventListener('submit', handleExpertReviewSubmit);
+
+    // Copy Lab Builder summary to clipboard so the user can paste it into the HubSpot form
+    const copySummaryBtn = document.getElementById('copy-summary-btn');
+    if (copySummaryBtn) {
+      // The button has an icon + label span; cache the label element so we only swap text, not the icon
+      const labelSpan = copySummaryBtn.querySelector('span') || copySummaryBtn;
+      const originalLabel = labelSpan.textContent;
+      copySummaryBtn.addEventListener('click', async () => {
+        const summary = buildLabBuilderSummary();
+        const success = await copyTextToClipboard(summary);
+        labelSpan.textContent = success ? 'Copied ✓' : 'Copy failed';
+        copySummaryBtn.classList.toggle('is-copied', success);
+        setTimeout(() => {
+          labelSpan.textContent = originalLabel;
+          copySummaryBtn.classList.remove('is-copied');
+        }, 2500);
+        if (!success) {
+          // Show the preview block so user can copy manually as a fallback
+          const preview = document.getElementById('summary-preview');
+          if (preview) preview.style.display = 'block';
+        }
+      });
     }
 
     // Download PDF
@@ -395,6 +437,25 @@
     if (startOver) {
       startOver.addEventListener('click', handleStartOver);
     }
+
+    // Help-text tooltip toggles (delegated, covers dynamically-rendered fields too)
+    document.addEventListener('click', function(e) {
+      const toggle = e.target.closest('.builder-help-toggle');
+      if (!toggle) return;
+      e.preventDefault();
+      const targetId = toggle.getAttribute('data-help-target');
+      if (!targetId) return;
+      const helpEl = document.getElementById(targetId);
+      if (!helpEl) return;
+      const isHidden = helpEl.hasAttribute('hidden');
+      if (isHidden) {
+        helpEl.removeAttribute('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+      } else {
+        helpEl.setAttribute('hidden', '');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
 
     // Populate form fields from saved data
     populateFormFields();
@@ -417,6 +478,10 @@
     if (formData.sampleShape) {
       const sampleShape = document.getElementById('sample-shape');
       if (sampleShape) sampleShape.value = formData.sampleShape;
+    }
+    if (formData.mountDiameter) {
+      const mountDiameter = document.getElementById('mount-diameter');
+      if (mountDiameter) mountDiameter.value = formData.mountDiameter;
     }
     if (formData.throughput) {
       const throughput = document.getElementById('throughput');
@@ -563,23 +628,29 @@
         </div>
         <div class="builder-form-grid">
           <div class="builder-form-field">
-            <label class="builder-form-label" for="section-type">Section Type</label>
+            <label class="builder-form-label" for="section-type">
+              Section Type
+              <button type="button" class="builder-help-toggle" data-help-target="help-section-type" aria-label="More info on section type" aria-expanded="false">i</button>
+            </label>
             <select id="section-type" class="builder-select">
               <option value="Cross-section"${formData.sectionType === 'Cross-section' ? ' selected' : ''}>Cross-section</option>
               <option value="Longitudinal"${formData.sectionType === 'Longitudinal' ? ' selected' : ''}>Longitudinal</option>
               <option value="Surface"${formData.sectionType === 'Surface' ? ' selected' : ''}>Surface</option>
               <option value="Specific feature"${formData.sectionType === 'Specific feature' ? ' selected' : ''}>Specific Feature</option>
             </select>
-            <p class="builder-form-help">The orientation of the cut relative to the sample.</p>
+            <p class="builder-form-help" id="help-section-type" hidden>The orientation of the cut relative to the sample.</p>
           </div>
           <div class="builder-form-field">
-            <label class="builder-form-label" for="damage-criticality">Cut Damage Sensitivity</label>
+            <label class="builder-form-label" for="damage-criticality">
+              Cut Damage Sensitivity
+              <button type="button" class="builder-help-toggle" data-help-target="help-damage-criticality" aria-label="More info on cut damage sensitivity" aria-expanded="false">i</button>
+            </label>
             <select id="damage-criticality" class="builder-select">
               <option value="Standard"${formData.damageCriticality === 'Standard' ? ' selected' : ''}>Standard</option>
-              <option value="High"${formData.damageCriticality === 'High' ? ' selected' : ''}>High - Minimize heat-affected zone</option>
-              <option value="Very High"${formData.damageCriticality === 'Very High' ? ' selected' : ''}>Very High - Critical microstructure preservation</option>
+              <option value="High"${formData.damageCriticality === 'High' ? ' selected' : ''}>High &mdash; minimize HAZ</option>
+              <option value="Very High"${formData.damageCriticality === 'Very High' ? ' selected' : ''}>Very High &mdash; critical microstructure</option>
             </select>
-            <p class="builder-form-help">How sensitive your sample is to heat and mechanical damage from cutting.</p>
+            <p class="builder-form-help" id="help-damage-criticality" hidden>How sensitive your sample is to heat and mechanical damage from cutting.</p>
           </div>
         </div>
       `;
@@ -650,6 +721,8 @@
     const selectedStages = formData.processStages || [];
 
     // Derived characteristics
+    // Treat 'Unknown' hardness as medium for recommendation purposes (and flag it)
+    const isUnknownHardness = hardness === 'Unknown' || hardness === '';
     const isHard = hardness.includes('Hard') || hardness.includes('Very Hard');
     const isVeryHard = hardness.includes('Very Hard');
     const isSoft = hardness.includes('Soft');
@@ -661,8 +734,16 @@
     const isVeryHighThroughput = throughput.includes('Very High');
     const isAutomated = automation === 'Fully Automated';
     const isSemiAutomated = automation.includes('Semi-Automated');
-    const needsEBSD = applications.includes('EBSD') || surfaceFinish.includes('EBSD') || surfaceFinish.includes('Extremely Flat');
+    // EBSD intent is driven by surface-finish dropdown only (no EBSD checkbox in applications)
+    const needsEBSD = surfaceFinish.includes('EBSD') || surfaceFinish.includes('Extremely Flat');
     const isHardMaterial = materialType.includes('Hard Metals') || materialType.includes('Ceramics');
+    const isCarbide = materialType.includes('Hard Metals');
+    const isCeramic = materialType.includes('Ceramics');
+    const isTitanium = materialType.includes('Titanium');
+    const isAluminum = materialType.includes('Aluminum');
+    const isCopper = materialType.includes('Copper');
+    const isStainless = materialType.includes('Stainless');
+    const isNonFerrous = isAluminum || isCopper || isTitanium || materialType.includes('Nickel');
     // Equipment tier
     const isEssentialTier = budget === 'Essential';
     const isComprehensiveTier = budget === 'Comprehensive';
@@ -674,11 +755,32 @@
       const damageCriticality = formData.damageCriticality || 'Standard';
       const needsHighPrecision = damageCriticality === 'High' || damageCriticality === 'Very High';
       const needsSpecificFeature = sectionType === 'Specific feature' || sectionType === 'Surface';
-      
+
       const needsTableFeed = throughput && (throughput.includes('Medium') || throughput.includes('High') || throughput.includes('Very High'));
       const needsAutomatedTableFeed = (throughput && (throughput.includes('High') || throughput.includes('Very High'))) || automation.includes('Automated');
-      
-      if (isSmall && (isDelicate || needsEBSD || surfaceFinish.includes('Extremely Flat') || needsHighPrecision || needsSpecificFeature)) {
+
+      // Carbides and most technical ceramics are sectioned with diamond — NOT abrasive wheels.
+      // Route to precision wafering with diamond blades regardless of sample size.
+      if (isCarbide || isCeramic) {
+        recommendations.push({
+          type: 'Precision Wafering Saw with Diamond Blades',
+          reasoning: `Cemented carbides and technical ceramics are sectioned with diamond blades — abrasive (SiC/Al₂O₃) wheels are not appropriate for these materials and will glaze or shatter. A precision wafering saw with controlled feed and a recirculating coolant bath minimizes chipping and microstructural damage in ${materialType.toLowerCase()}.`,
+          category: 'equipment',
+          stage: 'sectioning'
+        });
+        recommendations.push({
+          type: 'Diamond Wafering Blades (resin-bond or metal-bond)',
+          reasoning: `Resin-bonded diamond blades are preferred for ${isCarbide ? 'cemented carbides (WC/Co)' : 'most technical ceramics'} because they self-dress and produce a cleaner cut than metal-bond. Use higher diamond concentration for high-volume cutting; lower concentration for delicate, chip-sensitive parts.`,
+          category: 'consumable',
+          stage: 'sectioning'
+        });
+        recommendations.push({
+          type: 'Recirculating Coolant with Rust Inhibitor',
+          reasoning: 'Continuous flood coolant is essential when diamond-cutting hard materials to flush swarf, prevent blade loading, and minimize heat-induced microcracking.',
+          category: 'consumable',
+          stage: 'sectioning'
+        });
+      } else if (isSmall && (isDelicate || needsEBSD || surfaceFinish.includes('Extremely Flat') || needsHighPrecision || needsSpecificFeature)) {
         recommendations.push({
           type: 'Precision Wafering System with Diamond Blades',
           reasoning: 'Essential for small delicate samples. Precision wafering with thin diamond blades (3-8 inch) minimizes damage and material loss. Standard abrasive saws (minimum 10-inch) are too large for small samples. Produces smoother cut surfaces with less damage, reducing subsequent grinding time.',
@@ -703,40 +805,41 @@
         } else {
           feedType = 'with Table Feed';
         }
-        
+
         recommendations.push({
           type: `${bladeSize} Abrasive Cut-off Saw ${feedType}`,
-          reasoning: `Primary sectioning method for ${materialType || 'most materials'}. Versatile and cost-effective, suitable for a wide range of materials from soft metals to hard steels and ceramics. Standard abrasive saws start at 10-inch (250mm) blade size. ${needsAutomatedTableFeed ? 'Automated table feed ensures consistent cutting parameters for high throughput.' : needsTableFeed ? 'Table feed provides better control and consistency for medium to high throughput.' : 'Wheel feed only provides cost-effective sectioning for low-volume work.'} Appropriate blade size for ${sampleSize.toLowerCase()} samples.`,
+          reasoning: `Primary sectioning method for ${materialType || 'most materials'}. Versatile and cost-effective for metals from soft non-ferrous to hardened steels. Standard abrasive saws start at 10-inch (250mm) blade size. ${needsAutomatedTableFeed ? 'Automated table feed ensures consistent cutting parameters for high throughput.' : needsTableFeed ? 'Table feed provides better control and consistency for medium to high throughput.' : 'Wheel feed only provides cost-effective sectioning for low-volume work.'} Appropriate blade size for ${sampleSize.toLowerCase() || 'typical'} samples.`,
           category: 'equipment',
           stage: 'sectioning'
         });
-        
-        if (isHardMaterial || isVeryHard) {
+
+        // Correct abrasive selection: Al₂O₃ for ferrous/hard steels & superalloys; SiC for non-ferrous & softer materials.
+        if (isVeryHard || (isHard && !isNonFerrous) || isStainless) {
           recommendations.push({
-            type: 'Silicon Carbide Abrasive Cut-off Wheels',
-            reasoning: 'SiC abrasive wheels provide aggressive cutting action essential for hard materials and ceramics. Proper blade selection and adequate cooling prevent excessive heat generation that could alter microstructure.',
+            type: 'Aluminum Oxide (Al₂O₃) Abrasive Cut-off Wheels',
+            reasoning: 'Alumina abrasive wheels are the standard for hardened steels, tool steels, stainless steels, and superalloys. The friable nature of Al₂O₃ keeps the wheel sharp during cutting of ferrous and hard materials. Adequate coolant flow is critical to prevent burning the cut face.',
             category: 'consumable',
             stage: 'sectioning'
           });
-        } else if (isSoft) {
+        } else if (isSoft || isNonFerrous) {
           recommendations.push({
-            type: 'Aluminum Oxide Abrasive Cut-off Wheels',
-            reasoning: 'Alumina abrasive wheels suitable for soft non-ferrous metals. Proper blade selection prevents excessive heat generation and material smearing in soft materials.',
+            type: 'Silicon Carbide (SiC) Abrasive Cut-off Wheels',
+            reasoning: `SiC is the correct abrasive for non-ferrous and softer materials such as ${materialType || 'aluminum, copper, brass, and softer alloys'}. SiC's harder, sharper grains cut cleanly through soft metals without glazing or causing the smearing that Al₂O₃ can produce on these alloys.`,
             category: 'consumable',
             stage: 'sectioning'
           });
         } else {
           recommendations.push({
-            type: 'Abrasive Cut-off Wheels',
-            reasoning: `Silicon carbide or alumina abrasive wheels suitable for ${materialType || 'metallic materials'}. Proper blade selection prevents excessive heat generation.`,
+            type: 'Abrasive Cut-off Wheels (Al₂O₃ for ferrous, SiC for non-ferrous)',
+            reasoning: `Choose blade chemistry by workpiece: Al₂O₃ for steels and superalloys; SiC for aluminum, copper, and softer non-ferrous alloys. Wrong abrasive choice causes burning, smearing, or excessive blade wear.`,
             category: 'consumable',
             stage: 'sectioning'
           });
         }
-        
+
         recommendations.push({
-          type: 'Cutting Fluid / Coolant',
-          reasoning: 'Essential for cooling and lubrication during cutting. Prevents excessive heat generation that could cause phase transformations or microstructural changes.',
+          type: 'Cutting Fluid / Coolant with Rust Inhibitor',
+          reasoning: 'Essential for cooling and lubrication during cutting. Prevents the heat-affected zone (HAZ) from causing phase transformations, tempering, or microstructural changes — especially critical when "Cut Damage Sensitivity" is High or Very High.',
           category: 'consumable',
           stage: 'sectioning'
         });
@@ -745,27 +848,36 @@
 
     // MOUNTING RECOMMENDATIONS
     if (selectedStages.includes('mounting')) {
-      const needsColdMounting = isSoft || isDelicate || materialType.includes('Titanium');
+      // Cold mounting is driven by: soft metals (smearing risk under compression), delicate/thin/irregular samples,
+      // and porous materials. Note: Titanium is NOT particularly heat-sensitive at 150-180°C — Ti is hot-mountable.
+      const needsColdMounting = isSoft || isDelicate || sampleShape === 'Irregular';
 
       if (needsColdMounting) {
         if (isHighThroughput && isPremiumTier) {
           recommendations.push({
             type: 'UV Curing Mounting System',
-            reasoning: 'Fastest cold mounting method with cure times under 10 minutes. Ideal for high-volume labs working with temperature-sensitive materials. No heat application preserves true microstructure in soft metals and titanium.',
+            reasoning: 'Fastest cold mounting method with cure times under 10 minutes. Ideal for high-volume labs preparing soft, porous, or fragile samples that cannot tolerate the pressures and temperatures of hot compression mounting.',
             category: 'equipment',
             stage: 'mounting'
           });
         }
         recommendations.push({
           type: 'Vacuum Impregnation System',
-          reasoning: `Removes air bubbles for clear, void-free mounts without heat application. Essential for ${isSoft ? 'soft metals' : isDelicate ? 'delicate/thin samples' : materialType || 'heat-sensitive materials'} where compression mounting temperatures (150-180°C) would alter microstructure or cause sample damage.`,
+          reasoning: `Removes air bubbles for clear, void-free mounts without heat application. Essential for ${isSoft ? 'soft metals (which smear under compression)' : isDelicate ? 'delicate/thin samples' : 'porous or irregular samples'} where compression mounting pressure (~4000 psi) or temperatures (150-180°C) would damage the sample or fail to encapsulate features properly.`,
           category: 'equipment',
+          stage: 'mounting'
+        });
+        // Acrylic vs epoxy choice
+        recommendations.push({
+          type: 'Acrylic (Methyl Methacrylate) Cold-Mount Resins',
+          reasoning: 'Fast cure (8-15 minutes) and inexpensive — the workhorse cold mount for routine cold-mounting. Exothermic during cure (avoid for very heat-sensitive samples). Lower edge retention than epoxy, so prefer epoxy when edge quality matters.',
+          category: 'consumable',
           stage: 'mounting'
         });
         if (isDelicate || sampleShape === 'Irregular') {
           recommendations.push({
             type: 'Low-Viscosity Epoxy Mounting Resins',
-            reasoning: 'Low-viscosity epoxy penetrates fine cracks, pores, and irregular surfaces. Combined with vacuum impregnation, ensures complete encapsulation of delicate and complex-shaped samples.',
+            reasoning: 'Low-viscosity epoxy penetrates fine cracks, pores, and irregular surfaces. Combined with vacuum impregnation, ensures complete encapsulation of delicate and complex-shaped samples. Longer cure (6-8 hours, or 1-2 hours fast-cure) but superior edge retention vs. acrylic.',
             category: 'consumable',
             stage: 'mounting'
           });
@@ -780,7 +892,7 @@
       } else {
         recommendations.push({
           type: isAutomated ? 'Programmable Hydraulic Mounting Press' : 'Hydraulic Compression Mounting Press',
-          reasoning: `${isAutomated ? 'Programmable press with automated temperature, pressure, and time control ensures repeatable mounts with minimal operator input.' : 'Hydraulic mounting press provides reliable, high-force compression mounting.'} Fast 8-15 minute cycles with good edge retention. Suitable for materials that can tolerate 150-180°C temperatures.`,
+          reasoning: `${isAutomated ? 'Programmable press with automated temperature, pressure, and time control ensures repeatable mounts with minimal operator input.' : 'Hydraulic mounting press provides reliable, high-force compression mounting.'} Fast 8-15 minute cycles with good edge retention. Suitable for materials that can tolerate 150-180°C temperatures${isTitanium ? ' — Ti alloys are well within this safe range (β-transus is ~880°C)' : ''}.`,
           category: 'equipment',
           stage: 'mounting'
         });
@@ -793,18 +905,36 @@
             stage: 'mounting'
           });
         }
-        // Resin recommendation based on application
-        if (needsEBSD || applications.includes('Research & Development')) {
+        // Edge retention drives DAP vs phenolic. Case-depth measurement on hardened steels is a
+        // common QC workflow where standard phenolic edge retention is insufficient and causes
+        // soft, rounded edges that wash out the case/core boundary under the indenter.
+        const isSteelFamily = materialType.includes('Steel') || isStainless;
+        const isMediumOrHarder = isHard || isVeryHard || hardness.includes('Medium');
+        const likelyCaseDepth = selectedStages.includes('hardness') && isSteelFamily && isMediumOrHarder;
+        const needsEdgeRetention = needsEBSD ||
+                                   applications.includes('Research & Development') ||
+                                   applications.includes('Failure Analysis') ||
+                                   likelyCaseDepth;
+
+        if (needsEdgeRetention) {
+          let edgeReason = 'DAP provides superior edge retention and hardness compared to phenolic.';
+          if (likelyCaseDepth) {
+            edgeReason += ' Recommended here because hardness testing on medium/hardened steel often involves case-depth or weld cross-section measurement (per ASTM E1077, E384), where phenolic edges round during polishing and wash out the case/core transition under the indenter.';
+          } else if (needsEBSD) {
+            edgeReason += ' Critical for EBSD prep where edge rounding produces artifacts at sample boundaries.';
+          } else {
+            edgeReason += ' Recommended for research and failure-analysis work where edge quality affects measurement accuracy.';
+          }
           recommendations.push({
             type: 'Diallyl Phthalate (DAP) Mounting Resins',
-            reasoning: 'DAP provides superior edge retention and hardness compared to phenolic. Recommended for research and advanced characterization where edge quality is critical for accurate measurements.',
+            reasoning: edgeReason,
             category: 'consumable',
             stage: 'mounting'
           });
         } else {
           recommendations.push({
             type: 'Phenolic Mounting Resins',
-            reasoning: 'Cost-effective phenolic resins for routine compression mounting. Available in multiple colors for sample identification. Good general-purpose edge retention for standard metallography.',
+            reasoning: 'Cost-effective phenolic resins for routine compression mounting. Available in multiple colors for sample identification. Good general-purpose edge retention for standard metallography. If edge quality becomes a problem (case-depth, coatings, welds), upgrade to DAP.',
             category: 'consumable',
             stage: 'mounting'
           });
@@ -812,17 +942,53 @@
         // Comprehensive tier: also recommend cold mounting option
         if (isComprehensiveTier) {
           recommendations.push({
-            type: 'Epoxy Mounting Resins (supplemental)',
-            reasoning: 'Having castable epoxy available alongside compression mounting gives flexibility for samples that cannot tolerate heat, irregular shapes, or when clear mounts are needed for cross-reference.',
+            type: 'Acrylic or Epoxy Cold-Mount Resins (supplemental)',
+            reasoning: 'Keep castable cold mounts on hand alongside compression mounting for samples that cannot tolerate heat, irregular shapes, porous materials, and when clear mounts are needed for cross-reference imaging.',
             category: 'consumable',
             stage: 'mounting'
           });
         }
       }
+
+      // Conductive mounts for SEM / EBSD — standard epoxy/phenolic charge under the beam
+      if (needsEBSD) {
+        recommendations.push({
+          type: 'Conductive Mounting Resin (Cu- or graphite-filled) or Grounding Clips',
+          reasoning: 'EBSD and most SEM work require a conductive sample path to ground. Standard epoxy and phenolic mounts charge under the electron beam, causing image drift and pattern degradation. Use a conductive (copper- or graphite-filled) phenolic / cold mount, or apply conductive paint / grounding clips around the sample.',
+          category: 'consumable',
+          stage: 'mounting'
+        });
+      }
+
+      // Mount diameter callout — drives platen, fixture, and automated head sizing
+      if (formData.mountDiameter && formData.mountDiameter !== 'Mixed sizes') {
+        recommendations.push({
+          type: `Mount Cups / Fixtures sized for ${formData.mountDiameter}`,
+          reasoning: `Mount diameter of ${formData.mountDiameter} drives selection of compression-mount cylinders, cold-mount cups, and automated polishing head fixtures. Verify that any chosen prep equipment supports this mount size before purchasing.`,
+          category: 'consumable',
+          stage: 'mounting'
+        });
+      } else if (formData.mountDiameter === 'Mixed sizes') {
+        recommendations.push({
+          type: 'Multi-Size Mount Cups & Adapter Fixtures',
+          reasoning: 'Mixed mount sizes require adapter rings or universal fixtures for automated prep equipment. Confirm equipment compatibility — some automated heads are dedicated to a single mount diameter.',
+          category: 'consumable',
+          stage: 'mounting'
+        });
+      }
     }
 
     // GRINDING RECOMMENDATIONS
     if (selectedStages.includes('grinding')) {
+      // Surface a note when the user didn't know the hardness — results default to medium-hardness behavior
+      if (isUnknownHardness) {
+        recommendations.push({
+          type: 'Note: Hardness unspecified — recommendations assume medium hardness',
+          reasoning: 'You selected "Unknown" for material hardness. Grit progressions, polishing sequences, and abrasive selection default to medium-hardness behavior. If you can test or estimate the hardness (or run a quick Rockwell/Vickers test first), re-run the Lab Builder for more accurate consumable recommendations — or email our team at pace@metallographic.com with your material info.',
+          category: 'consumable',
+          stage: 'grinding'
+        });
+      }
       if (isLarge || isVeryLarge) {
         recommendations.push({
           type: 'Belt Grinder / Hand Grinder',
@@ -860,59 +1026,78 @@
         });
       }
 
-      // Grinding sequences differentiated by hardness
-      let grindingSequence = [];
-      if (isSoft) {
-        grindingSequence = ['240', '320', '400', '600'];
-      } else if (isVeryHard || isHardMaterial) {
-        grindingSequence = ['60', '120', '240', '320', '400', '600', '800', '1200'];
-      } else if (isHard) {
-        grindingSequence = ['120', '240', '320', '400', '600', '800'];
-      } else {
-        // Medium hardness
-        grindingSequence = ['120', '240', '320', '400', '600'];
-      }
-
-      const gritList = grindingSequence.join(', ');
-
-      if (isHardMaterial || isVeryHard) {
+      // Cemented carbides and most technical ceramics MUST be ground with diamond.
+      // SiC papers glaze almost immediately on WC/Co and on most engineered ceramics, producing
+      // poor surface quality and heavy subsurface damage. This is not a tier-gated upgrade — it is
+      // the correct method for these materials at any tier.
+      if (isCarbide || isCeramic) {
         recommendations.push({
-          type: `Silicon Carbide Grinding Papers (${gritList} grit)`,
-          reasoning: `SiC provides aggressive cutting action essential for hard materials and ceramics. Start coarse (${grindingSequence[0]} grit) due to slow material removal, then follow the full progressive sequence through ${grindingSequence[grindingSequence.length - 1]} grit. Fine grits (800, 1200) are critical for minimizing subsurface damage before polishing.`,
+          type: 'Diamond Grinding Discs (70 µm, 30 µm, 15 µm — metal-bond or resin-bond)',
+          reasoning: `${isCarbide ? 'Cemented carbides (WC/Co)' : 'Technical ceramics'} must be ground with diamond. SiC papers glaze almost immediately on these materials, cut very slowly, and leave heavy subsurface damage. Run a progressive sequence of diamond grinding discs (typically 70 µm → 30 µm → 15 µm or finer) followed by diamond polishing. ${isPremiumTier ? 'Metal-bond discs offer longer life and more aggressive cutting for high-volume labs.' : 'Resin-bond discs self-dress and produce smoother surfaces; metal-bond discs last longer for higher volumes.'}`,
           category: 'consumable',
           stage: 'grinding'
         });
-      } else if (isSoft) {
         recommendations.push({
-          type: `Aluminum Oxide or Fine SiC Grinding Papers (${gritList} grit)`,
-          reasoning: `Finer abrasives (starting at 240 grit) with light pressure minimize embedding and surface relief in soft materials like ${materialType || 'aluminum and copper alloys'}. Shorter sequence avoids overworking the surface. Essential for preserving true microstructure.`,
-          category: 'consumable',
-          stage: 'grinding'
-        });
-      } else if (isHard) {
-        recommendations.push({
-          type: `Silicon Carbide Grinding Papers (${gritList} grit)`,
-          reasoning: `SiC papers in progressive grit sizes: ${gritList}. Extended sequence through 800 grit ensures adequate surface quality for hard materials before transitioning to polishing. Finer final grit reduces polishing time.`,
+          type: 'Diamond Suspension or Paste for Disc Recharging (15-45 µm)',
+          reasoning: 'Resin-bond discs benefit from periodic recharging with diamond suspension to restore cutting action. Metal-bond discs are dressed with a dressing stick when glazed. Keep a small stock of both on hand.',
           category: 'consumable',
           stage: 'grinding'
         });
       } else {
-        recommendations.push({
-          type: `Silicon Carbide Grinding Papers (${gritList} grit)`,
-          reasoning: `Standard progressive grinding sequence: ${gritList} grit. Appropriate for medium-hardness materials. Each step removes damage from the previous grit before transitioning to polishing.`,
-          category: 'consumable',
-          stage: 'grinding'
-        });
-      }
+        // Grinding sequences differentiated by hardness (non-carbide, non-ceramic materials)
+        let grindingSequence = [];
+        if (isSoft) {
+          grindingSequence = ['240', '320', '400', '600'];
+        } else if (isVeryHard) {
+          grindingSequence = ['120', '240', '320', '400', '600', '800', '1200'];
+        } else if (isHard) {
+          grindingSequence = ['120', '240', '320', '400', '600', '800'];
+        } else {
+          // Medium hardness
+          grindingSequence = ['120', '240', '320', '400', '600'];
+        }
 
-      // Diamond grinding discs for premium tiers with hard materials
-      if (isPremiumTier && (isHard || isVeryHard || isHardMaterial)) {
-        recommendations.push({
-          type: 'Diamond Grinding Discs (75 µm, 45 µm)',
-          reasoning: 'Reusable diamond grinding discs offer faster, more consistent grinding for hard materials compared to SiC papers. Longer lifespan reduces per-sample cost in high-volume labs. Can replace several SiC paper steps.',
-          category: 'consumable',
-          stage: 'grinding'
-        });
+        const gritList = grindingSequence.join(', ');
+
+        if (isVeryHard) {
+          recommendations.push({
+            type: `Silicon Carbide Grinding Papers (${gritList} grit)`,
+            reasoning: `SiC provides aggressive cutting action for very hard steels and case-hardened parts. Follow the full progressive sequence through ${grindingSequence[grindingSequence.length - 1]} grit. Fine grits (800, 1200) are critical for minimizing subsurface damage before polishing.`,
+            category: 'consumable',
+            stage: 'grinding'
+          });
+        } else if (isSoft) {
+          recommendations.push({
+            type: `Aluminum Oxide or Fine SiC Grinding Papers (${gritList} grit)`,
+            reasoning: `Finer abrasives (starting at 240 grit) with light pressure minimize embedding and surface relief in soft materials like ${materialType || 'aluminum and copper alloys'}. Shorter sequence avoids overworking the surface. Essential for preserving true microstructure.`,
+            category: 'consumable',
+            stage: 'grinding'
+          });
+        } else if (isHard) {
+          recommendations.push({
+            type: `Silicon Carbide Grinding Papers (${gritList} grit)`,
+            reasoning: `SiC papers in progressive grit sizes: ${gritList}. Extended sequence through 800 grit ensures adequate surface quality for hard materials before transitioning to polishing. Finer final grit reduces polishing time.`,
+            category: 'consumable',
+            stage: 'grinding'
+          });
+        } else {
+          recommendations.push({
+            type: `Silicon Carbide Grinding Papers (${gritList} grit)`,
+            reasoning: `Standard progressive grinding sequence: ${gritList} grit. Appropriate for medium-hardness materials. Each step removes damage from the previous grit before transitioning to polishing.`,
+            category: 'consumable',
+            stage: 'grinding'
+          });
+        }
+
+        // Diamond grinding discs as an upgrade for premium tiers grinding hard (non-carbide) materials
+        if (isPremiumTier && (isHard || isVeryHard)) {
+          recommendations.push({
+            type: 'Diamond Grinding Discs (75 µm, 45 µm) — optional upgrade',
+            reasoning: 'Reusable diamond grinding discs offer faster, more consistent grinding for hard ferrous materials compared to SiC papers. Longer lifespan reduces per-sample cost in high-volume labs and can replace several SiC paper steps.',
+            category: 'consumable',
+            stage: 'grinding'
+          });
+        }
       }
     }
 
@@ -959,16 +1144,15 @@
         });
       }
 
-      // Polishing sequences differentiated by hardness
+      // Polishing sequence — PACE house method (Don Zipperian) starts at 6 µm regardless of hardness.
+      // This deliberately differs from Vander Voort/Buehler's 9 µm starting convention, which Don
+      // considers an unnecessary step for properly ground samples. Carbides and ceramics still
+      // benefit from a 9 µm coarse step because of their hardness.
       let polishingSequence = [];
-      if (isSoft) {
-        polishingSequence = ['6', '3', '1', '0.25'];
-      } else if (isVeryHard || isHardMaterial) {
-        polishingSequence = ['9', '6', '3', '1', '0.5', '0.25'];
-      } else if (isHard) {
+      if (isCarbide || isCeramic) {
         polishingSequence = ['9', '6', '3', '1', '0.25'];
       } else {
-        // Medium hardness
+        // All metals — soft, medium, hard, and very hard — use Don's 6 µm starting point
         polishingSequence = ['6', '3', '1', '0.25'];
       }
 
@@ -978,12 +1162,33 @@
       // Diamond type recommendation based on tier
       const diamondType = isPremiumTier ? 'Polycrystalline Diamond' : 'Diamond';
 
+      let sequenceNote;
+      if (isCarbide || isCeramic) {
+        sequenceNote = 'Carbides and engineered ceramics start at 9 µm because of their extreme hardness.';
+      } else if (isSoft) {
+        sequenceNote = 'PACE house method starts at 6 µm for all metals — light pressure and short steps prevent embedding in soft alloys.';
+      } else if (isHard || isVeryHard) {
+        sequenceNote = 'PACE house method starts polishing at 6 µm rather than 9 µm. A properly ground sample (through 600-1200 grit SiC) does not require a 9 µm step on most hardened steels.';
+      } else {
+        sequenceNote = 'PACE house method standard sequence for medium-hardness materials.';
+      }
+
       recommendations.push({
-        type: `${diamondType} Polishing Suspensions (${coarseDiamond} µm to ${fineDiamond} µm)`,
-        reasoning: `Progressive polishing steps: ${polishingSequence.join(', ')} µm. ${isSoft ? 'Shorter sequence with lighter starting grit avoids embedding in soft materials.' : isVeryHard || isHardMaterial ? 'Full sequence starting at 9 µm with additional 0.5 µm step ensures complete scratch removal on hard materials.' : isHard ? 'Extended sequence starting at 9 µm needed for scratch removal on hard materials.' : 'Standard sequence for medium-hardness materials.'} ${isPremiumTier ? 'Polycrystalline diamond provides more consistent scratch patterns and faster cutting than monocrystalline.' : ''}`,
+        type: `${diamondType} Polishing Suspensions or Pastes (${coarseDiamond} µm to ${fineDiamond} µm)`,
+        reasoning: `Progressive polishing steps: ${polishingSequence.join(', ')} µm. ${sequenceNote} Use complementary rotation throughout — head and platen turning the same direction — including the final colloidal-silica step (PACE house preference). ${isPremiumTier ? 'Polycrystalline diamond provides more consistent scratch patterns and faster cutting than monocrystalline. ' : ''}Diamond paste with lubricant is an equivalent alternative to suspension for manual polishing.`,
         category: 'consumable',
         stage: 'polishing'
       });
+
+      // Alumina suspension as a traditional alternative — still common for ferrous and stainless workflows
+      if (!isHardMaterial && !needsEBSD) {
+        recommendations.push({
+          type: 'Alumina Polishing Suspensions (0.3 µm α-Al₂O₃ and 0.05 µm γ-Al₂O₃) — optional',
+          reasoning: 'Alumina suspensions remain a traditional, lower-cost final polish for ferrous, stainless, and many non-ferrous workflows. α-alumina (0.3 µm) and γ-alumina (0.05 µm) are good alternatives or complements to diamond + colloidal silica when budget is a constraint.',
+          category: 'consumable',
+          stage: 'polishing'
+        });
+      }
 
       // Cloth recommendations based on material
       if (isSoft) {
@@ -997,6 +1202,16 @@
         recommendations.push({
           type: 'Synthetic Polishing Cloths',
           reasoning: 'Woven synthetic cloths for diamond polishing stages. Provides consistent, resilient surface for diamond suspension application. Use progressively softer cloths for finer polishing steps.',
+          category: 'consumable',
+          stage: 'polishing'
+        });
+      }
+
+      // Attack-polishing for Ti and other smearing/twinning-prone alloys
+      if (isTitanium) {
+        recommendations.push({
+          type: 'Attack-Polish Additive (H₂O₂ in Colloidal Silica)',
+          reasoning: 'Titanium alloys smear, twin mechanically, and obscure α/β phase contrast during conventional mechanical polishing. A chemo-mechanical attack-polish with 30% H₂O₂ blended into colloidal silica (typically 10:1 to 5:1 silica:H₂O₂) on a napped cloth removes deformation and reveals true microstructure. Critical for accurate α/β imaging on Ti-6Al-4V and similar alloys.',
           category: 'consumable',
           stage: 'polishing'
         });
@@ -1054,26 +1269,158 @@
     if (selectedStages.includes('etching')) {
       recommendations.push({
         type: 'Fume Hood / Ventilation System',
-        reasoning: 'SAFETY CRITICAL: Essential for safe handling of etchants. Protects operators from chemical fumes and ensures compliance with safety regulations. Required for all etching operations.',
+        reasoning: 'SAFETY CRITICAL: Essential for safe handling of etchants. Protects operators from acid fumes (HCl, HNO₃, HF) and ensures compliance with safety regulations. Required for all etching operations.',
         category: 'equipment',
         stage: 'etching'
       });
-      
+
       recommendations.push({
-        type: 'Etchants (material-specific)',
-        reasoning: `Select etchants appropriate for ${materialType || 'your material'}. Common options include nital for carbon steels, Vilella's for stainless steel, and Kroll's for titanium. Use the Etchant Selector tool to find the right etchant for your material.`,
+        type: 'PPE Kit (Acid-Resistant Gloves, Face Shield, Apron)',
+        reasoning: 'Nitrile or butyl gloves rated for the specific acid in use, full face shield over safety glasses, and chemical-resistant apron. Keep neutralizer (sodium bicarbonate solution) and eyewash station accessible.',
         category: 'consumable',
         stage: 'etching'
       });
+
+      recommendations.push({
+        type: 'Etchant Storage and Dispensing Bottles',
+        reasoning: 'Labeled, chemical-resistant bottles (HDPE or PTFE for HF-containing etchants) with dropper tops. Never store mixed etchants long-term — many decompose or become unsafe.',
+        category: 'consumable',
+        stage: 'etching'
+      });
+
+      // Material-specific etchant recommendations with links to existing site pages
+      if (materialType.includes('Steel (Carbon')) {
+        recommendations.push({
+          type: 'Nital (1-5% Nitric Acid in Ethanol)',
+          reasoning: 'The standard general-purpose etchant for carbon and low-alloy steels. Reveals ferrite/pearlite/martensite microstructure. Start with [2% Nital](/etchants/2-percent-nital.html) for most applications; use stronger ([4%](/etchants/4-percent-nital.html) or [5%](/etchants/5-percent-nital.html)) for harder, higher-alloy steels. Apply by immersion or swabbing 5-30 seconds.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+        recommendations.push({
+          type: 'Picral (4% Picric Acid in Ethanol) — optional',
+          reasoning: '[Picral](/etchants/4-percent-picral.html) preferentially reveals cementite and is useful when nital under-etches pearlite or when you need to distinguish ferrite from carbide morphology. Picric acid requires careful storage — keep it wet.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+      } else if (isStainless) {
+        recommendations.push({
+          type: "Vilella's Reagent and Glyceregia",
+          reasoning: 'Vilella\'s (picric acid + HCl + ethanol) is excellent for martensitic and precipitation-hardening stainless. [Glyceregia](/etchants/glyceregia.html) (HCl + HNO₃ + glycerol) is the standard for austenitic stainless steels. Both are immersion or swab etchants — work under a fume hood with PPE.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+        recommendations.push({
+          type: '10% Oxalic Acid (Electrolytic) — for austenitic SS',
+          reasoning: 'Electrolytic etching with [10% oxalic acid](/etchants/10-percent-oxalic-acid-electrolytic.html) is the standard method for revealing grain boundaries and sensitization (ASTM A262 Practice A) in austenitic stainless. Requires a DC power supply (1-10 V, see Electrolytic Etching Unit below).',
+          category: 'consumable',
+          stage: 'etching'
+        });
+      } else if (isAluminum) {
+        recommendations.push({
+          type: "Keller's Reagent",
+          reasoning: '[Keller\'s reagent](/etchants/kellers-reagent.html) (HF + HCl + HNO₃ + water) is the general-purpose etchant for most aluminum alloys, revealing grain structure and second-phase particles. ⚠️ Contains HF — use PTFE bottles, full face shield, and keep calcium gluconate gel on hand.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+        recommendations.push({
+          type: "Barker's Reagent (Electrolytic) — for grain structure",
+          reasoning: '[Barker\'s anodizing](/etchants/barkers-reagent-electrolytic.html) (fluoboric acid, electrolytic) produces a colored anodic film that reveals aluminum grain structure beautifully under polarized light. Requires a DC power supply.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+      } else if (isTitanium) {
+        recommendations.push({
+          type: "Kroll's Reagent",
+          reasoning: 'Kroll\'s (HF + HNO₃ + water, typically 1-3% HF) is the universal Ti etchant for revealing α/β microstructure in commercial titanium alloys. Apply by swabbing 5-15 seconds. ⚠️ Contains HF — use PTFE bottles, full PPE, and have calcium gluconate gel accessible.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+      } else if (isCopper) {
+        recommendations.push({
+          type: 'Ammonium Hydroxide + Hydrogen Peroxide',
+          reasoning: '[NH₄OH + H₂O₂](/etchants/ammonium-hydroxide-h2o2.html) is the standard general-purpose etchant for copper and brass. Mix fresh just before use (H₂O₂ decomposes quickly). [Ammonium persulfate](/etchants/ammonium-persulfate.html) is a milder alternative.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+      } else if (materialType.includes('Tin')) {
+        recommendations.push({
+          type: 'Tin / Lead / Soft Bearing Alloy Etchants',
+          reasoning: 'Tin, lead, and soft bearing alloys smear easily and react with most common etchants. Mild [2% nital](/etchants/2-percent-nital.html), HCl-in-ethanol, or specialized tin-alloy reagents are typical — browse the [tin alloy etchants page](/etchant-guides/tin-alloy) for full compositions. Keep etching times short (seconds, not minutes), use light swabbing pressure, and follow with a quick alcohol rinse to prevent staining.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+      } else if (isCarbide) {
+        recommendations.push({
+          type: "Murakami's Reagent",
+          reasoning: 'Murakami\'s (K₃Fe(CN)₆ + KOH + water) is the standard etchant for cemented carbides — reveals η-phase, eta carbides, and binder-phase morphology. Often used hot (boiling) for stubborn samples. Use stainless or glass beakers; never aluminum.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+      } else if (materialType.includes('Nickel')) {
+        recommendations.push({
+          type: "Kalling's No. 2 and Marble's Reagent",
+          reasoning: '[Kalling\'s No. 2](/etchants/kallings-no-2.html) (CuCl₂ + HCl + ethanol) is the workhorse for nickel-base superalloys and stainless — reveals grain structure and γ′ precipitate morphology. [Marble\'s reagent](/etchants/marbles-reagent.html) (CuSO₄ + HCl + water) is the standard for Inconel, Hastelloy, Monel, and other Ni alloys. Both are swab etchants — work under a fume hood with PPE.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+        recommendations.push({
+          type: 'Glyceregia or Waterless Kalling\'s — alternatives',
+          reasoning: '[Glyceregia](/etchants/glyceregia.html) (HCl + HNO₃ + glycerol) works on many Ni alloys, especially those with higher Cr content. [Waterless Kalling\'s](/etchants/waterless-kallings.html) is preferred where water-induced staining is a problem. Glyceregia decomposes — mix fresh; do not store.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+        recommendations.push({
+          type: '10% Chromic Acid (Electrolytic) — for γ′ revealing',
+          reasoning: 'Electrolytic etching with [10% chromic acid](/etchants/chromic-acid-electrolytic.html) (typically 5-6 V DC, a few seconds) selectively dissolves γ′ in nickel-base superalloys for SEM/EBSD imaging of precipitate morphology. Requires a DC power supply.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+      } else {
+        recommendations.push({
+          type: 'Material-Specific Etchants',
+          reasoning: `Select etchants appropriate for ${materialType || 'your material'}. Use the [Etchant Selector tool](/etchant-selector.html) or browse our [etchant database](/etchants.html) by material. Common options include nital for carbon steels, Vilella's/glyceregia for stainless steel, Keller's for aluminum, and Kroll's for titanium.`,
+          category: 'consumable',
+          stage: 'etching'
+        });
+      }
+
+      // Tint etchants for phase identification work
+      if (applications.includes('Research & Development') || applications.includes('Failure Analysis') || applications.includes('Material Characterization')) {
+        recommendations.push({
+          type: "Tint Etchants (Beraha's, Klemm's) — optional",
+          reasoning: '[Beraha\'s](/etchants/berahas-reagent.html) and [Klemm\'s reagents](/etchants/klemm-s-reagent.html) produce color contrast between phases, making phase identification, quantification, and orientation imaging much easier than monochrome etching. Useful for duplex stainless, cast irons, and multi-phase alloys.',
+          category: 'consumable',
+          stage: 'etching'
+        });
+      }
+
+      // Electrolytic etching unit for materials that benefit from it
+      if (isAluminum || isStainless || isCopper || materialType.includes('Nickel')) {
+        recommendations.push({
+          type: 'Electrolytic Etching / Polishing Unit (DC Power Supply)',
+          reasoning: `Adjustable DC power supply (0-30 V, 0-5 A) with stainless cathode and sample-holder clip enables electrolytic etching (oxalic for SS, Barker's for Al) and electropolishing. ${needsEBSD ? 'Electropolishing is often the cleanest way to achieve a deformation-free surface for EBSD on Al, Cu, and austenitic SS.' : 'Electrolytic methods are faster and more reproducible than chemical immersion for many non-ferrous alloys.'}`,
+          category: 'equipment',
+          stage: 'etching'
+        });
+      }
     }
 
     // MICROSCOPY RECOMMENDATIONS
     if (selectedStages.includes('microscopy')) {
+      // EBSD requires SEM + EBSD detector — call this out explicitly so users don't think an optical scope is enough
+      if (needsEBSD) {
+        recommendations.push({
+          type: 'SEM with EBSD Detector (NOT supplied by this tool)',
+          reasoning: '⚠️ EBSD (Electron Backscatter Diffraction) is performed in a Scanning Electron Microscope with an EBSD detector — it cannot be done on an optical microscope. This Lab Builder generates the sample-prep recommendations only. Contact our specialists to discuss SEM/EBSD system selection separately.',
+          category: 'equipment',
+          stage: 'microscopy'
+        });
+      }
       // Scope type based on application and tier
       let scopeType, scopeReasoning;
       if (needsEBSD || (applications.includes('Research & Development') && isPremiumTier)) {
         scopeType = 'Research-Grade';
-        scopeReasoning = 'Research-grade inverted metallurgical microscope with advanced optics, DIC/Nomarski capability, polarized light, and high-magnification objectives. Essential for advanced characterization, publication-quality imaging, and EBSD sample verification.';
+        scopeReasoning = 'Research-grade inverted metallurgical microscope with advanced optics, DIC/Nomarski capability, polarized light, and high-magnification objectives. Essential for advanced characterization, publication-quality imaging, and verifying EBSD sample prep before SEM imaging.';
       } else if (isHighThroughput || applications.includes('Production Testing')) {
         scopeType = 'Production';
         scopeReasoning = 'Production-grade metallurgical microscope optimized for fast, repeatable inspections. Brightfield and darkfield illumination for routine quality control. Ergonomic design for extended use.';
@@ -1116,6 +1463,16 @@
           });
         }
       }
+
+      // Stereomicroscope for failure analysis / fractography / weld macros / large-specimen overview
+      if (applications.includes('Failure Analysis') || isLarge || isVeryLarge) {
+        recommendations.push({
+          type: 'Stereomicroscope (10x-50x) with Ring Light',
+          reasoning: 'Low-magnification stereo (binocular) microscope is essential for fractography, weld macro examination, and overview imaging of large specimens before high-magnification work. Provides depth of field and 3D perception that a metallurgical microscope cannot.',
+          category: 'equipment',
+          stage: 'microscopy'
+        });
+      }
     }
 
     // CLEANING RECOMMENDATIONS
@@ -1137,19 +1494,27 @@
 
     // HARDNESS TESTING RECOMMENDATIONS
     if (selectedStages.includes('hardness')) {
-      // Primary tester based on material and application
-      if (isSoft || materialType.includes('Aluminum') || materialType.includes('Copper')) {
+      // Cemented carbides — HRA or HV, not HRC
+      if (isCarbide) {
+        recommendations.push({
+          type: 'Vickers Hardness Tester (HV30 or HV50)',
+          reasoning: 'Cemented carbides (WC/Co) are conventionally rated in HV30 (per ISO 3878 / ASTM B294) or HRA — NOT HRC. A macro-Vickers tester with 30 kgf load is the industry standard. HRC indenters can be damaged on carbide samples and HRC values are not meaningful.',
+          category: 'equipment',
+          stage: 'hardness'
+        });
+      } else if (isSoft || isAluminum || isCopper) {
+        // Soft non-ferrous: HRB only suits harder tempers; pure/annealed Al & Cu need HRE/HRF/HRH or Brinell
         if (isHighThroughput || applications.includes('Production Testing')) {
           recommendations.push({
-            type: 'Rockwell Hardness Tester',
-            reasoning: `Fast, direct-reading Rockwell testing is ideal for production QC of ${materialType || 'soft metals'}. Use B scale (HRB) for softer materials. Minimal sample preparation required. Results in seconds.`,
+            type: 'Rockwell Hardness Tester (with B, E, F, H scales)',
+            reasoning: `Fast, direct-reading Rockwell testing for production QC of ${materialType || 'soft metals'}. Scale selection matters: HRB suits harder tempers of brass and Al alloys (e.g. 2024-T4, 7075-T6), but annealed pure aluminum and copper require HRE, HRF, or HRH (1/8" steel ball with lighter loads) — HRB will plastically dish soft samples and produce meaningless readings. Confirm proper scale per ASTM E18.`,
             category: 'equipment',
             stage: 'hardness'
           });
         } else {
           recommendations.push({
-            type: 'Brinell / MacroVickers Hardness Tester',
-            reasoning: `Brinell testing with larger indentations provides reliable hardness readings on ${materialType || 'soft metals'} where small indentations may not be representative. Low-force Vickers (HV 1-10) is an alternative for mounted samples.`,
+            type: 'Brinell or MacroVickers Hardness Tester',
+            reasoning: `Brinell (HBW, typically 500 kgf / 10 mm ball for non-ferrous) provides reliable readings on ${materialType || 'soft metals'} where small indentations may not be representative of bulk microstructure. Low-force macro-Vickers (HV 1-10) is an alternative for mounted samples.`,
             category: 'equipment',
             stage: 'hardness'
           });
@@ -1164,7 +1529,7 @@
       } else if (isHighThroughput || applications.includes('Production Testing')) {
         recommendations.push({
           type: 'Rockwell Hardness Tester',
-          reasoning: `Rockwell testing provides the fastest hardness measurements for production environments. Direct-reading display with no optical measurement needed. Use C scale (HRC) for ${materialType || 'steels'} in the ${hardness || 'typical'} range.`,
+          reasoning: `Rockwell testing provides the fastest hardness measurements for production environments. Direct-reading display with no optical measurement needed. Use C scale (HRC) for hardened ${materialType || 'steels'} in the ${hardness || 'typical'} range; HRB for softer steels.`,
           category: 'equipment',
           stage: 'hardness'
         });
@@ -1177,11 +1542,27 @@
         });
       }
 
+      // Indent measurement camera/optics (modern Vickers/Knoop testers need this)
+      recommendations.push({
+        type: 'Digital Indent Measurement Camera / Optical System',
+        reasoning: 'Vickers and Knoop testers measure the diagonal of the indent optically — a calibrated digital camera with measurement software (or a high-quality optical eyepiece with reticle) is required. Most modern testers integrate this; verify it is included or budgeted.',
+        category: 'equipment',
+        stage: 'hardness'
+      });
+
+      // Calibration test blocks — non-optional for every hardness setup
+      recommendations.push({
+        type: 'Hardness Test Blocks (Certified Reference)',
+        reasoning: 'Certified test blocks are required to verify tester calibration daily / per shift per ASTM E18, E384, and ISO standards. Stock blocks bracketing your expected hardness range (e.g. low + high HRC, HRB, or HV blocks as appropriate). Test blocks are consumable — they have a finite number of valid indent locations.',
+        category: 'consumable',
+        stage: 'hardness'
+      });
+
       // Additional microhardness for R&D and failure analysis
       if (applications.includes('Failure Analysis') || applications.includes('Research & Development') || applications.includes('Material Characterization')) {
         recommendations.push({
           type: 'Microhardness Tester (Vickers/Knoop)',
-          reasoning: 'Microhardness testing (HV/HK 0.01-1) is essential for failure analysis and research. Measures hardness of individual phases, thin coatings, case-hardened layers, heat-affected zones, and weld cross-sections. Knoop indenter preferred for thin layers and brittle materials.',
+          reasoning: 'Microhardness testing (HV/HK 0.01-1) is essential for failure analysis and research. Measures hardness of individual phases, thin coatings, case-hardened layers, heat-affected zones, and weld cross-sections. Knoop indenter preferred for thin layers and brittle materials because the elongated indent is shallower and easier to measure on thin features.',
           category: 'equipment',
           stage: 'hardness'
         });
@@ -1391,69 +1772,111 @@
     }
   }
 
-  // Handle expert review submit
-  function handleExpertReviewSubmit(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('review-name').value;
-    const email = document.getElementById('review-email').value;
-    const phone = document.getElementById('review-phone').value;
-    const company = document.getElementById('review-company').value;
-    const message = document.getElementById('review-message').value;
+  // Expert Review — HubSpot embed (replaces the prior mailto flow)
+  // ---------------------------------------------------------------
+  // The Lab Builder submits via the same HubSpot quote form used on /quote.html,
+  // with the Lab Builder summary prefilled into the Inquiry Details textarea and
+  // the relevant Area of Interest checkboxes pre-checked.
+  const HUBSPOT_PORTAL_ID = '21334047';
+  const HUBSPOT_FORM_ID = '5c2cc19c-3560-433a-9b41-67818a1379ca';
+  const HUBSPOT_REGION = 'na1';
+  let hubspotScriptLoading = false;
+  let hubspotScriptLoaded = false;
+  let hubspotFormRendered = false;
 
-    if (!name || !email) {
-      alert('Please fill in name and email.');
-      return;
-    }
-
-    const mailtoLink = generateExpertReviewMailto({ name, email, phone, company, message });
-    window.location.href = mailtoLink;
+  // Map Lab Builder process stages to HubSpot "Area of Interest" checkbox values.
+  // Values must match the exact label text configured on the quote form.
+  // Extra values are harmless (only matching ones get checked) — list both possible
+  // labels for mounting (Castable / Vacuum) so the prefill is robust to form edits.
+  function mapStagesToAreasOfInterest(stages) {
+    const map = {
+      sectioning: ['Abrasive Cutting', 'Precision Wafering'],
+      mounting: ['Compression Mounting', 'Castable Mounting', 'Vacuum Mounting'],
+      grinding: ['Grinding and Polishing'],
+      polishing: ['Grinding and Polishing', 'Vibratory Polishing'],
+      etching: ['Consumables'],
+      microscopy: ['Microscopy'],
+      cleaning: ['Cleaning'],
+      hardness: ['Hardness / Microhardness Testing']
+    };
+    const seen = {};
+    const areas = [];
+    (stages || []).forEach(stage => {
+      (map[stage] || []).forEach(area => {
+        if (!seen[area]) {
+          seen[area] = true;
+          areas.push(area);
+        }
+      });
+    });
+    return areas;
   }
 
-  // Generate expert review mailto
-  function generateExpertReviewMailto(reviewData) {
-    let body = 'LAB BUILDER REVIEW REQUEST\n';
-    body += '==========================\n\n';
-    
-    body += 'CONTACT INFORMATION\n';
-    body += '-------------------\n';
-    body += `Name: ${reviewData.name}\n`;
-    body += `Email: ${reviewData.email}\n`;
-    if (reviewData.phone) body += `Phone: ${reviewData.phone}\n`;
-    if (reviewData.company) body += `Company: ${reviewData.company}\n`;
-    body += '\n';
-    
-    body += 'LAB REQUIREMENTS\n';
-    body += '----------------\n';
+  // Copy text to the clipboard. Uses the modern Clipboard API when available
+  // and falls back to a hidden textarea + execCommand for older browsers and
+  // non-HTTPS contexts (where navigator.clipboard is unavailable).
+  async function copyTextToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch (err) {
+        console.warn('[Lab Builder] navigator.clipboard.writeText failed, falling back:', err);
+      }
+    }
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      ta.style.left = '-1000px';
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      return ok;
+    } catch (err) {
+      console.warn('[Lab Builder] execCommand copy fallback failed:', err);
+      return false;
+    }
+  }
+
+  // Build a plain-text summary of the Lab Builder inputs + recommendations.
+  // This is what gets written into the HubSpot Inquiry Details field.
+  function buildLabBuilderSummary() {
+    let body = 'LAB BUILDER SUMMARY\n';
+    body += '===================\n\n';
+    body += 'INPUTS\n------\n';
     body += `Material Type: ${formData.materialType || 'Not specified'}\n`;
     body += `Material Hardness: ${formData.materialHardness || 'Not specified'}\n`;
     body += `Sample Size: ${formData.sampleSize || 'Not specified'}\n`;
-    body += `Sample Shape: ${formData.sampleShape || 'Not specified'}\n`;
+    if (formData.sampleShape) body += `Sample Shape: ${formData.sampleShape}\n`;
+    if (formData.mountDiameter) body += `Mount Diameter: ${formData.mountDiameter}\n`;
     body += `Daily Throughput: ${formData.throughput || 'Not specified'}\n`;
     body += `Automation Level: ${formData.automation || 'Not specified'}\n`;
     body += `Equipment Tier: ${formData.budget || 'Not specified'}\n`;
     body += `Surface Finish: ${formData.surfaceFinish || 'Standard'}\n`;
-    body += `Applications: ${formData.applications?.length > 0 ? formData.applications.join(', ') : 'Not specified'}\n`;
-    body += `Process Stages: ${formData.processStages?.length > 0 ? formData.processStages.join(', ') : 'Not specified'}\n`;
+    body += `Applications: ${formData.applications && formData.applications.length ? formData.applications.join(', ') : 'Not specified'}\n`;
+    body += `Process Stages: ${formData.processStages && formData.processStages.length ? formData.processStages.join(', ') : 'Not specified'}\n`;
+    if (formData.sectionType) body += `Section Type: ${formData.sectionType}\n`;
+    if (formData.damageCriticality) body += `Cut Damage Sensitivity: ${formData.damageCriticality}\n`;
     body += '\n';
-    
+
     if (recommendations && recommendations.length > 0) {
       body += 'RECOMMENDED EQUIPMENT & CONSUMABLES\n';
       body += '===================================\n\n';
-      
-      // Group by stage
-      const recommendationsByStage = {};
+
+      const byStage = {};
       recommendations.forEach(rec => {
-        if (!recommendationsByStage[rec.stage]) {
-          recommendationsByStage[rec.stage] = { equipment: [], consumables: [] };
-        }
+        if (!byStage[rec.stage]) byStage[rec.stage] = { equipment: [], consumables: [] };
         if (rec.category === 'equipment') {
-          recommendationsByStage[rec.stage].equipment.push(rec);
+          byStage[rec.stage].equipment.push(rec);
         } else {
-          recommendationsByStage[rec.stage].consumables.push(rec);
+          byStage[rec.stage].consumables.push(rec);
         }
       });
-      
+
       const stageOrder = ['sectioning', 'mounting', 'grinding', 'polishing', 'final-polishing', 'etching', 'microscopy', 'cleaning', 'hardness'];
       const stageLabels = {
         sectioning: 'SECTIONING',
@@ -1466,46 +1889,184 @@
         cleaning: 'CLEANING',
         hardness: 'HARDNESS TESTING'
       };
-      
+
       stageOrder.forEach(stage => {
-        const stageRecs = recommendationsByStage[stage];
-        if (stageRecs && (stageRecs.equipment.length > 0 || stageRecs.consumables.length > 0)) {
-          const label = stageLabels[stage] || stage.toUpperCase();
-          body += `${label}\n`;
-          body += `${'-'.repeat(label.length)}\n`;
-          
-          if (stageRecs.equipment.length > 0) {
-            body += 'Equipment:\n';
-            stageRecs.equipment.forEach(rec => {
-              const reasoning = rec.reasoning.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
-              body += `  - ${rec.type}${reasoning ? ` (${reasoning})` : ''}\n`;
-            });
-          }
-          
-          if (stageRecs.consumables.length > 0) {
-            body += 'Consumables:\n';
-            stageRecs.consumables.forEach(rec => {
-              const reasoning = rec.reasoning.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
-              body += `  - ${rec.type}${reasoning ? ` (${reasoning})` : ''}\n`;
-            });
-          }
-          body += '\n';
+        const recs = byStage[stage];
+        if (!recs || (!recs.equipment.length && !recs.consumables.length)) return;
+        const label = stageLabels[stage] || stage.toUpperCase();
+        body += `${label}\n${'-'.repeat(label.length)}\n`;
+        if (recs.equipment.length) {
+          body += 'Equipment:\n';
+          recs.equipment.forEach(rec => {
+            const reasoning = rec.reasoning.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+            body += `  - ${rec.type}${reasoning ? ` — ${reasoning}` : ''}\n`;
+          });
         }
+        if (recs.consumables.length) {
+          body += 'Consumables:\n';
+          recs.consumables.forEach(rec => {
+            const reasoning = rec.reasoning.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+            body += `  - ${rec.type}${reasoning ? ` — ${reasoning}` : ''}\n`;
+          });
+        }
+        body += '\n';
       });
     }
-    
-    if (reviewData.message) {
-      body += 'ADDITIONAL MESSAGE\n';
-      body += '------------------\n';
-      body += `${reviewData.message}\n`;
+
+    body += '---\n';
+    body += 'Generated from the Lab Builder at metallographic.com/build.html';
+    return body;
+  }
+
+  // Open the Expert Review modal and trigger HubSpot form load + summary preview population.
+  function openExpertReviewModal() {
+    const modal = document.getElementById('expert-review-modal');
+    if (!modal) return;
+    modal.style.display = 'flex';
+
+    // Populate the summary preview so users can review what's attached
+    const previewContent = document.getElementById('summary-preview-content');
+    if (previewContent) {
+      previewContent.textContent = buildLabBuilderSummary();
     }
-    
-    body += '\n---\n';
-    body += 'This request was generated from the Lab Builder tool on metallographic.com';
-    
-    const subject = `Lab Builder Review Request${reviewData.company ? ` - ${reviewData.company}` : ''}`;
-    
-    return `mailto:sales@metallographic.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Lazy-load the HubSpot embed and render the form
+    loadHubSpotForm();
+  }
+
+  function loadHubSpotForm() {
+    if (hubspotFormRendered) return;
+    loadHubSpotScript(() => {
+      try {
+        const container = document.getElementById('hubspot-form-container');
+        if (!container) return;
+
+        // Clear the loading placeholder and insert the hs-form-frame div. The newer
+        // portal-specific embed (https://js.hsforms.net/forms/embed/{portalId}.js)
+        // detects these divs and renders the form into them — this matches what
+        // /quote.html uses and is less aggressively blocked by tracking-prevention
+        // settings than the older v2 script.
+        container.innerHTML = '';
+        const frame = document.createElement('div');
+        frame.className = 'hs-form-frame';
+        frame.setAttribute('data-region', HUBSPOT_REGION);
+        frame.setAttribute('data-form-id', HUBSPOT_FORM_ID);
+        frame.setAttribute('data-portal-id', HUBSPOT_PORTAL_ID);
+        container.appendChild(frame);
+
+        hubspotFormRendered = true;
+
+        // Watch for the form to actually render (HubSpot inserts an iframe or form
+        // element inside the frame div) so we can hide the loading state, and watch
+        // for the post-submit "thank you" replacement so we can show a success UI.
+        observeHubSpotFormState(container);
+      } catch (err) {
+        console.error('[Lab Builder] HubSpot form failed to render:', err);
+        showHubSpotError();
+      }
+    });
+  }
+
+  // Watch the embed container to detect (a) form render completion and
+  // (b) HubSpot replacing the form with its built-in "thank you" message.
+  function observeHubSpotFormState(container) {
+    if (!container || !window.MutationObserver) return;
+    let formReady = false;
+    const observer = new MutationObserver(() => {
+      // Form has rendered (iframe or inline form appeared)
+      if (!formReady && container.querySelector('iframe, form, .hbspt-form, .hs-form')) {
+        formReady = true;
+        const loadingEl = document.getElementById('hubspot-loading');
+        if (loadingEl) loadingEl.style.display = 'none';
+      }
+      // HubSpot's success markup uses these classes/attributes after submission
+      const successEl = container.querySelector(
+        '.submitted-message, .hs-content-success, [data-test-id="form-success"]'
+      );
+      if (successEl) {
+        observer.disconnect();
+        showHubSpotSuccessState();
+      }
+    });
+    observer.observe(container, { childList: true, subtree: true });
+    // Stop watching after a long idle window
+    setTimeout(() => observer.disconnect(), 10 * 60 * 1000);
+  }
+
+  function loadHubSpotScript(callback) {
+    if (hubspotScriptLoaded) {
+      callback();
+      return;
+    }
+    if (hubspotScriptLoading) {
+      // Another call is in flight — poll briefly for completion
+      const poll = setInterval(() => {
+        if (hubspotScriptLoaded) {
+          clearInterval(poll);
+          callback();
+        }
+      }, 100);
+      setTimeout(() => clearInterval(poll), 10000);
+      return;
+    }
+    hubspotScriptLoading = true;
+    const script = document.createElement('script');
+    // Portal-specific embed (matches /quote.html). Survives most tracking-prevention
+    // blocklists better than the legacy /v2.js script.
+    script.src = 'https://js.hsforms.net/forms/embed/' + HUBSPOT_PORTAL_ID + '.js';
+    script.async = true;
+    script.charset = 'utf-8';
+    script.onload = function() {
+      hubspotScriptLoaded = true;
+      hubspotScriptLoading = false;
+      callback();
+    };
+    script.onerror = function() {
+      hubspotScriptLoading = false;
+      console.warn('[Lab Builder] HubSpot embed script could not be loaded.');
+      showHubSpotError();
+    };
+    document.head.appendChild(script);
+  }
+
+  function showHubSpotError() {
+    const loadingEl = document.getElementById('hubspot-loading');
+    if (loadingEl) loadingEl.style.display = 'none';
+    const errorEl = document.getElementById('hubspot-form-error');
+    if (errorEl) errorEl.style.display = 'block';
+
+    // Wire the mailto fallback with the current summary
+    const link = document.getElementById('hubspot-fallback-link');
+    if (link) {
+      const subject = 'Lab Builder Request';
+      const body = 'Hi PACE,\n\nI completed the Lab Builder on metallographic.com — please review my recommendations below and follow up:\n\n' + buildLabBuilderSummary();
+      link.href = 'mailto:pace@metallographic.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    }
+  }
+
+  function showHubSpotSuccessState() {
+    const container = document.getElementById('hubspot-form-container');
+    if (container) {
+      container.innerHTML =
+        '<div class="builder-hubspot-success">' +
+          '<div class="builder-hubspot-success-icon">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
+              '<polyline points="20 6 9 17 4 12"/>' +
+            '</svg>' +
+          '</div>' +
+          '<h3 class="builder-hubspot-success-title">Your Lab Builder request is on its way to PACE.</h3>' +
+          '<p class="builder-hubspot-success-text">Our team will review your recommendations and follow up within 4 business hours during weekdays. Watch for a confirmation in your inbox.</p>' +
+        '</div>';
+    }
+    // Hide the surrounding chrome — keep the modal clean after submission
+    const prefillNote = document.querySelector('.builder-prefill-note');
+    if (prefillNote) prefillNote.style.display = 'none';
+    const summaryPreview = document.getElementById('summary-preview');
+    if (summaryPreview) summaryPreview.style.display = 'none';
+    const description = document.querySelector('.builder-modal-description');
+    if (description) description.style.display = 'none';
+    const errorEl = document.getElementById('hubspot-form-error');
+    if (errorEl) errorEl.style.display = 'none';
   }
 
   // Handle print results
@@ -1528,6 +2089,7 @@
         materialHardness: '',
         sampleSize: '',
         sampleShape: '',
+        mountDiameter: '',
         applications: [],
         throughput: '',
         automation: '',

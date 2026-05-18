@@ -117,6 +117,16 @@
 <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
@@ -143,20 +153,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -366,35 +384,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -439,111 +453,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -752,36 +696,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -818,73 +760,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -921,8 +826,35 @@
         </div>
     </div>
 </nav>
+
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
     <!-- Main Content -->
-    <main class="guide-page">
+    <main id="main-content" class="guide-page">
         <div class="container-custom">
             <div class="guide-content-wrapper">
                 <!-- Breadcrumb -->
@@ -946,15 +878,14 @@
                     <ul>
                         <li><a href="#what-is-metallography">What is Metallography?</a></li>
                         <li><a href="#why-metallography-matters">Why Metallography Matters</a></li>
-                        <li><a href="#history">A Short History of Metallography</a></li>
                         <li><a href="#basic-concepts">Basic Concepts and Terminology</a></li>
-                        <li><a href="#phases-and-transformations">Phases and Phase Transformations</a></li>
                         <li><a href="#preparation-process">The Sample Preparation Process</a></li>
                         <li><a href="#microscopy-techniques">Microscopy Techniques</a></li>
+                        <li><a href="#phases-and-transformations">Phases and Phase Transformations</a></li>
                         <li><a href="#applications">Applications of Metallography</a></li>
-                        <li><a href="#standards-practices">Standards and Best Practices</a></li>
-                        <li><a href="#getting-started">Getting Started</a></li>
-                        <li><a href="#further-reading">Further Reading and Resources</a></li>
+                        <li><a href="#standards-practices">Standards, Safety, and Best Practices</a></li>
+                        <li><a href="#history">A Short History of Metallography</a></li>
+                        <li><a href="#getting-started">Getting Started &amp; Further Reading</a></li>
                     </ul>
                 </div>
 
@@ -962,11 +893,26 @@
                 <article class="guide-article">
                     <section id="what-is-metallography" class="guide-section">
                         <h2>What is Metallography?</h2>
+
+                        <figure class="guide-pullquote">
+                            <blockquote>
+                                Metallography has been described as both a science and an art. Traditionally, metallography
+                                has been the study of the microscopic structure of metals and alloys using optical metallographs,
+                                electron microscopes or other surface analysis equipment. More recently, as materials have evolved,
+                                metallography has expanded to incorporate materials ranging from electronics to sporting good
+                                composites.
+                            </blockquote>
+                            <figcaption>
+                                — Dr. Don Zipperian, founder of PACE Technologies, in
+                                <cite>Metallographic Handbook</cite> (2011)
+                            </figcaption>
+                        </figure>
+
                         <p>
                             Metallography is the scientific study and analysis of the <strong>microstructure</strong> of metals and alloys.
-                            The term comes from the Greek words "metallon" (metal) and "graphos" (to write or describe), 
-                            literally meaning "the description of metals." Through careful sample preparation and microscopic 
-                            examination, metallography reveals the internal structure of materials, allowing scientists and 
+                            The term comes from the Greek words "metallon" (metal) and "graphos" (to write or describe),
+                            literally meaning "the description of metals." Through careful sample preparation and microscopic
+                            examination, metallography reveals the internal structure of materials, allowing scientists and
                             engineers to understand how a material's structure relates to its properties and performance.
                         </p>
                         
@@ -1010,116 +956,115 @@
                         </div>
                     </section>
 
+                    <div class="guide-section-end"><a href="#main-content">↑ Back to top</a></div>
+
                     <section id="why-metallography-matters" class="guide-section">
                         <h2>Why Metallography Matters</h2>
                         <p>
-                            Metallography is fundamental to materials science and engineering because it provides direct 
-                            insight into the relationship between structure and properties. The microstructure of a material (its 
-                            <strong>grain size</strong>, <strong>phase</strong> distribution, <strong>defects</strong>, and other features) directly determines its mechanical, 
-                            electrical, thermal, and chemical properties.
+                            Metallography is fundamental to materials science and engineering because it provides direct
+                            insight into the relationship between structure and properties. The microstructure of a material (its
+                            <strong>grain size</strong>, <strong>phase</strong> distribution, <strong>defects</strong>, and other features) directly determines its mechanical,
+                            electrical, thermal, and chemical properties. As Dr. Zipperian put it, metallography is used in
+                            "materials development, incoming inspection, production and manufacturing control, and for failure
+                            analysis &mdash; in other words, <strong>product reliability</strong>."
                         </p>
+
+                        <h3>What Metallography Reveals</h3>
                         <p>
-                            For a more detailed exploration of the purpose and applications of metallography, see our comprehensive 
+                            Microstructural analysis answers questions about a wide range of features in a sample. If you're
+                            trying to figure out whether metallography is the right tool for your problem, the list below covers
+                            the most common types of analysis a metallographic lab performs:
+                        </p>
+                        <div class="guide-reveals-panel">
+                            <div class="guide-reveals-strip" aria-label="Examples of microstructural features that metallography reveals">
+                                <figure>
+                                    <img src="/images/microstructures/300-series-stainless-grain-twins.webp" alt="Grain structure with annealing twins" loading="lazy">
+                                    <figcaption>Grain size</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="/images/microstructures/Inclusion-Sulfides-2.jpg" alt="Sulfide inclusions in steel" loading="lazy">
+                                    <figcaption>Inclusions</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="/images/microstructures/Steel-titanium-weld.jpg" alt="Steel-to-titanium weld and heat-affected zone" loading="lazy">
+                                    <figcaption>Welds &amp; HAZ</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="/images/microstructures/CI-nodular-100X-etch-2.jpg" alt="Graphite nodules in nodular cast iron" loading="lazy">
+                                    <figcaption>Nodularity</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="/images/microstructures/Decarb-in-steel-200X-2.jpg" alt="Decarburized layer at the surface of a steel" loading="lazy">
+                                    <figcaption>Decarburization</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="/images/microstructures/Ni-Al-coating-500.jpg" alt="Nickel-aluminum coating cross-section" loading="lazy">
+                                    <figcaption>Coatings</figcaption>
+                                </figure>
+                            </div>
+                            <ul class="guide-reveals-list">
+                                <li>Grain size</li>
+                                <li>Porosity and voids</li>
+                                <li>Phase analysis</li>
+                                <li>Dendritic growth</li>
+                                <li>Cracks and other defects</li>
+                                <li>Corrosion analysis</li>
+                                <li>Intergranular attack (IGA)</li>
+                                <li>Coating thickness and integrity</li>
+                                <li>Inclusion size, shape, and distribution</li>
+                                <li>Weld and heat-affected zones (HAZ)</li>
+                                <li>Composite filler orientation</li>
+                                <li>Graphite nodularity</li>
+                                <li>Recast layers</li>
+                                <li>Carburizing thickness</li>
+                                <li>Decarburization</li>
+                                <li>Nitriding thickness</li>
+                                <li>Intergranular fracturing</li>
+                                <li>HAZ sensitization</li>
+                                <li>Flow-line stress</li>
+                            </ul>
+                            <p class="guide-reveals-caption">
+                                Adapted from <cite>Metallographic Handbook</cite>, Dr. Don Zipperian, 2011. The strip shows just a
+                                handful &mdash; every item above is something a properly prepared sample can resolve.
+                            </p>
+                        </div>
+
+                        <p>
+                            For a more detailed exploration of the purpose and applications of metallography, see our comprehensive
                             guide on <a href="/guides/purpose-and-applications.html" class="guide-link">Purpose and Applications of Metallography</a>.
                         </p>
 
-                        <h3>Understanding Material Behavior</h3>
+                        <h3>Where it gets used</h3>
                         <p>
-                            Every material's behavior (whether it's strong or weak, ductile or brittle, corrosion-resistant 
-                            or susceptible) can be traced back to its microstructure. Metallography allows us to:
+                            Every material's behavior &mdash; strong or weak, ductile or brittle, corrosion-resistant or
+                            susceptible &mdash; can be traced back to its microstructure. That makes metallography useful in
+                            three broad contexts:
                         </p>
-                        <ul>
-                            <li><strong>Explain material properties:</strong> Understand why a material has specific strength, 
-                            hardness, or other characteristics based on its internal structure</li>
-                            <li><strong>Predict performance:</strong> Use microstructure analysis to anticipate how a material 
-                            will perform under different conditions</li>
-                            <li><strong>Optimize processing:</strong> Identify the best heat treatment, mechanical working, 
-                            or other processing steps to achieve desired properties</li>
-                            <li><strong>Diagnose problems:</strong> Identify the root cause of material failures or 
-                            performance issues</li>
-                        </ul>
-
-                        <h3>Quality Control and Assurance</h3>
-                        <p>
-                            In manufacturing and production, metallography serves as a critical quality control tool:
-                        </p>
-                        <ul>
-                            <li><strong>Verification:</strong> Confirm that materials meet specifications and standards</li>
-                            <li><strong>Process monitoring:</strong> Ensure manufacturing processes are producing consistent, 
-                            high-quality materials</li>
-                            <li><strong>Batch validation:</strong> Verify that each production batch meets required 
-                            microstructure criteria</li>
-                            <li><strong>Certification:</strong> Provide documentation for materials used in critical applications</li>
-                        </ul>
-
-                        <h3>Research and Development</h3>
-                        <p>
-                            Metallography is essential in materials research and development:
-                        </p>
-                        <ul>
-                            <li><strong>New material development:</strong> Characterize and optimize new alloys and materials</li>
-                            <li><strong>Process development:</strong> Understand how different processing methods affect structure</li>
-                            <li><strong>Fundamental research:</strong> Study the relationships between processing, structure, 
-                            and properties</li>
-                            <li><strong>Failure analysis:</strong> Investigate why materials fail and how to prevent failures</li>
-                        </ul>
-
-                        <div class="guide-info-box">
-                            <p>
-                                <strong>Real-World Impact:</strong> Metallography is used in industries ranging from aerospace 
-                                and automotive to medical devices and electronics. It ensures that materials meet safety and 
-                                performance requirements in critical applications.
-                            </p>
-                        </div>
-                    </section>
-
-                    <section id="history" class="guide-section">
-                        <h2>A Short History of Metallography</h2>
-                        <p>
-                            Understanding the history of metallography provides context for how this field developed and why 
-                            certain techniques and principles are fundamental today. While humans have been working with metals 
-                            for thousands of years, the scientific study of microstructure is relatively recent.
-                        </p>
-
-                        <h3>H. C. Sorby: The Father of Metallography</h3>
-                        <p>
-                            The field of metallography as we know it today began with <strong>Henry Clifton Sorby (1826-1908)</strong>, 
-                            an English geologist and metallurgist. In 1863, Sorby adapted techniques from petrography (the study of 
-                            rocks) to examine metals. He was the first to prepare metal samples by grinding and polishing, then 
-                            observe them under a microscope. Sorby's groundbreaking work revealed that metals had internal 
-                            structures (grains, phases, and other features) that could be studied and related to material properties.
-                        </p>
-                        <p>
-                            Sorby's contributions were revolutionary. He developed methods for sample preparation, used chemical 
-                            etching to reveal microstructures, and made detailed observations of steel microstructures. His work 
-                            established the foundation for modern metallography, demonstrating that the internal structure of metals 
-                            could be systematically studied and understood.
-                        </p>
-
-                        <h3>Modern Evolution</h3>
-                        <p>
-                            Since Sorby's pioneering work, metallography has evolved significantly. The development of electron 
-                            microscopy (SEM and TEM) in the mid-20th century enabled observation at much higher magnifications. 
-                            Today, advanced techniques like electron backscatter diffraction (EBSD), energy-dispersive X-ray 
-                            spectroscopy (EDS), and automated image analysis provide unprecedented insight into material structure.
-                        </p>
-
-                        <div class="guide-info-box guide-info-box-blue">
-                            <p>
-                                <strong>Historical Perspective:</strong> From Sorby's first observations to today's advanced analytical 
-                                techniques, metallography has evolved from a descriptive science to a quantitative discipline. The 
-                                fundamental principles established by early metallographers remain valid, but modern tools provide 
-                                unprecedented insight into material structure.
-                            </p>
+                        <div class="guide-phases-grid">
+                            <div class="guide-phase-card">
+                                <h4>Understanding behavior</h4>
+                                <p>Explain why a material is strong, hard, or tough; predict how it will perform; optimize
+                                heat treatment or mechanical working; diagnose the root cause of failures.</p>
+                            </div>
+                            <div class="guide-phase-card">
+                                <h4>Quality control</h4>
+                                <p>Verify incoming materials, monitor production, validate batches, and document conformance
+                                to specifications and standards.</p>
+                            </div>
+                            <div class="guide-phase-card">
+                                <h4>Research &amp; development</h4>
+                                <p>Characterize new alloys, refine processing routes, and study the structure&ndash;property
+                                relationships at the heart of materials science.</p>
+                            </div>
                         </div>
 
                         <p class="guide-note">
-                            This section provides a brief overview of metallography's history. For a comprehensive exploration
-                            of the field's evolution, including ancient foundations, the Industrial Revolution era, electron
-                            microscopy developments, and modern digital techniques, see our complete
-                            <a href="/guides/history-of-metallography.html" class="guide-link">History of Metallography guide</a>.
+                            Industry-specific examples (aerospace, automotive, medical devices, energy) live in the
+                            <a href="#applications" class="guide-link">Applications</a> section further down.
                         </p>
                     </section>
+
+                    <div class="guide-section-end"><a href="#main-content">↑ Back to top</a></div>
 
                     <section id="basic-concepts" class="guide-section">
                         <h2>Basic Concepts and Terminology</h2>
@@ -1225,343 +1170,7 @@
                         </div>
                     </section>
 
-                    <section id="phases-and-transformations" class="guide-section">
-                        <h2>Phases and Phase Transformations</h2>
-                        <p>
-                            Understanding phases (distinct regions with uniform composition and crystal structure) is fundamental to 
-                            metallography. Different phases have different properties, and the distribution, size, and morphology 
-                            of phases determine overall material behavior. Phase transformations, driven by heat treatment and 
-                            processing, create these microstructures.
-                        </p>
-
-                        <h3>Common Phases in Steels</h3>
-                        <p>
-                            Steels are iron-carbon alloys, and their microstructures consist of various phases that form depending 
-                            on composition and heat treatment:
-                        </p>
-
-                        <div class="guide-phases-grid">
-                            <div class="guide-phase-card">
-                                <h4>Ferrite (α-Fe)</h4>
-                                <p>
-                                    Body-centered cubic (BCC) iron with low carbon solubility. Soft, ductile, and magnetic. Appears
-                                    light in etched microstructures.
-                                </p>
-                            </div>
-                            <div class="guide-phase-card">
-                                <h4>Austenite (γ-Fe)</h4>
-                                <p>
-                                    Face-centered cubic (FCC) iron with higher carbon solubility. Stable at high temperatures. 
-                                    Transforms to other phases on cooling. Non-magnetic.
-                                </p>
-                            </div>
-                            <div class="guide-phase-card">
-                                <h4>Martensite</h4>
-                                <p>
-                                    Hard, brittle phase formed by rapid quenching from austenite. Body-centered tetragonal structure. 
-                                    Very high strength and hardness but low ductility. Appears as needle-like or lath structures.
-                                </p>
-                            </div>
-                            <div class="guide-phase-card">
-                                <h4>Pearlite</h4>
-                                <p>
-                                    Lamellar structure of alternating ferrite and cementite (Fe₃C) plates. Forms from slow cooling of
-                                    austenite. Moderate strength and good machinability. Appears as alternating light and dark bands.
-                                </p>
-                            </div>
-                            <div class="guide-phase-card">
-                                <h4>Bainite</h4>
-                                <p>
-                                    Intermediate transformation product between pearlite and martensite. Forms at intermediate cooling 
-                                    rates. Fine, acicular (needle-like) structure. Good combination of strength and toughness.
-                                </p>
-                            </div>
-                            <div class="guide-phase-card">
-                                <h4>Cementite (Fe₃C)</h4>
-                                <p>
-                                    Iron carbide phase. Very hard and brittle. Resistant to Nital etching and appears bright/light (unattacked)
-                                    while surrounding ferrite etches dark. Picral reveals cementite boundaries and lamellar structure in pearlite. Present in pearlite, bainite, and as separate particles in some steels.
-                                </p>
-                            </div>
-                        </div>
-
-                        <h3>Grain Boundaries</h3>
-                        <p>
-                            Grain boundaries are interfaces between adjacent grains (crystals) in a polycrystalline material. 
-                            They are important because:
-                        </p>
-                        <ul>
-                            <li><strong>Property influence:</strong> Grain boundaries affect strength, ductility, and other properties. 
-                            Finer grains (more grain boundary area) generally increase strength.</li>
-                            <li><strong>Precipitation sites:</strong> Second phases often form preferentially at grain boundaries 
-                            during heat treatment.</li>
-                            <li><strong>Failure initiation:</strong> Grain boundaries can be sites where cracks initiate, especially 
-                            under stress or in corrosive environments.</li>
-                            <li><strong>Diffusion paths:</strong> Atoms and defects move more easily along grain boundaries, affecting 
-                            processes like creep and corrosion.</li>
-                            <li><strong>Etching response:</strong> Grain boundaries etch preferentially, making them visible under 
-                            the microscope.</li>
-                        </ul>
-
-                        <h3>Phase Transformations</h3>
-                        <p>
-                            Phase transformations occur when materials are heated or cooled, changing their microstructure. 
-                            Understanding these transformations is crucial for metallography:
-                        </p>
-
-                        <h4>Heat Treatment Relationships</h4>
-                        <ul>
-                            <li><strong>Annealing:</strong> Slow cooling produces soft, coarse microstructures (e.g., ferrite and 
-                            pearlite in steel)</li>
-                            <li><strong>Normalizing:</strong> Air cooling produces finer, more uniform microstructures</li>
-                            <li><strong>Quenching:</strong> Rapid cooling produces hard phases (e.g., martensite in steel)</li>
-                            <li><strong>Tempering:</strong> Reheating quenched materials reduces hardness and increases toughness</li>
-                            <li><strong>Aging/Precipitation:</strong> Time-dependent phase formation at specific temperatures</li>
-                        </ul>
-
-                        <h4>Processing Relationships</h4>
-                        <ul>
-                            <li><strong>Cold working:</strong> Mechanical deformation at low temperatures creates elongated grains 
-                            and increases strength (work hardening)</li>
-                            <li><strong>Hot working:</strong> Deformation at high temperatures allows recrystallization, producing 
-                            new, equiaxed grains</li>
-                            <li><strong>Recrystallization:</strong> Formation of new, strain-free grains after cold working</li>
-                            <li><strong>Grain growth:</strong> Increase in average grain size at elevated temperatures</li>
-                        </ul>
-
-                        <div class="guide-info-box">
-                            <p>
-                                <strong>Key Principle:</strong> The microstructure you observe is a "snapshot" of the material's 
-                                processing history. By understanding phase transformations, you can interpret what processing steps 
-                                a material has undergone and predict its properties.
-                            </p>
-                        </div>
-
-                        <h3>Phase Diagrams</h3>
-                        <p>
-                            Phase diagrams (equilibrium diagrams) show which phases are stable at different temperatures and 
-                            compositions. While metallography examines actual microstructures (which may differ from equilibrium 
-                            due to processing), phase diagrams provide essential reference information for understanding what 
-                            phases should be present and how they form.
-                        </p>
-                    </section>
-
-                    <section id="applications" class="guide-section">
-                        <h2>Applications of Metallography</h2>
-                        <p>
-                            Metallography finds applications across numerous industries and research areas. Understanding these 
-                            applications helps illustrate the practical importance of the field.
-                        </p>
-                        <p>
-                            For a comprehensive guide covering the purpose and detailed applications of metallography across 
-                            different industries and use cases, see our <a href="/guides/purpose-and-applications.html" class="guide-link">Purpose and Applications guide</a>.
-                        </p>
-
-                        <h3>Quality Control and Inspection</h3>
-                        <p>
-                            One of the most common applications is quality control in manufacturing:
-                        </p>
-                        <ul>
-                            <li><strong>Material verification:</strong> Confirming that received materials meet specifications</li>
-                            <li><strong>Process validation:</strong> Ensuring heat treatment, welding, or other processes produce 
-                            the expected microstructure</li>
-                            <li><strong>Batch testing:</strong> Verifying consistency across production batches</li>
-                            <li><strong>Standards compliance:</strong> Meeting industry standards and specifications (ASTM, ISO, etc.)</li>
-                        </ul>
-
-                        <h3>Failure Analysis</h3>
-                        <p>
-                            When materials fail, metallography helps identify the cause:
-                        </p>
-                        <ul>
-                            <li><strong>Fracture analysis:</strong> Examining fracture surfaces to understand failure mechanisms</li>
-                            <li><strong>Root cause identification:</strong> Determining whether failure was due to material defects, 
-                            processing issues, or service conditions</li>
-                            <li><strong>Prevention strategies:</strong> Using failure analysis to prevent future failures</li>
-                            <li><strong>Legal and insurance:</strong> Providing evidence in failure investigations</li>
-                        </ul>
-
-                        <h3>Research and Development</h3>
-                        <p>
-                            Metallography is essential in materials research:
-                        </p>
-                        <ul>
-                            <li><strong>Alloy development:</strong> Characterizing new alloys and understanding structure-property 
-                            relationships</li>
-                            <li><strong>Process optimization:</strong> Determining optimal processing conditions for desired 
-                            microstructures</li>
-                            <li><strong>Fundamental studies:</strong> Researching phase transformations, grain growth, and other 
-                            microstructural phenomena</li>
-                            <li><strong>Material selection:</strong> Comparing different materials for specific applications</li>
-                        </ul>
-
-                        <h3>Industry-Specific Applications</h3>
-                        <div class="guide-industries-grid">
-                            <div class="guide-industry-card">
-                                <h4>Aerospace</h4>
-                                <ul>
-                                    <li>Titanium and superalloy characterization</li>
-                                    <li>Coating and surface treatment analysis</li>
-                                    <li>Fatigue and creep damage assessment</li>
-                                </ul>
-                            </div>
-                            <div class="guide-industry-card">
-                                <h4>Automotive</h4>
-                                <ul>
-                                    <li>Steel and aluminum processing verification</li>
-                                    <li>Heat treatment validation</li>
-                                    <li>Weld quality assessment</li>
-                                </ul>
-                            </div>
-                            <div class="guide-industry-card">
-                                <h4>Medical Devices</h4>
-                                <ul>
-                                    <li>Implant material characterization</li>
-                                    <li>Biocompatibility studies</li>
-                                    <li>Surface finish verification</li>
-                                </ul>
-                            </div>
-                            <div class="guide-industry-card">
-                                <h4>Energy</h4>
-                                <ul>
-                                    <li>Power plant material analysis</li>
-                                    <li>Pipeline and pressure vessel inspection</li>
-                                    <li>Corrosion and degradation studies</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="guide-info-box guide-info-box-blue">
-                            <p>
-                                <strong>Versatility:</strong> While metallography is often associated with metals, the same 
-                                principles apply to ceramics, composites, and other materials. The goal is always to understand 
-                                structure-property relationships.
-                            </p>
-                        </div>
-                    </section>
-
-                    <section id="standards-practices" class="guide-section">
-                        <h2>Standards and Best Practices</h2>
-                        <p>
-                            Metallography is guided by established standards and best practices that ensure consistency, 
-                            reproducibility, and quality. Following these standards is essential for reliable results and 
-                            industry acceptance of your work.
-                        </p>
-
-                        <h3>ASTM Standards</h3>
-                        <p>
-                            The American Society for Testing and Materials (ASTM) publishes numerous standards relevant to 
-                            metallography. ASTM Committee E-4 on Metallography, formed in 1916, has developed over 40 standards 
-                            that guide metallographic practice. These standards are widely used in the United States and have 
-                            influenced international standardization efforts. Key standards include:
-                        </p>
-
-                        <div class="guide-table-wrapper">
-                            <table class="guide-table">
-                                <thead>
-                                    <tr>
-                                        <th>Standard</th>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>ASTM E3</strong></td>
-                                        <td>Standard Guide for Preparation of Metallographic Specimens</td>
-                                        <td>General procedures for sample preparation including sectioning, mounting, grinding, polishing, and etching.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>ASTM E407</strong></td>
-                                        <td>Standard Practice for Microetching Metals and Alloys</td>
-                                        <td>Procedures and reagents for etching various metals and alloys to reveal microstructure.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>ASTM E112</strong></td>
-                                        <td>Standard Test Methods for Determining Average Grain Size</td>
-                                        <td>Methods for measuring and reporting grain size, including comparison charts and intercept methods.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>ASTM E883</strong></td>
-                                        <td>Standard Guide for Reflected-Light Photomicrography</td>
-                                        <td>Guidelines for capturing high-quality photomicrographs for documentation and analysis.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>ASTM E1245</strong></td>
-                                        <td>Standard Practice for Determining the Inclusion or Second-Phase Constituent Content of Metals</td>
-                                        <td>Methods for quantifying non-metallic inclusions and second-phase particles.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>ASTM E1382</strong></td>
-                                        <td>Standard Test Methods for Determining Average Grain Size Using Semiautomatic and Automatic Image Analysis</td>
-                                        <td>Computer-based methods for grain size measurement using image analysis software.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <h3>ISO Standards</h3>
-                        <p>
-                            The International Organization for Standardization (ISO) also publishes standards for metallography, 
-                            particularly for international trade and certification:
-                        </p>
-                        <ul>
-                            <li><strong>ISO 643:</strong> Steels: Micrographic determination of the apparent grain size</li>
-                            <li><strong>ISO 4499:</strong> Hardmetals: Metallographic determination of microstructure</li>
-                            <li><strong>ISO 4967:</strong> Steel: Determination of content of non-metallic inclusions - Micrographic method using standard diagrams</li>
-                            <li><strong>ISO 14250:</strong> Steel: Metallographic characterization of duplex grain size and distributions</li>
-                        </ul>
-
-                        <h3>Safety Considerations</h3>
-                        <p>
-                            Metallography involves working with chemicals, equipment, and potentially hazardous materials. 
-                            Safety must always be a priority:
-                        </p>
-
-                        <div class="guide-info-box guide-info-box-yellow">
-                            <h4>Chemical Safety</h4>
-                            <ul>
-                                <li>Always read Safety Data Sheets (SDS) for all chemicals before use</li>
-                                <li>Use appropriate personal protective equipment (gloves, eye protection, lab coat)</li>
-                                <li>Work in well-ventilated areas, preferably in a fume hood when using etchants</li>
-                                <li>Store chemicals properly and label all containers clearly</li>
-                                <li>Dispose of chemical waste according to local regulations</li>
-                                <li>Never mix chemicals unless you know the reaction products are safe</li>
-                            </ul>
-                        </div>
-
-                        <div class="guide-info-box guide-info-box-yellow">
-                            <h4>Equipment Safety</h4>
-                            <ul>
-                                <li>Follow manufacturer instructions for all equipment</li>
-                                <li>Use proper guards and safety features on cutting and grinding equipment</li>
-                                <li>Secure samples properly to prevent movement during cutting or grinding</li>
-                                <li>Be aware of rotating equipment and moving parts</li>
-                                <li>Keep work areas clean and organized to prevent accidents</li>
-                                <li>Use appropriate eye protection when operating any equipment</li>
-                            </ul>
-                        </div>
-
-                        <h3>Best Practices for Quality Results</h3>
-                        <ul>
-                            <li><strong>Documentation:</strong> Record all preparation parameters (grit sizes, times, pressures, 
-                            etchants, etching times) for reproducibility</li>
-                            <li><strong>Consistency:</strong> Follow standardized procedures to ensure consistent results</li>
-                            <li><strong>Cleanliness:</strong> Keep equipment and work areas clean to prevent contamination</li>
-                            <li><strong>Calibration:</strong> Regularly calibrate equipment (microscopes, hardness testers, etc.)</li>
-                            <li><strong>Reference samples:</strong> Maintain reference samples of known quality for comparison</li>
-                            <li><strong>Training:</strong> Ensure operators are properly trained in techniques and safety</li>
-                            <li><strong>Quality control:</strong> Establish quality control procedures and checkpoints</li>
-                        </ul>
-
-                        <div class="guide-info-box">
-                            <p>
-                                <strong>Standards Compliance:</strong> When working to meet specific standards or certifications, 
-                                ensure you have the current version of relevant standards and follow them precisely. Standards are 
-                                regularly updated, so check for revisions.
-                            </p>
-                        </div>
-                    </section>
+                    <div class="guide-section-end"><a href="#main-content">↑ Back to top</a></div>
 
                     <section id="preparation-process" class="guide-section">
                         <h2>The Sample Preparation Process</h2>
@@ -1576,68 +1185,43 @@
                             The standard metallographic preparation process consists of five main steps:
                         </p>
 
-                        <div class="guide-steps-list">
-                            <div class="guide-step-item">
-                                <h4>1. Sectioning</h4>
-                                <p>
-                                    Cutting a representative sample from the larger workpiece. The goal is to obtain a sample 
-                                    that represents the material or feature of interest while minimizing damage. Sectioning can 
-                                    be done using abrasive cutting or precision wafering, depending on the material and requirements.
-                                </p>
-                                <a href="/guides/sectioning.html" class="guide-link">
-                                    Learn more about Sectioning →
+                        <ol class="guide-prep-flow" aria-label="The five-step metallographic preparation flow">
+                            <li>
+                                <a href="/guides/sectioning.html" class="guide-prep-step">
+                                    <span class="guide-prep-num">1</span>
+                                    <span class="guide-prep-name">Sectioning</span>
+                                    <span class="guide-prep-desc">Cut a representative sample &mdash; abrasive or precision wafering &mdash; with minimal damage.</span>
                                 </a>
-                            </div>
-
-                            <div class="guide-step-item">
-                                <h4>2. Mounting</h4>
-                                <p>
-                                    Embedding the sample in resin to create a standardized, easy-to-handle mount. Mounting protects 
-                                    edges, makes small samples manageable, and creates a uniform surface for grinding and polishing. 
-                                    Compression mounting and castable mounting are the two main methods.
-                                </p>
-                                <a href="/guides/mounting.html" class="guide-link">
-                                    Learn more about Mounting →
+                            </li>
+                            <li>
+                                <a href="/guides/mounting.html" class="guide-prep-step">
+                                    <span class="guide-prep-num">2</span>
+                                    <span class="guide-prep-name">Mounting</span>
+                                    <span class="guide-prep-desc">Embed in resin (compression or castable) for safe handling and edge retention.</span>
                                 </a>
-                            </div>
-
-                            <div class="guide-step-item">
-                                <h4>3. Grinding</h4>
-                                <p>
-                                    Removing surface damage from sectioning and creating a flat surface using progressively finer 
-                                    abrasives. Grinding typically progresses from coarse grits (e.g., 120 grit) to fine grits 
-                                    (e.g., 600 or 800 grit). Proper grinding removes damage while minimizing introduction of new 
-                                    damage.
-                                </p>
-                                <a href="/guides/grinding-techniques.html" class="guide-link">
-                                    Learn more about Grinding Techniques →
+                            </li>
+                            <li>
+                                <a href="/guides/grinding-techniques.html" class="guide-prep-step">
+                                    <span class="guide-prep-num">3</span>
+                                    <span class="guide-prep-name">Grinding</span>
+                                    <span class="guide-prep-desc">Progressively finer abrasives (e.g., 120 → 800 grit) to remove damage and flatten.</span>
                                 </a>
-                            </div>
-
-                            <div class="guide-step-item">
-                                <h4>4. Polishing</h4>
-                                <p>
-                                    Creating a mirror-like surface free of scratches. Polishing uses fine abrasives (diamond 
-                                    pastes, suspensions, or oxide polishing compounds) on soft cloths. The goal is to remove all 
-                                    grinding scratches and create a surface suitable for microscopic examination.
-                                </p>
-                                <a href="/guides/polishing-methods.html" class="guide-link">
-                                    Learn more about Polishing Methods →
+                            </li>
+                            <li>
+                                <a href="/guides/polishing-methods.html" class="guide-prep-step">
+                                    <span class="guide-prep-num">4</span>
+                                    <span class="guide-prep-name">Polishing</span>
+                                    <span class="guide-prep-desc">Diamond and oxide suspensions on soft cloths until the surface is mirror-bright.</span>
                                 </a>
-                            </div>
-
-                            <div class="guide-step-item">
-                                <h4>5. Etching</h4>
-                                <p>
-                                    Applying chemical reagents to reveal the microstructure. Etching selectively attacks different 
-                                    phases and grain boundaries, creating contrast that makes microstructural features visible 
-                                    under the microscope. Different materials require different etchants.
-                                </p>
-                                <a href="/support/etchant-information.html" class="guide-link">
-                                    Learn more about Etching →
+                            </li>
+                            <li>
+                                <a href="/support/etchant-information.html" class="guide-prep-step">
+                                    <span class="guide-prep-num">5</span>
+                                    <span class="guide-prep-name">Etching</span>
+                                    <span class="guide-prep-desc">Apply a chemical reagent to attack phases and grain boundaries selectively, revealing structure.</span>
                                 </a>
-                            </div>
-                        </div>
+                            </li>
+                        </ol>
 
                         <h3>Key Principles</h3>
                         <p>
@@ -1810,6 +1394,8 @@
                         </p>
                     </section>
 
+                    <div class="guide-section-end"><a href="#main-content">↑ Back to top</a></div>
+
                     <section id="microscopy-techniques" class="guide-section">
                         <h2>Microscopy Techniques</h2>
                         <p>
@@ -1832,227 +1418,490 @@
                         </div>
                     </section>
 
-                    <section id="getting-started" class="guide-section">
-                        <h2>Getting Started</h2>
+                    <div class="guide-section-end"><a href="#main-content">↑ Back to top</a></div>
+
+                    <section id="phases-and-transformations" class="guide-section">
+                        <h2>Phases and Phase Transformations</h2>
                         <p>
-                            If you're new to metallography, here's a practical path to get started:
+                            Understanding phases (distinct regions with uniform composition and crystal structure) is fundamental to 
+                            metallography. Different phases have different properties, and the distribution, size, and morphology 
+                            of phases determine overall material behavior. Phase transformations, driven by heat treatment and 
+                            processing, create these microstructures.
                         </p>
 
-                        <h3>1. Learn the Fundamentals</h3>
+                        <h3>Common Phases in Steels</h3>
                         <p>
-                            Start with understanding the basics:
+                            Steels are iron-carbon alloys, and their microstructures consist of various phases that form depending 
+                            on composition and heat treatment:
                         </p>
-                        <ul>
-                            <li>Read this guide and understand what metallography is and why it matters</li>
-                            <li>Familiarize yourself with basic terminology (grains, phases, microstructure)</li>
-                            <li>Understand the relationship between structure and properties</li>
-                            <li>Learn about the preparation process overview</li>
-                            <li>Review <a href="/guides/equipment-overview.html" class="guide-link">Equipment Overview</a> to understand what equipment you'll need</li>
-                            <li>Study <a href="/guides/safety-fundamentals.html" class="guide-link">Safety Fundamentals</a> before working in the laboratory</li>
-                            <li>Read <a href="/guides/common-misconceptions.html" class="guide-link">Common Misconceptions</a> to avoid beginner mistakes</li>
-                        </ul>
 
-                        <h3>2. Study the Preparation Process</h3>
-                        <p>
-                            Work through the process guides in order:
-                        </p>
-                        <ol>
-                            <li><a href="/guides/sectioning.html" class="guide-link">Sectioning</a> - Learn how to cut samples properly</li>
-                            <li><a href="/guides/mounting.html" class="guide-link">Mounting</a> - Understand mounting methods and when to use each</li>
-                            <li><a href="/guides/grinding-techniques.html" class="guide-link">Grinding Techniques</a> - Master progressive grinding</li>
-                            <li><a href="/guides/polishing-methods.html" class="guide-link">Polishing Methods</a> - Learn to create scratch-free surfaces</li>
-                            <li>Etching - Study material-specific etching requirements (see <a href="/support/etchant-information.html" class="guide-link">Etchant Information</a>)</li>
-                        </ol>
-
-                        <h3>3. Practice with Your Materials</h3>
-                        <p>
-                            Once you understand the basics:
-                        </p>
-                        <ul>
-                            <li>Start with simple, common materials (e.g., carbon steel, aluminum)</li>
-                            <li>Follow material-specific guides for your materials of interest</li>
-                            <li>Practice the preparation steps and refine your technique</li>
-                            <li>Compare your results with reference microstructures</li>
-                        </ul>
-
-                        <h3>4. Use Available Resources</h3>
-                        <p>
-                            Take advantage of the resources available:
-                        </p>
-                        <ul>
-                            <li><a href="/support/products.html" class="guide-link">Product Information</a> - Explore our products and applications</li>
-                            <li><a href="/support/procedures.html" class="guide-link">Preparation Procedures</a> - Use procedures to ensure you don't miss steps</li>
-                            <li><a href="/support/etchant-information.html" class="guide-link">Etchant Information</a> - Find the right etchant for your material</li>
-                            <li>Material-specific guides for detailed procedures</li>
-                        </ul>
-
-                        <h3>5. Build Experience</h3>
-                        <p>
-                            Metallography improves with practice:
-                        </p>
-                        <ul>
-                            <li>Prepare multiple samples to build consistency</li>
-                            <li>Document your procedures and results</li>
-                            <li>Learn from mistakes and refine your technique</li>
-                            <li>Seek feedback from experienced metallographers</li>
-                            <li>Compare your results with published microstructures</li>
-                        </ul>
-
-                        <div class="guide-info-box guide-info-box-primary">
-                            <h3>Recommended Learning Path</h3>
-                            <ol>
-                                <li><strong>Start here:</strong> Read this introduction to understand the fundamentals</li>
-                                <li><strong>Basics guides:</strong> Review <a href="/guides/equipment-overview.html" class="guide-link">Equipment Overview</a>, <a href="/guides/safety-fundamentals.html" class="guide-link">Safety Fundamentals</a>, and <a href="/guides/common-misconceptions.html" class="guide-link">Common Misconceptions</a></li>
-                                <li><strong>Process guides:</strong> Study sectioning, mounting, grinding, and polishing guides</li>
-                                <li><strong>Material guides:</strong> Find material-specific guides for your materials</li>
-                                <li><strong>Practice:</strong> Prepare samples and refine your technique</li>
-                                <li><strong>Advanced topics:</strong> Explore application-specific guides and advanced techniques</li>
-                            </ol>
+                        <div class="guide-phases-grid guide-phases-grid--with-thumbs">
+                            <div class="guide-phase-card guide-phase-card--with-thumb">
+                                <img class="guide-phase-thumb" src="/images/microstructures/ferrite-pearlite-steel.jpg" alt="Ferrite (light) and pearlite in low-carbon steel" loading="lazy">
+                                <div>
+                                    <h4>Ferrite (α-Fe)</h4>
+                                    <p>BCC iron, low carbon solubility. Soft, ductile, magnetic. Etches light.</p>
+                                </div>
+                            </div>
+                            <div class="guide-phase-card guide-phase-card--with-thumb">
+                                <img class="guide-phase-thumb" src="/images/microstructures/300-series-stainless-grain-twins.webp" alt="Austenitic stainless steel grains and annealing twins" loading="lazy">
+                                <div>
+                                    <h4>Austenite (γ-Fe)</h4>
+                                    <p>FCC iron, higher carbon solubility. Stable hot, non-magnetic; transforms on cooling.</p>
+                                </div>
+                            </div>
+                            <div class="guide-phase-card guide-phase-card--with-thumb">
+                                <img class="guide-phase-thumb" src="/images/microstructures/1095wq.jpg" alt="Martensitic structure in water-quenched 1095 steel" loading="lazy">
+                                <div>
+                                    <h4>Martensite</h4>
+                                    <p>Body-centered tetragonal phase from rapid quench. Very hard, low ductility; needle/lath morphology.</p>
+                                </div>
+                            </div>
+                            <div class="guide-phase-card guide-phase-card--with-thumb">
+                                <img class="guide-phase-thumb" src="/images/microstructures/pearlite-ferrite.jpg" alt="Lamellar pearlite alongside ferrite" loading="lazy">
+                                <div>
+                                    <h4>Pearlite</h4>
+                                    <p>Alternating ferrite + Fe₃C lamellae from slow cooling. Moderate strength, good machinability.</p>
+                                </div>
+                            </div>
+                            <div class="guide-phase-card guide-phase-card--with-thumb">
+                                <img class="guide-phase-thumb" src="/images/microstructures/High-alloy-tool-steel.jpg" alt="Acicular bainite/intermediate transformation product in tool steel" loading="lazy">
+                                <div>
+                                    <h4>Bainite</h4>
+                                    <p>Intermediate between pearlite and martensite. Fine acicular structure; balances strength and toughness.</p>
+                                </div>
+                            </div>
+                            <div class="guide-phase-card guide-phase-card--with-thumb">
+                                <img class="guide-phase-thumb" src="/images/microstructures/1095fc.jpg" alt="Cementite network in furnace-cooled 1095 steel" loading="lazy">
+                                <div>
+                                    <h4>Cementite (Fe₃C)</h4>
+                                    <p>Iron carbide. Very hard and brittle. Resists Nital (stays bright); Picral reveals carbide boundaries.</p>
+                                </div>
+                            </div>
                         </div>
 
-                        <h3>Next Steps</h3>
+                        <h3>Grain boundaries (in one paragraph)</h3>
                         <p>
-                            Now that you understand the fundamentals of metallography, you're ready to dive deeper:
+                            Grain boundaries are the interfaces between adjacent crystals in a polycrystalline material. They
+                            <strong>influence properties</strong> (finer grains generally mean stronger material), serve as
+                            <strong>preferential sites</strong> for second-phase precipitation and crack initiation, act as
+                            <strong>fast diffusion paths</strong> for creep and corrosion, and <strong>etch preferentially</strong>
+                            &mdash; which is what makes them visible under the microscope.
                         </p>
-                        <ul>
-                            <li>Explore the <a href="/guides.html" class="guide-link">complete guides library</a> for detailed information on each preparation step</li>
-                            <li>Check out <a href="/resources.html" class="guide-link">resources</a> for checklists, charts, and troubleshooting help</li>
-                            <li>Use our <a href="/support/etchant-information.html" class="guide-link">etchant information</a> to help with etchant selection</li>
-                            <li>Consider material-specific guides if you're working with particular materials</li>
-                        </ul>
+
+                        <h3>Phase transformations &amp; processing effects</h3>
+                        <p>
+                            Heat treatment and mechanical processing change the microstructure. The most common transformations
+                            you'll see referenced:
+                        </p>
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr><th>Step</th><th>What it does to the microstructure</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Annealing</strong></td><td>Slow cooling &rarr; soft, coarse structures (ferrite + pearlite in steel).</td></tr>
+                                    <tr><td><strong>Normalizing</strong></td><td>Air cooling &rarr; finer, more uniform structures.</td></tr>
+                                    <tr><td><strong>Quenching</strong></td><td>Rapid cooling &rarr; hard phases (martensite in steel).</td></tr>
+                                    <tr><td><strong>Tempering</strong></td><td>Reheats quenched material &rarr; reduces hardness, increases toughness.</td></tr>
+                                    <tr><td><strong>Aging / precipitation</strong></td><td>Time- and temperature-dependent second-phase formation.</td></tr>
+                                    <tr><td><strong>Cold working</strong></td><td>Deformation at low temps &rarr; elongated grains, work hardening.</td></tr>
+                                    <tr><td><strong>Hot working</strong></td><td>Deformation at high temps &rarr; recrystallization to new equiaxed grains.</td></tr>
+                                    <tr><td><strong>Recrystallization &amp; grain growth</strong></td><td>New strain-free grains after cold work; further heating coarsens them.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="guide-info-box">
+                            <p>
+                                <strong>Key principle:</strong> The microstructure you observe is a snapshot of the material's
+                                processing history. Read it backward and you can infer what was done to the material &mdash; and
+                                forward to predict how it will behave.
+                            </p>
+                        </div>
 
                         <p>
-                            Remember: metallography is a skill that develops with practice. Don't be discouraged if your 
-                            first samples aren't perfect. Each sample you prepare teaches you something new, and with time 
-                            and experience, you'll develop the expertise to prepare excellent samples consistently.
+                            <strong>Phase diagrams</strong> (equilibrium diagrams) show which phases <em>should</em> be stable at
+                            a given temperature and composition. Real microstructures often differ from equilibrium because of
+                            processing, but the diagram is the essential reference for "what's possible."
                         </p>
                     </section>
 
-                    <section id="further-reading" class="guide-section">
-                        <h2>Further Reading and Resources</h2>
+                    <div class="guide-section-end"><a href="#main-content">↑ Back to top</a></div>
+
+                    <section id="applications" class="guide-section">
+                        <h2>Applications of Metallography</h2>
                         <p>
-                            This introduction provides a foundation, but metallography is a deep field with extensive literature. 
-                            The following resources offer more detailed information for those who want to dive deeper.
+                            Metallography finds applications across numerous industries and research areas. Understanding these 
+                            applications helps illustrate the practical importance of the field.
+                        </p>
+                        <p>
+                            For a comprehensive guide covering the purpose and detailed applications of metallography across 
+                            different industries and use cases, see our <a href="/guides/purpose-and-applications.html" class="guide-link">Purpose and Applications guide</a>.
                         </p>
 
-                        <h3>Essential Books</h3>
-                        <div class="guide-resources-list">
-                            <div class="guide-resource-card">
-                                <h4>ASM Handbook, Volume 9: Metallography and Microstructures</h4>
-                                <p>
-                                    Comprehensive reference covering all aspects of metallography. Includes detailed procedures, 
-                                    microstructural interpretation, and material-specific information. Essential reference for any 
-                                    metallography laboratory.
-                                </p>
-                                <p class="guide-resource-meta">
-                                    Published by ASM International. Regularly updated with new editions.
-                                </p>
-                            </div>
+                        <h3>Quality Control and Inspection</h3>
+                        <p>
+                            One of the most common applications is quality control in manufacturing:
+                        </p>
+                        <ul>
+                            <li><strong>Material verification:</strong> Confirming that received materials meet specifications</li>
+                            <li><strong>Process validation:</strong> Ensuring heat treatment, welding, or other processes produce 
+                            the expected microstructure</li>
+                            <li><strong>Batch testing:</strong> Verifying consistency across production batches</li>
+                            <li><strong>Standards compliance:</strong> Meeting industry standards and specifications (ASTM, ISO, etc.)</li>
+                        </ul>
 
-                            <div class="guide-resource-card">
-                                <h4>Metallography: Principles and Practice by George F. Vander Voort</h4>
-                                <p>
-                                    Comprehensive textbook covering sample preparation, microscopy, and microstructural interpretation. 
-                                    Excellent for both beginners and experienced metallographers. Includes extensive information on 
-                                    etching and material-specific techniques.
-                                </p>
-                                <p class="guide-resource-meta">
-                                    Published by ASM International. Considered one of the definitive texts on metallography.
-                                </p>
-                            </div>
+                        <h3>Failure Analysis</h3>
+                        <p>
+                            When materials fail, metallography helps identify the cause:
+                        </p>
+                        <ul>
+                            <li><strong>Fracture analysis:</strong> Examining fracture surfaces to understand failure mechanisms</li>
+                            <li><strong>Root cause identification:</strong> Determining whether failure was due to material defects, 
+                            processing issues, or service conditions</li>
+                            <li><strong>Prevention strategies:</strong> Using failure analysis to prevent future failures</li>
+                            <li><strong>Legal and insurance:</strong> Providing evidence in failure investigations</li>
+                        </ul>
 
-                            <div class="guide-resource-card">
-                                <h4>Practical Metallography by L.E. Samuels</h4>
-                                <p>
-                                    Practical guide focusing on sample preparation techniques. Excellent for understanding the 
-                                    "how-to" aspects of metallography with detailed procedures and troubleshooting.
-                                </p>
-                                <p class="guide-resource-meta">
-                                    Published by ASM International. Strong emphasis on practical techniques.
-                                </p>
+                        <h3>Research and Development</h3>
+                        <p>
+                            Metallography is essential in materials research:
+                        </p>
+                        <ul>
+                            <li><strong>Alloy development:</strong> Characterizing new alloys and understanding structure-property 
+                            relationships</li>
+                            <li><strong>Process optimization:</strong> Determining optimal processing conditions for desired 
+                            microstructures</li>
+                            <li><strong>Fundamental studies:</strong> Researching phase transformations, grain growth, and other 
+                            microstructural phenomena</li>
+                            <li><strong>Material selection:</strong> Comparing different materials for specific applications</li>
+                        </ul>
+
+                        <h3>Industry-Specific Applications</h3>
+                        <div class="guide-industries-grid">
+                            <div class="guide-industry-card">
+                                <h4>Aerospace</h4>
+                                <ul>
+                                    <li>Titanium and superalloy characterization</li>
+                                    <li>Coating and surface treatment analysis</li>
+                                    <li>Fatigue and creep damage assessment</li>
+                                </ul>
+                            </div>
+                            <div class="guide-industry-card">
+                                <h4>Automotive</h4>
+                                <ul>
+                                    <li>Steel and aluminum processing verification</li>
+                                    <li>Heat treatment validation</li>
+                                    <li>Weld quality assessment</li>
+                                </ul>
+                            </div>
+                            <div class="guide-industry-card">
+                                <h4>Medical Devices</h4>
+                                <ul>
+                                    <li>Implant material characterization</li>
+                                    <li>Biocompatibility studies</li>
+                                    <li>Surface finish verification</li>
+                                </ul>
+                            </div>
+                            <div class="guide-industry-card">
+                                <h4>Energy</h4>
+                                <ul>
+                                    <li>Power plant material analysis</li>
+                                    <li>Pipeline and pressure vessel inspection</li>
+                                    <li>Corrosion and degradation studies</li>
+                                </ul>
                             </div>
                         </div>
 
-                        <h3>Professional Organizations</h3>
-                        <ul>
-                            <li><strong>ASM International:</strong> Leading materials science organization. Publishes standards, 
-                            handbooks, and technical journals. Offers courses and conferences on metallography.</li>
-                            <li><strong>International Metallographic Society (IMS):</strong> Organization dedicated to metallography. 
-                            Hosts annual conferences and provides networking opportunities.</li>
-                            <li><strong>ASTM International:</strong> Develops and publishes standards used in metallography. 
-                            ASTM Committee E-4 on Metallography, established in 1916, has been instrumental in standardizing 
-                            metallographic practices. Access to standards and technical committees.</li>
-                        </ul>
-
-                        <h3>Online Resources</h3>
-                        <ul>
-                            <li><strong>Metallography.org:</strong> Comprehensive guides, resources, and tools 
-                            for metallographic sample preparation.</li>
-                            <li><strong>Materials Science Journals:</strong> Journals like Metallurgical and Materials Transactions, 
-                            Materials Science and Engineering, and others publish research on microstructural analysis.</li>
-                            <li><strong>University Resources:</strong> Many universities provide online resources, course materials, 
-                            and educational content on metallography.</li>
-                        </ul>
-
-                        <h3>Continuing Education</h3>
-                        <p>
-                            Metallography is a skill that benefits from continuous learning:
-                        </p>
-                        <ul>
-                            <li><strong>Workshops and Courses:</strong> Many organizations offer hands-on workshops and courses on 
-                            metallographic techniques</li>
-                            <li><strong>Conferences:</strong> Attend metallography and materials science conferences to learn about 
-                            new techniques and network with other professionals, including the <a href="https://www.asminternational.org/ims" target="_blank" rel="noopener noreferrer" class="guide-link">International Metallographic Society (IMS) Annual Conference</a>, 
-                            <a href="https://www.tms.org/MST/" target="_blank" rel="noopener noreferrer" class="guide-link">Materials Science & Technology (MS&T)</a>, 
-                            <a href="https://www.tms.org/annual-meeting" target="_blank" rel="noopener noreferrer" class="guide-link">TMS Annual Meeting</a>, and 
-                            <a href="https://www.asminternational.org/events" target="_blank" rel="noopener noreferrer" class="guide-link">ASM International events</a></li>
-                            <li><strong>Webinars:</strong> Online webinars from equipment manufacturers and professional organizations</li>
-                            <li><strong>Certification Programs:</strong> Some organizations offer certification programs for 
-                            metallographers</li>
-                        </ul>
-
-                        <div class="guide-info-box guide-info-box-primary">
+                        <div class="guide-info-box guide-info-box-blue">
                             <p>
-                                <strong>Building Your Library:</strong> Start with Vander Voort's "Metallography: Principles and 
-                                Practice" and the ASM Handbook Volume 9. These two resources will cover most of your needs. Add 
-                                specialized references as you work with specific materials or techniques.
+                                <strong>Versatility:</strong> While metallography is often associated with metals, the same 
+                                principles apply to ceramics, composites, and other materials. The goal is always to understand 
+                                structure-property relationships.
                             </p>
                         </div>
                     </section>
 
+                    <div class="guide-section-end"><a href="#main-content">↑ Back to top</a></div>
+
+                    <section id="standards-practices" class="guide-section">
+                        <h2>Standards and Best Practices</h2>
+                        <p>
+                            Metallography is guided by established standards and best practices that ensure consistency, 
+                            reproducibility, and quality. Following these standards is essential for reliable results and 
+                            industry acceptance of your work.
+                        </p>
+
+                        <h3>ASTM Standards</h3>
+                        <p>
+                            The American Society for Testing and Materials (ASTM) publishes numerous standards relevant to 
+                            metallography. ASTM Committee E-4 on Metallography, formed in 1916, has developed over 40 standards 
+                            that guide metallographic practice. These standards are widely used in the United States and have 
+                            influenced international standardization efforts. Key standards include:
+                        </p>
+
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>Standard</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>ASTM E3</strong></td>
+                                        <td>Standard Guide for Preparation of Metallographic Specimens</td>
+                                        <td>General procedures for sample preparation including sectioning, mounting, grinding, polishing, and etching.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ASTM E407</strong></td>
+                                        <td>Standard Practice for Microetching Metals and Alloys</td>
+                                        <td>Procedures and reagents for etching various metals and alloys to reveal microstructure.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ASTM E112</strong></td>
+                                        <td>Standard Test Methods for Determining Average Grain Size</td>
+                                        <td>Methods for measuring and reporting grain size, including comparison charts and intercept methods.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ASTM E883</strong></td>
+                                        <td>Standard Guide for Reflected-Light Photomicrography</td>
+                                        <td>Guidelines for capturing high-quality photomicrographs for documentation and analysis.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ASTM E1245</strong></td>
+                                        <td>Standard Practice for Determining the Inclusion or Second-Phase Constituent Content of Metals</td>
+                                        <td>Methods for quantifying non-metallic inclusions and second-phase particles.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ASTM E1382</strong></td>
+                                        <td>Standard Test Methods for Determining Average Grain Size Using Semiautomatic and Automatic Image Analysis</td>
+                                        <td>Computer-based methods for grain size measurement using image analysis software.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>ISO Standards</h3>
+                        <p>
+                            The International Organization for Standardization (ISO) also publishes standards for metallography, 
+                            particularly for international trade and certification:
+                        </p>
+                        <ul>
+                            <li><strong>ISO 643:</strong> Steels: Micrographic determination of the apparent grain size</li>
+                            <li><strong>ISO 4499:</strong> Hardmetals: Metallographic determination of microstructure</li>
+                            <li><strong>ISO 4967:</strong> Steel: Determination of content of non-metallic inclusions - Micrographic method using standard diagrams</li>
+                            <li><strong>ISO 14250:</strong> Steel: Metallographic characterization of duplex grain size and distributions</li>
+                        </ul>
+
+                        <h3>Safety Considerations</h3>
+                        <p>
+                            Metallography involves working with chemicals, equipment, and potentially hazardous materials. 
+                            Safety must always be a priority:
+                        </p>
+
+                        <div class="guide-info-box guide-info-box-yellow">
+                            <h4>Chemical Safety</h4>
+                            <ul>
+                                <li>Always read Safety Data Sheets (SDS) for all chemicals before use</li>
+                                <li>Use appropriate personal protective equipment (gloves, eye protection, lab coat)</li>
+                                <li>Work in well-ventilated areas, preferably in a fume hood when using etchants</li>
+                                <li>Store chemicals properly and label all containers clearly</li>
+                                <li>Dispose of chemical waste according to local regulations</li>
+                                <li>Never mix chemicals unless you know the reaction products are safe</li>
+                            </ul>
+                        </div>
+
+                        <div class="guide-info-box guide-info-box-yellow">
+                            <h4>Equipment Safety</h4>
+                            <ul>
+                                <li>Follow manufacturer instructions for all equipment</li>
+                                <li>Use proper guards and safety features on cutting and grinding equipment</li>
+                                <li>Secure samples properly to prevent movement during cutting or grinding</li>
+                                <li>Be aware of rotating equipment and moving parts</li>
+                                <li>Keep work areas clean and organized to prevent accidents</li>
+                                <li>Use appropriate eye protection when operating any equipment</li>
+                            </ul>
+                        </div>
+
+                        <h3>Best Practices for Quality Results</h3>
+                        <ul>
+                            <li><strong>Documentation:</strong> Record all preparation parameters (grit sizes, times, pressures, 
+                            etchants, etching times) for reproducibility</li>
+                            <li><strong>Consistency:</strong> Follow standardized procedures to ensure consistent results</li>
+                            <li><strong>Cleanliness:</strong> Keep equipment and work areas clean to prevent contamination</li>
+                            <li><strong>Calibration:</strong> Regularly calibrate equipment (microscopes, hardness testers, etc.)</li>
+                            <li><strong>Reference samples:</strong> Maintain reference samples of known quality for comparison</li>
+                            <li><strong>Training:</strong> Ensure operators are properly trained in techniques and safety</li>
+                            <li><strong>Quality control:</strong> Establish quality control procedures and checkpoints</li>
+                        </ul>
+
+                        <div class="guide-info-box">
+                            <p>
+                                <strong>Standards Compliance:</strong> When working to meet specific standards or certifications, 
+                                ensure you have the current version of relevant standards and follow them precisely. Standards are 
+                                regularly updated, so check for revisions.
+                            </p>
+                        </div>
+                    </section>
+
+                    <div class="guide-section-end"><a href="#main-content">↑ Back to top</a></div>
+
+                    <section id="history" class="guide-section">
+                        <h2>A Short History of Metallography</h2>
+                        <p>
+                            While humans have been working with metals for thousands of years, the scientific study of microstructure
+                            is relatively recent. The field as we know it today began with
+                            <strong>Henry Clifton Sorby (1826&ndash;1908)</strong>, an English geologist and metallurgist. In 1863
+                            Sorby adapted techniques from petrography (the study of rocks) to examine metals &mdash; the first to
+                            grind, polish, etch, and observe metals under a microscope. His work revealed that metals had internal
+                            structures (grains, phases, defects) that could be studied and related to material properties.
+                        </p>
+                        <p>
+                            Since Sorby, metallography has evolved from a descriptive science into a quantitative discipline. The
+                            development of electron microscopy (SEM and TEM) in the mid-20th century enabled observation at much
+                            higher magnifications, and modern techniques like electron backscatter diffraction (EBSD), energy-dispersive
+                            X-ray spectroscopy (EDS), and automated image analysis provide unprecedented insight into material structure.
+                            The fundamental principles Sorby established remain valid today.
+                        </p>
+                        <p class="guide-note">
+                            For the full story &mdash; ancient foundations, the Industrial Revolution era, electron microscopy
+                            developments, and modern digital techniques &mdash; see our complete
+                            <a href="/guides/history-of-metallography.html" class="guide-link">History of Metallography guide</a>.
+                        </p>
+                    </section>
+
+                    <div class="guide-section-end"><a href="#main-content">↑ Back to top</a></div>
+
+                    <section id="getting-started" class="guide-section">
+                        <h2>Getting Started &amp; Further Reading</h2>
+                        <p>
+                            Metallography is a skill that develops with practice. Don't be discouraged if your first samples
+                            aren't perfect &mdash; each one teaches you something. Below is a practical path, the books worth
+                            owning, and where the community gathers.
+                        </p>
+
+                        <div class="guide-info-box guide-info-box-primary">
+                            <h3>A practical learning path</h3>
+                            <ol>
+                                <li><strong>Ground yourself in the basics.</strong> You're already here &mdash; pair this guide with
+                                    <a href="/guides/equipment-overview.html" class="guide-link">Equipment Overview</a>,
+                                    <a href="/guides/safety-fundamentals.html" class="guide-link">Safety Fundamentals</a>, and
+                                    <a href="/guides/common-misconceptions.html" class="guide-link">Common Misconceptions</a>.</li>
+                                <li><strong>Walk through the prep steps in order:</strong>
+                                    <a href="/guides/sectioning.html" class="guide-link">Sectioning</a> →
+                                    <a href="/guides/mounting.html" class="guide-link">Mounting</a> →
+                                    <a href="/guides/grinding-techniques.html" class="guide-link">Grinding</a> →
+                                    <a href="/guides/polishing-methods.html" class="guide-link">Polishing</a> →
+                                    <a href="/support/etchant-information.html" class="guide-link">Etching</a>.</li>
+                                <li><strong>Practice with simple materials first</strong> (carbon steel, aluminum), then move to
+                                    your materials of interest using our material-specific guides.</li>
+                                <li><strong>Use the support library:</strong>
+                                    <a href="/support/procedures.html" class="guide-link">Preparation Procedures</a> for step-by-step
+                                    checklists, and <a href="/support/etchant-information.html" class="guide-link">Etchant Information</a>
+                                    for choosing the right reagent.</li>
+                                <li><strong>Build a feedback loop.</strong> Document parameters, compare with reference
+                                    micrographs, and ask experienced metallographers to critique your samples.</li>
+                            </ol>
+                        </div>
+
+                        <h3>Essential books</h3>
+                        <div class="guide-books-grid">
+                            <div class="guide-book">
+                                <div class="guide-book-spine" data-color="brand"><span>MH</span></div>
+                                <div class="guide-book-meta">
+                                    <h4><cite>Metallographic Handbook</cite></h4>
+                                    <p class="guide-book-author">Dr. Don Zipperian &middot; 2011</p>
+                                    <p>PACE Technologies' founder's hands-on primer &mdash; the source we drew from at the top of this page.</p>
+                                </div>
+                            </div>
+                            <div class="guide-book">
+                                <div class="guide-book-spine" data-color="slate"><span>ASM</span></div>
+                                <div class="guide-book-meta">
+                                    <h4><cite>ASM Handbook, Vol.&nbsp;9</cite></h4>
+                                    <p class="guide-book-author">ASM International</p>
+                                    <p>The reference. Procedures, interpretation, and material-specific guidance, updated regularly.</p>
+                                </div>
+                            </div>
+                            <div class="guide-book">
+                                <div class="guide-book-spine" data-color="forest"><span>VV</span></div>
+                                <div class="guide-book-meta">
+                                    <h4><cite>Metallography: Principles &amp; Practice</cite></h4>
+                                    <p class="guide-book-author">George F. Vander Voort</p>
+                                    <p>The definitive textbook &mdash; prep, microscopy, interpretation, and extensive etching guidance.</p>
+                                </div>
+                            </div>
+                            <div class="guide-book">
+                                <div class="guide-book-spine" data-color="rust"><span>PM</span></div>
+                                <div class="guide-book-meta">
+                                    <h4><cite>Practical Metallography</cite></h4>
+                                    <p class="guide-book-author">L. E. Samuels</p>
+                                    <p>Strong on the "how-to" &mdash; detailed procedures and troubleshooting. Great companion to Vander Voort.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="guide-note">
+                            If you can only buy two: start with Vander Voort and ASM Vol. 9. They cover most of what a working lab needs.
+                        </p>
+
+                        <h3>Organizations, conferences &amp; standards bodies</h3>
+                        <ul>
+                            <li><strong>ASM International</strong> &mdash; handbooks, journals, courses; hosts
+                                <a href="https://www.asminternational.org/events" target="_blank" rel="noopener noreferrer" class="guide-link">ASM events</a>
+                                and <a href="https://www.tms.org/MST/" target="_blank" rel="noopener noreferrer" class="guide-link">Materials Science &amp; Technology (MS&amp;T)</a>.</li>
+                            <li><strong><a href="https://www.asminternational.org/ims" target="_blank" rel="noopener noreferrer" class="guide-link">International Metallographic Society (IMS)</a></strong> &mdash; the metallography-focused community; hosts the IMS Annual Conference.</li>
+                            <li><strong><a href="https://www.tms.org/annual-meeting" target="_blank" rel="noopener noreferrer" class="guide-link">TMS Annual Meeting</a></strong> &mdash; broader minerals/metals/materials, with deep metallography sessions.</li>
+                            <li><strong>ASTM International</strong> (Committee E-4 on Metallography, formed 1916) &mdash; develops the
+                                standards referenced in the Standards section above.</li>
+                        </ul>
+                    </section>
+
                     <!-- CTA Section -->
                     <div class="guide-cta">
-                        <h2>Continue Your Learning</h2>
+                        <h2>Ready for the next step?</h2>
                         <p>
-                            Ready to learn more? Explore our comprehensive guides on sample preparation techniques, or use 
-                            our tools and resources to support your metallographic work.
+                            Continue with the prep-process guides, browse the full library, or jump straight to the tools.
                         </p>
                         <div class="guide-cta-buttons">
-                            <a href="/guides/sectioning.html" class="btn-primary">
-                                Start with Sectioning Guide
-                            </a>
-                            <a href="/guides.html" class="btn-secondary">
-                                Browse All Guides
-                            </a>
-                            <a href="/resources.html" class="btn-secondary">
-                                View Resources
-                            </a>
+                            <a href="/guides/sectioning.html" class="btn-primary">Start with Sectioning</a>
+                            <a href="/guides.html" class="btn-secondary">Browse All Guides</a>
+                            <a href="/resources.html" class="btn-secondary">View Resources</a>
                         </div>
-                    </div>
-
-                    <!-- Related Guides -->
-                    <div class="guide-related">
-                        <h2>Related Guides</h2>
-                        <div class="guide-related-links">
-                            <a href="/guides/purpose-and-applications.html" class="guide-link">→ Purpose and Applications</a>
+                        <div class="guide-related-links" style="margin-top:1.25rem;">
+                            <a href="/guides/purpose-and-applications.html" class="guide-link">→ Purpose &amp; Applications</a>
                             <a href="/guides/equipment-overview.html" class="guide-link">→ Equipment Overview</a>
                             <a href="/guides/safety-fundamentals.html" class="guide-link">→ Safety Fundamentals</a>
-                            <a href="/guides/sectioning.html" class="guide-link">→ Sectioning</a>
-                        
+                            <a href="/guides/history-of-metallography.html" class="guide-link">→ History of Metallography</a>
+                        </div>
+                    </div>
                 </article>
             </div>
         </div>
+
+        <!-- Floating "back to top" button (toggled by inline script below) -->
+        <a href="#main-content" class="guide-floating-top" id="guide-floating-top" aria-label="Back to top">↑</a>
     </main>
+
+    <script>
+        (function () {
+            var btn = document.getElementById('guide-floating-top');
+            if (!btn) return;
+            var threshold = 600;
+            function onScroll() {
+                if (window.scrollY > threshold) {
+                    btn.classList.add('is-visible');
+                } else {
+                    btn.classList.remove('is-visible');
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        })();
+    </script>
+
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
@@ -2112,9 +1961,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Monâ€“Fri 8amâ€“5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -2126,7 +2003,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -2154,8 +2031,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -2227,9 +2103,43 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
     <script src="/js/guide-nav.js"></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

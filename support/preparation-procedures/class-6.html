@@ -24,9 +24,7 @@
     <link rel="stylesheet" href="/css/components/navigation.css">
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/base/styles.css">
-    <link rel="stylesheet" href="/css/pages/classes.css">
-    <link rel="stylesheet" href="/css/pages/class-materials.css">
-    <link rel="stylesheet" href="/css/pages/prep.css">
+    <link rel="stylesheet" href="/css/pages/class-page.css">
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -52,6 +50,16 @@
       // You can expand your custom JS logic here if needed
     </script>
 </head>
+
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
 
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
@@ -79,20 +87,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -302,35 +318,35 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/build.html"><span>Lab Builder</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -375,111 +391,35 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
+                            <li><a href="/support/procedures.html">Procedures</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -688,36 +628,38 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/build.html"><span>Lab Builder
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -754,73 +696,31 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
+                            <li><a href="/support/procedures.html"><span>Procedures</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -864,245 +764,424 @@
         <button class="close" aria-label="Close">&times;</button>
         <section class="quote-request" aria-labelledby="quote-request-heading">
             <div class="quote-form-container">
-                <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
             </div>
         </section>
     </div>
 </div>
 
-<!-- HEADER -->
 
-<div class="top-header">
-  <header>
-    <div class="top-header-content">
-      <div class="top-header-inner">
-        <h1 class="page-title">CLASS 6 Material Preparation Guide</h1>
-        <div class="text-content"></div>
-      </div>
-    </div>
-  </header>
-</div>
 
-<div class="first-container">
-    <div class="material-card">
-        <div class="material-header">
-            <a href="/support/procedures.html" class="back-button" id="back-button" aria-label="Back to previous page">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19 12H5M12 19l-7-7 7-7"/>
-                </svg>
-            </a>
-            <div class="material-icon">
-                <i class="fas fa-microscope"></i>
+<!-- CLASS PAGE -->
+<article class="class-page">
+
+    <header class="cp-hero">
+        <a href="/support/procedures.html" class="cp-back" aria-label="Back to procedures">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Recommended Procedures
+        </a>
+        <div class="cp-hero-inner">
+            <div class="cp-hero-content">
+                <span class="cp-eyebrow">Class 6</span>
+                <h1 class="cp-title">Tough, Hard Non-Ferrous Metals</h1>
+                <div class="cp-chips">
+                    <span class="cp-chip"><span class="cp-chip-label">Hardness</span> 120&ndash;490 HV</span>
+                    <span class="cp-chip"><span class="cp-chip-label">Typical</span> Ti &middot; Inconel &middot; Hastelloy &middot; Co-Cr</span>
+                    <span class="cp-chip"><span class="cp-chip-label">Key challenge</span> Work hardening &amp; oxide</span>
+                </div>
+                <p class="cp-lede">Class 6 covers high-performance non-ferrous alloys that share a common preparation profile: rapid work hardening, tenacious oxide formation, and multiple phases that must be preserved without relief. The class spans commercially pure titanium through precipitation-hardened nickel superalloys (Inconel 718, Waspaloy) and carbide-bearing cobalt-chromium alloys (Stellite 6, CoCrMo medical grades). Titanium and zirconium alloys add the complication of extremely rapid surface oxidation and low thermal conductivity that concentrates heat during sectioning. Nickel superalloys require careful polishing to preserve fine gamma-prime precipitates, while cobalt alloys demand controlled grinding to retain primary carbides. All of these materials need specialized etchants tailored to their specific phase chemistry.</p>
             </div>
-            <h2 class="material-title">Class 6: Tough, Hard Non-Ferrous Metals</h2>
-            <div class="material-header-image">
-                <img src="/images/microstructures/Ti6Al4V.jpg" alt="Ti-6Al-4V titanium alloy microstructure showing typical Class 6 material structure" class="header-microstructure-img">
-            </div>
+            <figure class="cp-hero-figure">
+                <img src="/images/microstructures/Ti6Al4V.jpg" alt="Ti-6Al-4V titanium alloy microstructure showing typical Class 6 material structure">
+                <figcaption>Ti-6Al-4V: typical Class 6 microstructure</figcaption>
+            </figure>
         </div>
-        
-        <p class="material-description">
-            Class 6 covers high-performance non-ferrous alloys that share a common preparation profile: rapid work hardening, tenacious oxide formation, and multiple phases that must be preserved without relief. The class spans commercially pure titanium through precipitation-hardened nickel superalloys (Inconel 718, Waspaloy) and carbide-bearing cobalt-chromium alloys (Stellite 6, CoCrMo medical grades). Titanium and zirconium alloys add the complication of extremely rapid surface oxidation and low thermal conductivity that concentrates heat during sectioning. Nickel superalloys require careful polishing to preserve fine gamma-prime precipitates, while cobalt alloys demand controlled grinding to retain primary carbides. All of these materials need specialized etchants tailored to their specific phase chemistry.
-        </p>
+    </header>
 
-        <div class="material-properties">
-            <div class="property-item">
-                <div class="property-label">Hardness Range</div>
-                <div class="property-value">120 HV (CP titanium Grade 1) to 450 HV (Inconel 718, aged); carbide-rich cobalt alloys can reach 490 HV</div>
-            </div>
-            <div class="property-item">
-                <div class="property-label">Typical Materials</div>
-                <div class="property-value">Titanium Alloys, Inconel, Hastelloy, Incoloy, Cobalt-Chromium Alloys, Zircaloy</div>
-            </div>
-            <div class="property-item">
-                <div class="property-label">Preparation Challenge</div>
-                <div class="property-value">Work Hardening, Oxide Formation, Phase Preservation &amp; Specialized Etching</div>
-            </div>
-        </div>
+    <div class="cp-layout">
+        <aside class="cp-sidebar" aria-label="On this page">
+            <p class="cp-sidebar-title">On this page</p>
+            <nav class="cp-nav">
+                <a href="#overview" class="cp-nav-link is-active">Overview</a>
+                <a href="#challenges" class="cp-nav-link">Challenges</a>
+                <a href="#materials" class="cp-nav-link">Materials</a>
+                <a href="#procedure" class="cp-nav-link">Procedure</a>
+                <a href="#verify" class="cp-nav-link">Quality checks</a>
+            </nav>
+        </aside>
+
+        <main class="cp-main">
+
+            <section id="overview" class="cp-section">
+                <h2 class="cp-section-title">Overview</h2>
+                <p class="cp-section-lede">Class 6 alloys share several preparation characteristics that distinguish them from other classes. Work hardening, oxide formation, and multi-phase microstructures create challenges at every step from sectioning through etching.</p>
+            </section>
+
+            <section id="challenges" class="cp-section">
+                <h2 class="cp-section-title">Preparation Challenges</h2>
+                <p class="cp-section-lede">Seven properties drive the prep procedure. Tap a card for full detail.</p>
+                <div class="cp-challenge-grid">
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Rapid Work Hardening</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Light loads and fresh abrasives prevent a deformed surface layer.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">All Class 6 alloys work-harden quickly during grinding and polishing. Excessive pressure or prolonged grinding creates a deformed layer that masks the true microstructure. Light loads (20-25 N), fresh abrasives, and contra-rotation are essential to minimize subsurface damage.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Surface Oxide Formation</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Titanium and zirconium grow oxide layers within seconds of exposure.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Titanium and zirconium form oxide layers within seconds of exposure to air or water. These thin, tenacious oxides can obscure grain boundaries and phase features. Minimize time between final polishing and examination, and avoid prolonged rinsing.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Gamma-Prime &amp; Delta Phase Preservation</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Napped cloths rip fine precipitates from the superalloy matrix.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Nickel superalloys (Inconel 718, Waspaloy, Nimonic 80A) contain fine gamma-prime (Ni&#8323;Al/Ni&#8323;Ti) or delta phase precipitates critical to their properties. Aggressive polishing on napped cloths can pull these precipitates from the matrix, creating pits that look like porosity.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Alpha-Beta Phase Relief</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Alpha and beta phases polish at different rates and create height differences.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Titanium alloys have alpha (HCP) and beta (BCC) phases with different hardness that polish at different rates, creating relief. Napless cloths and short polishing times minimize height differences between phases. Vibratory polishing with colloidal silica produces the flattest surfaces.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Carbide Retention</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Primary carbides in cobalt alloys pull out on napped cloths under heavy load.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Cobalt-chromium alloys and some Hastelloys contain primary carbides (M&#8326;C, M&#8322;&#8323;C&#8326;, MC) that can pull out during polishing if the cloth nap is too aggressive or if loads are too high. Diamond on napless cloths at moderate pressure retains carbides best.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Low Thermal Conductivity</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Titanium concentrates cutting heat; slow feeds and generous coolant required.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Titanium's thermal conductivity (~22 W/m&middot;K) is roughly one-third that of carbon steel and comparable to austenitic stainless, concentrating heat at the cutting interface during sectioning. This can cause localized phase transformation, oxidation discoloration, or heat-affected zones. Slow feed rates and generous coolant flow are required.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Alloy-Specific Etching</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">No universal etchant; each alloy family has its own reagent.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Each alloy family requires a different etchant: Kroll's for titanium, Marble's or Kalling's No. 2 for nickel alloys, electrolytic oxalic acid for gamma-prime in superalloys, and Murakami's for carbide distribution in cobalt alloys. Universal etchants do not exist for this class.</p>
+                    </details>
+
+                </div>
+            </section>
+
+            <section id="materials" class="cp-section">
+                <h2 class="cp-section-title">Class 6 Materials</h2>
+                <p class="cp-section-lede">Thirty-six alloys across seven families. Each family needs grinding, polishing, and etching adjustments.</p>
+                <div class="cp-materials">
+
+                    <details class="cp-material-group" open>
+                        <summary>
+                            <span>Commercially Pure Titanium</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">4</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Commercially Pure Titanium Grade 1</li>
+                            <li>Commercially Pure Titanium (Grade 2)</li>
+                            <li>Commercially Pure Titanium Grade 3</li>
+                            <li>Commercially Pure Titanium Grade 4</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Titanium Alloys</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">6</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Beta C Titanium</li>
+                            <li>Ti-3Al-2.5V</li>
+                            <li>Ti-5Al-2.5Sn</li>
+                            <li>Ti-6Al-2Sn-4Zr-2Mo (Grade 5)</li>
+                            <li>Ti-6Al-4V (Grade 5)</li>
+                            <li>Ti-15V-3Cr-3Al-3Sn</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Inconel (Ni-Cr-Mo Alloys)</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">7</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Inconel 600</li>
+                            <li>Inconel 601</li>
+                            <li>Inconel 617</li>
+                            <li>Inconel 625</li>
+                            <li>Inconel 690</li>
+                            <li>Inconel 718</li>
+                            <li>Inconel 725</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Hastelloy (Ni-Mo/Cr Alloys)</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">4</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Hastelloy B-2</li>
+                            <li>Hastelloy C-22</li>
+                            <li>Hastelloy C-276</li>
+                            <li>Hastelloy X</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Other Nickel Alloys</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">7</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Haynes 230</li>
+                            <li>Incoloy 800</li>
+                            <li>Incoloy 825</li>
+                            <li>Incoloy 925</li>
+                            <li>Monel 400</li>
+                            <li>Nimonic 80A</li>
+                            <li>Waspaloy</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Cobalt-Chromium Alloys</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">4</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Cobalt-Chromium Alloy (Stellite 6)</li>
+                            <li>CoCrMo Cast (ASTM F75)</li>
+                            <li>CoCrMo Wrought (ASTM F1537)</li>
+                            <li>MP35N</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Zirconium Alloys</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">1</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Zircaloy-4</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Additive Manufactured</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">2</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>AM Inconel 718 (SLM)</li>
+                            <li>AM Ti-6Al-4V (SLM/EBM)</li>
+                        </ul>
+                    </details>
+
+                </div>
+            </section>
+
+            <section id="procedure" class="cp-section">
+                <h2 class="cp-section-title">Recommended Procedure</h2>
+                <p class="cp-section-lede">Five-stage workflow. Adjust pressure, abrasive, and etchant to the specific alloy family.</p>
+                <ol class="cp-steps">
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">1</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Sectioning</h3>
+                            <p class="cp-step-lede">Non-ferrous abrasive or precision diamond wafering with slow feed and generous coolant; keep titanium swarf wet.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Use aluminum oxide (non-ferrous) abrasive blades with generous coolant flow. Titanium has very low thermal conductivity, so slow feed rates are critical to avoid heat-affected zones and oxidation discoloration at the cut face. Keep titanium fines wet at all times (dry titanium swarf is a fire hazard). Precision wafering is preferred for additive manufactured samples to preserve the as-built columnar grain structure.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">2</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Mounting</h3>
+                            <p class="cp-step-lede">Compression mounting acceptable for most wrought alloys; castable epoxy with vacuum impregnation for AM or porous samples.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Compression mounting (150-180&deg;C) is acceptable for most wrought titanium and nickel alloys, as these temperatures do not alter their microstructure. Use castable (cold) mounting for additive manufactured parts where porosity must be preserved, for medical implant surfaces, or when edge retention is critical (e.g., oxide scale examination on titanium). Vacuum impregnation with low-viscosity epoxy is recommended for porous AM parts.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">3</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Grinding</h3>
+                            <p class="cp-step-lede">Start 240 grit SiC, progress 320 / 400 / 600 with light pressure (20&ndash;25 N) and contra-rotation; replace papers often.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Start at 240 grit SiC and progress through 320, 400, and 600 grit. Use light pressure (20-25 N) and contra-rotation to minimize work hardening and subsurface deformation. Replace SiC papers frequently because these alloys load the abrasive quickly. Diamond grinding discs (75 and 40 &micro;m) are an effective alternative for nickel superalloys and cobalt-chromium alloys, providing more consistent material removal with less deformation.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">4</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Polishing</h3>
+                            <p class="cp-step-lede">9 &rarr; 3 &micro;m diamond on napless cloths, finish 0.05 &micro;m colloidal silica; add 30% H&#8322;O&#8322; for titanium attack polish.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Polish with 9 &micro;m polycrystalline diamond on a napless cloth, then 3 &micro;m diamond on a napless cloth. Final polish with 0.05 &micro;m colloidal silica on a short-nap cloth for 1-2 minutes. <strong>For titanium and titanium alloys, add 30% hydrogen peroxide to the colloidal silica (roughly 1 part H&#8322;O&#8322; to 5 parts silica)</strong>. This chemo-mechanical "attack polish" removes the deformation layer that titanium maintains stubbornly under conventional polishing and is the standard technique for clean alpha/beta phase contrast. Use napless cloths throughout the diamond steps to minimize relief between alpha/beta phases (titanium) and to retain carbides (cobalt alloys). Vibratory polishing with colloidal silica for 30-60 minutes produces the flattest surfaces and best phase contrast for superalloys.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">5</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Etching</h3>
+                            <p class="cp-step-lede">Each alloy family needs its own reagent: Kroll's for Ti/Zr, Marble's or Kalling's for nickel, Murakami's for cobalt carbides.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Kroll's reagent for all titanium and zirconium alloys; swab 5-15 seconds. Marble's reagent or Kalling's No. 2 for solid-solution nickel alloys; swab 10-30 seconds. Electrolytic etching with 5% chromic acid at 5V DC reveals gamma-prime distribution in precipitation-hardened superalloys (Inconel 718, Waspaloy). Murakami's reagent at room temperature highlights carbide distribution in cobalt-chromium alloys. Swab etching is preferred over immersion for better control across all alloy families.</p>
+                                </div>
+                            </details>
+
+                            <div class="cp-etchants">
+                                <h4 class="cp-etchants-title">Common etchants by alloy family</h4>
+                                <dl class="cp-etchants-list">
+                                    <div class="cp-etchant-row"><dt>Titanium alloys</dt><dd>Kroll's reagent (1&ndash;3 mL HF + 2&ndash;6 mL HNO&#8323; + 100 mL H&#8322;O); Weck's tint; modified Kroll's for &alpha;/&beta; contrast</dd></div>
+                                    <div class="cp-etchant-row"><dt>Nickel superalloys (Inconel, Waspaloy)</dt><dd>Glyceregia (HCl + HNO&#8323; + glycerol); Kalling's #2 (CuCl&#8322; + HCl + ethanol); Marble's reagent; 10% oxalic electrolytic</dd></div>
+                                    <div class="cp-etchant-row"><dt>Hastelloy</dt><dd>Glyceregia; aqua regia + glycerol; 10% oxalic electrolytic</dd></div>
+                                    <div class="cp-etchant-row"><dt>Cobalt-Chromium (Stellite, CoCrMo)</dt><dd>Murakami's (carbides); Marble's reagent (matrix); electrolytic HCl in methanol</dd></div>
+                                    <div class="cp-etchant-row"><dt>Zircaloy / zirconium alloys</dt><dd>Kroll's (HF + HNO&#8323; + glycerol); polarized light for grain structure</dd></div>
+                                </dl>
+                                <p class="cp-etchants-cta">
+                                    <a href="/etchant-guides/titanium" class="cp-etchants-link">Titanium etchant guide &rarr;</a>
+                                    <a href="/etchant-guides/hastelloy" class="cp-etchants-link">Hastelloy etchant guide &rarr;</a>
+                                    <a href="/metallographic-consumables/Metallography-Etching.htm" class="cp-etchants-link">Etching consumables &amp; supplies &rarr;</a>
+                                    <a href="https://shop.metallographic.com/" target="_blank" rel="noopener noreferrer" class="cp-etchants-link">Shop etchants &rarr;</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                </ol>
+            </section>
+
+            <section id="verify" class="cp-section">
+                <h2 class="cp-section-title">Quality Checks</h2>
+                <ul class="cp-checks">
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        No work-hardening artifacts (scratches or deformation twins) visible at 500&times;
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Phase boundaries clearly defined with minimal relief between &alpha;/&beta; (Ti) or &gamma;/&gamma;' (Ni)
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Carbides and precipitates retained in place with no pull-out pits
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        No oxide discoloration on titanium or zirconium surfaces
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Grain boundaries uniformly revealed without preferential attack or over-etching
+                    </li>
+                </ul>
+            </section>
+
+        </main>
     </div>
+</article>
 
-<section class="preparation-challenges">
-    <h3 class="section-title">Preparation Characteristics &amp; Challenges</h3>
-    <div class="challenges-content">
-        <div class="properties-image-container">
-            <img src="/images/microstructures/Hastelloy-adlers-etch-200X-DIC.jpg" alt="Hastelloy microstructure showing typical Class 6 superalloy structure" class="properties-microstructure-img">
-            <p class="image-caption">Hastelloy, Adler's etch, 200X (DIC)</p>
-        </div>
-        <p>Class 6 alloys share several preparation characteristics that distinguish them from other classes. Work hardening, oxide formation, and multi-phase microstructures create challenges at every step from sectioning through etching.</p>
-        <div class="challenges-grid">
-            <div class="challenge-card">
-                <h5>Rapid Work Hardening</h5>
-                <p>All Class 6 alloys work-harden quickly during grinding and polishing. Excessive pressure or prolonged grinding creates a deformed layer that masks the true microstructure. Light loads (20-25 N), fresh abrasives, and contra-rotation are essential to minimize subsurface damage.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Surface Oxide Formation</h5>
-                <p>Titanium and zirconium form oxide layers within seconds of exposure to air or water. These thin, tenacious oxides can obscure grain boundaries and phase features. Minimize time between final polishing and examination, and avoid prolonged rinsing.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Gamma-Prime &amp; Delta Phase Preservation</h5>
-                <p>Nickel superalloys (Inconel 718, Waspaloy, Nimonic 80A) contain fine gamma-prime (Ni&#8323;Al/Ni&#8323;Ti) or delta phase precipitates critical to their properties. Aggressive polishing on napped cloths can pull these precipitates from the matrix, creating pits that look like porosity.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Alpha-Beta Phase Relief</h5>
-                <p>Titanium alloys have alpha (HCP) and beta (BCC) phases with different hardness that polish at different rates, creating relief. Napless cloths and short polishing times minimize height differences between phases. Vibratory polishing with colloidal silica produces the flattest surfaces.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Carbide Retention</h5>
-                <p>Cobalt-chromium alloys and some Hastelloys contain primary carbides (M&#8326;C, M&#8322;&#8323;C&#8326;, MC) that can pull out during polishing if the cloth nap is too aggressive or if loads are too high. Diamond on napless cloths at moderate pressure retains carbides best.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Low Thermal Conductivity</h5>
-                <p>Titanium's thermal conductivity is roughly one-quarter that of steel, concentrating heat at the cutting interface during sectioning. This can cause localized phase transformation, oxidation discoloration, or heat-affected zones. Slow feed rates and generous coolant flow are required.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Alloy-Specific Etching</h5>
-                <p>Each alloy family requires a different etchant: Kroll's for titanium, Marble's or Kalling's No. 2 for nickel alloys, electrolytic oxalic acid for gamma-prime in superalloys, and Murakami's for carbide distribution in cobalt alloys. Universal etchants do not exist for this class.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<script src="/js/class-page.js" defer></script>
 
-<section class="class6-materials-list">
-    <h3 class="section-title">Class 6 Materials</h3>
-    <p class="materials-intro">The following materials are classified as Class 6 (Tough, Hard Non-Ferrous Metals). Click on any material to view its detailed preparation procedures.</p>
-
-    <div class="materials-list-container">
-        <h4>Commercially Pure Titanium</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/commercially-pure-titanium-grade-1.html#preparation">Commercially Pure Titanium Grade 1</a></li>
-            <li><a href="/materials/commercially-pure-titanium-grade-2.html#preparation">Commercially Pure Titanium (Grade 2)</a></li>
-            <li><a href="/materials/commercially-pure-titanium-grade-3.html#preparation">Commercially Pure Titanium Grade 3</a></li>
-            <li><a href="/materials/commercially-pure-titanium-grade-4.html#preparation">Commercially Pure Titanium Grade 4</a></li>
-        </ul>
-
-        <h4>Titanium Alloys</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/beta-c-titanium.html#preparation">Beta C Titanium</a></li>
-            <li><a href="/materials/ti-3al-25v.html#preparation">Ti-3Al-2.5V</a></li>
-            <li><a href="/materials/ti5al25sn.html#preparation">Ti-5Al-2.5Sn</a></li>
-            <li><a href="/materials/ti6al2sn4zr2mo-grade-5.html#preparation">Ti-6Al-2Sn-4Zr-2Mo (Grade 5)</a></li>
-            <li><a href="/materials/ti6al4v-grade-5.html#preparation">Ti-6Al-4V (Grade 5)</a></li>
-            <li><a href="/materials/ti15v3cr3al3sn.html#preparation">Ti-15V-3Cr-3Al-3Sn</a></li>
-        </ul>
-
-        <h4>Inconel (Ni-Cr-Mo Alloys)</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/inconel-600.html#preparation">Inconel 600</a></li>
-            <li><a href="/materials/inconel-601.html#preparation">Inconel 601</a></li>
-            <li><a href="/materials/inconel-617.html#preparation">Inconel 617</a></li>
-            <li><a href="/materials/inconel-625.html#preparation">Inconel 625</a></li>
-            <li><a href="/materials/inconel-690.html#preparation">Inconel 690</a></li>
-            <li><a href="/materials/inconel-718.html#preparation">Inconel 718</a></li>
-            <li><a href="/materials/inconel-725.html#preparation">Inconel 725</a></li>
-        </ul>
-
-        <h4>Hastelloy (Ni-Mo/Cr Alloys)</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/hastelloy-b-2.html#preparation">Hastelloy B-2</a></li>
-            <li><a href="/materials/hastelloy-c-22.html#preparation">Hastelloy C-22</a></li>
-            <li><a href="/materials/hastelloy-c276.html#preparation">Hastelloy C-276</a></li>
-            <li><a href="/materials/hastelloy-x.html#preparation">Hastelloy X</a></li>
-        </ul>
-
-        <h4>Other Nickel Alloys</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/haynes-230.html#preparation">Haynes 230</a></li>
-            <li><a href="/materials/incoloy-800.html#preparation">Incoloy 800</a></li>
-            <li><a href="/materials/incoloy-825.html#preparation">Incoloy 825</a></li>
-            <li><a href="/materials/incoloy-925.html#preparation">Incoloy 925</a></li>
-            <li><a href="/materials/monel-400.html#preparation">Monel 400</a></li>
-            <li><a href="/materials/nimonic-80a.html#preparation">Nimonic 80A</a></li>
-            <li><a href="/materials/waspaloy.html#preparation">Waspaloy</a></li>
-        </ul>
-
-        <h4>Cobalt-Chromium Alloys</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/cobalt-chromium-alloy-stellite-6.html#preparation">Cobalt-Chromium Alloy (Stellite 6)</a></li>
-            <li><a href="/materials/cocrmo-cast-f75.html#preparation">CoCrMo Cast (ASTM F75)</a></li>
-            <li><a href="/materials/cocrmo-wrought-f1537.html#preparation">CoCrMo Wrought (ASTM F1537)</a></li>
-            <li><a href="/materials/mp35n.html#preparation">MP35N</a></li>
-        </ul>
-
-        <h4>Zirconium Alloys</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/zircaloy-4.html#preparation">Zircaloy-4</a></li>
-        </ul>
-
-        <h4>Additive Manufactured</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/am-inconel-718.html#preparation">AM Inconel 718 (SLM)</a></li>
-            <li><a href="/materials/am-ti-6al-4v.html#preparation">AM Ti-6Al-4V (SLM/EBM)</a></li>
-        </ul>
-    </div>
-</section>
     
-    <section class="preparation-guide">
-        <h3 class="section-title">Preparation Guide</h3>
-
-        <div class="guide-section">
-            <h4>Recommended Preparation Steps</h4>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <h5>Sectioning</h5>
-                    <p>Use aluminum oxide (non-ferrous) abrasive blades with generous coolant flow. Titanium has very low thermal conductivity, so slow feed rates are critical to avoid heat-affected zones and oxidation discoloration at the cut face. Keep titanium fines wet at all times (dry titanium swarf is a fire hazard). Precision wafering is preferred for additive manufactured samples to preserve the as-built columnar grain structure.</p>
-                </div>
-                <div class="step-card">
-                    <h5>Mounting</h5>
-                    <p>Compression mounting (150-180&deg;C) is acceptable for most wrought titanium and nickel alloys, as these temperatures do not alter their microstructure. Use castable (cold) mounting for additive manufactured parts where porosity must be preserved, for medical implant surfaces, or when edge retention is critical (e.g., oxide scale examination on titanium). Vacuum impregnation with low-viscosity epoxy is recommended for porous AM parts.</p>
-                </div>
-                <div class="step-card">
-                    <h5>Grinding</h5>
-                    <p>Start at 240 grit SiC and progress through 320, 400, and 600 grit. Use light pressure (20-25 N) and contra-rotation to minimize work hardening and subsurface deformation. Replace SiC papers frequently because these alloys load the abrasive quickly. Diamond grinding discs (75 and 40 &micro;m) are an effective alternative for nickel superalloys and cobalt-chromium alloys, providing more consistent material removal with less deformation.</p>
-                </div>
-                <div class="step-card">
-                    <h5>Polishing</h5>
-                    <p>Polish with 9 &micro;m polycrystalline diamond on a napless cloth, then 3 &micro;m diamond on a napless cloth. Final polish with 0.05 &micro;m colloidal silica on a short-nap cloth for 1-2 minutes. Use napless cloths throughout the diamond steps to minimize relief between alpha/beta phases (titanium) and to retain carbides (cobalt alloys). Vibratory polishing with colloidal silica for 30-60 minutes produces the flattest surfaces and best phase contrast for superalloys.</p>
-                </div>
-                <div class="step-card">
-                    <h5>Etching</h5>
-                    <p>Kroll's reagent (1-3 mL HF, 2-6 mL HNO&#8323;, water to 100 mL) for all titanium and zirconium alloys; swab 5-15 seconds. Marble's reagent (10 g CuSO&#8324;, 50 mL HCl, 50 mL water) or Kalling's No. 2 for solid-solution nickel alloys; swab 10-30 seconds. Electrolytic etching with 10% oxalic acid at 3-6V DC reveals gamma-prime distribution in precipitation-hardened superalloys (Inconel 718, Waspaloy). Murakami's reagent (10 g KOH, 10 g K&#8323;Fe(CN)&#8326;, 100 mL water) at room temperature highlights carbide distribution in cobalt-chromium alloys. Swab etching is preferred over immersion for better control across all alloy families.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="guide-section">
-            <h4>Quality Verification</h4>
-            <div class="verification-grid">
-                <div class="verification-card">
-                    <i class="fas fa-check-circle"></i>
-                    <p>No work hardening artifacts (scratches or deformation twins) visible at 500X</p>
-                </div>
-                <div class="verification-card">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Phase boundaries clearly defined with minimal relief between alpha/beta (Ti) or gamma/gamma-prime (Ni)</p>
-                </div>
-                <div class="verification-card">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Carbides and precipitates retained in place with no pull-out pits</p>
-                </div>
-                <div class="verification-card">
-                    <i class="fas fa-check-circle"></i>
-                    <p>No oxide discoloration on titanium or zirconium surfaces</p>
-                </div>
-                <div class="verification-card">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Grain boundaries uniformly revealed without preferential attack or over-etching</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    </div>
     
-
-    <br><br>
-
-    <a href="#top" class="return-to-top" aria-label="Return to top">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
-            <path d="M12 4l-8 8h16z"></path>
-        </svg>
-    </a>
-    
-    <!-- FOOTER -->
+<!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
     <div class="footer-container">
@@ -1161,9 +1240,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1175,7 +1282,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1203,8 +1310,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1276,6 +1382,39 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
           </div>
         </div>
@@ -1309,5 +1448,6 @@
             }
         })();
     </script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

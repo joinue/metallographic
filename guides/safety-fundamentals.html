@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="LzR4wVONWG6uIX3m2QcGuvf3rBxuHBCijv-Pl1tccFs">
-    <meta name="description" content="Essential safety practices for metallography laboratories. Learn about chemical safety, equipment safety, personal protective equipment, and safe work practices to protect yourself and others.">
+    <meta name="description" content="Metallography lab safety from the practical perspective — emergency-first procedures for chemical splashes and HF exposure, hazard-ranked etchant table (HF, picric, Cr(VI)), PPE, fume-hood face velocity, electrolytic etching shock risk, and waste handling. ANSI Z87.1 / ANSI Z9.5 / OSHA-referenced.">
     <meta name="keywords" content="metallography safety, laboratory safety, chemical safety, PPE, personal protective equipment, fume hoods, safety data sheets, metallography hazards">
     <meta name="theme-color" content="#ffffff">
     <meta name="msapplication-TileColor" content="#da532c">
@@ -66,7 +66,7 @@
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Safety Fundamentals for Metallography",
-      "description": "Essential safety practices for metallography laboratories. Learn about chemical safety, equipment safety, personal protective equipment, and safe work practices to protect yourself and others.",
+      "description": "Metallography lab safety from the practical perspective — emergency-first procedures for chemical splashes and HF exposure, hazard-ranked etchant table (HF, picric, Cr(VI)), PPE, fume-hood face velocity, electrolytic etching shock risk, and waste handling. ANSI Z87.1 / ANSI Z9.5 / OSHA-referenced.",
       "author": {
         "@type": "Organization",
         "name": "PACE Technologies"
@@ -111,11 +111,467 @@
       ]
     }
     </script>
+
+    <!-- Schema Markup: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What should I do if hydrofluoric acid (HF) contacts my skin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HF burns are a medical emergency even when they look minor. (1) Immediately flush the area with running water for ~5 minutes. (2) Apply 2.5% (or higher) calcium gluconate gel directly to the burn and massage it in. (3) Seek immediate medical attention — even small HF exposures can cause systemic poisoning by binding calcium and magnesium in the body, and symptoms may be delayed for hours. Calcium gluconate gel must be available wherever HF is used. Reagents that contain HF include Keller's reagent (aluminum), Kroll's reagent (titanium), and many specialty etchants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the first response to a chemical splash in the eye?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flush immediately at an eyewash station for at least 15 minutes. Hold the eyelids open with your fingers — reflexive closure prevents flushing. Do not delay flushing to look up the chemical or call for help; have someone else call while you flush. After flushing, seek immediate medical attention and bring the SDS to the medical facility. Eyewash stations must be tested regularly to confirm flow rate and clean water supply."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does picric acid have to be kept wet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dry picric acid becomes shock-, friction-, and impact-sensitive — it is classified as an explosive (DOT/UN 1344). Per regulation, picric acid in storage must contain at least 30% water by mass. Old, dried-out bottles are a serious hazard and should be handled only by trained personnel or a hazmat team. Inspect picric acid containers regularly for dryness, crystals around the closure, or evidence of leakage, and add water (or replace) before they dry out."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is methanol really that much more dangerous than ethanol?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Methanol is readily absorbed through skin, lungs, and the GI tract, and even small quantities can cause blindness, organ damage, or death. Ethanol is far less acutely toxic. Many older procedures used the two interchangeably as solvent/diluent — don't. If an established procedure specifies methanol, use it only in a fume hood with nitrile gloves and review the SDS first; if a procedure can be performed with ethanol instead, prefer ethanol."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What face velocity should a metallography fume hood maintain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ANSI/AIHA Z9.5 specifies a face velocity in the 80–120 fpm range for general-purpose laboratory fume hoods, measured at the sash opening with the sash at the working height. Faster than ~120 fpm causes turbulent eddies that actually reduce containment; slower than ~80 fpm allows fumes to escape. Verify with the hood's airflow indicator before each use, keep the sash at the marked working height, work at least 6 in inside the plane of the sash, and don't block the rear baffles or front grille."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are Cr(VI)-containing etchants like Murakami's reagent still safe to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chromium VI compounds (potassium dichromate, chromic acid) are IARC Group 1 known human carcinogens — there is no \"safe\" exposure level, only what's controlled. They can still be used legally with strict exposure controls (fume hood, dedicated PPE, secondary containment) and disposed of as hazardous waste — never down the drain. Where a non-Cr(VI) alternative exists for the same alloy class, prefer it. Consult your EHS office and SDS before using any Cr(VI) etchant."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is electrolytic etching shock-risky if the voltage is so low?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Typical electrolytic-etching voltages are 1–30 V DC, which is below standard \"shock-hazard\" thresholds for dry conditions — but the electrolyte is a conductive acidic or alkaline solution, and operators commonly have wet hands and may be in contact with the bench. That combination drops body resistance dramatically and can deliver a painful or worse shock. Never reach into an energized electrolyte bath. Use insulated leads, dry hands, dry bench surface, and switch the power supply off before any adjustment of clips or samples."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do compression mounting presses release hazardous fumes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — phenolic (Bakelite) mounting resins release formaldehyde during curing, and formaldehyde is a known carcinogen. Acrylic compression resins release irritating vapors. Castable epoxy and acrylic resins may contain skin sensitizers; MMA-based castable acrylics are also volatile and flammable. Use local exhaust at the mounting press, wear nitrile gloves when handling uncured resin, and never mount in an unventilated space. Use heat-resistant gloves when removing mounts — both the mold and the puck stay hot longer than people expect."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Page-scoped styles for safety-specific UI -->
+    <style>
+      :root {
+        --safety-critical: #dc2626;
+        --safety-critical-bg: #fef2f2;
+        --safety-critical-border: #fecaca;
+        --safety-warning: #ca8a04;
+        --safety-warning-bg: #fefce8;
+        --safety-warning-border: #fde68a;
+        --safety-info: #2563eb;
+        --safety-info-bg: #eff6ff;
+        --safety-info-border: #dbeafe;
+        --safety-routine: #15803d;
+        --safety-routine-bg: #f0fdf4;
+        --safety-routine-border: #bbf7d0;
+      }
+
+      /* ==================================================================
+         Emergency Quick-Access Banner (top of page — life-safety priority)
+         ================================================================== */
+      .safety-emergency {
+        margin: 0 0 2.5rem 0;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+        border: 2px solid var(--safety-critical);
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.12);
+      }
+      .safety-emergency-head {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        margin-bottom: 0.5rem;
+      }
+      .safety-emergency-head svg {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        color: var(--safety-critical);
+      }
+      .safety-emergency-head h2 {
+        margin: 0;
+        font-size: 1.125rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #7f1d1d;
+      }
+      .safety-emergency-sub {
+        font-size: 0.9375rem;
+        color: #7f1d1d;
+        margin: 0 0 1.125rem 0;
+        line-height: 1.5;
+      }
+      .safety-emergency-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+      }
+      @media (min-width: 720px) { .safety-emergency-grid { grid-template-columns: repeat(4, 1fr); } }
+      .safety-emergency-card,
+      .safety-emergency-card:link,
+      .safety-emergency-card:visited {
+        display: flex;
+        flex-direction: column;
+        gap: 0.375rem;
+        padding: 0.75rem 0.875rem;
+        background: #ffffff;
+        border: 1px solid var(--safety-critical-border);
+        border-radius: 0.5rem;
+        text-decoration: none;
+        color: #111827;
+        transition: all 0.15s ease;
+      }
+      .safety-emergency-card:hover,
+      .safety-emergency-card:focus,
+      .safety-emergency-card:active {
+        border-color: var(--safety-critical);
+        background: #fff5f5;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 10px rgba(220, 38, 38, 0.18);
+        color: #111827;
+      }
+      .safety-emergency-card .ec-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--safety-critical);
+      }
+      .safety-emergency-card .ec-action {
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: #111827;
+        line-height: 1.3;
+      }
+      .safety-emergency-card:hover .ec-action,
+      .safety-emergency-card:focus .ec-action { color: #7f1d1d; }
+
+      .safety-emergency-foot {
+        margin: 1rem 0 0 0;
+        padding-top: 1rem;
+        border-top: 1px dashed rgba(220, 38, 38, 0.35);
+        font-size: 0.8125rem;
+        color: #7f1d1d;
+        line-height: 1.5;
+      }
+      .safety-emergency-foot strong { color: #7f1d1d; }
+
+      /* ==================================================================
+         Severity callout system — replace inline-styled info boxes
+         ================================================================== */
+      .safety-callout {
+        margin: 1.25rem 0;
+        padding: 1rem 1.125rem;
+        border-radius: 0.5rem;
+        border-left: 4px solid;
+        border-top: 1px solid;
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+        font-size: 0.9375rem;
+        line-height: 1.55;
+      }
+      .safety-callout > *:first-child { margin-top: 0; }
+      .safety-callout > *:last-child { margin-bottom: 0; }
+      .safety-callout-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        font-size: 0.6875rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.5rem;
+      }
+      .safety-callout-label::before {
+        content: "";
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 9999px;
+        background: currentColor;
+        flex-shrink: 0;
+      }
+      .safety-critical {
+        background: var(--safety-critical-bg);
+        border-color: var(--safety-critical-border);
+        border-left-color: var(--safety-critical);
+        color: #7f1d1d;
+      }
+      .safety-critical .safety-callout-label { color: var(--safety-critical); }
+      .safety-warning {
+        background: var(--safety-warning-bg);
+        border-color: var(--safety-warning-border);
+        border-left-color: var(--safety-warning);
+        color: #713f12;
+      }
+      .safety-warning .safety-callout-label { color: var(--safety-warning); }
+      .safety-info {
+        background: var(--safety-info-bg);
+        border-color: var(--safety-info-border);
+        border-left-color: var(--safety-info);
+        color: #1e3a8a;
+      }
+      .safety-info .safety-callout-label { color: var(--safety-info); }
+      .safety-routine {
+        background: var(--safety-routine-bg);
+        border-color: var(--safety-routine-border);
+        border-left-color: var(--safety-routine);
+        color: #14532d;
+      }
+      .safety-routine .safety-callout-label { color: var(--safety-routine); }
+
+      /* Use higher specificity (.safety-critical p etc) to beat .guide-section p */
+      .safety-callout p,
+      .safety-critical p,
+      .safety-warning p,
+      .safety-info p,
+      .safety-routine p { margin: 0.375rem 0; color: inherit; }
+      .safety-callout ul { margin: 0.5rem 0; padding-left: 1.25rem; }
+      .safety-callout li,
+      .safety-critical li,
+      .safety-warning li,
+      .safety-info li,
+      .safety-routine li { margin: 0.25rem 0; color: inherit; }
+      .safety-callout strong,
+      .safety-critical strong,
+      .safety-warning strong,
+      .safety-info strong,
+      .safety-routine strong { color: inherit; font-weight: 700; }
+
+      /* ==================================================================
+         HF-specific protocol box — the page's single most-critical content
+         ================================================================== */
+      .safety-hf {
+        margin: 1.5rem 0;
+        background: #ffffff;
+        border: 2px solid var(--safety-critical);
+        border-radius: 0.75rem;
+        overflow: hidden;
+        box-shadow: 0 4px 14px rgba(220, 38, 38, 0.18);
+      }
+      .safety-hf-head {
+        padding: 0.875rem 1.125rem;
+        background: var(--safety-critical);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+      }
+      .safety-hf-head svg { width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
+      .safety-hf-head h3 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 800;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .safety-hf-body { padding: 1rem 1.125rem 1.125rem; }
+      .safety-hf-body p { margin: 0 0 0.625rem 0; font-size: 0.9375rem; line-height: 1.55; }
+      .safety-hf-body p:last-child { margin-bottom: 0; }
+      .safety-hf-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        margin-top: 0.75rem;
+      }
+      @media (min-width: 720px) { .safety-hf-grid { grid-template-columns: repeat(3, 1fr); } }
+      .safety-hf-route {
+        background: #fef2f2;
+        border: 1px solid var(--safety-critical-border);
+        border-radius: 0.5rem;
+        padding: 0.875rem 1rem;
+      }
+      .safety-hf-route h4 {
+        margin: 0 0 0.5rem 0;
+        font-size: 0.8125rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--safety-critical);
+      }
+      /* Boost specificity to beat the global .guide-section p { color: #111827 } rule */
+      .safety-hf-body .safety-hf-route p { margin: 0; font-size: 0.875rem; line-height: 1.5; color: #7f1d1d; }
+      .safety-hf-body p.safety-hf-must,
+      .safety-hf-body p.safety-hf-must strong {
+        color: #ffffff !important;
+      }
+      .safety-hf-body p.safety-hf-must {
+        margin: 0.875rem 0 0 0;
+        padding: 0.75rem 1rem;
+        background: #7f1d1d;
+        border-radius: 0.375rem;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        line-height: 1.55;
+      }
+
+      /* ==================================================================
+         Hazard-level chips for chemicals table + table row tinting
+         ================================================================== */
+      .safety-hazard-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.125rem 0.5rem;
+        border-radius: 9999px;
+        font-size: 0.6875rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+      }
+      .safety-hazard-chip::before {
+        content: "";
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 9999px;
+        background: currentColor;
+      }
+      .safety-hazard-critical { background: #fee2e2; color: #991b1b; }
+      .safety-hazard-high     { background: #fef3c7; color: #92400e; }
+      .safety-hazard-standard { background: #dbeafe; color: #1e40af; }
+      .safety-hazard-low      { background: #dcfce7; color: #14532d; }
+
+      /* Subtle tint on table rows by hazard */
+      .guide-table tr.row-critical td { background: rgba(254, 226, 226, 0.4) !important; }
+      .guide-table tr.row-high td     { background: rgba(254, 243, 199, 0.4) !important; }
+
+      /* ==================================================================
+         Section severity tag above H2 (Stage-style)
+         ================================================================== */
+      .safety-section-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .safety-section-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.25rem 0.625rem;
+        border-radius: 9999px;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+      }
+      .safety-section-tag::before {
+        content: "";
+        width: 0.45rem;
+        height: 0.45rem;
+        border-radius: 9999px;
+        background: currentColor;
+      }
+      .safety-section-tag-critical { background: #fee2e2; color: var(--safety-critical); }
+      .safety-section-tag-warning  { background: #fef3c7; color: var(--safety-warning); }
+      .safety-section-tag-info     { background: #dbeafe; color: var(--safety-info); }
+      .safety-section-meta .ref {
+        font-size: 0.75rem;
+        color: #6b7280;
+        font-weight: 500;
+      }
+
+      /* ==================================================================
+         Part dividers — visual chapter breaks to chunk the long page
+         ================================================================== */
+      .safety-part {
+        margin: 3.5rem 0 1.75rem;
+        padding-top: 1.75rem;
+        border-top: 2px solid #e5e7eb;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.625rem 0.875rem;
+      }
+      .safety-part-num {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.625rem;
+        background: var(--safety-info-bg);
+        color: var(--safety-info);
+        border-radius: 9999px;
+        font-size: 0.6875rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+      }
+      .safety-part-title {
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+      }
+      .safety-part-desc {
+        flex-basis: 100%;
+        font-size: 0.9375rem;
+        color: #4b5563;
+        line-height: 1.55;
+        margin: 0;
+      }
+      /* First section after a part divider shouldn't get its own border-top */
+      .safety-part + .guide-section h2 {
+        border-top: none;
+        padding-top: 0;
+      }
+    </style>
 </head>
 
 <body>
 <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
 
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
@@ -143,20 +599,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -366,35 +830,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -439,111 +899,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -752,36 +1142,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -818,73 +1206,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -922,44 +1273,96 @@
     </div>
 </nav>
 
-    <!-- Toggle Tab - Visible from xl (1280px) to 3xl (1800px) -->
-    <button
-      id="guide-nav-toggle"
-      class="guide-nav-toggle"
-      aria-label="Open navigation"
-      aria-expanded="false"
-    >
-      <svg class="guide-nav-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path class="guide-nav-toggle-arrow" d="M9 18l6-6-6-6"/>
-      </svg>
-    </button>
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
 
-    <!-- Overlay - Only on xl screens when open -->
-    <div
-      id="guide-nav-overlay"
-      class="guide-nav-overlay"
-      aria-hidden="true"
-    ></div>
+    <!-- Side-nav toggle + overlay + container are injected by /js/guide-nav.js
+         (do not add #guide-nav-toggle / #guide-nav-overlay markup here without also adding
+         #guide-side-nav, or the JS will append a duplicate set and clicks will be intercepted
+         by the duplicate that has no event handler). -->
 
-    <!-- Navigation -->
+    <!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
+
+<!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
     <div class="nav-wrapper">
+        <!-- Notice Banner
+        <div class="notice-banner" role="alert">
+            <div class="notice-content">
+                <svg class="notice-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <p>
+                    We've updated our site! Please clear your browser cache for the best experience. Also, our old shop pages are now retired. Please shop online at 
+                    <strong><a href="https://shop.metallographic.com" class="notice-link" target="_blank" rel="noopener noreferrer">shop.metallographic.com</a></strong>.
+                  </p>
+                  
+                                  <button class="notice-close" aria-label="Close notice">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -1048,6 +1451,7 @@
                             <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
@@ -1093,7 +1497,7 @@
                     </button>
                 </div>
                 <ul class="sub-menu-mobile" data-section="consumables">
-                    <li><a href="https://shop.metallographic.com/" class="shop-link-button"><span>E-Commerce Shop</span>
+                    <li><a href="https://shop.metallographic.com/" class="shop-link-button" target="_blank" rel="noopener noreferrer"><span>E-Commerce Shop</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1168,35 +1572,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1241,110 +1641,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -1436,12 +1767,13 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
-                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html"><span>Hand / Belt Grinders</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html"><span>Manual Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html"><span>Semi-Auto Grinder Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html"><span>Automated Abrasive Dispenser</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html"><span>Controlled Removal Polishers</span></a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html"><span>Vibratory Polishers</span></a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/giga.html">Vibratory Polishers</a></li>
                         </ul>
                     </li>
                     <li>
@@ -1492,7 +1824,7 @@
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="https://shop.metallographic.com/" class="shop-link-button"><span>E-Commerce Shop</span></a></li>
+                    <li><a href="https://shop.metallographic.com/" class="shop-link-button" target="_blank" rel="noopener noreferrer"><span>E-Commerce Shop</span></a></li>
                     <li><a href="/metallographic-consumables/sectioning.html"><span>Sectioning                                    
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
@@ -1552,41 +1884,40 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
                 <a href="/resources.html">
-                    <span>Resources<svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <span>Resources
+                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
@@ -1617,76 +1948,40 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                </ul>
-            </li>
-            <li>
-              <a href="https://shop.metallographic.com" class="shop-link">
+              <a href="https://shop.metallographic.com" class="shop-link" target="_blank" rel="noopener noreferrer">
                 <span>Online Shop&nbsp;<svg class="shop-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
                 </svg></span>
@@ -1719,6 +2014,33 @@
         </div>
     </div>
 </nav>
+
+<!-- Quote Request Modal -->
+<div id="quote-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <button class="close" aria-label="Close">&times;</button>
+        <section class="quote-request" aria-labelledby="quote-request-heading">
+            <div class="quote-form-container">
+                <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
         </div>
       </div>
     </nav>
@@ -1737,20 +2059,55 @@
                     <span class="guide-category">Basics Guide</span>
                     <h1>Safety Fundamentals for Metallography</h1>
                     <p class="guide-description">
-                        Essential safety practices for metallography laboratories. Learn about chemical safety, equipment safety, 
-                        personal protective equipment, and safe work practices to protect yourself and others.
+                        Metallography labs work with corrosives, carcinogens, rotating blades, hot presses, and live electrolyte baths. Most of them daily. This page covers the practical, emergency-first safety information a metallographer needs to know before stepping into the lab.
                     </p>
                 </header>
+
+                <!-- Emergency Quick-Access Banner -->
+                <section class="safety-emergency" aria-labelledby="emergency-heading">
+                    <div class="safety-emergency-head">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        <h2 id="emergency-heading">In an Emergency</h2>
+                    </div>
+                    <p class="safety-emergency-sub">
+                        Jump straight to the procedure. If a life-threatening emergency is in progress, call <strong>911</strong> (or your local equivalent) before referencing this page.
+                    </p>
+                    <div class="safety-emergency-grid">
+                        <a class="safety-emergency-card" href="#hf-protocol">
+                            <span class="ec-label">HF Exposure</span>
+                            <span class="ec-action">Calcium gluconate gel protocol →</span>
+                        </a>
+                        <a class="safety-emergency-card" href="#chemical-exposure">
+                            <span class="ec-label">Chemical Splash</span>
+                            <span class="ec-action">Eye / skin / inhalation / ingestion →</span>
+                        </a>
+                        <a class="safety-emergency-card" href="#chemical-spills">
+                            <span class="ec-label">Spill</span>
+                            <span class="ec-action">Contain, evacuate, report →</span>
+                        </a>
+                        <a class="safety-emergency-card" href="#fire-safety">
+                            <span class="ec-label">Fire</span>
+                            <span class="ec-action">Alarm, evacuate, extinguish →</span>
+                        </a>
+                    </div>
+                    <p class="safety-emergency-foot">
+                        <strong>Before you need them:</strong> know the locations of your nearest eyewash station, safety shower, fire extinguisher, calcium gluconate gel (where HF is used), and SDS binder. Seconds count.
+                    </p>
+                </section>
 
                 <!-- Table of Contents - Mobile/Tablet -->
                 <div class="guide-toc-mobile">
                     <h2>Table of Contents</h2>
                     <ul>
                         <li><a href="#introduction">Introduction</a></li>
-                        <li><a href="#personal-protection">Personal Protective Equipment</a></li>
-                        <li><a href="#emergency-procedures">Emergency Procedures</a></li>
+                        <li><a href="#emergency-procedures">Emergency Procedures <em style="color:#dc2626; font-style: normal; font-weight: 700;">— critical</em></a></li>
                         <li><a href="#chemical-safety">Chemical Safety</a></li>
-                        <li><a href="#ventilation">Ventilation and Fume Control</a></li>
+                        <li><a href="#personal-protection">Personal Protective Equipment</a></li>
+                        <li><a href="#ventilation">Ventilation &amp; Fume Control</a></li>
                         <li><a href="#equipment-safety">Equipment Safety</a></li>
                         <li><a href="#waste-management">Waste Management</a></li>
                         <li><a href="#best-practices">Best Practices</a></li>
@@ -1760,44 +2117,50 @@
                 <!-- Content -->
                 <article class="guide-article">
                     <section id="introduction" class="guide-section">
+                        <div class="safety-section-meta">
+                            <span class="safety-section-tag safety-section-tag-info">Orientation</span>
+                            <span class="ref">Read once · refer back as needed</span>
+                        </div>
                         <h2>Introduction</h2>
                         <p>
-                            Safety is paramount in metallography laboratories. Working with chemicals, rotating equipment, sharp 
-                            tools, and potentially hazardous materials requires careful attention to safety practices. This guide 
-                            covers essential safety fundamentals that every metallographer should know and follow.
+                            Metallography combines several hazard categories at the same bench: corrosive and toxic etchants, flammable solvents, rotating blades, high-pressure hot presses, carcinogenic Cr(VI) compounds, and live DC electrolyte baths. Most accidents come from familiar work, not unfamiliar work. A fresh batch of methanol in an old bottle. A fume hood with a worn-out fan. A clip that worked yesterday.
                         </p>
-                        <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
-                            <p style="font-weight: 600;">
-                                <strong>Important:</strong> Safety is your responsibility. Always follow your institution's safety 
-                                policies and procedures. When in doubt, consult with your safety officer or supervisor. This guide 
-                                provides general safety information but cannot replace institution-specific safety training and policies.
-                            </p>
+                        <div class="safety-callout safety-critical">
+                            <span class="safety-callout-label">Read this first</span>
+                            <p><strong>This guide does not replace your institution's safety program.</strong> Always follow your facility's specific policies, training, and SDS-based handling procedures. When in doubt, stop work and consult your safety officer. The information here is generalised metallography-lab guidance; your jurisdiction, your reagents, and your equipment may impose stricter requirements.</p>
                         </div>
                         <p>
-                            A safe laboratory environment protects not only you but also your colleagues, visitors, and the 
-                            environment. Taking safety seriously from the beginning establishes good habits and prevents accidents.
+                            A safe lab protects you, your colleagues, your visitors, and the people who handle your waste downstream. The habits below are not optional, but they also aren't burdensome once they become routine.
                         </p>
                     </section>
 
+                    <!-- Part 1 divider -->
+                    <div class="safety-part">
+                        <span class="safety-part-num">Part 1 of 4</span>
+                        <h2 class="safety-part-title">Be Ready</h2>
+                        <p class="safety-part-desc">What you wear and what you do when something goes wrong. The two things every lab member needs to know before stepping into the room.</p>
+                    </div>
+
                     <section id="personal-protection" class="guide-section">
+                        <div class="safety-section-meta">
+                            <span class="safety-section-tag safety-section-tag-warning">Required</span>
+                            <span class="ref">Refs: ANSI Z87.1 (eye) · 29 CFR 1910.132 (general PPE)</span>
+                        </div>
                         <h2>Personal Protective Equipment (PPE)</h2>
                         <p>
-                            Personal protective equipment is your last line of defense against hazards. Always use appropriate PPE 
-                            for the task at hand.
+                            PPE is the last line of defense, not the first. The safety hierarchy runs: engineering controls (fume hoods, guards) first, administrative controls (procedures, training) second, and PPE last. PPE failures are routine. Gloves develop pinholes, goggles fog, splashes find the gap between cuff and glove. Pick PPE for the realistic worst case of the task, not the average case.
                         </p>
 
                         <h3>Eye Protection</h3>
                         <ul>
-                            <li><strong>Safety glasses:</strong> Required for all laboratory work. Must meet ANSI Z87.1 standards</li>
-                            <li><strong>Chemical splash goggles:</strong> Required when working with chemicals, especially liquids</li>
-                            <li><strong>Face shields:</strong> Additional protection for high-risk operations like sectioning</li>
-                            <li><strong>Prescription safety glasses:</strong> If you wear glasses, use prescription safety glasses or goggles over regular glasses</li>
+                            <li><strong>Safety glasses (ANSI Z87.1):</strong> Required at all times in the lab, even when you aren't actively handling chemicals. Someone else's accident can reach you.</li>
+                            <li><strong>Chemical splash goggles:</strong> Required when working with liquid chemicals. Side shields on safety glasses are not enough.</li>
+                            <li><strong>Face shield over goggles:</strong> Required for sectioning, electrolytic etching, and any operation with splash or projectile risk. A face shield alone is not eye protection.</li>
+                            <li><strong>Prescription:</strong> Use prescription safety glasses, or wear chemical goggles <em>over</em> your regular glasses. Regular glasses are not impact-rated.</li>
                         </ul>
-                        <div class="guide-info-box" style="background: #fefce8; border-left-color: #ca8a04;">
-                            <p>
-                                <strong>Remember:</strong> Eye protection must be worn at all times in the laboratory, even when you're 
-                                not actively working with hazardous materials. Accidents can happen to anyone nearby.
-                            </p>
+                        <div class="safety-callout safety-warning">
+                            <span class="safety-callout-label">Always on</span>
+                            <p>Eye protection stays on whenever you are in the lab, not only when you are at your bench. Accidents propagate. Flying particles from a neighbor's sectioning, a splash from someone walking past with a beaker, a dropped flask of acid: any of these can find you.</p>
                         </div>
 
                         <h3>Hand Protection</h3>
@@ -1833,85 +2196,116 @@
                             <li><strong>Respirators:</strong> May be required for specific operations (requires fit testing and training)</li>
                             <li><strong>Proper ventilation:</strong> Ensure adequate general ventilation in laboratory</li>
                         </ul>
-                        <div class="guide-info-box guide-info-box-blue">
-                            <p>
-                                <strong>Note:</strong> Respiratory protection requires proper training and fit testing. Consult with 
-                                your safety officer before using respirators. Fume hoods are generally preferred over respirators 
-                                for routine work.
-                            </p>
+                        <div class="safety-callout safety-info">
+                            <span class="safety-callout-label">Engineering controls beat respirators</span>
+                            <p>Respirator use requires a written respiratory protection program: medical clearance, fit testing, training, and cartridge selection per chemical and concentration. For routine metallography work, a properly functioning fume hood is the right answer. Respirators are for the situations where engineering controls aren't feasible. Consult your safety officer before issuing or wearing one.</p>
                         </div>
                     </section>
 
                     <section id="emergency-procedures" class="guide-section">
+                        <div class="safety-section-meta">
+                            <span class="safety-section-tag safety-section-tag-critical">Critical</span>
+                            <span class="ref">Read before you need it · seconds count</span>
+                        </div>
                         <h2>Emergency Procedures</h2>
                         <p>
-                            Knowing what to do in an emergency can prevent injuries and save lives. Familiarize yourself with 
-                            emergency procedures before you need them.
+                            The single best predictor of a good outcome in a lab emergency is whether the person responding already knew the procedure. Read this section before you need it, and refresh annually. If you're using HF, refresh quarterly.
                         </p>
 
-                        <h3>Chemical Spills</h3>
+                        <!-- HF dedicated protocol box — the highest-priority safety content on the page -->
+                        <div id="hf-protocol" class="safety-hf">
+                            <div class="safety-hf-head">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                    <line x1="12" y1="9" x2="12" y2="13"/>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                </svg>
+                                <h3>Hydrofluoric Acid (HF) Exposure Protocol</h3>
+                            </div>
+                            <div class="safety-hf-body">
+                                <p>HF burns are a <strong>medical emergency at any concentration</strong>, even when they look minor. HF penetrates skin and binds calcium and magnesium in the body, causing delayed severe burns and systemic poisoning. Symptoms can be delayed for hours. Reagents containing HF include <strong>Keller's reagent</strong> (aluminum), <strong>Kroll's reagent</strong> (titanium), and many specialty etchants.</p>
+
+                                <div class="safety-hf-grid">
+                                    <div class="safety-hf-route">
+                                        <h4>Skin contact</h4>
+                                        <p>Flush with running water for ~5 min, then apply <strong>2.5% calcium gluconate gel</strong> and massage in. Continue application and get immediate medical care.</p>
+                                    </div>
+                                    <div class="safety-hf-route">
+                                        <h4>Eye contact</h4>
+                                        <p>Flush at eyewash for at least <strong>15 min</strong> with eyelids held open. Get immediate medical care. Medical staff may continue with calcium gluconate solution.</p>
+                                    </div>
+                                    <div class="safety-hf-route">
+                                        <h4>Inhalation</h4>
+                                        <p>Move to fresh air immediately. Get immediate medical care <strong>even if symptoms feel mild</strong>. Pulmonary effects can be delayed.</p>
+                                    </div>
+                                </div>
+
+                                <p class="safety-hf-must">
+                                    <strong>Non-negotiable:</strong> Calcium gluconate gel (2.5% or higher) must be physically present, in date, and known-located wherever HF is used. Confirm at the start of each session.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h3 id="chemical-exposure">Chemical Exposure (Non-HF)</h3>
                         <ul>
-                            <li><strong>Assess the situation:</strong> Determine if you can safely handle the spill</li>
-                            <li><strong>Evacuate if necessary:</strong> Large spills or highly hazardous materials may require evacuation</li>
-                            <li><strong>Use spill kits:</strong> Have appropriate spill kits available and know how to use them</li>
-                            <li><strong>Contain the spill:</strong> Prevent spread to other areas</li>
-                            <li><strong>Ventilate area:</strong> Increase ventilation if safe to do so</li>
-                            <li><strong>Clean up properly:</strong> Follow procedures for the specific chemical</li>
-                            <li><strong>Report all spills:</strong> Even small spills should be reported</li>
+                            <li><strong>Skin contact:</strong> Immediately flush with running water for at least 15 minutes. Remove contaminated clothing while flushing. Seek medical attention.</li>
+                            <li><strong>Eye contact:</strong> Use the eyewash station for at least 15 minutes. Hold the eyelids open with your fingers; reflexive closure prevents flushing. <strong>Do not delay flushing to seek help.</strong> Have someone else call while you flush. Seek immediate medical attention.</li>
+                            <li><strong>Inhalation:</strong> Move to fresh air immediately. If breathing is difficult, seek medical attention. Monitor for delayed symptoms; some inhalation injuries develop over hours.</li>
+                            <li><strong>Ingestion:</strong> Do <em>not</em> induce vomiting unless instructed by medical personnel or the SDS. Seek immediate medical attention. Bring the SDS to the medical facility.</li>
+                            <li><strong>Always:</strong> Review first-aid procedures for the specific chemicals you use. The SDS section 4 has chemical-specific guidance. See <a href="/support/sds.html" class="guide-link">Safety Data Sheets</a>.</li>
                         </ul>
 
-                        <h3>Chemical Exposure</h3>
+                        <h3 id="chemical-spills">Chemical Spills</h3>
                         <ul>
-                            <li><strong>Skin contact:</strong> Immediately flush with water for at least 15 minutes. Remove contaminated clothing. Seek medical attention. For most acids, flushing with water is appropriate.</li>
-                            <li><strong>Eye contact:</strong> Immediately flush eyes with water for at least 15 minutes using eyewash station. Hold eyelids open. Seek immediate medical attention. Do not delay flushing to seek help - flush first, then get help.</li>
-                            <li><strong>Inhalation:</strong> Move to fresh air immediately. If breathing is difficult, seek medical attention. Monitor for delayed symptoms.</li>
-                            <li><strong>Ingestion:</strong> Do not induce vomiting unless instructed by medical personnel. Seek immediate medical attention. Bring SDS or chemical information to medical facility.</li>
-                            <li><strong>Hydrofluoric Acid (HF) exposure - SPECIAL PROCEDURE:</strong> HF exposure requires immediate and specific treatment:
-                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                                    <li><strong>Skin contact:</strong> Immediately flush with water for 5 minutes, then apply calcium gluconate gel (2.5% or higher). Massage gel into affected area. Continue application and seek immediate medical attention. HF can cause delayed, severe burns and systemic poisoning.</li>
-                                    <li><strong>Eye contact:</strong> Immediately flush with water for at least 15 minutes, then seek immediate medical attention. Medical personnel should continue irrigation and may apply calcium gluconate solution.</li>
-                                    <li><strong>Inhalation:</strong> Move to fresh air immediately. Seek immediate medical attention even if symptoms are mild, as effects can be delayed.</li>
-                                    <li><strong>Critical:</strong> Calcium gluconate gel (2.5% or higher) must be available wherever HF is used. This is not optional - it can prevent severe injury or death.</li>
-                                </ul>
-                            </li>
-                            <li><strong>Know first aid:</strong> Review first aid procedures for chemicals you use. Keep SDS documents accessible for emergency responders. See <a href="/support/sds.html" class="guide-link">Safety Data Sheets</a> for detailed information.</li>
+                            <li><strong>Assess first:</strong> Decide whether you can safely handle the spill or whether it requires evacuation. Highly toxic, volatile, or large spills mean evacuate and call EHS.</li>
+                            <li><strong>Contain:</strong> Use the appropriate spill kit to prevent spread. Don't add water to acid spills; neutralizers come in spill kits for a reason.</li>
+                            <li><strong>Ventilate:</strong> Open the fume hood sash or increase room ventilation if safe to do so.</li>
+                            <li><strong>Clean up:</strong> Follow the chemical-specific procedure. Mercury, HF, and Cr(VI) spills have their own protocols.</li>
+                            <li><strong>Report every spill:</strong> Even small ones. Patterns in small spills predict the conditions of large ones.</li>
                         </ul>
 
-                        <h3>Fire Safety</h3>
+                        <h3 id="fire-safety">Fire Safety</h3>
                         <ul>
-                            <li><strong>Know fire exits:</strong> Identify all exits and evacuation routes</li>
-                            <li><strong>Know fire extinguisher locations:</strong> Know where extinguishers are and how to use them</li>
-                            <li><strong>Use appropriate extinguishers:</strong> Different fires require different extinguisher types</li>
-                            <li><strong>Evacuate if fire is large:</strong> Don't attempt to fight large fires</li>
-                            <li><strong>Pull fire alarm:</strong> Alert others to evacuate</li>
-                            <li><strong>Never use elevators:</strong> Use stairs during fire evacuations</li>
+                            <li><strong>Pull the alarm first</strong>, then act. Alerting others is more important than fighting the fire.</li>
+                            <li><strong>Know your extinguisher classes:</strong> Class B for flammable liquids (most solvent fires); Class D for metal fires (magnesium, titanium fines). A standard ABC extinguisher will <em>not</em> safely extinguish a metal-dust fire.</li>
+                            <li><strong>Evacuate if the fire is larger than a wastebasket</strong> or producing thick smoke. Don't try to be a hero.</li>
+                            <li><strong>Use stairs, never elevators.</strong> Close doors behind you to slow spread.</li>
+                            <li><strong>Account for everyone</strong> at the muster point. Tell incoming responders if anyone is missing.</li>
                         </ul>
 
-                        <h3>Emergency Contacts</h3>
+                        <h3 id="emergency-contacts">Emergency Contacts &amp; Locations</h3>
+                        <p>Post these prominently and brief every new lab member on day one:</p>
                         <ul>
-                            <li><strong>Know emergency numbers:</strong> Post emergency numbers prominently (911, poison control, safety office, medical facility)</li>
-                            <li><strong>Know your location:</strong> Be able to provide exact location for emergency responders (building, room number, floor)</li>
-                            <li><strong>Know emergency procedures:</strong> Understand your institution's emergency response procedures</li>
-                            <li><strong>Report all incidents:</strong> Report accidents and near-misses. Near-misses are learning opportunities that prevent future accidents</li>
-                            <li><strong>Eyewash and safety shower locations:</strong> Know the locations of all eyewash stations and safety showers. Test eyewash stations regularly</li>
-                            <li><strong>First aid kit location:</strong> Know where first aid kits are located and ensure they are properly stocked</li>
-                            <li><strong>Special first aid supplies:</strong> For laboratories using HF, ensure calcium gluconate gel (2.5% or higher) is readily available and not expired</li>
+                            <li><strong>Emergency number:</strong> 911 (US) or your local equivalent.</li>
+                            <li><strong>Poison control:</strong> 1-800-222-1222 (US).</li>
+                            <li><strong>Your safety/EHS office</strong> internal extension.</li>
+                            <li><strong>Your exact location:</strong> building name, floor, room number, written by every phone.</li>
+                            <li><strong>Nearest eyewash &amp; safety shower:</strong> tested monthly, not just present.</li>
+                            <li><strong>Calcium gluconate gel</strong> (if HF is used): known-located and in date.</li>
+                            <li><strong>SDS binder or digital access:</strong> emergency responders will ask for it.</li>
                         </ul>
 
-                        <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
-                            <p style="font-weight: 600;">
-                                <strong>Emergency Preparedness:</strong> Review emergency procedures regularly. Participate in 
-                                emergency drills. Know the location of safety equipment (eyewash stations, fire extinguishers, first 
-                                aid kits). Seconds count in emergencies: being prepared saves lives.
-                            </p>
+                        <div class="safety-callout safety-critical">
+                            <span class="safety-callout-label">Drill it</span>
+                            <p>Participate in emergency drills. Walk the path to the eyewash with your eyes closed. The first time you reach for the calcium gluconate gel should not be the time you actually need it.</p>
                         </div>
                     </section>
 
+                    <!-- Part 2 divider -->
+                    <div class="safety-part">
+                        <span class="safety-part-num">Part 2 of 4</span>
+                        <h2 class="safety-part-title">Chemicals &amp; Controls</h2>
+                        <p class="safety-part-desc">The reagents you'll touch every day, ranked by risk, and the engineering controls (fume hoods, ventilation) that keep their vapors off you.</p>
+                    </div>
+
                     <section id="chemical-safety" class="guide-section">
+                        <div class="safety-section-meta">
+                            <span class="safety-section-tag safety-section-tag-critical">High hazard</span>
+                            <span class="ref">Refs: OSHA HCS 29 CFR 1910.1200 · GHS · institution-specific HazCom program</span>
+                        </div>
                         <h2>Chemical Safety</h2>
                         <p>
-                            Metallography involves working with various chemicals, including etchants, solvents, acids, and bases. 
-                            Proper handling, storage, and disposal of chemicals are essential for safety.
+                            Metallography etchants are concentrated, mixed, applied, rinsed, and disposed of every day. Their hazards span the full safety vocabulary: corrosive, toxic, flammable, oxidizing, carcinogenic, sensitizing, explosive-when-dry. Three reagents (HF, picric acid, and Cr(VI)) sit far above the rest in severity and deserve a different mental model than ethanol or acetone.
                         </p>
 
                         <h3>Understanding Safety Data Sheets (SDS)</h3>
@@ -1931,12 +2325,9 @@
                             <li><strong>Toxicological information:</strong> Health effects and exposure routes</li>
                             <li><strong>Disposal considerations:</strong> Proper disposal methods</li>
                         </ul>
-                        <div class="guide-info-box" style="background: #fefce8; border-left-color: #ca8a04;">
-                            <p>
-                                <strong>Always:</strong> Read the SDS before using any chemical for the first time. Keep SDS documents 
-                                accessible in your laboratory. Review SDS information regularly, especially if procedures change. 
-                                See our <a href="/support/sds.html" class="guide-link">Safety Data Sheets (SDS) page</a> for access to SDS documents.
-                            </p>
+                        <div class="safety-callout safety-warning">
+                            <span class="safety-callout-label">SDS first, every time</span>
+                            <p>Read the SDS before using any chemical for the first time. Keep the SDS binder (or digital portal) accessible; emergency responders will ask for it by name. Re-check the SDS whenever a procedure or reagent supplier changes. Formulations and hazard ratings do change. See our <a href="/support/sds.html" class="guide-link">Safety Data Sheets page</a> for the current set.</p>
                         </div>
 
                         <h3>Common Chemicals in Metallography</h3>
@@ -1949,64 +2340,78 @@
                                 <thead>
                                     <tr>
                                         <th>Chemical</th>
+                                        <th>Risk</th>
                                         <th>Common Use</th>
                                         <th>Key Safety Considerations</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><strong>Nital (Nitric Acid in Alcohol)</strong></td>
-                                        <td>Steel etching</td>
-                                        <td>Corrosive, flammable, toxic fumes. Use in fume hood. Avoid skin contact.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Picral (Picric Acid in Alcohol)</strong></td>
-                                        <td>Steel etching</td>
-                                        <td>Explosive when dry. Must be kept wet (minimum 30% water by mass per DOT/UN 1344). Store in cool, dark place. Never allow to dry out. Handle with extreme care.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Keller's Reagent</strong></td>
-                                        <td>Aluminum etching</td>
-                                        <td>Contains HF (hydrofluoric acid) - extremely dangerous. Requires special handling, PPE, and calcium gluconate gel for first aid.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Kroll's Reagent</strong></td>
-                                        <td>Titanium etching</td>
-                                        <td>Contains HF (hydrofluoric acid) - extremely dangerous. Requires special handling, PPE, and calcium gluconate gel for first aid.</td>
-                                    </tr>
-                                    <tr>
+                                    <tr class="row-critical">
                                         <td><strong>Hydrofluoric Acid (HF)</strong></td>
-                                        <td>Various etching applications</td>
-                                        <td>Extremely toxic, can cause severe burns and systemic poisoning. Requires specialized training, PPE, and calcium gluconate gel must be available.</td>
+                                        <td><span class="safety-hazard-chip safety-hazard-critical">Critical</span></td>
+                                        <td>Various etchants</td>
+                                        <td>Extreme toxicity; severe burns and systemic poisoning at any concentration; symptoms can be delayed. Requires specialised training, dedicated PPE, and <strong>calcium gluconate gel</strong> available wherever used. See <a href="#hf-protocol" class="guide-link">HF exposure protocol</a>.</td>
+                                    </tr>
+                                    <tr class="row-critical">
+                                        <td><strong>Keller's Reagent</strong></td>
+                                        <td><span class="safety-hazard-chip safety-hazard-critical">Critical</span></td>
+                                        <td>Aluminum etching</td>
+                                        <td>Contains HF. Treat as HF; calcium gluconate gel required, same protocol applies for exposures.</td>
+                                    </tr>
+                                    <tr class="row-critical">
+                                        <td><strong>Kroll's Reagent</strong></td>
+                                        <td><span class="safety-hazard-chip safety-hazard-critical">Critical</span></td>
+                                        <td>Titanium etching</td>
+                                        <td>Contains HF. Treat as HF; calcium gluconate gel required, same protocol applies for exposures.</td>
+                                    </tr>
+                                    <tr class="row-critical">
+                                        <td><strong>Picral (Picric Acid in Alcohol)</strong></td>
+                                        <td><span class="safety-hazard-chip safety-hazard-critical">Critical</span></td>
+                                        <td>Steel etching</td>
+                                        <td>Explosive when dry (DOT/UN 1344). Must contain ≥30% water by mass in storage. Inspect bottles for dryness or crystallisation around the closure; never allow to dry out. Old/unknown stocks are a hazmat hazard.</td>
+                                    </tr>
+                                    <tr class="row-critical">
+                                        <td><strong>Chromium VI Compounds</strong><br><small>(Potassium Dichromate, Chromic Acid)</small></td>
+                                        <td><span class="safety-hazard-chip safety-hazard-critical">Critical</span></td>
+                                        <td>Stainless, Cu, Ni alloy etching (Murakami's)</td>
+                                        <td>IARC Group 1 known human carcinogen. Toxic, corrosive, oxidizing. Strict exposure controls; dedicated PPE; secondary containment; dispose as hazardous waste. <strong>Never down the drain.</strong> Prefer non-Cr(VI) alternatives where validated.</td>
+                                    </tr>
+                                    <tr class="row-high">
+                                        <td><strong>Methanol</strong></td>
+                                        <td><span class="safety-hazard-chip safety-hazard-high">High</span></td>
+                                        <td>Solvent, diluent</td>
+                                        <td>Highly toxic. Absorbed through skin, lungs, and GI tract. Small quantities can cause blindness, organ damage, or death. Use only in fume hood, nitrile gloves, no skin contact. <strong>Do not substitute for ethanol without reviewing the procedure.</strong></td>
+                                    </tr>
+                                    <tr class="row-high">
+                                        <td><strong>Nital (Nitric Acid in Alcohol)</strong></td>
+                                        <td><span class="safety-hazard-chip safety-hazard-high">High</span></td>
+                                        <td>Steel etching</td>
+                                        <td>Corrosive, flammable, toxic NOx fumes. Use in fume hood. Add acid to alcohol slowly with stirring (never the reverse). Avoid skin contact.</td>
+                                    </tr>
+                                    <tr class="row-high">
+                                        <td><strong>Hydrochloric Acid</strong></td>
+                                        <td><span class="safety-hazard-chip safety-hazard-high">High</span></td>
+                                        <td>Etching</td>
+                                        <td>Corrosive, releases toxic HCl gas. Use in fume hood. Always add acid to water, never the reverse. Splash goggles + face shield.</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Ethanol</strong></td>
+                                        <td><span class="safety-hazard-chip safety-hazard-standard">Standard</span></td>
                                         <td>Solvent, diluent</td>
-                                        <td>Flammable. Use in well-ventilated areas. Avoid ignition sources.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Methanol</strong></td>
-                                        <td>Solvent, diluent</td>
-                                        <td>Flammable and highly toxic. Can be absorbed through skin and cause blindness, organ damage, or death even in small quantities. Use only in fume hood. Avoid all skin contact. Do not substitute for ethanol without reviewing hazards.</td>
+                                        <td>Flammable. Use in well-ventilated area; keep away from ignition sources (including hot mounting presses).</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Acetone</strong></td>
+                                        <td><span class="safety-hazard-chip safety-hazard-standard">Standard</span></td>
                                         <td>Cleaning</td>
-                                        <td>Flammable, volatile. Use in well-ventilated areas. Avoid skin contact.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Hydrochloric Acid</strong></td>
-                                        <td>Etching</td>
-                                        <td>Corrosive, toxic fumes. Use in fume hood. Avoid skin and eye contact.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Chromium VI Compounds (Potassium Dichromate, Chromic Acid)</strong></td>
-                                        <td>Stainless steel, copper, and nickel alloy etching (e.g., Murakami's reagent)</td>
-                                        <td>Known human carcinogen (IARC Group 1). Toxic, corrosive, and oxidizing. Requires strict exposure controls, fume hood use, and appropriate PPE. Dispose of as hazardous waste — never pour down drain.</td>
+                                        <td>Flammable, volatile. Use in well-ventilated area. Avoid prolonged skin contact (defatting).</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <p style="font-size: 0.8125rem; color: var(--color-text-secondary, #6b7280); margin-top: 0.5rem;">
+                            Risk ratings are general categorisations for a metallography-lab context. Defer to your SDS and EHS office for the authoritative classification of any specific reagent and concentration you're using.
+                        </p>
 
                         <h3>Safe Chemical Handling Practices</h3>
                         <ul>
@@ -2047,6 +2452,10 @@
                     </section>
 
                     <section id="ventilation" class="guide-section">
+                        <div class="safety-section-meta">
+                            <span class="safety-section-tag safety-section-tag-warning">Engineering control</span>
+                            <span class="ref">Refs: ANSI/AIHA Z9.5 (lab ventilation) · ASHRAE 110 (hood performance)</span>
+                        </div>
                         <h2>Ventilation and Fume Control</h2>
                         <p>
                             Proper ventilation is essential for protecting against chemical vapors, fumes, and dust. Understanding 
@@ -2084,7 +2493,18 @@
                         </ul>
                     </section>
 
+                    <!-- Part 3 divider -->
+                    <div class="safety-part">
+                        <span class="safety-part-num">Part 3 of 4</span>
+                        <h2 class="safety-part-title">Equipment &amp; Waste</h2>
+                        <p class="safety-part-desc">Rotating blades, hot presses, live electrolyte baths, and the regulated waste streams that come out the other end.</p>
+                    </div>
+
                     <section id="equipment-safety" class="guide-section">
+                        <div class="safety-section-meta">
+                            <span class="safety-section-tag safety-section-tag-warning">Mechanical &amp; electrical</span>
+                            <span class="ref">Refs: 29 CFR 1910.147 (LOTO) · machine-specific operator manuals</span>
+                        </div>
                         <h2>Equipment Safety</h2>
                         <p>
                             Metallography equipment involves rotating parts, sharp blades, high pressures, and electrical hazards. 
@@ -2128,7 +2548,7 @@
                             <li><strong>Wear heat-resistant gloves:</strong> Protect hands from hot molds and mounts. Mounts can remain hot for extended periods</li>
                             <li><strong>Check for leaks:</strong> Inspect equipment for hydraulic or pneumatic leaks. Leaks can cause sudden pressure loss or equipment failure</li>
                             <li><strong>Follow lockout procedures:</strong> Properly lock out equipment during maintenance</li>
-                            <li><strong>Ventilation for hot mounting:</strong> Phenolic (Bakelite) resins release formaldehyde during curing — a known carcinogen. Acrylic resins produce irritating fumes. Always ensure adequate ventilation or use local exhaust during mounting operations</li>
+                            <li><strong>Ventilation for hot mounting:</strong> Phenolic (Bakelite) resins release formaldehyde during curing, which is a known carcinogen. Acrylic resins produce irritating fumes. Always ensure adequate ventilation or use local exhaust during mounting operations</li>
                             <li><strong>Handle mounting materials carefully:</strong> Some mounting powders can be irritants. Avoid inhalation and skin contact</li>
                             <li><strong>Castable resin hazards:</strong> Epoxy and acrylic castable resins may contain skin sensitizers that can cause allergic reactions with repeated exposure. Acrylic monomers (such as MMA) are volatile and flammable. Use in well-ventilated areas and wear nitrile gloves</li>
                             <li><strong>Allow pressure release:</strong> Follow proper procedures for releasing pressure. Sudden pressure release can be dangerous</li>
@@ -2140,7 +2560,7 @@
                             <li><strong>Proper insulation:</strong> Use insulated leads and clips. Inspect connections for damaged insulation before each use</li>
                             <li><strong>Low voltage, real risk:</strong> Although voltages are typically low (1-30V), the combination of conductive solutions and wet hands can deliver a painful shock. Never reach into an electrolyte bath while the circuit is energized</li>
                             <li><strong>Ventilation:</strong> Electrolytic etching can generate fumes or gas (including hydrogen). Perform in a fume hood or well-ventilated area</li>
-                            <li><strong>Chemical hazards:</strong> Electrolytes are often strong acids or bases — all chemical safety precautions apply</li>
+                            <li><strong>Chemical hazards:</strong> Electrolytes are often strong acids or bases; all chemical safety precautions apply</li>
                         </ul>
 
                         <h3>Microscope Safety</h3>
@@ -2165,6 +2585,10 @@
                     </section>
 
                     <section id="waste-management" class="guide-section">
+                        <div class="safety-section-meta">
+                            <span class="safety-section-tag safety-section-tag-warning">Regulatory</span>
+                            <span class="ref">Refs: 40 CFR 260–273 (RCRA) · local/state hazardous-waste rules</span>
+                        </div>
                         <h2>Waste Management</h2>
                         <p>
                             Proper waste management protects the environment and complies with regulations. Different types of waste 
@@ -2198,16 +2622,24 @@
                             <li><strong>Separate from regular trash:</strong> Don't mix with regular waste</li>
                         </ul>
 
-                        <div class="guide-info-box guide-info-box-primary">
-                            <p>
-                                <strong>Important:</strong> Waste management regulations vary by location. Always follow your 
-                                institution's waste management procedures and consult with your environmental health and safety 
-                                office for guidance.
-                            </p>
+                        <div class="safety-callout safety-info">
+                            <span class="safety-callout-label">Defer to EHS</span>
+                            <p>Waste management regulations vary by jurisdiction, institution, and waste class. The framework above is general. Your institution's hazardous-waste procedures and your local EHS office have the authoritative answer for every specific waste stream you generate.</p>
                         </div>
                     </section>
 
+                    <!-- Part 4 divider -->
+                    <div class="safety-part">
+                        <span class="safety-part-num">Part 4 of 4</span>
+                        <h2 class="safety-part-title">Make It Habit</h2>
+                        <p class="safety-part-desc">The behaviors that turn a lab full of careful individuals into a lab with a real safety culture.</p>
+                    </div>
+
                     <section id="best-practices" class="guide-section">
+                        <div class="safety-section-meta">
+                            <span class="safety-section-tag safety-section-tag-info">Culture &amp; habit</span>
+                            <span class="ref">Make routine · audit annually</span>
+                        </div>
                         <h2>Best Practices for Laboratory Safety</h2>
                         <p>
                             Following best practices creates a culture of safety and prevents accidents. These practices should 
@@ -2247,33 +2679,77 @@
                             <li><strong>Celebrate safety:</strong> Recognize safe practices and improvements</li>
                         </ul>
 
-                        <div class="guide-info-box guide-info-box-primary">
-                            <h3>Safety is Everyone's Responsibility</h3>
-                            <p>
-                                Safety in the laboratory is not just about following rules; it's about creating an environment where 
-                                everyone can work safely and effectively. When everyone takes safety seriously, accidents are 
-                                prevented, and the laboratory becomes a better place to work. Remember: there's no such thing as 
-                                being too safe in a laboratory environment.
-                            </p>
+                        <div class="safety-callout safety-routine">
+                            <span class="safety-callout-label">The point</span>
+                            <p>Safety culture is not "follow the rules." It's "everyone in this lab notices when something is off, says so, and acts on it." Accidents in well-run labs are rare not because the rules are stricter, but because everyone is paying attention. There is no such thing as being too safe in a laboratory environment.</p>
                         </div>
                     </section>
 
+                    <!-- FAQ Section -->
+                    <section class="guide-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+                        <h2>Frequently Asked Questions</h2>
+                        <div class="guide-faq-accordion">
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">What should I do if hydrofluoric acid (HF) contacts my skin?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">HF burns are a medical emergency even when they look minor. (1) Flush the area with running water for ~5 minutes. (2) Apply <strong>2.5% (or higher) calcium gluconate gel</strong> directly and massage it in. (3) Seek immediate medical attention — even small HF exposures can cause systemic poisoning by binding calcium and magnesium in the body, and symptoms may be delayed for hours. Calcium gluconate gel must be available wherever HF is used. Reagents containing HF include Keller's reagent (aluminum), Kroll's reagent (titanium), and many specialty etchants.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">What's the first response to a chemical splash in the eye?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Flush immediately at an eyewash station for at least 15 minutes. Hold the eyelids open with your fingers — reflexive closure prevents flushing. Do not delay flushing to look up the chemical or call for help; have someone else call while you flush. After flushing, seek immediate medical attention and bring the SDS to the medical facility. Eyewash stations must be tested regularly to confirm flow rate and clean water supply.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">Why does picric acid have to be kept wet?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Dry picric acid becomes shock-, friction-, and impact-sensitive — it is classified as an explosive (DOT/UN 1344). Per regulation, picric acid in storage must contain at least 30% water by mass. Old, dried-out bottles are a serious hazard and should be handled only by trained personnel or a hazmat team. Inspect picric acid containers regularly for dryness, crystals around the closure, or evidence of leakage, and add water (or replace) before they dry out.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">Is methanol really that much more dangerous than ethanol?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Yes. Methanol is readily absorbed through skin, lungs, and the GI tract, and even small quantities can cause blindness, organ damage, or death. Ethanol is far less acutely toxic. Many older procedures used the two interchangeably as solvent/diluent — don't. If an established procedure specifies methanol, use it only in a fume hood with nitrile gloves and review the SDS first; if a procedure can be performed with ethanol instead, prefer ethanol.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">What face velocity should a metallography fume hood maintain?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">ANSI/AIHA Z9.5 specifies a face velocity in the 80–120 fpm range for general-purpose laboratory fume hoods, measured at the sash opening with the sash at the working height. Faster than ~120 fpm causes turbulent eddies that actually reduce containment; slower than ~80 fpm allows fumes to escape. Verify with the hood's airflow indicator before each use, keep the sash at the marked working height, work at least 6 in inside the plane of the sash, and don't block the rear baffles or front grille.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">Are Cr(VI)-containing etchants like Murakami's reagent still safe to use?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Chromium VI compounds (potassium dichromate, chromic acid) are IARC Group 1 known human carcinogens — there is no "safe" exposure level, only what's controlled. They can still be used legally with strict exposure controls (fume hood, dedicated PPE, secondary containment) and disposed of as hazardous waste — never down the drain. Where a non-Cr(VI) alternative exists for the same alloy class, prefer it. Consult your EHS office and SDS before using any Cr(VI) etchant.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">Why is electrolytic etching shock-risky if the voltage is so low?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Typical electrolytic-etching voltages are 1–30 V DC, which is below standard "shock-hazard" thresholds for dry conditions — but the electrolyte is a conductive acidic or alkaline solution, and operators commonly have wet hands and may be in contact with the bench. That combination drops body resistance dramatically and can deliver a painful or worse shock. Never reach into an energized electrolyte bath. Use insulated leads, dry hands, dry bench surface, and switch the power supply off before any adjustment of clips or samples.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">Do compression mounting presses release hazardous fumes?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Yes. Phenolic (Bakelite) mounting resins release formaldehyde during curing, and formaldehyde is a known carcinogen. Acrylic compression resins release irritating vapors. Castable epoxy and acrylic resins may contain skin sensitizers; MMA-based castable acrylics are also volatile and flammable. Use local exhaust at the mounting press, wear nitrile gloves when handling uncured resin, and never mount in an unventilated space. Use heat-resistant gloves when removing mounts — both the mold and the puck stay hot longer than people expect.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </section>
+
+                    <!-- CTA Section -->
                     <div class="guide-cta">
-                        <h2>Continue Your Safety Education</h2>
+                        <h2>Build Safety into Your Procedures</h2>
                         <p>
-                            Safety is an ongoing learning process. Continue to educate yourself and stay current with safety 
-                            practices and regulations.
+                            Safety is most effective when it's embedded in the procedures you already use. Pair this guide with our material-specific etchant procedures and SDS library so the safest path is also the default path.
                         </p>
                         <div class="guide-cta-buttons">
-                            <a href="/guides/common-misconceptions.html" class="btn-primary">
-                                Learn Common Mistakes
-                            </a>
-                            <a href="/guides/equipment-overview.html" class="btn-secondary">
-                                Equipment Overview
-                            </a>
-                            <a href="/guides.html" class="btn-secondary">
-                                Browse All Guides
-                            </a>
+                            <a href="/support/sds.html" class="btn-primary">Safety Data Sheets</a>
+                            <a href="/guides/etching-procedures.html" class="btn-secondary">Etching Procedures</a>
+                            <a href="/support/etchant-information.html" class="btn-secondary">Etchant Information</a>
                         </div>
                     </div>
 
@@ -2285,11 +2761,14 @@
                             <a href="/guides/equipment-overview.html" class="guide-link">→ Equipment Overview</a>
                             <a href="/guides/introduction-to-metallography.html" class="guide-link">→ Introduction to Metallography</a>
                             <a href="/guides/sectioning.html" class="guide-link">→ Sectioning</a>
-                        
+                            <a href="/guides/common-misconceptions.html" class="guide-link">→ Common Misconceptions</a>
+                        </div>
+                    </div>
                 </article>
             </div>
         </div>
     </main>
+
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
@@ -2349,9 +2828,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -2363,7 +2870,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -2391,8 +2898,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -2464,9 +2970,43 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
     <script src="/js/scripts.js" defer></script>
     <script src="/js/animations.js" defer></script>
     <script src="/js/guide-nav.js"></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

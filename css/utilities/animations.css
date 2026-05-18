@@ -4,10 +4,22 @@
 
 /* Animation Variables */
 :root {
-    --animation-duration: 700ms;
+    --animation-duration: 600ms;
     --animation-delay: 0ms;
-    --animation-easing: cubic-bezier(0.16, 1, 0.3, 1);
-    --animation-distance: 50px;
+    /* ease-out-quint — slightly snappier than the previous expo curve, lands cleanly */
+    --animation-easing: cubic-bezier(0.22, 1, 0.36, 1);
+    --animation-distance: 24px;
+    /* Subtle scale-in: elements grow from 98.5% to 100% on entry. Reads as "settling
+       into place" rather than "sliding in" — premium feel without being showy. */
+    --animation-scale-from: 0.985;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --animation-duration: 450ms;
+        --animation-distance: 16px;
+        --animation-scale-from: 0.99;
+    }
 }
 
 /* Hide all animated elements by default to prevent FOUC */
@@ -16,29 +28,30 @@
 [data-animate] {
     opacity: 0;
     visibility: hidden;
-    /* Default to fade position (no transform) - use translate3d for GPU acceleration */
-    transform: translate3d(0, 0, 0);
+    /* Default to fade position with subtle scale-in for premium feel */
+    transform: translate3d(0, 0, 0) scale(var(--animation-scale-from, 0.985));
 }
 
-/* Set initial transform states for each animation direction */
+/* Set initial transform states for each animation direction.
+   Distance comes from --animation-distance (smaller on mobile). */
 [data-animate="up"] {
-    transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, var(--animation-distance, 24px), 0) scale(var(--animation-scale-from, 0.985));
 }
 
 [data-animate="down"] {
-    transform: translate3d(0, -50px, 0);
+    transform: translate3d(0, calc(-1 * var(--animation-distance, 24px)), 0) scale(var(--animation-scale-from, 0.985));
 }
 
 [data-animate="left"] {
-    transform: translate3d(50px, 0, 0);
+    transform: translate3d(var(--animation-distance, 24px), 0, 0) scale(var(--animation-scale-from, 0.985));
 }
 
 [data-animate="right"] {
-    transform: translate3d(-50px, 0, 0);
+    transform: translate3d(calc(-1 * var(--animation-distance, 24px)), 0, 0) scale(var(--animation-scale-from, 0.985));
 }
 
 [data-animate="fade"] {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) scale(var(--animation-scale-from, 0.985));
 }
 
 /* Base Animation State - Hidden */
@@ -61,98 +74,83 @@
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0) scale(var(--animation-scale-from, 0.985));
     }
     to {
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0) scale(1);
     }
 }
 
 /* Fly Up Animation */
 .animate-fly-up {
-    animation: flyUp var(--animation-duration, 700ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
+    animation: flyUp var(--animation-duration, 600ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
 }
 
 @keyframes flyUp {
     from {
         opacity: 0;
-        transform: translate3d(0, var(--animation-distance, 50px), 0);
+        transform: translate3d(0, var(--animation-distance, 24px), 0) scale(var(--animation-scale-from, 0.985));
     }
     to {
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0) scale(1);
     }
 }
 
 /* Fly Down Animation */
 .animate-fly-down {
-    animation: flyDown var(--animation-duration, 700ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
+    animation: flyDown var(--animation-duration, 600ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
 }
 
 @keyframes flyDown {
     from {
         opacity: 0;
-        transform: translate3d(0, calc(-1 * var(--animation-distance, 50px)), 0);
+        transform: translate3d(0, calc(-1 * var(--animation-distance, 24px)), 0) scale(var(--animation-scale-from, 0.985));
     }
     to {
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0) scale(1);
     }
 }
 
 /* Fly Left Animation */
 .animate-fly-left {
-    animation: flyLeft var(--animation-duration, 700ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
+    animation: flyLeft var(--animation-duration, 600ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
 }
 
 @keyframes flyLeft {
     from {
         opacity: 0;
-        transform: translate3d(var(--animation-distance, 50px), 0, 0);
+        transform: translate3d(var(--animation-distance, 24px), 0, 0) scale(var(--animation-scale-from, 0.985));
     }
     to {
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0) scale(1);
     }
 }
 
 /* Fly Right Animation */
 .animate-fly-right {
-    animation: flyRight var(--animation-duration, 700ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
+    animation: flyRight var(--animation-duration, 600ms) var(--animation-easing) var(--animation-delay, 0ms) forwards;
 }
 
 @keyframes flyRight {
     from {
         opacity: 0;
-        transform: translate3d(calc(-1 * var(--animation-distance, 50px)), 0, 0);
+        transform: translate3d(calc(-1 * var(--animation-distance, 24px)), 0, 0) scale(var(--animation-scale-from, 0.985));
     }
     to {
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0) scale(1);
     }
 }
 
-/* Disable entrance animations on mobile
-   !important needed to override inline <style> FOUC-prevention transforms */
-@media (max-width: 768px) {
-    [data-animate] {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: none !important;
-    }
-
-    .animate-fade-in,
-    .animate-fly-up,
-    .animate-fly-down,
-    .animate-fly-left,
-    .animate-fly-right {
-        animation: none !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: none !important;
-    }
-}
+/* Mobile entrance animations: kept ON but restrained.
+   The :root mobile override above (max-width: 768px) already shrinks distance to 16px,
+   duration to 450ms, and scale-from to 0.99 — keeping motion subtle on small screens
+   without disabling it entirely. 2026 mobile devices animate translate+opacity
+   comfortably and the polish reads through. */
 
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {

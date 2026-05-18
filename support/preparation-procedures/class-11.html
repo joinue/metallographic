@@ -24,9 +24,7 @@
     <link rel="stylesheet" href="/css/components/navigation.css">
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/base/styles.css">
-    <link rel="stylesheet" href="/css/pages/classes.css">
-    <link rel="stylesheet" href="/css/pages/class-materials.css">
-    <link rel="stylesheet" href="/css/pages/prep.css">
+    <link rel="stylesheet" href="/css/pages/class-page.css">
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -52,6 +50,16 @@
       // You can expand your custom JS logic here if needed
     </script>
 </head>
+
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
 
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
@@ -79,20 +87,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -302,35 +318,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -375,111 +387,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -688,36 +630,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -754,73 +694,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -864,202 +767,349 @@
         <button class="close" aria-label="Close">&times;</button>
         <section class="quote-request" aria-labelledby="quote-request-heading">
             <div class="quote-form-container">
-                <script src="https://js.hsforms.net/forms/embed/21334047.js" defer></script>
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
+                <script>
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
+                        var script = document.createElement('script');
+                        script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
+                        script.onerror = function() {
+                            console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
+                        };
+                        document.head.appendChild(script);
+                    }
+                </script>
             </div>
         </section>
     </div>
 </div>
 
-<!-- HEADER -->
 
-<div class="top-header">
-  <header>
-    <div class="top-header-content">
-      <div class="top-header-inner">
-        <h1 class="page-title">CLASS 11 Material Preparation Guide</h1>
-        <div class="text-content"></div>
-      </div>
-    </div>
-  </header>
-</div>
 
-<div class="first-container">
-<div class="material-card">
-    <div class="material-header">
-        <a href="/support/procedures.html" class="back-button" id="back-button" aria-label="Back to previous page">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
+<!-- CLASS PAGE -->
+<article class="class-page">
+
+    <header class="cp-hero">
+        <a href="/support/procedures.html" class="cp-back" aria-label="Back to procedures">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Recommended Procedures
         </a>
-        <div class="material-icon">
-            <i class="fas fa-microscope"></i>
+        <div class="cp-hero-inner">
+            <div class="cp-hero-content">
+                <span class="cp-eyebrow">Class 11</span>
+                <h1 class="cp-title">Very Hard Brittle Materials &amp; Cermets</h1>
+                <div class="cp-chips">
+                    <span class="cp-chip"><span class="cp-chip-label">Hardness</span> 500&ndash;10000+ HV</span>
+                    <span class="cp-chip"><span class="cp-chip-label">Typical</span> WC-Co &middot; PCD &middot; cBN &middot; Glass</span>
+                    <span class="cp-chip"><span class="cp-chip-label">Key challenge</span> Fracture &amp; binder smearing</span>
+                </div>
+                <p class="cp-lede">Class 11 groups materials whose defining characteristic is extreme brittleness: they all fail by fracture rather than deformation during preparation, regardless of their actual hardness. The class spans technical glasses (500 HV, amorphous, zero fracture toughness) through cemented carbides and cermets (WC-Co at 1100-1800 HV, TiCN-Ni at 1400-1800 HV) to superabrasives (PCD at 10000+ HV, cBN at 4500 HV). Cemented carbides present the most common challenge: the hard WC grains (1800-2400 HV) sit in a soft cobalt binder (~200 HV), creating severe hardness mismatch that causes binder smearing and carbide pull-out. Superabrasives are harder than almost any polishing abrasive, making material removal extremely slow. Technical glasses have no grain boundaries to arrest crack propagation, so any fracture can run across the entire specimen. Diamond abrasives are mandatory throughout, loads must be minimized, and each material subfamily requires specific preparation adjustments.</p>
+            </div>
+            <figure class="cp-hero-figure">
+                <img src="/images/microstructures/WC_2000X_01c.jpg" alt="Tungsten carbide microstructure showing typical Class 11 cermet structure">
+                <figcaption>WC-Co cemented carbide: typical Class 11 microstructure</figcaption>
+            </figure>
         </div>
-        <h2 class="material-title">Class 11: Very Hard Brittle Materials and Cermets</h2>
-        <div class="material-header-image">
-            <img src="/images/microstructures/WC_2000X_01c.jpg" alt="Tungsten carbide microstructure showing typical Class 11 cermet structure" class="header-microstructure-img">
-        </div>
+    </header>
+
+    <div class="cp-layout">
+        <aside class="cp-sidebar" aria-label="On this page">
+            <p class="cp-sidebar-title">On this page</p>
+            <nav class="cp-nav">
+                <a href="#overview" class="cp-nav-link is-active">Overview</a>
+                <a href="#challenges" class="cp-nav-link">Challenges</a>
+                <a href="#materials" class="cp-nav-link">Materials</a>
+                <a href="#procedure" class="cp-nav-link">Procedure</a>
+                <a href="#verify" class="cp-nav-link">Quality checks</a>
+            </nav>
+        </aside>
+
+        <main class="cp-main">
+
+            <section id="overview" class="cp-section">
+                <h2 class="cp-section-title">Overview</h2>
+                <p class="cp-section-lede">Despite spanning an enormous hardness range, all Class 11 materials share brittle fracture behavior. Preparation force must be minimized throughout, diamond abrasives are mandatory, and each material subfamily presents distinct challenges from binder smearing in cemented carbides to crack propagation in glasses.</p>
+            </section>
+
+            <section id="challenges" class="cp-section">
+                <h2 class="cp-section-title">Preparation Challenges</h2>
+                <p class="cp-section-lede">Seven properties drive the prep procedure. Tap a card for full detail.</p>
+                <div class="cp-challenge-grid">
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Carbide-Binder Hardness Mismatch</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Hard WC grains (1800-3200 HV) in soft Co/Ni binder (~200 HV) cause relief and edge chipping.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Cemented carbides (WC-Co, TiCN-Ni) combine very hard carbide grains (1800-3200 HV) with a soft metallic binder (cobalt ~200 HV, nickel ~250 HV). The binder grinds and polishes far faster than the carbide, creating relief that leaves carbide grains protruding above the surface. Unsupported carbide edges then chip or pull out during subsequent polishing steps, compounding the damage.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Binder Phase Smearing</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Soft Co/Ni binder smears across carbide faces, masking the true interface.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">The soft cobalt or nickel binder in cemented carbides smears over carbide grain faces during grinding and polishing. This is the single most common preparation artifact in hardmetals: the smeared binder masks the true carbide-binder interface, making grain size measurement and binder mean free path analysis unreliable. Diamond on rigid napless cloths with very light pressure (10-15 N) minimizes smearing.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Carbide &amp; Grain Pull-Out</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Napped cloths catch grain edges and fracture carbides free, mimicking sintering porosity.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Excessive grinding force fractures carbide grains free from the binder matrix, leaving voids indistinguishable from real sintering porosity. Once a carbide grain pulls out, the void destabilizes neighboring grains. For pure carbides (WC, TiC) without a binder, entire grains fracture along boundaries. Napped polishing cloths catch grain edges and are the primary cause; napless cloths are mandatory.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Superabrasive Preparation Paradox</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">PCD and cBN are harder than almost any abrasive, so removal is extremely slow.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Polycrystalline diamond (PCD) and cubic boron nitride (cBN) are harder than almost any abrasive used to prepare them. PCD can only be effectively polished by diamond itself, making material removal rates extremely low. Standard metallographic polishing barely touches these materials. Extended vibratory polishing with fine diamond (1-3 &micro;m) for several hours, or specialized lapping on cast iron plates with diamond paste, is typically required.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Glass Fracture Sensitivity</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Amorphous glasses have no boundaries to arrest cracks; a single fracture can split the specimen.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">Technical glasses are amorphous with no grain boundaries to arrest crack propagation. Once a crack initiates during sectioning or grinding, it can run across the entire specimen instantaneously. Extremely slow cutting speeds, gentle clamping with rubber jaws, and starting with finer abrasives (40 &micro;m diamond instead of 75 &micro;m) reduce the risk of catastrophic fracture.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Subsurface Fracture Damage</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Hidden microcracks at carbide-binder interfaces surface as false features under Murakami's.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">All Class 11 materials develop subsurface microcracks during grinding. In cemented carbides, these cracks follow the carbide-binder interface and are invisible until Murakami's etch reveals them as apparent microstructural features. Each successive preparation step must remove the damage layer from the previous step, typically requiring removal of 2-3x the previous abrasive size in depth.</p>
+                    </details>
+
+                    <details class="cp-challenge">
+                        <summary>
+                            <span class="cp-challenge-title">Cobalt Oxidation Sensitivity</span>
+                            <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            <span class="cp-challenge-summary">Co binder stains dark under water-based lubricants; switch to oil or alcohol carriers.</span>
+                        </summary>
+                        <p class="cp-challenge-detail">The cobalt binder in WC-Co cemented carbides oxidizes rapidly when exposed to water-based lubricants, producing dark staining identical to the artifact seen in Class 7 WC-Co thermal spray coatings. Oil-based or alcohol-based diamond suspensions must be used throughout all grinding and polishing steps for cobalt-containing materials.</p>
+                    </details>
+
+                </div>
+            </section>
+
+            <section id="materials" class="cp-section">
+                <h2 class="cp-section-title">Class 11 Materials</h2>
+                <p class="cp-section-lede">Eight materials across four subfamilies. Each subfamily needs distinct preparation adjustments.</p>
+                <div class="cp-materials">
+
+                    <details class="cp-material-group" open>
+                        <summary>
+                            <span>Cemented Carbides &amp; Cermets</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">2</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>WC-Co Cemented Carbide (Hardmetal)</li>
+                            <li>TiCN-Ni Cermet</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Pure Carbides</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">2</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Titanium Carbide (TiC)</li>
+                            <li>Tungsten Carbide (WC)</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Superabrasives</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">2</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Polycrystalline Diamond (PCD)</li>
+                            <li>Cubic Boron Nitride (cBN)</li>
+                        </ul>
+                    </details>
+
+                    <details class="cp-material-group">
+                        <summary>
+                            <span>Technical Glasses</span>
+                            <span class="cp-material-group-meta">
+                                <span class="cp-count">2</span>
+                                <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                            </span>
+                        </summary>
+                        <ul class="cp-material-list">
+                            <li>Borosilicate Glass</li>
+                            <li>Soda-Lime Glass</li>
+                        </ul>
+                    </details>
+
+                </div>
+            </section>
+
+            <section id="procedure" class="cp-section">
+                <h2 class="cp-section-title">Recommended Procedure</h2>
+                <p class="cp-section-lede">Five-stage workflow. Diamond throughout, oil-based suspensions for cobalt-bearing alloys, napless cloths mandatory.</p>
+                <ol class="cp-steps">
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">1</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Sectioning</h3>
+                            <p class="cp-step-lede">Diamond wafering blades, very slow feed, rubber-jaw clamping; electroplated diamond for PCD/cBN.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Diamond wafering blades with very slow feed rates and generous coolant. Clamp with rubber or soft jaws to distribute force and avoid point loading, which initiates fracture in brittle materials. For cemented carbides, standard diamond wafering blades work well. For PCD and cBN, use electroplated diamond blades on a precision saw; abrasive blades are completely ineffective against superabrasives. For glasses, the primary risk is crack propagation from the cut face; use the slowest feed rate available and handle with extreme care.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">2</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Mounting</h3>
+                            <p class="cp-step-lede">Castable epoxy with vacuum impregnation. Never compression mount; thermal shock cracks glasses and carbide interfaces.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Castable epoxy with vacuum impregnation is required. The epoxy fills microcracks from sectioning and stabilizes carbide grain boundaries during grinding. Never use compression mounting: thermal shock from the heating cycle (150-180&deg;C) cracks glasses and can damage carbide-binder interfaces. For WC-Co cemented carbides, vacuum impregnation fills the porous binder network and supports carbide grains at specimen edges. Add alumina filler to the epoxy for edge retention when surface hardness or coating analysis is needed.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">3</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Grinding</h3>
+                            <p class="cp-step-lede">Diamond discs: 75 &rarr; 40 &rarr; 15 &micro;m. Oil-based lubricant for Co/Ni alloys; glasses start at 40 &micro;m.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Diamond grinding discs exclusively: 75, 40, and 15 &micro;m. Apply very light pressure (10-15 N) because these materials fracture rather than deform under excessive load. For cemented carbides (WC-Co, TiCN-Ni), use oil-based lubricants to prevent cobalt or nickel oxidation staining. For glasses, start at 40 &micro;m (not 75 &micro;m) to minimize initial fracture damage. Rigid, flat grinding surfaces are critical. Each step must fully remove the subsurface damage layer from the previous step before proceeding.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">4</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Polishing</h3>
+                            <p class="cp-step-lede">9 &rarr; 3 &rarr; 1 &micro;m diamond on napless cloths, then 0.05 &micro;m colloidal silica. Extended vibratory for PCD/cBN; CeO&#8322; slurry for glass optical finish.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Polish with 9 &micro;m diamond on a napless cloth, then 3 &micro;m diamond on a napless cloth, then 1 &micro;m diamond on a napless cloth. Final polish with 0.05 &micro;m colloidal silica for 5-15 minutes. Napless cloths are mandatory for cemented carbides to prevent binder smearing. For PCD and cBN, standard polishing has minimal effect; extended vibratory polishing with 1-3 &micro;m diamond for 2-4 hours, or specialized lapping on cast iron plates with diamond paste, is typically required. For glasses, the traditional optical-finish abrasive is a cerium oxide (CeO&#8322;) slurry on a hard pad; see <a href="https://shop.metallographic.com/products/ceo2" target="_blank" rel="noopener noreferrer">PACE CeO&#8322; polishing slurry</a>. Colloidal silica CMP is an effective alternative because its chemical component attacks the amorphous surface, but cerium oxide remains the standard for true optical-quality finishes.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="cp-step">
+                        <div class="cp-step-num">5</div>
+                        <div class="cp-step-body">
+                            <h3 class="cp-step-title">Etching</h3>
+                            <p class="cp-step-lede">Murakami's swab for WC-Co carbide reveal; aqua regia attacks the binder. PCD &amp; cBN resist chemical etching; glasses evaluate as-polished.</p>
+                            <details class="cp-step-detail">
+                                <summary>More detail
+                                    <svg class="cp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </summary>
+                                <div class="cp-step-detail-body">
+                                    <p>Cemented carbides: Murakami's reagent at room temperature selectively darkens the WC carbide phase while leaving the Co binder bright; swab 5-10 seconds. For eta phase (W&#8323;Co&#8323;C) detection, use Murakami's at elevated temperature (60-80&deg;C). Dilute aqua regia selectively attacks the cobalt binder, revealing carbide grain shape and size for image analysis. PCD grain boundaries can sometimes be revealed by plasma etching in a reactive ion etcher. Technical glasses are evaluated entirely as-polished for inclusions, bubbles, and internal stress (under polarized light with crossed polars).</p>
+                                </div>
+                            </details>
+
+                            <div class="cp-etchants">
+                                <h4 class="cp-etchants-title">Common etchants by material</h4>
+                                <p class="cp-section-lede">Class 11 materials largely defy chemical etching. Polished-surface and SEM-based evaluation is the norm; etching is reserved for cermets where binder/carbide contrast is needed.</p>
+                                <dl class="cp-etchants-list">
+                                    <div class="cp-etchant-row"><dt>WC-Co cemented carbide</dt><dd>Murakami's (carbide reveal); FeCl&#8323; in HCl + H&#8322;O (Co binder); electrolytic NaOH</dd></div>
+                                    <div class="cp-etchant-row"><dt>TiCN-Ni cermet</dt><dd>Murakami's; modified Murakami's for Ni-binder contrast</dd></div>
+                                    <div class="cp-etchant-row"><dt>Polycrystalline diamond (PCD)</dt><dd>No effective chemical etch; SEM and polarized light only</dd></div>
+                                    <div class="cp-etchant-row"><dt>Cubic boron nitride (cBN)</dt><dd>No effective chemical etch; molten salts attack only at extreme conditions</dd></div>
+                                    <div class="cp-etchant-row"><dt>Technical glasses</dt><dd>Dilute HF; extreme caution; most evaluation is as-polished</dd></div>
+                                </dl>
+                                <p class="cp-etchants-cta">
+                                    <a href="/etchant-guides/ceramic" class="cp-etchants-link">Ceramic etchant guide (WC-Co) &rarr;</a>
+                                    <a href="/metallographic-consumables/Metallography-Etching.htm" class="cp-etchants-link">Etching consumables &amp; supplies &rarr;</a>
+                                    <a href="https://shop.metallographic.com/" target="_blank" rel="noopener noreferrer" class="cp-etchants-link">Shop etchants &rarr;</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                </ol>
+            </section>
+
+            <section id="verify" class="cp-section">
+                <h2 class="cp-section-title">Quality Checks</h2>
+                <ul class="cp-checks">
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        No carbide pull-out voids or binder smearing over carbide grain faces
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Surface flat with minimal relief between carbide grains and binder phase
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        No subsurface microcracking visible after Murakami's etch (cemented carbides)
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        No edge chipping at specimen perimeter or mounting interface
+                    </li>
+                    <li>
+                        <svg class="cp-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        Carbide grain boundaries clearly resolved after etching; glass surfaces free of fracture artifacts
+                    </li>
+                </ul>
+            </section>
+
+        </main>
     </div>
+</article>
+
+<script src="/js/class-page.js" defer></script>
+
     
-    <p class="material-description">
-        Class 11 groups materials whose defining characteristic is extreme brittleness: they all fail by fracture rather than deformation during preparation, regardless of their actual hardness. The class spans technical glasses (500 HV, amorphous, zero fracture toughness) through cemented carbides and cermets (WC-Co at 1100-1800 HV, TiCN-Ni at 1400-1800 HV) to superabrasives (PCD at 10000+ HV, cBN at 4500 HV). Cemented carbides present the most common challenge: the hard WC grains (1800-2400 HV) sit in a soft cobalt binder (~200 HV), creating severe hardness mismatch that causes binder smearing and carbide pull-out. Superabrasives are harder than almost any polishing abrasive, making material removal extremely slow. Technical glasses have no grain boundaries to arrest crack propagation, so any fracture can run across the entire specimen. Diamond abrasives are mandatory throughout, loads must be minimized, and each material subfamily requires specific preparation adjustments.
-    </p>
-
-    <div class="material-properties">
-        <div class="property-item">
-            <div class="property-label">Hardness Range</div>
-            <div class="property-value">500 HV (technical glasses) to 10000+ HV (polycrystalline diamond); all fail by fracture rather than deformation</div>
-        </div>
-        <div class="property-item">
-            <div class="property-label">Typical Materials</div>
-            <div class="property-value">WC-Co Cemented Carbide, TiCN-Ni Cermet, PCD, cBN, Technical Glasses</div>
-        </div>
-        <div class="property-item">
-            <div class="property-label">Preparation Challenge</div>
-            <div class="property-value">Fracture Prevention, Binder Smearing, Carbide Retention &amp; Diamond-Only Abrasives</div>
-        </div>
-    </div>
-</div>
-
-<section class="preparation-challenges">
-    <h3 class="section-title">Preparation Characteristics &amp; Challenges</h3>
-    <div class="challenges-content">
-        <div class="properties-image-container">
-            <img src="/images/microstructures/WC_1500x_03c.jpg" alt="WC-Co cemented carbide microstructure showing carbide grains in cobalt binder" class="properties-microstructure-img">
-            <p class="image-caption">WC-Co cemented carbide, Murakami's etch, 1500X</p>
-        </div>
-        <p>Despite spanning an enormous hardness range, all Class 11 materials share brittle fracture behavior. Preparation force must be minimized throughout, diamond abrasives are mandatory, and each material subfamily presents distinct challenges from binder smearing in cemented carbides to crack propagation in glasses.</p>
-        <div class="challenges-grid">
-            <div class="challenge-card">
-                <h5>Carbide-Binder Hardness Mismatch</h5>
-                <p>Cemented carbides (WC-Co, TiCN-Ni) combine very hard carbide grains (1800-3200 HV) with a soft metallic binder (cobalt ~200 HV, nickel ~250 HV). The binder grinds and polishes far faster than the carbide, creating relief that leaves carbide grains protruding above the surface. Unsupported carbide edges then chip or pull out during subsequent polishing steps, compounding the damage.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Binder Phase Smearing</h5>
-                <p>The soft cobalt or nickel binder in cemented carbides smears over carbide grain faces during grinding and polishing. This is the single most common preparation artifact in hardmetals: the smeared binder masks the true carbide-binder interface, making grain size measurement and binder mean free path analysis unreliable. Diamond on rigid napless cloths with very light pressure (10-15 N) minimizes smearing.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Carbide &amp; Grain Pull-Out</h5>
-                <p>Excessive grinding force fractures carbide grains free from the binder matrix, leaving voids indistinguishable from real sintering porosity. Once a carbide grain pulls out, the void destabilizes neighboring grains. For pure carbides (WC, TiC) without a binder, entire grains fracture along boundaries. Napped polishing cloths catch grain edges and are the primary cause; napless cloths are mandatory.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Superabrasive Preparation Paradox</h5>
-                <p>Polycrystalline diamond (PCD) and cubic boron nitride (cBN) are harder than almost any abrasive used to prepare them. PCD can only be effectively polished by diamond itself, making material removal rates extremely low. Standard metallographic polishing barely touches these materials. Extended vibratory polishing with fine diamond (1-3 &micro;m) for several hours, or specialized lapping on cast iron plates with diamond paste, is typically required.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Glass Fracture Sensitivity</h5>
-                <p>Technical glasses are amorphous with no grain boundaries to arrest crack propagation. Once a crack initiates during sectioning or grinding, it can run across the entire specimen instantaneously. Extremely slow cutting speeds, gentle clamping with rubber jaws, and starting with finer abrasives (40 &micro;m diamond instead of 75 &micro;m) reduce the risk of catastrophic fracture.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Subsurface Fracture Damage</h5>
-                <p>All Class 11 materials develop subsurface microcracks during grinding. In cemented carbides, these cracks follow the carbide-binder interface and are invisible until Murakami's etch reveals them as apparent microstructural features. Each successive preparation step must remove the damage layer from the previous step, typically requiring removal of 2-3x the previous abrasive size in depth.</p>
-            </div>
-            <div class="challenge-card">
-                <h5>Cobalt Oxidation Sensitivity</h5>
-                <p>The cobalt binder in WC-Co cemented carbides oxidizes rapidly when exposed to water-based lubricants, producing dark staining identical to the artifact seen in Class 7 WC-Co thermal spray coatings. Oil-based or alcohol-based diamond suspensions must be used throughout all grinding and polishing steps for cobalt-containing materials.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="class11-materials-list">
-    <h3 class="section-title">Class 11 Materials</h3>
-    <p class="materials-intro">The following materials are classified as Class 11 (Very Hard Brittle Materials). Click on any material to view its detailed preparation procedures.</p>
-
-    <div class="materials-list-container">
-        <h4>Cemented Carbides &amp; Cermets</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/wc-co-cemented-carbide.html#preparation">WC-Co Cemented Carbide (Hardmetal)</a></li>
-            <li><a href="/materials/ticn-ni-cermet.html#preparation">TiCN-Ni Cermet</a></li>
-        </ul>
-
-        <h4>Pure Carbides</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/titanium-carbide-tic.html#preparation">Titanium Carbide (TiC)</a></li>
-            <li><a href="/materials/tungsten-carbide-wc.html#preparation">Tungsten Carbide (WC)</a></li>
-        </ul>
-
-        <h4>Superabrasives</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/polycrystalline-diamond-pcd.html#preparation">Polycrystalline Diamond (PCD)</a></li>
-            <li><a href="/materials/cubic-boron-nitride-cbn.html#preparation">Cubic Boron Nitride (cBN)</a></li>
-        </ul>
-
-        <h4>Technical Glasses</h4>
-        <ul class="materials-list">
-            <li><a href="/materials/borosilicate-glass.html#preparation">Borosilicate Glass</a></li>
-            <li><a href="/materials/soda-lime-glass.html#preparation">Soda-Lime Glass</a></li>
-        </ul>
-    </div>
-</section>
-
-<section class="preparation-guide">
-    <h3 class="section-title">Preparation Guide</h3>
-
-    <div class="guide-section">
-        <h4>Recommended Preparation Steps</h4>
-        <div class="steps-grid">
-            <div class="step-card">
-                <h5>Sectioning</h5>
-                <p>Diamond wafering blades with very slow feed rates and generous coolant. Clamp with rubber or soft jaws to distribute force and avoid point loading, which initiates fracture in brittle materials. For cemented carbides, standard diamond wafering blades work well. For PCD and cBN, use electroplated diamond blades on a precision saw; abrasive blades are completely ineffective against superabrasives. For glasses, the primary risk is crack propagation from the cut face; use the slowest feed rate available and handle with extreme care.</p>
-            </div>
-            <div class="step-card">
-                <h5>Mounting</h5>
-                <p>Castable epoxy with vacuum impregnation is required. The epoxy fills microcracks from sectioning and stabilizes carbide grain boundaries during grinding. Never use compression mounting: thermal shock from the heating cycle (150-180&deg;C) cracks glasses and can damage carbide-binder interfaces. For WC-Co cemented carbides, vacuum impregnation fills the porous binder network and supports carbide grains at specimen edges. Add alumina filler to the epoxy for edge retention when surface hardness or coating analysis is needed.</p>
-            </div>
-            <div class="step-card">
-                <h5>Grinding</h5>
-                <p>Diamond grinding discs exclusively: 75, 40, and 15 &micro;m. Apply very light pressure (10-15 N) because these materials fracture rather than deform under excessive load. For cemented carbides (WC-Co, TiCN-Ni), use oil-based lubricants to prevent cobalt or nickel oxidation staining. For glasses, start at 40 &micro;m (not 75 &micro;m) to minimize initial fracture damage. Rigid, flat grinding surfaces are critical. Each step must fully remove the subsurface damage layer from the previous step before proceeding.</p>
-            </div>
-            <div class="step-card">
-                <h5>Polishing</h5>
-                <p>Polish with 9 &micro;m diamond on a napless cloth, then 3 &micro;m diamond on a napless cloth, then 1 &micro;m diamond on a napless cloth. Final polish with 0.05 &micro;m colloidal silica for 5-15 minutes. Napless cloths are mandatory for cemented carbides to prevent binder smearing. For PCD and cBN, standard polishing has minimal effect; extended vibratory polishing with 1-3 &micro;m diamond for 2-4 hours, or specialized lapping on cast iron plates with diamond paste, is typically required. For glasses, colloidal silica CMP produces excellent results because the chemical component attacks the amorphous surface.</p>
-            </div>
-            <div class="step-card">
-                <h5>Etching</h5>
-                <p>Cemented carbides: Murakami's reagent (10 g KOH, 10 g K&#8323;Fe(CN)&#8326;, 100 mL water) at room temperature selectively darkens the WC carbide phase while leaving the Co binder bright; swab 5-10 seconds. For eta phase (W&#8323;Co&#8323;C) detection, use Murakami's at elevated temperature (60-80&deg;C). Dilute aqua regia (3:1 HCl:HNO&#8323;, diluted 1:5 with water) selectively attacks the cobalt binder, revealing carbide grain shape and size for image analysis. PCD grain boundaries can sometimes be revealed by plasma etching in a reactive ion etcher. Technical glasses are evaluated entirely as-polished for inclusions, bubbles, and internal stress (under polarized light with crossed polars).</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="guide-section">
-        <h4>Quality Verification</h4>
-        <div class="verification-grid">
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>No carbide pull-out voids or binder smearing over carbide grain faces</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Surface flat with minimal relief between carbide grains and binder phase</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>No subsurface microcracking visible after Murakami's etch (cemented carbides)</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>No edge chipping at specimen perimeter or mounting interface</p>
-            </div>
-            <div class="verification-card">
-                <i class="fas fa-check-circle"></i>
-                <p>Carbide grain boundaries clearly resolved after etching; glass surfaces free of fracture artifacts</p>
-            </div>
-        </div>
-    </div>
-</section>
-    </div>
     
-
-    <br><br>
-
-    <a href="#top" class="return-to-top" aria-label="Return to top">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
-            <path d="M12 4l-8 8h16z"></path>
-        </svg>
-    </a>
-    
-    <!-- FOOTER -->
+<!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
     <!-- Footer Content in Glassmorphic Container - Full Width -->
     <div class="footer-container">
@@ -1118,9 +1168,37 @@
               <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
             </div>
             <p class="footer-brand-description">
-              Leading provider of metallographic sample preparation equipment, consumables, and expertise. 
+              Leading provider of metallographic sample preparation equipment, consumables, and expertise.
               Comprehensive resources for materials science professionals worldwide.
             </p>
+            <address class="footer-contact" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name" class="visually-hidden">PACE Technologies</span>
+              <div class="footer-contact-row" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>
+                  <span itemprop="streetAddress">3601 E 34th Street</span>,
+                  <span itemprop="addressLocality">Tucson</span>,
+                  <span itemprop="addressRegion">AZ</span>
+                  <span itemprop="postalCode">85713</span>
+                </span>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a href="tel:+15208826598" itemprop="telephone" class="footer-contact-link">+1 (520) 882-6598</a>
+              </div>
+              <div class="footer-contact-row">
+                <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Mon–Fri 8am–5pm MST</span>
+              </div>
+            </address>
             <div class="footer-brand-link-wrapper">
               <a href="https://metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-brand-link">
                 www.metallographic.com
@@ -1132,7 +1210,7 @@
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
@@ -1160,8 +1238,7 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
-              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
               <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
@@ -1233,6 +1310,39 @@
     <script>
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
+
+    <!-- Back to top button -->
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" hidden>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        var visible = false;
+        function onScroll() {
+          var shouldShow = window.scrollY > 600;
+          if (shouldShow !== visible) {
+            visible = shouldShow;
+            if (shouldShow) {
+              btn.hidden = false;
+              // next frame so transition triggers
+              requestAnimationFrame(function () { btn.classList.add('is-visible'); });
+            } else {
+              btn.classList.remove('is-visible');
+            }
+          }
+        }
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
   </footer>
           </div>
         </div>
@@ -1266,5 +1376,6 @@
             }
         })();
     </script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 </html>

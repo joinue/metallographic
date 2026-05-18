@@ -22,6 +22,374 @@
     <link rel="stylesheet" href="/css/components/footer.css">
     <link rel="stylesheet" href="/css/pages/tools.css">
 
+    <!-- Page-scoped styles for the Grain Size Calculator -->
+    <style>
+      /* Page-level density tweaks */
+      .tool-content > h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+      .tool-content > .tool-intro {
+        font-size: 1rem;
+        line-height: 1.65;
+        margin-bottom: 1.5rem;
+        max-width: 44rem;
+      }
+
+      /* Narrow the form card so it feels proportionate. The reference
+         sections below can still use the wider .tool-content (max 64rem). */
+      .tool-card.tool-form { max-width: 44rem; }
+      .tool-card.tool-form,
+      .tool-card.tool-results { padding: 1.5rem; margin-bottom: 1.25rem; }
+      .tool-card.tool-form .form-group { margin-bottom: 1rem; }
+      .tool-card.tool-form .form-control { padding: 0.625rem 0.875rem; font-size: 0.9375rem; }
+
+      .method-selector {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+        padding: 0.25rem;
+        margin-bottom: 1rem;
+        background: #f3f4f6;
+        border-radius: 0.5rem;
+      }
+      @media (min-width: 560px) { .method-selector { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 820px) { .method-selector { grid-template-columns: repeat(4, 1fr); } }
+      .method-btn {
+        appearance: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.125rem;
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 0.375rem;
+        padding: 0.5rem 0.5rem;
+        font: inherit;
+        font-weight: 600;
+        font-size: 0.8125rem;
+        color: #4b5563;
+        cursor: pointer;
+        text-align: center;
+        line-height: 1.2;
+        transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+      }
+      .method-btn small {
+        display: block;
+        font-size: 0.6875rem;
+        font-weight: 500;
+        color: #6b7280;
+        line-height: 1.25;
+      }
+      .method-btn:hover { background: #e5e7eb; color: #111827; }
+      .method-btn[aria-checked="true"] {
+        background: #fff;
+        color: #1d4ed8;
+        border-color: #c7d2fe;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+      }
+      .method-btn[aria-checked="true"] small { color: #4b5563; }
+      .method-btn:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+
+      .formula-box {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.625rem;
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-left: 3px solid #2563eb;
+        border-radius: 0.5rem;
+        padding: 0.75rem 0.875rem;
+        margin-bottom: 1.25rem;
+        font-size: 0.8125rem;
+        color: #4b5563;
+        line-height: 1.5;
+      }
+      .formula-box svg { flex-shrink: 0; color: #2563eb; margin-top: 1px; }
+      .formula-box code {
+        font-family: 'Menlo','Monaco','Consolas','Courier New',monospace;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.25rem;
+        padding: 0.0625rem 0.375rem;
+        font-size: 0.8125rem;
+        color: #111827;
+      }
+
+      .tool-actions { display: flex; gap: 0.625rem; flex-wrap: wrap; }
+      .tool-actions .btn-primary { flex: 1 1 220px; width: auto; }
+      .btn-secondary {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.25rem;
+        background: #fff;
+        color: #374151;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .btn-secondary:hover { border-color: #9ca3af; background: #f9fafb; color: #111827; }
+
+      .result-headline {
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        color: #fff;
+        border-radius: 0.625rem;
+        padding: 1.375rem 1.5rem;
+        margin-bottom: 1.125rem;
+      }
+      .result-headline-label {
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.85);
+        margin-bottom: 0.25rem;
+      }
+      .result-headline-value {
+        font-size: 2.25rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+      .result-headline-desc {
+        font-size: 0.875rem;
+        color: rgba(255,255,255,0.92);
+        margin-top: 0.375rem;
+      }
+      .result-error {
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        color: #991b1b;
+        border-radius: 0.5rem;
+        padding: 0.875rem 1rem;
+        font-size: 0.875rem;
+      }
+      .results-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+      @media (min-width: 640px) { .results-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1024px) { .results-grid { grid-template-columns: repeat(3, 1fr); } }
+      .result-item {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 0.875rem 1rem;
+      }
+      .result-label {
+        font-size: 0.75rem;
+        color: #6b7280;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+        letter-spacing: 0.02em;
+      }
+      .result-value {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        color: #111827;
+        line-height: 1.3;
+      }
+
+      .grain-info-wrap { margin-top: 2.5rem; }
+      .info-divider {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 0 0 1.25rem;
+        color: #6b7280;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+      }
+      .info-divider::before, .info-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: #e5e7eb;
+      }
+      .grain-section {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 1.75rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+      .grain-section > h2 {
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0 0 0.75rem;
+        letter-spacing: -0.01em;
+      }
+      .grain-section > h3 {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        color: #111827;
+        margin: 1.5rem 0 0.625rem;
+      }
+      .grain-section p {
+        font-size: 0.9375rem;
+        color: #374151;
+        line-height: 1.7;
+        margin: 0 0 0.875rem;
+      }
+      .grain-section ul {
+        font-size: 0.9375rem;
+        color: #374151;
+        line-height: 1.7;
+        padding-left: 1.25rem;
+        margin: 0 0 0.875rem;
+      }
+      .grain-section ul li { margin-bottom: 0.375rem; }
+      .grain-section strong { color: #111827; font-weight: 600; }
+      .section-eyebrow {
+        display: inline-block;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #1d4ed8;
+        background: #eff6ff;
+        border-radius: 9999px;
+        padding: 0.25rem 0.625rem;
+        margin-bottom: 0.625rem;
+      }
+
+      .grain-hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      @media (min-width: 768px) { .grain-hero { grid-template-columns: 1.4fr 1fr; } }
+      .grain-hero-visual {
+        background: #f9fafb;
+        border-radius: 0.625rem;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .grain-hero-visual svg { width: 100%; max-width: 240px; height: auto; }
+
+      .property-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.875rem;
+        margin: 1.125rem 0 0.5rem;
+      }
+      @media (min-width: 640px) { .property-grid { grid-template-columns: repeat(2, 1fr); } }
+      .property-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 1rem 1.125rem;
+        background: #fff;
+      }
+      .property-card h4 {
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: #111827;
+        margin: 0 0 0.375rem;
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+      }
+      .property-card p {
+        font-size: 0.8125rem;
+        color: #4b5563;
+        line-height: 1.6;
+        margin: 0;
+      }
+      .trend-up { color: #059669; font-weight: 700; }
+      .trend-down { color: #dc2626; font-weight: 700; }
+
+      .grain-table-wrap {
+        overflow-x: auto;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        margin: 0.875rem 0 1rem;
+      }
+      .grain-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.8125rem;
+        min-width: 520px;
+      }
+      .grain-table th, .grain-table td {
+        text-align: left;
+        padding: 0.625rem 0.875rem;
+        border-bottom: 1px solid #e5e7eb;
+        color: #374151;
+        vertical-align: top;
+      }
+      .grain-table th {
+        background: #f9fafb;
+        font-weight: 600;
+        color: #111827;
+        font-size: 0.6875rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .grain-table tbody tr:last-child td { border-bottom: none; }
+      .grain-table tbody tr:hover { background: #f9fafb; }
+      .grain-table td strong { color: #111827; }
+      .table-note {
+        font-size: 0.8125rem;
+        color: #6b7280;
+        margin-top: -0.25rem;
+      }
+
+      .faq-list { display: flex; flex-direction: column; gap: 0.5rem; }
+      .faq-item {
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        background: #fff;
+        overflow: hidden;
+      }
+      .faq-item summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 0.875rem 1rem;
+        font-weight: 600;
+        font-size: 0.9375rem;
+        color: #111827;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+        transition: background 0.15s;
+      }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after {
+        content: "+";
+        font-size: 1.25rem;
+        font-weight: 400;
+        color: #6b7280;
+        flex-shrink: 0;
+      }
+      .faq-item[open] summary::after { content: "−"; }
+      .faq-item summary:hover { background: #f9fafb; }
+      .faq-content {
+        padding: 0 1rem 1rem;
+        font-size: 0.875rem;
+        color: #4b5563;
+        line-height: 1.65;
+      }
+      .faq-content p { font-size: 0.875rem; margin: 0 0 0.5rem; }
+      .faq-content p:last-child { margin-bottom: 0; }
+      .faq-content code {
+        font-family: 'Menlo','Monaco','Consolas','Courier New',monospace;
+        background: #f3f4f6;
+        border-radius: 0.25rem;
+        padding: 0.0625rem 0.375rem;
+        font-size: 0.8125rem;
+        color: #111827;
+      }
+    </style>
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/pt-favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/pt-favicon/favicon-32x32.png">
@@ -43,6 +411,16 @@
 <body>
     <!-- Skip to Main Content Link -->
 <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+<!-- SVG Icon Sprites -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24"><title>Expand</title><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><title>Go</title><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-double-arrow" viewBox="0 0 24 24"><title>Shop</title><path d="M13 5l7 7-7 7M5 5l7 7-7 7"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><title>Close</title><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+</svg>
+
 
 <!-- Navigation -->
 <nav class="navigation" aria-label="Main Navigation">
@@ -70,20 +448,28 @@
         </div> -->
         <div class="logo-container">
             <a href="/">
-                <img class="logo-image" src="/images/logo-microstructure-transparent.webp" alt="PACE Technologies Logo">
+                <img class="logo-image" src="/images/logo-microstructure-160.webp" srcset="/images/logo-microstructure-160.webp 160w, /images/logo-microstructure-320.webp 320w" sizes="(max-width: 768px) 120px, 180px" width="160" height="77" alt="PACE Technologies Logo">
             </a>
         </div>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        <div class="mobile-header-actions">
+            <button type="button" class="mobile-search-btn" aria-label="Search" data-search-trigger>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
 
         <!-- Mobile Navigation -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
@@ -293,35 +679,31 @@
             </li>
             <li class="mobile-nav-section">
                 <div class="mobile-nav-header">
-                    <a href="/support.html" class="mobile-nav-link">Support</a>
-                    <button class="mobile-nav-toggle" data-section="support" aria-label="Toggle Support submenu">
+                    <a href="/services.html" class="mobile-nav-link">Services</a>
+                    <button class="mobile-nav-toggle" data-section="services" aria-label="Toggle Services submenu">
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
                 </div>
-                <ul class="sub-menu-mobile" data-section="support">
-                    <li class="has-submenu">
-                        <a href="/support/products.html">Product Information</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Product Information submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="/support/products.html">Explore Products</a></li>
-                            <li><a href="/catalog.html">Product Catalog</a></li>
-                            <li><a href="/support/brochures.html">Brochures & Manuals</a></li>
-                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html"><span>Services
+                <ul class="sub-menu-mobile" data-section="services">
+                    <li><a href="/keeppace.html"><span>Service Plans</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
-                        </svg></span></a>
-                    </li>
-                    <li><a href="/support.html"><span>Technical Support</span>
+                        </svg></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/support.html"><span>Customer Support</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/services.html"><span>Professional Services</span>
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -366,111 +748,41 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/support/procedures.html">Sample Prep</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Sample Prep submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
                         </button>
                         <ul class="sub-menu-second-level">
-                            <li><a href="/support/procedures.html">Recommended Procedures</a></li>
-                            <li><a href="/support/etchant-information.html">Etchant Information</a></li>
-                            <li><a href="/guides.html">Preparation Guides</a></li>
-                            <li><a href="/build.html">Lab Builder</a></li>
+                            <li><a href="/catalog.html">Product Catalog</a></li>
+                            <li><a href="/support/brochures.html">Brochures &amp; Manuals</a></li>
+                            <li><a href="/support/sds.html">Safety Data Sheets (SDS)</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">Video Resources</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Video Resources submenu">
-                            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </button>
-                        <ul class="sub-menu-second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer">PACE YouTube Channel</a></li>
-                        </ul>
+                    <li>
+                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
                     </li>
-                </ul>
-            </li>
-            <li class="mobile-nav-section">
-                <div class="mobile-nav-header">
-                    <a href="/company.html" class="mobile-nav-link">Company</a>
-                    <button class="mobile-nav-toggle" data-section="company" aria-label="Toggle Company submenu">
-                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <ul class="sub-menu-mobile" data-section="company">
-                    <li><a href="/about.html"><span>About PACE</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/contact.html"><span>Contact Us</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions</span>
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg></a></li>
+                    <li>
+                        <a href="/materials-prep/"><span>Materials Prep ELN</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="/support.html"><span>Help &amp; FAQ</span>
+                            <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg></a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -679,36 +991,34 @@
                 </ul>
             </li>
             <li>
-                <a href="/support.html">
-                    <span>Support
+                <a href="/services.html">
+                    <span>Services
                         <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/support/products.html"><span>Product Information
+                    <li><a href="/keeppace.html"><span>Service Plans
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/products.html"><span>Explore Products</span></a></li>
-                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
-                            <li><a href="/support/brochures.html"><span>Brochures & Manuals</span></a></li>
-                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/services.html">
-                            <span>Technical Services</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/support.html">
-                            <span>Customer Support</span>
-                        </a>
-                    </li>             
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/contact.html"><span>Lab Consultation
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/support.html"><span>Customer Support
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/services.html"><span>Professional Services
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
+                    <li><a href="/distribution.html"><span>International Distribution
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -745,73 +1055,36 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/build.html"><span>Lab Builder</span></a></li>
+                        </ul>
+                    </li>
+<li><a href="/library.html"><span>Library
+                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </span></a>
+                        <ul class="sub-menu second-level">
+                            <li><a href="/catalog.html"><span>Product Catalog</span></a></li>
+                            <li><a href="/support/brochures.html"><span>Brochures &amp; Manuals</span></a></li>
+                            <li><a href="/support/sds.html"><span>Safety Data Sheets (SDS)</span></a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
+                        <a href="/support/procedures.html">
+                            <span>Prep Procedures</span>
                         </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
                     </li>
-                    <li><a href="/support/procedures.html"><span>Sample Prep
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/support/procedures.html"><span>Recommended Procedures</span></a></li>
-                            <li><a href="/support/etchant-information.html"><span>Etchant Information</span></a></li>
-                            <li><a href="/guides.html"><span>Preparation Guides</span></a></li>
-                            <li><a href="/build.html"><span>Lab Builder</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/materials-prep/">
+                            <span>Materials Prep ELN</span>
+                        </a>
                     </li>
-                    <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>Video Resources
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </span></a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="https://www.youtube.com/@pacetechnologies" target="_blank" rel="noopener noreferrer"><span>PACE YouTube Channel</span></a></li>
-                        </ul>
+                    <li>
+                        <a href="/support.html">
+                            <span>Help &amp; FAQ</span>
+                        </a>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/company.html">
-                    <span>Company
-                        <svg class="down-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="/about.html"><span>About PACE                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Contact Us                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/privacy.html"><span>Privacy Policy                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
-                    <li><a href="/terms.html"><span>Terms and Conditions                        
-                        <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg></span></a></li>
                 </ul>
             </li>
             <li>
@@ -857,20 +1130,26 @@
             <div class="quote-form-container">
                 <div class="hs-form-frame" data-region="na1" data-form-id="5c2cc19c-3560-433a-9b41-67818a1379ca" data-portal-id="21334047"></div>
                 <script>
-                    (function() {
+                    // Lazy-load HubSpot only when quote modal opens (saves ~1-2s main-thread work on page load)
+                    var hsLoaded = false;
+                    function loadHubSpotForm() {
+                        if (hsLoaded) return;
+                        hsLoaded = true;
                         var script = document.createElement('script');
                         script.src = 'https://js.hsforms.net/forms/embed/21334047.js';
-                        script.defer = true;
                         script.onerror = function() {
                             console.warn('HubSpot forms script could not be loaded. This may be due to browser privacy settings.');
+                            hsLoaded = false;
                         };
                         document.head.appendChild(script);
-                    })();
+                    }
                 </script>
             </div>
         </section>
     </div>
 </div>
+
+
 
     <!-- Main Content -->
     <main class="tool-page">
@@ -883,51 +1162,269 @@
                     including strength, toughness, and ductility.
                 </p>
 
-                <div class="tool-card">
-                    <div class="form-group">
-                        <label for="method">Calculation Method</label>
-                        <select id="method" class="form-control">
-                            <option value="number-to-diameter">Grain Size Number → Average Diameter</option>
-                            <option value="diameter-to-number">Average Diameter → Grain Size Number</option>
-                            <option value="intercept">Intercept Method (from measurements)</option>
-                            <option value="planimetric">Planimetric Method (from grain count)</option>
-                        </select>
+                <div class="tool-card tool-form">
+                    <div role="radiogroup" aria-label="Calculation method" class="method-selector">
+                        <button type="button" class="method-btn" role="radio" aria-checked="true" data-method="number-to-diameter">
+                            G → Diameter
+                            <small>From grain size number</small>
+                        </button>
+                        <button type="button" class="method-btn" role="radio" aria-checked="false" data-method="diameter-to-number">
+                            Diameter → G
+                            <small>From mean diameter</small>
+                        </button>
+                        <button type="button" class="method-btn" role="radio" aria-checked="false" data-method="intercept">
+                            Intercept
+                            <small>Heyn line method</small>
+                        </button>
+                        <button type="button" class="method-btn" role="radio" aria-checked="false" data-method="planimetric">
+                            Planimetric
+                            <small>Jeffries area method</small>
+                        </button>
+                    </div>
+
+                    <div id="formulaBox" class="formula-box" aria-live="polite">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        <span id="formulaText">Formula loads with method.</span>
                     </div>
 
                     <div id="inputFields"></div>
 
-                    <button id="calculateBtn" class="btn-primary">Calculate</button>
+                    <div class="tool-actions">
+                        <button id="calculateBtn" class="btn-primary" type="button">Calculate</button>
+                        <button id="resetBtn" class="btn-secondary" type="button">Reset</button>
+                    </div>
                 </div>
 
-                <div id="results" class="tool-card" style="display: none;">
-                    <h2>Results</h2>
+                <div id="results" class="tool-card tool-form tool-results" style="display: none;" aria-live="polite">
                     <div id="resultsContent"></div>
                 </div>
 
-                <div class="info-card">
-                    <h3>About Grain Size Measurement</h3>
-                    <p>
-                        Grain size is a critical microstructural parameter that affects material properties. 
-                        ASTM E112 provides standardized methods for determining average grain size:
-                    </p>
-                    <ul>
-                        <li><strong>ASTM Grain Size Number (G):</strong> Logarithmic scale where G = log₂(N) + 1, where N is grains per square inch at 100x</li>
-                        <li><strong>Intercept Method:</strong> Count grain boundary intercepts along test lines</li>
-                        <li><strong>Planimetric Method:</strong> Count grains within a known test area</li>
-                        <li><strong>Comparison Method:</strong> Compare microstructure to standard charts</li>
-                    </ul>
-                    <p style="margin-top: 1rem;">
-                        <strong>Note:</strong> This calculator uses formulas from ASTM E112. For official grain size 
-                        determination, follow the complete ASTM E112 standard procedures.
-                    </p>
-                </div>
+                <!-- =====================================================
+                     About Grains — Reference & Background
+                     ===================================================== -->
+                <div class="grain-info-wrap">
+                    <div class="info-divider">Reference &amp; Background</div>
 
-                <div class="help-card">
-                    <h3>Need More Help?</h3>
-                    <p>
-                        Learn more about microstructural analysis and grain size measurement in our guides.
-                    </p>
-                    <a href="/guides.html" class="help-link">View Microstructural Analysis Guide ></a>
+                    <!-- 1. Concept -->
+                    <section class="grain-section">
+                        <span class="section-eyebrow">Concept</span>
+                        <h2>What is a grain?</h2>
+                        <div class="grain-hero">
+                            <div>
+                                <p>
+                                    A <strong>grain</strong> is a single crystalline region within a polycrystalline material: a volume in which the atomic lattice is in one continuous orientation. Where two grains meet, the lattices misalign, forming a <strong>grain boundary</strong>.
+                                </p>
+                                <p>
+                                    Grain size is one of the most important microstructural features a metallographer reports. It governs strength, ductility, fatigue life, creep behaviour, magnetic permeability, and how a part responds to heat treatment. Quantifying it is what ASTM&nbsp;E112, the standard behind this calculator, is for.
+                                </p>
+                                <p>
+                                    Grains form during <strong>solidification</strong> from a melt, and they evolve during subsequent <strong>cold work</strong> (which elongates and refines them) and <strong>annealing</strong> (which causes recrystallization and growth).
+                                </p>
+                            </div>
+                            <div class="grain-hero-visual">
+                                <svg viewBox="0 0 150 156" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="grainHeroTitle">
+                                    <title id="grainHeroTitle">Polycrystalline grain microstructure</title>
+                                    <g stroke="#1e40af" stroke-width="1.5" stroke-linejoin="round">
+                                        <polygon points="0,26 15,0 45,0 60,26 45,52 15,52" fill="#dbeafe"/>
+                                        <polygon points="0,78 15,52 45,52 60,78 45,104 15,104" fill="#eff6ff"/>
+                                        <polygon points="0,130 15,104 45,104 60,130 45,156 15,156" fill="#bfdbfe"/>
+                                        <polygon points="45,52 60,26 90,26 105,52 90,78 60,78" fill="#bfdbfe"/>
+                                        <polygon points="45,104 60,78 90,78 105,104 90,130 60,130" fill="#dbeafe"/>
+                                        <polygon points="90,26 105,0 135,0 150,26 135,52 105,52" fill="#eff6ff"/>
+                                        <polygon points="90,78 105,52 135,52 150,78 135,104 105,104" fill="#bfdbfe"/>
+                                        <polygon points="90,130 105,104 135,104 150,130 135,156 105,156" fill="#dbeafe"/>
+                                        <polygon points="45,0 105,0 90,26 60,26" fill="#eff6ff"/>
+                                        <polygon points="60,130 90,130 105,156 45,156" fill="#bfdbfe"/>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 2. Properties / Hall-Petch -->
+                    <section class="grain-section">
+                        <span class="section-eyebrow">Why it matters</span>
+                        <h2>Grain size vs. material properties</h2>
+                        <p>
+                            The classic <strong>Hall-Petch relationship</strong> ties yield strength directly to grain size:
+                        </p>
+                        <div class="formula-box" style="margin-bottom:0.875rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 19h16M4 5v14M4 5h6a4 4 0 0 1 0 8H4"/>
+                            </svg>
+                            <span><code>σ<sub>y</sub> = σ<sub>0</sub> + k<sub>y</sub>·d<sup>−1/2</sup></code> . Yield strength rises as the inverse square root of mean grain diameter <em>d</em>; halve the grain diameter and yield strength typically jumps ~40%.</span>
+                        </div>
+                        <p>
+                            Grain size influences nearly every mechanical and physical property. The trade-offs:
+                        </p>
+                        <div class="property-grid">
+                            <div class="property-card">
+                                <h4>Strength &amp; Hardness <span class="trend-up">↑</span></h4>
+                                <p>Finer grains create more boundaries that block dislocation motion. Strongest effect of all the property links.</p>
+                            </div>
+                            <div class="property-card">
+                                <h4>Ductility &amp; Toughness <span class="trend-up">↑</span></h4>
+                                <p>Finer grains usually improve both. Boundaries deflect cracks and force more uniform plastic deformation.</p>
+                            </div>
+                            <div class="property-card">
+                                <h4>Creep Resistance <span class="trend-down">↓</span></h4>
+                                <p>At high temperature, grain-boundary sliding dominates. <strong>Larger</strong> grains resist creep better, which is why turbine blades are directionally solidified or single-crystal.</p>
+                            </div>
+                            <div class="property-card">
+                                <h4>Fatigue Life <span class="trend-up">↑</span></h4>
+                                <p>Fine grains delay crack initiation. Coarse grains can accelerate short-crack growth but may slow long-crack propagation; the trade is stage-dependent.</p>
+                            </div>
+                            <div class="property-card">
+                                <h4>Magnetic Losses (Si steel) <span class="trend-down">↓</span></h4>
+                                <p>Coarse, Goss-textured grains lower core loss in transformer steels. One of the few applications where larger is better.</p>
+                            </div>
+                            <div class="property-card">
+                                <h4>Corrosion (intergranular) <span class="trend-up">↑</span></h4>
+                                <p>More boundary area in fine-grained material means more sites for sensitization or selective attack. Trade-off varies by alloy and environment.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 3. Methods -->
+                    <section class="grain-section">
+                        <span class="section-eyebrow">ASTM E112 methods</span>
+                        <h2>How grain size is measured</h2>
+                        <p>
+                            ASTM E112 defines four standard approaches. The calculator above implements the three numerical ones; the comparison method is used for routine QA.
+                        </p>
+                        <div class="grain-table-wrap">
+                            <table class="grain-table">
+                                <thead>
+                                    <tr>
+                                        <th>Method</th>
+                                        <th>How it works</th>
+                                        <th>Best for</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Comparison</strong></td>
+                                        <td>Visual match against ASTM Plates&nbsp;I-IV reference charts at the test magnification.</td>
+                                        <td>Routine QA, quick estimates, training.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Intercept (Heyn)</strong></td>
+                                        <td>Count grain-boundary crossings along test lines of known total length; mean intercept <em>L̄</em> gives G.</td>
+                                        <td>Equiaxed or elongated structures; faster than planimetric.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Planimetric (Jeffries)</strong></td>
+                                        <td>Count grains inside a known test area (full grains = 1, boundary grains = ½). Gives grains per mm² directly.</td>
+                                        <td>Direct calculation; preferred for image analysis.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Image analysis (E1382)</strong></td>
+                                        <td>Software detects boundaries automatically and computes statistics over thousands of grains.</td>
+                                        <td>High-throughput, statistically rich data, R&amp;D.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>ASTM grain-size number (G) reference</h3>
+                        <div class="grain-table-wrap">
+                            <table class="grain-table">
+                                <thead>
+                                    <tr>
+                                        <th>G</th>
+                                        <th>Mean diameter (μm)</th>
+                                        <th>Grains/mm²</th>
+                                        <th>Grains/in² @ 100×</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>−1</strong></td><td>359</td><td>4</td><td>0.25</td><td>Extremely coarse</td></tr>
+                                    <tr><td><strong>1</strong></td><td>254</td><td>8</td><td>1</td><td>Very coarse</td></tr>
+                                    <tr><td><strong>3</strong></td><td>127</td><td>31</td><td>4</td><td>Coarse</td></tr>
+                                    <tr><td><strong>5</strong></td><td>63.5</td><td>124</td><td>16</td><td>Medium (typical wrought metals)</td></tr>
+                                    <tr><td><strong>7</strong></td><td>31.8</td><td>496</td><td>64</td><td>Fine</td></tr>
+                                    <tr><td><strong>9</strong></td><td>15.9</td><td>1,984</td><td>256</td><td>Very fine</td></tr>
+                                    <tr><td><strong>11</strong></td><td>7.94</td><td>7,937</td><td>1,024</td><td>Ultra-fine</td></tr>
+                                    <tr><td><strong>13</strong></td><td>3.97</td><td>31,750</td><td>4,096</td><td>Submicron grade</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="table-note">
+                            Diameters follow ASTM&nbsp;E112: <code style="font-family:inherit;">d̄ = 0.254 / 2<sup>(G−1)/2</sup></code> mm. Each step in G halves the average grain area; six steps cuts diameter by 8×.
+                        </p>
+                    </section>
+
+                    <!-- 4. Best practices -->
+                    <section class="grain-section">
+                        <span class="section-eyebrow">Practice</span>
+                        <h2>Tips for accurate measurement</h2>
+                        <ul>
+                            <li><strong>Etch for contrast.</strong> Grain boundaries must be clearly visible. Distinguish <em>annealing twins</em> (straight, parallel boundary pairs inside a grain) from true grain boundaries; twins should be ignored in the count.</li>
+                            <li><strong>Pick magnification wisely.</strong> Aim for ~50 grains per field on the screen. Too few = poor statistics; too many = boundaries become hard to resolve. ASTM uses 100× as the reference, but the standard supports any magnification with appropriate conversion.</li>
+                            <li><strong>Measure multiple fields.</strong> ASTM&nbsp;E112 calls for enough fields to give a 95% confidence interval of ≤ 0.5 G units, typically 3 to 6 widely separated fields (more for duplex or banded structures).</li>
+                            <li><strong>Mind the orientation.</strong> Wrought products have elongated grains. Report longitudinal (L), transverse (T), and short-transverse (S) directions separately. The grain-size number should be reported with the plane of measurement.</li>
+                            <li><strong>Watch for duplex structures.</strong> Bimodal populations (a mix of fine and coarse grains) need either the <strong>ALA</strong> (As-Large-As) method or two reported sizes. A single average can be misleading.</li>
+                            <li><strong>Document conditions.</strong> Magnification, plane, etchant, method, and number of fields must accompany every reported G value to make the result reproducible.</li>
+                        </ul>
+                    </section>
+
+                    <!-- 5. FAQ -->
+                    <section class="grain-section">
+                        <span class="section-eyebrow">Common questions</span>
+                        <h2>Frequently asked questions</h2>
+                        <div class="faq-list">
+                            <details class="faq-item">
+                                <summary>Does a higher G mean bigger or smaller grains?</summary>
+                                <div class="faq-content">
+                                    <p><strong>Higher G = finer grains.</strong> G is logarithmic: each unit increase doubles grains per unit area at 100× and shrinks the mean diameter by a factor of √2 ≈ 1.41.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Why count boundary grains as ½?</summary>
+                                <div class="faq-content">
+                                    <p>In the planimetric method, grains cut by the boundary of the test region are statistically shared with neighbouring fields. Counting them as ½ gives an unbiased estimate of grains per unit area without double- or under-counting along edges.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>What does ALA grain size mean?</summary>
+                                <div class="faq-content">
+                                    <p>ALA (<em>As-Large-As</em>) reports the size of the largest grain observed, not the average. It's used when isolated coarse grains in an otherwise fine matrix could be life-limiting (e.g., fatigue in aerospace superalloys).</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>How is grain diameter related to G?</summary>
+                                <div class="faq-content">
+                                    <p>ASTM&nbsp;E112 gives <code>d̄ = 0.254 / 2<sup>(G−1)/2</sup></code> mm, where <em>d̄</em> is the mean equivalent circular diameter at the ASTM Plate&nbsp;III reference. Two grain-size numbers differing by 6 correspond to roughly an 8× change in linear diameter.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Why does grain size change after heat treatment?</summary>
+                                <div class="faq-content">
+                                    <p>The driving forces for grain change (stored deformation energy and boundary surface energy) are unlocked by temperature. Annealing above roughly 0.4·T<sub>m</sub> triggers recrystallization followed by grain growth. Microalloy additions (Nb, Ti, V) and second-phase particles (carbides, nitrides) pin boundaries and slow that growth, which is why HSLA and superalloy designs invest so heavily in pinning chemistry.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item">
+                                <summary>Is the intercept or planimetric method more accurate?</summary>
+                                <div class="faq-content">
+                                    <p>For random, equiaxed grain structures, both methods give equivalent G values when applied carefully. The intercept method is faster and slightly less sensitive to bias when the operator decides what counts as a "grain." The planimetric method maps more directly to image-analysis software and produces grains/mm² in one step.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </section>
+
+                    <!-- 6. Help card -->
+                    <div class="help-card">
+                        <h3>Need more help?</h3>
+                        <p>
+                            Learn more about microstructural analysis, etching for grain boundary contrast, and reporting grain size in our guides.
+                        </p>
+                        <a href="/guides.html" class="help-link">View Microstructural Analysis Guides &rsaquo;</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -946,6 +1443,7 @@
     <!-- Scripts -->
     <script src="/js/scripts.js"></script>
     <script src="/js/tools/grain-size-calculator.js"></script>
+    <script src="/js/search-overlay.js" defer></script>
 </body>
 
 </html>
