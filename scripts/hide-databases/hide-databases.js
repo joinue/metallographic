@@ -33,17 +33,18 @@ const ONLY = ONLY_FLAG ? ONLY_FLAG.split('=')[1] : null;
 // What counts as a "database page"
 // ---------------------------------------------------------------------------
 
+// Etchants and the etchant-selector were reactivated 2026-05-19 — script no
+// longer touches /etchants (hub + detail pages) or /etchant-selector.html
+// (now a live Materials Prep landing page).
 const DATABASE_PARENT_PAGES = [
   'databases.html',
   'materials.html',
-  'etchants.html',
   'standards.html',
-  'etchant-selector.html',
 ];
 
 function listDatabaseDetailPages() {
   const pages = [];
-  for (const dir of ['materials', 'etchants']) {
+  for (const dir of ['materials']) {
     const full = path.join(ROOT, dir);
     if (!fs.existsSync(full)) continue;
     for (const f of fs.readdirSync(full)) {

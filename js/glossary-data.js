@@ -45,7 +45,7 @@ const glossaryTerms = [
   },
   {
     term: 'Cementite',
-    definition: 'A hard, brittle phase of iron carbide (Fe3C) that forms in steel. Its appearance in etched microstructures depends on the etchant: appears dark with nital, light/white with picral.',
+    definition: 'A hard, brittle phase of iron carbide (Fe3C) that forms in steel. Its appearance in etched microstructures depends on the etchant: with nital, ferrite and grain boundaries are attacked while cementite stands in relief and appears light/white; with picral, cementite is preferentially attacked and appears dark.',
     category: 'Microstructure',
     relatedTerms: ['Phase', 'Ferrite', 'Pearlite'],
     example: 'Cementite provides hardness to steel but reduces ductility.',
@@ -59,14 +59,14 @@ const glossaryTerms = [
   },
   {
     term: 'Austenite',
-    definition: 'A face-centered cubic (FCC) phase of iron that exists at high temperatures. It can transform to ferrite, pearlite, or martensite depending on cooling rate.',
+    definition: 'A face-centered cubic (FCC) phase of iron that exists at high temperatures. On cooling it can transform to ferrite, pearlite, bainite, or martensite depending on the cooling rate and alloy composition.',
     category: 'Microstructure',
     relatedTerms: ['Phase', 'Martensite', 'Heat Treatment'],
     example: 'Steel is heated to the austenite region before quenching to form martensite.',
   },
   {
     term: 'Martensite',
-    definition: 'A hard, brittle phase formed by rapid cooling (quenching) of austenite. It has a needle-like or lath-like appearance and provides high hardness but low ductility.',
+    definition: 'A hard, supersaturated phase formed by diffusionless transformation of austenite during rapid cooling (quenching). In carbon steels it has a body-centered tetragonal (BCT) structure, with morphology that depends on carbon content: lath martensite forms in low-carbon steels (below about 0.6% C), while plate (often called needle-like in 2D section) martensite forms in higher-carbon steels. Provides high hardness but limited ductility until tempered.',
     category: 'Microstructure',
     relatedTerms: ['Austenite', 'Quenching', 'Heat Treatment'],
     example: 'Martensite formation requires rapid cooling to prevent transformation to softer phases.',
@@ -121,7 +121,7 @@ const glossaryTerms = [
     definition: 'A transformation where a single solid phase decomposes into two or more different solid phases at a specific temperature and composition.',
     category: 'Microstructure',
     relatedTerms: ['Phase', 'Eutectic', 'Pearlite'],
-    example: 'Eutectoid steel transforms to pearlite at 727°C.',
+    example: 'Eutectoid steel (about 0.76 wt% C) transforms from austenite to pearlite at the eutectoid temperature, 727°C (1341°F).',
   },
   {
     term: 'Polycrystalline',
@@ -131,7 +131,7 @@ const glossaryTerms = [
   },
   {
     term: 'Recrystallization',
-    definition: 'The formation of new, strain-free grains in a deformed material during heating. Occurs at temperatures above the recrystallization temperature.',
+    definition: 'The nucleation and growth of new, strain-free grains that replace the deformed microstructure of a cold-worked material during heating. Driven by the stored energy of prior plastic deformation and typically observed at roughly 0.3 to 0.5 times the absolute melting temperature (in Kelvin). The exact onset temperature depends on alloy, prior strain, and time at temperature.',
     category: 'Microstructure',
     relatedTerms: ['Grain', 'Heat Treatment', 'Work Hardening'],
   },
@@ -219,24 +219,24 @@ const glossaryTerms = [
   },
   {
     term: 'Grit',
-    definition: 'A measure of abrasive particle size. Lower grit numbers indicate coarser abrasives (larger particles), while higher numbers indicate finer abrasives. Common grit standards include FEPA, ANSI, and JIS.',
+    definition: 'A measure of abrasive particle size. Lower grit numbers indicate coarser abrasives, higher numbers indicate finer ones. Common standards (FEPA, ANSI/CAMI, JIS) are not directly interchangeable: the same grit number can correspond to very different particle sizes between systems. For example, FEPA P600 is roughly 25.8 µm, while ANSI/CAMI 600 is roughly 14.5 µm. When comparing papers or specifying a process, reference the actual µm size or the standard.',
     category: 'Sample Preparation',
     relatedTerms: ['Grinding', 'Abrasive', 'Grit Size'],
-    example: 'Start grinding with 120 grit to remove sectioning damage, then progress to finer grits.',
+    example: 'Start grinding with 120 grit to remove sectioning damage, then progress to finer grits, checking the standard (FEPA "P" prefix vs ANSI) when matching consumables.',
   },
   {
     term: 'Polishing',
-    definition: 'The final step in sample preparation that removes grinding scratches and creates a mirror-like surface suitable for microstructural analysis. Typically uses diamond or oxide abrasives.',
+    definition: 'The stage of sample preparation that removes grinding damage and produces a flat, scratch-free surface suitable for etching and microscopy. Typically uses diamond abrasives for rough and intermediate polishing followed by an oxide suspension (commonly colloidal silica) for the final step. Best results combine complementary rotation of the platen and specimen holder to even out cutting action and minimize directional artifacts.',
     category: 'Sample Preparation',
     relatedTerms: ['Grinding', 'Diamond Polishing', 'Final Polishing'],
-    example: 'Polishing progresses from 9 μm diamond to 3 μm, then 1 μm, and finally oxide polishing.',
+    example: 'A typical PACE ladder runs 6 μm diamond, then 3 μm and 1 μm diamond, finishing with a colloidal silica polish.',
   },
   {
     term: 'Diamond Polishing',
-    definition: 'A polishing method using diamond abrasives in various particle sizes (typically 9 μm, 3 μm, 1 μm, 0.25 μm) to remove grinding scratches and prepare the surface for final polishing.',
+    definition: 'Polishing with diamond abrasives, applied as a paste, suspension, or aerosol spray onto an appropriate cloth. Common particle sizes are 9, 6, 3, 1, and 0.25 μm. Diamond is highly effective on both hard and soft phases because it cuts rather than rubs, producing low subsurface deformation when combined with adequate lubrication and complementary rotation.',
     category: 'Sample Preparation',
     relatedTerms: ['Polishing', 'Oxide Polishing'],
-    example: 'Diamond polishing is the primary method for removing grinding scratches from most materials.',
+    example: 'A 6 μm diamond step quickly removes 600/1200-grit grinding scratches and is followed by 3 μm and 1 μm steps before final oxide polishing.',
   },
   {
     term: 'Oxide Polishing',
@@ -257,7 +257,7 @@ const glossaryTerms = [
     definition: 'A chemical reagent used to etch (chemically attack) a polished sample surface to reveal microstructural features. Different etchants reveal different features.',
     category: 'Sample Preparation',
     relatedTerms: ['Etching', 'Reagent'],
-    example: 'Kalling\'s No. 2 etchant is used to reveal the microstructure of stainless steel.',
+    example: 'Kalling\'s No. 2 is used to reveal the microstructure of duplex, martensitic, and precipitation-hardening stainless steels; austenitic grades are more commonly etched with oxalic acid (electrolytic), aqua regia, or glyceregia.',
   },
   {
     term: 'Relief',
@@ -402,7 +402,7 @@ const glossaryTerms = [
   },
   {
     term: 'Comet Tailing',
-    definition: 'A polishing artifact where hard particles create trailing marks resembling comets. Caused by improper polishing technique or contaminated abrasives.',
+    definition: 'A polishing artifact in which hard, well-bonded particles (inclusions, carbides, intermetallics) shield a tail of softer matrix from abrasion, leaving comet-shaped streaks behind each particle. Typical root causes are excessive load, too-long step times, worn or contaminated cloths, and unidirectional motion. Reduced or eliminated by lowering load, refreshing abrasive, and using complementary rotation of the platen and specimen holder.',
     category: 'Sample Preparation',
     relatedTerms: ['Artifact', 'Polishing'],
   },
@@ -551,7 +551,7 @@ const glossaryTerms = [
   },
   {
     term: 'Stainless Steel',
-    definition: 'A steel alloy containing at least 10.5% chromium, providing excellent corrosion resistance. May also contain nickel and other elements.',
+    definition: 'A steel alloy containing at least 10.5% chromium. Corrosion resistance comes from a thin, self-healing passive film of chromium oxide (Cr2O3) that forms on the surface. May also contain nickel, molybdenum, manganese, nitrogen, and other elements, with major families including austenitic, ferritic, martensitic, duplex, and precipitation-hardening (PH) grades.',
     category: 'Material Science',
     relatedTerms: ['Steel', 'Alloy'],
   },
@@ -588,13 +588,13 @@ const glossaryTerms = [
   },
   {
     term: 'Vickers Hardness',
-    definition: 'A hardness testing method using a diamond pyramid indenter. Expressed as HV. Suitable for a wide range of materials.',
+    definition: 'A hardness testing method using a square-based diamond pyramid indenter with a 136° included angle between opposite faces (ASTM E92, E384 for microindentation). HV is calculated from the applied load and the mean diagonal of the indentation. A single continuous scale spans soft metals to hardened steels and ceramics, making it well suited to comparative work across material classes.',
     category: 'Material Science',
     relatedTerms: ['Hardness', 'Hardness Testing'],
   },
   {
     term: 'Knoop Hardness',
-    definition: 'A microhardness testing method using a diamond indenter with an elongated pyramid shape. Good for thin samples and small areas.',
+    definition: 'A microindentation hardness method (ASTM E384) using a rhombic-based diamond pyramid with included angles of 172.5° and 130°, producing a long, shallow indentation with a long-to-short diagonal ratio of about 7:1. The shallow indent makes Knoop preferable to Vickers for thin coatings, case-hardened layers, brittle materials, and measurements near edges, and the elongated shape allows detection of mechanical anisotropy.',
     category: 'Material Science',
     relatedTerms: ['Hardness', 'Hardness Testing'],
   },
@@ -632,10 +632,10 @@ const glossaryTerms = [
   // Analysis Terms
   {
     term: 'ASTM Grain Size',
-    definition: 'A standardized system for describing grain size in materials, using numbers from 1 (coarse) to 14+ (very fine). Higher numbers indicate finer grains.',
+    definition: 'A standardized system (ASTM E112) for describing grain size, with grain size number G ranging from 00 (very coarse) through about 14 (very fine). G is defined by N = 2^(G-1), where N is the number of grains per square inch observed at 100x magnification. Higher G numbers indicate finer grains. Comparable to ISO 643.',
     category: 'Analysis',
-    relatedTerms: ['Grain Size', 'Grain'],
-    example: 'ASTM grain size number 8 indicates finer grains than grain size number 4.',
+    relatedTerms: ['Grain Size', 'Grain', 'Intercept Method', 'Planimetric Method'],
+    example: 'ASTM grain size number 8 indicates finer grains than grain size number 4 (each unit increase in G roughly doubles the grains-per-area at 100x).',
   },
   {
     term: 'Magnification',
@@ -646,10 +646,10 @@ const glossaryTerms = [
   },
   {
     term: 'EBSD',
-    definition: 'Electron Backscatter Diffraction - a technique used in scanning electron microscopy to determine crystal orientation, grain boundaries, and phase identification.',
+    definition: 'Electron Backscatter Diffraction, a technique used in the SEM to map crystal orientation, grain boundaries, phase distribution, and local strain. The sample is tilted to about 70° and Kikuchi patterns from the surface are indexed pixel by pixel. EBSD is extremely sensitive to residual deformation, so it requires a strain-free surface, typically achieved through long-duration vibratory polishing or extended colloidal silica polishing after the standard diamond ladder.',
     category: 'Analysis',
-    relatedTerms: ['SEM', 'Microstructure'],
-    example: 'EBSD requires very high-quality sample preparation with minimal surface damage.',
+    relatedTerms: ['SEM', 'Microstructure', 'Vibratory Polisher', 'Colloidal Silica'],
+    example: 'A 4-12 hour vibratory polish with colloidal silica is commonly used as the final step before EBSD mapping.',
   },
   {
     term: 'SEM',
@@ -672,7 +672,7 @@ const glossaryTerms = [
   },
   {
     term: 'WDS',
-    definition: 'Wavelength-Dispersive X-ray Spectroscopy - a technique for elemental analysis with higher resolution than EDS but slower analysis.',
+    definition: 'Wavelength-Dispersive X-ray Spectroscopy, an elemental analysis technique used in the SEM or electron microprobe. A diffracting crystal selects a single X-ray wavelength at a time, giving much higher spectral resolution than EDS (about 5-20 eV vs 130-150 eV) and significantly better sensitivity for light elements and trace constituents. Acquisition is serial rather than parallel, so analyses are slower and the instrument is more complex than an EDS detector.',
     category: 'Analysis',
     relatedTerms: ['SEM', 'EDS'],
   },

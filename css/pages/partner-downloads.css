@@ -48,7 +48,7 @@
 
 /* --- Sign-in card ----------------------------------------- */
 
-.partner-gate {
+.partner-gate:not([hidden]) {
     display: flex;
     justify-content: center;
     padding: 32px 0;
@@ -217,7 +217,30 @@
 .partner-download-buttons {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 8px;
+}
+
+.partner-download-buttons .partner-download-btn--view {
+    margin-left: auto;
+    background: transparent;
+    border-color: transparent;
+    color: #2d5a87;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.partner-download-buttons .partner-download-btn--view:hover {
+    background: transparent;
+    border-color: transparent;
+    color: #0a2540;
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .partner-download-buttons .partner-download-btn--view {
+        margin-left: 0;
+    }
 }
 
 .partner-download-btn {

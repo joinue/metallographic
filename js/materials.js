@@ -427,7 +427,7 @@ function createMaterialCard(material) {
 
     // Create class badge if class is available
     const classBadge = materialClass ? `
-        <a href="/support/preparation-procedures/class-${materialClass}.html" class="material-class-badge ${classBadgeColor}" title="Preparation Class ${materialClass}">
+        <a href="/procedures/class-${materialClass}.html" class="material-class-badge ${classBadgeColor}" title="Preparation Class ${materialClass}">
             CLASS-${materialClass}
         </a>
     ` : '';

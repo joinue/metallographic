@@ -167,7 +167,7 @@ function renderMaterial() {
         }
         
         // Update the link
-        classLink.href = `/support/preparation-procedures/class-${classNumber}.html`;
+        classLink.href = `/procedures/class-${classNumber}.html`;
         classLink.querySelector('.material-class-link-number').textContent = classNumber;
         // Remove any existing class-* classes and add the correct one
         classLink.className = classLink.className.replace(/\bclass-\d+\b/g, '');

@@ -136,6 +136,48 @@
   }
 }
 
+/* Background video — manufacturing loop behind hero copy */
+.hero-section-equipment .hero-bg-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-section-equipment .hero-bg-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-section-equipment .hero-bg-video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom right, rgba(17, 24, 39, 0.88), rgba(31, 41, 55, 0.74), rgba(17, 24, 39, 0.92));
+}
+
+/* Hide the faint microstructure ::before; the video provides plenty of texture */
+.hero-section-equipment::before {
+  display: none;
+}
+
+/* Drop the video on mobile to save bandwidth; gradient bg remains */
+@media (max-width: 768px) {
+  .hero-section-equipment .hero-bg-video {
+    display: none;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section-equipment .hero-bg-video video {
+    display: none;
+  }
+}
+
 /* ==========================================================================
    Equipment Page Timeline Overrides
    ========================================================================== */

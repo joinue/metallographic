@@ -137,6 +137,63 @@
         [data-animate="fade"] {
             transform: translateY(0) translateX(0);
         }
+
+        /* FAQ — equipment-page pattern (faq-heading + faq-list) */
+        .faq-heading {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-width: 50rem;
+            margin: 0 auto;
+        }
+        .faq-list .faq-item {
+            transition: box-shadow 0.2s ease;
+        }
+        .faq-list .faq-item[open] {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .faq-list .faq-item summary {
+            padding: 1rem 1.25rem;
+            font-weight: 500;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .faq-list .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-list .faq-item summary::after {
+            content: '+';
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: #6b7280;
+            flex-shrink: 0;
+            min-width: 1.25rem;
+            text-align: center;
+        }
+        .faq-list .faq-item[open] summary::after {
+            content: '\2212';
+        }
+        .faq-list .faq-item summary:hover {
+            background: #f9fafb;
+        }
+        .faq-list .faq-item p {
+            padding: 0 1.25rem 1rem;
+            color: #4b5563;
+            line-height: 1.65;
+            margin: 0;
+        }
     </style>
     <noscript>
         <style>body{visibility:visible !important;opacity:1 !important;}[data-animate]{opacity:1 !important;visibility:visible !important;}</style>
@@ -173,7 +230,7 @@
   
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="PACE Technologies - Metallographic Equipment & Consumables">
-    <meta name="twitter:description" content="Discover PACE Technologies' industry-leading metallographic solutions.">
+    <meta name="twitter:description" content="PACE Technologies metallographic equipment and consumables for sample preparation.">
     <meta name="twitter:image" content="https://www.metallographic.com/images/pace/equipment.webp">
   
     <!-- JSON-LD: Organization -->
@@ -839,62 +896,13 @@
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
                             <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-                            <li><a href="/etchant-selector.html">Etchant Selector</a></li>
-                            <li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
+<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
 <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
-                    <li class="mobile-nav-subsection">
-                        <div class="mobile-nav-header">
-                            <a href="/databases.html" class="mobile-nav-link">Databases</a>
-                            <button class="mobile-nav-toggle" data-section="databases" aria-label="Toggle Databases submenu">
-                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 9l6 6 6-6" />
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="sub-menu-mobile nested" data-section="databases">
-                            <li>
-                                <a href="/databases.html">
-                                    <span>All Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/materials.html">
-                                    <span>Materials Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/etchants.html">
-                                    <span>Etchants Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                                <a href="/standards.html">
-                                    <span>Standards Database
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-                    <li class="has-submenu">
-                        <a href="/docs.html">Documents</a>
-                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Documents submenu">
+<li class="has-submenu">
+                        <a href="/library.html">Library</a>
+                        <button class="sub-menu-toggle" aria-expanded="false" aria-label="Toggle Library submenu">
                             <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 9l6 6 6-6" />
                             </svg>
@@ -906,7 +914,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                        <a href="/procedures.html"><span>Prep by Class</span>
                             <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                 <path d="M9 18l6-6-6-6" />
                             </svg></a>
@@ -1195,27 +1203,11 @@
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
                             <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-                            <li><a href="/etchant-selector.html"><span>Etchant Selector</span></a></li>
-                            <li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
+<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
 <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="/databases.html">
-                            <span>Databases
-                                <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path d="M9 18l6-6-6-6" />
-                                </svg>
-                            </span>
-                        </a>
-                        <ul class="sub-menu second-level">
-                            <li><a href="/databases.html"><span>All Databases</span></a></li>
-                            <li><a href="/materials.html"><span>Materials Database</span></a></li>
-                            <li><a href="/etchants.html"><span>Etchants Database</span></a></li>
-                            <li><a href="/standards.html"><span>Standards Database</span></a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/docs.html"><span>Documents
+<li><a href="/library.html"><span>Library
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg>
@@ -1227,8 +1219,8 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/support/procedures.html">
-                            <span>Prep Procedures</span>
+                        <a href="/procedures.html">
+                            <span>Prep by Class</span>
                         </a>
                     </li>
                     <li>
@@ -1305,6 +1297,8 @@
     </div>
 </div>
 
+
+
     <main id="main-content" class="homepage-wrapper">
         <!-- Hero Section -->
         <section class="hero-section">
@@ -1325,8 +1319,8 @@
                             <span class="hero-title-gradient">Your Partner in Sample&nbsp;Preparation</span>
                         </h1>
                         <p class="hero-description hero-animate">
-                            Quality control, failure analysis, research and development, and material characterization.
-                            Complete equipment and consumables solutions for your metallography application, backed by our team of experts.
+                            PACE Technologies is privately held and family-owned, founded and led by a PhD materials scientist.
+                            Since 1997, we've focused on a single discipline, supplying the equipment, consumables, and expertise that metallography labs rely on.
                         </p>
                         <div class="hero-buttons hero-animate">
                             <a href="/equipment.html" class="btn-primary">Browse Equipment</a>
@@ -1334,15 +1328,21 @@
                         </div>
                     </div>
                 </div>
+                <div class="hero-process-wrap">
+                    <p class="hero-process-eyebrow hero-animate">Sample Preparation</p>
+                    <ol class="hero-process-strip" aria-label="Sample preparation workflow">
+                        <li class="hero-process-step hero-animate"><a href="/guides/sectioning.html" class="hero-process-link"><span class="hero-process-num">01</span><span class="hero-process-label">Sectioning</span></a></li>
+                        <li class="hero-process-step hero-animate"><a href="/guides/mounting.html" class="hero-process-link"><span class="hero-process-num">02</span><span class="hero-process-label">Mounting</span></a></li>
+                        <li class="hero-process-step hero-animate"><a href="/guides/grinding-techniques.html" class="hero-process-link"><span class="hero-process-num">03</span><span class="hero-process-label">Grinding</span></a></li>
+                        <li class="hero-process-step hero-animate"><a href="/guides/polishing-methods.html" class="hero-process-link"><span class="hero-process-num">04</span><span class="hero-process-label">Polishing</span></a></li>
+                        <li class="hero-process-step hero-animate"><a href="/guides/etching-procedures.html" class="hero-process-link"><span class="hero-process-num">05</span><span class="hero-process-label">Etching</span></a></li>
+                        <li class="hero-process-step hero-animate"><a href="/guides/microstructural-analysis.html" class="hero-process-link"><span class="hero-process-num">06</span><span class="hero-process-label">Analysis</span></a></li>
+                    </ol>
+                </div>
             </div>
         </section>
 
         <!-- Trust Band -->
-        <!-- TODO(verify-claims): confirm or adjust the three items below before publishing.
-             Current sources:
-               • "Since 1997" — Organization JSON-LD foundingDate (1997)
-               • "Worldwide Distribution" — Organization JSON-LD areaServed (Worldwide)
-               • "U.S.-Based Support" — HQ in Tucson, AZ -->
         <section class="trust-band" aria-label="Why choose PACE Technologies">
             <div class="container-custom">
                 <ul class="trust-band-list">
@@ -1352,7 +1352,7 @@
                             <circle cx="12" cy="12" r="10"/>
                         </svg>
                         <div class="trust-band-text">
-                            <span class="trust-band-headline">Since 1997</span>
+                            <span class="trust-band-headline">Privately held since 1997</span>
                             <span class="trust-band-sub">Trusted by labs worldwide</span>
                         </div>
                     </li>
@@ -1375,8 +1375,8 @@
                             <path d="M3 19a2 2 0 0 0 2 2h1v-7H3v5z"/>
                         </svg>
                         <div class="trust-band-text">
-                            <span class="trust-band-headline">U.S.-Based Support</span>
-                            <span class="trust-band-sub">Direct from Tucson, AZ</span>
+                            <span class="trust-band-headline">US-Based Support</span>
+                            <span class="trust-band-sub">Headquartered in Tucson, AZ</span>
                         </div>
                     </li>
                 </ul>
@@ -1468,7 +1468,7 @@
                 <div class="catalog-highlight" data-animate="up">
                     <div class="catalog-highlight-content">
                         <div class="catalog-highlight-image" data-animate="right" data-animate-delay="100">
-                            <img src="/images/catalog/2026-catalog-cover-350.webp" srcset="/images/catalog/2026-catalog-cover-350.webp 350w, /images/catalog/2026-catalog-cover.webp 682w" sizes="(max-width: 768px) 280px, 350px" alt="2026 PACE Technologies Product Catalog" class="catalog-cover-image" width="350" height="425" decoding="async">
+                            <img src="/images/catalog/2026-catalog-cover-350.webp" srcset="/images/catalog/2026-catalog-cover-350.webp 350w, /images/catalog/2026-catalog-cover.webp 682w" sizes="(max-width: 768px) 280px, 350px" alt="2026 PACE Technologies Product Catalog" class="catalog-cover-image" width="350" height="425" decoding="async" loading="lazy">
                         </div>
                         <div class="catalog-highlight-text-wrapper" data-animate="left" data-animate-delay="200">
                             <h3 class="catalog-highlight-title">2026 Product Catalog</h3>
@@ -1849,95 +1849,13 @@
                     <p class="section-kicker">Services</p>
                     <h2 class="section-title-large">Our Service Offerings</h2>
                     <p class="section-subtitle">
-                        Professional services for your metallographic laboratory. Purchase service plans, schedule installation, arrange training, or book maintenance services to keep your lab running at peak performance.
+                        Bring PACE expertise into your lab. Scheduled on-site work, plan-based coverage, or a custom engagement shaped around your team.
                     </p>
                 </div>
-                
+
                 <div class="services-grid">
-                    <!-- KeepPACE Service Plans -->
-                    <a href="/keeppace.html" class="service-card service-card-featured" data-animate="up" data-animate-delay="100">
-                        <div class="service-badge">Popular</div>
-                        <div class="service-card-content">
-                            <div class="service-card-header">
-                                <div class="service-icon-wrapper">
-                                    <img src="/images/pace/keeppacelogo.webp" alt="KeepPACE" class="service-icon-image" width="1024" height="1024" decoding="async">
-                                </div>
-                                <h3 class="service-card-title">KeepPACE Service Plans</h3>
-                            </div>
-                            <p class="service-card-description">
-                                Flexible service plans from basic annual check-ins to comprehensive coverage with priority support and personalized service.
-                            </p>
-                            <div class="service-card-link">
-                                View Plans
-                                <svg class="arrow-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-arrow-right"/></svg>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Materials Prep ELN -->
-                    <a href="/materials-prep/" class="service-card" data-animate="up" data-animate-delay="200">
-                        <div class="service-card-content">
-                            <div class="service-card-header">
-                                <div class="service-icon-wrapper">
-                                    <img src="/images/logos/materialsprep-logo-black.png" alt="Materials Prep" class="service-icon-image" width="512" height="512" decoding="async">
-                                </div>
-                                <h3 class="service-card-title">Materials Prep ELN</h3>
-                            </div>
-                            <p class="service-card-description">
-                                Metallography electronic lab notebook for journaling samples, recipes, and micrographs. Built by the PACE team, independent of any consumables brand.
-                            </p>
-                            <div class="service-card-link">
-                                Learn More
-                                <svg class="arrow-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-arrow-right"/></svg>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Build Your Lab -->
-                    <a href="/build.html" class="service-card" data-animate="up" data-animate-delay="300">
-                        <div class="service-card-content">
-                            <div class="service-card-header">
-                                <div class="service-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                                    </svg>
-                                </div>
-                                <h3 class="service-card-title">Build Your Lab</h3>
-                            </div>
-                            <p class="service-card-description">
-                                Step-by-step tool to help you select the right equipment for your laboratory based on your specific needs and requirements.
-                            </p>
-                            <div class="service-card-link">
-                                Get Started
-                                <svg class="arrow-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-arrow-right"/></svg>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Lab Consultation -->
-                    <a href="/contact.html" class="service-card" data-animate="up" data-animate-delay="400">
-                        <div class="service-card-content">
-                            <div class="service-card-header">
-                                <div class="service-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="3"/>
-                                        <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
-                                    </svg>
-                                </div>
-                                <h3 class="service-card-title">Lab Consultation</h3>
-                            </div>
-                            <p class="service-card-description">
-                                Get expert advice on setting up your lab, selecting equipment, optimizing processes, or planning equipment upgrades.
-                            </p>
-                            <div class="service-card-link">
-                                Request Consultation
-                                <svg class="arrow-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-arrow-right"/></svg>
-                            </div>
-                        </div>
-                    </a>
-
                     <!-- Professional Services -->
-                    <a href="/services.html" class="service-card" data-animate="up" data-animate-delay="500">
+                    <a href="/services.html" class="service-card" data-animate="up" data-animate-delay="100">
                         <div class="service-card-content">
                             <div class="service-card-header">
                                 <div class="service-icon">
@@ -1948,7 +1866,7 @@
                                 <h3 class="service-card-title">Professional Services</h3>
                             </div>
                             <p class="service-card-description">
-                                On-site installation, training programs, maintenance visits, and additional support services tailored to your schedule and requirements.
+                                On-site training, lab consulting, and equipment repairs delivered by PACE technicians, scheduled when you need them.
                             </p>
                             <div class="service-card-link">
                                 View Services
@@ -1957,22 +1875,48 @@
                         </div>
                     </a>
 
-                    <!-- View All Services -->
-                    <a href="/services.html" class="service-card service-card-cta" data-animate="up" data-animate-delay="600">
-                        <div class="service-card-content service-card-content-centered">
-                            <div class="service-icon-large">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                                    <path d="M3 9h18M9 21V9"/>
-                                </svg>
+                    <!-- KeepPACE Plans -->
+                    <a href="/keeppace.html" class="service-card service-card-featured" data-animate="up" data-animate-delay="200">
+                        <div class="service-badge">Popular</div>
+                        <div class="service-card-content">
+                            <div class="service-card-header">
+                                <div class="service-icon-wrapper">
+                                    <img src="/images/pace/keeppacelogo.webp" alt="KeepPACE" class="service-icon-image" width="1024" height="1024" decoding="async" loading="lazy">
+                                </div>
+                                <h3 class="service-card-title">KeepPACE Plans</h3>
                             </div>
-                            <h3 class="service-card-title">View All Services</h3>
                             <p class="service-card-description">
-                                Explore our complete range of services and support options for your laboratory.
+                                Preventative maintenance plans and extended warranties that keep your equipment calibrated, supported, and covered.
                             </p>
                             <div class="service-card-link">
-                                Explore Services
-                                <svg class="arrow-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-arrow-right"/></svg>
+                                View Plans
+                                <svg class="arrow-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-arrow-right"/></svg>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Bespoke Services -->
+                    <a href="/contact.html" class="service-card" data-animate="up" data-animate-delay="300">
+                        <div class="service-card-content">
+                            <div class="service-card-header">
+                                <div class="service-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="4" y1="6" x2="20" y2="6"/>
+                                        <line x1="4" y1="12" x2="20" y2="12"/>
+                                        <line x1="4" y1="18" x2="20" y2="18"/>
+                                        <circle cx="9" cy="6" r="2.5" fill="var(--service-icon-bg, #fff)"/>
+                                        <circle cx="15" cy="12" r="2.5" fill="var(--service-icon-bg, #fff)"/>
+                                        <circle cx="7" cy="18" r="2.5" fill="var(--service-icon-bg, #fff)"/>
+                                    </svg>
+                                </div>
+                                <h3 class="service-card-title">Bespoke Services</h3>
+                            </div>
+                            <p class="service-card-description">
+                                Need something different? We tailor service engagements to your team's workflow, sample volume, and equipment mix. Tell us what you're working with.
+                            </p>
+                            <div class="service-card-link">
+                                Talk to Us
+                                <svg class="arrow-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-arrow-right"/></svg>
                             </div>
                         </div>
                     </a>
@@ -1991,48 +1935,47 @@
                     </p>
                 </div>
                 <div class="resources-grid">
-                    <div class="resource-card" data-animate="up" data-animate-delay="100">
+                    <a href="/guides.html" class="resource-card" data-animate="up" data-animate-delay="100">
                         <div class="resource-image-wrapper">
-                            <img src="/images/webpage-snaps/intro-guide.webp" alt="Metallographic sample preparation guide showing step-by-step procedures" class="resource-image" width="1039" height="631" decoding="async">
+                            <img src="/images/webpage-snaps/intro-guide.webp" alt="Metallographic sample preparation guide showing step-by-step procedures" class="resource-image" width="1039" height="631" decoding="async" loading="lazy">
                         </div>
                         <h3 class="resource-title">Guides</h3>
                         <p class="resource-description">
-                            Detailed step-by-step procedures for sectioning, mounting, grinding, polishing, and etching. 
-                            Material-specific protocols for steels, aluminum, titanium, ceramics, and composites.
+                            Step-by-step guides covering metallography basics, prep processes, material-specific protocols, application-specific workflows, and troubleshooting common issues.
                         </p>
-                        <a href="/guides.html" class="resource-link">
+                        <span class="resource-link">
                             Explore Guides
                             <svg class="chevron-icon-small" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-chevron-right"/></svg>
-                        </a>
-                    </div>
+                        </span>
+                    </a>
 
-                    <div class="resource-card" data-animate="up" data-animate-delay="200">
+                    <a href="/tools.html" class="resource-card" data-animate="up" data-animate-delay="200">
                         <div class="resource-image-wrapper">
-                            <img src="/images/webpage-snaps/grit-size-tool.webp" alt="Metallographic grit size converter tool" class="resource-image" width="822" height="476" decoding="async">
+                            <img src="/images/webpage-snaps/grit-size-tool.webp" alt="Metallographic grit size converter tool" class="resource-image" width="822" height="476" decoding="async" loading="lazy">
                         </div>
                         <h3 class="resource-title">Tools</h3>
                         <p class="resource-description">
                             Interactive calculators and selectors including grit size converters, polishing time calculators, etchant selectors, and mold compatibility checkers to optimize your preparation workflow.
                         </p>
-                        <a href="/tools.html" class="resource-link">
+                        <span class="resource-link">
                             Browse Tools
                             <svg class="chevron-icon-small" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-chevron-right"/></svg>
-                        </a>
-                    </div>
+                        </span>
+                    </a>
 
-                    <div class="resource-card" data-animate="up" data-animate-delay="300">
+                    <a href="/procedures.html" class="resource-card" data-animate="up" data-animate-delay="300">
                         <div class="resource-image-wrapper">
-                            <img src="/images/webpage-snaps/sample-prep-checklist.webp" alt="Metallographic sample preparation checklist" class="resource-image" width="860" height="570" decoding="async">
+                            <img src="/images/webpage-snaps/sample-prep-checklist.webp" alt="Metallographic sample preparation checklist" class="resource-image" width="860" height="570" decoding="async" loading="lazy">
                         </div>
-                        <h3 class="resource-title">Resources</h3>
+                        <h3 class="resource-title">Prep by Class</h3>
                         <p class="resource-description">
-                            Troubleshooting guides, ASTM standard references, hardness scale conversions, polishing cloth guides, and other essential reference materials for metallographic analysis.
+                            Recommended preparation procedures across the 11-class material system &mdash; from soft ductile metals to engineered ceramics &mdash; with grit progression, polishing, and etching parameters for each class.
                         </p>
-                        <a href="/resources.html" class="resource-link">
-                            Browse Resources
+                        <span class="resource-link">
+                            Browse Procedures
                             <svg class="chevron-icon-small" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-chevron-right"/></svg>
-                        </a>
-                    </div>
+                        </span>
+                    </a>
 
                 </div>
             </div>
@@ -2049,21 +1992,21 @@
                     </p>
                 </div>
                 <div class="popular-guides-grid">
-                    <a href="/guides/stainless-steel-preparation.html" class="guide-card" data-animate="up" data-animate-delay="50">
+                    <a href="/basics.html" class="guide-card" data-animate="up" data-animate-delay="50">
                         <div class="guide-image-wrapper">
-                            <img src="/images/microstructures/431ss-b.webp" alt="431 stainless steel microstructure at 400X magnification" class="guide-image" width="525" height="375" decoding="async">
+                            <img src="/images/don-sample.webp" alt="Dr. Donald Zipperian, PACE Technologies founder, holding a polished metallographic sample" class="guide-image" width="350" height="263" decoding="async" loading="lazy">
                         </div>
                         <div class="guide-card-content">
-                            <h3 class="guide-card-title">Stainless Steel Preparation</h3>
+                            <h3 class="guide-card-title">Intro to Metallography</h3>
                             <p class="guide-card-description">
-                                Complete guide to preparing stainless steel samples for metallographic analysis, including sectioning, mounting, and etching techniques.
+                                Start here. An introduction to metallographic sample preparation &mdash; what it is, why labs use it, and how the core steps work together to reveal microstructure.
                             </p>
                         </div>
                     </a>
 
                     <a href="/guides/aluminum-sample-preparation.html" class="guide-card" data-animate="up" data-animate-delay="100">
                         <div class="guide-image-wrapper">
-                            <img src="/images/microstructures/6061-Aluminum.webp" alt="6061 aluminum alloy microstructure" class="guide-image" width="291" height="216" decoding="async">
+                            <img src="/images/microstructures/6061-Aluminum.webp" alt="6061 aluminum alloy microstructure" class="guide-image" width="291" height="216" decoding="async" loading="lazy">
                         </div>
                         <div class="guide-card-content">
                             <h3 class="guide-card-title">Aluminum Sample Preparation</h3>
@@ -2073,21 +2016,21 @@
                         </div>
                     </a>
                     
-                    <a href="/guides/troubleshooting-common-issues.html" class="guide-card" data-animate="up" data-animate-delay="150">
+                    <a href="/guides/stainless-steel-preparation.html" class="guide-card" data-animate="up" data-animate-delay="150">
                         <div class="guide-image-wrapper">
-                            <img src="/images/microstructures/Inclusion-oxide-2.webp" alt="Oxide inclusions in steel microstructure" class="guide-image" width="288" height="216" decoding="async">
+                            <img src="/images/microstructures/300-series-stainless-grain-twins.webp" alt="Austenitic 300-series stainless steel microstructure showing equiaxed grains and annealing twins after Carpenter's etch" class="guide-image" width="525" height="375" decoding="async" loading="lazy">
                         </div>
                         <div class="guide-card-content">
-                            <h3 class="guide-card-title">Troubleshooting Common Issues</h3>
+                            <h3 class="guide-card-title">Stainless Steel Preparation</h3>
                             <p class="guide-card-description">
-                                Solutions to common problems in metallographic sample preparation, from scratches to poor contrast.
+                                Complete guide to preparing stainless steel samples for metallographic analysis, including sectioning, mounting, and etching techniques.
                             </p>
                         </div>
                     </a>
                     
                     <a href="/guides/grinding-techniques.html" class="guide-card" data-animate="up" data-animate-delay="200">
                         <div class="guide-image-wrapper">
-                            <img src="/images/consumables/grinding-lapping/grinding-lapping-cover.webp" alt="Silicon carbide grinding papers" class="guide-image" width="2000" height="2000" decoding="async">
+                            <img src="/images/consumables/grinding-lapping/grinding-lapping-cover.webp" alt="Silicon carbide grinding papers" class="guide-image" width="2000" height="2000" decoding="async" loading="lazy">
                         </div>
                         <div class="guide-card-content">
                             <h3 class="guide-card-title">Grinding Techniques</h3>
@@ -2099,7 +2042,7 @@
                     
                     <a href="/guides/polishing-methods.html" class="guide-card" data-animate="up" data-animate-delay="250">
                         <div class="guide-image-wrapper">
-                            <img src="/images/consumables/rough%20polishing/rough-polishing-cover.webp" alt="Diamond polishing paste and polishing cloths" class="guide-image" width="2000" height="2000" decoding="async">
+                            <img src="/images/consumables/rough%20polishing/rough-polishing-cover.webp" alt="Diamond polishing paste and polishing cloths" class="guide-image" width="2000" height="2000" decoding="async" loading="lazy">
                         </div>
                         <div class="guide-card-content">
                             <h3 class="guide-card-title">Polishing Methods</h3>
@@ -2109,14 +2052,14 @@
                         </div>
                     </a>
                     
-                    <a href="/guides/etching-procedures.html" class="guide-card" data-animate="up" data-animate-delay="300">
+                    <a href="/guides/troubleshooting-common-issues.html" class="guide-card" data-animate="up" data-animate-delay="300">
                         <div class="guide-image-wrapper">
-                            <img src="/images/consumables/final%20polishing%20%26%20analysis/etching/etching.webp" alt="Metallographic etchants and chemical reagents" class="guide-image" width="2000" height="2000" decoding="async">
+                            <img src="/images/microstructures/Inclusion-oxide-2.webp" alt="Oxide inclusions in steel microstructure" class="guide-image" width="288" height="216" decoding="async" loading="lazy">
                         </div>
                         <div class="guide-card-content">
-                            <h3 class="guide-card-title">Etching Procedures</h3>
+                            <h3 class="guide-card-title">Troubleshooting Common Issues</h3>
                             <p class="guide-card-description">
-                                Comprehensive guide to etching techniques, reagent selection, and application methods for various material systems.
+                                Solutions to common problems in metallographic sample preparation, from scratches to poor contrast.
                             </p>
                         </div>
                     </a>
@@ -2130,79 +2073,123 @@
             </div>
         </section>
 
+        <!-- Kick-Start Your Lab Section -->
+        <section class="kickstart-section">
+            <div class="container-custom">
+                <div class="kickstart-header" data-animate="up">
+                    <p class="section-kicker">Kick-Start Your Lab</p>
+                    <h2 class="section-title-large">Build a consistent, repeatable lab</h2>
+                    <p class="section-subtitle">
+                        Two starting points for any new lab. Outline the equipment you'll need, then keep your prep repeatable across operators and shifts with a workflow built for metallography.
+                    </p>
+                </div>
+                <div class="kickstart-grid">
+                    <a href="/build.html" class="kickstart-card" data-animate="up" data-animate-delay="100">
+                        <div class="kickstart-image-wrapper">
+                            <img src="/images/pace/equipment-800.webp" alt="PACE Technologies metallographic equipment for complete sample preparation labs" class="kickstart-image" width="800" height="800" decoding="async" loading="lazy">
+                            <div class="kickstart-badge">
+                                <img src="/images/pace/short-logo-black.png" alt="PACE Technologies" width="500" height="500" decoding="async" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="kickstart-card-content">
+                            <h3 class="kickstart-card-title">Build Your Lab</h3>
+                            <p class="kickstart-card-description">
+                                Walk through equipment selection guided by the materials you prepare and the volume you run. It's a starting point for planning, not a final spec, and gives you an initial shortlist to open the conversation with our team.
+                            </p>
+                            <span class="kickstart-card-link">
+                                Start Building
+                                <svg class="arrow-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-arrow-right"/></svg>
+                            </span>
+                        </div>
+                    </a>
+
+                    <a href="/materials-prep/" class="kickstart-card" data-animate="up" data-animate-delay="200">
+                        <div class="kickstart-image-wrapper">
+                            <img src="/images/materials-prep/homepage-materialsprep.png" alt="Materials Prep electronic lab notebook interface showing sample tracking" class="kickstart-image" width="1129" height="750" decoding="async" loading="lazy">
+                            <div class="kickstart-badge">
+                                <img src="/images/logos/materialsprep-logo-black.png" alt="Materials Prep" width="512" height="512" decoding="async" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="kickstart-card-content">
+                            <h3 class="kickstart-card-title">Materials Prep ELN</h3>
+                            <p class="kickstart-card-description">
+                                An electronic lab notebook built for metallography. Log samples, recipes, and micrographs in one place so prep stays repeatable across operators and shifts. Vendor-neutral by design, so it works regardless of which consumables you buy.
+                            </p>
+                            <span class="kickstart-card-link">
+                                Learn More
+                                <svg class="arrow-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-arrow-right"/></svg>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- FAQ Section -->
         <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
             <div class="container-custom">
-                <div class="faq-wrapper">
-                    <div class="faq-header" data-animate="up">
-                        <p class="section-kicker">FAQ</p>
-                        <h2 class="section-title-large">Frequently Asked Questions About Metallographic Equipment and Sample Preparation</h2>
-                        <p class="section-subtitle">
-                            Common questions about metallography equipment, consumables, and sample preparation techniques
-                        </p>
-                    </div>
-                    <div class="faq-accordion" data-animate="up" data-animate-delay="100">
-                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <summary class="faq-question" itemprop="name">What is metallographic sample preparation?</summary>
-                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                <p itemprop="text">Metallographic sample preparation is the process of preparing material samples for microstructural analysis. It involves sectioning (cutting), mounting (embedding in resin), grinding (removing material with abrasives), polishing (achieving a smooth surface), and etching (revealing microstructural features) to enable examination under a metallurgical microscope. This process is essential for quality control, failure analysis, and materials research in industries including aerospace, automotive, biomedical, and materials testing.</p>
-                            </div>
-                        </details>
-                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <summary class="faq-question" itemprop="name">What metallographic equipment do I need for a complete lab?</summary>
-                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                <p itemprop="text">A complete metallography lab requires sectioning equipment (precision cutters or abrasive saws), mounting equipment (compression or castable mounting presses), grinding and polishing equipment (grinder-polishers or separate grinders and polishers), etching supplies, and analysis equipment (metallurgical microscopes and optionally hardness testers). The specific equipment depends on your sample volume, material types, and analysis requirements. Our "Build Your Lab" tool can help guide you through the selection process based on your specific needs.</p>
-                            </div>
-                        </details>
-                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <summary class="faq-question" itemprop="name">How do I choose the right metallographic equipment for my lab?</summary>
-                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                <p itemprop="text">Selecting the right metallographic equipment depends on several factors: your sample volume and throughput requirements, material types you'll be preparing (steels, aluminum, titanium, ceramics, composites), available budget, and space constraints. Consider whether you need manual or automated systems, the level of precision required, and your long-term growth plans. Our "Build Your Lab" tool can help guide you through the selection process based on your specific needs. For personalized recommendations, contact our technical support team at +1-520-882-6598.</p>
-                            </div>
-                        </details>
-                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <summary class="faq-question" itemprop="name">What's the difference between manual and automated polishing systems?</summary>
-                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                <p itemprop="text">Manual polishing systems require operator control of pressure, speed, and time for each step. They offer flexibility and are cost-effective for low to medium volume labs. Automated systems provide programmable cycles with consistent parameters, reducing operator time and ensuring repeatable results, ideal for high-volume production environments and standardized procedures. Automated systems also reduce operator fatigue and can improve consistency across multiple samples.</p>
-                            </div>
-                        </details>
-                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <summary class="faq-question" itemprop="name">What consumables are needed for metallographic sample preparation?</summary>
-                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                <p itemprop="text">Essential metallographic consumables include cutting blades and fluids for sectioning, mounting resins and molds for mounting, grinding papers and SiC powders for grinding, diamond compounds and polishing pads for polishing, polishing cloths, etchants and cleaning solutions, and mounting accessories. The specific consumables depend on your material types and preparation requirements. Our material-specific preparation guides provide detailed recommendations.</p>
-                            </div>
-                        </details>
-                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <summary class="faq-question" itemprop="name">Do I need different consumables for different materials?</summary>
-                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                <p itemprop="text">Yes, material-specific consumables are important for optimal results. Hard materials like tool steels and ceramics may require diamond abrasives and specific polishing compounds, while softer materials like aluminum work well with silicon carbide papers and gentler polishing procedures. Our material-specific preparation guides provide detailed recommendations for consumable selection based on your material type, including grit progressions, polishing times, and etchant selection.</p>
-                            </div>
-                        </details>
-                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <summary class="faq-question" itemprop="name">How often should I replace polishing cloths and abrasives?</summary>
-                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                <p itemprop="text">Polishing cloths should be replaced when they show visible wear, contamination, or when polishing quality degrades. Diamond compounds typically last for multiple samples, but should be refreshed when cutting efficiency decreases. Silicon carbide grinding papers are single-use and should be replaced after each sample or when the abrasive is worn. Regular replacement ensures consistent preparation quality and prevents contamination between samples.</p>
-                            </div>
-                        </details>
-                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <summary class="faq-question" itemprop="name">What is the best hardness tester for metallography?</summary>
-                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                <p itemprop="text">The best hardness tester depends on your application. Rockwell testers are ideal for general hardness testing on larger samples. Microhardness testers (Vickers or Knoop) are essential for testing small features, heat-affected zones, and individual phases in microstructures. For metallographic applications requiring precise measurements on specific microstructural features, a microhardness tester is typically recommended. Our hardness testing equipment page provides detailed specifications and application guidance.</p>
-                            </div>
-                        </details>
-                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <summary class="faq-question" itemprop="name">Can I use your preparation guides with other equipment brands?</summary>
-                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                <p itemprop="text">Yes, our preparation guides focus on techniques and procedures that are applicable regardless of equipment brand. The principles of metallographic sample preparation, including grit progression, pressure application, polishing times, and etching procedures, are universal. However, specific equipment settings may need adjustment based on your system's capabilities. Our guides provide general principles that can be adapted to any quality metallographic equipment.</p>
-                            </div>
-                        </details>
-                        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <summary class="faq-question" itemprop="name">Where can I buy metallographic equipment and consumables?</summary>
-                            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                <p itemprop="text">PACE Technologies offers complete metallographic equipment and consumables through our website, online shop, and international distribution network. You can browse our equipment catalog, request quotes for custom lab configurations, or purchase consumables directly from our online shop at shop.metallographic.com. We serve customers worldwide and offer technical support, installation services, and training programs. Contact us at +1-520-882-6598 or visit our contact page for assistance.</p>
-                            </div>
-                        </details>
-                    </div>
+                <h2 class="faq-heading">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">What is metallographic sample preparation?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Metallographic sample preparation is the process of preparing material samples for microstructural analysis. It involves sectioning (cutting), mounting (embedding in resin), grinding (removing material with abrasives), polishing (achieving a smooth surface), and etching (revealing microstructural features) to enable examination under a metallurgical microscope. This process is essential for quality control, failure analysis, and materials research in industries including aerospace, automotive, biomedical, and materials testing.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">What metallographic equipment do I need for a complete lab?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">A complete metallography lab requires sectioning equipment (precision cutters or abrasive saws), mounting equipment (compression or castable mounting presses), grinding and polishing equipment (grinder-polishers or separate grinders and polishers), etching supplies, and analysis equipment (metallurgical microscopes and optionally hardness testers). The specific equipment depends on your sample volume, material types, and analysis requirements. Our "Build Your Lab" tool can help guide you through the selection process based on your specific needs.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">How do I choose the right metallographic equipment for my lab?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Selecting the right metallographic equipment depends on several factors: your sample volume and throughput requirements, material types you'll be preparing (steels, aluminum, titanium, ceramics, composites), available budget, and space constraints. Consider whether you need manual or automated systems, the level of precision required, and your long-term growth plans. Our "Build Your Lab" tool can help guide you through the selection process based on your specific needs. For personalized recommendations, contact our technical support team at +1-520-882-6598.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">What's the difference between manual and automated polishing systems?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Manual polishing systems require operator control of pressure, speed, and time for each step. They offer flexibility and are cost-effective for low to medium volume labs. Automated systems provide programmable cycles with consistent parameters, reducing operator time and ensuring repeatable results, ideal for high-volume production environments and standardized procedures. Automated systems also reduce operator fatigue and can improve consistency across multiple samples.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">What consumables are needed for metallographic sample preparation?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Essential metallographic consumables include cutting blades and fluids for sectioning, mounting resins and molds for mounting, grinding papers and SiC powders for grinding, diamond compounds and polishing pads for polishing, polishing cloths, etchants and cleaning solutions, and mounting accessories. The specific consumables depend on your material types and preparation requirements. Our material-specific preparation guides provide detailed recommendations.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">Do I need different consumables for different materials?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Yes, material-specific consumables are important for optimal results. Hard materials like tool steels and ceramics may require diamond abrasives and specific polishing compounds, while softer materials like aluminum work well with silicon carbide papers and gentler polishing procedures. Our material-specific preparation guides provide detailed recommendations for consumable selection based on your material type, including grit progressions, polishing times, and etchant selection.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">How often should I replace polishing cloths and abrasives?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Polishing cloths should be replaced when they show visible wear, contamination, or when polishing quality degrades. Diamond compounds typically last for multiple samples, but should be refreshed when cutting efficiency decreases. Silicon carbide grinding papers are single-use and should be replaced after each sample or when the abrasive is worn. Regular replacement ensures consistent preparation quality and prevents contamination between samples.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">What is the best hardness tester for metallography?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">The best hardness tester depends on your application. Rockwell testers are ideal for general hardness testing on larger samples. Microhardness testers (Vickers or Knoop) are essential for testing small features, heat-affected zones, and individual phases in microstructures. For metallographic applications requiring precise measurements on specific microstructural features, a microhardness tester is typically recommended. Our hardness testing equipment page provides detailed specifications and application guidance.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">Can I use your preparation guides with other equipment brands?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Yes, our preparation guides focus on techniques and procedures that are applicable regardless of equipment brand. The principles of metallographic sample preparation, including grit progression, pressure application, polishing times, and etching procedures, are universal. However, specific equipment settings may need adjustment based on your system's capabilities. Our guides provide general principles that can be adapted to any quality metallographic equipment.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <summary itemprop="name">Where can I buy metallographic equipment and consumables?</summary>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">PACE Technologies offers complete metallographic equipment and consumables through our website, online shop, and international distribution network. You can browse our equipment catalog, request quotes for custom lab configurations, or purchase consumables directly from our online shop at shop.metallographic.com. We serve customers worldwide and offer technical support, installation services, and training programs. Contact us at +1-520-882-6598 or visit our contact page for assistance.</p>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
@@ -2213,7 +2200,7 @@
                 <div class="cta-card" data-animate="up">
                     <!-- Background Image -->
                     <div class="cta-background">
-                        <img src="/images/microstructures/1018FC.webp" alt="Metallographic sample background" class="cta-bg-image" width="600" height="418" decoding="async">
+                        <img src="/images/microstructures/1018FC.webp" alt="Metallographic sample background" class="cta-bg-image" width="600" height="418" decoding="async" loading="lazy">
                         <div class="cta-gradient-overlay"></div>
                     </div>
                     
@@ -2236,6 +2223,7 @@
             </div>
         </section>
     </main>
+
 
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
@@ -2293,7 +2281,7 @@
           <!-- Company/Brand Section -->
           <div class="footer-brand">
             <div class="footer-brand-header">
-              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
+              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async" loading="lazy">
             </div>
             <p class="footer-brand-description">
               Leading provider of metallographic sample preparation equipment, consumables, and expertise.
@@ -2332,31 +2320,65 @@
                 www.metallographic.com
               </a>
             </div>
+            <div class="footer-cta-row">
+              <a href="https://shop.metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-cta-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="9" cy="21" r="1"/>
+                  <circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span>Shop Online</span>
+              </a>
+              <a href="/build.html" class="footer-cta-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+                <span>Lab Builder</span>
+              </a>
+            </div>
           </div>
-          
+
+          <!-- Equipment Section -->
+          <div class="footer-column">
+            <h3 class="footer-column-title">Equipment</h3>
+            <ul class="footer-column-list">
+              <li><a href="/metallographic-equipment/abrasive-sectioning.html" class="footer-link">Abrasive Sectioning</a></li>
+              <li><a href="/metallographic-equipment/precision-wafering.html" class="footer-link">Precision Wafering</a></li>
+              <li><a href="/metallographic-equipment/compression-mounting.html" class="footer-link">Compression Mounting</a></li>
+              <li><a href="/metallographic-equipment/castable-mounting.html" class="footer-link">Castable Mounting</a></li>
+              <li><a href="/metallographic-equipment/grinding-polishing.html" class="footer-link">Grinding &amp; Polishing</a></li>
+              <li><a href="/metallographic-equipment/hardness-testing.html" class="footer-link">Hardness Testing</a></li>
+              <li><a href="/metallographic-equipment/microscopy.html" class="footer-link">Microscopy</a></li>
+              <li><a href="/equipment.html" class="footer-link">All Equipment &rsaquo;</a></li>
+            </ul>
+          </div>
+
+          <!-- Consumables Section -->
+          <div class="footer-column">
+            <h3 class="footer-column-title">Consumables</h3>
+            <ul class="footer-column-list">
+              <li><a href="/metallographic-consumables/sectioning.html" class="footer-link">Sectioning Blades</a></li>
+              <li><a href="/metallographic-consumables/mounting.html" class="footer-link">Mounting Compounds</a></li>
+              <li><a href="/metallographic-consumables/grinding.html" class="footer-link">Grinding Papers</a></li>
+              <li><a href="/metallographic-consumables/grinding/lapping-films.html" class="footer-link">Lapping Films</a></li>
+              <li><a href="/metallographic-consumables/polishing/polishing-pads.html" class="footer-link">Polishing Pads</a></li>
+              <li><a href="/metallographic-consumables/polishing.html" class="footer-link">Polishing Compounds</a></li>
+              <li><a href="/metallographic-consumables/etching.html" class="footer-link">Etchants</a></li>
+              <li><a href="/consumables.html" class="footer-link">All Consumables &rsaquo;</a></li>
+            </ul>
+          </div>
+
           <!-- Company Section -->
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
             <ul class="footer-column-list">
-              <li><a href="/company.html" class="footer-link">About PACE</a></li>
+              <li><a href="/about.html" class="footer-link">About PACE</a></li>
               <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
               <li><a href="/distribution.html" class="footer-link">International Distribution</a></li>
-              <li><a href="/quote.html" class="footer-link">Request Quote</a></li>
-            </ul>
-          </div>
-          
-          <!-- Products Section -->
-          <div class="footer-column">
-            <h3 class="footer-column-title">Products</h3>
-            <ul class="footer-column-list">
-              <li><a href="/equipment.html" class="footer-link">Equipment</a></li>
-              <li><a href="/consumables.html" class="footer-link">Consumables</a></li>
               <li><a href="/services.html" class="footer-link">Services</a></li>
-              <li><a href="https://shop.metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-link">Online Shop</a></li>
-              <li><a href="/catalog.html" class="footer-link">Product Catalog</a></li>
-              <li><a href="/build.html" class="footer-link">Lab Builder</a></li>
+              <li><a href="/quote.html" class="footer-link">Request Quote</a></li>
             </ul>
           </div>
 
@@ -2366,54 +2388,43 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-              <li><a href="/databases.html" class="footer-link">Databases</a></li>
               <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
-              <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
+              <li><a href="/catalog.html" class="footer-link">Product Catalog</a></li>
+              <li><a href="/support/brochures.html" class="footer-link">Brochures &amp; Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
-            </ul>
-          </div>
-
-          <!-- Legal Section -->
-          <div class="footer-column">
-            <h3 class="footer-column-title">Legal</h3>
-            <ul class="footer-column-list">
-              <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
-              <li><a href="/terms.html" class="footer-link">Terms & Conditions</a></li>
-              <li><a href="/support/site-map.html" class="footer-link">Sitemap</a></li>
             </ul>
           </div>
         </div>
         
         <!-- Social Links -->
         <div class="footer-social-section">
-          <h3 class="footer-column-title">Connect with Us</h3>
           <ul class="footer-social">
             <li>
-              <a href="https://www.facebook.com/pacetechnologies/" aria-label="Facebook" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24" fill="#1877F2">
-                  <path d="M279.14 288l14.22-92.66h-88.91V117.68c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72V195.3H22.89V288h81.39v224h100.2V288z"/>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/pace_technologies/" aria-label="Instagram" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="#E1306C">
-                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9-51.3-114.9-114.9-114.9zm0 190.8c-41.9 0-75.9-34-75.9-75.9s34-75.9 75.9-75.9 75.9 34 75.9 75.9-34 75.9-75.9 75.9zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.7-9.9-67.3-36.3-92.7C385.3 23.9 353.7 15.7 318 14 278.7 12.1 169.3 12 130 14 94.3 15.7 62.7 23.9 37.3 49.3 11.9 74.7 3.7 106.3 2 142c-2 39.3-2 148.7 0 188 1.7 35.7 9.9 67.3 36.3 92.7 25.4 25.4 57 33.6 92.7 35.3 39.3 2 148.7 2 188 0 35.7-1.7 67.3-9.9 92.7-35.3 25.4-25.4 33.6-57 35.3-92.7 2-39.3 2-148.7 0-188zM398.8 388c-7.8 19.7-23 35-42.7 42.7-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.7-7.8-35-23-42.7-42.7-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.7 23-35 42.7-42.7 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.7 7.8 35 23 42.7 42.7 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/company/metallographic/" aria-label="LinkedIn" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#0077B5">
+              <a href="https://www.linkedin.com/company/metallographic/" aria-label="LinkedIn" class="footer-social-link footer-social-link--linkedin">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
                   <path d="M22.23 0H1.77C.792 0 0 .775 0 1.731v20.538C0 23.225.792 24 1.77 24h20.46c.979 0 1.77-.775 1.77-1.731V1.731C24 .775 23.209 0 22.23 0zM7.07 20.452H3.537V9h3.532v11.452zm-1.766-13c-1.132 0-1.892-.771-1.892-1.738 0-.979.779-1.737 1.932-1.737 1.155 0 1.892.758 1.906 1.737 0 .967-.751 1.738-1.93 1.738h-.016zm13.386 13H16.09V14.1c0-1.529-.55-2.575-1.927-2.575-1.051 0-1.675.703-1.95 1.382-.101.246-.126.588-.126.93v6.615h-3.533s.046-10.745 0-11.852h3.533v1.676c.47-.727 1.309-1.762 3.182-1.762 2.326 0 4.067 1.496 4.067 4.709v7.229h-.001z"></path>
                 </svg>
               </a>
             </li>
             <li>
-              <a href="https://www.youtube.com/@pacetechnologies" aria-label="YouTube" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#FF0000">
+              <a href="https://www.youtube.com/@pacetechnologies" aria-label="YouTube" class="footer-social-link footer-social-link--youtube">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
                   <path d="M23.498 6.186c-.29-1.1-1.152-1.96-2.248-2.252C19.39 3.45 12 3.45 12 3.45s-7.39 0-9.25.485c-1.096.292-1.957 1.153-2.248 2.252C0 8.048 0 12 0 12s0 3.953.502 5.814c.29 1.1 1.152 1.96 2.248 2.252C4.61 20.55 12 20.55 12 20.55s7.39 0 9.25-.485c1.096-.292 1.957-1.153 2.248-2.252C24 15.952 24 12 24 12s0-3.953-.502-5.814zM9.546 15.568V8.431l6.364 3.569-6.364 3.568z"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/pacetechnologies/" aria-label="Facebook" class="footer-social-link footer-social-link--facebook">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <path d="M279.14 288l14.22-92.66h-88.91V117.68c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72V195.3H22.89V288h81.39v224h100.2V288z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/pace_technologies/" aria-label="Instagram" class="footer-social-link footer-social-link--instagram">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9-51.3-114.9-114.9-114.9zm0 190.8c-41.9 0-75.9-34-75.9-75.9s34-75.9 75.9-75.9 75.9 34 75.9 75.9-34 75.9-75.9 75.9zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.7-9.9-67.3-36.3-92.7C385.3 23.9 353.7 15.7 318 14 278.7 12.1 169.3 12 130 14 94.3 15.7 62.7 23.9 37.3 49.3 11.9 74.7 3.7 106.3 2 142c-2 39.3-2 148.7 0 188 1.7 35.7 9.9 67.3 36.3 92.7 25.4 25.4 57 33.6 92.7 35.3 39.3 2 148.7 2 188 0 35.7-1.7 67.3-9.9 92.7-35.3 25.4-25.4 33.6-57 35.3-92.7 2-39.3 2-148.7 0-188zM398.8 388c-7.8 19.7-23 35-42.7 42.7-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.7-7.8-35-23-42.7-42.7-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.7 23-35 42.7-42.7 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.7 7.8 35 23 42.7 42.7 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
                 </svg>
               </a>
             </li>

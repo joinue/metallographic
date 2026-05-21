@@ -1,7 +1,7 @@
 /* ================================
 
    Introduction Section
-   
+
    ================================ */
 
    .introduction {
@@ -2920,7 +2920,7 @@ a[id] {
     min-height: 200px;
     border-radius: var(--border-radius-lg);
     overflow: hidden;
-    background: var(--color-background-light);
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3206,6 +3206,7 @@ a[id] {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-width: 0;
 }
 
 .series-overview-content h3 {
@@ -3277,6 +3278,24 @@ a[id] {
 
     .series-overview-content {
         padding: var(--spacing-lg);
+    }
+}
+
+.table-scroll {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1.5rem;
+}
+
+.table-scroll .series-comparison-table {
+    margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+    .table-scroll .series-comparison-table {
+        white-space: nowrap;
     }
 }
 

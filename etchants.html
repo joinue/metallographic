@@ -1,26 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Meta Tags -->
+    <!-- Essential Meta -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex,nofollow">
-    <meta name="google-site-verification" content="LzR4wVONWG6uIX3m2QcGuvf3rBxuHBCijv-Pl1tccFs">
-    <meta name="description" content="Comprehensive database of metallographic etchants with composition, application methods, safety data, and product links. Search by name, composition, or material compatibility.">
-    <meta name="keywords" content="etchants database, metallographic etchants, etching reagents, nital, picral, kroll's reagent, keller's reagent, etchant composition, etchant safety">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etchants for Metallography | PACE Technologies</title>
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.metallographic.com/etchants.html">
 
-    <!-- Page Title -->
-    <title>Etchants Database | PACE Technologies</title>
+    <!-- SEO Meta -->
+    <meta name="keywords" content="PACE Technologies, metallographic etchants, etchant guide, metallographic reagents, microstructure revealing, chemical etching, metallography chemicals, sample preparation, metallurgical testing">
+    <meta name="description" content="Explore PACE Technologies' comprehensive etchant information for metallographic sample preparation. Learn about common reagents, chemical compositions, and usage guidelines for revealing microstructures.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Etchants for Metallography | PACE Technologies">
+    <meta property="og:description" content="Find detailed information on etchants used in metallography including formulas, applications, and preparation tips.">
+    <meta property="og:url" content="https://www.metallographic.com/etchants.html">
+    <meta property="og:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Etchants for Metallography | PACE Technologies">
+    <meta name="twitter:description" content="Learn how to use metallographic etchants effectively for microstructure analysis.">
+    <meta name="twitter:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
+
+    <!-- Verification Tags -->
+    <meta name="google-site-verification" content="LzR4wVONWG6uIX3m2QcGuvf3rBxuHBCijv-Pl1tccFs">
+    <meta name="norton-safeweb-site-verification" content="kw254olmyzhm98ttscnebx59npy7ji28spxv77ktnnqwpg2entz0hsfozhba0gzvjvrfj6z0-c00djzn-iq1hw-z1vdcna8ug093xtjit61oop1s26erotk-0ruemld5">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/base/styles.css">
     <link rel="stylesheet" href="/css/components/navigation.css">
     <link rel="stylesheet" href="/css/components/footer.css">
-    <link rel="stylesheet" href="/css/pages/materials.css">
+    <link rel="stylesheet" href="/css/layouts/homepage-styles.css">
+    <link rel="stylesheet" href="/css/pages/about.css">
+    <link rel="stylesheet" href="/css/pages/etchant-information.css">
+    <link rel="stylesheet" href="/css/utilities/animations.css" media="print" onload="this.media='all'; this.onload=null;">
+    <!-- Critical inline style to prevent animation FOUC -->
+    <style>
+        /* Hide animated elements immediately to prevent flash */
+        [data-animate] {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(0) translateX(0);
+        }
+        [data-animate="up"] {
+            transform: translateY(60px);
+        }
+        [data-animate="down"] {
+            transform: translateY(-60px);
+        }
+        [data-animate="left"] {
+            transform: translateX(60px);
+        }
+        [data-animate="right"] {
+            transform: translateX(-60px);
+        }
+        [data-animate="fade"] {
+            transform: translateY(0) translateX(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            [data-animate] {
+                transform: translateY(0) translateX(0) !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+        }
+    </style>
+    <noscript>
+        <link rel="stylesheet" href="/css/utilities/animations.css">
+        <style>body{visibility:visible !important;opacity:1 !important;}[data-animate]{opacity:1 !important;visibility:visible !important;}</style>
+    </noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/5hb7x1l5b6ASoD7Y6Mgg7k+RCUty7k3y9iO6F0"
+          crossorigin="anonymous">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/pt-favicon/apple-touch-icon.png">
@@ -28,72 +82,49 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/pt-favicon/favicon-16x16.png">
     <link rel="manifest" href="/images/pt-favicon/site.webmanifest">
     <link rel="mask-icon" href="/images/pt-favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-    <!-- Preload logo for faster LCP -->
-    <link rel="preload" as="image" href="/images/logo-microstructure-transparent.webp">
-
-    <!-- External Resources -->
+    <!-- Preconnects -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://www.google-analytics.com">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQ62KENYY5"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-VQ62KENYY5');
-        gtag('config', 'AW-1066794256');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VQ62KENYY5');
+      gtag('config', 'AW-1066794256');
     </script>
 
-    <!-- Open Graph Tags for Social Sharing -->
-    <meta property="og:title" content="Etchants Database | PACE Technologies">
-    <meta property="og:description" content="Comprehensive database of metallographic etchants with composition, application methods, safety data, and product links.">
-    <meta property="og:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
-    <meta property="og:url" content="https://www.metallographic.com/etchants.html">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Etchants Database">
-    <meta name="twitter:description" content="Comprehensive database of metallographic etchants with composition, application methods, safety data, and product links.">
-    <meta name="twitter:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
-
-    <!-- Schema Markup: CollectionPage -->
+    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Etchants Database",
-      "description": "Comprehensive database of metallographic etchants with composition, application methods, and safety information",
-      "url": "https://www.metallographic.com/etchants.html"
-    }
-    </script>
-
-    <!-- Schema Markup: BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.metallographic.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Etchants Database",
-          "item": "https://www.metallographic.com/etchants.html"
-        }
-      ]
+      "@type": "Organization",
+      "name": "PACE Technologies",
+      "url": "https://www.metallographic.com",
+      "logo": "https://www.metallographic.com/images/logo-microstructure-transparent.webp",
+      "sameAs": [
+        "https://www.facebook.com/PaceTechnologies",
+        "https://www.linkedin.com/company/metallographic"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-520-882-6598",
+        "contactType": "Customer Service"
+      }
     }
     </script>
 </head>
 
 <body>
+
+<!-- Skip to Main Content Link -->
+<a href="#main-content" class="skip-to-main">Skip to main content</a>
+
 <!-- SVG Icon Sprites -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <symbol id="icon-chevron-right" viewBox="0 0 24 24"><title>Navigate</title><path d="M9 18l6-6-6-6"/></symbol>
@@ -448,7 +479,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                        <a href="/procedures.html"><span>Prep by Class</span>
                             <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                 <path d="M9 18l6-6-6-6" />
                             </svg></a>
@@ -753,8 +784,8 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/support/procedures.html">
-                            <span>Prep Procedures</span>
+                        <a href="/procedures.html">
+                            <span>Prep by Class</span>
                         </a>
                     </li>
                     <li>
@@ -831,38 +862,737 @@
     </div>
 </div>
 
-    <!-- Main Content -->
-    <!-- HIDDEN-BY-RECONSTRUCTION-BANNER 2026-05-13 -->
-    <main id="main-content" class="page-under-reconstruction" role="main">
-        <div class="container-custom" style="padding: 9rem 1rem 4rem; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
-            <div role="alert" aria-live="polite" style="max-width: 720px; width: 100%; background: #fffbeb; border: 2px solid #f59e0b; border-radius: 8px; padding: 2.5rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin: 0 auto 1rem; display: block;">
-                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                    <line x1="12" y1="9" x2="12" y2="13"></line>
-                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                </svg>
-                <h1 style="margin: 0 0 0.75rem; color: #92400e; font-size: 1.75rem; font-weight: 700;">This database is under reconstruction</h1>
-                <p style="color: #78350f; line-height: 1.6; margin: 0 0 1rem; font-size: 1rem;">
-                    We are revising our materials, etchants, and standards databases to verify every property and procedure against primary sources. The existing content has been taken offline while this work is completed.
-                </p>
-                <p style="color: #78350f; line-height: 1.6; margin: 0 0 2rem; font-size: 1rem;">
-                    For current technical information, please contact PACE Technologies directly &mdash; we are happy to help.
-                </p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="/contact.html" class="btn-primary" style="padding: 0.75rem 1.5rem; background: #1e40af; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        Contact Us
-                    </a>
-                    <a href="/support.html" class="btn-tertiary" style="padding: 0.75rem 1.5rem; background: white; color: #92400e; text-decoration: none; border: 2px solid #f59e0b; border-radius: 6px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                        Browse Support
-                    </a>
-                </div>
-            </div>
+
+
+<!-- Hero -->
+<section class="about-welcome etchant-hero">
+  <!-- Background Image with ken-burns motion -->
+  <div class="welcome-background" aria-hidden="true">
+    <div class="welcome-background-image">
+      <div class="welcome-bg-ken-burns">
+        <img
+          src="/images/microstructures/ferrite-pearlite-steel.jpg"
+          alt=""
+          class="welcome-bg-img"
+          width="1600"
+          height="1067"
+          fetchpriority="high"
+          decoding="async"
+          onload="this.classList.add('is-loaded')">
+      </div>
+      <div class="welcome-fade-overlay"></div>
+      <div class="welcome-vignette"></div>
+    </div>
+  </div>
+
+  <div class="container-custom welcome-content-wrapper">
+    <div class="welcome-content">
+      <div class="welcome-text" data-animate="right">
+        <div class="welcome-header">
+          <p class="etchant-hero-eyebrow">Reagents &amp; reference</p>
+          <h1 class="welcome-title">Etchants for Metallography</h1>
         </div>
+        <div class="welcome-description">
+          <p class="section-text etchant-hero-lede">
+            Reveal microstructure with the right reagent. Guides by material, application methods, and safety practice in one place.
+          </p>
+          <div class="etchant-hero-cta">
+            <a href="/etchant-selector.html" class="btn-cta-primary">
+              Find your etchant
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#common-etchants" class="btn-cta-secondary">Browse by material</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Etchants hub — page-scoped styles */
+
+  /* Hero — full-bleed micrograph, dramatic overlay, single CTA pair */
+  .etchant-hero { min-height: 0; padding-top: 7rem; padding-bottom: 3.5rem; }
+  @media (min-width: 640px) {
+    .etchant-hero { min-height: 420px; padding-top: 9rem; padding-bottom: 4rem; }
+  }
+  @media (min-width: 1024px) {
+    .etchant-hero { min-height: 500px; padding-top: 10rem; padding-bottom: 4.5rem; }
+  }
+  .etchant-hero .welcome-content { align-items: start; }
+
+  /* Boost the micrograph so slate-blue and gold tones come through */
+  .etchant-hero .welcome-bg-img {
+    filter: saturate(1.35) contrast(1.12) brightness(1.02);
+  }
+
+  /* OVERRIDE base about.css: that file's overlay is only 18rem tall at the bottom
+     and the vignette adds white side-fades for a light theme. Both wrong here.
+     We expand the overlay to full hero and kill the white vignette. */
+  .etchant-hero .welcome-fade-overlay {
+    top: 0; bottom: 0; left: 0; right: 0; height: auto;
+    background: linear-gradient(95deg,
+      rgba(8,12,20,0.60) 0%,
+      rgba(8,12,20,0.50) 50%,
+      rgba(8,12,20,0.40) 100%);
+  }
+  .etchant-hero .welcome-vignette {
+    background: none;
+    box-shadow: inset 0 -100px 120px -40px rgba(0,0,0,0.4);
+  }
+
+  .etchant-hero .welcome-title {
+    color: #fff;
+    font-size: clamp(2.25rem, 4.4vw, 3.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+  .etchant-hero .welcome-description .section-text,
+  .etchant-hero .etchant-hero-lede {
+    color: rgba(255,255,255,0.94);
+    font-size: clamp(1rem, 1.15vw, 1.125rem);
+    max-width: 560px;
+  }
+
+  /* Constrain hero text column so copy doesn't run across the full image */
+  .etchant-hero .welcome-text { max-width: 620px; }
+
+  /* Eyebrow above H1 — brighter, with subtle accent rule */
+  .etchant-hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.65rem;
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #ffd479; margin: 0 0 1rem; font-weight: 700;
+  }
+  .etchant-hero-eyebrow::before {
+    content: ""; display: inline-block; width: 1.75rem; height: 2px;
+    background: #ffd479; border-radius: 2px;
+  }
+
+  /* Hero CTA row */
+  .etchant-hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+
+  /* Anchor scroll offset — clear the fixed nav so headings aren't hidden */
+  .etchant-information section[id],
+  .etchant-information div[id],
+  .etchant-information h2[id] { scroll-margin-top: 7.5rem; }
+
+  /* Section heads */
+  .ei2-section-head { text-align: center; margin: 4.5rem auto 2.25rem; max-width: 760px; }
+  .ei2-section-head h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); margin: 0 0 0.75rem; color: #1a1a1a; }
+  .ei2-section-head p { color: #666; line-height: 1.6; margin: 0; }
+
+  /* Mini cards (techniques, application methods, safety) — tightened to fit 4 across at 1024px+ */
+  .ei2-mini-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; max-width: 1180px; margin: 0 auto; padding: 0 1rem; }
+  .ei2-mini-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 1.35rem; }
+  .ei2-mini-card h3 { margin: 0 0 0.55rem; font-size: 1rem; color: #1a1a1a; }
+  .ei2-mini-card p { margin: 0; color: #555; line-height: 1.55; font-size: 0.88rem; }
+
+  /* Group subhead (for technique groupings) */
+  .ei2-subhead { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; text-align: center; margin: 2.5rem 0 1rem; font-weight: 600; }
+
+  /* Fundamentals — connected card strips. Label rail left, cards right. */
+  .ei2-fundamentals { max-width: 1180px; margin: 0 auto; padding: 0 1rem; }
+  .ei2-fund-row {
+    display: grid; grid-template-columns: 1fr;
+    gap: 1.25rem; padding: 2.5rem 0; border-top: 1px solid #ececec;
+  }
+  .ei2-fund-row:first-child { border-top: 0; padding-top: 0.5rem; }
+  .ei2-fund-label h3 {
+    margin: 0 0 0.5rem; font-size: 1.35rem; color: #1a1a1a; line-height: 1.25;
+  }
+  .ei2-fund-label p { margin: 0; color: #666; line-height: 1.6; font-size: 0.95rem; }
+  .ei2-fund-cards {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;
+  }
+  .ei2-fund-cards.is-six { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+  .ei2-fund-card {
+    background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 1.15rem 1.2rem;
+  }
+  .ei2-fund-card h4 { margin: 0 0 0.4rem; font-size: 0.95rem; color: #1a1a1a; }
+  .ei2-fund-card p { margin: 0; color: #555; line-height: 1.55; font-size: 0.85rem; }
+  .ei2-fund-tag {
+    display: inline-block; font-size: 0.66rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: #999; margin: 0 0 0.5rem;
+  }
+  .ei2-fund-card.is-primary { border-color: #d9dadc; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+  @media (min-width: 900px) {
+    .ei2-fund-row { grid-template-columns: 240px 1fr; gap: 2.5rem; }
+    .ei2-fund-label { padding-top: 0.25rem; }
+  }
+
+  /* Common etchant families */
+  .ei2-family-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+  .ei2-family-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 1.1rem 1.25rem; }
+  .ei2-family-card h3 { margin: 0 0 0.45rem; font-size: 0.95rem; color: #1a1a1a; }
+  .ei2-family-card p { margin: 0 0 0.65rem; font-size: 0.78rem; color: #888; line-height: 1.4; }
+  .ei2-family-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .ei2-family-tags a {
+    display: inline-block; font-size: 0.78rem; color: #36666e; background: #eff6ff;
+    text-decoration: none; padding: 0.3rem 0.65rem; border-radius: 0.35rem;
+    border: 1px solid transparent; transition: all 0.2s;
+  }
+  .ei2-family-tags a:hover { background: #dbeafe; color: #2d5259; }
+  .ei2-family-tags span {
+    display: inline-block; font-size: 0.78rem; color: #888; background: #f5f5f5;
+    padding: 0.3rem 0.65rem; border-radius: 0.35rem;
+  }
+
+  /* Class grid (preserved from prior design) */
+  .ei2-class-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.25rem; }
+  .ei2-class-card {
+    background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden;
+    display: flex; flex-direction: column; transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .ei2-class-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .ei2-class-card-header { display: flex; gap: 1rem; padding: 1.25rem; border-bottom: 1px solid #f0f0f0; align-items: flex-start; }
+  .ei2-class-card-thumb { flex: 0 0 88px; height: 88px; border-radius: 8px; overflow: hidden; background: #f5f5f5; }
+  .ei2-class-card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ei2-class-card-title { font-size: 1.05rem; font-weight: 600; color: #1a1a1a; margin: 0 0 0.35rem; line-height: 1.3; }
+  .ei2-class-card-blurb { font-size: 0.85rem; color: #666; margin: 0; line-height: 1.45; }
+  .ei2-material-list { list-style: none; margin: 0; padding: 1rem 1.25rem; flex: 1; display: flex; flex-wrap: wrap; gap: 0.5rem; align-content: flex-start; }
+  .ei2-material-list li { padding: 0; margin: 0; }
+  .ei2-material-list a {
+    display: inline-block; font-size: 0.8125rem; font-weight: 600; color: #36666e;
+    text-decoration: none; padding: 0.375rem 0.75rem; background: #eff6ff;
+    border-radius: 0.375rem; border: 1px solid transparent; transition: all 0.2s;
+  }
+  .ei2-material-list a:hover { color: #2d5259; background: #dbeafe; text-decoration: none; }
+  .ei2-class-also { padding: 0.85rem 1.25rem 1rem; margin: 0; border-top: 1px solid #f5f5f5; font-size: 0.82rem; color: #888; line-height: 1.55; }
+  .ei2-class-also-label { display: block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #b0b0b0; margin-bottom: 0.25rem; }
+  .ei2-class-empty-body { padding: 1rem 1.25rem 1.25rem; flex: 1; }
+  .ei2-class-empty-body p { margin: 0; font-size: 0.85rem; color: #888; line-height: 1.55; }
+  .ei2-class-empty-body .ei2-class-also-label { margin-bottom: 0.35rem; }
+  .ei2-class-card-footer { padding: 0.75rem 1.25rem; background: #fafafa; border-top: 1px solid #f0f0f0; }
+  .ei2-class-card-footer a { font-size: 0.85rem; color: #555; text-decoration: none; }
+  .ei2-class-card-footer a:hover { color: #2d5259; text-decoration: underline; }
+  .ei2-class-card.is-empty { background: #fcfcfc; }
+
+  /* Safety resources strip */
+  .ei2-safety-resources { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; max-width: 960px; margin: 1.5rem auto 0; padding: 0 1rem; }
+  .ei2-safety-resources a {
+    display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.55rem 1rem;
+    border: 1px solid #d8d8d8; border-radius: 999px; color: #222; text-decoration: none;
+    font-size: 0.88rem; background: #fff;
+  }
+  .ei2-safety-resources a:hover { border-color: #1a1a1a; background: #1a1a1a; color: #fff; }
+</style>
+
+<main id="main-content">
+  <section class="etchant-information">
+
+
+    <!-- Common etchant families: reagents by material family (primary routing surface) -->
+    <section class="container-custom" id="common-etchants" aria-labelledby="common-etchants-heading">
+      <div class="ei2-section-head">
+        <h2 id="common-etchants-heading">Common etchant families</h2>
+        <p>Widely-used metallographic reagents grouped by material family. Click any name for its full entry: composition, target structure, hazards, and usage notes.</p>
+      </div>
+      <div class="ei2-family-list">
+        <div class="ei2-family-card">
+          <h3>Carbon &amp; alloy steels</h3>
+          <p>General microstructure, ferrite, pearlite, martensite.</p>
+          <div class="ei2-family-tags">
+            <a href="/etchants/2-percent-nital.html">2% Nital</a>
+            <a href="/etchants/3-percent-nital.html">3% Nital</a>
+            <a href="/etchants/4-percent-nital.html">4% Nital</a>
+            <a href="/etchants/5-percent-nital.html">5% Nital</a>
+            <a href="/etchants/8-percent-nital.html">8% Nital</a>
+            <a href="/etchants/picral.html">Picral</a>
+            <a href="/etchants/vilellas-reagent.html">Vilella&rsquo;s reagent</a>
+            <a href="/etchants/berahas-reagent.html">Beraha&rsquo;s reagent</a>
+            <a href="/etchants/klemm-s-reagent.html">Klemm&rsquo;s reagent</a>
+            <a href="/etchants/oberhoffers-reagent.html">Oberhoffer&rsquo;s reagent</a>
+          </div>
+        </div>
+        <div class="ei2-family-card">
+          <h3>Stainless steels</h3>
+          <p>Austenite, ferrite, delta-ferrite, sigma phase, carbides.</p>
+          <div class="ei2-family-tags">
+            <a href="/etchants/glyceregia.html">Glyceregia</a>
+            <a href="/etchants/marbles-reagent.html">Marble&rsquo;s reagent</a>
+            <a href="/etchants/kallings-no-2.html">Kalling&rsquo;s #2</a>
+            <a href="/etchants/10-percent-oxalic-acid-electrolytic.html">Oxalic acid (electrolytic)</a>
+            <a href="/etchants/murakamis-reagent.html">Murakami&rsquo;s</a>
+            <a href="/etchants/carpenters.html">Carpenter&rsquo;s</a>
+            <a href="/etchants/frys-reagent.html">Fry&rsquo;s reagent</a>
+            <a href="/etchants/cu-pass-sol.html">CU-PASS-SOL</a>
+            <a href="/etchants/wecks-etch.html">Weck&rsquo;s etch</a>
+            <a href="/etchants/winsteards-reagent.html">Winsteard&rsquo;s reagent</a>
+            <a href="/etchants/astm-no-97.html">ASTM 97 (electrolytic)</a>
+          </div>
+        </div>
+        <div class="ei2-family-card">
+          <h3>Aluminum alloys</h3>
+          <p>Grain structure, intermetallics, eutectic phases.</p>
+          <div class="ei2-family-tags">
+            <a href="/etchants/kellers-reagent.html">Keller&rsquo;s reagent</a>
+            <a href="/etchants/barkers-reagent-electrolytic.html">Barker&rsquo;s (electrolytic)</a>
+            <a href="/etchants/0-5-percent-hf.html">Dilute HF</a>
+            <a href="/etchants/al-naoh-etchant.html">Sodium hydroxide</a>
+          </div>
+        </div>
+        <div class="ei2-family-card">
+          <h3>Copper, brass, bronze</h3>
+          <p>Grain boundaries, twinning, alpha-beta phases, color contrast.</p>
+          <div class="ei2-family-tags">
+            <a href="/etchants/ammonium-persulfate.html">Ammonium persulfate</a>
+            <a href="/etchants/dichromate-etchant.html">Dichromate</a>
+            <a href="/etchants/astm-no-30.html">ASTM No. 30</a>
+            <a href="/etchants/copper-no-1.html">Copper No. 1</a>
+            <a href="/etchants/copper-no-2.html">Copper No. 2</a>
+          </div>
+        </div>
+        <div class="ei2-family-card">
+          <h3>Titanium, zirconium, hafnium</h3>
+          <p>Alpha and beta phases, transformation products.</p>
+          <div class="ei2-family-tags">
+            <a href="/etchants/modified-krolls-reagent.html">Modified Kroll&rsquo;s</a>
+            <a href="/etchants/krolls-reagent.html">Kroll&rsquo;s reagent</a>
+            <a href="/etchants/ti-ap-16.html">Titanium Attack Polish (TI-AP-16)</a>
+          </div>
+        </div>
+        <div class="ei2-family-card">
+          <h3>Nickel superalloys</h3>
+          <p>Gamma matrix, gamma prime, carbides, segregation.</p>
+          <div class="ei2-family-tags">
+            <a href="/etchants/marbles-reagent.html">Marble&rsquo;s reagent</a>
+            <a href="/etchants/adlers-etchant.html">Adler&rsquo;s etchant</a>
+            <a href="/etchants/glyceregia.html">Glyceregia</a>
+            <a href="/etchants/waterless-kallings.html">Waterless Kalling&rsquo;s</a>
+            <a href="/etchants/inconel-etchant.html">Inconel etchant</a>
+            <a href="/etchants/nickel-etchant.html">Nickel etchant</a>
+            <a href="/etchants/astm-no-157.html">ASTM No. 157</a>
+          </div>
+        </div>
+        <div class="ei2-family-card">
+          <h3>Cast irons</h3>
+          <p>Graphite morphology, matrix structure, carbides.</p>
+          <div class="ei2-family-tags">
+            <a href="/etchants/2-percent-nital.html">Nital</a>
+            <a href="/etchants/picral.html">Picral</a>
+          </div>
+        </div>
+        <div class="ei2-family-card">
+          <h3>Refractory metals</h3>
+          <p>Tungsten, molybdenum, tantalum, niobium. Grain structure and carbides.</p>
+          <div class="ei2-family-tags">
+            <a href="/etchants/murakamis-reagent.html">Murakami&rsquo;s</a>
+            <span>HF + HNO3 mixtures</span>
+          </div>
+        </div>
+        <div class="ei2-family-card">
+          <h3>Cemented carbides &amp; cermets</h3>
+          <p>WC-Co, TiC-Ni. Binder phase, carbide morphology, porosity.</p>
+          <div class="ei2-family-tags">
+            <a href="/etchants/murakamis-reagent.html">Murakami&rsquo;s</a>
+            <a href="/etchants/ammonium-persulfate.html">Ammonium persulfate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- Materials Prep ELN Etchant Database CTA -->
+        <div class="container-custom" style="margin: 4rem auto;">
+          <a href="/materials-prep/" class="ei-mp-cta" aria-label="Explore the Materials Prep ELN etchant database">
+            <div class="ei-mp-cta-media">
+              <img src="/images/materials-prep/etchants-filters-applied.png"
+                   alt="Materials Prep ELN etchants database with filters applied"
+                   width="1123" height="808" loading="lazy" decoding="async">
+            </div>
+            <div class="ei-mp-cta-body">
+              <span class="ei-mp-cta-eyebrow">
+                <img src="/images/logos/materialsprep-logo-black.png" alt="" width="20" height="20" decoding="async">
+                Materials Prep ELN
+              </span>
+              <h2 class="ei-mp-cta-title">A searchable etchant database, built into your lab notebook.</h2>
+              <p class="ei-mp-cta-desc">
+                Browse, filter, and recall every etchant by material class, hazard, target structure, and the procedures you've already run. Each entry sits next to the samples, recipes, and micrographs it was used on, so you never lose context.
+              </p>
+              <ul class="ei-mp-cta-list">
+                <li>Filter by material, hazard tier, application method, or target microstructure</li>
+                <li>Link etchants to recipes and samples for full traceability</li>
+                <li>Capture observations and outcomes the next time you reach for the same reagent</li>
+              </ul>
+              <span class="ei-mp-cta-btn">
+                Explore Materials Prep
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Etching Fundamentals: consolidated Why / How it works / How to apply / Safety -->
+        <section class="container-custom" id="fundamentals" aria-labelledby="fundamentals-heading">
+          <div class="ei2-section-head">
+            <h2 id="fundamentals-heading">Etching fundamentals</h2>
+            <p>What etching reveals, how the techniques differ, how to apply a reagent, and how to handle them safely. Four pieces of the same practice.</p>
+          </div>
+
+          <div class="ei2-fundamentals">
+
+            <!-- Why etching matters -->
+            <div class="ei2-fund-row" id="why-etching">
+              <div class="ei2-fund-label">
+                <span class="ei2-fund-tag">01 &middot; Why</span>
+                <h3>Why etching matters</h3>
+                <p>Etchants chemically attack constituents in a polished sample to expose grain boundaries, phase regions, precipitates, and structural anomalies that are otherwise invisible.</p>
+              </div>
+              <div class="ei2-fund-cards">
+                <div class="ei2-fund-card"><h4>Reveal microstructures</h4><p>Grain structure, shape, size, and phase distribution become visible. The properties of the material are written into these features.</p></div>
+                <div class="ei2-fund-card"><h4>Differentiate phases</h4><p>Selective chemistry distinguishes ferrite from pearlite, martensite from austenite, or carbide networks from base matrices.</p></div>
+                <div class="ei2-fund-card"><h4>Improve contrast</h4><p>Etched surfaces gain optical contrast for brightfield, polarized light, and DIC. Without it many features simply do not image.</p></div>
+                <div class="ei2-fund-card"><h4>Support failure analysis</h4><p>Discontinuities, segregation zones, and heat-affected regions become readable in fractured or worn components.</p></div>
+              </div>
+            </div>
+
+            <!-- How etching works -->
+            <div class="ei2-fund-row" id="how-etching-works">
+              <div class="ei2-fund-label">
+                <span class="ei2-fund-tag">02 &middot; How it works</span>
+                <h3>Six etching techniques</h3>
+                <p>Chemical and electrolytic methods cover most cases. Thermal, plasma, molten salt, and magnetic etching address materials or feature scales the dominant techniques cannot reach.</p>
+              </div>
+              <div class="ei2-fund-cards is-six">
+                <div class="ei2-fund-card is-primary"><h4>Chemical</h4><p>Acid or base solutions with oxidizers or reducers, usually in alcohol. The reagent dissolves boundaries and phases by reaction alone. Most common technique.</p></div>
+                <div class="ei2-fund-card is-primary"><h4>Electrolytic</h4><p>Voltage or current accelerates and controls the reaction. Used for stainless, titanium, and aluminum where chemistry alone is too slow or uneven.</p></div>
+                <div class="ei2-fund-card"><h4>Thermal</h4><p>Heating in inert or reducing atmosphere grooves grain boundaries through evaporation and surface diffusion. For ceramics and refractory metals.</p></div>
+                <div class="ei2-fund-card"><h4>Plasma</h4><p>Reactive gas plasma in vacuum attacks the surface at feature scale. Used for semiconductors, thin films, and MEMS devices.</p></div>
+                <div class="ei2-fund-card"><h4>Molten salt</h4><p>Immersion in NaOH, KOH, or NaCl at elevated temperature. Reveals refractory metals, oxides, and ceramics that resist conventional attack.</p></div>
+                <div class="ei2-fund-card"><h4>Magnetic</h4><p>Ferromagnetic colloidal particles align along domain boundaries to make them visible. For steels, ferrites, and magnetic alloys only.</p></div>
+              </div>
+            </div>
+
+            <!-- How to apply -->
+            <div class="ei2-fund-row" id="how-to-apply">
+              <div class="ei2-fund-label">
+                <span class="ei2-fund-tag">03 &middot; How to apply</span>
+                <h3>Application methods</h3>
+                <p>Method depends on etchant aggressiveness, sample geometry, and the surface area you need to treat. Most procedures use immersion or swab.</p>
+              </div>
+              <div class="ei2-fund-cards">
+                <div class="ei2-fund-card"><h4>Immersion</h4><p>Submerge the polished face for a controlled time, rinse, dry. Predictable timing, but uses more reagent than swab.</p></div>
+                <div class="ei2-fund-card"><h4>Swab</h4><p>Saturate a cotton ball or cloth and wipe the surface. Good for aggressive reagents that need short contact, or treating a small region.</p></div>
+                <div class="ei2-fund-card"><h4>Electrolytic</h4><p>Sample acts as the anode in a conductive bath under controlled voltage and current. Common for stainless, titanium, and aluminum (Barker&rsquo;s).</p></div>
+                <div class="ei2-fund-card"><h4>Drop / color etching</h4><p>A single drop, sometimes warmed, applied and rinsed. For tint etchants like Klemm&rsquo;s and Beraha&rsquo;s that deposit interference films.</p></div>
+              </div>
+            </div>
+
+            <!-- Safety -->
+            <div class="ei2-fund-row" id="etching-safety">
+              <div class="ei2-fund-label">
+                <span class="ei2-fund-tag">04 &middot; Safety</span>
+                <h3>Etching safety</h3>
+                <p>Most metallographic etchants are strong acids, bases, or oxidizers; some are toxic, flammable, or both. Plan PPE, ventilation, storage, and disposal before mixing the first batch.</p>
+              </div>
+              <div class="ei2-fund-cards">
+                <div class="ei2-fund-card"><h4>PPE</h4><p>Chemical-resistant gloves (nitrile, neoprene, or heavier weight for HF), splash goggles, lab coat, closed-toe shoes. Add a face shield for concentrated acids.</p></div>
+                <div class="ei2-fund-card"><h4>Ventilation</h4><p>Mix and apply in a fume hood. HCl, HNO3, HF, and ammonia escape standard bench exhaust.</p></div>
+                <div class="ei2-fund-card"><h4>Storage</h4><p>Compatible bottles, tight seals, labels with contents, concentration, and date. Segregate by hazard class.</p></div>
+                <div class="ei2-fund-card"><h4>Disposal</h4><p>Never down the drain. Collect in labeled hazardous waste containers. Picric acid and HF need special handling.</p></div>
+              </div>
+              <div class="ei2-safety-resources" style="margin-top: 1.5rem; justify-content: flex-start;">
+                <a href="/support/sds.html">Safety Data Sheets (SDS)</a>
+                <a href="/etching/etchant-safety-procedures.pdf">Etchant Safety Procedures (PDF)</a>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- By Prep Class: secondary taxonomy view, links into prep procedures -->
+        <div class="container-custom" id="prep-classes">
+          <div class="ei2-section-head">
+            <h2>Browse by Prep Class</h2>
+            <p>The 11 prep classes group materials by how they behave during sample preparation. Pick a class to see which materials it covers and drill into the relevant etchant guide.</p>
+          </div>
+
+          <div class="ei2-class-grid">
+
+            <!-- Class 1 -->
+            <article class="ei2-class-card">
+              <div class="ei2-class-card-header">
+                <div class="ei2-class-card-thumb"><img src="/images/microstructures/Al-Si.png" alt="Aluminum-Silicon microstructure"></div>
+                <div>
+                  <h3 class="ei2-class-card-title">Class 1: Soft, Ductile</h3>
+                  <p class="ei2-class-card-blurb">Soft, gummy metals that smear easily. Etchants must reveal structure without aggressive attack.</p>
+                </div>
+              </div>
+              <ul class="ei2-material-list">
+                <li><a href="/etching/aluminum.html">Aluminum alloys</a></li>
+                <li><a href="/etching/copper-alloy.html">Copper alloys</a></li>
+                <li><a href="/etching/brass-bronze.html">Brass &amp; bronze</a></li>
+                <li><a href="/etching/tin-alloy.html">Tin alloys</a></li>
+                <li><a href="/etching/zinc-alloy.html">Zinc alloys</a></li>
+              </ul>
+              <p class="ei2-class-also"><span class="ei2-class-also-label">Also in this class</span>Magnesium, lead, polymer matrix composites</p>
+              <div class="ei2-class-card-footer">
+                <a href="/procedures/class-1.html">See full Class 1 prep procedure &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Class 2 -->
+            <article class="ei2-class-card is-empty">
+              <div class="ei2-class-card-header">
+                <div class="ei2-class-card-thumb"><img src="/images/microstructures/Tungsten.jpg" alt="Tungsten refractory metal microstructure"></div>
+                <div>
+                  <h3 class="ei2-class-card-title">Class 2: Refractory Metals</h3>
+                  <p class="ei2-class-card-blurb">High-melting-point metals with hard oxide films. Often need electrolytic or specialized chemical etchants.</p>
+                </div>
+              </div>
+              <div class="ei2-class-empty-body">
+                <p><span class="ei2-class-also-label">Materials in this class</span>Tungsten, molybdenum, tantalum, niobium, rhenium, hafnium, zirconium, beryllium</p>
+              </div>
+              <div class="ei2-class-card-footer">
+                <a href="/procedures/class-2.html">See full Class 2 prep procedure &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Class 3 -->
+            <article class="ei2-class-card">
+              <div class="ei2-class-card-header">
+                <div class="ei2-class-card-thumb"><img src="/images/microstructures/Nod-CI.png" alt="Nodular cast iron microstructure"></div>
+                <div>
+                  <h3 class="ei2-class-card-title">Class 3: Lower Ductility</h3>
+                  <p class="ei2-class-card-blurb">Brittle behavior at room temperature; pull-out and edge retention are the big challenges.</p>
+                </div>
+              </div>
+              <ul class="ei2-material-list">
+                <li><a href="/etching/cast-iron.html">Cast iron (gray, ductile, white)</a></li>
+              </ul>
+              <p class="ei2-class-also"><span class="ei2-class-also-label">Also in this class</span>Powder metallurgy, sintered alloys</p>
+              <div class="ei2-class-card-footer">
+                <a href="/procedures/class-3.html">See full Class 3 prep procedure &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Class 4 -->
+            <article class="ei2-class-card is-empty">
+              <div class="ei2-class-card-header">
+                <div class="ei2-class-card-thumb"><img src="/images/microstructures/BeO-BF.png" alt="Ceramic capacitor microstructure"></div>
+                <div>
+                  <h3 class="ei2-class-card-title">Class 4: Soft Brittle Non-metals</h3>
+                  <p class="ei2-class-card-blurb">Layered, fragile structures where chemical compatibility matters as much as mechanical response.</p>
+                </div>
+              </div>
+              <div class="ei2-class-empty-body">
+                <p><span class="ei2-class-also-label">Materials in this class</span>Multilayer ceramic capacitors (MLCCs), MEMS, semiconductors, functional ceramics</p>
+              </div>
+              <div class="ei2-class-card-footer">
+                <a href="/procedures/class-4.html">See full Class 4 prep procedure &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Class 5 -->
+            <article class="ei2-class-card">
+              <div class="ei2-class-card-header">
+                <div class="ei2-class-card-thumb"><img src="/images/microstructures/431ss.png" alt="Stainless steel microstructure"></div>
+                <div>
+                  <h3 class="ei2-class-card-title">Class 5: Medium Hard, Ductile</h3>
+                  <p class="ei2-class-card-blurb">The workhorse class, with predictable response to standard chemical etchants like nital and glyceregia.</p>
+                </div>
+              </div>
+              <ul class="ei2-material-list">
+                <li><a href="/etching/low-carbon-steel.html">Low &amp; medium carbon steel</a></li>
+                <li><a href="/etching/stainless-steel.html">Stainless steel</a></li>
+              </ul>
+              <p class="ei2-class-also"><span class="ei2-class-also-label">Also in this class</span>Annealed structural steels</p>
+              <div class="ei2-class-card-footer">
+                <a href="/procedures/class-5.html">See full Class 5 prep procedure &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Class 6 -->
+            <article class="ei2-class-card">
+              <div class="ei2-class-card-header">
+                <div class="ei2-class-card-thumb"><img src="/images/microstructures/Hastelloy-adlers-etch-200X-DIC.png" alt="Hastelloy nickel superalloy microstructure"></div>
+                <div>
+                  <h3 class="ei2-class-card-title">Class 6: Tough, Hard Non-ferrous</h3>
+                  <p class="ei2-class-card-blurb">Corrosion-resistant alloys that resist mild etchants; often require aggressive or electrolytic reagents.</p>
+                </div>
+              </div>
+              <ul class="ei2-material-list">
+                <li><a href="/etching/titanium.html">Titanium alloys</a></li>
+                <li><a href="/etching/hastelloy.html">Hastelloy &amp; nickel superalloys</a></li>
+              </ul>
+              <p class="ei2-class-also"><span class="ei2-class-also-label">Also in this class</span>Cobalt alloys, high-temperature alloys</p>
+              <div class="ei2-class-card-footer">
+                <a href="/procedures/class-6.html">See full Class 6 prep procedure &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Class 7 -->
+            <article class="ei2-class-card is-empty">
+              <div class="ei2-class-card-header">
+                <div class="ei2-class-card-thumb"><img src="/images/microstructures/W-Co-200X.jpg" alt="Tungsten-Cobalt thermal spray coating microstructure"></div>
+                <div>
+                  <h3 class="ei2-class-card-title">Class 7: Coatings &amp; Surface Treatments</h3>
+                  <p class="ei2-class-card-blurb">Multilayer systems where each layer may need a different etchant to reveal porosity, bond, and substrate.</p>
+                </div>
+              </div>
+              <div class="ei2-class-empty-body">
+                <p><span class="ei2-class-also-label">Materials in this class</span>Thermal spray coatings (WC-Co, NiCr, YSZ), hard chrome plating, anodized and galvanized coatings</p>
+              </div>
+              <div class="ei2-class-card-footer">
+                <a href="/procedures/class-7.html">See full Class 7 prep procedure &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Class 8 -->
+            <article class="ei2-class-card">
+              <div class="ei2-class-card-header">
+                <div class="ei2-class-card-thumb"><img src="/images/microstructures/1095wq.png" alt="High carbon quenched steel microstructure"></div>
+                <div>
+                  <h3 class="ei2-class-card-title">Class 8: Hardened Steels</h3>
+                  <p class="ei2-class-card-blurb">Heat-treated steels where etching reveals martensite, retained austenite, and case-depth gradients.</p>
+                </div>
+              </div>
+              <ul class="ei2-material-list">
+                <li><a href="/etching/high-carbon-steel.html">High carbon &amp; tool steels</a></li>
+              </ul>
+              <p class="ei2-class-also"><span class="ei2-class-also-label">Also in this class</span>Case-hardened steels, through-hardened steels</p>
+              <div class="ei2-class-card-footer">
+                <a href="/procedures/class-8.html">See full Class 8 prep procedure &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Class 9 -->
+            <article class="ei2-class-card is-empty">
+              <div class="ei2-class-card-header">
+                <div class="ei2-class-card-thumb"><img src="/images/microstructures/Copper.png" alt="Metal matrix composite microstructure"></div>
+                <div>
+                  <h3 class="ei2-class-card-title">Class 9: Metal Matrix Composites</h3>
+                  <p class="ei2-class-card-blurb">Reinforcement and matrix respond differently. Etchants must balance contrast without preferential attack.</p>
+                </div>
+              </div>
+              <div class="ei2-class-empty-body">
+                <p><span class="ei2-class-also-label">Materials in this class</span>Al-SiC, Mg-Al&#8322;O&#8323;, Ti-B&#8324;C composites; fiber-reinforced and high-temperature MMCs</p>
+              </div>
+              <div class="ei2-class-card-footer">
+                <a href="/procedures/class-9.html">See full Class 9 prep procedure &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Class 10 -->
+            <article class="ei2-class-card">
+              <div class="ei2-class-card-header">
+                <div class="ei2-class-card-thumb"><img src="/images/microstructures/ZrO2pol.jpg" alt="Zirconia ceramic microstructure"></div>
+                <div>
+                  <h3 class="ei2-class-card-title">Class 10: Engineered Ceramics</h3>
+                  <p class="ei2-class-card-blurb">Often etched chemically or thermally to reveal grain boundaries that polishing alone won't expose.</p>
+                </div>
+              </div>
+              <ul class="ei2-material-list">
+                <li><a href="/etching/ceramic.html">Oxide &amp; non-oxide ceramics</a></li>
+              </ul>
+              <p class="ei2-class-also"><span class="ei2-class-also-label">Also in this class</span>Advanced engineered ceramics</p>
+              <div class="ei2-class-card-footer">
+                <a href="/procedures/class-10.html">See full Class 10 prep procedure &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Class 11 -->
+            <article class="ei2-class-card is-empty">
+              <div class="ei2-class-card-header">
+                <div class="ei2-class-card-thumb"><img src="/images/microstructures/BeO-BF.png" alt="Cermet or hard brittle material microstructure"></div>
+                <div>
+                  <h3 class="ei2-class-card-title">Class 11: Very Hard Brittle</h3>
+                  <p class="ei2-class-card-blurb">Cermets and technical glasses. Etching is often supplementary to specialized polishing techniques.</p>
+                </div>
+              </div>
+              <div class="ei2-class-empty-body">
+                <p><span class="ei2-class-also-label">Materials in this class</span>Cermets (WC, TiC-Ni), technical glasses, minerals</p>
+              </div>
+              <div class="ei2-class-card-footer">
+                <a href="/procedures/class-11.html">See full Class 11 prep procedure &rarr;</a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+          <div class="faq-wrapper">
+            <div class="faq-header">
+              <h2 class="section-title-large">Frequently Asked Questions</h2>
+              <p class="section-subtitle">Common questions about metallographic etching</p>
+            </div>
+            <div class="faq-accordion">
+              <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <summary class="faq-question" itemprop="name">What is the difference between chemical and electrolytic etching?</summary>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <div itemprop="text">
+                    <p>Chemical etching uses acid or base solutions combined with oxidizers or reducers in a solvent (typically alcohol) to reveal microstructure through selective dissolution. The process relies solely on chemical reactions between the etchant and the sample surface. Electrolytic etching enhances this process by applying voltage or current, which accelerates the etching reaction and provides more control over the depth and selectivity of etching. Electrolytic methods are particularly useful for stainless steels, titanium alloys, and materials requiring precise phase differentiation.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <summary class="faq-question" itemprop="name">How do I select the right etchant for my material?</summary>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <div itemprop="text">
+                    <p>Selecting the correct etchant depends on your material type, desired microstructural features, and analysis objectives. Start with industry-standard etchants for your material family: Nital for carbon steels, Keller's for aluminum alloys, Kroll's for titanium, or Marble's for nickel alloys. Consider whether you need general microstructure revelation or specific phase contrast. Browse the material-specific guides on this page, or use the <a href="/etchant-selector.html">Etchant Selector tool</a>, to match your material composition with proven formulations. Always test on a sacrificial sample first to verify results before etching critical specimens.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <summary class="faq-question" itemprop="name">What safety precautions should I take when etching?</summary>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <div itemprop="text">
+                    <p>Always wear appropriate personal protective equipment including chemical-resistant gloves, safety glasses, and lab coat when handling etchants. Work in a well-ventilated fume hood to avoid inhaling vapors, especially with acid-based etchants. Store etchants in clearly labeled, chemically compatible containers away from incompatible materials. Have neutralizing agents and safety equipment readily available. Never mix etchants unless specified by the procedure. Dispose of used etchants according to local environmental regulations. Familiarize yourself with the Safety Data Sheet (SDS) for each etchant before use.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <summary class="faq-question" itemprop="name">How long should I etch my sample?</summary>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <div itemprop="text">
+                    <p>Etching time varies widely based on material, etchant concentration, temperature, and desired results, ranging from seconds to several minutes. Begin with short intervals (5-10 seconds for aggressive etchants, 30-60 seconds for mild ones) and examine under a microscope. Progressively increase time in small increments until optimal contrast is achieved. Over-etching can obscure features or create artifacts, while under-etching may not reveal sufficient detail. Swab etching typically requires less time than immersion. Record successful etching parameters for reproducibility. Experience with specific material-etchant combinations will improve your timing precision.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <summary class="faq-question" itemprop="name">Can I re-etch a sample if the first attempt was unsuccessful?</summary>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <div itemprop="text">
+                    <p>Yes, samples can typically be re-etched if the initial results are unsatisfactory. If under-etched, simply re-apply the etchant for additional time. If over-etched, you must re-polish the surface through the final polishing steps to remove the over-etched layer, then etch again with reduced time. Clean the sample thoroughly between attempts to remove residual etchant. For electrolytic etching, you can often reverse mild over-etching by briefly reversing the polarity. Keep detailed notes of each attempt to refine your technique. Multiple re-polishing cycles may reduce sample thickness, so plan accordingly for critical specimens.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <summary class="faq-question" itemprop="name">How should I store and dispose of etchants?</summary>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <div itemprop="text">
+                    <p>Store etchants in tightly sealed, chemically resistant bottles with clear labels indicating contents, concentration, and preparation date. Keep in a cool, dry, well-ventilated area away from heat sources and incompatible chemicals. Many etchants degrade over time. Check for discoloration or precipitates before use and replace as needed. For disposal, never pour etchants down the drain. Collect used etchants in designated waste containers based on chemical compatibility. Follow your institution's hazardous waste disposal procedures and local environmental regulations. Some etchants may require neutralization before disposal. Maintain a chemical inventory and waste log for safety compliance.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <!-- Need help strip -->
+        <div class="container-custom" style="margin: 0 auto 4rem;">
+          <aside class="ei-help-strip" aria-label="Need help with etching">
+            <span class="ei-help-strip-label">Need help with etching?</span>
+            <a href="/support.html" class="ei-help-strip-link">Technical Support</a>
+            <a href="/contact.html" class="ei-help-strip-link">Contact Us</a>
+            <a href="/quote.html" class="ei-help-strip-link">Request a Quote</a>
+          </aside>
+        </div>
+      </section>
+
     </main>
+        
+    <br><br>
 
-
+    
     
 <!-- FOOTER -->
 <footer class="footer" aria-label="Footer">
@@ -920,7 +1650,7 @@
           <!-- Company/Brand Section -->
           <div class="footer-brand">
             <div class="footer-brand-header">
-              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
+              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async" loading="lazy">
             </div>
             <p class="footer-brand-description">
               Leading provider of metallographic sample preparation equipment, consumables, and expertise.
@@ -959,8 +1689,54 @@
                 www.metallographic.com
               </a>
             </div>
+            <div class="footer-cta-row">
+              <a href="https://shop.metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-cta-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="9" cy="21" r="1"/>
+                  <circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span>Shop Online</span>
+              </a>
+              <a href="/build.html" class="footer-cta-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+                <span>Lab Builder</span>
+              </a>
+            </div>
           </div>
-          
+
+          <!-- Equipment Section -->
+          <div class="footer-column">
+            <h3 class="footer-column-title">Equipment</h3>
+            <ul class="footer-column-list">
+              <li><a href="/metallographic-equipment/abrasive-sectioning.html" class="footer-link">Abrasive Sectioning</a></li>
+              <li><a href="/metallographic-equipment/precision-wafering.html" class="footer-link">Precision Wafering</a></li>
+              <li><a href="/metallographic-equipment/compression-mounting.html" class="footer-link">Compression Mounting</a></li>
+              <li><a href="/metallographic-equipment/castable-mounting.html" class="footer-link">Castable Mounting</a></li>
+              <li><a href="/metallographic-equipment/grinding-polishing.html" class="footer-link">Grinding &amp; Polishing</a></li>
+              <li><a href="/metallographic-equipment/hardness-testing.html" class="footer-link">Hardness Testing</a></li>
+              <li><a href="/metallographic-equipment/microscopy.html" class="footer-link">Microscopy</a></li>
+              <li><a href="/equipment.html" class="footer-link">All Equipment &rsaquo;</a></li>
+            </ul>
+          </div>
+
+          <!-- Consumables Section -->
+          <div class="footer-column">
+            <h3 class="footer-column-title">Consumables</h3>
+            <ul class="footer-column-list">
+              <li><a href="/metallographic-consumables/sectioning.html" class="footer-link">Sectioning Blades</a></li>
+              <li><a href="/metallographic-consumables/mounting.html" class="footer-link">Mounting Compounds</a></li>
+              <li><a href="/metallographic-consumables/grinding.html" class="footer-link">Grinding Papers</a></li>
+              <li><a href="/metallographic-consumables/grinding/lapping-films.html" class="footer-link">Lapping Films</a></li>
+              <li><a href="/metallographic-consumables/polishing/polishing-pads.html" class="footer-link">Polishing Pads</a></li>
+              <li><a href="/metallographic-consumables/polishing.html" class="footer-link">Polishing Compounds</a></li>
+              <li><a href="/metallographic-consumables/etching.html" class="footer-link">Etchants</a></li>
+              <li><a href="/consumables.html" class="footer-link">All Consumables &rsaquo;</a></li>
+            </ul>
+          </div>
+
           <!-- Company Section -->
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
@@ -970,20 +1746,8 @@
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
               <li><a href="/distribution.html" class="footer-link">International Distribution</a></li>
-              <li><a href="/quote.html" class="footer-link">Request Quote</a></li>
-            </ul>
-          </div>
-          
-          <!-- Products Section -->
-          <div class="footer-column">
-            <h3 class="footer-column-title">Products</h3>
-            <ul class="footer-column-list">
-              <li><a href="/equipment.html" class="footer-link">Equipment</a></li>
-              <li><a href="/consumables.html" class="footer-link">Consumables</a></li>
               <li><a href="/services.html" class="footer-link">Services</a></li>
-              <li><a href="https://shop.metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-link">Online Shop</a></li>
-              <li><a href="/catalog.html" class="footer-link">Product Catalog</a></li>
-              <li><a href="/build.html" class="footer-link">Lab Builder</a></li>
+              <li><a href="/quote.html" class="footer-link">Request Quote</a></li>
             </ul>
           </div>
 
@@ -993,53 +1757,43 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
-              <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
+              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+              <li><a href="/catalog.html" class="footer-link">Product Catalog</a></li>
+              <li><a href="/support/brochures.html" class="footer-link">Brochures &amp; Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
-            </ul>
-          </div>
-
-          <!-- Legal Section -->
-          <div class="footer-column">
-            <h3 class="footer-column-title">Legal</h3>
-            <ul class="footer-column-list">
-              <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
-              <li><a href="/terms.html" class="footer-link">Terms & Conditions</a></li>
-              <li><a href="/support/site-map.html" class="footer-link">Sitemap</a></li>
             </ul>
           </div>
         </div>
         
         <!-- Social Links -->
         <div class="footer-social-section">
-          <h3 class="footer-column-title">Connect with Us</h3>
           <ul class="footer-social">
             <li>
-              <a href="https://www.facebook.com/pacetechnologies/" aria-label="Facebook" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24" fill="#1877F2">
-                  <path d="M279.14 288l14.22-92.66h-88.91V117.68c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72V195.3H22.89V288h81.39v224h100.2V288z"/>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/pace_technologies/" aria-label="Instagram" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="#E1306C">
-                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9-51.3-114.9-114.9-114.9zm0 190.8c-41.9 0-75.9-34-75.9-75.9s34-75.9 75.9-75.9 75.9 34 75.9 75.9-34 75.9-75.9 75.9zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.7-9.9-67.3-36.3-92.7C385.3 23.9 353.7 15.7 318 14 278.7 12.1 169.3 12 130 14 94.3 15.7 62.7 23.9 37.3 49.3 11.9 74.7 3.7 106.3 2 142c-2 39.3-2 148.7 0 188 1.7 35.7 9.9 67.3 36.3 92.7 25.4 25.4 57 33.6 92.7 35.3 39.3 2 148.7 2 188 0 35.7-1.7 67.3-9.9 92.7-35.3 25.4-25.4 33.6-57 35.3-92.7 2-39.3 2-148.7 0-188zM398.8 388c-7.8 19.7-23 35-42.7 42.7-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.7-7.8-35-23-42.7-42.7-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.7 23-35 42.7-42.7 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.7 7.8 35 23 42.7 42.7 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/company/metallographic/" aria-label="LinkedIn" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#0077B5">
+              <a href="https://www.linkedin.com/company/metallographic/" aria-label="LinkedIn" class="footer-social-link footer-social-link--linkedin">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
                   <path d="M22.23 0H1.77C.792 0 0 .775 0 1.731v20.538C0 23.225.792 24 1.77 24h20.46c.979 0 1.77-.775 1.77-1.731V1.731C24 .775 23.209 0 22.23 0zM7.07 20.452H3.537V9h3.532v11.452zm-1.766-13c-1.132 0-1.892-.771-1.892-1.738 0-.979.779-1.737 1.932-1.737 1.155 0 1.892.758 1.906 1.737 0 .967-.751 1.738-1.93 1.738h-.016zm13.386 13H16.09V14.1c0-1.529-.55-2.575-1.927-2.575-1.051 0-1.675.703-1.95 1.382-.101.246-.126.588-.126.93v6.615h-3.533s.046-10.745 0-11.852h3.533v1.676c.47-.727 1.309-1.762 3.182-1.762 2.326 0 4.067 1.496 4.067 4.709v7.229h-.001z"></path>
                 </svg>
               </a>
             </li>
             <li>
-              <a href="https://www.youtube.com/@pacetechnologies" aria-label="YouTube" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#FF0000">
+              <a href="https://www.youtube.com/@pacetechnologies" aria-label="YouTube" class="footer-social-link footer-social-link--youtube">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
                   <path d="M23.498 6.186c-.29-1.1-1.152-1.96-2.248-2.252C19.39 3.45 12 3.45 12 3.45s-7.39 0-9.25.485c-1.096.292-1.957 1.153-2.248 2.252C0 8.048 0 12 0 12s0 3.953.502 5.814c.29 1.1 1.152 1.96 2.248 2.252C4.61 20.55 12 20.55 12 20.55s7.39 0 9.25-.485c1.096-.292 1.957-1.153 2.248-2.252C24 15.952 24 12 24 12s0-3.953-.502-5.814zM9.546 15.568V8.431l6.364 3.569-6.364 3.568z"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/pacetechnologies/" aria-label="Facebook" class="footer-social-link footer-social-link--facebook">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <path d="M279.14 288l14.22-92.66h-88.91V117.68c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72V195.3H22.89V288h81.39v224h100.2V288z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/pace_technologies/" aria-label="Instagram" class="footer-social-link footer-social-link--instagram">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9-51.3-114.9-114.9-114.9zm0 190.8c-41.9 0-75.9-34-75.9-75.9s34-75.9 75.9-75.9 75.9 34 75.9 75.9-34 75.9-75.9 75.9zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.7-9.9-67.3-36.3-92.7C385.3 23.9 353.7 15.7 318 14 278.7 12.1 169.3 12 130 14 94.3 15.7 62.7 23.9 37.3 49.3 11.9 74.7 3.7 106.3 2 142c-2 39.3-2 148.7 0 188 1.7 35.7 9.9 67.3 36.3 92.7 25.4 25.4 57 33.6 92.7 35.3 39.3 2 148.7 2 188 0 35.7-1.7 67.3-9.9 92.7-35.3 25.4-25.4 33.6-57 35.3-92.7 2-39.3 2-148.7 0-188zM398.8 388c-7.8 19.7-23 35-42.7 42.7-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.7-7.8-35-23-42.7-42.7-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.7 23-35 42.7-42.7 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.7 7.8 35 23 42.7 42.7 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
                 </svg>
               </a>
             </li>
@@ -1099,14 +1853,8 @@
       })();
     </script>
   </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-    <script src="/js/scripts.js"></script>
-    <script src="/js/etchants.js"></script>
-    
+    <script src="/js/scripts.js" defer></script>
+    <script src="/js/animations.js" defer></script>
     <script src="/js/search-overlay.js" defer></script>
 </body>
-
 </html>
-

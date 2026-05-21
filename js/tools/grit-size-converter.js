@@ -1,13 +1,16 @@
 // Grit Size Converter
 //
-// Sources: ISO 6344 (FEPA P-grade), ANSI B74.12/B74.10 (Washington Mills),
-//          JIS R6001 (Fine Tools / Zische), Klingspor coated abrasive data.
+// Sources: ISO 6344 (FEPA P-grade), Pace Technologies abrasive
+// cross-reference (ANSI / CAMI), JIS R6001 (Fine Tools / Zische),
+// Klingspor coated abrasive data.
 //
-// Macrogrits (P12–P220): Same grit number used across FEPA P, ANSI/CAMI,
-//   and JIS for the sizes those standards have in common. Actual particle
-//   sizes differ slightly between standards at the same number.
-// Microgrits (P240+): Standards diverge; equivalents matched by closest
-//   particle size. "-" means no direct equivalent in that standard.
+// Macrogrits (P60–P180): Same grit number used across FEPA P, ANSI/CAMI,
+//   and JIS. Actual median particle size differs slightly at the same
+//   number (e.g. P120 = 127 μm vs. ANSI 120 = 116 μm).
+// Microgrits (P240+): FEPA P numbering runs one tier finer than the
+//   same number in ANSI/CAMI — P240 ≈ ANSI 220, P280 ≈ ANSI 240, and
+//   so on. Pairings here follow the Pace cross-reference chart.
+// "-" means no direct equivalent in that standard.
 // Diamond / colloidal silica abrasives are graded by micron only; they
 //   have no FEPA P / ANSI / JIS grit-number equivalent.
 const bondedAbrasives = [
@@ -23,25 +26,28 @@ const bondedAbrasives = [
     { fepa: 'P60',   ansi: '60',  jis: '60',  micron: 269 },
     { fepa: 'P80',   ansi: '80',  jis: '80',  micron: 201 },
     { fepa: 'P100',  ansi: '100', jis: '100', micron: 162 },
-    { fepa: 'P120',  ansi: '120', jis: '120', micron: 125 },
+    { fepa: 'P120',  ansi: '120', jis: '120', micron: 127 },
     { fepa: 'P150',  ansi: '150', jis: '150', micron: 100 },
-    { fepa: 'P180',  ansi: '180', jis: '180', micron: 82 },
+    { fepa: 'P180',  ansi: '180', jis: '180', micron: 78 },
     { fepa: 'P220',  ansi: '220', jis: '220', micron: 68 },
-    // Microgrits - particle-size matched (ANSI per B74.10, JIS per R6001)
+    // Microgrits — FEPA P numbering shifted one tier finer than ANSI/CAMI
+    // starting at P280. P240 is a FEPA-only grit with no direct ANSI peer
+    // (closest is ANSI 220 at 66 μm, but that designation is already taken
+    // by the conventional P220 ↔ ANSI 220 macrogrit pairing above).
     { fepa: 'P240',  ansi: '-',   jis: '280',  micron: 58.5 },
-    { fepa: 'P280',  ansi: '-',   jis: '320',  micron: 52.2 },
-    { fepa: 'P320',  ansi: '240', jis: '360',  micron: 46.2 },
+    { fepa: 'P280',  ansi: '240', jis: '320',  micron: 52.2 },
+    { fepa: 'P320',  ansi: '-',   jis: '360',  micron: 46.2 },
     { fepa: 'P360',  ansi: '280', jis: '400',  micron: 40.5 },
-    { fepa: 'P400',  ansi: '-',   jis: '500',  micron: 35.0 },
-    { fepa: 'P500',  ansi: '320', jis: '600',  micron: 30.2 },
-    { fepa: 'P600',  ansi: '-',   jis: '800',  micron: 25.8 },
-    { fepa: 'P800',  ansi: '360', jis: '1000', micron: 21.8 },
-    { fepa: 'P1000', ansi: '400', jis: '1200', micron: 18.3 },
-    { fepa: 'P1200', ansi: '500', jis: '1500', micron: 15.3 },
-    { fepa: 'P1500', ansi: '600', jis: '2000', micron: 12.6 },
-    { fepa: 'P2000', ansi: '800', jis: '2500', micron: 10.3 },
-    { fepa: 'P2500', ansi: '1000', jis: '3000', micron: 8.4 },
-    { fepa: 'P3000', ansi: '1200', jis: '4000', micron: 6.5 },
+    { fepa: 'P400',  ansi: '320', jis: '500',  micron: 35.0 },
+    { fepa: 'P500',  ansi: '360', jis: '600',  micron: 30.2 },
+    { fepa: 'P600',  ansi: '400', jis: '800',  micron: 25.8 },
+    { fepa: 'P800',  ansi: '-',   jis: '1000', micron: 21.8 },
+    { fepa: 'P1000', ansi: '500', jis: '1200', micron: 18.3 },
+    { fepa: 'P1200', ansi: '600', jis: '1500', micron: 15.3 },
+    { fepa: 'P1500', ansi: '800', jis: '2000', micron: 12.6 },
+    { fepa: 'P2000', ansi: '1000', jis: '2500', micron: 10.3 },
+    { fepa: 'P2500', ansi: '1200', jis: '3000', micron: 8.4 },
+    { fepa: 'P3000', ansi: '-',   jis: '4000', micron: 6.5 },
     { fepa: 'P4000', ansi: '-',   jis: '6000',  micron: 5.0 },
     { fepa: 'P5000', ansi: '-',   jis: '8000',  micron: 4.0 },
 ];
@@ -55,10 +61,17 @@ const finalAbrasives = [
     { name: 'Alumina (Al₂O₃)',  microns: [1.0, 0.3, 0.05] },
 ];
 
-// Map a micron value to a preparation stage.
+// Map a micron value to a preparation stage. Boundaries match the
+// "Grit Sizes by Preparation Stage" info card on the converter page:
+//   Planar Grinding   ~270 – 46 μm (ANSI 60 – 240)
+//   Fine Grinding     ~30  – 7  μm (ANSI 320 – 1200)
+//   Rough Polishing   9    – 3  μm diamond
+//   Final Polishing   1    – 0.02 μm
+// 10 μm is the cleanest split: 9 μm diamond stays in rough polishing,
+// while P1500 (12.6 μm) and P2000 (10.3 μm) SiC papers fall in fine grinding.
 function getStage(micron) {
     if (micron >= 60)   return { key: 'planar', label: 'Planar Grinding' };
-    if (micron >= 15)   return { key: 'fine',   label: 'Fine Grinding' };
+    if (micron >= 10)   return { key: 'fine',   label: 'Fine Grinding' };
     if (micron >= 3)    return { key: 'rough',  label: 'Rough Polishing' };
     return                     { key: 'final',  label: 'Final Polishing' };
 }
@@ -207,18 +220,25 @@ document.addEventListener('DOMContentLoaded', function() {
             ? 'Conversion Results'
             : 'Closest match (you entered ' + requestedMicron + ' μm)';
 
+        // For raw micron input the spectrum/stage/final-polish display should
+        // reflect what the user actually typed, not the closest bonded abrasive
+        // (e.g. 0.02 μm snaps to P5000 = 4 μm, but 0.02 μm is a final-polish
+        // colloidal silica — the spectrum dot belongs near "Mirror finish",
+        // not in the middle of the rough-polish range).
+        const displayMicron = (requestedMicron != null) ? requestedMicron : match.micron;
+
         // Stage badge
-        const stage = getStage(match.micron);
+        const stage = getStage(displayMicron);
         stageBadge.textContent = stage.label;
         stageBadge.setAttribute('data-stage', stage.key);
         stageBadge.hidden = false;
 
         // Particle-size scale
-        scaleMarker.style.left = getScalePosition(match.micron) + '%';
+        scaleMarker.style.left = getScalePosition(displayMicron) + '%';
         particleScale.hidden = false;
 
         // Final-polish equivalents note
-        const finals = describeFinalAbrasives(match.micron);
+        const finals = describeFinalAbrasives(displayMicron);
         if (finals.length) {
             const note = document.createElement('p');
             note.className = 'convert-note';

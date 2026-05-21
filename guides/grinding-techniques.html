@@ -14,7 +14,7 @@
     <link rel="canonical" href="https://www.metallographic.com/guides/grinding-techniques.html">
 
     <!-- Page Title -->
-    <title>Grinding Techniques | PACE Technologies</title>
+    <title>Metallographic Grinding Techniques | PACE Technologies</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/base/styles.css">
@@ -48,24 +48,24 @@
     </script>
 
     <!-- Open Graph Tags for Social Sharing -->
-    <meta property="og:title" content="Grinding Techniques | PACE Technologies">
+    <meta property="og:title" content="Metallographic Grinding Techniques | PACE Technologies">
     <meta property="og:description" content="Master the art of grinding with proper grit selection, pressure control, and technique for optimal surface quality in metallographic sample preparation.">
-    <meta property="og:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
+    <meta property="og:image" content="https://www.metallographic.com/videos/process/grinding-poster.webp">
     <meta property="og:url" content="https://www.metallographic.com/guides/grinding-techniques.html">
     <meta property="og:type" content="article">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Grinding Techniques">
+    <meta name="twitter:title" content="Metallographic Grinding Techniques">
     <meta name="twitter:description" content="Master the art of grinding with proper grit selection, pressure control, and technique for optimal surface quality.">
-    <meta name="twitter:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
+    <meta name="twitter:image" content="https://www.metallographic.com/videos/process/grinding-poster.webp">
 
     <!-- Schema Markup: Article -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Grinding Techniques",
+      "@type": "TechArticle",
+      "headline": "Metallographic Grinding Techniques",
       "description": "Master the art of grinding with proper grit selection, pressure control, and technique for optimal surface quality in metallographic sample preparation.",
       "author": {
         "@type": "Organization",
@@ -80,7 +80,18 @@
         }
       },
       "datePublished": "2024-01-01",
-      "dateModified": "2024-01-01"
+      "dateModified": "2026-05-20",
+      "image": "https://www.metallographic.com/videos/process/grinding-poster.webp",
+      "about": {
+        "@type": "Thing",
+        "name": "Metallography",
+        "sameAs": "https://en.wikipedia.org/wiki/Metallography"
+      },
+      "mentions": [
+        {"@type": "Thing", "name": "Silicon carbide", "sameAs": "https://en.wikipedia.org/wiki/Silicon_carbide"},
+        {"@type": "Thing", "name": "Abrasive", "sameAs": "https://en.wikipedia.org/wiki/Abrasive"},
+        {"@type": "Thing", "name": "Surface finish", "sameAs": "https://en.wikipedia.org/wiki/Surface_finish"}
+      ]
     }
     </script>
 
@@ -471,7 +482,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                        <a href="/procedures.html"><span>Prep by Class</span>
                             <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                 <path d="M9 18l6-6-6-6" />
                             </svg></a>
@@ -776,8 +787,8 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/support/procedures.html">
-                            <span>Prep Procedures</span>
+                        <a href="/procedures.html">
+                            <span>Prep by Class</span>
                         </a>
                     </li>
                     <li>
@@ -877,13 +888,15 @@
                     <h2>Table of Contents</h2>
                     <ul>
                         <li><a href="#introduction">Introduction</a></li>
-                        <li><a href="#grit-selection">Grit Selection</a></li>
-                        <li><a href="#grinding-sequence">Grinding Sequence</a></li>
-                        <li><a href="#technique">Proper Technique</a></li>
-                        <li><a href="#pressure-control">Pressure Control</a></li>
-                        <li><a href="#lubrication">Lubrication</a></li>
-                        <li><a href="#material-specific">Material-Specific Considerations</a></li>
+                        <li><a href="#sample-planning">Sample Planning</a></li>
+                        <li><a href="#mechanics">Grinding Mechanics</a></li>
+                        <li><a href="#abrasive-selection">PACE Abrasive Selection</a></li>
+                        <li><a href="#procedure">Grinding Procedure</a></li>
+                        <li><a href="#material-specific">Material-Specific Sequences</a></li>
                         <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#equipment">PACE Grinding Equipment</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#whats-next">What's Next</a></li>
                     </ul>
                 </div>
 
@@ -892,143 +905,375 @@
                     <section id="introduction" class="guide-section">
                         <h2>Introduction</h2>
                         <p>
-                            Grinding is a critical step in metallographic sample preparation that removes sectioning 
-                            damage and prepares the surface for polishing. Proper grinding technique ensures that 
-                            scratches are progressively removed without introducing new damage or deformation.
+                            Grinding sits between sectioning and polishing in the metallographic workflow, and its job is specific: <strong>remove the damage layer left by the saw blade and produce a uniform scratch pattern that polishing can clean up</strong>. Get it right and polishing is easy. Get it wrong and no amount of polishing will reveal the true microstructure.
                         </p>
+
+                        <div class="guide-info-box guide-info-box-primary">
+                            <p>
+                                <strong>It is possible to create more damage in grinding than in sectioning.</strong> Starting with too coarse an abrasive drives deformation deeper into the specimen than the original cut. The better strategy is to cut close to the area of interest with the right blade so you can begin grinding at a finer grit, not coarser.
+                            </p>
+                        </div>
+
                         <div class="guide-image-wrapper">
                             <a href="/metallographic-consumables/grinding.html" class="guide-link">
-                                <img 
+                                <img
                                     src="/images/consumables/grinding-lapping/grinding-lapping-cover.webp"
-                                    alt="Grinding and lapping consumables for metallographic sample preparation"
+                                    alt="PACE grinding and lapping consumables for metallographic sample preparation"
                                     loading="lazy"
                                     class="guide-image"
                                 />
                             </a>
-                            <p class="guide-image-caption">Grinding and lapping consumables including silicon carbide papers, powders, and accessories. Progressive grinding removes sectioning damage while preparing the surface for polishing.</p>
+                            <p class="guide-image-caption">PACE SiC papers, alumina papers, zirconia papers, diamond grinding disks, and composite disks cover every grinding step from coarse planarization to fine pre-polishing.</p>
                         </div>
+
                         <p>
-                            The goal of grinding is to remove the damaged layer from sectioning while creating a 
-                            uniform scratch pattern that can be easily removed during polishing. This requires 
-                            careful attention to grit progression, pressure, and technique.
+                            Five parameters control grinding outcomes: <strong>abrasive type, abrasive bond, grinding speed, grinding load, and lubrication</strong>. The rest of this guide walks through each one in the order you will encounter them, then gives PACE's specific consumables, equipment, and material-specific procedures.
                         </p>
                     </section>
 
-                    <section id="grit-selection" class="guide-section">
-                        <h2>Grit Selection</h2>
+                    <section id="sample-planning" class="guide-section">
+                        <h2>Sample Planning</h2>
                         <p>
-                            Selecting the appropriate starting grit depends on the amount of sectioning damage and 
-                            the material being prepared. As a general rule:
+                            Three decisions matter before the specimen touches the abrasive: <strong>where the cut sits</strong>, <strong>how the mount is oriented</strong>, and <strong>whether the specimen fits the wheel safely</strong>.
                         </p>
-                        <div class="guide-phases-grid">
-                            <div class="guide-phase-card">
-                                <div class="guide-phase-image">
-                                    <a href="https://shop.metallographic.com/collections/sic-grinding" target="_blank" rel="noopener noreferrer" class="guide-link">
-                                        <img 
-                                            src="/images/consumables/grinding-lapping/abrasive-grinding/sic-papers.webp"
-                                            alt="Silicon carbide grinding papers in various grit sizes"
-                                            loading="lazy"
-                                        />
-                                    </a>
-                                </div>
-                                <p class="guide-image-caption">Silicon carbide (SiC) grinding papers available in grit sizes from 120 to 1200. Start with coarsest grit needed to remove sectioning damage.</p>
-                            </div>
-                            <div class="guide-phase-card">
-                                <div class="guide-phase-image">
-                                    <a href="https://shop.metallographic.com/collections/sic-powders" target="_blank" rel="noopener noreferrer" class="guide-link">
-                                        <img 
-                                            src="/images/consumables/grinding-lapping/belts-rolls-powders/grinding-sic-powders.webp"
-                                            alt="Silicon carbide grinding powders for different applications"
-                                            loading="lazy"
-                                        />
-                                    </a>
-                                </div>
-                                <p class="guide-image-caption">Silicon carbide grinding powders for specialized applications. Powders can be used with lapping plates for precision grinding.</p>
-                            </div>
+
+                        <div class="guide-info-box guide-info-box-primary">
+                            <p>
+                                <strong>SAFETY: 1/3 working wheel diameter is the maximum specimen size.</strong> Specimens larger than 1/3 the wheel diameter bind and can be ejected at high speed. This is a personal-injury rule, not a quality recommendation. Do not exceed it.
+                            </p>
                         </div>
-                        <ul>
-                            <li><strong>120-180 grit:</strong> For heavy sectioning damage or large amounts of material to remove</li>
-                            <li><strong>240-320 grit:</strong> For moderate sectioning damage (most common starting point)</li>
-                            <li><strong>400-600 grit:</strong> For minimal damage, precision-cut surfaces, or soft/deformation-sensitive materials</li>
-                        </ul>
+
+                        <h3>Where to grind</h3>
                         <p>
-                            The starting grit is primarily determined by how much material needs to be removed, not
-                            by material hardness alone. Start with the coarsest grit necessary to remove sectioning
-                            damage efficiently - starting too fine will prolong the process and may not fully remove
-                            the damaged layer.
+                            The cut from <a href="/guides/sectioning.html" class="guide-link">sectioning</a> sits about 1-2 mm above the area of interest (2-3 mm for soft, ductile metals). Grinding removes this allowance plus the sectioning damage layer. If you cut closer, you grind less and start at a finer grit. If you cut farther, you spend longer at coarser grits and risk introducing additional damage.
                         </p>
+
+                        <h3>Keep coatings in compression</h3>
                         <p>
-                            For more information on grinding consumables, visit our <a href="/metallographic-consumables/grinding.html" class="guide-link">Grinding Consumables</a> page.
+                            For coated, plated, or layered specimens, orient the mount so the abrasive direction passes <strong>through the coating and into the substrate</strong>. This keeps the coating in compression during grinding and prevents spalling at the substrate interface. Same rule as sectioning and mounting.
+                        </p>
+
+                        <h3>Rotate 90° between grits</h3>
+                        <p>
+                            On a belt or stationary paper (unidirectional scratches), rotate the specimen 90° at each grit change. The scratch pattern from the previous step is then perpendicular to the current step, which makes it obvious when the previous pattern has been fully removed. On a rotating platen, scratches are multidirectional, so rotation matters less, but a between-step inspection under good light is still essential.
+                        </p>
+                    </section>
+
+                    <section id="mechanics" class="guide-section">
+                        <h2>Grinding Mechanics</h2>
+                        <p>
+                            Three physics ideas drive every grinding decision: <strong>Preston's Law</strong>, the <strong>abrasive-bond spectrum</strong>, and <strong>disk-on-disk rotation geometry</strong>. Knowing these turns "follow the procedure" into "diagnose what is happening."
+                        </p>
+
+                        <h3>Preston's Law</h3>
+                        <div class="guide-info-box guide-info-box-blue">
+                            <p style="text-align: center; font-size: 1.125rem;"><strong>Removal Rate = k × P × V</strong></p>
+                            <p style="text-align: center;">k = abrasive/material constant, P = pressure, V = velocity</p>
+                        </div>
+                        <p>
+                            Pressure and velocity multiply. Doubling either roughly doubles material removal. In practice, P is constrained by the specimen (too much pressure deforms soft materials and rounds edges) and V is set by the equipment. The trick is to find the highest P and V the specimen tolerates without introducing damage that the next grit cannot remove.
+                        </p>
+
+                        <h3>Abrasive types and hardness</h3>
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>Abrasive</th>
+                                        <th class="text-center">Knoop HK</th>
+                                        <th class="text-center">Mohs</th>
+                                        <th>Crystal structure</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Silica</td><td class="text-center">820</td><td class="text-center">6-7</td><td>Hexagonal-trigonal</td></tr>
+                                    <tr><td>Zircon</td><td class="text-center">1500</td><td class="text-center">7.5-8</td><td>Tetragonal</td></tr>
+                                    <tr><td>Alumina (α or γ)</td><td class="text-center">2150</td><td class="text-center">8-9</td><td>Hexagonal-rhombohedral</td></tr>
+                                    <tr><td>Silicon carbide</td><td class="text-center">2480</td><td class="text-center">9.1-9.5</td><td>Hexagonal-rhombohedral</td></tr>
+                                    <tr><td>Boron carbide</td><td class="text-center">2750</td><td class="text-center">9-10</td><td>Rhombohedral</td></tr>
+                                    <tr><td>Diamond</td><td class="text-center">8000</td><td class="text-center">10</td><td>Cubic-hexagonal</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+                            Silicon carbide is the metallographic workhorse: very hard, self-sharpening (it cleaves cleanly to expose new edges), and inexpensive. Alumina is slightly softer but tougher, so it resists embedding in soft metals. Zirconia is a tough, self-sharpening alternative that holds up under aggressive removal on hard alloys. Diamond is reserved for ceramics, cemented carbides, and other materials too hard for SiC. For grinding ferrous metals, avoid rigid diamond disks: iron catalyzes diamond conversion to graphite at the cut zone.
+                        </p>
+
+                        <h3>Three abrasive bond types</h3>
+                        <ul>
+                            <li><strong>Fixed abrasive (two-body):</strong> abrasive rigidly held in a paper, polymer, or film backing. SiC papers, alumina papers, lapping films, bonded diamond disks. High cut rate, potential for surface and subsurface damage. The most common form in metallographic grinding.</li>
+                            <li><strong>Free abrasive (three-body):</strong> abrasive rolls freely between specimen and lapping plate. Non-aggressive, very flat, slow. Used for lapping hard materials on cast-iron plates. Uncommon in routine metallography.</li>
+                            <li><strong>Semi-fixed abrasive (hybrid):</strong> abrasive temporarily held in an interrupted surface. Better than fixed for brittle materials because the abrasive exposure is lower. <strong>PACE's CERMESH metal mesh cloth charged with DIAMAT polycrystalline diamond is the canonical example</strong>, used for grinding ceramics, CMCs, and other brittle specimens.</li>
+                        </ul>
+
+                        <h3>Disk-on-disk rotation: complementary vs. contra</h3>
+                        <p>
+                            Modern grinder-polishers run two disks: a specimen head and a working wheel. The head can rotate in the <strong>same direction</strong> as the working wheel (complementary) or the <strong>opposite direction</strong> (contra). The choice has big consequences.
+                        </p>
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>Head / Base RPM</th>
+                                        <th>Direction</th>
+                                        <th>Velocity differential</th>
+                                        <th>Use case</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">100 / 300-600</td>
+                                        <td>Contra</td>
+                                        <td>High</td>
+                                        <td>Aggressive gross removal on hard specimens (central pressure machines)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">200 / 200</td>
+                                        <td>Complementary (same direction)</td>
+                                        <td>Moderate</td>
+                                        <td><strong>RECOMMENDED for most applications.</strong> Standard for individual-pressure machines.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">100 / 100</td>
+                                        <td>Complementary (same direction)</td>
+                                        <td>Low</td>
+                                        <td>Very brittle or very soft materials</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+                            Complementary rotation cancels the velocity differential at the specimen, which preserves inclusions and brittle phases, produces a uniform finish, and gives a flat surface across the specimen. Contra rotation generates a "hammering" action with much higher cut rates but breaks down inclusions and can wear SiC papers non-uniformly.
+                        </p>
+                        <div class="guide-info-box guide-info-box-blue">
+                            <p><strong>Wedge warning.</strong> Grinding at -200/+200 RPM (contra direction) with 180-grit or coarser paper on an individual-pressure machine produces a measurable wedge across the specimen face. Match head and base RPM in the same direction and the specimen stays square.</p>
+                        </div>
+                    </section>
+
+                    <section id="abrasive-selection" class="guide-section">
+                        <h2>PACE Abrasive Selection</h2>
+                        <p>
+                            PACE manufactures the full grinding consumable line: silicon carbide papers, alumina papers, zirconia papers, metal-bonded and resin-bonded diamond disks, and pre-charged composite disks. The reference tables below help you pick the right abrasive and grit for the job.
+                        </p>
+
+                        <h3>Grit reference: ANSI vs European P-grading</h3>
+                        <p>
+                            Both systems describe abrasive particle size by mesh-screen openings. The European P-system ignores wire diameter, while ANSI compensates for it. Numbers diverge significantly at the fine end. The "P" prefix marks the European designation.
+                        </p>
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">ANSI grit (US)</th>
+                                        <th class="text-center">European P-grade</th>
+                                        <th class="text-center">Median particle (µm)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="text-center">60</td><td class="text-center">60</td><td class="text-center">250</td></tr>
+                                    <tr><td class="text-center">120</td><td class="text-center">120</td><td class="text-center">106</td></tr>
+                                    <tr><td class="text-center">180</td><td class="text-center">180</td><td class="text-center">75</td></tr>
+                                    <tr><td class="text-center">240</td><td class="text-center">P220</td><td class="text-center">63</td></tr>
+                                    <tr><td class="text-center">320</td><td class="text-center">P360</td><td class="text-center">40.5</td></tr>
+                                    <tr><td class="text-center">360</td><td class="text-center">P500</td><td class="text-center">30.2</td></tr>
+                                    <tr><td class="text-center">400</td><td class="text-center">P800</td><td class="text-center">21.8</td></tr>
+                                    <tr><td class="text-center">600</td><td class="text-center">P1200</td><td class="text-center">15.3</td></tr>
+                                    <tr><td class="text-center">800</td><td class="text-center">P2400</td><td class="text-center">6.5</td></tr>
+                                    <tr><td class="text-center">1200</td><td class="text-center">P4000</td><td class="text-center">2.5</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Surface roughness vs. SiC grit (Rc 30 steel)</h3>
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">SiC grit (ANSI)</th>
+                                        <th class="text-center">Surface roughness Ra (µm)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="text-center">60</td><td class="text-center">1.40</td></tr>
+                                    <tr><td class="text-center">240</td><td class="text-center">1.00</td></tr>
+                                    <tr><td class="text-center">400</td><td class="text-center">0.32</td></tr>
+                                    <tr><td class="text-center">600</td><td class="text-center">0.175</td></tr>
+                                    <tr><td class="text-center">1200</td><td class="text-center">0.02</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+                            The big drop in surface roughness happens between 600 (P1200) and 800 (P2400). Below 600, papers are made by electrostatic-discharge coating, which orients abrasive sharp-edge-up. Above 600, papers are slurry-coated with abrasive bound in epoxy, producing much lower abrasive exposure and the finer finish you see in the table. This is why metallographic fine-grit papers outperform industrial fine-grit papers.
+                        </p>
+
+                        <h3>SiC papers (PACE catalog)</h3>
+                        <p>
+                            The default abrasive for most grinding sequences. Available in grits 60 through 1200, PSA or plain backing, four diameters.
+                        </p>
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>Grit range</th>
+                                        <th>Available sizes</th>
+                                        <th>SKU pattern</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>60, 80, 120, 180 (coarse)</td>
+                                        <td>8″, 10″, 12″, 14″</td>
+                                        <td>SIC-{grit}P{size}-100 (PSA) or SIC-2{size}-{grit} (plain)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>240, 320, 360, 400, 600 (medium-fine)</td>
+                                        <td>8″, 10″, 12″, 14″</td>
+                                        <td>SIC-{grit}P{size}-100 (PSA) or SIC-2{size}-{grit} (plain)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>800, 1000, 1200 (fine, slurry-coated)</td>
+                                        <td>8″, 10″, 12″, 14″</td>
+                                        <td>SIC-{grit}P{size}-100 (PSA)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+                            <a href="/metallographic-consumables/grinding/abrasive-grinding.html" class="guide-link">Full SiC paper catalog with stock and pricing →</a>
+                        </p>
+
+                        <h3>Alumina papers (PACE ALO series) and the shortcut tip</h3>
+                        <p>
+                            Alumina is tougher than SiC and resists fracturing into soft specimens. For soft non-ferrous metals (aluminum, copper, brass), alumina dramatically reduces embedded-abrasive defects.
                         </p>
                         <div class="guide-info-box guide-info-box-primary">
-                            <div class="guide-image-wrapper" style="max-width: 250px; margin: 0 auto 1rem;">
-                                <a href="/metallographic-equipment/grinding-polishing.html" class="guide-link">
-                                    <img 
-                                        src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-cover.webp"
-                                        alt="PENTA Series hand and belt grinders"
-                                        loading="lazy"
-                                        class="guide-image"
-                                    />
-                                </a>
-                            </div>
                             <p>
-                                <strong>Recommended Equipment:</strong> Hand & Belt Grinders
+                                <strong>Shortcut: one P500 or P1200 alumina paper can replace the full SiC sequence of 240, 320, 400, and 600 grit</strong> for planarization of soft and medium-hard metals. The result is fewer grinding steps and faster overall prep, especially on soft non-ferrous specimens where SiC tends to embed.
                             </p>
-                            <p style="font-size: 0.875rem;">
-                                PENTA Series hand and belt grinders deliver precise material removal with robust construction and efficient cooling.
-                            </p>
-                            <a href="/metallographic-equipment/grinding-polishing.html" class="guide-link" style="font-weight: 600;">
-                                View Hand & Belt Grinders →
-                            </a>
                         </div>
-                    </section>
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>P-Grade</th>
+                                        <th>Equivalent ANSI</th>
+                                        <th>Available sizes</th>
+                                        <th>SKU pattern</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>P120</td><td>~120</td><td>8″, 10″, 12″</td><td>ALO-120P{size}-100 (PSA) or ALO-2{size}-P120 (plain)</td></tr>
+                                    <tr><td>P220</td><td>~240</td><td>8″, 10″, 12″</td><td>ALO-220P{size}-100 (PSA) or ALO-2{size}-P220 (plain)</td></tr>
+                                    <tr><td>P500</td><td>~360</td><td>8″, 10″, 12″</td><td>ALO-500P{size}-100 (PSA) or ALO-2{size}-P500 (plain)</td></tr>
+                                    <tr><td>P1200</td><td>~600</td><td>8″, 10″, 12″</td><td>ALO-1200P{size}-100 (PSA) or ALO-2{size}-P1200 (plain)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                    <section id="grinding-sequence" class="guide-section">
-                        <h2>Grinding Sequence</h2>
+                        <h3>Zirconia papers (PACE ZR series)</h3>
                         <p>
-                            A typical grinding sequence progresses through increasingly fine grits. The key is to 
-                            ensure that all scratches from the previous grit are removed before moving to the next.
+                            Zirconia alumina is exceptionally tough and self-sharpening through micro-fracturing rather than gross cleavage. Long paper life on stainless steels, nickel-based superalloys, titanium, and other hard-to-machine specimens. Cost-effective for production environments processing large batches of tough materials.
                         </p>
-                        <h3>Standard SiC Grinding Sequence</h3>
-                        <ol>
-                            <li><strong>120 or 240 grit:</strong> Remove sectioning damage and establish a flat surface</li>
-                            <li><strong>320 grit:</strong> Remove previous scratch pattern</li>
-                            <li><strong>400 grit:</strong> Continue refinement</li>
-                            <li><strong>600 grit:</strong> Final grinding step for most materials</li>
-                            <li><strong>800 / 1200 grit (optional):</strong> For finer surface finishes before polishing</li>
-                        </ol>
-                        <p>
-                            <strong>Important:</strong> Do not move to the next grit until all scratches from the
-                            previous step are removed. Inspect the surface between steps - the time required varies
-                            with material hardness, sample size, and how much damage is present. Most steps take
-                            roughly 1-2 minutes, but let the surface condition guide your decision rather than
-                            a fixed time.
-                        </p>
-                    </section>
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>Grit</th>
+                                        <th>Available sizes</th>
+                                        <th>SKU pattern</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>120 (coarse)</td><td>8″, 10″, 12″</td><td>ZR-120P{size}-25 (PSA)</td></tr>
+                                    <tr><td>220 (medium)</td><td>8″, 10″, 12″</td><td>ZR-220P{size}-25 (PSA)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                    <section id="technique" class="guide-section">
-                        <h2>Proper Grinding Technique</h2>
-                        <h3>Sample Orientation</h3>
+                        <h3>Diamond grinding disks (PACE DIA series)</h3>
                         <p>
-                            When grinding on a belt or stationary paper (unidirectional scratches), rotate the sample
-                            90° between each grit change. This makes it easy to see when all scratches from the
-                            previous grit have been replaced by the current grit's scratch pattern. On a rotating
-                            platen, scratches are multidirectional, so rotation is less critical - but you should
-                            still inspect the surface between steps to confirm the previous scratch pattern is fully
-                            removed.
+                            For ceramics, cemented carbides, ceramic matrix composites, and hard non-ferrous alloys (titanium, zirconium). <strong>Do not use rigid diamond disks on ferrous metals</strong>; iron catalyzes diamond's conversion to graphite at cut-zone temperatures and the disk degrades rapidly.
                         </p>
-                        <h3>Grinding Motion</h3>
                         <p>
-                            The correct motion depends on your equipment:
+                            Two bond types: <strong>metal-bonded</strong> for aggressive material removal and long life, <strong>resin-bonded</strong> for finer surface finish and lower subsurface damage. Both available in PSA or magnetic backing.
+                        </p>
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>Bond</th>
+                                        <th>Particle sizes</th>
+                                        <th>SKU pattern</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Metal-bonded (aggressive)</td>
+                                        <td>250 µm, 125 µm, 75 µm, 40 µm, 30 µm, 15 µm</td>
+                                        <td>DIA-M{size}-{08/10/12}-{PSA/MAG}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Resin-bonded (finer finish)</td>
+                                        <td>125 µm, 70 µm, 35 µm, 25 µm, 15 µm, 9 µm</td>
+                                        <td>DIA-R{size}-{08/10/12}-{PSA/MAG}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>PACE composite disks: ORION and SIRIUS</h3>
+                        <p>
+                            Pre-charged diamond grinding disks that eliminate manual abrasive charging. Both have magnetic steel backings and require a compatible magnetic platen.
                         </p>
                         <ul>
-                            <li><strong>Belt / hand grinders:</strong> Push the sample in smooth, unidirectional strokes against the abrasive, covering the full width of the belt</li>
-                            <li><strong>Rotating platens (manual):</strong> Hold the sample firmly against the rotating disc, moving it gently from center to edge for even paper wear</li>
-                            <li><strong>Semi-automated systems:</strong> The sample head controls motion and force - follow your equipment's guidelines for speed and pressure settings</li>
+                            <li><strong>SIRIUS (9 µm diamond)</strong>: replaces the standard 320, 400, and 600 grit SiC grinding steps. SKU: SIRIUS-MD{08/10/12}. Run at 200/200 RPM complementary.</li>
+                            <li><strong>ORION (3 µm diamond)</strong>: fine grinding bridge into final polishing. SKU: ORION-MD{08/10/12}. Run at 100/100 to 150/150 RPM complementary.</li>
                         </ul>
                         <p>
-                            Regardless of method, maintain consistent contact with the grinding surface and avoid
-                            concentrating on one area, which leads to uneven material removal.
+                            A typical composite-disk workflow uses SIRIUS to replace 320-600 SiC steps, then ORION to bridge into polishing. Supplement with DIAMAT diamond suspension in the matching particle range (3-6 µm for ORION, 6-15 µm for SIRIUS) to extend cutting action. Do NOT apply oxide suspensions (alumina, colloidal silica) to diamond-charged disks.
+                        </p>
+
+                        <h3>CERMESH semi-fixed grinding for ceramics</h3>
+                        <p>
+                            <strong>CERMESH</strong> is a metal mesh cloth used as a semi-fixed abrasive carrier. Pre-charged with DIAMAT polycrystalline diamond suspension, it grinds brittle ceramics and CMCs without the subsurface damage that fixed-abrasive diamond disks introduce.
+                        </p>
+                        <p>
+                            CERMESH procedure: apply the cloth to a flat base, pre-charge with DIAMAT, start at 50% of normal force to planarize the specimen against the cloth (full force tears the mesh), then ramp force up gradually. Add suspension as needed. Rinse with water at the end of the cycle.
+                        </p>
+                    </section>
+
+                    <section id="procedure" class="guide-section">
+                        <h2>Grinding Procedure</h2>
+                        <p>
+                            With abrasive selected and machine configured, the actual grinding work breaks down into force, motion, lubrication, time, and cleaning between steps.
+                        </p>
+
+                        <h3>Force</h3>
+                        <p>
+                            For manual grinding, applied force runs about <strong>5 to 15 lbs (20 to 65 N) per specimen</strong>, depending on mount size and material. Don's lab data shows the <strong>optimum force is around 15 lbs for a 1″ specimen</strong>, but most procedures specify 5 lbs because automated machines with multiple stations cap total force at 60-90 lbs across all heads (air compressor limits).
+                        </p>
+                        <p>
+                            Use these principles regardless of the target number:
+                        </p>
+                        <ul>
+                            <li><strong>Coarse grits (120-240):</strong> Firm, steady force for efficient stock removal. Higher force extends paper life as abrasive dulls.</li>
+                            <li><strong>Medium grits (320-400):</strong> Moderate force focused on replacing the previous scratch pattern uniformly.</li>
+                            <li><strong>Fine grits (600+):</strong> Lighter force to minimize subsurface deformation going into polishing.</li>
+                            <li><strong>Friable specimens (nodular cast iron, MMCs):</strong> Slightly higher force with low velocity differential helps retain inclusions and secondary phases that would otherwise pull out.</li>
+                        </ul>
+                        <p>
+                            Semi-automated systems with programmable force (PACE FEMTO autopolisher heads) remove the operator-to-operator variability that dominates manual force application.
+                        </p>
+
+                        <h3>Motion</h3>
+                        <ul>
+                            <li><strong>Hand grinders (PENTA-5000A):</strong> Push the sample in smooth, unidirectional strokes against the SiC roll, covering the full belt width so the paper wears evenly.</li>
+                            <li><strong>Belt grinders (PENTA-7500S):</strong> Same principle, larger working surface for high-volume removal.</li>
+                            <li><strong>Manual platens (NANO series):</strong> Hold the specimen firmly against the rotating disc and traverse gently from center to edge so the paper wears uniformly.</li>
+                            <li><strong>Semi-automated heads (FEMTO):</strong> The head controls motion and force. Set head and base RPM to match in the same direction; refer to the rotation table above.</li>
+                        </ul>
+                        <p>
+                            Whatever the motion, keep contact uniform across the specimen face. Concentrating force on one area gives differential removal, edge rounding, and relief at phase boundaries.
                         </p>
 
                         <div class="guide-video-grid">
@@ -1036,148 +1281,145 @@
                                 <div class="guide-video-embed">
                                     <iframe
                                         src="https://www.youtube.com/embed/oFQoUkcwTMc"
-                                        title="Manual Grinding with PENTA 7500S & PENTA 5000A"
+                                        title="Manual Grinding with PENTA 7500S and PENTA 5000A"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen
                                         loading="lazy"
                                     ></iframe>
                                 </div>
                                 <p class="guide-video-caption">
-                                    <strong>Manual Grinding</strong>
-                                    Dr. Donald Zipperian demonstrates correct sample orientation, grinding motion, pressure control, and proper use of the PENTA manual grinding systems.
+                                    <strong>Manual Grinding.</strong> Dr. Donald Zipperian demonstrates sample orientation, motion, and pressure control on the PENTA-7500S belt grinder and PENTA-5000A hand grinder.
                                 </p>
                             </div>
                             <div class="guide-video-card">
                                 <div class="guide-video-embed">
                                     <iframe
                                         src="https://www.youtube.com/embed/PT2fRdSvhDM"
-                                        title="Automated Grinding & Polishing with NANO 1000S & FEMTO 1100S"
+                                        title="Automated Grinding and Polishing with NANO 1000S and FEMTO 1100S"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen
                                         loading="lazy"
                                     ></iframe>
                                 </div>
                                 <p class="guide-video-caption">
-                                    <strong>Automated Grinding & Polishing</strong>
-                                    Dr. Donald Zipperian demonstrates the NANO 1000S and FEMTO 1100S systems - programming, operation, and achieving consistent, high-quality results.
+                                    <strong>Automated Grinding and Polishing.</strong> Programming and operating the NANO-1000S manual polisher with the FEMTO-1100S autopolisher head for consistent, programmable results.
                                 </p>
                             </div>
                         </div>
 
-                        <h3>Time Management</h3>
+                        <h3>Lubrication</h3>
                         <p>
-                            There is no universal time-per-step rule. Visual inspection of the scratch pattern is
-                            always the best indicator of when to proceed. That said, most grinding steps fall in
-                            the range of 1-2 minutes, influenced by:
+                            Continuous lubricant flow during grinding removes heat, flushes swarf, prevents the abrasive from loading, and reduces friction. Three options:
                         </p>
                         <ul>
-                            <li>Material hardness (harder materials wear paper faster but remove slowly)</li>
+                            <li><strong>Water:</strong> the default for nearly all metallographic grinding. Cheap, effective, readily available.</li>
+                            <li><strong>Water with surfactant:</strong> improves wetting and swarf removal. Helpful for materials prone to abrasive loading.</li>
+                            <li><strong>Oil-based:</strong> required for water-reactive metals (magnesium, lithium, sodium alloys) and some specialty applications where water would cause corrosion or chemical reaction with the specimen.</li>
+                        </ul>
+
+                        <h3>Time per step</h3>
+                        <p>
+                            No universal time-per-step rule applies. Visual inspection of the scratch pattern is always the better indicator. Most grinding steps fall in the <strong>1-2 minute range</strong>, modified by:
+                        </p>
+                        <ul>
+                            <li>Material hardness (harder materials wear paper faster but remove material slowly)</li>
                             <li>Amount of damage to remove from the previous step</li>
-                            <li>Sample size and mount diameter</li>
-                            <li>Grinding pressure and equipment type</li>
+                            <li>Mount diameter and specimen size</li>
+                            <li>Applied force and equipment type</li>
                         </ul>
-                        <h3>Cleaning Between Steps</h3>
                         <p>
-                            Thorough cleaning between each grit change is essential. Abrasive particles carried
-                            over from a coarser step will create deep scratches that are difficult to remove and
-                            easy to mistake for insufficient grinding. After each step:
+                            Don's lab data shows that SiC paper <strong>cut rate halves within 2 minutes</strong> at 240 grit on a 1″ steel specimen. After the first minute, increasing force gives no additional cut-rate advantage. If you're still grinding after 2-3 minutes and not seeing progress, the paper is glazed; replace it.
                         </p>
-                        <ul>
-                            <li>Rinse the sample under running water to remove loose debris</li>
-                            <li>Ultrasonic cleaning for 30-60 seconds is ideal when available</li>
-                            <li>Dry the sample before placing it on the next abrasive</li>
-                            <li>Clean your hands and sample holder as well - they can transfer contaminants</li>
-                        </ul>
-                    </section>
 
-                    <section id="pressure-control" class="guide-section">
-                        <h2>Pressure Control</h2>
+                        <h3>Cleaning between steps</h3>
                         <p>
-                            Applying the correct pressure is crucial for effective grinding. Too much pressure can 
-                            cause deformation, while too little may not remove scratches efficiently.
-                        </p>
-                        <h3>Guidelines for Pressure</h3>
-                        <p>
-                            The right amount of pressure depends on the material, sample size, and equipment.
-                            Rather than targeting a specific number, use these principles:
+                            Carryover of a coarse abrasive particle to a finer grit produces a deep scratch that the finer grit cannot remove. The deep scratch is easily mistaken for "insufficient grinding" and wastes a lot of time. Clean carefully between every grit change:
                         </p>
                         <ul>
-                            <li><strong>Coarse grits (120-240):</strong> Firm, steady pressure - enough for efficient stock removal without excessive paper wear</li>
-                            <li><strong>Medium grits (320-400):</strong> Moderate pressure - focus on replacing the previous scratch pattern evenly</li>
-                            <li><strong>Fine grits (600+):</strong> Lighter pressure to minimize subsurface deformation going into polishing</li>
+                            <li>Rinse the specimen under running water to remove loose debris</li>
+                            <li>Ultrasonic cleaning for 30-60 seconds is the gold standard when available</li>
+                            <li>Dry before placing on the next abrasive</li>
+                            <li>Clean hands and the sample holder; they transfer contaminants</li>
                         </ul>
-                        <p>
-                            For manual grinding, typical applied force ranges from about 5-15 lbs (20-65 N)
-                            depending on mount size. Semi-automated systems like the FEMTO offer programmable,
-                            repeatable force settings - consult your equipment manual for recommended starting
-                            values for your material.
-                        </p>
-                        <h3>Pressure Distribution</h3>
-                        <p>
-                            Distribute pressure evenly across the sample. Uneven pressure causes edge rounding,
-                            relief at phase boundaries, and inconsistent material removal - all of which create
-                            problems during polishing and microscopy.
-                        </p>
-                    </section>
 
-                    <section id="lubrication" class="guide-section">
-                        <h2>Lubrication</h2>
+                        <h3>Measure stock removal: the ball-bearing trick</h3>
                         <p>
-                            Proper lubrication is essential for effective grinding. It serves multiple purposes:
-                        </p>
-                        <ul>
-                            <li>Reduces heat generation</li>
-                            <li>Flushes away removed material</li>
-                            <li>Prevents loading of the abrasive</li>
-                            <li>Reduces friction and wear</li>
-                        </ul>
-                        <h3>Lubricant Selection</h3>
-                        <ul>
-                            <li><strong>Water:</strong> The standard for most metallographic grinding - inexpensive, effective, and readily available</li>
-                            <li><strong>Water with surfactant:</strong> Improves wetting and swarf removal; helpful for materials prone to loading</li>
-                            <li><strong>Oil-based lubricants:</strong> Required for water-reactive materials such as magnesium, lithium, and certain reactive metals</li>
-                        </ul>
-                        <p>
-                            Apply lubricant continuously during grinding. Adequate flow keeps the surface clean,
-                            carries away debris that would cause scratching, and prevents heat buildup that can
-                            alter the microstructure.
+                            For heat-treated parts where over-grinding ruins the surface hardness test, embed a <strong>1/8″ or 1/4″ steel ball bearing</strong> in the mount alongside the specimen. Measuring the bearing's exposed segment diameter through grinding (low-power microscope or microhardness filar) directly tells you how much material has been removed. Trigonometry does the rest: known sphere diameter, observed chord diameter, calculated depth.
                         </p>
                     </section>
 
                     <section id="material-specific" class="guide-section">
-                        <h2>Material-Specific Considerations</h2>
-                        <h3>Hard Metals (Hardened Steels, Tool Steels)</h3>
-                        <ul>
-                            <li>Removal rates are slower — expect longer grinding times at each step</li>
-                            <li>Can generally tolerate higher applied force without deformation</li>
-                            <li>SiC paper wears faster; replace papers more frequently to maintain cutting efficiency</li>
-                            <li>Diamond grinding discs are often more economical than SiC for routine hard-metal work</li>
-                        </ul>
-                        <h3>Ceramics and Brittle Materials</h3>
-                        <ul>
-                            <li>Hard but brittle — excessive force causes chipping, cracking, or fracture rather than deformation</li>
-                            <li>Use firm, steady pressure rather than high pressure</li>
-                            <li>Diamond grinding surfaces are typically preferred over SiC for ceramics</li>
-                            <li>Adequate lubrication is critical to prevent thermal shock</li>
-                        </ul>
-                        <h3>Soft Materials (Aluminum, Copper, Lead)</h3>
-                        <ul>
-                            <li>The main challenges are smearing and embedded abrasive, not just scratch removal</li>
-                            <li>Use lighter pressure and ensure adequate lubrication to reduce smearing</li>
-                            <li>Use fresh papers — worn papers cut poorly and increase the tendency to smear</li>
-                            <li>Still choose starting grit based on the amount of sectioning damage, not the material softness</li>
-                        </ul>
-                        <h3>Work-Hardening Materials (Austenitic Stainless Steels, Nickel Alloys)</h3>
-                        <ul>
-                            <li>Grinding introduces a deeper deformation zone than their hardness alone would suggest</li>
-                            <li>Each grit step must fully remove the deformation from the previous step — not just the visible scratches</li>
-                            <li>Use steady, moderate pressure; avoid excessive force which deepens the deformed layer</li>
-                            <li>Fresh, sharp abrasives are important — dull papers increase deformation without improving removal</li>
-                        </ul>
+                        <h2>Material-Specific Sequences</h2>
+                        <p>
+                            Six material categories cover almost every metallographic grinding job. Each has a recommended abrasive sequence based on the material's hardness, ductility, and brittleness. Where Don's procedure differs from a generic SiC progression, the difference matters: starting with the wrong abrasive embeds particles in soft metals or fractures inclusions in brittle ones.
+                        </p>
+
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>Material category</th>
+                                        <th>Examples</th>
+                                        <th>Recommended sequence</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Soft non-ferrous</strong></td>
+                                        <td>Aluminum, copper, brass, zinc, precious metals (PACE Class 1)</td>
+                                        <td>P1200 alumina (or 600 SiC) → 800 SiC → 1200 SiC. Start with alumina to avoid embedding.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Soft ferrous</strong></td>
+                                        <td>Mild steel, low-carbon steel</td>
+                                        <td>240 SiC → 320 → 400 → 600 → 800 → 1200. Shortcut: P500 or P1200 alumina replaces the 240-600 SiC steps.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Hard ferrous</strong></td>
+                                        <td>Hardened tool steels, case-hardened steels (PACE Class 8)</td>
+                                        <td>120 or 180 SiC for heavy planarization → 240 → 320 → 400 → 600 SiC. Expect faster paper wear; replace as cut rate drops.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Super alloys and hard non-ferrous</strong></td>
+                                        <td>Titanium, Inconel, Hastelloy, zirconium alloys (PACE Class 6)</td>
+                                        <td>240 SiC → 320 → 400 → 600 → 800 → 1200. Zirconia paper (ZR-220) is a tough alternative for the coarse step on production-volume work.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Engineered ceramics</strong></td>
+                                        <td>Alumina, zirconia, silicon nitride, SiC ceramic (PACE Class 10)</td>
+                                        <td>Semi-fixed CERMESH cloth charged with DIAMAT polycrystalline diamond. Start at 50% normal force, ramp up gradually. Match grit to grain size; coarse diamond damages brittle phases.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Metal matrix composites</strong></td>
+                                        <td>Al-SiCp, Al-B4Cp, MMC seal rings (PACE Class 9)</td>
+                                        <td>Planarize the soft matrix first with SiC. Secondary grinding focuses on the hard reinforcement: diamond grinding disks or CMP polishing.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Why alumina for soft non-ferrous metals</h3>
+                        <p>
+                            Silicon carbide is brittle and self-sharpening, which is exactly the property you want on hard ferrous metals but exactly wrong for soft non-ferrous metals. The fractured SiC fragments embed in the soft surface and show up as artifacts during microscopy and microhardness testing. Alumina is tougher, fractures less, and resists embedding. For aluminum, copper, brass, zinc, and precious metals, alumina at the coarse step is the difference between a usable specimen and one that needs to be reground.
+                        </p>
+
+                        <h3>Why composite disks (ORION / SIRIUS) accelerate medium-hard work</h3>
+                        <p>
+                            For routine work on mild steel and super alloys, the <a href="#abrasive-selection" class="guide-link">composite disk workflow</a> replaces multiple SiC steps with two diamond steps. SIRIUS (9 µm) covers what 320, 400, and 600 SiC would do; ORION (3 µm) bridges into polishing. The disks are pre-charged, don't require paper changes, and run on the same NANO grinder-polisher as your other consumables. Higher upfront cost; faster prep, fewer paper changes, longer effective working life.
+                        </p>
+
+                        <h3>Work-hardening materials need extra attention</h3>
+                        <p>
+                            Austenitic stainless steels, nickel-based alloys, and other work-hardening materials build a deformation zone deeper than the visible scratch pattern suggests. Each grit step must remove not only the scratches from the previous step but also the deformation underneath them. Use moderate steady force, replace abrasives more often than you would for non-hardening alloys, and check the final surface against the <a href="/guides/polishing-methods.html" class="guide-link">polishing</a> step to confirm no carry-over deformation remains.
+                        </p>
                     </section>
 
                     <section id="troubleshooting" class="guide-section">
-                        <h2>Troubleshooting Common Issues</h2>
+                        <h2>Troubleshooting</h2>
+                        <p>
+                            Most grinding problems trace back to abrasive choice, force/velocity setting, or contamination. Use the table below to narrow down the cause before changing your sequence.
+                        </p>
+
                         <div class="guide-image-wrapper">
                             <img
                                 src="/images/guides/inclusion-oxide.jpg"
@@ -1185,159 +1427,308 @@
                                 loading="lazy"
                                 class="guide-image"
                             />
-                            <p class="guide-image-caption">Proper grinding and polishing technique preserves true microstructural features like these oxide inclusions. Poor grinding practice - contamination, embedded abrasive, or excessive deformation - can obscure or mimic real features, making accurate analysis impossible.</p>
+                            <p class="guide-image-caption">Proper grinding preserves true microstructural features like these oxide inclusions. Poor technique (contamination, embedded abrasive, excessive deformation) obscures or mimics features and makes accurate analysis impossible.</p>
                         </div>
-                        <h3>Scratches Not Removing</h3>
-                        <ul>
-                            <li>Insufficient grinding time at current grit</li>
-                            <li>Not rotating sample 90° between grits</li>
-                            <li>Pressure too light</li>
-                            <li>Grit progression too aggressive (skipped grits)</li>
-                        </ul>
-                        <h3>Excessive Deformation</h3>
-                        <ul>
-                            <li>Pressure too high</li>
-                            <li>Grinding time too long</li>
-                            <li>Grit too coarse for material</li>
-                            <li>Insufficient lubrication</li>
-                        </ul>
-                        <h3>Uneven Surface</h3>
-                        <ul>
-                            <li>Inconsistent pressure application</li>
-                            <li>Not covering entire surface evenly</li>
-                            <li>Worn or damaged grinding paper</li>
-                            <li>Sample not flat against grinding surface</li>
-                        </ul>
-                        <h3>Contamination</h3>
-                        <ul>
-                            <li>Not cleaning sample between grits</li>
-                            <li>Using contaminated lubricant</li>
-                            <li>Cross-contamination from previous steps</li>
-                            <li>Dirty grinding equipment</li>
-                        </ul>
+
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>Symptom</th>
+                                        <th>Common causes</th>
+                                        <th>Fix</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-semibold align-top">Scratches from a coarser grit will not remove</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Insufficient grinding time at current grit</li>
+                                                <li>Specimen not rotated 90° between grits (cannot tell when old pattern is gone)</li>
+                                                <li>Force too light</li>
+                                                <li>Skipped a grit in the sequence</li>
+                                                <li>Carryover contamination from a coarser paper</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Grind longer at current grit and re-inspect</li>
+                                                <li>Rotate 90° at the next step so the pattern direction reveals leftover scratches</li>
+                                                <li>Increase force moderately</li>
+                                                <li>Drop back one grit and rebuild the sequence</li>
+                                                <li>Clean specimen and holder thoroughly between steps</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold align-top">Excessive deformation or smearing</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Starting grit too coarse for the specimen</li>
+                                                <li>Force too high (soft materials)</li>
+                                                <li>Insufficient lubrication, heat building up in cut zone</li>
+                                                <li>Glazed or worn paper</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Drop to a finer starting grit; check if sectioning damage was deeper than expected</li>
+                                                <li>Reduce force for fine steps</li>
+                                                <li>Increase lubricant flow</li>
+                                                <li>Replace the paper; SiC cut rate drops sharply after ~2 min</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold align-top">Embedded abrasive (particles in the polished face)</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>SiC on a soft material (aluminum, copper, lead, brass)</li>
+                                                <li>SiC abrasive fracturing into the soft surface</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Switch to PACE alumina papers (ALO series) for the coarse step. Alumina is tougher and resists embedding.</li>
+                                                <li>For very soft metals, consider chemical-etch removal of embedded particles in polishing</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold align-top">Uneven grinding across specimen (wedge or tilt)</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Contra rotation (head and base opposite directions) at coarse grits on individual-pressure machines</li>
+                                                <li>Specimen holder not tracking over the entire abrasive surface</li>
+                                                <li>Mount face not parallel to the holder face (from sectioning or compression mount)</li>
+                                                <li>Uneven force distribution across specimen</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Match head and base RPM in the same direction (200/200 RPM complementary)</li>
+                                                <li>Orient the holder so the hardest portion of the specimen tracks over the full abrasive area</li>
+                                                <li>Re-mount the specimen on a flat face</li>
+                                                <li>Verify holder mounting is square</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold align-top">Excessive machine vibration</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Force too high or speed too low</li>
+                                                <li>Wrong lubricant</li>
+                                                <li>Machine bearing or platen wear</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Reduce force, increase RPM</li>
+                                                <li>Increase lubricant flow; switch to a water-soluble lubricant</li>
+                                                <li>Contact PACE for equipment service</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold align-top">Edges round over</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Mount resin softer than specimen edge</li>
+                                                <li>Gap between mount and specimen edge</li>
+                                                <li>Specimen too small relative to mount diameter</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Switch <a href="/guides/mounting.html" class="guide-link">mounting</a> to glass-filled epoxy (Epocomp) or DAP for edge-critical work</li>
+                                                <li>Use the specimen-preheat castable mounting trick to eliminate the shrinkage gap</li>
+                                                <li>Verify specimen is 50-70% of mount diameter</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold align-top">Contamination from previous steps</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Carryover of coarse abrasive on specimen or holder</li>
+                                                <li>Contaminated lubricant</li>
+                                                <li>Dirty equipment between samples</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Ultrasonic clean specimen 30-60 seconds between grits</li>
+                                                <li>Clean hands, holder, and platen between steps</li>
+                                                <li>Use fresh lubricant; clean recirculating filter if equipped (RC-1000A)</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </section>
 
-                    <!-- Equipment Recommendations -->
-                    <section class="guide-section guide-info-box guide-info-box-primary">
-                        <h2>Recommended Equipment</h2>
+                    <!-- Equipment -->
+                    <section id="equipment" class="guide-section">
+                        <h2>PACE Grinding Equipment</h2>
+                        <p>
+                            PACE manufactures the equipment for every grinding workflow, from low-budget manual hand grinders to fully programmable automated polishing heads with abrasive dispensers and recirculating filtration.
+                        </p>
+
+                        <h3>Hand and belt grinders</h3>
                         <div class="guide-phases-grid">
                             <div class="guide-phase-card">
                                 <div class="guide-phase-image">
                                     <a href="/metallographic-equipment/grinding-polishing.html" class="guide-link">
-                                        <img 
-                                            src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-cover.webp"
-                                            alt="PENTA Series hand and belt grinders"
+                                        <img
+                                            src="/images/penta-5000a.webp"
+                                            alt="PENTA-5000A five-station hand grinder"
                                             loading="lazy"
                                         />
                                     </a>
                                 </div>
-                                <h3>Hand & Belt Grinders</h3>
-                                <p>
-                                    PENTA Series hand and belt grinders provide precise material removal with robust construction 
-                                    and efficient cooling systems.
-                                </p>
-                                <a href="/metallographic-equipment/grinding-polishing.html" class="guide-link">View PENTA Hand & Belt Grinders →</a>
+                                <h4>PENTA-5000A Hand Grinder</h4>
+                                <p>Five-station hand grinder fitted with silicon carbide rolls. The default first-purchase grinder for new labs and the workhorse for student or quick-turn work.</p>
                             </div>
                             <div class="guide-phase-card">
                                 <div class="guide-phase-image">
                                     <a href="/metallographic-equipment/grinding-polishing.html" class="guide-link">
-                                        <img 
-                                            src="/images/equipment/grinding & polishing/manual grinder polishers/nano-1000s/nano-1000s-cover.webp"
-                                            alt="NANO Series manual polishers"
+                                        <img
+                                            src="/images/penta-7500s.webp"
+                                            alt="PENTA-7500S belt grinder"
                                             loading="lazy"
                                         />
                                     </a>
                                 </div>
-                                <h3>Manual Polishers</h3>
-                                <p>
-                                    NANO Series manual polishers offer precise control with variable speed and versatile wheel options. 
-                                    Available in single, double, or large wheel configurations.
-                                </p>
-                                <a href="/metallographic-equipment/grinding-polishing.html" class="guide-link">View NANO Manual Polishers →</a>
-                            </div>
-                            <div class="guide-phase-card">
-                                <div class="guide-phase-image">
-                                    <a href="/metallographic-equipment/grinding-polishing.html" class="guide-link">
-                                        <img 
-                                            src="/images/equipment/grinding & polishing/semi-auto grinder polishers/femto-1100s/femto-1100s-cover.webp"
-                                            alt="FEMTO automated polishing heads"
-                                            loading="lazy"
-                                        />
-                                    </a>
-                                </div>
-                                <h3>Semi-Automated Polishing Attachments</h3>
-                                <p>
-                                    FEMTO automated polishing heads attach to manual polishers to automate force application 
-                                    and improve consistency.
-                                </p>
-                                <a href="/metallographic-equipment/grinding-polishing.html" class="guide-link">View FEMTO Semi-Auto Attachments →</a>
+                                <h4>PENTA-7500S Belt Grinder</h4>
+                                <p>Heavy-duty belt grinder with powerful motor and water cooling. High-volume material removal and the right tool for coarse planarization of hard ferrous specimens.</p>
                             </div>
                         </div>
-                    </section>
-                    <!-- CTA Section -->
-                    <div class="guide-cta">
-                        <h2>Explore More Procedures</h2>
+
+                        <h3>Manual grinder-polishers</h3>
                         <p>
-                            Browse our comprehensive procedure guides for material-specific preparation methods and get personalized recommendations.
+                            The NANO series uses dynamic torque servo motors and variable speed control to run the full grinding-and-polishing sequence on a single machine. Available in single-wheel, double-wheel, and large-wheel configurations.
                         </p>
-                        <div class="guide-cta-buttons">
-                            <a href="/guides.html?category=Process" class="btn-primary">
-                                Browse Procedure Guides
-                            </a>
-                            <a href="https://shop.metallographic.com/collections/grinding" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-                                Shop Grinding Supplies
-                            </a>
-                            <a href="/equipment.html" class="btn-secondary">
-                                Browse Equipment
-                            </a>
+                        <div class="guide-phases-grid">
+                            <div class="guide-phase-card">
+                                <div class="guide-phase-image">
+                                    <a href="/metallographic-equipment/grinding-polishing.html" class="guide-link">
+                                        <img
+                                            src="/images/nano-2000s.webp"
+                                            alt="NANO-2000S double-wheel manual grinder polisher"
+                                            loading="lazy"
+                                        />
+                                    </a>
+                                </div>
+                                <h4>NANO-1000S / NANO-2000S / NANO-1200S</h4>
+                                <p>Single-wheel (1000S), double-wheel (2000S), or large-wheel (1200S) manual grinder-polishers. Variable speed, programmable cycles, compatible with all PACE grinding consumables including composite disks.</p>
+                            </div>
+                            <div class="guide-phase-card">
+                                <div class="guide-phase-image">
+                                    <a href="/metallographic-equipment/grinding-polishing.html" class="guide-link">
+                                        <img
+                                            src="/images/equipment/grinding & polishing/semi-auto grinder polishers/femto-1100s/femto-1100s-cover.webp"
+                                            alt="FEMTO autopolisher head"
+                                            loading="lazy"
+                                        />
+                                    </a>
+                                </div>
+                                <h4>FEMTO Autopolisher Heads</h4>
+                                <p>Programmable polishing heads that attach to NANO manual polishers. Variable head speed 0-300 RPM, individual-force or individual/central-force configurations. Removes operator-to-operator variability from grinding force and makes complementary-rotation procedures reproducible.</p>
+                            </div>
                         </div>
-                    </div>
+
+                        <p>
+                            <a href="/metallographic-equipment/grinding-polishing.html" class="guide-link">View the full PACE grinding and polishing equipment lineup →</a>
+                        </p>
+                    </section>
 
                     <!-- FAQ Section -->
-                    <section class="guide-faq-section" itemscope itemtype="https://schema.org/FAQPage">
-                        <h2>Frequently Asked Questions About Grinding</h2>
+                    <section id="faq" class="guide-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+                        <h2>Frequently Asked Questions</h2>
                         <div class="guide-faq-accordion">
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                                <summary class="guide-faq-question" itemprop="name">What grit sequence should I use for grinding?</summary>
+                                <summary class="guide-faq-question" itemprop="name">What is the biggest sample I can grind safely?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">A typical SiC grinding sequence progresses from coarse to fine: 240, 320, 400, and 600 grit is a common starting point. Start coarser (120 grit) only when there is heavy sectioning damage to remove, or finer (320-400) for precision-cut or soft/deformation-sensitive materials. Progress through each grit sequentially without skipping steps. Each step should fully remove the scratch pattern from the previous step before you advance. The exact sequence depends on your material and the amount of damage - let the surface condition guide your decisions.</p>
+                                    <p itemprop="text">No larger than 1/3 the diameter of the working wheel. This is a personal-injury safety rule, not a quality recommendation. When a specimen exceeds 1/3 of the wheel diameter, the velocity changes too rapidly as the specimen crosses the wheel center, the holder binds, and the specimen can be ejected. An 8″ wheel handles specimens up to about 2.5″; a 12″ wheel handles up to about 4″. Beyond that, switch to a larger machine or section the specimen into smaller pieces before mounting.</p>
                                 </div>
                             </details>
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                                <summary class="guide-faq-question" itemprop="name">How do I know when to move to the next grit?</summary>
+                                <summary class="guide-faq-question" itemprop="name">Can I skip grit sizes to save time?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">Move to the next grit when all scratches from the previous step have been replaced by a uniform pattern from the current grit. On belt or hand grinders, rotating the sample 90 degrees between grits makes this easier to judge since you're looking for unidirectional scratches. On rotating platens, inspect under good lighting for any remaining deeper scratches from the previous step. If scratches from two or more previous grits are visible, you haven't ground long enough. Most steps take roughly 1-2 minutes, but hard materials or heavy damage may require longer - let the surface guide you.</p>
+                                    <p itemprop="text">No, and skipping grits is the single most common cause of "won't polish out" problems downstream. Each grit must remove not just the visible scratches from the previous step but also the deformation layer underneath them, which runs roughly 3 to 5 times the abrasive particle diameter. Jumping from 240 to 600 leaves a deformation layer that no amount of 600-grit grinding can clear; you have to grind back through and start over. The shortcut is not skipping grits — it is switching to alumina papers that cover the equivalent of four SiC steps in one paper, or using ORION/SIRIUS composite disks that span what SiC would do in three steps. Skip the abrasives, not the steps.</p>
                                 </div>
                             </details>
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                                <summary class="guide-faq-question" itemprop="name">What causes scratches that won't come out during grinding?</summary>
+                                <summary class="guide-faq-question" itemprop="name">Why does alumina paper outperform SiC on soft non-ferrous metals?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">Persistent scratches are usually caused by contaminated grinding papers (embedded particles from previous samples), using worn-out papers, insufficient grinding time at each step, or contamination from cutting. To fix: use fresh grinding papers, ensure thorough cleaning between steps, grind longer at each grit, and rotate the sample 90 degrees between grits. For deep scratches from sectioning, you may need to start with a coarser grit or remove more material.</p>
+                                    <p itemprop="text">Silicon carbide is brittle by design. It cleaves cleanly to expose sharp new cutting edges, which is exactly what you want on hard ferrous metals. On soft non-ferrous metals (aluminum, copper, brass, zinc, precious metals), the fractured SiC fragments embed in the soft surface and show up as artifacts during microscopy and microhardness testing. Alumina is tougher, resists fracturing, and resists embedding. For Class 1 specimens, alumina at the coarse step is the difference between a usable mount and one that needs reground.</p>
                                 </div>
                             </details>
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                                <summary class="guide-faq-question" itemprop="name">Should I use wet or dry grinding?</summary>
+                                <summary class="guide-faq-question" itemprop="name">Can one alumina paper really replace four SiC steps?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">Wet grinding is standard practice for metallographic samples. Water or coolant cools the sample to prevent thermal damage, flushes away removed material, extends paper life, and improves cutting efficiency. Dry grinding can cause overheating, embed particles, and damage the microstructure. For most materials, use a continuous flow of water during all grinding steps. The exception is water-reactive materials (such as magnesium or lithium), which require oil-based lubricants instead of water.</p>
+                                    <p itemprop="text">Yes, for soft and medium-hard metals on flat starting surfaces. A single P500 or P1200 alumina paper can replace the 240, 320, 400, and 600 SiC sequence used for planarization. The savings come from alumina's higher abrasive durability at fine grit sizes plus the elimination of three paper changes (each with its own cleaning step). The alumina shortcut does not apply when you need very heavy stock removal (still requires coarse SiC) or when surface roughness specifications demand the full SiC progression to 1200 grit.</p>
                                 </div>
                             </details>
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                                <summary class="guide-faq-question" itemprop="name">How much pressure should I apply during grinding?</summary>
+                                <summary class="guide-faq-question" itemprop="name">When should I use diamond grinding disks instead of SiC papers?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">Apply consistent, even pressure - enough to remove material efficiently, but not so much that you deform soft phases or wear the paper excessively. For manual grinding, typical applied force is roughly 5-15 lbs (20-65 N) depending on mount size and material. For semi-automated systems, follow your equipment's recommendations for force settings. Reduce pressure as you move to finer grits to minimize subsurface deformation going into polishing. Too much pressure causes smearing in soft materials and excessive paper wear; too little results in slow, inefficient material removal.</p>
+                                    <p itemprop="text">Diamond grinding disks are the right tool for ceramics, cemented carbides, ceramic matrix composites, and hard non-ferrous alloys (titanium, zirconium). Use metal-bonded disks (DIA-M series) for aggressive removal and long disk life, resin-bonded (DIA-R series) for finer surface finish and lower subsurface damage. Do NOT use rigid diamond disks on ferrous metals: iron catalyzes diamond's conversion to graphite at cut-zone temperatures and the disk degrades rapidly. For ferrous work, stay with SiC, zirconia, or composite disks (ORION/SIRIUS).</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">Why does Don recommend complementary rotation at matched RPM?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Complementary rotation (head and base spinning the same direction at the same RPM) cancels the velocity differential at the specimen, which preserves inclusions and brittle phases, gives a uniform finish across the specimen, and produces a flat (not wedged) mount face. Contra rotation produces higher cut rates through a "hammering" action but breaks down inclusions and wears SiC papers non-uniformly. For most metallographic work, 200/200 RPM complementary is the right starting point. Contra is reserved for aggressive gross removal on hard specimens using central-pressure machines, where the higher cut rate justifies the trade-offs.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">How do I measure stock removal during grinding?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Mount a 1/8″ or 1/4″ steel ball bearing alongside your specimen in the mount. As grinding removes material, the ball is also ground, exposing a circular face whose diameter directly indicates depth removed. Measure the exposed chord diameter with a low-power microscope or microhardness filar; trigonometry (known sphere diameter, observed chord) gives the depth. This is the standard trick for surface-hardness work where over-grinding ruins the test, and it requires no special equipment beyond the bearing itself.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">How do I know when my paper needs to be replaced?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">SiC paper cut rate halves within about 2 minutes at 240 grit on a 1″ steel specimen. The visual signs of a worn paper: glaze (a shiny, reflective look on the abrasive surface), darkening (loaded with material), or no visible scratch pattern change after a full minute of grinding. If you find yourself applying more force just to get "normal" cutting action, the paper is past its useful life. Fresh paper is cheap compared to the time wasted on glazed paper. For automated production runs, expect 2 to 3 specimens per coarse paper and 5 to 8 per fine paper as rough planning numbers.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">Why won't these deep scratches go away no matter how long I grind?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Deep persistent scratches almost always come from contamination, not insufficient grinding time. The two most common causes: a particle of coarse abrasive was carried over to a finer step (insufficient cleaning between grits), or an embedded particle from a previous specimen is sitting on the platen. The fix is process, not more time. Ultrasonic clean the specimen and holder for 30 to 60 seconds between every grit change, wipe down the platen, and replace the paper if you suspect it picked up a contaminant. If the scratches persist, drop back one grit to clear them, then advance again with clean equipment.</p>
                                 </div>
                             </details>
                         </div>
+                    </section>
+
+                    <!-- What's Next -->
+                    <section id="whats-next" class="guide-section">
+                        <h2>What's Next: Polishing</h2>
+                        <p>
+                            With the specimen ground to a uniform 600 or 1200 grit finish and the damage layer from sectioning removed, the next step is polishing. Polishing removes the fine scratch pattern left by grinding and produces a mirror finish ready for etching and microscopy. The grinding step you just finished sets up the polishing step: if grinding left deformation or non-uniform scratches, polishing has to undo them before it can do its own work.
+                        </p>
+                        <p>
+                            <a href="/guides/polishing-methods.html" class="btn-primary">Continue to the Polishing Methods Guide →</a>
+                        </p>
                     </section>
 
                     <!-- Related Guides -->
                     <div class="guide-related">
                         <h2>Related Guides</h2>
                         <div class="guide-related-links">
+                            <a href="/guides/sectioning.html" class="guide-link">→ Sectioning</a>
                             <a href="/guides/mounting.html" class="guide-link">→ Mounting</a>
                             <a href="/guides/polishing-methods.html" class="guide-link">→ Polishing Methods</a>
-                            <a href="/guides/sectioning.html" class="guide-link">→ Sectioning</a>
-                            <a href="/guides/safety-fundamentals.html" class="guide-link">→ Safety Fundamentals</a>
+                            <a href="/guides/etching-procedures.html" class="guide-link">→ Etching Procedures</a>
+                            <a href="/guides/aluminum-sample-preparation.html" class="guide-link">→ Aluminum Sample Prep</a>
+                            <a href="/guides/carbon-steel-preparation.html" class="guide-link">→ Carbon Steel Prep</a>
+                            <a href="/guides/ceramics-preparation.html" class="guide-link">→ Ceramics Sample Prep</a>
+                            <a href="/guides/equipment-overview.html" class="guide-link">→ Equipment Overview</a>
                         </div>
                     </div>
                 </article>
@@ -1401,7 +1792,7 @@
           <!-- Company/Brand Section -->
           <div class="footer-brand">
             <div class="footer-brand-header">
-              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
+              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async" loading="lazy">
             </div>
             <p class="footer-brand-description">
               Leading provider of metallographic sample preparation equipment, consumables, and expertise.
@@ -1440,8 +1831,54 @@
                 www.metallographic.com
               </a>
             </div>
+            <div class="footer-cta-row">
+              <a href="https://shop.metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-cta-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="9" cy="21" r="1"/>
+                  <circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span>Shop Online</span>
+              </a>
+              <a href="/build.html" class="footer-cta-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+                <span>Lab Builder</span>
+              </a>
+            </div>
           </div>
-          
+
+          <!-- Equipment Section -->
+          <div class="footer-column">
+            <h3 class="footer-column-title">Equipment</h3>
+            <ul class="footer-column-list">
+              <li><a href="/metallographic-equipment/abrasive-sectioning.html" class="footer-link">Abrasive Sectioning</a></li>
+              <li><a href="/metallographic-equipment/precision-wafering.html" class="footer-link">Precision Wafering</a></li>
+              <li><a href="/metallographic-equipment/compression-mounting.html" class="footer-link">Compression Mounting</a></li>
+              <li><a href="/metallographic-equipment/castable-mounting.html" class="footer-link">Castable Mounting</a></li>
+              <li><a href="/metallographic-equipment/grinding-polishing.html" class="footer-link">Grinding &amp; Polishing</a></li>
+              <li><a href="/metallographic-equipment/hardness-testing.html" class="footer-link">Hardness Testing</a></li>
+              <li><a href="/metallographic-equipment/microscopy.html" class="footer-link">Microscopy</a></li>
+              <li><a href="/equipment.html" class="footer-link">All Equipment &rsaquo;</a></li>
+            </ul>
+          </div>
+
+          <!-- Consumables Section -->
+          <div class="footer-column">
+            <h3 class="footer-column-title">Consumables</h3>
+            <ul class="footer-column-list">
+              <li><a href="/metallographic-consumables/sectioning.html" class="footer-link">Sectioning Blades</a></li>
+              <li><a href="/metallographic-consumables/mounting.html" class="footer-link">Mounting Compounds</a></li>
+              <li><a href="/metallographic-consumables/grinding.html" class="footer-link">Grinding Papers</a></li>
+              <li><a href="/metallographic-consumables/grinding/lapping-films.html" class="footer-link">Lapping Films</a></li>
+              <li><a href="/metallographic-consumables/polishing/polishing-pads.html" class="footer-link">Polishing Pads</a></li>
+              <li><a href="/metallographic-consumables/polishing.html" class="footer-link">Polishing Compounds</a></li>
+              <li><a href="/metallographic-consumables/etching.html" class="footer-link">Etchants</a></li>
+              <li><a href="/consumables.html" class="footer-link">All Consumables &rsaquo;</a></li>
+            </ul>
+          </div>
+
           <!-- Company Section -->
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
@@ -1451,20 +1888,8 @@
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
               <li><a href="/distribution.html" class="footer-link">International Distribution</a></li>
-              <li><a href="/quote.html" class="footer-link">Request Quote</a></li>
-            </ul>
-          </div>
-          
-          <!-- Products Section -->
-          <div class="footer-column">
-            <h3 class="footer-column-title">Products</h3>
-            <ul class="footer-column-list">
-              <li><a href="/equipment.html" class="footer-link">Equipment</a></li>
-              <li><a href="/consumables.html" class="footer-link">Consumables</a></li>
               <li><a href="/services.html" class="footer-link">Services</a></li>
-              <li><a href="https://shop.metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-link">Online Shop</a></li>
-              <li><a href="/catalog.html" class="footer-link">Product Catalog</a></li>
-              <li><a href="/build.html" class="footer-link">Lab Builder</a></li>
+              <li><a href="/quote.html" class="footer-link">Request Quote</a></li>
             </ul>
           </div>
 
@@ -1474,53 +1899,43 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
-              <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
+              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+              <li><a href="/catalog.html" class="footer-link">Product Catalog</a></li>
+              <li><a href="/support/brochures.html" class="footer-link">Brochures &amp; Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
-            </ul>
-          </div>
-
-          <!-- Legal Section -->
-          <div class="footer-column">
-            <h3 class="footer-column-title">Legal</h3>
-            <ul class="footer-column-list">
-              <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
-              <li><a href="/terms.html" class="footer-link">Terms & Conditions</a></li>
-              <li><a href="/support/site-map.html" class="footer-link">Sitemap</a></li>
             </ul>
           </div>
         </div>
         
         <!-- Social Links -->
         <div class="footer-social-section">
-          <h3 class="footer-column-title">Connect with Us</h3>
           <ul class="footer-social">
             <li>
-              <a href="https://www.facebook.com/pacetechnologies/" aria-label="Facebook" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24" fill="#1877F2">
-                  <path d="M279.14 288l14.22-92.66h-88.91V117.68c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72V195.3H22.89V288h81.39v224h100.2V288z"/>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/pace_technologies/" aria-label="Instagram" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="#E1306C">
-                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9-51.3-114.9-114.9-114.9zm0 190.8c-41.9 0-75.9-34-75.9-75.9s34-75.9 75.9-75.9 75.9 34 75.9 75.9-34 75.9-75.9 75.9zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.7-9.9-67.3-36.3-92.7C385.3 23.9 353.7 15.7 318 14 278.7 12.1 169.3 12 130 14 94.3 15.7 62.7 23.9 37.3 49.3 11.9 74.7 3.7 106.3 2 142c-2 39.3-2 148.7 0 188 1.7 35.7 9.9 67.3 36.3 92.7 25.4 25.4 57 33.6 92.7 35.3 39.3 2 148.7 2 188 0 35.7-1.7 67.3-9.9 92.7-35.3 25.4-25.4 33.6-57 35.3-92.7 2-39.3 2-148.7 0-188zM398.8 388c-7.8 19.7-23 35-42.7 42.7-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.7-7.8-35-23-42.7-42.7-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.7 23-35 42.7-42.7 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.7 7.8 35 23 42.7 42.7 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/company/metallographic/" aria-label="LinkedIn" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#0077B5">
+              <a href="https://www.linkedin.com/company/metallographic/" aria-label="LinkedIn" class="footer-social-link footer-social-link--linkedin">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
                   <path d="M22.23 0H1.77C.792 0 0 .775 0 1.731v20.538C0 23.225.792 24 1.77 24h20.46c.979 0 1.77-.775 1.77-1.731V1.731C24 .775 23.209 0 22.23 0zM7.07 20.452H3.537V9h3.532v11.452zm-1.766-13c-1.132 0-1.892-.771-1.892-1.738 0-.979.779-1.737 1.932-1.737 1.155 0 1.892.758 1.906 1.737 0 .967-.751 1.738-1.93 1.738h-.016zm13.386 13H16.09V14.1c0-1.529-.55-2.575-1.927-2.575-1.051 0-1.675.703-1.95 1.382-.101.246-.126.588-.126.93v6.615h-3.533s.046-10.745 0-11.852h3.533v1.676c.47-.727 1.309-1.762 3.182-1.762 2.326 0 4.067 1.496 4.067 4.709v7.229h-.001z"></path>
                 </svg>
               </a>
             </li>
             <li>
-              <a href="https://www.youtube.com/@pacetechnologies" aria-label="YouTube" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#FF0000">
+              <a href="https://www.youtube.com/@pacetechnologies" aria-label="YouTube" class="footer-social-link footer-social-link--youtube">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
                   <path d="M23.498 6.186c-.29-1.1-1.152-1.96-2.248-2.252C19.39 3.45 12 3.45 12 3.45s-7.39 0-9.25.485c-1.096.292-1.957 1.153-2.248 2.252C0 8.048 0 12 0 12s0 3.953.502 5.814c.29 1.1 1.152 1.96 2.248 2.252C4.61 20.55 12 20.55 12 20.55s7.39 0 9.25-.485c1.096-.292 1.957-1.153 2.248-2.252C24 15.952 24 12 24 12s0-3.953-.502-5.814zM9.546 15.568V8.431l6.364 3.569-6.364 3.568z"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/pacetechnologies/" aria-label="Facebook" class="footer-social-link footer-social-link--facebook">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <path d="M279.14 288l14.22-92.66h-88.91V117.68c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72V195.3H22.89V288h81.39v224h100.2V288z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/pace_technologies/" aria-label="Instagram" class="footer-social-link footer-social-link--instagram">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9-51.3-114.9-114.9-114.9zm0 190.8c-41.9 0-75.9-34-75.9-75.9s34-75.9 75.9-75.9 75.9 34 75.9 75.9-34 75.9-75.9 75.9zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.7-9.9-67.3-36.3-92.7C385.3 23.9 353.7 15.7 318 14 278.7 12.1 169.3 12 130 14 94.3 15.7 62.7 23.9 37.3 49.3 11.9 74.7 3.7 106.3 2 142c-2 39.3-2 148.7 0 188 1.7 35.7 9.9 67.3 36.3 92.7 25.4 25.4 57 33.6 92.7 35.3 39.3 2 148.7 2 188 0 35.7-1.7 67.3-9.9 92.7-35.3 25.4-25.4 33.6-57 35.3-92.7 2-39.3 2-148.7 0-188zM398.8 388c-7.8 19.7-23 35-42.7 42.7-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.7-7.8-35-23-42.7-42.7-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.7 23-35 42.7-42.7 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.7 7.8 35 23 42.7 42.7 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
                 </svg>
               </a>
             </li>

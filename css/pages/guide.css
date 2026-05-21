@@ -86,26 +86,24 @@
   margin: 0;
 }
 
-/* Table of Contents - Mobile */
+/* In-guide Table of Contents — compact wrap-pill layout.
+   (Despite the legacy `.guide-toc-mobile` class name, this TOC is shown on
+   every viewport.) */
 .guide-toc-mobile {
   background: var(--color-gray-50, #f9fafb);
   border-left: 4px solid var(--color-primary, #2563eb);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.75rem;
   border-radius: 0.5rem;
 }
 
-@media (min-width: 1024px) {
-  .guide-toc-mobile {
-    display: none;
-  }
-}
-
 .guide-toc-mobile h2 {
-  font-size: 1.25rem;
+  font-size: 0.8125rem;
   font-weight: 600;
-  margin: 0 0 1rem 0;
-  color: var(--color-text-primary, #111827);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem 0;
+  color: var(--color-text-secondary, #6b7280);
 }
 
 .guide-toc-mobile ul {
@@ -113,18 +111,43 @@
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+  counter-reset: toc-counter;
 }
 
 .guide-toc-mobile li a {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
   color: var(--color-primary, #2563eb);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.guide-toc-mobile li a::before {
+  counter-increment: toc-counter;
+  content: counter(toc-counter, decimal-leading-zero) " \00b7 ";
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary, #9ca3af);
+  margin-right: 0.0625rem;
 }
 
 .guide-toc-mobile li a:hover {
-  text-decoration: underline;
+  background: var(--color-primary, #2563eb);
+  border-color: var(--color-primary, #2563eb);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.guide-toc-mobile li a:hover::before {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Article Content */
@@ -1282,17 +1305,8 @@ body.guide-nav-open .guide-nav-toggle {
   font-style: italic;
 }
 
-/* Show inline TOC on desktop too, in a denser 2-column compact layout */
-@media (min-width: 1024px) {
-  .guide-toc-mobile {
-    display: block;
-  }
-  .guide-toc-mobile ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.4rem 1.5rem;
-  }
-}
+/* The in-guide TOC uses the same wrap-pill layout at every viewport.
+   No desktop override needed. */
 
 /* Inline "back to top" anchor between sections */
 .guide-section-end {

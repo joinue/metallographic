@@ -1291,14 +1291,14 @@
       // Material-specific etchant recommendations with links to existing site pages
       if (materialType.includes('Steel (Carbon')) {
         recommendations.push({
-          type: 'Nital (1-5% Nitric Acid in Ethanol)',
+          type: 'Nital (2-8% Nitric Acid in Denatured Ethanol)',
           reasoning: 'The standard general-purpose etchant for carbon and low-alloy steels. Reveals ferrite/pearlite/martensite microstructure. Start with [2% Nital](/etchants/2-percent-nital.html) for most applications; use stronger ([4%](/etchants/4-percent-nital.html) or [5%](/etchants/5-percent-nital.html)) for harder, higher-alloy steels. Apply by immersion or swabbing 5-30 seconds.',
           category: 'consumable',
           stage: 'etching'
         });
         recommendations.push({
-          type: 'Picral (4% Picric Acid in Ethanol) — optional',
-          reasoning: '[Picral](/etchants/4-percent-picral.html) preferentially reveals cementite and is useful when nital under-etches pearlite or when you need to distinguish ferrite from carbide morphology. Picric acid requires careful storage — keep it wet.',
+          type: 'Picral (Picric Acid in Denatured Ethanol) — optional',
+          reasoning: '[Picral](/etchants/picral.html) preferentially reveals cementite and is useful when nital under-etches pearlite or when you need to distinguish ferrite from carbide morphology. Picric acid requires careful storage — keep it wet.',
           category: 'consumable',
           stage: 'etching'
         });
@@ -1345,7 +1345,7 @@
       } else if (materialType.includes('Tin')) {
         recommendations.push({
           type: 'Tin / Lead / Soft Bearing Alloy Etchants',
-          reasoning: 'Tin, lead, and soft bearing alloys smear easily and react with most common etchants. Mild [2% nital](/etchants/2-percent-nital.html), HCl-in-ethanol, or specialized tin-alloy reagents are typical — browse the [tin alloy etchants page](/etchant-guides/tin-alloy) for full compositions. Keep etching times short (seconds, not minutes), use light swabbing pressure, and follow with a quick alcohol rinse to prevent staining.',
+          reasoning: 'Tin, lead, and soft bearing alloys smear easily and react with most common etchants. Mild [2% nital](/etchants/2-percent-nital.html), HCl-in-ethanol, or specialized tin-alloy reagents are typical — browse the [tin alloy etchants page](/etching/tin-alloy) for full compositions. Keep etching times short (seconds, not minutes), use light swabbing pressure, and follow with a quick alcohol rinse to prevent staining.',
           category: 'consumable',
           stage: 'etching'
         });

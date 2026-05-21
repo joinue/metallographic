@@ -264,9 +264,12 @@
     right: auto;
 }
 
-/* Submenu Styles */
+/* Submenu Styles.
+   Visibility (not display) so the opacity transition can play out on close
+   instead of zapping — visibility flips to hidden only after opacity reaches
+   0, via the delay on the `visibility` transition. */
 .sub-menu {
-  display: none;
+  visibility: hidden;
   position: absolute;
   top: 120%;
   left: -9%;
@@ -277,7 +280,7 @@
   margin: 0;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.15s;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-10px);
@@ -297,11 +300,11 @@
   min-width: 200px;
   width: max-content;
   max-width: 400px;
-  display: none;
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
   transform: translateX(-10px);
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.15s;
 }
 
 /* Third-level submenu positioning */
@@ -315,11 +318,11 @@
   min-width: 200px;
   width: max-content;
   max-width: 400px;
-  display: none;
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
   transform: translateX(-10px);
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.15s;
 }
 
 /* Add a gap between menu items to prevent accidental closing */
@@ -331,27 +334,72 @@
   margin: 0;
 }
 
-/* Show submenus on hover */
-.nav-links li:hover > .sub-menu,
+/* Show submenus on hover, keyboard focus, or JS-set .menu-open (hover-intent).
+   :focus-within keeps menus open during tab navigation (a11y).
+   .menu-open is toggled by js/scripts.js with a ~250ms close delay so brief
+   cursor wiggles off the menu don't collapse it.
+   The top-level :hover branch is gated on :not(.hover-locked) so that the
+   button the user just clicked — now sitting under a stationary cursor on
+   the freshly loaded page — doesn't auto-open its dropdown. js/scripts.js
+   adds .hover-locked to each top-level submenu-li at load and removes it on
+   that li's first real mouseenter (so the user must leave and return). */
+.nav-links li:not(.hover-locked):hover > .sub-menu,
+.nav-links li:focus-within > .sub-menu,
+.nav-links li.menu-open > .sub-menu,
 .sub-menu li:hover > .second-level,
-.second-level li:hover > .third-level {
-  display: block;
+.sub-menu li:focus-within > .second-level,
+.second-level li:hover > .third-level,
+.second-level li:focus-within > .third-level {
+  visibility: visible;
   opacity: 1;
   pointer-events: auto;
   transform: translateY(-10px);
+  /* Open is slightly snappier than the close fade, and visibility flips
+     instantly (no delay) so the menu becomes visible immediately as opacity
+     starts rising — feels responsive on entry, gentle on exit. */
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0s;
 }
 
-/* Add a gap element to prevent menu closing */
+/* Invisible bridge between top-level nav link and its dropdown.
+   :has() scopes this to li's that actually have a submenu, so plain links
+   don't get a 12px click-blocker hanging over the page below the nav. */
+.nav-links > li:has(> .sub-menu)::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
+  z-index: 999;
+}
+
+/* Side bridges between submenu items (covers the 10px gap to next level) */
 .sub-menu li::after,
 .second-level li::after,
 .third-level li::after {
   content: '';
   position: absolute;
   top: 0;
-  right: -10px; /* Extend 10px to the right */
+  right: -10px;
   width: 10px;
   height: 100%;
   z-index: 999;
+}
+
+/* Bottom bridge below each open submenu — covers brief diagonal overshoots
+   into the dead space below the dropdown so the menu doesn't collapse the
+   instant the cursor crosses the bottom edge. Only active when the parent
+   submenu is open (it inherits display/pointer-events from the .sub-menu
+   it lives on). */
+.sub-menu::after,
+.second-level::after,
+.third-level::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
 }
 
 /* Down Arrow Icon Styles */

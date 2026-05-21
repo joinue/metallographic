@@ -11,9 +11,9 @@ const data = [
     { title: "Customer Support", description: "Access comprehensive customer support resources and assistance.", link: "/support.html", keywords: "customer support help assistance technical support service maintenance training warranty repair troubleshooting" },
     { title: "Professional Services", description: "Professional metallographic services you can purchase: KeepPACE service plans, on-site installation, training programs, and maintenance services for your laboratory.", link: "/services.html", keywords: "professional services service plans installation training maintenance lab consultation build your lab equipment setup calibration operator training preventive maintenance diagnostic repair" },
     { title: "KeepPACE Service Plans", description: "Flexible service plans from basic annual check-ins to comprehensive coverage with priority support and personalized service.", link: "/keeppace.html", keywords: "keeppace service plans maintenance plans annual check-ins emergency support dedicated technicians spare parts discounts extended warranties service credits preventive maintenance priority support" },
-    { title: "Sample Preparation Procedures", description: "Step-by-step guides for sample preparation, including mounting, grinding, and polishing methods.", link: "/support/procedures.html", keywords: "sample preparation mounting grinding polishing procedures techniques methods protocols step by step guide instructions mounting grinding polishing etching sectioning cutting" },
+    { title: "Sample Preparation Procedures", description: "Step-by-step guides for sample preparation, including mounting, grinding, and polishing methods.", link: "/procedures.html", keywords: "sample preparation mounting grinding polishing procedures techniques methods protocols step by step guide instructions mounting grinding polishing etching sectioning cutting" },
     { title: "Product Brochures", description: "Download detailed product brochures and technical specifications for our metallographic equipment and consumables.", link: "/support/brochures.html", keywords: "brochures technical specifications product information documentation datasheets manuals catalogs technical data specifications" },
-    { title: "Etchant Information", description: "Comprehensive guide to metallographic etchants, including selection, application, and safety information.", link: "/support/etchant-information.html", keywords: "etchant etching solutions microstructure safety handling chemical reagents metallographic etching nital picral keller's reagent vilella's reagent" },
+    { title: "Etchant Information", description: "Comprehensive guide to metallographic etchants, including selection, application, and safety information.", link: "/etchants.html", keywords: "etchant etching solutions microstructure safety handling chemical reagents metallographic etching nital picral keller's reagent vilella's reagent" },
     { title: "Product Catalog", description: "Browse our complete catalog of metallographic equipment, consumables, and accessories.", link: "/support/products.html", keywords: "product catalog equipment consumables accessories inventory products list specifications" },
     { title: "Safety Data Sheets", description: "Access safety data sheets (SDS) for all our products, ensuring safe handling and compliance.", link: "/support/sds.html", keywords: "safety data sheets SDS handling compliance safety chemical safety material safety data sheets MSDS" },
     
@@ -269,8 +269,8 @@ const data = [
     { title: "ZRO Grinding Papers SDS", description: "Safety Data Sheet for ZRO grinding papers.", link: "/sds/ZRO-grinding-papers.pdf", keywords: "SDS safety data sheet zro zirconia grinding papers safety", priority: "low" },
     
     // Support Pages
-    { title: "Etchant Information", description: "Comprehensive guide to metallographic etchants, including selection, application, and safety information.", link: "/support/etchant-information.html", keywords: "etchant etching solutions microstructure safety handling chemical reagents metallographic etching nital picral keller's reagent vilella's reagent" },
-    { title: "Preparation Procedures", description: "Detailed procedures for sample preparation, including mounting, grinding, polishing, and etching techniques.", link: "/support/procedures.html", keywords: "preparation procedures mounting grinding polishing etching techniques methods protocols sample preparation metallographic preparation" },
+    { title: "Etchant Information", description: "Comprehensive guide to metallographic etchants, including selection, application, and safety information.", link: "/etchants.html", keywords: "etchant etching solutions microstructure safety handling chemical reagents metallographic etching nital picral keller's reagent vilella's reagent" },
+    { title: "Preparation Procedures", description: "Detailed procedures for sample preparation, including mounting, grinding, polishing, and etching techniques.", link: "/procedures.html", keywords: "preparation procedures mounting grinding polishing etching techniques methods protocols sample preparation metallographic preparation" },
     { title: "Product Catalog", description: "Browse our complete catalog of metallographic equipment, consumables, and accessories.", link: "/support/products.html", keywords: "product catalog equipment consumables accessories inventory products list specifications" },
     { title: "Safety Data Sheets", description: "Access safety data sheets (SDS) for all our products, ensuring safe handling and compliance.", link: "/support/sds.html", keywords: "safety data sheets SDS handling compliance safety chemical safety material safety data sheets MSDS" },
     { title: "Site Map", description: "Complete site map for easy navigation of all PACE Technologies resources and pages.", link: "/support/site-map.html", keywords: "site map navigation sitemap all pages resources" },
@@ -359,12 +359,47 @@ function customSearch(query) {
     }
 
     const activeFilter = getActiveFilter();
-    // "MSDS" (Material Safety Data Sheet) is the older term for "SDS" — treat
-    // it as an alias so either word reveals SDS sheets and actually matches
-    // entries whose keywords say "SDS".
+    // Industry shorthand → canonical term. Lets "SiC" surface silicon-carbide
+    // grinding pages, "SS" surface stainless-steel preparation, etc.
+    // "MSDS" stays in the map because it is the older term for "SDS".
+    const SEARCH_ALIASES = {
+        'sic':      'silicon carbide',
+        'ss':       'stainless steel',
+        'alo':      'alumina',
+        'al2o3':    'alumina',
+        'dia':      'diamond',
+        'cmp':      'colloidal silica',
+        'hf':       'hydrofluoric',
+        'ti':       'titanium',
+        'al':       'aluminum',
+        'cu':       'copper',
+        'ni':       'nickel',
+        'fe':       'iron',
+        'grinder':  'grinding',
+        'polisher': 'polishing',
+        'cutter':   'cutting',
+        'mounter':  'mounting',
+        'msds':     'sds'
+    };
     const queryLower = query.toLowerCase().trim().replace(/\bmsds\b/g, 'sds');
-    // Filter out very short words and common stop words
-    const queryWords = queryLower.split(/\s+/).filter(w => w.length > 2 && !['the', 'and', 'for', 'are', 'but', 'not', 'you', 'all', 'can', 'her', 'was', 'one', 'our', 'out', 'day', 'get', 'has', 'him', 'his', 'how', 'its', 'may', 'new', 'now', 'old', 'see', 'two', 'way', 'who', 'boy', 'did', 'its', 'let', 'put', 'say', 'she', 'too', 'use'].includes(w));
+    // Build queryWords: drop stop words and very short tokens, but keep
+    // 2-letter alias keys (SS, Ti, Al, etc.) and expand them into their
+    // canonical tokens. Original tokens stay so pages literally containing
+    // "SiC" or "Ti" still match.
+    const STOP_WORDS = ['the', 'and', 'for', 'are', 'but', 'not', 'you', 'all', 'can', 'her', 'was', 'one', 'our', 'out', 'day', 'get', 'has', 'him', 'his', 'how', 'its', 'may', 'new', 'now', 'old', 'see', 'two', 'way', 'who', 'boy', 'did', 'let', 'put', 'say', 'she', 'too', 'use'];
+    const queryWords = [];
+    const _seenWords = {};
+    const _pushWord = (w) => {
+        if (!w || _seenWords[w] || STOP_WORDS.indexOf(w) >= 0) return;
+        if (!SEARCH_ALIASES[w] && w.length <= 2) return; // drop short non-aliases
+        queryWords.push(w);
+        _seenWords[w] = true;
+    };
+    queryLower.split(/\s+/).filter(Boolean).forEach(w => {
+        _pushWord(w);
+        const alias = SEARCH_ALIASES[w];
+        if (alias) alias.split(/\s+/).forEach(_pushWord);
+    });
 
     // Filter and score results
     const results = data
@@ -608,7 +643,6 @@ function displayCustomResults(results, query = '') {
             const highlightedTitle = highlightCustomText(result.title, query);
             const highlightedDescription = highlightCustomText(result.description, query);
             const categoryInfo = getCategoryInfo(result.link, result);
-            const difficultyBadge = result.difficulty ? `<span class="difficulty-badge difficulty-${result.difficulty.toLowerCase()}">${result.difficulty}</span>` : '';
             const guideCategory = result.category ? `<span class="guide-category-badge">${result.category}</span>` : '';
             const externalLink = result.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : '';
             const urlDisplay = formatUrlForDisplay(result.link);
@@ -620,7 +654,6 @@ function displayCustomResults(results, query = '') {
                     <div class="result-content">
                         <div class="result-meta">
                             <span class="result-url">${urlDisplay}</span>
-                            ${difficultyBadge}
                             ${guideCategory}
                         </div>
                         <h3><a href="${result.link}" ${externalLink}>${highlightedTitle}</a></h3>

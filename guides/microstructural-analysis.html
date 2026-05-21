@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="LzR4wVONWG6uIX3m2QcGuvf3rBxuHBCijv-Pl1tccFs">
-    <meta name="description" content="Learn how to prepare samples for microscopic examination, choose the appropriate microscope, and interpret microstructures to understand material properties and processing history.">
-    <meta name="keywords" content="microstructural analysis, metallographic microscopy, microstructure interpretation, optical microscopy, SEM analysis, grain size measurement, phase identification">
+    <meta name="description" content="Master metallographic microscopy and quantitative image analysis. Optical illumination techniques, resolution and N.A., and ASTM standards for grain size, phase, porosity, inclusion rating, and coating thickness.">
+    <meta name="keywords" content="microstructural analysis, metallographic microscopy, quantitative image analysis, brightfield, darkfield, DIC, polarized light, grain size ASTM E112, phase analysis E562, inclusion rating E45, decarburization E1077, coating thickness B487">
     <meta name="theme-color" content="#ffffff">
     <meta name="msapplication-TileColor" content="#da532c">
     <link rel="canonical" href="https://www.metallographic.com/guides/microstructural-analysis.html">
@@ -49,24 +49,24 @@
 
     <!-- Open Graph Tags for Social Sharing -->
     <meta property="og:title" content="Microstructural Analysis | PACE Technologies">
-    <meta property="og:description" content="Learn how to prepare samples for microscopic examination, choose the appropriate microscope, and interpret microstructures to understand material properties and processing history.">
-    <meta property="og:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
+    <meta property="og:description" content="Master metallographic microscopy and quantitative image analysis. Optical illumination techniques, resolution and N.A., and ASTM standards for grain size, phase, porosity, inclusion rating, and coating thickness.">
+    <meta property="og:image" content="https://www.metallographic.com/images/equipment/microscopy/metallurgical/im-7000/im-7000-cover.webp">
     <meta property="og:url" content="https://www.metallographic.com/guides/microstructural-analysis.html">
     <meta property="og:type" content="article">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Microstructural Analysis">
-    <meta name="twitter:description" content="Learn how to prepare samples for microscopic examination, choose the appropriate microscope, and interpret microstructures.">
-    <meta name="twitter:image" content="https://www.metallographic.com/images/metallographic-logo-microstructures.png">
+    <meta name="twitter:description" content="Metallographic microscopy and quantitative image analysis: illumination techniques, resolution, and ASTM measurement standards.">
+    <meta name="twitter:image" content="https://www.metallographic.com/images/equipment/microscopy/metallurgical/im-7000/im-7000-cover.webp">
 
     <!-- Schema Markup: Article -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "TechArticle",
       "headline": "Microstructural Analysis",
-      "description": "Learn how to prepare samples for microscopic examination, choose the appropriate microscope, and interpret microstructures to understand material properties and processing history.",
+      "description": "Master metallographic microscopy and quantitative image analysis. Optical illumination techniques, resolution and N.A., and ASTM standards for grain size, phase, porosity, inclusion rating, and coating thickness.",
       "author": {
         "@type": "Organization",
         "name": "PACE Technologies"
@@ -80,7 +80,18 @@
         }
       },
       "datePublished": "2024-01-01",
-      "dateModified": "2024-01-01"
+      "dateModified": "2026-05-20",
+      "image": "https://www.metallographic.com/images/equipment/microscopy/metallurgical/im-7000/im-7000-cover.webp",
+      "about": {
+        "@type": "Thing",
+        "name": "Microstructure",
+        "sameAs": "https://en.wikipedia.org/wiki/Microstructure"
+      },
+      "mentions": [
+        {"@type": "Thing", "name": "Optical microscope", "sameAs": "https://en.wikipedia.org/wiki/Optical_microscope"},
+        {"@type": "Thing", "name": "Grain boundary", "sameAs": "https://en.wikipedia.org/wiki/Grain_boundary"},
+        {"@type": "Thing", "name": "ASTM International", "sameAs": "https://en.wikipedia.org/wiki/ASTM_International"}
+      ]
     }
     </script>
 
@@ -471,7 +482,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/support/procedures.html"><span>Prep Procedures</span>
+                        <a href="/procedures.html"><span>Prep by Class</span>
                             <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                 <path d="M9 18l6-6-6-6" />
                             </svg></a>
@@ -776,8 +787,8 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/support/procedures.html">
-                            <span>Prep Procedures</span>
+                        <a href="/procedures.html">
+                            <span>Prep by Class</span>
                         </a>
                     </li>
                     <li>
@@ -867,8 +878,7 @@
                     <span class="guide-category">Process Guide</span>
                     <h1>Microstructural Analysis</h1>
                     <p class="guide-description">
-                        Learn how to prepare samples for microscopic examination, choose the appropriate microscope, 
-                        and interpret microstructures to understand material properties and processing history.
+                        Once the sample is prepared, two activities reveal what it has to say: <strong>observation</strong> under the right microscope and illumination, and <strong>quantification</strong> against an accepted standard. This guide covers both.
                     </p>
                 </header>
 
@@ -877,11 +887,15 @@
                     <h2>Table of Contents</h2>
                     <ul>
                         <li><a href="#introduction">Introduction</a></li>
-                        <li><a href="#preparing-samples">Preparing Samples for Microscopy</a></li>
-                        <li><a href="#choosing-microscope">Choosing the Right Microscope</a></li>
-                        <li><a href="#microscopy-methods">Microscopy Methods and Techniques</a></li>
-                        <li><a href="#common-microstructures">Common Microstructures and What They Mean</a></li>
-                        <li><a href="#interpretation">Microstructural Interpretation</a></li>
+                        <li><a href="#choosing-microscope">Choosing Your Microscope</a></li>
+                        <li><a href="#optics">Optics Fundamentals</a></li>
+                        <li><a href="#illumination">Illumination Techniques</a></li>
+                        <li><a href="#image-analysis">Quantitative Image Analysis</a></li>
+                        <li><a href="#astm-procedures">Standard ASTM Procedures</a></li>
+                        <li><a href="#best-practices">Universal Best Practices</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#whats-next">What's Next</a></li>
                     </ul>
                 </div>
 
@@ -890,609 +904,605 @@
                     <section id="introduction" class="guide-section">
                         <h2>Introduction</h2>
                         <p>
-                            Microstructural analysis is the final step in the metallographic process, where prepared samples 
-                            are examined under a microscope to reveal their internal structure. This analysis provides critical 
-                            information about material composition, processing history, and properties. Proper sample preparation 
-                            and appropriate microscope selection are essential for obtaining meaningful results.
+                            Once a sample is sectioned, mounted, ground, polished, and etched, the work shifts from preparing the surface to <em>reading</em> it. Microstructural analysis covers two related activities: <strong>qualitative observation</strong> under the right microscope and illumination mode, and <strong>quantitative measurement</strong> against accepted standards (ASTM, ISO).
                         </p>
                         <div class="guide-image-wrapper">
-                            <img 
+                            <img
                                 src="/images/microstructures/ferrite-pearlite-steel.jpg"
-                                alt="Example microstructure showing ferrite and pearlite in steel"
+                                alt="Ferrite and pearlite microstructure in steel revealed by metallographic etching"
                                 loading="lazy"
                                 class="guide-image"
                             />
-                            <p class="guide-image-caption">
-                                Example microstructure: Ferrite and pearlite in steel. Proper preparation and analysis reveal 
-                                the internal structure that determines material properties.
-                            </p>
+                            <p class="guide-image-caption">Ferrite (light) and pearlite (dark, lamellar) in a low-carbon steel. The lamellar spacing alone tells you how the part was cooled.</p>
                         </div>
-                        <p>
-                            This guide covers the complete process from final sample preparation through microscopic examination 
-                            and interpretation. Understanding these steps ensures you can effectively analyze microstructures and 
-                            extract meaningful information about your materials.
-                        </p>
-                    </section>
-
-                    <section id="preparing-samples" class="guide-section">
-                        <h2>Preparing Samples for Microscopy</h2>
-                        <p>
-                            Before examining a sample under the microscope, it must be properly prepared. The quality of your 
-                            preparation directly affects what you can see and how accurately you can interpret the microstructure. 
-                            A poorly prepared sample can lead to incorrect conclusions about material structure and properties.
-                        </p>
-
-                        <h3>Final Preparation Steps</h3>
-                        <p>
-                            After grinding and polishing, several final steps ensure your sample is ready for microscopic examination:
-                        </p>
-                        <ol>
-                            <li><strong>Thorough cleaning:</strong> Remove all polishing abrasives, debris, and contaminants. Use 
-                            appropriate solvents (alcohol, acetone) and clean water. Dry completely with compressed air or lint-free 
-                            cloth to prevent water spots or contamination.</li>
-                            <li><strong>Surface inspection:</strong> Examine the sample surface under low magnification or with a 
-                            hand lens to check for remaining scratches, contamination, or preparation artifacts. The surface should 
-                            be mirror-like and free of visible defects.</li>
-                            <li><strong>Etching (if required):</strong> Many materials require etching to reveal microstructure. 
-                            Select the appropriate etchant for your material and apply according to standard procedures. See our 
-                            <a href="/guides/etching-procedures.html" class="guide-link">Etching Procedures</a> guide for material-specific recommendations.</li>
-                            <li><strong>Post-etching cleaning:</strong> After etching, rinse thoroughly with appropriate solvents 
-                            and dry completely. Some etchants leave residues that can interfere with examination.</li>
-                            <li><strong>Storage:</strong> Store prepared samples in a clean, dry environment. Protect from dust, 
-                            moisture, and physical damage. Consider using sample storage systems or protective covers.</li>
-                        </ol>
-
-                        <h3>Quality Checks Before Microscopy</h3>
                         <div class="guide-info-box guide-info-box-primary">
-                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Checklist for Sample Readiness</h4>
-                            <ul style="font-size: 0.875rem; margin: 0; padding-left: 1.5rem;">
-                                <li>✓ Surface is mirror-like with no visible scratches</li>
-                                <li>✓ Sample is clean and free of contamination</li>
-                                <li>✓ Etching (if used) has revealed microstructure without over-etching</li>
-                                <li>✓ Sample is dry and free of water spots or residues</li>
-                                <li>✓ Sample is properly mounted and secure</li>
-                                <li>✓ Sample orientation is correct for the analysis you need</li>
+                            <p><strong>What microstructural analysis reveals</strong></p>
+                            <ul>
+                                <li>Phases present and their distribution</li>
+                                <li>Grain size and morphology</li>
+                                <li>Processing history (cooling rate, deformation, heat treatment)</li>
+                                <li>Defects: porosity, inclusions, cracks, decarburization</li>
+                                <li>Coating and layer thickness</li>
+                                <li>Weld geometry and heat-affected zone</li>
                             </ul>
+                            <p>All of these can be quantified against a published standard.</p>
                         </div>
-
-                        <h3>Common Preparation Issues</h3>
                         <p>
-                            Be aware of these common problems that can affect microscopic examination:
+                            The fastest path to a defensible answer is the same every time: pick the microscope and illumination mode that maximizes contrast for the feature you care about, then quantify it against an ASTM (or equivalent) procedure rather than describing it in words.
                         </p>
-                        <ul>
-                            <li><strong>Remaining scratches:</strong> Incomplete polishing leaves scratches that can be mistaken 
-                            for microstructural features or obscure true structure</li>
-                            <li><strong>Relief:</strong> Over-polishing creates height differences between phases, which can affect 
-                            focus and interpretation</li>
-                            <li><strong>Contamination:</strong> Embedded abrasives, polishing compounds, or other contaminants can 
-                            appear as microstructural features</li>
-                            <li><strong>Over-etching:</strong> Excessive etching can obscure fine details or create artifacts</li>
-                            <li><strong>Under-etching:</strong> Insufficient etching may not reveal the microstructure adequately</li>
-                            <li><strong>Edge rounding:</strong> Poor edge retention can make edge analysis difficult or impossible</li>
-                        </ul>
-
-                        <div class="guide-info-box" style="background: #fefce8; border-left-color: #ca8a04;">
-                            <p style="font-size: 0.875rem;">
-                                <strong>Tip:</strong> If you're unsure about sample quality, examine it under low magnification first. 
-                                Many preparation issues are visible at 50-100x and can be corrected before detailed analysis. A 
-                                well-prepared sample makes all subsequent analysis much easier and more accurate.
-                            </p>
-                        </div>
                     </section>
 
                     <section id="choosing-microscope" class="guide-section">
-                        <h2>Choosing the Right Microscope</h2>
+                        <h2>Choosing Your Microscope</h2>
                         <p>
-                            Selecting the appropriate microscope depends on your analysis requirements, material type, and available 
-                            resources. Different microscopes offer different capabilities, and understanding these helps you make 
-                            the right choice for your needs.
+                            Three microscope families cover almost all metallographic work. Pick the one that matches your magnification, resolution, and depth-of-field needs.
+                        </p>
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Stereo (Low-Mag)</th>
+                                        <th>Metallurgical (Optical)</th>
+                                        <th>SEM</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Magnification</strong></td>
+                                        <td>5–50×</td>
+                                        <td>50–1000× (up to 2000× with oil)</td>
+                                        <td>10× to &gt;100,000×</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Resolution</strong></td>
+                                        <td>~10 μm</td>
+                                        <td>~0.2 μm (visible light limit)</td>
+                                        <td>Angstroms to nm</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Depth of field</strong></td>
+                                        <td>High</td>
+                                        <td>Shallow at high mag</td>
+                                        <td>Very high</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Sample needs</strong></td>
+                                        <td>Any; no prep required</td>
+                                        <td>Polished, usually etched</td>
+                                        <td>Polished + conductive (or coated)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Choose when</strong></td>
+                                        <td>Initial inspection, fracture surfaces, large or 3D features</td>
+                                        <td>Routine microstructural analysis, grain size, phase ID, image analysis</td>
+                                        <td>High-mag features, fracture surfaces, EDS chemistry, EBSD orientation</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+                            The metallurgical microscope is the workhorse. The rest of this guide focuses on it: how its optics work, the illumination modes it offers, and how to turn what you see into measured numbers. SEM and stereo work cover the high and low ends respectively when the metallurgical microscope's resolution and magnification are not enough.
                         </p>
 
-                        <h3>Metallurgical (Optical) Microscopes</h3>
+                        <h3>Recommended PACE metallurgical microscopes</h3>
+                        <div class="guide-phases-grid">
+                            <div class="guide-phase-card">
+                                <div class="guide-phase-image">
+                                    <a href="/metallographic-equipment/microscopy/metallurgical.html" class="guide-link">
+                                        <img
+                                            src="/images/equipment/microscopy/metallurgical/im-5000/im-5000-cover.webp"
+                                            alt="IM-5000 inverted metallurgical microscope"
+                                            loading="lazy"
+                                        />
+                                    </a>
+                                </div>
+                                <h4>IM-5000, Mid-Range</h4>
+                                <p>Brightfield, darkfield, polarized light, and differential interference contrast (DIC) with infinite plan achromatic objectives. The contrast modes pull out relief, scratches, and fine second-phase detail that brightfield alone misses.</p>
+                            </div>
+                            <div class="guide-phase-card">
+                                <div class="guide-phase-image">
+                                    <a href="/metallographic-equipment/microscopy/metallurgical.html" class="guide-link">
+                                        <img
+                                            src="/images/equipment/microscopy/metallurgical/im-7000/im-7000-cover.webp"
+                                            alt="IM-7000 premium inverted metallurgical microscope"
+                                            loading="lazy"
+                                        />
+                                    </a>
+                                </div>
+                                <h4>IM-7000, Premium</h4>
+                                <p>LM Plan S-APO objectives, advanced illumination, full BF/DF/POL/DIC suite. The right tool for research labs and any application where image quality is the limiting factor.</p>
+                            </div>
+                        </div>
                         <p>
-                            Metallurgical microscopes use reflected light to examine opaque samples. They are the standard choice 
-                            for most routine metallographic analysis:
+                            <a href="/metallographic-equipment/microscopy/metallurgical.html" class="guide-link">View the full IM-series metallurgical microscope lineup →</a>
                         </p>
-                        <div class="guide-image-wrapper" style="max-width: 500px;">
-                            <a href="/metallographic-equipment/microscopy/metallurgical.html" class="guide-link">
-                                <img 
-                                    src="/images/equipment/microscopy/metallurgical/im-5000/im-5000-cover.webp"
-                                    alt="Metallurgical microscope for microstructural analysis"
+                    </section>
+
+                    <section id="optics" class="guide-section">
+                        <h2>Optics Fundamentals</h2>
+                        <p>
+                            Two numbers determine what an optical microscope can actually show you: the objective's <strong>numerical aperture</strong> (N.A.) and the <strong>wavelength of light</strong> used to illuminate the sample. Magnification is a separate dial, and chasing magnification past what N.A. supports gives you a bigger picture of the same blurry information.
+                        </p>
+
+                        <h3>Numerical aperture and resolution</h3>
+                        <p>
+                            The numerical aperture measures the light-gathering capacity of the objective lens:
+                        </p>
+                        <div class="guide-info-box guide-info-box-blue">
+                            <p style="margin: 0;"><strong>N.A. = μ · sin θ</strong></p>
+                            <p style="margin: 0.5rem 0 0;">where μ is the refractive index of the medium in front of the objective (μ = 1 for air, ~1.5 for immersion oil) and θ is the half-angle subtended by the objective at the specimen surface.</p>
+                        </div>
+                        <p>
+                            Resolution — the smallest distance at which two features can be seen as separate objects — follows from N.A. and the illumination wavelength:
+                        </p>
+                        <div class="guide-info-box guide-info-box-blue">
+                            <p style="margin: 0;"><strong>Limit of Resolution = λ / (2 · N.A.)</strong></p>
+                            <p style="margin: 0.5rem 0 0;">Visible green light: λ ≈ 0.54 μm. With a high-N.A. air objective (N.A. ≈ 0.95), the limit is around 0.28 μm. With a high-N.A. oil immersion objective (N.A. ≈ 1.4), the limit drops to about 0.2 μm — the physical floor for visible-light microscopy.</p>
+                        </div>
+                        <p>
+                            An electron beam (λ ≈ 0.1 Å in an SEM) sidesteps the diffraction limit entirely, which is why SEM resolves down to angstroms.
+                        </p>
+
+                        <h3>Empty magnification</h3>
+                        <p>
+                            Total magnification is straightforward:
+                        </p>
+                        <div class="guide-info-box guide-info-box-blue">
+                            <p style="margin: 0;"><strong>Total magnification = objective × eyepiece × tube factor</strong></p>
+                        </div>
+                        <p>
+                            But beyond a certain point, adding magnification stops adding information. That ceiling is called <strong>empty magnification</strong>: the image gets bigger, but no new detail appears because the objective's N.A. has already exhausted its resolving power. A practical rule of thumb is that useful magnification tops out at roughly 1000× the objective's N.A. — pushing past that just produces softer, larger pixels. Pick the objective whose N.A. supports the magnification you actually need.
+                        </p>
+
+                        <h3>Optical filters</h3>
+                        <p>
+                            Filters in the light path sharpen the image for digital capture and reduce eye strain.
+                        </p>
+                        <ul>
+                            <li><strong>Neutral density:</strong> reduce illumination intensity without changing color temperature</li>
+                            <li><strong>Green monochromatic:</strong> a single wavelength produces sharper focus, especially helpful for monochrome image analysis</li>
+                            <li><strong>Blue color correction:</strong> match a tungsten light source to daylight-balanced sensors (and vice versa)</li>
+                            <li><strong>Color compensating:</strong> fine-tune residual color cast between illumination and sensor</li>
+                        </ul>
+                    </section>
+
+                    <section id="illumination" class="guide-section">
+                        <h2>Illumination Techniques</h2>
+                        <p>
+                            A metallurgical microscope uses reflected light: illumination travels down through the objective, reflects off the specimen, and returns through the objective to the eyepiece or camera. The illumination mode determines which features stand out. Switching modes is often the fastest way to reveal a feature that brightfield is hiding.
+                        </p>
+
+                        <h3>Brightfield (BF)</h3>
+                        <p>
+                            The default mode and the one most micrographs are shot in. Light enters at a high angle through the objective, reflects off flat surfaces, and returns to form a bright background. Features that scatter or absorb light — pores, edges, etched grain boundaries, second-phase particles — appear darker than the matrix. Brightfield is the right starting point for almost any sample.
+                        </p>
+
+                        <h3>Darkfield (DF)</h3>
+                        <p>
+                            A less common but powerful mode. Light bypasses the central optical path and travels down the outer rim of the objective, striking the sample at a low angle. Flat surfaces reflect that light away from the objective and stay dark; non-flat features — pores, edges, scratches, inclusions — scatter light back into the objective and appear bright on a black background. Darkfield can reveal microporosity, fine cracks, and surface scratches that brightfield washes out, and it makes preparation artifacts impossible to miss.
+                        </p>
+
+                        <h3>Polarized light</h3>
+                        <p>
+                            A polarizer and analyzer in crossed (90°) positions reveal optical anisotropy in the sample. Non-cubic crystals (titanium, zirconium, beryllium, magnesium, many ceramics) rotate the polarization plane and light up; cubic and amorphous materials extinguish to dark. Polarized light is the standard way to image grain structure in alpha-titanium, alpha-zirconium, and similar HCP metals that often will not etch cleanly with chemical reagents.
+                        </p>
+
+                        <h3>Differential Interference Contrast (DIC)</h3>
+                        <p>
+                            DIC uses a Nomarski prism between crossed polarizers to split the illumination into two beams that recombine at the focal plane. Height differences between phases appear as color or shading differences, giving the image a pseudo-3D look. DIC excels at revealing relief (height differences between phases), fine surface detail, and subtle features that brightfield contrast misses. It is the go-to mode for slightly relieved polished surfaces, weld fusion lines, and fine second-phase precipitates.
+                        </p>
+
+                        <div class="guide-info-box guide-info-box-primary">
+                            <p style="margin: 0;"><strong>Switching modes is free information.</strong> When a feature looks ambiguous in brightfield, flip to darkfield or DIC before reaching for a different etchant or a higher-mag objective. The right illumination often turns a borderline image into a publication-ready one.</p>
+                        </div>
+                    </section>
+
+                    <section id="image-analysis" class="guide-section">
+                        <h2>Quantitative Image Analysis</h2>
+                        <p>
+                            Words like "fine pearlite" or "moderate porosity" mean different things to different operators. Quantitative image analysis turns a micrograph into numbers that any reader can audit. It is essential for process development, quality control, failure analysis, and acceptance testing.
+                        </p>
+
+                        <h3>Stereology in one paragraph</h3>
+                        <p>
+                            A polished cross-section is two-dimensional, but most of the features you care about — grains, inclusions, pores, second-phase particles — are three-dimensional. Stereology is the mathematics that extracts 3D quantities (volume fraction, surface area per volume, particle count per volume) from 2D measurements (area fraction, intercept count, point count). The single most useful stereological identity:
+                        </p>
+                        <div class="guide-info-box guide-info-box-blue">
+                            <p style="margin: 0;"><strong>V<sub>V</sub> = A<sub>A</sub> = P<sub>P</sub></strong></p>
+                            <p style="margin: 0.5rem 0 0;">Volume fraction equals area fraction equals point-count fraction — provided enough fields are measured. This is why a manual point count on a 2D image yields the true 3D volume fraction of a phase.</p>
+                        </div>
+
+                        <h3>Common measurements</h3>
+                        <ul>
+                            <li><strong>Point counting (P<sub>P</sub>):</strong> a regular grid is overlaid on the image; points falling inside the phase of interest are counted. Yields volume fraction.</li>
+                            <li><strong>Linear intercept (N<sub>L</sub>):</strong> straight or circular test lines are placed on the image; the number of grain boundary intersections per unit length gives grain size.</li>
+                            <li><strong>Area fraction (A<sub>A</sub>):</strong> the detected area of a phase divided by the field area. Yields volume fraction.</li>
+                            <li><strong>Particle count (N<sub>A</sub>):</strong> number of features per unit area. Used for inclusion ratings and porosity.</li>
+                            <li><strong>Mean free path (λ):</strong> average edge-to-edge spacing between particles, perpendicular to the working direction. λ = (1 − A<sub>A</sub>) / N<sub>L</sub>.</li>
+                            <li><strong>95% confidence interval:</strong> t · s / √n, where s is the standard deviation across n fields. Always report it — a phase fraction without a CI is not a measurement.</li>
+                        </ul>
+
+                        <h3>Manual or automated</h3>
+                        <p>
+                            Both are valid. Manual point counting against a reticle (ASTM E562) is auditable and works on any microscope. Automated image analysis (ASTM E1245, E1382) is faster, scales, and removes operator-to-operator variability — but it depends entirely on the polished and etched surface, because the software is detecting <em>contrast</em>, not actual features. Bad preparation produces bad analysis whether the operator or the computer is counting.
+                        </p>
+
+                        <div class="guide-image-wrapper">
+                            <a href="/metallographic-equipment/microscopy/image-analysis.html" class="guide-link">
+                                <img
+                                    src="/images/equipment/microscopy/image%20analysis/material-plus-cover.webp"
+                                    alt="PACE Material Plus image analysis software interface"
                                     loading="lazy"
                                     class="guide-image"
                                 />
                             </a>
-                            <p class="guide-image-caption">
-                                Metallurgical microscopes are the standard tool for routine microstructural analysis, offering 
-                                magnifications from 50x to 1000x with various illumination modes.
-                            </p>
+                            <p class="guide-image-caption">PACE Material Plus image analysis software, with optional WELD CHECK and Hardness PRO modules.</p>
                         </div>
-                        <ul>
-                            <li><strong>Magnification range:</strong> Typically 50x to 1000x (up to 2000x with oil immersion)</li>
-                            <li><strong>Best for:</strong> Routine analysis, grain size measurement, phase identification, 
-                            quality control</li>
-                            <li><strong>Advantages:</strong> Relatively affordable, easy to use, fast analysis, good for most 
-                            materials</li>
-                            <li><strong>Limitations:</strong> Limited resolution (~0.2-0.3 μm), lower magnification than SEM</li>
-                        </ul>
-
-                        <h3>Scanning Electron Microscopes (SEM)</h3>
                         <p>
-                            SEM provides much higher magnification and resolution than optical microscopes:
+                            PACE supplies <a href="/metallographic-equipment/microscopy/image-analysis.html" class="guide-link">Material Plus</a> for ASTM-compliant automated analysis (grain size, phase, porosity, inclusion rating, decarburization, coating thickness), along with the <strong>WELD CHECK</strong> and <strong>Hardness PRO</strong> add-on modules.
                         </p>
-                        <ul>
-                            <li><strong>Magnification range:</strong> Up to 100,000x or more</li>
-                            <li><strong>Best for:</strong> High-magnification analysis, fracture surfaces, fine features, 
-                            elemental analysis (with EDS)</li>
-                            <li><strong>Advantages:</strong> High resolution, excellent depth of field, can analyze chemistry</li>
-                            <li><strong>Limitations:</strong> More expensive, requires more sample preparation, slower analysis</li>
-                        </ul>
-
-                        <h3>Stereo Microscopes</h3>
-                        <p>
-                            Stereo microscopes provide 3D viewing at low magnifications:
-                        </p>
-                        <ul>
-                            <li><strong>Magnification range:</strong> Typically 5x to 50x</li>
-                            <li><strong>Best for:</strong> Sample inspection, fracture surface examination, general observation</li>
-                            <li><strong>Advantages:</strong> 3D viewing, easy to use, good for initial sample assessment</li>
-                            <li><strong>Limitations:</strong> Low magnification, not suitable for detailed microstructural analysis</li>
-                        </ul>
-
-                        <h3>Decision Guide</h3>
-                        <div class="guide-info-box guide-info-box-primary">
-                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem;">Which Microscope Should You Use?</h4>
-                            <div style="margin-top: 0.75rem;">
-                                <div style="margin-bottom: 0.75rem;">
-                                    <p style="font-weight: 500; margin-bottom: 0.25rem;">Routine analysis, grain size, phase identification?</p>
-                                    <p style="font-size: 0.875rem; color: #374151;">→ Use <strong>Metallurgical Microscope</strong></p>
-                                </div>
-                                <div style="margin-bottom: 0.75rem;">
-                                    <p style="font-weight: 500; margin-bottom: 0.25rem;">Need very high magnification or examining fracture surfaces?</p>
-                                    <p style="font-size: 0.875rem; color: #374151;">→ Use <strong>SEM</strong></p>
-                                </div>
-                                <div style="margin-bottom: 0.75rem;">
-                                    <p style="font-weight: 500; margin-bottom: 0.25rem;">Initial sample inspection or general observation?</p>
-                                    <p style="font-size: 0.875rem; color: #374151;">→ Use <strong>Stereo Microscope</strong></p>
-                                </div>
-                                <div>
-                                    <p style="font-weight: 500; margin-bottom: 0.25rem;">Need elemental analysis or chemical information?</p>
-                                    <p style="font-size: 0.875rem; color: #374151;">→ Use <strong>SEM with EDS</strong></p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section id="microscopy-methods" class="guide-section">
-                        <h2>Microscopy Methods and Techniques</h2>
-                        <p>
-                            Different microscopy techniques reveal different aspects of microstructure. Understanding these methods 
-                            helps you select the appropriate technique for your analysis needs and interpret what you observe.
-                        </p>
-
-                        <h3>Optical Microscopy Techniques</h3>
-                        <p>
-                            Optical (light) microscopy is the most common and accessible technique for metallographic examination. 
-                            Standard metallurgical microscopes use reflected light illumination, allowing observation of opaque 
-                            samples. Various illumination modes provide different information:
-                        </p>
-
-                        <div style="margin: 1.5rem 0;">
-                            <div class="guide-info-box guide-info-box-primary" style="margin-bottom: 1rem;">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Brightfield Illumination</h4>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    The standard illumination mode. Light reflects from the sample surface, with different phases 
-                                    appearing with different brightness based on their reflectivity and etching response. Most common 
-                                    for routine metallographic examination.
-                                </p>
-                            </div>
-                            <div class="guide-info-box guide-info-box-primary" style="margin-bottom: 1rem;">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Darkfield Illumination</h4>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    Uses oblique illumination to highlight surface features. Reveals details like scratches, porosity, 
-                                    and inclusions that may be less visible in brightfield. Useful for examining as-polished surfaces 
-                                    and detecting preparation artifacts.
-                                </p>
-                            </div>
-                            <div class="guide-info-box guide-info-box-primary" style="margin-bottom: 1rem;">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Polarized Light</h4>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    Uses polarized light to reveal crystallographic features. Particularly useful for non-cubic materials 
-                                    (titanium, zirconium, some ceramics) and for examining anisotropic features. Can reveal grain 
-                                    orientation differences.
-                                </p>
-                            </div>
-                            <div class="guide-info-box guide-info-box-primary">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Differential Interference Contrast (DIC)</h4>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    Enhances contrast by converting height differences into color differences. Excellent for revealing 
-                                    relief (height differences between phases) and fine surface details. Particularly useful for 
-                                    examining polished surfaces and detecting subtle microstructural features.
-                                </p>
-                            </div>
-                        </div>
-
-                        <p>
-                            <strong>Typical Magnification Range:</strong> 50x to 1000x (occasionally up to 2000x with oil immersion). 
-                            Most routine analysis is performed at 100x to 500x.
-                        </p>
-
-                        <h3>Scanning Electron Microscopy (SEM)</h3>
-                        <p>
-                            SEM uses a focused electron beam to scan the sample surface, providing much higher magnification and 
-                            resolution than optical microscopy:
-                        </p>
-                        <ul>
-                            <li><strong>Higher magnification:</strong> Up to 100,000x or more, compared to ~1000x for optical microscopy</li>
-                            <li><strong>Greater depth of field:</strong> More of the sample appears in focus, especially useful for 
-                            rough surfaces like fracture surfaces</li>
-                            <li><strong>Fracture surface examination:</strong> Ideal for failure analysis, as fracture surfaces don't 
-                            require polishing</li>
-                            <li><strong>Elemental analysis:</strong> Can be equipped with EDS (energy-dispersive X-ray spectroscopy) 
-                            for chemical analysis</li>
-                        </ul>
-
-                        <div class="guide-image-wrapper">
-                            <img 
-                                src="/images/microstructures/sialon-sem-20000x.jpg"
-                                alt="SEM image showing high magnification detail"
-                                loading="lazy"
-                                class="guide-image"
-                            />
-                            <p class="guide-image-caption">
-                                SEM image at 20,000x magnification showing fine microstructural details not visible with optical microscopy.
-                            </p>
-                        </div>
-
-                        <h3>Advanced Techniques</h3>
-                        <div style="margin: 1.5rem 0;">
-                            <div style="margin-bottom: 1rem;">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Electron Backscatter Diffraction (EBSD)</h4>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    Provides crystallographic information including grain orientation, texture, and phase identification. 
-                                    Creates orientation maps showing how grains are oriented relative to each other. Essential for 
-                                    understanding deformation, recrystallization, and texture development.
-                                </p>
-                            </div>
-                            <div style="margin-bottom: 1rem;">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Energy-Dispersive X-ray Spectroscopy (EDS)</h4>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    Chemical analysis technique that identifies elements present in the microstructure. Can be used 
-                                    with SEM or TEM. Provides elemental composition maps and point analyses. Essential for identifying 
-                                    phases, inclusions, and understanding chemical segregation.
-                                </p>
-                            </div>
-                            <div style="margin-bottom: 1rem;">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Focused Ion Beam (FIB)</h4>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    Uses a focused ion beam to precisely section specific regions of interest. Allows preparation of 
-                                    TEM samples from exact locations. Can also be used for in-situ sectioning and observation. 
-                                    Particularly valuable for failure analysis and examining specific features.
-                                </p>
-                            </div>
-                            <div>
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Transmission Electron Microscopy (TEM)</h4>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    Very high magnification (up to millions of times) for atomic-scale analysis. Requires extremely 
-                                    thin samples (typically less than 100 nm). Used for examining dislocations, fine precipitates, 
-                                    interfaces, and nanoscale features. Advanced research technique.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="guide-info-box guide-info-box-primary">
-                            <p style="font-size: 0.875rem; margin: 0;">
-                                <strong>Choosing the Right Technique:</strong> Start with optical microscopy for most routine analysis. 
-                                Use SEM for higher magnification needs, fracture surfaces, or when elemental analysis is required. 
-                                Advanced techniques like EBSD and TEM are specialized tools for specific research questions.
-                            </p>
-                        </div>
-                    </section>
-                    <section id="common-microstructures" class="guide-section">
-                        <h2>Common Microstructures and What They Mean</h2>
-                        <p>
-                            Learning to recognize common microstructures helps you understand what you're seeing and what it means 
-                            for material properties. This section provides examples of typical microstructures in different materials, 
-                            along with explanations of what they indicate about processing history and properties.
-                        </p>
-
-                        <h3>Steel Microstructures</h3>
-                        
-                        <div class="guide-phases-grid">
-                            <div class="guide-phase-card">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Ferrite-Pearlite Steel</h4>
-                                <div class="guide-phase-image">
-                                    <img 
-                                        src="/images/microstructures/ferrite-pearlite-steel.jpg"
-                                        alt="Ferrite and pearlite microstructure in steel"
-                                        loading="lazy"
-                                    />
-                                </div>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What you see:</strong> Light regions are ferrite (soft, ductile phase). Dark regions 
-                                    with lamellar structure are pearlite (alternating ferrite and cementite plates).
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What it means:</strong> Slow cooling from austenite (annealing or furnace cooling). 
-                                    Moderate strength, good ductility, machinable. Typical of normalized or annealed low-carbon steels.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    <strong>Properties:</strong> Balanced strength and ductility. Good for general engineering applications.
-                                </p>
-                            </div>
-
-                            <div class="guide-phase-card">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Pearlite</h4>
-                                <div class="guide-phase-image">
-                                    <img 
-                                        src="/images/microstructures/pearlite-ferrite.jpg"
-                                        alt="Pearlite lamellar structure"
-                                        loading="lazy"
-                                    />
-                                </div>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What you see:</strong> Alternating light and dark lamellae (plates). The spacing 
-                                    depends on cooling rate: faster cooling produces finer pearlite.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What it means:</strong> Eutectoid transformation from austenite. Fine pearlite (from 
-                                    faster cooling) is stronger than coarse pearlite.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    <strong>Properties:</strong> Moderate strength, good machinability. Finer pearlite has higher 
-                                    strength and hardness.
-                                </p>
-                            </div>
-
-                            <div class="guide-phase-card">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Stainless Steel</h4>
-                                <div class="guide-phase-image">
-                                    <img 
-                                        src="/images/microstructures/431-stainless-steel-400x.jpg"
-                                        alt="Stainless steel microstructure"
-                                        loading="lazy"
-                                    />
-                                </div>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What you see:</strong> Martensitic structure with fine, needle-like or lath features. 
-                                    May show prior austenite grain boundaries.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What it means:</strong> Quenched and tempered martensitic stainless steel. High 
-                                    strength and hardness with good corrosion resistance.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    <strong>Properties:</strong> High strength, good wear resistance, moderate toughness. Used in 
-                                    applications requiring strength and corrosion resistance.
-                                </p>
-                            </div>
-                        </div>
-
-                        <h3>Cast Iron Microstructures</h3>
-
-                        <div class="guide-phases-grid">
-                            <div class="guide-phase-card">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Gray Cast Iron</h4>
-                                <div class="guide-phase-image">
-                                    <img 
-                                        src="/images/microstructures/gray-iron-nital-400x.jpg"
-                                        alt="Gray cast iron with graphite flakes"
-                                        loading="lazy"
-                                    />
-                                </div>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What you see:</strong> Graphite flakes (dark, irregular shapes) in a matrix of ferrite 
-                                    and/or pearlite.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What it means:</strong> Slow cooling allows graphite to form as flakes. The matrix 
-                                    structure depends on cooling rate and composition.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    <strong>Properties:</strong> Good machinability, excellent damping capacity, but brittle. 
-                                    Graphite flakes act as stress concentrators.
-                                </p>
-                            </div>
-
-                            <div class="guide-phase-card">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Nodular (Ductile) Cast Iron</h4>
-                                <div class="guide-phase-image">
-                                    <img 
-                                        src="/images/microstructures/nodular-cast-iron-dic-400x.jpg"
-                                        alt="Nodular cast iron with spherical graphite"
-                                        loading="lazy"
-                                    />
-                                </div>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What you see:</strong> Spherical or nodular graphite particles (dark circles) in a 
-                                    ferrite or pearlite matrix.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What it means:</strong> Magnesium or cerium treatment causes graphite to form as spheres 
-                                    instead of flakes. Much stronger and more ductile than gray iron.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    <strong>Properties:</strong> Good strength and ductility (hence "ductile iron"). Better 
-                                    mechanical properties than gray iron while maintaining castability.
-                                </p>
-                            </div>
-                        </div>
-
-                        <h3>Aluminum Alloy Microstructures</h3>
-
-                        <div class="guide-phases-grid">
-                            <div class="guide-phase-card">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Aluminum-Silicon Alloy</h4>
-                                <div class="guide-phase-image">
-                                    <img 
-                                        src="/images/microstructures/aluminum-silicon-kellers-400x.jpg"
-                                        alt="Aluminum-silicon alloy microstructure"
-                                        loading="lazy"
-                                    />
-                                </div>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What you see:</strong> Silicon particles (dark) in an aluminum matrix. May show 
-                                    precipitates, grain boundaries, and eutectic structure.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What it means:</strong> Cast or heat-treated aluminum alloy. Silicon improves castability 
-                                    and can form strengthening precipitates.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    <strong>Properties:</strong> Lightweight, good castability, moderate strength. Common in automotive 
-                                    and aerospace applications.
-                                </p>
-                            </div>
-                        </div>
-
-                        <h3>Copper Alloy Microstructures</h3>
-
-                        <div class="guide-phases-grid">
-                            <div class="guide-phase-card">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Copper (Tough Pitch)</h4>
-                                <div class="guide-phase-image">
-                                    <img 
-                                        src="/images/microstructures/tough-pitch-copper-200x.jpg"
-                                        alt="Tough pitch copper microstructure"
-                                        loading="lazy"
-                                    />
-                                </div>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What you see:</strong> Equiaxed grains with annealing twins (straight lines within 
-                                    grains). May show oxide particles.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What it means:</strong> Annealed copper with recrystallized grain structure. Twins 
-                                    indicate low stacking fault energy and annealing.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    <strong>Properties:</strong> Excellent electrical and thermal conductivity, good ductility, 
-                                    corrosion resistance.
-                                </p>
-                            </div>
-
-                            <div class="guide-phase-card">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Brass (70-30)</h4>
-                                <div class="guide-phase-image">
-                                    <img 
-                                        src="/images/microstructures/70-30-rolled-brass-200x.jpg"
-                                        alt="Rolled brass microstructure"
-                                        loading="lazy"
-                                    />
-                                </div>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What you see:</strong> Elongated grains showing directionality from rolling. May show 
-                                    annealing twins.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What it means:</strong> Cold-worked or partially recrystallized brass. Elongated 
-                                    grains indicate mechanical working.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    <strong>Properties:</strong> Good strength and formability. Elongated structure indicates 
-                                    work hardening from rolling.
-                                </p>
-                            </div>
-                        </div>
-
-                        <h3>Titanium Alloy Microstructures</h3>
-
-                        <div class="guide-phases-grid">
-                            <div class="guide-phase-card">
-                                <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Titanium with ZrB₂</h4>
-                                <div class="guide-phase-image">
-                                    <img 
-                                        src="/images/microstructures/ZrB2-Ti.jpg"
-                                        alt="Titanium composite microstructure"
-                                        loading="lazy"
-                                    />
-                                </div>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What you see:</strong> Alpha/beta titanium structure with reinforcing particles. May show 
-                                    Widmanstätten structure or equiaxed grains.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin-bottom: 0.5rem;">
-                                    <strong>What it means:</strong> Titanium matrix composite or alloy. The structure depends on 
-                                    heat treatment and processing.
-                                </p>
-                                <p style="font-size: 0.875rem; color: #374151; margin: 0;">
-                                    <strong>Properties:</strong> High strength-to-weight ratio, excellent corrosion resistance. 
-                                    Used in aerospace and medical applications.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="guide-info-box guide-info-box-primary">
-                            <p style="font-size: 0.875rem; margin: 0;">
-                                <strong>Learning to Interpret Microstructures:</strong> Start by identifying the phases present, 
-                                then consider grain size and distribution, and finally relate these to processing history and 
-                                properties. With practice, you'll develop the ability to quickly assess material condition and 
-                                processing from microstructure examination.
-                            </p>
-                        </div>
                     </section>
 
-                    <section id="interpretation" class="guide-section">
-                        <h2>Microstructural Interpretation</h2>
+                    <section id="astm-procedures" class="guide-section">
+                        <h2>Standard ASTM Procedures</h2>
                         <p>
-                            Interpreting microstructures involves understanding what you observe and relating it to material 
-                            properties and processing history. This requires knowledge of phase transformations, processing 
-                            effects, and material behavior.
+                            Each measurement below is covered by a published ASTM (or equivalent) standard. The standard defines the method, the field count, the magnification, and the reporting conventions — write the standard number on the report, not just the result.
                         </p>
 
-                        <h3>Systematic Approach to Interpretation</h3>
-                        <ol>
-                            <li><strong>Identify phases present:</strong> What phases can you see? Are they expected for this 
-                            material and composition?</li>
-                            <li><strong>Assess grain size:</strong> Is the grain size fine, medium, or coarse? How does this 
-                            relate to processing?</li>
-                            <li><strong>Examine phase distribution:</strong> Are phases uniformly distributed or segregated? Are 
-                            there clusters or bands?</li>
-                            <li><strong>Look for processing indicators:</strong> Elongated grains suggest mechanical working. 
-                            Fine structures suggest rapid cooling. Coarse structures suggest slow cooling or high temperatures.</li>
-                            <li><strong>Check for defects:</strong> Are there inclusions, porosity, cracks, or other defects?</li>
-                            <li><strong>Relate to properties:</strong> How does the observed structure relate to expected material 
-                            properties?</li>
-                        </ol>
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>Measurement</th>
+                                        <th>Standard(s)</th>
+                                        <th>What it measures</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Grain size</strong></td>
+                                        <td>ASTM E112, E930, E1181, E1382</td>
+                                        <td>Average grain size; ALA (as-large-as) grain size; duplex grain sizes; automated grain size</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Phase / second-phase content</strong></td>
+                                        <td>ASTM E562, E1245</td>
+                                        <td>Volume fraction by point count (manual) or automated image analysis</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Nodularity (cast iron)</strong></td>
+                                        <td>ASTM A247</td>
+                                        <td>Graphite form, distribution, and size in iron castings</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Porosity</strong></td>
+                                        <td>ASTM E562, E1245</td>
+                                        <td>Volume fraction of voids</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Inclusion rating</strong></td>
+                                        <td>ASTM E45, E1245</td>
+                                        <td>Type, size, and severity of non-metallic inclusions in wrought steel</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Decarburization</strong></td>
+                                        <td>ASTM E1077</td>
+                                        <td>Depth of carbon loss at the surface of steel</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Coating thickness</strong></td>
+                                        <td>ASTM B487</td>
+                                        <td>Metal and oxide coating thickness by cross-section microscopy</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Weld analysis</strong></td>
+                                        <td>SAE, AWS standards (e.g., AWS B4.0)</td>
+                                        <td>Throat, leg, root penetration, HAZ depth and area</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                        <h3>Common Interpretation Challenges</h3>
+                        <h3 id="grain-size">Grain size (ASTM E112, E930, E1181)</h3>
+                        <p>
+                            A grain is one crystal in a polycrystalline material. Grain size is intrinsically three-dimensional but measured on a 2D section. ASTM E112 specifies three procedures:
+                        </p>
                         <ul>
-                            <li><strong>Preparation artifacts:</strong> Scratches, contamination, or relief can be mistaken for 
-                            microstructural features</li>
-                            <li><strong>Etching effects:</strong> Over-etching or under-etching can obscure or create false features</li>
-                            <li><strong>Magnification effects:</strong> Features may look different at different magnifications</li>
-                            <li><strong>Sample orientation:</strong> The same structure can look different depending on the plane 
-                            of section</li>
-                            <li><strong>Phase identification:</strong> Some phases look similar and require additional analysis 
-                            (e.g., EDS) for positive identification</li>
+                            <li><strong>Comparison:</strong> overlay the micrograph against ASTM chart plates at matching magnification. Fast, well-suited to fully recrystallized equiaxed grain structures.</li>
+                            <li><strong>Planimetric (Jeffries):</strong> a known area (typically 5000 mm² of the printed image) is laid over the micrograph; full grains plus half of the intercepted grains times the Jeffries multiplier gives the grain count. Requires at least 50 grains per field.</li>
+                            <li><strong>Intercept (Heyn):</strong> straight or circular test lines are drawn across the image; counted grain boundary intersections give grain size. The recommended method for non-equiaxed structures.</li>
+                        </ul>
+                        <p>
+                            <strong>Always exclude twin boundaries</strong> from the count — they are coherent boundaries within a single grain, not grain boundaries. ASTM E930 handles very coarse structures where E112 has too few grains per field; E1181 handles duplex (bimodal) grain populations; E1382 covers automated image analysis.
+                        </p>
+
+                        <h3 id="phase-analysis">Phase analysis (ASTM E562, E1245)</h3>
+                        <p>
+                            A phase is a physically homogenous, distinct constituent. The two governing standards are <strong>E562</strong> (manual point count) and <strong>E1245</strong> (automatic image analysis for inclusions and second-phase constituents). Either yields volume fraction with a stated confidence interval. Use E562 when audit traceability matters most; use E1245 when speed and sample count matter most. Both depend on a clean polish and a sharply contrasting etch.
+                        </p>
+
+                        <h3 id="nodularity">Nodularity (ASTM A247)</h3>
+                        <p>
+                            ASTM A247 classifies graphite in cast iron along three axes: <strong>form</strong> (Types I–VII, with I–VI for nodular/spheroidal graphite and VII for gray-iron flake), <strong>distribution</strong> (letters A–E), and <strong>size</strong> (numbers 1–8, largest to smallest). Compare against ASTM Plates I, II, and III at the standard magnification. Software-based nodularity classification (Material Plus and similar) accelerates the count and removes operator drift.
+                        </p>
+
+                        <h3 id="porosity">Porosity (ASTM E562)</h3>
+                        <p>
+                            Porosity is measured as a volume fraction. Manual point count (E562) overlays a grid (16, 25, 49, or 100 points are the standard arrays) on each of n fields, counts the points falling inside pores, and computes V<sub>V</sub> = P<sub>P</sub> ± 95% CI. Automated image analysis (E1245) does the same operation on detected pixels. For sintered powder metallurgy parts, thermal spray coatings, and castings, porosity is one of the most consequential numbers you can report.
+                        </p>
+
+                        <h3 id="inclusion-rating">Inclusion rating (ASTM E45)</h3>
+                        <p>
+                            ASTM E45 characterizes non-metallic inclusions in wrought steel using the JK rating system:
+                        </p>
+                        <ul>
+                            <li><strong>Type A — Sulfide:</strong> stringers, light gray under brightfield</li>
+                            <li><strong>Type B — Alumina:</strong> aligned clusters of at least three round/angular oxide particles (aspect ratio &lt; 2) parallel to the working direction</li>
+                            <li><strong>Type C — Silicate:</strong> stringers, black under brightfield (the easy way to tell A from C)</li>
+                            <li><strong>Type D — Globular oxide:</strong> isolated round oxides, not aligned</li>
+                        </ul>
+                        <p>
+                            Each type is then rated by <strong>thickness</strong> (T = thin, H = heavy) and <strong>severity level</strong> based on count or length in a 0.50 mm² field. The result is a compact code (e.g., "A2T, B1H, C1T, D1T") that quality assurance tracks across heats and lots.
+                        </p>
+
+                        <h3 id="decarburization">Decarburization (ASTM E1077)</h3>
+                        <p>
+                            Decarburization is the loss of carbon at a steel surface, usually from heat-treat atmosphere or hot-working. It changes hardness, fatigue life, and wear behavior at the part's surface. ASTM E1077 defines:
+                        </p>
+                        <ul>
+                            <li><strong>Complete decarburization:</strong> surface ferrite only, no pearlite</li>
+                            <li><strong>Partial decarburization:</strong> reduced carbon, mixed ferrite + pearlite zone</li>
+                            <li><strong>Total depth:</strong> perpendicular distance from the surface to where bulk carbon content is restored</li>
+                            <li><strong>Average depth:</strong> mean of at least 5 measurements</li>
+                            <li><strong>Maximum depth:</strong> the largest single measurement</li>
+                        </ul>
+                        <p>
+                            All four are read directly from a properly etched cross-section. For heat-treated steels, the presence of non-martensitic structure in the partial zone is used to identify the boundary.
+                        </p>
+
+                        <h3 id="coating-thickness">Coating thickness (ASTM B487)</h3>
+                        <p>
+                            ASTM B487 specifies the cross-sectional microscopy method for measuring metal and oxide coatings. The non-negotiable requirements: the cross-section must be <strong>perpendicular</strong> to the coating (any tilt inflates the apparent thickness), the surface must be flat across the entire field so the boundaries are sharply defined, and the section must be free of deformation, smearing, or rounded edges. Mount the part so the coating is in compression during sectioning and grinding, and use edge-retention compounds and resin systems suited to the substrate — coating measurements live or die on edge quality.
+                        </p>
+
+                        <h3 id="weld-analysis">Weld analysis</h3>
+                        <p>
+                            No single ASTM standard covers all weld measurements; SAE and AWS publish the applicable specs. Common measurements include throat dimension (foot of fillet to face), leg length (root of joint to surface intersection), root penetration, joint penetration angles, HAZ depth and area, and phase counts inside the fusion zone and HAZ. PACE supplies the <a href="/metallographic-equipment/microscopy/image-analysis.html" class="guide-link">WELD CHECK module</a> for Material Plus to automate the standard weld geometry measurements.
+                        </p>
+                    </section>
+
+                    <section id="best-practices" class="guide-section">
+                        <h2>Universal Best Practices</h2>
+                        <p>
+                            These habits apply to any microscopy or image-analysis session.
+                        </p>
+
+                        <h3>Before the session</h3>
+                        <ul>
+                            <li>Confirm preparation quality at low magnification first; a remaining scratch at 50× will only get worse at 500×</li>
+                            <li>Calibrate the stage micrometer at every objective you plan to use; recalibrate after changing eyepieces, cameras, or zoom settings</li>
+                            <li>For image analysis, verify that the calibration file matches the objective in use — wrong calibration is the most common silent error</li>
+                            <li>Clean objectives gently with lens tissue and approved cleaner; never with paper towel or shop rag</li>
+                        </ul>
+
+                        <h3>During the session</h3>
+                        <ul>
+                            <li>Start at the lowest useful magnification and step up only as needed. Empty magnification wastes time without adding information.</li>
+                            <li>When a feature looks ambiguous, change illumination mode before changing objectives or etchants</li>
+                            <li>Use Köhler illumination for the cleanest image (field and aperture diaphragms set per the microscope manual)</li>
+                            <li>For quantitative work, take enough fields to drive the 95% CI below your acceptance threshold — typically 5 to 12 fields, more for low-area-fraction phases</li>
+                        </ul>
+
+                        <h3>After the session</h3>
+                        <ul>
+                            <li>Save raw images alongside any analysis output; the standard ASTM reports a number, but the image is the evidence</li>
+                            <li>Record the magnification, illumination mode, etchant, and calibration file in the image metadata or filename</li>
+                            <li>Cover the microscope and store immersion-oil objectives wiped clean to prevent oil migration into the lens cement</li>
                         </ul>
 
                         <div class="guide-info-box guide-info-box-primary">
-                            <p style="font-size: 0.875rem; margin: 0;">
-                                <strong>Best Practice:</strong> When in doubt, examine the sample at multiple magnifications and 
-                                compare with reference microstructures. Document your observations with photomicrographs for future 
-                                reference and comparison.
-                            </p>
+                            <p style="margin: 0;"><strong>The micrograph is the audit trail.</strong> A quantitative result without an attached image cannot be re-checked, re-analyzed, or compared against future heats. Save the image, write the standard on the report, and the result will stand up to any review.</p>
                         </div>
                     </section>
-                    <!-- CTA Section -->
-                    <div class="guide-cta">
-                        <h2>Explore More Analysis Techniques</h2>
+
+                    <section id="troubleshooting" class="guide-section">
+                        <h2>Troubleshooting</h2>
                         <p>
-                            Continue learning about metallographic analysis and sample preparation techniques to improve your 
-                            microstructural examination skills.
+                            Most microscopy problems trace back to preparation, calibration, or illumination — in that order. Use the table below before assuming the microscope or the software is at fault.
                         </p>
-                        <div class="guide-cta-buttons">
-                            <a href="/guides.html?category=Process" class="btn-primary">
-                                Browse Procedure Guides
-                            </a>
-                            <a href="/guides/etching-procedures.html" class="btn-secondary">
-                                Learn About Etching
-                            </a>
-                            <a href="/metallographic-equipment/microscopy.html" class="btn-secondary">
-                                Browse Microscopes
-                            </a>
+                        <div class="guide-table-wrapper">
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>Problem</th>
+                                        <th>Common causes</th>
+                                        <th>Solutions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-semibold align-top">Image looks soft or out of focus at high magnification</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Empty magnification — N.A. exhausted</li>
+                                                <li>Wrong objective for the cover glass / immersion combination</li>
+                                                <li>Sample relief; not flat in the field</li>
+                                                <li>Dirty or oil-contaminated objective</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Drop to the magnification the objective's N.A. actually supports</li>
+                                                <li>Use a higher-N.A. or oil-immersion objective</li>
+                                                <li>Repolish to reduce relief, then re-etch</li>
+                                                <li>Clean the objective with lens tissue and approved cleaner</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold align-top">Features in brightfield look ambiguous or low-contrast</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Under-etched surface</li>
+                                                <li>Wrong illumination mode for the feature</li>
+                                                <li>Köhler illumination not set</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Switch to DF for pores/scratches, DIC for relief, POL for HCP grain structure</li>
+                                                <li>Re-etch briefly, or pick a more aggressive etchant for the alloy</li>
+                                                <li>Reset Köhler illumination per the manual</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold align-top">Grain size or phase count drifts between operators</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Inconsistent etch or polish</li>
+                                                <li>Twin boundaries counted as grain boundaries</li>
+                                                <li>Too few fields measured (CI too wide)</li>
+                                                <li>Calibration file out of date</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Standardize the prep recipe; verify polish quality before the count</li>
+                                                <li>Train operators on twin vs. grain boundary identification</li>
+                                                <li>Increase field count until 95% CI drops below tolerance</li>
+                                                <li>Move to automated analysis (Material Plus) to remove operator drift</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold align-top">Image analysis software detects scratches as inclusions</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Polish not finished to required surface quality</li>
+                                                <li>Threshold set too aggressively</li>
+                                                <li>Wrong illumination mode for detection</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Finish the polish — final 1 μm or sub-μm step is mandatory for E45/E1245</li>
+                                                <li>Tighten the gray-level threshold; use morphological filters (aspect ratio, min size)</li>
+                                                <li>Switch to DF or DIC to make true features dominate the detected pixels</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold align-top">Coating thickness measurement varies along the length</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Cross-section not perpendicular to the coating</li>
+                                                <li>Edge rounding from poor edge retention</li>
+                                                <li>Coating partially smeared during section/grind</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Remount perpendicular; orient the cut for coating-in-compression</li>
+                                                <li>Use an edge-retention mounting compound; do not over-polish the surface</li>
+                                                <li>Re-prepare with finer abrasive in the last grinding step</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-semibold align-top">Polarized light gives no contrast on a known anisotropic alloy</td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Surface deformation layer not removed</li>
+                                                <li>Polarizer/analyzer not crossed</li>
+                                                <li>Etching layer obscuring the relief</li>
+                                            </ul>
+                                        </td>
+                                        <td class="align-top">
+                                            <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                                <li>Add a final vibratory or chemical polish (titanium, zirconium are deformation-prone)</li>
+                                                <li>Adjust the analyzer to true extinction</li>
+                                                <li>Lighten the etch — POL often works better on as-polished surfaces</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                    </div>
+                    </section>
+
+                    <!-- FAQ Section -->
+                    <section id="faq" class="guide-faq-section" itemscope itemtype="https://schema.org/FAQPage">
+                        <h2>Frequently Asked Questions</h2>
+                        <div class="guide-faq-accordion">
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">What is "empty magnification" and how do I avoid it?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Empty magnification is the point where increasing magnification no longer adds detail because the objective's numerical aperture has already exhausted its resolving power. As a working rule, useful magnification tops out at about 1000× the objective's N.A. — so a 0.65-N.A. objective is usefully scaled to around 650×, and pushing higher just produces softer, larger pixels. The fix is to step up to a higher-N.A. objective (or oil immersion at the top end), not to add eyepiece or camera magnification.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">When should I use darkfield instead of brightfield?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Use darkfield when you need to highlight non-flat features — porosity, fine cracks, scratches, inclusions, surface debris — that wash out in brightfield. The dark background makes small light-scattering features unmistakable. Darkfield is also the fastest way to expose remaining preparation artifacts; if a polish looks clean in brightfield but lights up in darkfield, the polish is not finished.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">My titanium / zirconium sample will not etch. Am I doing something wrong?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Often nothing — titanium, zirconium, beryllium, and many other HCP metals are chemically resistant and resist conventional chemical etching. Use polarized light on the as-polished (or vibratory-polished) surface: anisotropic grains light up in shades determined by their orientation, with no etchant required. A small amount of Kroll's reagent can help on Ti alloys, but POL is often the cleaner answer.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">How do I measure grain size? (ASTM E112)</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">ASTM E112 specifies several procedures; the two most common are the planimetric (Jeffries) method and the linear intercept (Heyn) method. <strong>Planimetric:</strong> count grains entirely inside a known test area plus half-grains crossing the boundary, divide by area, multiply by the magnification factor to get grains per mm², then look up the ASTM grain size number from the standard's table. <strong>Linear intercept:</strong> count grain-boundary intersections along a test line of known length, divide by line length × magnification, get intercepts per mm, look up the ASTM number. Both methods require a properly etched specimen with clear, unambiguous grain boundaries. Statistical defensibility requires multiple fields; report grain size to one decimal place plus the 95% confidence interval. PACE Material Plus runs both methods automatically and applies the magnification correction for you.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">How do I count inclusions or porosity? (ASTM E45)</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">ASTM E45 covers inclusion rating for steels and similar alloys. The standard requires 100× magnification (some methods use 500×), a specimen polished to a true 1 μm or finer finish without etching, and either chart-comparison rating (Method A, the traditional method) or automated image analysis (Method D, increasingly preferred). The four inclusion types are A (sulfides), B (alumina stringers), C (silicates), and D (globular oxides), each rated for thin (1) or heavy (2) on a 0–5 severity scale per stringer per 0.5 mm². The polish step is the critical control: pulled inclusions read as missing material, smeared inclusions read as bigger than they are, and embedded abrasive reads as inclusions that are not actually there. Best practice for E45 work: vibratory polish before measurement to eliminate residual deformation.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">How many fields do I need to measure for a defensible phase count?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">It depends on the phase fraction. ASTM E562 recommends starting with 5 fields and adding more until the 95% confidence interval drops below your acceptance threshold (often expressed as relative accuracy, %RA, of 10% or better). For phases above ~10% area fraction, 5 to 12 fields is usually enough. For low-fraction phases (inclusions, trace porosity), 20 or more fields may be required to drive the CI down. The standard requires that you report the CI alongside the result — a phase fraction without a CI is not a measurement.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">Manual point count or automated image analysis — which should I use?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Both are valid, and both depend on a clean polish and etch. Manual point count (ASTM E562) is the audit-friendly default and works on any microscope. Automated image analysis (ASTM E1245/E1382, run with PACE Material Plus or equivalent) is much faster, scales to hundreds of fields, and removes operator-to-operator variability — but it detects pixel contrast, not features, so any preparation artifact that contrasts with the matrix gets counted. For high-volume QC, automation pays for itself in weeks; for one-off failure analysis, manual point counting is often quicker to set up correctly.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">Why do my coating thickness measurements vary so much?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">Almost always one of three causes: the cross-section is not perpendicular to the coating (any tilt inflates the apparent thickness), the edge is rounded from poor edge retention during grinding, or the coating was smeared by sectioning or grinding damage. The fix is process: mount so the coating is in compression during the cut, use an edge-retention mounting compound, and finish to a fine final abrasive before measuring. ASTM B487 requires a sharply-defined boundary; if the boundary is fuzzy, the number cannot be trusted.</p>
+                                </div>
+                            </details>
+                            <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                                <summary class="guide-faq-question" itemprop="name">How do I store a polished or etched sample between prep and imaging?</summary>
+                                <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                                    <p itemprop="text">For short-term storage (minutes to hours): rinse with ethanol, dry with compressed air, and place in a covered petri dish or specimen box with a desiccant pack. For overnight to several days: apply a clear protective lacquer to the polished face after final cleaning; the lacquer comes off with acetone before imaging. For long-term archival: photograph the microstructure first because it will change, then mount the specimen face-down in a clean dish with desiccant and store away from light and humidity. Carbon steels and copper alloys oxidize most aggressively; stainless steels and titanium alloys hold their polish longest. Never store an etched sample unprotected — the etched surface is chemically reactive and will continue to darken even in clean air.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </section>
+
+                    <!-- What's Next -->
+                    <section id="whats-next" class="guide-section">
+                        <h2>What's Next: Material-Specific Interpretation</h2>
+                        <p>
+                            The standards in this guide tell you <em>how</em> to measure a microstructure. The material-specific guides tell you <em>what</em> the result means — which phases to expect, what cooling rate they imply, which etchant brings them out, and which defects matter for that alloy class. Start with the alloy you are actually working on.
+                        </p>
+                        <p>
+                            <a href="/guides.html?category=Material-Specific" class="btn-primary">Browse Material-Specific Guides →</a>
+                        </p>
+                    </section>
 
                     <!-- Related Guides -->
                     <div class="guide-related">
@@ -1500,8 +1510,12 @@
                         <div class="guide-related-links">
                             <a href="/guides/etching-procedures.html" class="guide-link">→ Etching Procedures</a>
                             <a href="/guides/polishing-methods.html" class="guide-link">→ Polishing Methods</a>
-                            <a href="/guides/purpose-and-applications.html" class="guide-link">→ Purpose and Applications</a>
-                            <a href="/guides/equipment-overview.html" class="guide-link">→ Equipment Overview</a>
+                            <a href="/guides/carbon-steel-preparation.html" class="guide-link">→ Carbon Steel Prep</a>
+                            <a href="/guides/cast-iron-preparation.html" class="guide-link">→ Cast Iron Prep</a>
+                            <a href="/guides/aluminum-sample-preparation.html" class="guide-link">→ Aluminum Sample Prep</a>
+                            <a href="/guides/titanium-preparation.html" class="guide-link">→ Titanium Prep</a>
+                            <a href="/guides/welding-analysis.html" class="guide-link">→ Welding Analysis</a>
+                            <a href="/guides/failure-analysis.html" class="guide-link">→ Failure Analysis</a>
                         </div>
                     </div>
                 </article>
@@ -1565,7 +1579,7 @@
           <!-- Company/Brand Section -->
           <div class="footer-brand">
             <div class="footer-brand-header">
-              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async">
+              <img src="/images/pace-metallographic-logo.webp" alt="PACE Technologies" class="footer-logo-img" width="2047" height="981" decoding="async" loading="lazy">
             </div>
             <p class="footer-brand-description">
               Leading provider of metallographic sample preparation equipment, consumables, and expertise.
@@ -1604,8 +1618,54 @@
                 www.metallographic.com
               </a>
             </div>
+            <div class="footer-cta-row">
+              <a href="https://shop.metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-cta-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="9" cy="21" r="1"/>
+                  <circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span>Shop Online</span>
+              </a>
+              <a href="/build.html" class="footer-cta-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+                <span>Lab Builder</span>
+              </a>
+            </div>
           </div>
-          
+
+          <!-- Equipment Section -->
+          <div class="footer-column">
+            <h3 class="footer-column-title">Equipment</h3>
+            <ul class="footer-column-list">
+              <li><a href="/metallographic-equipment/abrasive-sectioning.html" class="footer-link">Abrasive Sectioning</a></li>
+              <li><a href="/metallographic-equipment/precision-wafering.html" class="footer-link">Precision Wafering</a></li>
+              <li><a href="/metallographic-equipment/compression-mounting.html" class="footer-link">Compression Mounting</a></li>
+              <li><a href="/metallographic-equipment/castable-mounting.html" class="footer-link">Castable Mounting</a></li>
+              <li><a href="/metallographic-equipment/grinding-polishing.html" class="footer-link">Grinding &amp; Polishing</a></li>
+              <li><a href="/metallographic-equipment/hardness-testing.html" class="footer-link">Hardness Testing</a></li>
+              <li><a href="/metallographic-equipment/microscopy.html" class="footer-link">Microscopy</a></li>
+              <li><a href="/equipment.html" class="footer-link">All Equipment &rsaquo;</a></li>
+            </ul>
+          </div>
+
+          <!-- Consumables Section -->
+          <div class="footer-column">
+            <h3 class="footer-column-title">Consumables</h3>
+            <ul class="footer-column-list">
+              <li><a href="/metallographic-consumables/sectioning.html" class="footer-link">Sectioning Blades</a></li>
+              <li><a href="/metallographic-consumables/mounting.html" class="footer-link">Mounting Compounds</a></li>
+              <li><a href="/metallographic-consumables/grinding.html" class="footer-link">Grinding Papers</a></li>
+              <li><a href="/metallographic-consumables/grinding/lapping-films.html" class="footer-link">Lapping Films</a></li>
+              <li><a href="/metallographic-consumables/polishing/polishing-pads.html" class="footer-link">Polishing Pads</a></li>
+              <li><a href="/metallographic-consumables/polishing.html" class="footer-link">Polishing Compounds</a></li>
+              <li><a href="/metallographic-consumables/etching.html" class="footer-link">Etchants</a></li>
+              <li><a href="/consumables.html" class="footer-link">All Consumables &rsaquo;</a></li>
+            </ul>
+          </div>
+
           <!-- Company Section -->
           <div class="footer-column">
             <h3 class="footer-column-title">Company</h3>
@@ -1615,20 +1675,8 @@
               <li><a href="/careers.html" class="footer-link">Careers</a></li>
               <li><a href="/events.html" class="footer-link">Events</a></li>
               <li><a href="/distribution.html" class="footer-link">International Distribution</a></li>
-              <li><a href="/quote.html" class="footer-link">Request Quote</a></li>
-            </ul>
-          </div>
-          
-          <!-- Products Section -->
-          <div class="footer-column">
-            <h3 class="footer-column-title">Products</h3>
-            <ul class="footer-column-list">
-              <li><a href="/equipment.html" class="footer-link">Equipment</a></li>
-              <li><a href="/consumables.html" class="footer-link">Consumables</a></li>
               <li><a href="/services.html" class="footer-link">Services</a></li>
-              <li><a href="https://shop.metallographic.com" target="_blank" rel="noopener noreferrer" class="footer-link">Online Shop</a></li>
-              <li><a href="/catalog.html" class="footer-link">Product Catalog</a></li>
-              <li><a href="/build.html" class="footer-link">Lab Builder</a></li>
+              <li><a href="/quote.html" class="footer-link">Request Quote</a></li>
             </ul>
           </div>
 
@@ -1638,53 +1686,43 @@
             <ul class="footer-column-list">
               <li><a href="/guides.html" class="footer-link">Guides</a></li>
               <li><a href="/tools.html" class="footer-link">Tools</a></li>
-<li><a href="/glossary.html" class="footer-link">Glossary</a></li>
-              <li><a href="/support/brochures.html" class="footer-link">Brochures & Manuals</a></li>
+              <li><a href="/glossary.html" class="footer-link">Glossary</a></li>
+              <li><a href="/catalog.html" class="footer-link">Product Catalog</a></li>
+              <li><a href="/support/brochures.html" class="footer-link">Brochures &amp; Manuals</a></li>
               <li><a href="/support/sds.html" class="footer-link">Safety Data Sheets</a></li>
               <li><a href="/support.html" class="footer-link">Customer Support</a></li>
-            </ul>
-          </div>
-
-          <!-- Legal Section -->
-          <div class="footer-column">
-            <h3 class="footer-column-title">Legal</h3>
-            <ul class="footer-column-list">
-              <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
-              <li><a href="/terms.html" class="footer-link">Terms & Conditions</a></li>
-              <li><a href="/support/site-map.html" class="footer-link">Sitemap</a></li>
             </ul>
           </div>
         </div>
         
         <!-- Social Links -->
         <div class="footer-social-section">
-          <h3 class="footer-column-title">Connect with Us</h3>
           <ul class="footer-social">
             <li>
-              <a href="https://www.facebook.com/pacetechnologies/" aria-label="Facebook" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24" fill="#1877F2">
-                  <path d="M279.14 288l14.22-92.66h-88.91V117.68c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72V195.3H22.89V288h81.39v224h100.2V288z"/>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/pace_technologies/" aria-label="Instagram" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="#E1306C">
-                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9-51.3-114.9-114.9-114.9zm0 190.8c-41.9 0-75.9-34-75.9-75.9s34-75.9 75.9-75.9 75.9 34 75.9 75.9-34 75.9-75.9 75.9zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.7-9.9-67.3-36.3-92.7C385.3 23.9 353.7 15.7 318 14 278.7 12.1 169.3 12 130 14 94.3 15.7 62.7 23.9 37.3 49.3 11.9 74.7 3.7 106.3 2 142c-2 39.3-2 148.7 0 188 1.7 35.7 9.9 67.3 36.3 92.7 25.4 25.4 57 33.6 92.7 35.3 39.3 2 148.7 2 188 0 35.7-1.7 67.3-9.9 92.7-35.3 25.4-25.4 33.6-57 35.3-92.7 2-39.3 2-148.7 0-188zM398.8 388c-7.8 19.7-23 35-42.7 42.7-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.7-7.8-35-23-42.7-42.7-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.7 23-35 42.7-42.7 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.7 7.8 35 23 42.7 42.7 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/company/metallographic/" aria-label="LinkedIn" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#0077B5">
+              <a href="https://www.linkedin.com/company/metallographic/" aria-label="LinkedIn" class="footer-social-link footer-social-link--linkedin">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
                   <path d="M22.23 0H1.77C.792 0 0 .775 0 1.731v20.538C0 23.225.792 24 1.77 24h20.46c.979 0 1.77-.775 1.77-1.731V1.731C24 .775 23.209 0 22.23 0zM7.07 20.452H3.537V9h3.532v11.452zm-1.766-13c-1.132 0-1.892-.771-1.892-1.738 0-.979.779-1.737 1.932-1.737 1.155 0 1.892.758 1.906 1.737 0 .967-.751 1.738-1.93 1.738h-.016zm13.386 13H16.09V14.1c0-1.529-.55-2.575-1.927-2.575-1.051 0-1.675.703-1.95 1.382-.101.246-.126.588-.126.93v6.615h-3.533s.046-10.745 0-11.852h3.533v1.676c.47-.727 1.309-1.762 3.182-1.762 2.326 0 4.067 1.496 4.067 4.709v7.229h-.001z"></path>
                 </svg>
               </a>
             </li>
             <li>
-              <a href="https://www.youtube.com/@pacetechnologies" aria-label="YouTube" class="footer-social-link">
-                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#FF0000">
+              <a href="https://www.youtube.com/@pacetechnologies" aria-label="YouTube" class="footer-social-link footer-social-link--youtube">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
                   <path d="M23.498 6.186c-.29-1.1-1.152-1.96-2.248-2.252C19.39 3.45 12 3.45 12 3.45s-7.39 0-9.25.485c-1.096.292-1.957 1.153-2.248 2.252C0 8.048 0 12 0 12s0 3.953.502 5.814c.29 1.1 1.152 1.96 2.248 2.252C4.61 20.55 12 20.55 12 20.55s7.39 0 9.25-.485c1.096-.292 1.957-1.153 2.248-2.252C24 15.952 24 12 24 12s0-3.953-.502-5.814zM9.546 15.568V8.431l6.364 3.569-6.364 3.568z"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/pacetechnologies/" aria-label="Facebook" class="footer-social-link footer-social-link--facebook">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <path d="M279.14 288l14.22-92.66h-88.91V117.68c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72V195.3H22.89V288h81.39v224h100.2V288z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/pace_technologies/" aria-label="Instagram" class="footer-social-link footer-social-link--instagram">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9-51.3-114.9-114.9-114.9zm0 190.8c-41.9 0-75.9-34-75.9-75.9s34-75.9 75.9-75.9 75.9 34 75.9 75.9-34 75.9-75.9 75.9zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.7-9.9-67.3-36.3-92.7C385.3 23.9 353.7 15.7 318 14 278.7 12.1 169.3 12 130 14 94.3 15.7 62.7 23.9 37.3 49.3 11.9 74.7 3.7 106.3 2 142c-2 39.3-2 148.7 0 188 1.7 35.7 9.9 67.3 36.3 92.7 25.4 25.4 57 33.6 92.7 35.3 39.3 2 148.7 2 188 0 35.7-1.7 67.3-9.9 92.7-35.3 25.4-25.4 33.6-57 35.3-92.7 2-39.3 2-148.7 0-188zM398.8 388c-7.8 19.7-23 35-42.7 42.7-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.7-7.8-35-23-42.7-42.7-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.7 23-35 42.7-42.7 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.7 7.8 35 23 42.7 42.7 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
                 </svg>
               </a>
             </li>

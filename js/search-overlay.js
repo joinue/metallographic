@@ -94,6 +94,53 @@
         return indexPromise;
     }
 
+    // --- Query normalization (stopwords + aliases) ---
+
+    // Common English stopwords stripped from queries so natural-language
+    // phrases like "grinder for titanium" don't fail because "for" is not in
+    // any page's content.
+    var STOPWORDS = {
+        'a': 1, 'an': 1, 'and': 1, 'are': 1, 'as': 1, 'at': 1, 'be': 1,
+        'by': 1, 'for': 1, 'from': 1, 'how': 1, 'in': 1, 'is': 1, 'it': 1,
+        'of': 1, 'on': 1, 'or': 1, 'that': 1, 'the': 1, 'this': 1, 'to': 1,
+        'was': 1, 'what': 1, 'when': 1, 'where': 1, 'which': 1, 'with': 1
+    };
+
+    // Industry shorthand → canonical term. Searching either form surfaces the
+    // same category pages (e.g. "SiC" surfaces silicon carbide grinding pages,
+    // "SS" surfaces stainless-steel preparation, "grinder" surfaces grinding).
+    var ALIASES = {
+        'sic':       'silicon carbide',
+        'ss':        'stainless steel',
+        'alo':       'alumina',
+        'al2o3':     'alumina',
+        'dia':       'diamond',
+        'cmp':       'colloidal silica',
+        'hf':        'hydrofluoric',
+        'ti':        'titanium',
+        'al':        'aluminum',
+        'cu':        'copper',
+        'ni':        'nickel',
+        'fe':        'iron',
+        'grinder':   'grinding',
+        'polisher':  'polishing',
+        'cutter':    'cutting',
+        'mounter':   'mounting',
+        'msds':      'sds'
+    };
+
+    function stripStopwords(q) {
+        return q.split(/\s+/).filter(function (t) {
+            return t && !STOPWORDS[t];
+        }).join(' ');
+    }
+
+    function tokenInHay(token, hay) {
+        if (hay.indexOf(token) >= 0) return true;
+        var alias = ALIASES[token];
+        return !!(alias && hay.indexOf(alias) >= 0);
+    }
+
     // --- Scoring + matching ---
     function scoreResult(entry, query) {
         if (!query) return 0;
@@ -103,22 +150,29 @@
         var kw = (entry.keywords || '').toLowerCase();
         var score = 0;
 
-        // Exact title match — heaviest weight
+        // Direct query match against title/keywords/description
         if (title === q) score += 100;
-        // Title starts-with
         else if (title.indexOf(q) === 0) score += 60;
-        // Title contains as a word
         else if (title.indexOf(q) >= 0) score += 40;
-        // Keywords contain
         if (kw.indexOf(q) >= 0) score += 20;
-        // Description contains
         if (desc.indexOf(q) >= 0) score += 10;
 
-        // Multi-word query: every token must hit somewhere
         var tokens = q.split(/\s+/).filter(Boolean);
+
+        // Single-token alias fallback: e.g. "sic" with no direct hit retries
+        // against "silicon carbide" so SiC searches surface the right pages.
+        if (score === 0 && tokens.length === 1 && ALIASES[tokens[0]]) {
+            var a = ALIASES[tokens[0]];
+            if (title.indexOf(a) === 0) score += 50;
+            else if (title.indexOf(a) >= 0) score += 35;
+            if (kw.indexOf(a) >= 0) score += 18;
+            if (desc.indexOf(a) >= 0) score += 8;
+        }
+
+        // Multi-word query: every token must hit somewhere (alias-aware)
         if (tokens.length > 1) {
             var hay = title + ' ' + kw + ' ' + desc;
-            var missed = tokens.some(function (t) { return hay.indexOf(t) < 0; });
+            var missed = tokens.some(function (t) { return !tokenInHay(t, hay); });
             if (missed) return 0;
             score += tokens.length * 5; // bonus for matching all tokens
         }
@@ -139,14 +193,13 @@
 
     function search(query) {
         if (!window.PACE_SEARCH_DATA) return [];
-        // SDS sheets (priority: "low") are hidden unless the query explicitly
-        // asks for them. "MSDS" is the older term for "SDS" — treat it as an
-        // alias so either word reveals the sheets. We also normalize the
-        // query before scoring so "msds" actually matches the SDS entries
-        // (whose keywords say "SDS", not "MSDS").
         var qOrig = (query || '').toLowerCase();
-        var qNorm = qOrig.replace(/\bmsds\b/g, 'sds');
+        // SDS sheets (priority: "low") stay hidden unless the user explicitly
+        // searches for them. "MSDS" is the older term for "SDS".
         var allowSds = /\b(?:sds|msds)\b/.test(qOrig);
+        // Strip stopwords before scoring. Fall back to the original query if
+        // stripping leaves nothing (query was entirely stopwords).
+        var qNorm = stripStopwords(qOrig) || qOrig;
         var results = [];
         for (var i = 0; i < window.PACE_SEARCH_DATA.length; i++) {
             var entry = window.PACE_SEARCH_DATA[i];

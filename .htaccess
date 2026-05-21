@@ -46,34 +46,54 @@ RedirectMatch 301 ^/images/Consumables/(.*)$ /images/consumables/$1
 RedirectMatch 301 ^/Basics(/.*)?$ /basics$1
 
 # =====================
-# ETCHANT GUIDES — folder + per-file rename
-# Old: /Metallographic-Etchants/Metallography-X-etchants.htm
-# New: /etchant-guides/X
+# ETCHANT GUIDES — legacy folder + per-file rename
+# Old: /Metallographic-Etchants/Metallography-X-etchants.htm  (legacy site)
+# Old: /etchant-guides/X                                       (intermediate)
+# New: /etching/X
 # =====================
 
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Aluminum-etchants(\.html?)?$ /etchant-guides/aluminum
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Brass-Bronze-etchants(\.html?)?$ /etchant-guides/brass-bronze
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Cast-Iron-etchants(\.html?)?$ /etchant-guides/cast-iron
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Ceramic-etchants(\.html?)?$ /etchant-guides/ceramic
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Copper-alloy-etchants(\.html?)?$ /etchant-guides/copper-alloy
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Hastelloy-etchants(\.html?)?$ /etchant-guides/hastelloy
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-High-carbon-steel-etchants(\.html?)?$ /etchant-guides/high-carbon-steel
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Low-carbon-steel-etchants(\.html?)?$ /etchant-guides/low-carbon-steel
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Stainless-steel-etchants(\.html?)?$ /etchant-guides/stainless-steel
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Tin-alloy-etchants(\.html?)?$ /etchant-guides/tin-alloy
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Titanium-etchants(\.html?)?$ /etchant-guides/titanium
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Zinc-alloy-etchants(\.html?)?$ /etchant-guides/zinc-alloy
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Etchants(\.html?)?$ /etchant-guides/catalog
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Etchant-Safety-procedures\.pdf$ /etchant-guides/etchant-safety-procedures.pdf
-RedirectMatch 301 (?i)^/Metallographic-Etchants/index(\.html?)?$ /etchant-guides/
-RedirectMatch 301 (?i)^/Metallographic-Etchants/?$ /etchant-guides/
-RedirectMatch 301 (?i)^/Metallographic-Etchants/(.*)$ /etchant-guides/$1
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Aluminum-etchants(\.html?)?$ /etching/aluminum
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Brass-Bronze-etchants(\.html?)?$ /etching/brass-bronze
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Cast-Iron-etchants(\.html?)?$ /etching/cast-iron
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Ceramic-etchants(\.html?)?$ /etching/ceramic
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Copper-alloy-etchants(\.html?)?$ /etching/copper-alloy
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Hastelloy-etchants(\.html?)?$ /etching/hastelloy
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-High-carbon-steel-etchants(\.html?)?$ /etching/high-carbon-steel
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Low-carbon-steel-etchants(\.html?)?$ /etching/low-carbon-steel
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Stainless-steel-etchants(\.html?)?$ /etching/stainless-steel
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Tin-alloy-etchants(\.html?)?$ /etching/tin-alloy
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Titanium-etchants(\.html?)?$ /etching/titanium
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Zinc-alloy-etchants(\.html?)?$ /etching/zinc-alloy
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Etchants(\.html?)?$ /etchants.html
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Etchant-Safety-procedures\.pdf$ /etching/etchant-safety-procedures.pdf
+RedirectMatch 301 (?i)^/Metallographic-Etchants/index(\.html?)?$ /etchants.html
+RedirectMatch 301 (?i)^/Metallographic-Etchants/?$ /etchants.html
+RedirectMatch 301 (?i)^/Metallographic-Etchants/(.*)$ /etching/$1
+
+# Intermediate /etchant-guides/ → /etching/
+RedirectMatch 301 (?i)^/etchant-guides/?$ /etchants.html
+RedirectMatch 301 (?i)^/etchant-guides/(.*)$ /etching/$1
+
+# Etchant info hub collapsed into /etchants.html
+RedirectMatch 301 (?i)^/etchant-information(\.html?)?$ /etchants.html
+RedirectMatch 301 (?i)^/support/etchant-information(\.html?)?$ /etchants.html
+
+# =====================
+# PREP PROCEDURES — legacy /support/ paths → /procedures/
+# Old: /support/preparation-procedures/class-N(.html?)  +  /support/procedures.html
+# New: /procedures/class-N.html  +  /procedures.html
+# =====================
+
+RedirectMatch 301 (?i)^/support/preparation-procedures/(class-\d+)(\.html?)?$ /procedures/$1.html
+RedirectMatch 301 (?i)^/support/preparation-procedures(/.*)?$ /procedures.html
+RedirectMatch 301 (?i)^/support/procedures(\.html?)?$ /procedures.html
 
 # =====================
 # PAGE RENAMES
 # =====================
 
 RedirectMatch 301 (?i)^/docs(\.html?)?$ /library
+RedirectMatch 301 (?i)^/etchants/4-percent-picral(\.html?)?$ /etchants/picral.html
 
 # =====================
 # CLEAN URLs

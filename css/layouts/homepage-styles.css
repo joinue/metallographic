@@ -326,10 +326,16 @@ a:focus-visible {
 }
 
 .hero-title {
-    font-size: 2.25rem;
+    font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
     line-height: 1.2;
+}
+
+@media (min-width: 480px) {
+    .hero-title {
+        font-size: 2.25rem;
+    }
 }
 
 @media (min-width: 640px) {
@@ -357,19 +363,19 @@ a:focus-visible {
     font-size: 1.125rem;
     color: #374151;
     margin-bottom: 1.5rem;
-    line-height: 1.75;
+    line-height: 1.6;
 }
 
 @media (min-width: 640px) {
     .hero-description {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
         margin-bottom: 2rem;
     }
 }
 
 @media (min-width: 768px) {
     .hero-description {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         margin-bottom: 3rem;
     }
 }
@@ -415,6 +421,138 @@ a:focus-visible {
 .hero-title.hero-animate       { animation-delay: 160ms; }
 .hero-description.hero-animate { animation-delay: 240ms; }
 .hero-buttons.hero-animate     { animation-delay: 360ms; }
+
+/* Hero process strip — numbered prep workflow on the right side of the hero.
+   Frosted-glass numerals inside a faint glass frame; quiet palette so it
+   complements rather than competes with the H1. Desktop-only (≥1024px). */
+.hero-process-wrap {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .hero-content {
+        gap: 5rem;
+        align-items: center;
+    }
+    .hero-text-wrapper {
+        flex-shrink: 1;
+    }
+    .hero-process-wrap {
+        display: block;
+        flex-shrink: 0;
+        padding: 1rem 1.25rem 1.125rem;
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.10);
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        box-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.5) inset,
+            0 1px 2px rgba(17, 24, 39, 0.03),
+            0 18px 40px -28px rgba(17, 24, 39, 0.16);
+        backdrop-filter: blur(3px) saturate(115%);
+        -webkit-backdrop-filter: blur(3px) saturate(115%);
+    }
+    @supports not ((backdrop-filter: blur(3px)) or (-webkit-backdrop-filter: blur(3px))) {
+        .hero-process-wrap {
+            background: rgba(255, 255, 255, 0.35);
+        }
+    }
+    .hero-process-eyebrow {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #4b5563;
+        margin: 0 0 0.875rem 0;
+        padding-left: 0;
+        text-align: left;
+    }
+    .hero-process-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        column-gap: 1.25rem;
+        row-gap: 0.75rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+    .hero-process-step {
+        position: relative;
+    }
+    .hero-process-link {
+        display: flex;
+        align-items: center;
+        gap: 1.125rem;
+        text-decoration: none;
+        color: inherit;
+        border-radius: 9999px;
+        outline-offset: 4px;
+    }
+    .hero-process-link:focus-visible {
+        outline: 2px solid #4b5563;
+    }
+    .hero-process-num {
+        flex-shrink: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-variant-numeric: tabular-nums;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: #4b5563;
+        background: rgba(255, 255, 255, 0.45);
+        backdrop-filter: blur(10px) saturate(140%);
+        -webkit-backdrop-filter: blur(10px) saturate(140%);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        box-shadow:
+            0 1px 2px rgba(17, 24, 39, 0.04),
+            0 8px 24px -10px rgba(17, 24, 39, 0.10),
+            inset 0 1px 0 rgba(255, 255, 255, 0.85),
+            inset 0 -1px 0 rgba(17, 24, 39, 0.04);
+        position: relative;
+        z-index: 1;
+        transition:
+            background-color 220ms ease,
+            border-color 220ms ease,
+            color 220ms ease;
+    }
+    @supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+        .hero-process-num {
+            background: rgba(255, 255, 255, 0.85);
+        }
+    }
+    .hero-process-label {
+        font-size: 1.0625rem;
+        font-weight: 500;
+        color: #374151;
+        letter-spacing: 0.005em;
+        line-height: 1.2;
+        transition: color 200ms ease;
+    }
+    .hero-process-link:hover .hero-process-num {
+        background: rgba(255, 255, 255, 0.6);
+        border-color: rgba(255, 255, 255, 0.9);
+        color: #1f2937;
+    }
+    .hero-process-link:hover .hero-process-label { color: #1f2937; }
+    .hero-process-step.hero-animate:nth-child(1) { animation-delay: 440ms; }
+    .hero-process-step.hero-animate:nth-child(2) { animation-delay: 510ms; }
+    .hero-process-step.hero-animate:nth-child(3) { animation-delay: 580ms; }
+    .hero-process-step.hero-animate:nth-child(4) { animation-delay: 650ms; }
+    .hero-process-step.hero-animate:nth-child(5) { animation-delay: 720ms; }
+    .hero-process-step.hero-animate:nth-child(6) { animation-delay: 790ms; }
+    .hero-process-eyebrow.hero-animate     { animation-delay: 400ms; }
+}
+
+@media (min-width: 1280px) {
+    .hero-content {
+        gap: 6.5rem;
+    }
+}
 
 /* Mobile: shorter travel + faster duration, but motion stays */
 @media (max-width: 768px) {

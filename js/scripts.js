@@ -1,3 +1,63 @@
+// Solve "sticky hover after navigation": after clicking e.g. Equipment, the
+// new page loads with the cursor still parked over that same button, and the
+// CSS :hover rule would auto-open the dropdown without intent.
+//
+// Approach: every top-level submenu-li starts with .hover-locked (CSS
+// suppresses :hover while it's present). On the first real mousemove, we use
+// elementFromPoint to identify which li (if any) is under the cursor — that's
+// the "stuck" button the user just clicked. It stays locked until mouseleave
+// fires on it (real exit, never spurious). Every other li unlocks immediately
+// so normal hover behavior is unaffected.
+//
+// We can't unlock the stuck one on mouseenter, because browsers dispatch a
+// synthetic mouseenter for elements under the cursor on the first mousemove
+// after navigation — even if the cursor never crossed a boundary.
+//
+// :focus-within (keyboard a11y) and .menu-open (JS hover-intent, also driven
+// by mouseenter, but that only triggers from inside the li so it's fine here)
+// remain unaffected by the lock.
+(function lockStickyNavHover() {
+  const setup = () => {
+    const locked = [];
+    document.querySelectorAll(".nav-links > li").forEach((li) => {
+      if (!li.querySelector(":scope > .sub-menu")) return;
+      li.classList.add("hover-locked");
+      locked.push(li);
+    });
+    if (!locked.length) return;
+
+    const resolve = (e) => {
+      const under = document.elementFromPoint(e.clientX, e.clientY);
+      const stuck = locked.find((li) => li.contains(under));
+      locked.forEach((li) => {
+        if (li !== stuck) li.classList.remove("hover-locked");
+      });
+      if (stuck) {
+        stuck.addEventListener(
+          "mouseleave",
+          () => stuck.classList.remove("hover-locked"),
+          { once: true }
+        );
+      }
+    };
+
+    document.addEventListener("mousemove", resolve, { once: true });
+    // Keyboard-only users never trigger the mousemove resolver; unlock all
+    // on the first focus into the nav so tabbing isn't blocked.
+    document.querySelector(".nav-links")?.addEventListener(
+      "focusin",
+      () => locked.forEach((li) => li.classList.remove("hover-locked")),
+      { once: true }
+    );
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setup, { once: true });
+  } else {
+    setup();
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   // Handle anchor links from different pages
   const handleAnchorLinks = () => {
@@ -437,6 +497,87 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
  
+
+  // Desktop nav hover-intent. Two delays:
+  //   OPEN  — only open a menu after the cursor lingers, so a lateral sweep
+  //           across the nav bar doesn't pop every dropdown in sequence.
+  //   CLOSE — keep an open menu visible briefly after the cursor leaves, so
+  //           a small overshoot or diagonal trajectory doesn't collapse it.
+  // Applied to every <li> with a flyout, so the grace works at all depths.
+  const desktopNav = document.querySelector(".nav-links");
+  if (desktopNav) {
+    const OPEN_DELAY_MS = 100;
+    const CLOSE_DELAY_MS = 300;
+    // The second-level <ul> also carries the .sub-menu class, so this single
+    // selector catches every flyout-parent at every depth.
+    const flyoutParents = desktopNav.querySelectorAll("li:has(> .sub-menu)");
+
+    const closeAll = () => {
+      flyoutParents.forEach((li) => li.classList.remove("menu-open"));
+    };
+
+    flyoutParents.forEach((li) => {
+      let openTimer;
+      let closeTimer;
+      const doOpen = () => {
+        // Close lingering siblings at the same level so we never have two
+        // flyouts open from the same parent.
+        const siblings = li.parentElement ? li.parentElement.children : [];
+        for (const sib of siblings) {
+          if (sib !== li && sib.classList) sib.classList.remove("menu-open");
+        }
+        li.classList.add("menu-open");
+      };
+      li.addEventListener("mouseenter", () => {
+        clearTimeout(closeTimer);
+        // Sticky-hover lock: ignore the synthetic mouseenter the browser
+        // dispatches on first mousemove after navigation when the cursor
+        // is parked on this li. lockStickyNavHover (top of file) clears
+        // .hover-locked once the cursor genuinely leaves.
+        if (li.classList.contains("hover-locked")) return;
+        // If already open (just in the close-delay window), hold it open
+        // without re-triggering the open-delay — re-entry should feel instant.
+        if (li.classList.contains("menu-open")) return;
+        openTimer = setTimeout(doOpen, OPEN_DELAY_MS);
+      });
+      li.addEventListener("mouseleave", () => {
+        clearTimeout(openTimer); // cancel pending open if the cursor swept past
+        if (!li.classList.contains("menu-open")) return;
+        closeTimer = setTimeout(() => li.classList.remove("menu-open"), CLOSE_DELAY_MS);
+      });
+      // Keyboard: close when focus leaves this submenu's tree
+      li.addEventListener("focusout", (e) => {
+        if (!li.contains(e.relatedTarget)) li.classList.remove("menu-open");
+      });
+    });
+
+    // Sibling switching at ANY depth: when the cursor moves to a different
+    // <li> within the same <ul> (top-level nav bar OR vertically down a
+    // submenu), close any sibling's open flyout IMMEDIATELY — no close-delay,
+    // no open-overlap. The 300ms grace is reserved for cursor leaving the
+    // menu entirely (overshoot), not for intentional sibling switches.
+    desktopNav.addEventListener("mouseover", (e) => {
+      const li = e.target.closest("li");
+      if (!li) return;
+      const ul = li.parentElement;
+      if (!ul || !desktopNav.contains(ul)) return;
+      for (const sib of ul.children) {
+        if (sib !== li && sib.classList && sib.classList.contains("menu-open")) {
+          sib.classList.remove("menu-open");
+        }
+      }
+    });
+
+    // Click anywhere outside the nav closes all open submenus instantly,
+    // avoiding the 300ms "ghost menu" hanging over the user's click target.
+    document.addEventListener("click", (e) => {
+      if (!desktopNav.contains(e.target)) closeAll();
+    });
+    // Same on Escape — standard accessible-menu behavior.
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeAll();
+    });
+  }
 
   // Equipment Dropdown Functionality
   const equipmentDropdowns = document.querySelectorAll(".equipment-dropdown");
