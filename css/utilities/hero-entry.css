@@ -1,0 +1,64 @@
+/* Hero entry animation — CSS-only, no JS dependency.
+   Mirrors the homepage hero (see homepage-styles.css ~L396) so non-homepage
+   pages get the same smooth landing. Use .hero-animate on each above-the-fold
+   element, then add .hero-animate-d1 ... -d6 to stagger.
+
+   Cadence (matches homepage):
+     d1   80ms   eyebrow / tagline
+     d2  160ms   H1
+     d3  240ms   subtitle / description
+     d4  360ms   CTAs / buttons (extra beat — the action moment)
+     d5  440ms   secondary element (image, side card)
+     d6  520ms   tail element
+
+   Keep this file scoped to ABOVE-THE-FOLD heroes. Below-fold scroll reveals
+   should continue to use [data-animate] + IntersectionObserver. */
+
+@keyframes heroFlyUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 24px, 0) scale(0.985);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+.hero-animate {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0) scale(0.985);
+    animation: heroFlyUp 650ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    will-change: opacity, transform;
+}
+
+.hero-animate-d1 { animation-delay:  80ms; }
+.hero-animate-d2 { animation-delay: 160ms; }
+.hero-animate-d3 { animation-delay: 240ms; }
+.hero-animate-d4 { animation-delay: 360ms; }
+.hero-animate-d5 { animation-delay: 440ms; }
+.hero-animate-d6 { animation-delay: 520ms; }
+
+@media (max-width: 768px) {
+    @keyframes heroFlyUp {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 16px, 0) scale(0.99);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+        }
+    }
+    .hero-animate {
+        animation-duration: 500ms;
+        transform: translate3d(0, 16px, 0) scale(0.99);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-animate {
+        animation-duration: 200ms;
+        transform: translate3d(0, 0, 0);
+    }
+}
