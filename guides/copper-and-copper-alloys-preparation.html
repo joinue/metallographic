@@ -42,6 +42,21 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
+        // Consent Mode v2: default granted globally; denied for EU/UK/EEA/CH until opt-in
+        gtag('consent', 'default', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied',
+          wait_for_update: 500,
+          region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+        });
         gtag('js', new Date());
         gtag('config', 'G-VQ62KENYY5');
       gtag('config', 'AW-1066794256');
@@ -270,9 +285,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -407,7 +423,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -463,8 +479,6 @@
                             <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
-                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
 <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
@@ -590,9 +604,10 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -719,7 +734,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
@@ -770,8 +785,6 @@
                             <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
-                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
 <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
@@ -1009,9 +1022,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -1146,7 +1160,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1202,8 +1216,6 @@
                             <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
-                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
 <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
@@ -1329,9 +1341,10 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -1458,7 +1471,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
@@ -1509,8 +1522,6 @@
                             <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
-                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
 <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
@@ -1682,8 +1693,8 @@
                                 The first four steps of the procedure (1200 ALO &rarr; 800 SiC &rarr; 1200 SiC &rarr; 1 &micro;m DIAMAT on ATLANTIS) are the same for all copper work. The <em>final</em> polish has two paths:
                             </p>
                             <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                                <li><strong>Standard final &mdash; 0.05 &micro;m Nanometer alumina on NAPPAD (Don &sect;11.1.2):</strong> Use for routine work &mdash; grain size, twin density, phase identification, hardness testing, general microstructure documentation. Fast, clean, no chemical handling.</li>
-                                <li><strong>Advanced final &mdash; 0.05 &micro;m colloidal silica + chemical additive on MICROPAD (chemical-mechanical / "attack" polish):</strong> Use when you need a truly scratch-free surface for <strong>color etching</strong> (Klemm's I/II/III, Beraha's), for <strong>cold-worked pure copper</strong> where fine scratches reappear after etching, for <strong>Tough-Pitch Cu<sub>2</sub>O retention</strong>, or for <strong>quantitative inclusion analysis</strong>. Slower and requires fresh chemistry, but reveals what the standard final cannot.</li>
+                                <li><strong>Standard final (0.05 &micro;m Nanometer alumina on NAPPAD, Don &sect;11.1.2):</strong> Use for routine work like grain size, twin density, phase identification, hardness testing, and general microstructure documentation. Fast, clean, no chemical handling.</li>
+                                <li><strong>Advanced final (0.05 &micro;m colloidal silica + chemical additive on MICROPAD, chemical-mechanical / "attack" polish):</strong> Use when you need a truly scratch-free surface for <strong>color etching</strong> (Klemm's I/II/III, Beraha's), for <strong>cold-worked pure copper</strong> where fine scratches reappear after etching, for <strong>Tough-Pitch Cu<sub>2</sub>O retention</strong>, or for <strong>quantitative inclusion analysis</strong>. Slower and requires fresh chemistry, but reveals what the standard final cannot.</li>
                             </ul>
                             <p style="margin-top: 0.5rem;">
                                 Vibratory polishing with colloidal silica is an excellent supplement to either path when image-analysis-grade flatness is required.
@@ -1691,7 +1702,7 @@
                         </div>
                         <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
                             <p>
-                                <strong>Leaded alloys — sequence matters:</strong> For C36000, CuZn40Pb2, CuSn8Pb, and similar leaded alloys, capture all required as-polished imagery (lead volume fraction, distribution, inclusion sizing) <em>first</em>. Then etch a second representative section, or accept that the etched view will show only voids where lead used to be. Pure lead appears grey-blue in brightfield; etched-out lead voids appear black.
+                                <strong>Leaded alloys, sequence matters:</strong> For C36000, CuZn40Pb2, CuSn8Pb, and similar leaded alloys, capture all required as-polished imagery (lead volume fraction, distribution, inclusion sizing) <em>first</em>. Then etch a second representative section, or accept that the etched view will show only voids where lead used to be. Pure lead appears grey-blue in brightfield; etched-out lead voids appear black.
                             </p>
                         </div>
                     </section>
@@ -1758,7 +1769,7 @@
                     <section id="grinding" class="guide-section">
                         <h2>Grinding</h2>
                         <p>
-                            Per Don &sect;11.1.2, copper grinding uses <strong>aluminum-oxide (ALO) paper at the plane-grinding step</strong> rather than silicon carbide. ALO does not embed into soft copper surfaces the way SiC does, which is the primary source of post-polish scratching after etching. The procedure is identical to Don &sect;11.1.1 for aluminum &mdash; the same softness-and-oxide-pull-out logic applies.
+                            Per Don &sect;11.1.2, copper grinding uses <strong>aluminum-oxide (ALO) paper at the plane-grinding step</strong> rather than silicon carbide. ALO does not embed into soft copper surfaces the way SiC does, which is the primary source of post-polish scratching after etching. The procedure is identical to Don &sect;11.1.1 for aluminum; the same softness-and-oxide-pull-out logic applies.
                         </p>
                         <div class="guide-image-wrapper" style="max-width: 500px;">
                             <a href="https://shop.metallographic.com/collections/grinding-papers" target="_blank" rel="noopener noreferrer" class="guide-link">
@@ -1780,7 +1791,7 @@
                         <p>
                             <strong>Important:</strong> Rotate the sample 90&deg; between each grit to ensure complete removal
                             of scratches from the previous step. Keep force in the 5-10 lb range. Heavy pressure on copper
-                            produces deep subsurface deformation that no amount of polishing will fully remove &mdash; it
+                            produces deep subsurface deformation that no amount of polishing will fully remove; it
                             returns as scratches that reappear after each etch.
                         </p>
                         <p>
@@ -1791,7 +1802,7 @@
                     <section id="polishing" class="guide-section">
                         <h2>Polishing</h2>
                         <p>
-                            Per Don &sect;11.1.2, copper polishing is a <strong>single 1 &micro;m DIAMAT diamond step followed by a 0.05 &micro;m Nanometer alumina final</strong> &mdash; the same sequence used for aluminum (&sect;11.1.1). The combination of alumina grinding papers, polycrystalline diamond for the rough polish, and polycrystalline alumina for the final polish minimizes oxide pull-out, which is the dominant copper preparation failure.
+                            Per Don &sect;11.1.2, copper polishing is a <strong>single 1 &micro;m DIAMAT diamond step followed by a 0.05 &micro;m Nanometer alumina final</strong>, the same sequence used for aluminum (&sect;11.1.1). The combination of alumina grinding papers, polycrystalline diamond for the rough polish, and polycrystalline alumina for the final polish minimizes oxide pull-out, which is the dominant copper preparation failure.
                         </p>
                         <div class="guide-phases-grid">
                             <div class="guide-phase-card">
@@ -1823,9 +1834,9 @@
                         <ol>
                             <li><strong>1 &micro;m DIAMAT diamond on ATLANTIS polishing pad:</strong> DIALUBE Purple Extender lubricant, 5-10 lb (22-45 N), 100/100 rpm head/base, 2 minutes.</li>
                         </ol>
-                        <h3>Standard Final &mdash; 0.05 &micro;m Nanometer alumina on NAPPAD</h3>
+                        <h3>Standard Final: 0.05 &micro;m Nanometer alumina on NAPPAD</h3>
                         <p>
-                            <strong>Use for:</strong> Routine grain size, twin density, phase identification, hardness testing, general microstructure documentation. This is Don &sect;11.1.2's primary recipe &mdash; fast, clean, no chemical handling.
+                            <strong>Use for:</strong> Routine grain size, twin density, phase identification, hardness testing, general microstructure documentation. This is Don &sect;11.1.2's primary recipe: fast, clean, no chemical handling.
                         </p>
                         <ol>
                             <li><strong>0.05 &micro;m Nanometer alumina on NAPPAD polishing pad:</strong> 5-10 lb, 100/100 rpm, 1 minute.</li>
@@ -1860,7 +1871,7 @@
                             rotation throughout (head and base turning in the same direction).
                         </p>
 
-                        <h3>Bronze Variant &mdash; Add a 360 Grit (P500) ALO Pre-Step</h3>
+                        <h3>Bronze Variant: Add a 360 Grit (P500) ALO Pre-Step</h3>
                         <p>
                             Per Don &sect;11.1.4, bronze preparation adds a single coarser ALO step at the start of the
                             procedure. The rest is identical to the copper/brass procedure above.
@@ -1880,7 +1891,7 @@
                             For more information on polishing supplies, visit our <a href="https://shop.metallographic.com/collections/diamond-abrasives" target="_blank" rel="noopener noreferrer" class="guide-link">Diamond Abrasives</a> and <a href="https://shop.metallographic.com/collections/polishing-pads" target="_blank" rel="noopener noreferrer" class="guide-link">Polishing Pads</a> collections.
                         </p>
 
-                        <h3>Advanced Final &mdash; Chemical-Mechanical (Attack) Polish on MICROPAD</h3>
+                        <h3>Advanced Final: Chemical-Mechanical (Attack) Polish on MICROPAD</h3>
                         <p>
                             <strong>Use for:</strong> Samples destined for <strong>color etching</strong> (Klemm's I/II/III, Beraha's PbS), where any residual scratch is highlighted by the tint; <strong>cold-worked pure copper</strong> where fine scratches reappear after etching; <strong>Tough-Pitch copper Cu<sub>2</sub>O retention</strong> (the oxide is difficult to retain with mechanical polishing alone); <strong>quantitative inclusion analysis</strong> where smeared matrix metal must be lifted from inclusion boundaries.
                         </p>
@@ -1896,13 +1907,13 @@
                             <li>Apply the silica-plus-additive mixture to MICROPAD (high-napped final). ATLANTIS is acceptable if MICROPAD is unavailable but produces slightly more relief.</li>
                             <li>Polish for 1 minute at light pressure (1-2 lbf per sample), then inspect under the microscope.</li>
                             <li>Continue in 1-minute cycles until the surface is scratch-free. Pure copper often needs 3-5 minutes total; harder alloys are faster.</li>
-                            <li><strong>Switch to plain water for the last 20-30 seconds</strong> to flush silica from the sample and cloth &mdash; never let colloidal silica dry on the surface.</li>
+                            <li><strong>Switch to plain water for the last 20-30 seconds</strong> to flush silica from the sample and cloth. Never let colloidal silica dry on the surface.</li>
                             <li>Rinse with water, then ethanol; dry with compressed air. Do not wipe.</li>
                         </ol>
 
                         <h3>Vibratory Polishing (Optional)</h3>
                         <p>
-                            Vibratory polishing with colloidal silica for 1-2 hours produces the flattest, most scratch-free surfaces &mdash; particularly valuable for color etching work, where any residual scratch is highlighted by the tint. Use after the standard rotary polish rather than in place of it.
+                            Vibratory polishing with colloidal silica for 1-2 hours produces the flattest, most scratch-free surfaces, particularly valuable for color etching work, where any residual scratch is highlighted by the tint. Use after the standard rotary polish rather than in place of it.
                         </p>
 
                         <h3>Electrolytic Polishing (Alternative for Pure Cu and &alpha;-brass)</h3>
@@ -1915,7 +1926,7 @@
                         <h2>Etching</h2>
                         <p>
                             Etching reveals the microstructure by selectively attacking grain boundaries and phases.
-                            The choice of etchant depends on the copper alloy and what features you want to reveal —
+                            The choice of etchant depends on the copper alloy and what features you want to reveal:
                             grain size and twins, α/β phase distinction, cold-work distribution, or coring in cast bronzes.
                             Black-and-white etchants cover routine grain-boundary and phase-identification work; color (tint)
                             etchants are essential for cold-worked specimens and for revealing fine compositional differences
@@ -1932,32 +1943,32 @@
                         </div>
                         <h3>Standard Black-and-White Etchants</h3>
                         <ul>
-                            <li><strong>Ammonium hydroxide + hydrogen peroxide:</strong> Equal parts concentrated NH₄OH and 3% H₂O₂, optionally diluted with an equal part of water. The single most-used etchant for copper and its alloys. Reveals grain boundaries and twins. <strong>Must be prepared fresh</strong> — solution loses activity within minutes once mixed. Swab application; 5-30 seconds at room temperature.</li>
+                            <li><strong>Ammonium hydroxide + hydrogen peroxide:</strong> Equal parts concentrated NH₄OH and 3% H₂O₂, optionally diluted with an equal part of water. The single most-used etchant for copper and its alloys. Reveals grain boundaries and twins. <strong>Must be prepared fresh</strong>; solution loses activity within minutes once mixed. Swab application; 5-30 seconds at room temperature.</li>
                             <li><strong>Nitric acid in water (50:50):</strong> 50 mL HNO₃ + 50 mL H₂O. Aggressive general etch for tough-pitch copper and brasses; reveals grain boundaries. Use a swab; 5-15 seconds. Watch for pitting on prolonged exposure.</li>
                             <li><strong>Ferric chloride in HCl:</strong> 100-120 mL water or ethanol + 20-50 mL HCl + 5-10 g FeCl₃ (concentration variable to suit the alloy). Reliable for most copper alloys including aluminum bronze and Cu-Ni. Swab or immerse; 5-30 seconds.</li>
-                            <li><strong>Ammonium persulfate:</strong> 10 g (NH₄)₂S₂O₈ + 90 mL H₂O. Mild grain-area etch for pure copper, brass, and bronze. Prepare fresh — solution decomposes within 1-2 days. Swab; 5-45 seconds.</li>
+                            <li><strong>Ammonium persulfate:</strong> 10 g (NH₄)₂S₂O₈ + 90 mL H₂O. Mild grain-area etch for pure copper, brass, and bronze. Prepare fresh; solution decomposes within 1-2 days. Swab; 5-45 seconds.</li>
                             <li><strong>Potassium dichromate:</strong> 2 g K₂Cr₂O₇ + 8 mL H₂SO₄ + 4 mL saturated NaCl + 100 mL H₂O. Good grain-boundary contrast in brass and bronze; particularly useful for aluminum bronze. Swab.</li>
                             <li><strong>Dichromate for tin bronze:</strong> 36 mL H₂SO₄ + 445 mL H₂O + 18 mL saturated NaCl + 8.9 g K₂Cr₂O₇. Specific to Cu-Sn alloys; reveals the α/δ structure.</li>
                         </ul>
 
                         <h3>Color (Tint) Etchants</h3>
                         <p>
-                            Color etching reveals features that black-and-white etchants miss — cold-work distribution, partial recrystallization, slip lines, coring in cast bronzes, and α/β phase distinction in brasses. The Klemm reagents are the standard tint etchants for copper and its alloys. All Klemm reagents are <strong>immersion</strong> etches (not swab); immerse until the surface develops color.
+                            Color etching reveals features that black-and-white etchants miss: cold-work distribution, partial recrystallization, slip lines, coring in cast bronzes, and α/β phase distinction in brasses. The Klemm reagents are the standard tint etchants for copper and its alloys. All Klemm reagents are <strong>immersion</strong> etches (not swab); immerse until the surface develops color.
                         </p>
                         <ul>
                             <li><strong>Klemm's I:</strong> 50 mL saturated aqueous sodium thiosulfate + 1 g potassium metabisulfite. General-purpose color etch for copper and most alloys; the broadest range of applicability.</li>
                             <li><strong>Klemm's II:</strong> 50 mL saturated aqueous sodium thiosulfate + 5 g potassium metabisulfite. Stronger than Klemm's I. Best choice for α-brass.</li>
-                            <li><strong>Klemm's III:</strong> 5 mL saturated aqueous sodium thiosulfate + 45 mL water + 20 g potassium metabisulfite. Optimized for bronzes — gives strong color in Cu-Sn alloys and partially recrystallized structures.</li>
-                            <li><strong>Beraha's lead sulfide (PbS) reagent:</strong> 1000 mL water + 240 g sodium thiosulfate + 30 g citric acid + 24 g lead acetate. Dissolve in the order given (citric acid is slow to dissolve), age 24 hours in a dark bottle, and store in darkness. Pour ~100 mL into a beaker for each use and discard — do not return liquid to the storage bottle. Specific for tinting α-phase in cast bronzes and brasses.</li>
+                            <li><strong>Klemm's III:</strong> 5 mL saturated aqueous sodium thiosulfate + 45 mL water + 20 g potassium metabisulfite. Optimized for bronzes; gives strong color in Cu-Sn alloys and partially recrystallized structures.</li>
+                            <li><strong>Beraha's lead sulfide (PbS) reagent:</strong> 1000 mL water + 240 g sodium thiosulfate + 30 g citric acid + 24 g lead acetate. Dissolve in the order given (citric acid is slow to dissolve), age 24 hours in a dark bottle, and store in darkness. Pour ~100 mL into a beaker for each use and discard; do not return liquid to the storage bottle. Specific for tinting α-phase in cast bronzes and brasses.</li>
                         </ul>
                         <div class="guide-info-box guide-info-box-blue">
                             <p>
-                                <strong>Cold-worked specimens:</strong> Heavily cold-worked copper and brass are very difficult to etch with the standard black-and-white reagents — the structure does not render sharply, and slip lines/partial recrystallization are nearly invisible. Use Klemm's I or III with a brief polarized-light examination plus a sensitive tint plate. The combination of color etch and polarized light is the standard approach for cold-worked copper analysis.
+                                <strong>Cold-worked specimens:</strong> Heavily cold-worked copper and brass are very difficult to etch with the standard black-and-white reagents. The structure does not render sharply, and slip lines/partial recrystallization are nearly invisible. Use Klemm's I or III with a brief polarized-light examination plus a sensitive tint plate. The combination of color etch and polarized light is the standard approach for cold-worked copper analysis.
                             </p>
                         </div>
                         <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
                             <p>
-                                <strong>Leaded alloys — repeat the warning:</strong> All of the etchants above attack lead. If your alloy contains lead (C36000, CuZn40Pb2, CuSn8Pb), capture all lead-related imagery as-polished before etching. After etching, the lead inclusions will appear as black voids of approximately the right size and shape, but volume fraction and inclusion counts measured from etched images are unreliable.
+                                <strong>Leaded alloys, repeat the warning:</strong> All of the etchants above attack lead. If your alloy contains lead (C36000, CuZn40Pb2, CuSn8Pb), capture all lead-related imagery as-polished before etching. After etching, the lead inclusions will appear as black voids of approximately the right size and shape, but volume fraction and inclusion counts measured from etched images are unreliable.
                             </p>
                         </div>
                         <div class="guide-image-wrapper" style="max-width: 500px;">
@@ -1973,16 +1984,16 @@
                         </div>
                         <h3>Etching Procedure</h3>
                         <ol>
-                            <li>Ensure sample is clean and dry — any residual colloidal silica will give a mottled etch.</li>
+                            <li>Ensure sample is clean and dry; any residual colloidal silica will give a mottled etch.</li>
                             <li>Apply by swab for black-and-white etchants (NH₄OH+H₂O₂, nitric, FeCl₃, persulfate); immerse for Klemm and Beraha color etches.</li>
-                            <li>Etch for 5-45 seconds, depending on etchant and alloy. Color etches develop over 30 seconds to several minutes — watch for surface color change and pull when contrast is established.</li>
+                            <li>Etch for 5-45 seconds, depending on etchant and alloy. Color etches develop over 30 seconds to several minutes; watch for surface color change and pull when contrast is established.</li>
                             <li>Immediately rinse with water, then alcohol.</li>
                             <li>Dry with compressed air. Do not wipe.</li>
                         </ol>
                         <p>
                             <strong>Tip:</strong> Start with shorter etching times (5-10 seconds for black-and-white etchants) and increase if needed.
                             Over-etching can obscure fine details and create pitting. The ammonium hydroxide / hydrogen peroxide etch in particular
-                            <em>must</em> be mixed fresh — activity falls off within minutes. Klemm reagents keep for several weeks in a closed bottle
+                            <em>must</em> be mixed fresh; activity falls off within minutes. Klemm reagents keep for several weeks in a closed bottle
                             and can be used until color development becomes sluggish.
                         </p>
                         <p>
@@ -1994,27 +2005,27 @@
                         <h2>Troubleshooting</h2>
                         <h3>Common Issues and Solutions</h3>
                         <ul>
-                            <li><strong>Fine scratches that won't polish out:</strong> First fix is to extend the 1 &micro;m DIAMAT step (3-4 min) on a fresh ATLANTIS pad with lighter force. If scratches persist, the deformation came in during grinding &mdash; back up to 1200 grit SiC and re-run with lighter force. <strong>If you need a truly scratch-free surface</strong> (color etching prep, cold-worked pure Cu, Cu<sub>2</sub>O retention), switch the final polish from Nanometer alumina on NAPPAD to the advanced chemical-mechanical / attack-polish path on MICROPAD.</li>
+                            <li><strong>Fine scratches that won't polish out:</strong> First fix is to extend the 1 &micro;m DIAMAT step (3-4 min) on a fresh ATLANTIS pad with lighter force. If scratches persist, the deformation came in during grinding; back up to 1200 grit SiC and re-run with lighter force. <strong>If you need a truly scratch-free surface</strong> (color etching prep, cold-worked pure Cu, Cu<sub>2</sub>O retention), switch the final polish from Nanometer alumina on NAPPAD to the advanced chemical-mechanical / attack-polish path on MICROPAD.</li>
                             <li><strong>Smearing:</strong> Too much pressure, or moving to a soft pad too early. Reduce force to 5-7 lb; verify pad stiffness matches abrasive size.</li>
                             <li><strong>Relief around second phases or inclusions:</strong> Over-polishing or too soft a pad. Reduce time at the 1 &micro;m DIAMAT step. If using the advanced attack-polish final, reduce its duration.</li>
                             <li><strong>Embedded silica (bright spots in SEM, mottled etch):</strong> Only applies if you used the advanced (colloidal silica) final. Always rinse with plain water on the cloth for the last 20-30 seconds, and rinse the sample thoroughly afterward. The standard alumina-on-NAPPAD final does not have this problem.</li>
                             <li><strong>Contamination:</strong> Clean ultrasonically between steps. Soft copper picks up debris from prior abrasives readily.</li>
                             <li><strong>Deformation that reappears after each etch:</strong> Subsurface damage from coarse grinding. Return to the SiC progression with lighter pressure (5-6 lb), or switch to the advanced attack-polish final to chemically lift the residual deformation.</li>
                             <li><strong>Over-etching:</strong> Reduce time or dilute the etchant. Most black-and-white etchants for copper finish in 5-15 seconds.</li>
-                            <li><strong>Pitting after etching:</strong> Stale etchant or excessive time. Mix fresh &mdash; the NH<sub>4</sub>OH+H<sub>2</sub>O<sub>2</sub> etch in particular falls off within minutes.</li>
-                            <li><strong>Poor grain boundary contrast in cold-worked samples:</strong> Standard etchants don't render cold-worked copper sharply. Switch to a Klemm color etch and view under polarized light. <strong>Use the advanced attack-polish final for these samples</strong> &mdash; tint etches highlight every residual scratch.</li>
-                            <li><strong>Lead inclusions look wrong after etching:</strong> Expected &mdash; etchants attack lead. Image lead in the as-polished condition; the etched view shows voids, not inclusions.</li>
+                            <li><strong>Pitting after etching:</strong> Stale etchant or excessive time. Mix fresh; the NH<sub>4</sub>OH+H<sub>2</sub>O<sub>2</sub> etch in particular falls off within minutes.</li>
+                            <li><strong>Poor grain boundary contrast in cold-worked samples:</strong> Standard etchants don't render cold-worked copper sharply. Switch to a Klemm color etch and view under polarized light. <strong>Use the advanced attack-polish final for these samples</strong>; tint etches highlight every residual scratch.</li>
+                            <li><strong>Lead inclusions look wrong after etching:</strong> Expected; etchants attack lead. Image lead in the as-polished condition; the etched view shows voids, not inclusions.</li>
                         </ul>
                     </section>
 
                     <section id="additional-reading" class="guide-section">
                         <h2>Additional Reading</h2>
                         <ul>
-                            <li>Zipperian, D.C. <em>Metallographic Handbook</em>. PACE Technologies, Tucson, AZ — the house reference.</li>
-                            <li>Vander Voort, G.F. "Color Metallography of Copper." <em>Advanced Materials &amp; Processes</em>, July 2000 — the source for the contemporary diamond sequence and Klemm color etching practice used in this guide.</li>
-                            <li>Weidmann, E. and Guesnier, A. "Metallographic Preparation of Copper and Copper Alloys." Struers Application Notes — particularly useful for the colloidal silica + NH₄OH + H₂O₂ attack-polish formula for copper alloys and the lead-inclusion warning.</li>
-                            <li><em>ASM Handbook, Vol. 9: Metallography and Microstructures</em>. ASM International — etchant compositions and copper-alloy phase identification.</li>
-                            <li>Petzow, G. <em>Metallographic Etching</em>, 2nd ed. ASM International — comprehensive etchant reference including Klemm and Beraha formulations.</li>
+                            <li>Zipperian, D.C. <em>Metallographic Handbook</em>. PACE Technologies, Tucson, AZ. The house reference.</li>
+                            <li>Vander Voort, G.F. "Color Metallography of Copper." <em>Advanced Materials &amp; Processes</em>, July 2000. The source for the contemporary diamond sequence and Klemm color etching practice used in this guide.</li>
+                            <li>Weidmann, E. and Guesnier, A. "Metallographic Preparation of Copper and Copper Alloys." Struers Application Notes. Particularly useful for the colloidal silica + NH₄OH + H₂O₂ attack-polish formula for copper alloys and the lead-inclusion warning.</li>
+                            <li><em>ASM Handbook, Vol. 9: Metallography and Microstructures</em>. ASM International. Etchant compositions and copper-alloy phase identification.</li>
+                            <li>Petzow, G. <em>Metallographic Etching</em>, 2nd ed. ASM International. Comprehensive etchant reference including Klemm and Beraha formulations.</li>
                             <li>ASTM E407 — Standard Practice for Microetching Metals and Alloys (copper and copper alloys section).</li>
                         </ul>
                     </section>

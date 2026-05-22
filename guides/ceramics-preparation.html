@@ -42,6 +42,21 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
+        // Consent Mode v2: default granted globally; denied for EU/UK/EEA/CH until opt-in
+        gtag('consent', 'default', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied',
+          wait_for_update: 500,
+          region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+        });
         gtag('js', new Date());
         gtag('config', 'G-VQ62KENYY5');
       gtag('config', 'AW-1066794256');
@@ -270,9 +285,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -407,7 +423,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -463,8 +479,6 @@
                             <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
-                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
 <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
@@ -590,9 +604,10 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -719,7 +734,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
@@ -770,8 +785,6 @@
                             <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
-                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
 <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
@@ -1009,9 +1022,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -1146,7 +1160,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1202,8 +1216,6 @@
                             <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
-                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
 <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
@@ -1329,9 +1341,10 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -1458,7 +1471,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
@@ -1509,8 +1522,6 @@
                             <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
-                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
 <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
@@ -1701,7 +1712,7 @@
                             Sectioning ceramics is one of the most critical steps. Bulk monolithic ceramics require diamond
                             blades; softer ceramics (glasses, hydroxyapatite, many refractories, low-density Al<sub>2</sub>O<sub>3</sub>)
                             can be cut with hardened alumina abrasive wheels. For thin ceramic <em>coatings</em> on metal
-                            substrates, choose the blade for the substrate — an alumina abrasive wheel (MAX-D) works well
+                            substrates, choose the blade for the substrate; an alumina abrasive wheel (MAX-D) works well
                             since the ceramic represents only a small fraction of the cross-section.
                         </p>
                         <div class="guide-image-wrapper" style="max-width: 500px;">
@@ -1718,7 +1729,7 @@
                         <h3>Cutting Parameters</h3>
                         <ul>
                             <li><strong>Blade Type:</strong> Diamond-impregnated cut-off wheels for dense structural ceramics. Resin-bonded diamond for general work; metal-bonded or electroplated diamond for the hardest grades (SiC, B<sub>4</sub>C). For ceramic coatings on metal substrates, alumina abrasive wheels (MAX-D) are usually sufficient.</li>
-                            <li><strong>Wheel Speed:</strong> 200-400 RPM on a precision wafering saw; 2500-3500 RPM on a conventional metallographic cutoff machine. Wheel speed itself rarely causes chipping — feed rate and lateral support do.</li>
+                            <li><strong>Wheel Speed:</strong> 200-400 RPM on a precision wafering saw; 2500-3500 RPM on a conventional metallographic cutoff machine. Wheel speed itself rarely causes chipping; feed rate and lateral support do.</li>
                             <li><strong>Feed Rate:</strong> Slow and steady. 5-20 mm/min on a precision saw for most ceramics; reduce to 2-10 mm/min for thin, fragile, or thermal-shock-sensitive samples (Si<sub>3</sub>N<sub>4</sub>, ZrO<sub>2</sub>).</li>
                             <li><strong>Cooling:</strong> Continuous, copious coolant flow is essential to prevent thermal shock. Water-based cutting fluid is standard; some refractories absorb water and benefit from a light oil coolant.</li>
                             <li><strong>Blade Thickness:</strong> Thin precision blades (0.3-0.5 mm) minimize kerf loss and chipping at the cut exit. Thicker blades (0.5-0.8 mm) give more lateral stability on large or irregular samples.</li>
@@ -1729,9 +1740,9 @@
                         <ul>
                             <li>Match the blade to the ceramic: resin-bonded diamond for general work, metal-bonded for the hardest grades, alumina abrasive for soft ceramics or coatings on metal.</li>
                             <li>Use a precision saw with slow controlled feed for thin sections, fragile parts, or where chip-free cuts are critical.</li>
-                            <li>Apply minimal force — let the diamond do the cutting. Excessive force causes chipping and blade wear far more than wheel speed does.</li>
+                            <li>Apply minimal force; let the diamond do the cutting. Excessive force causes chipping and blade wear far more than wheel speed does.</li>
                             <li>Maintain continuous coolant flow throughout the cut to prevent thermal shock cracking, especially in Si<sub>3</sub>N<sub>4</sub> and ZrO<sub>2</sub>.</li>
-                            <li>Support the sample so the cut exits into supported material — unsupported exit edges chip badly in dense ceramics.</li>
+                            <li>Support the sample so the cut exits into supported material; unsupported exit edges chip badly in dense ceramics.</li>
                             <li>For anisotropic ceramics (some SiC grades, single-crystal materials), consider cutting direction relative to crystal orientation if it matters to the analysis.</li>
                             <li>Inspect immediately after cutting for chips or cracks at the cut edge; if present, plan to grind them out in the plane-grinding step.</li>
                         </ul>
@@ -1761,12 +1772,12 @@
                             <li><strong>Castable epoxy (cold mount):</strong> First choice for fragile, thin, or porous ceramics; ceramic coatings; and samples with pre-existing cracks. Eliminates thermal stress entirely. Low-viscosity formulations infiltrate small pores and cracks.</li>
                             <li><strong>Mineral-filled epoxy (hot, edge retention):</strong> For dense, robust ceramics where edge retention near the mount boundary is critical. The hard filler particles polish at a rate close to the ceramic, eliminating the matrix-mount step that causes edge rounding.</li>
                             <li><strong>Phenolic:</strong> Acceptable for routine work on robust ceramics; not preferred for fragile or quantitative work.</li>
-                            <li><strong>Conductive resins:</strong> Required for SEM/EDS analysis of nonconductive ceramics — use carbon- or copper-filled compression resin, or apply a conductive paint bridge after mounting.</li>
+                            <li><strong>Conductive resins:</strong> Required for SEM/EDS analysis of nonconductive ceramics; use carbon- or copper-filled compression resin, or apply a conductive paint bridge after mounting.</li>
                         </ul>
                         <h3>Compression Mounting (when used)</h3>
                         <ol>
                             <li>Clean the sample thoroughly with alcohol or acetone.</li>
-                            <li>Inspect for chips or cracks from sectioning — if severe, start over rather than mount damaged material.</li>
+                            <li>Inspect for chips or cracks from sectioning; if severe, start over rather than mount damaged material.</li>
                             <li>Select an appropriate mold size (typically 1.25" or 1.5" diameter).</li>
                             <li>Place sample in mold with the analysis surface facing down on the ram.</li>
                             <li>Use mineral-filled epoxy for best edge retention.</li>
@@ -1805,7 +1816,7 @@
                                 and dried-debris voids remain dark. This is the standard technique for distinguishing real
                                 porosity from preparation artifacts.
                                 <em>Limitation:</em> Some ceramics are translucent, in which case the entire sample
-                                fluoresces and the technique loses contrast — particularly an issue for thin or low-density
+                                fluoresces and the technique loses contrast, particularly an issue for thin or low-density
                                 Al<sub>2</sub>O<sub>3</sub>.
                             </p>
                         </div>
@@ -1831,17 +1842,17 @@
                                     class="guide-image"
                                 />
                             </a>
-                            <p class="guide-image-caption">Metal-bonded diamond grinding disc — the rigid alternative to coarse SiC paper for hard ceramics. Gives flatter samples with less subsurface damage than progressive SiC sequences.</p>
+                            <p class="guide-image-caption">Metal-bonded diamond grinding disc: the rigid alternative to coarse SiC paper for hard ceramics. Gives flatter samples with less subsurface damage than progressive SiC sequences.</p>
                         </div>
 
-                        <h3>Grinding Sequence — Hard Ceramics (SiC, B<sub>4</sub>C, dense Al<sub>2</sub>O<sub>3</sub>, dense Si<sub>3</sub>N<sub>4</sub>)</h3>
+                        <h3>Grinding Sequence: Hard Ceramics (SiC, B<sub>4</sub>C, dense Al<sub>2</sub>O<sub>3</sub>, dense Si<sub>3</sub>N<sub>4</sub>)</h3>
                         <ol>
                             <li><strong>Plane grind with CERMESH metal mesh cloth (~75 μm DIAMAT diamond):</strong> 1-3 minutes until plane, 30-40 N per sample, 300 RPM, water lubricant. Removes sectioning damage; replaces a long SiC sequence.</li>
                             <li><strong>15 μm diamond on rigid composite disc:</strong> 3-5 minutes, 30-40 N per sample, 150 RPM, DIAMAT polycrystalline diamond suspension.</li>
                             <li><strong>9 μm diamond on SIRIUS composite disc:</strong> 3-5 minutes, same parameters. This step transitions directly to diamond polishing.</li>
                         </ol>
 
-                        <h3>Grinding Sequence — Softer or Porous Ceramics</h3>
+                        <h3>Grinding Sequence: Softer or Porous Ceramics</h3>
                         <ol>
                             <li><strong>240 grit SiC paper (P280-P320):</strong> Until plane, water lubricant, 5-10 lbs per sample, 200-300 RPM.</li>
                             <li><strong>400 grit SiC paper (P500):</strong> 1-2 minutes, same parameters.</li>
@@ -1851,18 +1862,18 @@
                         <h3>Grinding Parameters</h3>
                         <ul>
                             <li><strong>Abrasive choice:</strong> Diamond grinding disc for hard ceramics; SiC paper for soft, porous, or thin samples.</li>
-                            <li><strong>Force:</strong> Counter-intuitively, ceramic grinding often needs <em>more</em> force than metal — 30-40 N per sample on a rigid diamond disc is typical for hard ceramics. "Light pressure" on ceramics often means you're not removing material. Use light pressure only for fragile or porous samples where chipping is a concern.</li>
+                            <li><strong>Force:</strong> Counter-intuitively, ceramic grinding often needs <em>more</em> force than metal (30-40 N per sample on a rigid diamond disc is typical for hard ceramics). "Light pressure" on ceramics often means you're not removing material. Use light pressure only for fragile or porous samples where chipping is a concern.</li>
                             <li><strong>Rotation:</strong> Complementary rotation (head and platen same direction) for general work; rotate sample 90° between grits when using paper.</li>
                             <li><strong>Water Flow:</strong> Continuous flow to flush debris and prevent loading. Loaded paper or a loaded diamond disc is the most common cause of scratched ceramics.</li>
                             <li><strong>Speed:</strong> 300 RPM for plane grinding on rigid diamond disc; 150 RPM for fine grinding steps.</li>
-                            <li><strong>Disc maintenance:</strong> Dress the diamond disc with a dressing stick after every few samples — a loaded or glazed disc cuts poorly and produces deep scratches.</li>
+                            <li><strong>Disc maintenance:</strong> Dress the diamond disc with a dressing stick after every few samples; a loaded or glazed disc cuts poorly and produces deep scratches.</li>
                         </ul>
                         <div class="guide-info-box">
                             <h4>Grinding Tips for Ceramics</h4>
                             <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
                                 <li>For ceramics with thin layers or interfaces (multilayer capacitors, thermal barrier coatings), use the lighter end of the force range to avoid edge rounding.</li>
                                 <li>Inspect at 200× between steps. Subsurface cracks from sectioning sometimes only become visible after 1-2 grinding passes; you may need to grind deeper than expected to remove all sectioning damage.</li>
-                                <li>For ZrO<sub>2</sub>, avoid local heating during grinding — the t→m phase transformation creates surface stress that can crack the sample.</li>
+                                <li>For ZrO<sub>2</sub>, avoid local heating during grinding; the t→m phase transformation creates surface stress that can crack the sample.</li>
                                 <li>For Si<sub>3</sub>N<sub>4</sub> and SiAlON ceramics, the glassy grain-boundary phase can pull out during grinding if force is too high; reduce force and extend time.</li>
                                 <li>Anisotropic ceramics (some SiC grades, single crystals) may need consistent sample orientation to avoid orientation-dependent removal rates.</li>
                             </ul>
@@ -1907,7 +1918,7 @@
                         </div>
                         <h3>Diamond Polishing Sequence</h3>
                         <p>
-                            Use polycrystalline (DIAMAT or equivalent) diamond suspensions throughout — PCD's multi-point
+                            Use polycrystalline (DIAMAT or equivalent) diamond suspensions throughout; PCD's multi-point
                             cutting cuts harder ceramics more efficiently than monocrystalline diamond and produces less
                             grain pullout. Pad stiffness decreases as abrasive size decreases.
                         </p>
@@ -1915,7 +1926,7 @@
                             <li><strong>9 μm DIAMAT polycrystalline diamond on TEXPAN (firm, non-woven):</strong> 5 minutes, 30 N per sample, 150 RPM, complementary rotation, water-based diamond extender.</li>
                             <li><strong>3 μm DIAMAT on GOLD PAD (low-nap):</strong> 3 minutes, 25 N per sample, 150 RPM.</li>
                             <li><strong>1 μm DIAMAT on NYPAD or ATLANTIS (low-nap):</strong> 2 minutes, 20 N per sample, 150 RPM.</li>
-                            <li><strong>0.05 μm colloidal silica on MICROPAD (high-nap):</strong> 1-2 minutes, 10-15 N per sample, 150 RPM. Switch to plain water on the cloth for the last 20-30 seconds to flush silica off the sample — never let colloidal silica dry on a ceramic surface.</li>
+                            <li><strong>0.05 μm colloidal silica on MICROPAD (high-nap):</strong> 1-2 minutes, 10-15 N per sample, 150 RPM. Switch to plain water on the cloth for the last 20-30 seconds to flush silica off the sample. Never let colloidal silica dry on a ceramic surface.</li>
                         </ol>
                         <p>
                             <strong>Time guidance:</strong> The times above are starting points for typical Class 10 ceramics
@@ -1952,7 +1963,7 @@
                         <div class="guide-info-box guide-info-box-blue">
                             <p>
                                 <strong>Grain pullout is the common ceramic polishing problem.</strong> If you see pulled-out
-                                grains in the polished surface, the fix is — in order — (1) lower the force at the failing step,
+                                grains in the polished surface, the fix is, in order, (1) lower the force at the failing step,
                                 (2) switch to a firmer pad at that step, (3) extend the previous step rather than the failing one,
                                 (4) consider vibratory polishing or ion-beam polishing as the final step.
                             </p>
@@ -1994,14 +2005,14 @@
                             differ fundamentally in mechanism, hazard, and equipment:
                         </p>
                         <ol>
-                            <li><strong>Polishing-induced contrast and optical revelation</strong> — no actual etching, but often sufficient. DIC and dark-field illumination on a well-polished surface reveal grain boundaries in many ceramics without any chemical or thermal treatment.</li>
-                            <li><strong>Thermal etching</strong> — heating below the sintering temperature so grain boundaries develop via surface diffusion. The standard method for sintered structural ceramics when equipment is available.</li>
-                            <li><strong>Chemical and molten-salt etching</strong> — boiling concentrated acids or molten salt baths. Most hazardous of the three; use when DIC/dark-field and thermal etching are not options.</li>
+                            <li><strong>Polishing-induced contrast and optical revelation:</strong> no actual etching, but often sufficient. DIC and dark-field illumination on a well-polished surface reveal grain boundaries in many ceramics without any chemical or thermal treatment.</li>
+                            <li><strong>Thermal etching:</strong> heating below the sintering temperature so grain boundaries develop via surface diffusion. The standard method for sintered structural ceramics when equipment is available.</li>
+                            <li><strong>Chemical and molten-salt etching:</strong> boiling concentrated acids or molten salt baths. Most hazardous of the three; use when DIC/dark-field and thermal etching are not options.</li>
                         </ol>
                         <div class="guide-info-box guide-info-box-blue">
                             <p>
                                 <strong>Try optical revelation first.</strong> Many ceramic preparations need no etching
-                                at all — examine the as-polished sample under DIC and dark-field before reaching for the
+                                at all. Examine the as-polished sample under DIC and dark-field before reaching for the
                                 furnace or fume hood. Vibratory polishing with colloidal silica also produces grain-boundary
                                 contrast in many ceramics through chemical-mechanical action, without thermal etching.
                             </p>
@@ -2016,7 +2027,7 @@
                         <ul>
                             <li><strong>DIC (Differential Interference Contrast):</strong> The single most useful technique for ceramics. Reveals grain boundaries and crystal orientation in many materials without etching, using nanometer-scale surface height differences from polishing.</li>
                             <li><strong>Dark-field microscopy:</strong> Outstanding for finding cracks, pores, and inclusions in ceramics. Often used in failure analysis as the first inspection method.</li>
-                            <li><strong>Polarized light:</strong> Useful for anisotropic ceramics — many SiC polytypes, alumina, and zirconia phases produce striking color contrast under crossed polarizers.</li>
+                            <li><strong>Polarized light:</strong> Useful for anisotropic ceramics; many SiC polytypes, alumina, and zirconia phases produce striking color contrast under crossed polarizers.</li>
                             <li><strong>Brightfield:</strong> Best for ceramics with strong compositional contrast (multi-phase composites, ceramics with metallic inclusions).</li>
                         </ul>
                         <h3>Thermal Etching</h3>
@@ -2064,20 +2075,20 @@
                         <p>
                             Chemical etching is less common for ceramics than for metals, but several effective methods exist
                             for specific ceramic types. Most involve boiling concentrated acids or molten salt baths rather
-                            than room-temperature immersion. The correct etchant depends on the ceramic composition — etchants
+                            than room-temperature immersion. The correct etchant depends on the ceramic composition; etchants
                             are NOT interchangeable between ceramic types.
                         </p>
                         <h4>Oxide Ceramics (Al₂O₃, ZrO₂)</h4>
                         <ul>
                             <li><strong>Boiling Phosphoric Acid (H₃PO₄):</strong> 15 ml H₂O + 85 ml H₃PO₄, boiling, 5 min to 2 hrs. For alumina (Al₂O₃). High-purity alumina requires longer etch times.</li>
-                            <li><strong>Molten KHF₂ (Potassium Hydrogen Fluoride):</strong> Melt in platinum crucible, 5–10 min. For alumina and aluminosilicates (mullite). Releases HF fumes — extreme hazard.</li>
+                            <li><strong>Molten KHF₂ (Potassium Hydrogen Fluoride):</strong> Melt in platinum crucible, 5–10 min. For alumina and aluminosilicates (mullite). Releases HF fumes; extreme hazard.</li>
                             <li><strong>Boiling Sulfuric Acid (H₂SO₄):</strong> 50 ml H₂O + 50 ml H₂SO₄, boiling, 1–5 min. For zirconia (ZrO₂). Always add acid to water.</li>
                         </ul>
                         <h4>Carbide Ceramics (SiC, WC, TiC)</h4>
                         <ul>
                             <li><strong>Molten Na/K Bicarbonate:</strong> NaHCO₃ or KHCO₃ melt in platinum crucible, ~10 min. For silicon carbide (SiC).</li>
                             <li><strong>Murakami's Reagent:</strong> 10 g K₃Fe(CN)₆ + 10 g KOH + 100 ml water, immerse 3–10 min at RT. For tungsten carbide (WC) and titanium carbide (TiC). Do NOT acidify (releases HCN).</li>
-                            <li><strong>HCl + H₂O₂ (30%):</strong> 10 ml + 10 ml, seconds to minutes. Alternative for WC — more aggressive than Murakami's.</li>
+                            <li><strong>HCl + H₂O₂ (30%):</strong> 10 ml + 10 ml, seconds to minutes. Alternative for WC; more aggressive than Murakami's.</li>
                         </ul>
                         <h4>Nitride Ceramics (Si₃N₄)</h4>
                         <ul>
@@ -2086,14 +2097,14 @@
                         </ul>
                         <h4>Boride Ceramics (ZrB₂, TiB₂)</h4>
                         <ul>
-                            <li><strong>Lactic-Nitric-HF:</strong> 30 ml lactic acid + 10 ml HNO₃ + 10 ml HF, seconds to minutes. Contains HF — extreme hazard.</li>
+                            <li><strong>Lactic-Nitric-HF:</strong> 30 ml lactic acid + 10 ml HNO₃ + 10 ml HF, seconds to minutes. Contains HF; extreme hazard.</li>
                         </ul>
                         <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
                             <p>
                                 <strong>Safety Warning:</strong> Many ceramic etchants involve extreme hazards: hydrofluoric
-                                acid (HF) causes deep tissue burns that may not be immediately painful — HF-rated gloves and
+                                acid (HF) causes deep tissue burns that may not be immediately painful; HF-rated gloves and
                                 calcium gluconate gel are mandatory. Molten salts and boiling acids cause severe burns.
-                                Murakami's Reagent contains potassium ferricyanide — never acidify (releases HCN gas).
+                                Murakami's Reagent contains potassium ferricyanide; never acidify (releases HCN gas).
                                 Always work in a fume hood with appropriate PPE. Thermal etching avoids these chemical hazards
                                 and is preferred when equipment is available.
                             </p>
@@ -2229,15 +2240,15 @@
                     <section id="additional-reading" class="guide-section">
                         <h2>Additional Reading</h2>
                         <ul>
-                            <li>Zipperian, D.C. <em>Metallographic Handbook</em>. PACE Technologies, Tucson, AZ — house reference for prep procedures.</li>
-                            <li><em>ASM Handbook, Vol. 9: Metallography and Microstructures</em>. ASM International — sections on ceramics preparation, thermal etching, and chemical etchants.</li>
-                            <li>Weidmann, E. and Guesnier, A. "Metallographic preparation of thermal spray coatings." Struers Application Notes — relevant for ceramic coatings, vacuum impregnation, and the fluorescent-dye porosity-visualization technique.</li>
-                            <li>Weidmann, E., Guesnier, A., and Bundgaard, H. "Metallographic preparation of microelectronics." Struers Application Notes — relevant for multilayer ceramic capacitors and ceramic-on-metal interfaces.</li>
-                            <li>Petzow, G. <em>Metallographic Etching</em>, 2nd ed. ASM International — comprehensive ceramic etchant reference, including thermal and molten-salt etching procedures.</li>
+                            <li>Zipperian, D.C. <em>Metallographic Handbook</em>. PACE Technologies, Tucson, AZ. House reference for prep procedures.</li>
+                            <li><em>ASM Handbook, Vol. 9: Metallography and Microstructures</em>. ASM International. Sections on ceramics preparation, thermal etching, and chemical etchants.</li>
+                            <li>Weidmann, E. and Guesnier, A. "Metallographic preparation of thermal spray coatings." Struers Application Notes. Relevant for ceramic coatings, vacuum impregnation, and the fluorescent-dye porosity-visualization technique.</li>
+                            <li>Weidmann, E., Guesnier, A., and Bundgaard, H. "Metallographic preparation of microelectronics." Struers Application Notes. Relevant for multilayer ceramic capacitors and ceramic-on-metal interfaces.</li>
+                            <li>Petzow, G. <em>Metallographic Etching</em>, 2nd ed. ASM International. Comprehensive ceramic etchant reference, including thermal and molten-salt etching procedures.</li>
                             <li>ASTM E1920 — Standard Guide for Metallographic Preparation of Thermal Sprayed Coatings (procedural parallels apply to bulk ceramics).</li>
                             <li>ASTM C1326 / C1327 — Standard Test Methods for Knoop and Vickers Indentation Hardness of Advanced Ceramics.</li>
                             <li>ASTM E1245 — Automatic Image Analysis (for porosity and grain size measurement on ceramics).</li>
-                            <li>Chinn, R.E. <em>Ceramography: Preparation and Analysis of Ceramic Microstructures</em>. ASM International / Wiley — the definitive ceramic-specific metallography reference.</li>
+                            <li>Chinn, R.E. <em>Ceramography: Preparation and Analysis of Ceramic Microstructures</em>. ASM International / Wiley. The definitive ceramic-specific metallography reference.</li>
                         </ul>
                     </section>
 

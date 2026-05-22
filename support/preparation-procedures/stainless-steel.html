@@ -20,6 +20,21 @@
   <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      // Consent Mode v2: default granted globally; denied for EU/UK/EEA/CH until opt-in
+      gtag('consent', 'default', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted'
+      });
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500,
+        region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+      });
       gtag('js', new Date());
       gtag('config', 'G-VQ62KENYY5');
       gtag('config', 'AW-1066794256');
@@ -270,9 +285,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -407,7 +423,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -463,8 +479,6 @@
                             <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
-                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
 <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
@@ -590,9 +604,10 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -719,7 +734,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
@@ -770,8 +785,6 @@
                             <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
-                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
 <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
@@ -1107,8 +1120,8 @@
       <div class="prep-main">
         <h3>Essential Steps</h3>
         <ul class="prep-list">
-          <li>Start at 240 grit SiC paper (P220) — coarser grits introduce deeper subsurface damage that smears in austenitic and annealed martensitic grades and is harder to remove later. A 120 grit plane step is acceptable only when removing weld crown or heavy mill scale.</li>
-          <li>Follow a progressive grit sequence: 240 → 360 → 600 → 800 → 1200 (P220 → P500 → P1200 → P2400 → P4000) — this is the PACE / Don Zipperian recommended ladder for stainless steel.</li>
+          <li>Start at 240 grit SiC paper (P220). Coarser grits introduce deeper subsurface damage that smears in austenitic and annealed martensitic grades and is harder to remove later. A 120 grit plane step is acceptable only when removing weld crown or heavy mill scale.</li>
+          <li>Follow a progressive grit sequence: 240 → 360 → 600 → 800 → 1200 (P220 → P500 → P1200 → P2400 → P4000). This is the PACE / Don Zipperian recommended ladder for stainless steel.</li>
           <li>Apply generous water coolant to minimize heat and prevent smearing</li>
           <li>Clean the specimen and holder thoroughly between steps to avoid abrasive cross-contamination</li>
           <li>Inspect surface under oblique light or low-power magnification to confirm scratch removal</li>
@@ -1204,8 +1217,8 @@
         <h3>Essential Steps</h3>
         <ul class="prep-list">
           <li>After a full SiC progression to 1200 grit, the 1 µm step alone is often sufficient. 9 µm and 3 µm rough-polish steps are most useful when the grinding sequence was shortened.</li>
-          <li>Polish with 1 µm <a href="https://shop.metallographic.com/collections/polycrystalline">DIAMAT polycrystalline diamond</a> suspension on an <a href="https://shop.metallographic.com/collections/8-inch-polishing-pads">ATLANTIS</a> polishing pad with <a href="https://shop.metallographic.com/collections/diamond-lube-extender">DIALUBE Purple extender</a> as the lubricant — 2 minutes at 5 lb (~22 N), 200 rpm head/base.</li>
-          <li>Final-polish with 0.05 µm <a href="https://shop.metallographic.com/collections/polishing-powders">Nanometer alumina</a> on a <a href="https://shop.metallographic.com/collections/8-inch-polishing-pads">TRICOTE</a> polishing pad — 1 minute at 5 lb (~22 N), 100 rpm head/base. Don §11.5.3 specifies alumina rather than colloidal silica for stainless: alumina gives a cleaner surface on the chromium-bearing matrix without the silica-gel residue that can complicate subsequent etching.</li>
+          <li>Polish with 1 µm <a href="https://shop.metallographic.com/collections/polycrystalline">DIAMAT polycrystalline diamond</a> suspension on an <a href="https://shop.metallographic.com/collections/8-inch-polishing-pads">ATLANTIS</a> polishing pad with <a href="https://shop.metallographic.com/collections/diamond-lube-extender">DIALUBE Purple extender</a> as the lubricant: 2 minutes at 5 lb (~22 N), 200 rpm head/base.</li>
+          <li>Final-polish with 0.05 µm <a href="https://shop.metallographic.com/collections/polishing-powders">Nanometer alumina</a> on a <a href="https://shop.metallographic.com/collections/8-inch-polishing-pads">TRICOTE</a> polishing pad: 1 minute at 5 lb (~22 N), 100 rpm head/base. Don §11.5.3 specifies alumina rather than colloidal silica for stainless: alumina gives a cleaner surface on the chromium-bearing matrix without the silica-gel residue that can complicate subsequent etching.</li>
           <li>Thoroughly rinse and clean the specimen and holder between each polishing stage to eliminate abrasive carryover</li>
         </ul>
       </div>

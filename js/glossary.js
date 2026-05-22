@@ -18,6 +18,20 @@
   let selectedLetter = null;
   const expandedTerms = new Set();
 
+  function hasActiveFilter() {
+    return searchQuery.trim() !== '' || selectedCategory !== 'All' || selectedLetter !== null;
+  }
+
+  function updateSideNavVisibility() {
+    const sideNav = document.getElementById('glossary-side-nav');
+    if (!sideNav) return;
+    if (hasActiveFilter()) {
+      sideNav.classList.remove('visible');
+    } else if (window.scrollY > 300) {
+      sideNav.classList.add('visible');
+    }
+  }
+
   // Get unique first letters for A-Z navigation
   function getUniqueLetters() {
     const letters = new Set();
@@ -313,7 +327,8 @@
         
         // Render and scroll
         renderTerms();
-        
+        updateSideNavVisibility();
+
         setTimeout(() => {
           const element = document.getElementById(relatedTermId);
           if (element) {
@@ -366,16 +381,17 @@
       searchInput.addEventListener('input', function() {
         searchQuery = this.value;
         selectedLetter = null;
-        
+
         // Show/hide clear button
         const clearSearchBtn = document.getElementById('glossary-search-clear');
         if (clearSearchBtn) {
           clearSearchBtn.style.display = searchQuery ? 'flex' : 'none';
         }
-        
+
         updateLetterButtons();
         updateActiveFilters();
         renderTerms();
+        updateSideNavVisibility();
       });
 
       // Clear search button
@@ -387,6 +403,7 @@
           this.style.display = 'none';
           updateActiveFilters();
           renderTerms();
+          updateSideNavVisibility();
         });
       }
     }
@@ -401,6 +418,7 @@
         updateLetterButtons();
         updateActiveFilters();
         renderTerms();
+        updateSideNavVisibility();
       });
     });
 
@@ -428,7 +446,8 @@
           updateLetterButtons();
           updateActiveFilters();
           renderTerms();
-          
+          updateSideNavVisibility();
+
           // Show/hide clear button
           const clearBtn = document.querySelector('.glossary-letter-clear');
           if (clearBtn) {
@@ -440,6 +459,7 @@
                 updateActiveFilters();
                 renderTerms();
                 this.style.display = 'none';
+                updateSideNavVisibility();
               });
             }
           }
@@ -577,10 +597,10 @@
         updateSideNavActiveFromScroll();
       }
       
-      // Show/hide side nav based on scroll position
+      // Show/hide side nav based on scroll position and active filters
       const sideNav = document.getElementById('glossary-side-nav');
       if (sideNav) {
-        if (window.scrollY > scrollThreshold) {
+        if (window.scrollY > scrollThreshold && !hasActiveFilter()) {
           sideNav.classList.add('visible');
         } else {
           sideNav.classList.remove('visible');

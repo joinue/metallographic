@@ -42,6 +42,21 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
+        // Consent Mode v2: default granted globally; denied for EU/UK/EEA/CH until opt-in
+        gtag('consent', 'default', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied',
+          wait_for_update: 500,
+          region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+        });
         gtag('js', new Date());
         gtag('config', 'G-VQ62KENYY5');
       gtag('config', 'AW-1066794256');
@@ -270,9 +285,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -407,7 +423,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -463,8 +479,6 @@
                             <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
-                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
 <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
@@ -590,9 +604,10 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -719,7 +734,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
@@ -770,8 +785,6 @@
                             <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
-                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
 <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
@@ -1009,9 +1022,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -1146,7 +1160,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1202,8 +1216,6 @@
                             <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
-                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
 <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
@@ -1329,9 +1341,10 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -1458,7 +1471,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
@@ -1509,8 +1522,6 @@
                             <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
-                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
 <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
@@ -1669,7 +1680,7 @@
                                 <li><strong>Austenitic (300 series):</strong> 304, 316, 321, etc. FCC γ-iron matrix; non-magnetic; the softest family and the most prone to smearing and work-hardening during prep. Most-analyzed for grain size, twin density, sensitization (Cr-carbide at grain boundaries), and service-induced σ-phase.</li>
                                 <li><strong>Ferritic (400 series, lower-C):</strong> 430, 446, 409. BCC α-iron matrix; magnetic. Moderate hardness; sensitization and grain growth at high temperature are common QC concerns.</li>
                                 <li><strong>Martensitic (400 series, higher-C):</strong> 410, 420, 440C, 431. BCC' martensite after quenching; harder, less prone to smearing. Hardness depends heavily on heat treatment.</li>
-                                <li><strong>Duplex (2205, 2507, etc.):</strong> Roughly 50/50 ferrite + austenite microstructure. QC focuses on phase balance — color etching is the standard analysis method.</li>
+                                <li><strong>Duplex (2205, 2507, etc.):</strong> Roughly 50/50 ferrite + austenite microstructure. QC focuses on phase balance; color etching is the standard analysis method.</li>
                                 <li><strong>Precipitation-Hardening (PH):</strong> 17-4 PH, 15-5 PH, 13-8 Mo. Martensitic matrix strengthened by aging-induced precipitates (Cu, Al, etc.). Heat-treatment-condition-dependent.</li>
                             </ul>
                         </div>
@@ -1716,7 +1727,7 @@
                         <h2>Mounting</h2>
                         <p>
                             Mounting provides edge retention and easier handling. For stainless steel, compression
-                            mounting with phenolic, epoxy, or diallyl phthalate resins all work well &mdash; diallyl
+                            mounting with phenolic, epoxy, or diallyl phthalate resins all work well; diallyl
                             phthalate offers the best edge retention of the three when fine surface features near the
                             specimen edge must be preserved. If edge retention is critical (e.g., coatings, decarb
                             studies), consider conductive mounting materials.
@@ -1753,7 +1764,7 @@
                             <p class="guide-image-caption">Silicon carbide (SiC) grinding papers in graded grit sizes for progressive grinding of stainless steel. US grit numbers shown with their FEPA P-grade equivalents in parentheses. Rotate sample 90° between each grit to ensure complete scratch removal.</p>
                         </div>
                         <h3>Grinding Sequence</h3>
-                        <p>Start at 240 grit &mdash; coarser starting grits (e.g., 120) introduce deeper subsurface damage that smears in austenitic and annealed martensitic grades and is harder to remove later.</p>
+                        <p>Start at 240 grit. Coarser starting grits (e.g., 120) introduce deeper subsurface damage that smears in austenitic and annealed martensitic grades and is harder to remove later.</p>
                         <ol>
                             <li><strong>240 grit (P220):</strong> Plane the surface and remove sectioning damage (grind until plane, typically 30-60 seconds)</li>
                             <li><strong>360 grit (P500):</strong> Remove 240-grit scratches (1 minute)</li>
@@ -1810,12 +1821,12 @@
                         </p>
                         <ol>
                             <li><strong>1 μm DIAMAT diamond on <a href="https://shop.metallographic.com/collections/8-inch-polishing-pads" target="_blank" rel="noopener noreferrer" class="guide-link">ATLANTIS</a> polishing pad:</strong> DIALUBE Purple Extender, 5-10 lbs per sample, 200/200 RPM (head/base, complementary rotation), 2 minutes.</li>
-                            <li><em>Optional</em> &mdash; 9 μm DIAMAT on TEXPAN (3-5 minutes) and 3 μm DIAMAT on GOLD PAD (3-5 minutes) if grinding finished coarser than 1200 grit.</li>
+                            <li><em>Optional:</em> 9 μm DIAMAT on TEXPAN (3-5 minutes) and 3 μm DIAMAT on GOLD PAD (3-5 minutes) if grinding finished coarser than 1200 grit.</li>
                         </ol>
                         <h3>Final Polishing</h3>
                         <p>
                             Don's §11.5.3 specifies <strong>alumina rather than colloidal silica</strong> for stainless
-                            steel final polish &mdash; alumina gives a cleaner final surface on the chromium-bearing matrix
+                            steel final polish. Alumina gives a cleaner final surface on the chromium-bearing matrix
                             without the silica gel residue that can complicate subsequent etching, particularly the
                             electrolytic oxalic acid etch used for 300-series.
                         </p>
@@ -1876,10 +1887,10 @@
                         </div>
                         <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
                             <p>
-                                <strong>Safety &mdash; read first.</strong> Glyceregia contains hydrochloric and nitric acids
+                                <strong>Safety: read first.</strong> Glyceregia contains hydrochloric and nitric acids
                                 with glycerol; mix fresh and use immediately (it decomposes within hours, sometimes
                                 violently). <strong>Never store mixed Glyceregia in a closed container.</strong> Vilella's
-                                contains picric acid &mdash; shock-sensitive when dry, so keep solutions wet and dispose of
+                                contains picric acid, which is shock-sensitive when dry, so keep solutions wet and dispose of
                                 through hazardous waste channels. Modified Murakami's contains potassium ferricyanide;
                                 <strong>never acidify</strong> (releases HCN gas) and use only in a fume hood. All etching
                                 in a fume hood with appropriate PPE.
@@ -1891,50 +1902,50 @@
 
                         <ul>
                             <li>
-                                <strong>Vilella's Reagent</strong> &mdash; martensitic, ferritic, and PH stainless (400 series, 17-4 PH, 15-5 PH). Reveals martensite lath structure and prior austenite grain boundaries. Don's standard for 400-series imaging.
+                                <strong>Vilella's Reagent:</strong> martensitic, ferritic, and PH stainless (400 series, 17-4 PH, 15-5 PH). Reveals martensite lath structure and prior austenite grain boundaries. Don's standard for 400-series imaging.
                                 <ul style="margin-top: 0.25rem;">
                                     <li><strong>Composition:</strong> 1 g picric acid + 5 mL HCl + 100 mL ethanol</li>
                                     <li><strong>Use:</strong> Swab or immerse 5-60 seconds. Rinse with ethanol.</li>
                                 </ul>
                             </li>
                             <li>
-                                <strong>10% Oxalic Acid (Electrolytic)</strong> &mdash; austenitic stainless (300 series). Reveals grain boundaries, twins, and Cr-carbide precipitation. The standard for general 304/316 imaging and for ASTM A262 Practice A sensitization testing.
+                                <strong>10% Oxalic Acid (Electrolytic):</strong> austenitic stainless (300 series). Reveals grain boundaries, twins, and Cr-carbide precipitation. The standard for general 304/316 imaging and for ASTM A262 Practice A sensitization testing.
                                 <ul style="margin-top: 0.25rem;">
                                     <li><strong>Composition:</strong> 10 g oxalic acid in 100 mL DI water</li>
                                     <li><strong>Use:</strong> Sample as anode, stainless steel cathode, 6 V DC. 15-30 s for general structure; <strong>90 s for ASTM A262 sensitization testing</strong>.</li>
-                                    <li><strong>A262 interpretation:</strong> Step (acceptable), Dual (acceptable), Ditched (sensitized — Cr-carbide network at grain boundaries, susceptible to IGSCC).</li>
+                                    <li><strong>A262 interpretation:</strong> Step (acceptable), Dual (acceptable), Ditched (sensitized; Cr-carbide network at grain boundaries, susceptible to IGSCC).</li>
                                 </ul>
                             </li>
                             <li>
-                                <strong>Glyceregia</strong> &mdash; austenitic and duplex stainless. Chemical alternative when an electrolytic cell is not available.
+                                <strong>Glyceregia:</strong> austenitic and duplex stainless. Chemical alternative when an electrolytic cell is not available.
                                 <ul style="margin-top: 0.25rem;">
                                     <li><strong>Composition:</strong> 10 mL HNO<sub>3</sub> + 20-30 mL HCl + 10 mL glycerol</li>
-                                    <li><strong>Use:</strong> Mix fresh just before use. Swab 10-60 seconds. Discard after one session &mdash; <strong>never store in closed container</strong> (decomposes, pressurizes, can rupture).</li>
+                                    <li><strong>Use:</strong> Mix fresh just before use. Swab 10-60 seconds. Discard after one session. <strong>Never store in closed container</strong> (decomposes, pressurizes, can rupture).</li>
                                 </ul>
                             </li>
                             <li>
-                                <strong>Modified Murakami's Reagent</strong> &mdash; martensitic and PH stainless (Don's preference for 431). Reveals ferrite, chromium carbides, and sigma phase against an austenite or martensite matrix.
+                                <strong>Modified Murakami's Reagent:</strong> martensitic and PH stainless (Don's preference for 431). Reveals ferrite, chromium carbides, and sigma phase against an austenite or martensite matrix.
                                 <ul style="margin-top: 0.25rem;">
                                     <li><strong>Composition:</strong> 10 g K<sub>3</sub>Fe(CN)<sub>6</sub> + 10 g KOH + 100 mL water</li>
                                     <li><strong>Use:</strong> Heat to 50-80 °C; immerse 3-10 minutes. Do not acidify (HCN release).</li>
                                 </ul>
                             </li>
                             <li>
-                                <strong>Marble's Reagent</strong> &mdash; general-purpose for stainless, Ni-base, and Cu-Ni alloys; useful when Vilella's is too aggressive or Glyceregia not available.
+                                <strong>Marble's Reagent:</strong> general-purpose for stainless, Ni-base, and Cu-Ni alloys; useful when Vilella's is too aggressive or Glyceregia not available.
                                 <ul style="margin-top: 0.25rem;">
                                     <li><strong>Composition:</strong> 10 g CuSO<sub>4</sub> + 50 mL HCl + 50 mL water</li>
                                     <li><strong>Use:</strong> Swab 5-60 seconds. Mix fresh.</li>
                                 </ul>
                             </li>
                             <li>
-                                <strong>Kalling's No. 2</strong> &mdash; duplex, austenitic, and martensitic stainless. Attacks ferrite preferentially in duplex; reveals martensite structure.
+                                <strong>Kalling's No. 2:</strong> duplex, austenitic, and martensitic stainless. Attacks ferrite preferentially in duplex; reveals martensite structure.
                                 <ul style="margin-top: 0.25rem;">
                                     <li><strong>Composition:</strong> 5 g CuCl<sub>2</sub> + 100 mL HCl + 100 mL ethanol</li>
                                     <li><strong>Use:</strong> Swab 30 s-2 min.</li>
                                 </ul>
                             </li>
                             <li>
-                                <strong>Beraha I (color etch)</strong> &mdash; duplex stainless. Tints ferrite blue/brown while leaving austenite white, cleanly distinguishing the two phases for phase-balance measurement.
+                                <strong>Beraha I (color etch):</strong> duplex stainless. Tints ferrite blue/brown while leaving austenite white, cleanly distinguishing the two phases for phase-balance measurement.
                                 <ul style="margin-top: 0.25rem;">
                                     <li><strong>Stock:</strong> 1000 mL water + 200 mL HCl + 24 g NH<sub>4</sub>HF<sub>2</sub></li>
                                     <li><strong>Working:</strong> 100 mL stock + 1 g K<sub>2</sub>S<sub>2</sub>O<sub>5</sub>, mixed just before use</li>
@@ -1942,14 +1953,14 @@
                                 </ul>
                             </li>
                             <li>
-                                <strong>Klemm's I (color etch)</strong> &mdash; duplex stainless; alternative to Beraha. Stronger color contrast for digital phase-fraction image analysis.
+                                <strong>Klemm's I (color etch):</strong> duplex stainless; alternative to Beraha. Stronger color contrast for digital phase-fraction image analysis.
                                 <ul style="margin-top: 0.25rem;">
                                     <li><strong>Composition:</strong> 50 mL saturated aqueous Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub> + 1 g K<sub>2</sub>S<sub>2</sub>O<sub>5</sub></li>
                                     <li><strong>Use:</strong> Immerse 30 s-3 min until colored.</li>
                                 </ul>
                             </li>
                             <li>
-                                <strong>Electrolytic 10% NaOH</strong> &mdash; reveals sigma phase in austenitic and duplex stainless without attacking ferrite or austenite matrix.
+                                <strong>Electrolytic 10% NaOH:</strong> reveals sigma phase in austenitic and duplex stainless without attacking ferrite or austenite matrix.
                                 <ul style="margin-top: 0.25rem;">
                                     <li><strong>Composition:</strong> 10 g NaOH in 100 mL water</li>
                                     <li><strong>Use:</strong> Sample as anode, 2-6 V DC, 5-30 seconds. Sigma phase appears orange/brown.</li>
@@ -1988,7 +1999,7 @@
                                     class="guide-image"
                                 />
                             </a>
-                            <p class="guide-image-caption">Etching solutions and reagents for stainless steel. Common etchants include Vilella's Reagent, Beraha I, Glyceregia, and electrolytic oxalic acid. Etching time and method vary by family &mdash; see the table above.</p>
+                            <p class="guide-image-caption">Etching solutions and reagents for stainless steel. Common etchants include Vilella's Reagent, Beraha I, Glyceregia, and electrolytic oxalic acid. Etching time and method vary by family; see the table above.</p>
                         </div>
                         <h3>Etching Procedure</h3>
                         <ol>
@@ -2014,16 +2025,16 @@
                         <h3>Common Issues and Solutions</h3>
                         <ul>
                             <li><strong>Scratches reappear after etching (smeared work-hardened layer):</strong> Classic austenitic stainless problem. The polish is producing a smeared layer that hides scratches from grinding; etching dissolves the smear and the scratches reappear. Fix: extend the 1 μm DIAMAT step to 3-4 minutes; reduce force to 5-7 lb; verify the ATLANTIS pad is the right firmness (not loaded or worn). If scratches persist, return to 1200 grit (P4000) SiC paper with fresh paper and re-run the full sequence.</li>
-                            <li><strong>Scratches remaining after polish:</strong> Insufficient time at one grit, or skipped grit in the SiC progression. Don's recipe is 240→360→600→800→1200 — skipping any step leaves scratches that the next finer grit cannot remove in reasonable time.</li>
+                            <li><strong>Scratches remaining after polish:</strong> Insufficient time at one grit, or skipped grit in the SiC progression. Don's recipe is 240→360→600→800→1200; skipping any step leaves scratches that the next finer grit cannot remove in reasonable time.</li>
                             <li><strong>Relief around inclusions or MnS stringers:</strong> Over-polishing or too soft a pad. Reduce the 1 μm DIAMAT time to 1.5-2 minutes; verify ATLANTIS is the polishing pad (not a higher-nap final pad).</li>
                             <li><strong>Pitting after etching:</strong> Etchant too strong, time too long, or stale etchant. Mix Glyceregia and other reactive etchants fresh; reduce time. For oxalic acid electrolytic, reduce voltage from 6 V to 3-4 V or shorten time.</li>
                             <li><strong>No etch / weak structure (austenitic):</strong> Likely a passive film from polishing. Try a brief Glyceregia activation swab before the oxalic acid electrolytic etch, or increase electrolytic time. For very lean austenitics, a 10% NaOH electrolytic etch may be needed to reveal sigma phase if present.</li>
-                            <li><strong>Cr-carbide network at grain boundaries (sensitization):</strong> Not a preparation problem &mdash; this is the actual microstructure. Document with oxalic acid electrolytic per ASTM A262 Practice A. The "ditched" structure means the material is sensitized; "step" or "dual" structures are acceptable.</li>
+                            <li><strong>Cr-carbide network at grain boundaries (sensitization):</strong> Not a preparation problem; this is the actual microstructure. Document with oxalic acid electrolytic per ASTM A262 Practice A. The "ditched" structure means the material is sensitized; "step" or "dual" structures are acceptable.</li>
                             <li><strong>Duplex phase boundaries unclear:</strong> Standard Vilella's or oxalic acid will not adequately distinguish ferrite from austenite in duplex grades. Switch to Beraha I or Klemm's I color etch.</li>
                             <li><strong>Embedded SiC particles (bright/dark spots after polish):</strong> SiC paper was loaded or over-aged. Replace papers more frequently; ensure adequate water flow during grinding. The 1 μm DIAMAT polish on ATLANTIS will lift most embedded SiC if extended.</li>
                             <li><strong>Magnetic ferritic samples disturbing automatic polisher:</strong> Ferritic and PH grades attract residual magnetic field on equipment. Demagnetize the polishing head and use non-magnetic specimen holders.</li>
                             <li><strong>Sensitization or σ-phase forming during mounting:</strong> Hot compression mounting at 150-180 °C overlaps with the sensitization range (450-850 °C is the worst, but extended time at lower temperature contributes). For samples being analyzed for sensitization or service-induced σ-phase, use castable epoxy mounting to avoid the thermal cycle.</li>
-                            <li><strong>Contamination between samples:</strong> Clean ultrasonically between steps; rinse pads thoroughly. Different stainless grades can transfer iron particles to each other &mdash; particularly important when imaging Cu or Ni contamination in stainless or vice versa.</li>
+                            <li><strong>Contamination between samples:</strong> Clean ultrasonically between steps; rinse pads thoroughly. Different stainless grades can transfer iron particles to each other, particularly important when imaging Cu or Ni contamination in stainless or vice versa.</li>
                             <li><strong>Glyceregia container pressurized:</strong> Decomposition products. Discard immediately into appropriate waste; do not open further. Mix in small batches and never close the container after mixing.</li>
                         </ul>
                     </section>
@@ -2031,10 +2042,10 @@
                     <section id="additional-reading" class="guide-section">
                         <h2>Additional Reading</h2>
                         <ul>
-                            <li>Zipperian, D.C. <em>Metallographic Handbook</em>, Section 11.5.3 (Stainless Steel). PACE Technologies, Tucson, AZ &mdash; the house reference. The SiC progression, ATLANTIS-with-DIAMAT, TRICOTE-with-alumina sequence, and family-specific etchant choices come from this source.</li>
-                            <li><em>ASM Handbook, Vol. 9: Metallography and Microstructures</em>. ASM International &mdash; comprehensive stainless steel preparation, etching, and microstructure interpretation.</li>
-                            <li>Vander Voort, G.F. <em>Metallography: Principles and Practice</em>. ASM International &mdash; detailed etchant procedures including color etching for duplex stainless.</li>
-                            <li>Petzow, G. <em>Metallographic Etching</em>, 2nd ed. ASM International &mdash; comprehensive reference for Vilella's, Glyceregia, Marble's, Kalling's, Beraha, Klemm, and Modified Murakami's formulations.</li>
+                            <li>Zipperian, D.C. <em>Metallographic Handbook</em>, Section 11.5.3 (Stainless Steel). PACE Technologies, Tucson, AZ. The house reference. The SiC progression, ATLANTIS-with-DIAMAT, TRICOTE-with-alumina sequence, and family-specific etchant choices come from this source.</li>
+                            <li><em>ASM Handbook, Vol. 9: Metallography and Microstructures</em>. ASM International. Comprehensive stainless steel preparation, etching, and microstructure interpretation.</li>
+                            <li>Vander Voort, G.F. <em>Metallography: Principles and Practice</em>. ASM International. Detailed etchant procedures including color etching for duplex stainless.</li>
+                            <li>Petzow, G. <em>Metallographic Etching</em>, 2nd ed. ASM International. Comprehensive reference for Vilella's, Glyceregia, Marble's, Kalling's, Beraha, Klemm, and Modified Murakami's formulations.</li>
                             <li>ASTM A262 &mdash; Standard Practices for Detecting Susceptibility to Intergranular Attack in Austenitic Stainless Steels (Practice A: oxalic acid etch test, Step/Dual/Ditched classification).</li>
                             <li>ASTM E407 &mdash; Standard Practice for Microetching Metals and Alloys (stainless steel etchants section).</li>
                             <li>ASTM E3 &mdash; Standard Guide for Preparation of Metallographic Specimens.</li>

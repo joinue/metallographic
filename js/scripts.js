@@ -323,9 +323,53 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(warmQuoteFormConnections, 1500);
   }
 
+  // Inject a graceful fallback when the HubSpot script can't load (usually
+  // because an ad blocker / privacy extension blocks js.hsforms.net). Without
+  // this, the spinner spins forever and the visitor has no way to reach us.
+  function showQuoteFormFallback(container) {
+    if (!container || container.classList.contains('is-loaded')) return;
+    if (container.querySelector('.quote-form-fallback')) return;
+    container.classList.add('is-error');
+    const fallback = document.createElement('div');
+    fallback.className = 'quote-form-fallback';
+    fallback.setAttribute('role', 'alert');
+    fallback.innerHTML =
+      '<h3>We couldn’t load the quote form</h3>' +
+      '<p>A browser extension or network filter is blocking it. Reach our team directly:</p>' +
+      '<p class="quote-form-fallback-contact">' +
+        '<a href="tel:+15208826598">+1 (520) 882-6598</a>' +
+        '<span aria-hidden="true"> &middot; </span>' +
+        '<a href="mailto:pace@metallographic.com?subject=Quote%20Request">pace@metallographic.com</a>' +
+      '</p>';
+    container.appendChild(fallback);
+  }
+
+  // Watch document.head for the HubSpot embed script being injected, so we can
+  // catch a load failure (most commonly ERR_BLOCKED_BY_CLIENT from ad blockers).
+  // Set this up once on init; it fires later, when the user opens the modal.
+  function watchHubSpotScriptErrors() {
+    const headObserver = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        for (const node of m.addedNodes) {
+          if (node.tagName === 'SCRIPT' && node.src && node.src.indexOf('js.hsforms.net/forms/embed') !== -1) {
+            node.addEventListener('error', () => {
+              showQuoteFormFallback(document.querySelector('.quote-form-container'));
+            });
+            headObserver.disconnect();
+            return;
+          }
+        }
+      }
+    });
+    headObserver.observe(document.head, { childList: true });
+  }
+  watchHubSpotScriptErrors();
+
   // Watch for HubSpot to mount its iframe inside the form container, then mark
   // the container as loaded so the CSS spinner disappears. (Belt-and-suspenders
   // alongside the CSS `:has(iframe)` selector for browsers without :has support.)
+  // Also arm a safety timeout: if nothing has mounted within ~7s, assume the
+  // script was blocked silently and show the fallback.
   function watchQuoteFormReady() {
     const container = document.querySelector('.quote-form-container');
     if (!container || container.classList.contains('is-loaded')) return;
@@ -333,13 +377,21 @@ document.addEventListener("DOMContentLoaded", () => {
       container.classList.add('is-loaded');
       return;
     }
+    let failTimer;
     const observer = new MutationObserver(() => {
       if (container.querySelector('iframe')) {
         container.classList.add('is-loaded');
         observer.disconnect();
+        clearTimeout(failTimer);
       }
     });
     observer.observe(container, { childList: true, subtree: true });
+    failTimer = setTimeout(() => {
+      if (!container.classList.contains('is-loaded')) {
+        observer.disconnect();
+        showQuoteFormFallback(container);
+      }
+    }, 7000);
   }
 
   function openQuoteModal() {
@@ -722,21 +774,56 @@ function switchTab(tabId) {
 })();
 
 // Cookie consent banner
+// Paired with Consent Mode v2 in the gtag head snippet, which defaults to denied
+// for EU/UK/EEA/CH visitors. This banner only renders for those visitors and,
+// on Accept, calls gtag('consent', 'update', ...) to grant the four signals.
 (function() {
-  if (document.cookie.indexOf('cookie_consent=') !== -1) return;
+  // Time zones whose underlying countries default to denied in Consent Mode.
+  // Keeping this list in sync with the region list in the gtag head snippet.
+  var EU_EEA_UK_CH_ZONES = {
+    'Europe/Vienna': 1, 'Europe/Brussels': 1, 'Europe/Sofia': 1, 'Europe/Zagreb': 1,
+    'Asia/Famagusta': 1, 'Asia/Nicosia': 1, 'Europe/Prague': 1, 'Europe/Copenhagen': 1,
+    'Europe/Tallinn': 1, 'Europe/Helsinki': 1, 'Europe/Paris': 1, 'Europe/Berlin': 1,
+    'Europe/Busingen': 1, 'Europe/Athens': 1, 'Europe/Budapest': 1, 'Europe/Dublin': 1,
+    'Europe/Rome': 1, 'Europe/Riga': 1, 'Europe/Vilnius': 1, 'Europe/Luxembourg': 1,
+    'Europe/Malta': 1, 'Europe/Amsterdam': 1, 'Europe/Warsaw': 1, 'Europe/Lisbon': 1,
+    'Atlantic/Azores': 1, 'Atlantic/Madeira': 1, 'Europe/Bucharest': 1,
+    'Europe/Bratislava': 1, 'Europe/Ljubljana': 1, 'Europe/Madrid': 1,
+    'Africa/Ceuta': 1, 'Atlantic/Canary': 1, 'Europe/Stockholm': 1,
+    'Atlantic/Reykjavik': 1, 'Europe/Vaduz': 1, 'Europe/Oslo': 1,
+    'Europe/London': 1, 'Europe/Belfast': 1, 'Europe/Jersey': 1, 'Europe/Guernsey': 1,
+    'Europe/Isle_of_Man': 1, 'Europe/Gibraltar': 1, 'Europe/Zurich': 1
+  };
 
-  try {
-    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-    var usZones = ['America/New_York','America/Chicago','America/Denver','America/Los_Angeles',
-      'America/Anchorage','America/Adak','America/Phoenix','America/Boise','America/Detroit',
-      'America/Menominee','America/Nome','America/Sitka','America/Yakutat','America/Juneau',
-      'America/Metlakatla','Pacific/Honolulu'];
-    var isUS = usZones.indexOf(tz) !== -1 ||
-      tz.indexOf('America/Indiana') === 0 ||
-      tz.indexOf('America/Kentucky') === 0 ||
-      tz.indexOf('America/North_Dakota') === 0;
-    if (isUS) return;
-  } catch(e) {}
+  function inDeniedRegion() {
+    try {
+      var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      return EU_EEA_UK_CH_ZONES[tz] === 1;
+    } catch(e) {
+      return false;
+    }
+  }
+
+  function updateConsent(accepted) {
+    if (typeof window.gtag !== 'function') return;
+    var state = accepted ? 'granted' : 'denied';
+    window.gtag('consent', 'update', {
+      ad_storage: state,
+      ad_user_data: state,
+      ad_personalization: state,
+      analytics_storage: state
+    });
+  }
+
+  if (document.cookie.indexOf('cookie_consent=') !== -1) {
+    // Re-apply stored choice on every page load so consent persists across navigation.
+    var stored = document.cookie.indexOf('cookie_consent=1') !== -1;
+    if (stored) updateConsent(true);
+    return;
+  }
+
+  // No prior choice: only show the banner to visitors whose defaults are denied.
+  if (!inDeniedRegion()) return;
 
   var banner = document.createElement('div');
   banner.className = 'cookie-banner';
@@ -744,11 +831,23 @@ function switchTab(tabId) {
   banner.setAttribute('aria-label', 'Cookie consent');
   banner.innerHTML =
     '<div class="cookie-banner-inner">' +
-      '<p class="cookie-banner-text">We use cookies to analyze site traffic and improve your experience. ' +
-        '<a href="/privacy.html">Privacy Policy</a></p>' +
+      '<div class="cookie-banner-copy">' +
+        '<svg class="cookie-banner-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+          '<path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5z"/>' +
+          '<circle cx="8.5" cy="10.5" r="0.6" fill="currentColor"/>' +
+          '<circle cx="13" cy="14.5" r="0.6" fill="currentColor"/>' +
+          '<circle cx="16.5" cy="11" r="0.6" fill="currentColor"/>' +
+          '<circle cx="9" cy="15.5" r="0.6" fill="currentColor"/>' +
+        '</svg>' +
+        '<p class="cookie-banner-text">' +
+          'We use cookies for site analytics and to measure our ads. ' +
+          'You can accept or decline; the site works the same either way. ' +
+          '<a href="/privacy.html">Read our Privacy Policy</a>.' +
+        '</p>' +
+      '</div>' +
       '<div class="cookie-banner-actions">' +
-        '<button class="cookie-banner-decline">Decline</button>' +
-        '<button class="cookie-banner-accept">Accept</button>' +
+        '<button type="button" class="cookie-banner-decline">Decline</button>' +
+        '<button type="button" class="cookie-banner-accept">Accept</button>' +
       '</div>' +
     '</div>';
 
@@ -762,6 +861,7 @@ function switchTab(tabId) {
 
   function dismiss(accepted) {
     document.cookie = 'cookie_consent=' + (accepted ? '1' : '0') + '; path=/; max-age=31536000; SameSite=Lax';
+    updateConsent(accepted);
     banner.classList.remove('visible');
     setTimeout(function() { banner.remove(); }, 300);
   }

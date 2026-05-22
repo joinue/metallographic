@@ -55,6 +55,21 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
+        // Consent Mode v2: default granted globally; denied for EU/UK/EEA/CH until opt-in
+        gtag('consent', 'default', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied',
+          wait_for_update: 500,
+          region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+        });
         gtag('js', new Date());
         gtag('config', 'G-VQ62KENYY5');
         gtag('config', 'AW-1066794256');
@@ -228,9 +243,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -365,7 +381,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -421,8 +437,6 @@
                             <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
-                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
 <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
@@ -548,9 +562,10 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -677,7 +692,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
@@ -728,8 +743,6 @@
                             <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
-                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
 <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
@@ -884,7 +897,7 @@
                     <li><a href="#s21"><span class="legal-toc-num">21</span> Dispute Resolution</a></li>
                     <li><a href="#s22"><span class="legal-toc-num">22</span> Governing Law</a></li>
                     <li><a href="#s23"><span class="legal-toc-num">23</span> General Provisions</a></li>
-                    <li><a href="#exhibit-b"><span class="legal-toc-num">B</span> Exhibit B &mdash; Discount Schedule</a></li>
+                    <li><a href="#exhibit-b"><span class="legal-toc-num">B</span> Exhibit B: Discount Schedule</a></li>
                 </ol>
             </aside>
 
@@ -942,8 +955,8 @@
                         <p>Two operating paths: Path A is a 5% referral fee where PACE invoices the End Customer directly. Path B is resale at 15% off equipment / 10% off same-PO consumables on registered deals. Pick the path per opportunity.</p>
                     </aside>
                     <p><strong>Two Operating Paths.</strong> This Agreement supports two operating paths for any opportunity. Channel Partner may elect either path on a per-opportunity basis at the time the opportunity is registered with PACE under the Deal Registration Policy. Both paths require a registered, approved opportunity for the discount or referral fee to apply at the rates stated below.</p>
-                    <p><strong>Path A &mdash; Referral.</strong> Channel Partner refers the opportunity to PACE. PACE quotes the End Customer directly, issues the invoice, and serves as the seller of record. PACE pays Channel Partner a referral fee of <strong>five percent (5%) of the net invoiced equipment value</strong> of Products sold to the referred End Customer on the registered opportunity, within thirty (30) days after PACE collects payment in full from the End Customer. No referral fee is paid on consumables, on services, or on opportunities not approved through Deal Registration.</p>
-                    <p><strong>Path B &mdash; Resale.</strong> Channel Partner purchases Products from PACE at the discounts set forth in <a href="#exhibit-b"><strong>Exhibit B</strong></a> and resells them to End Customers in its own name. Channel Partner invoices the End Customer; PACE invoices Channel Partner. PACE drop-ships in Channel Partner's name with PACE-branded inner packaging (see Section 5). See Exhibit B for the full discount schedule.</p>
+                    <p><strong>Path A: Referral.</strong> Channel Partner refers the opportunity to PACE. PACE quotes the End Customer directly, issues the invoice, and serves as the seller of record. PACE pays Channel Partner a referral fee of <strong>five percent (5%) of the net invoiced equipment value</strong> of Products sold to the referred End Customer on the registered opportunity, within thirty (30) days after PACE collects payment in full from the End Customer. No referral fee is paid on consumables, on services, or on opportunities not approved through Deal Registration.</p>
+                    <p><strong>Path B: Resale.</strong> Channel Partner purchases Products from PACE at the discounts set forth in <a href="#exhibit-b"><strong>Exhibit B</strong></a> and resells them to End Customers in its own name. Channel Partner invoices the End Customer; PACE invoices Channel Partner. PACE drop-ships in Channel Partner's name with PACE-branded inner packaging (see Section 5). See Exhibit B for the full discount schedule.</p>
                     <p><strong>Updates.</strong> PACE may update Exhibit B from time to time on sixty (60) days' written notice; updates are effective for orders accepted after the change. Certain Products may be ineligible for the discount or referral fee, or eligible at a different rate, as indicated by PACE in writing.</p>
                     <p><strong>Currency.</strong> All prices are in <strong>U.S. dollars (USD)</strong>.</p>
                     <p><strong>Price Changes.</strong> PACE may change List Prices on at least <strong>sixty (60) days' written notice</strong>. Orders accepted by PACE before the effective date of an increase will be honored at the prior price.</p>
@@ -1286,7 +1299,7 @@
                 <section class="legal-section" id="exhibit-b">
                     <header class="legal-section-head">
                         <span class="legal-section-num">B</span>
-                        <h3 class="legal-section-title">Exhibit B &mdash; Discount and Referral Schedule</h3>
+                        <h3 class="legal-section-title">Exhibit B: Discount and Referral Schedule</h3>
                     </header>
                     <aside class="plain-english">
                         <span class="plain-english-label">Summary</span>
@@ -1294,7 +1307,7 @@
                     </aside>
                     <p>This Exhibit B is effective as of the Effective Date and is subject to PACE's right to update on sixty (60) days' written notice under Section 3.</p>
 
-                    <h4><strong>Path A &mdash; Referral Fees</strong></h4>
+                    <h4><strong>Path A: Referral Fees</strong></h4>
                     <ul>
                         <li><strong>Equipment:</strong> five percent (5%) of the net invoiced equipment value on each closed opportunity where the End Customer was referred under an Approved Deal Registration</li>
                         <li><strong>Consumables:</strong> no referral fee</li>
@@ -1303,7 +1316,7 @@
                         <li><strong>Eligibility:</strong> Path A referral fees are paid only on opportunities that were submitted under the Deal Registration Policy prior to PACE's quote to the End Customer and that received an Approved determination from PACE</li>
                     </ul>
 
-                    <h4><strong>Path B &mdash; Resale Discounts</strong></h4>
+                    <h4><strong>Path B: Resale Discounts</strong></h4>
                     <ul>
                         <li><strong>Equipment, registered:</strong> fifteen percent (15%) off List Price on equipment sold under an Approved Deal Registration</li>
                         <li><strong>Equipment, unregistered:</strong> ten percent (10%) off List Price on equipment sold without an Approved Deal Registration</li>

@@ -42,6 +42,21 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
+        // Consent Mode v2: default granted globally; denied for EU/UK/EEA/CH until opt-in
+        gtag('consent', 'default', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied',
+          wait_for_update: 500,
+          region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+        });
         gtag('js', new Date());
         gtag('config', 'G-VQ62KENYY5');
       gtag('config', 'AW-1066794256');
@@ -270,9 +285,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -407,7 +423,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -463,8 +479,6 @@
                             <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
-                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
 <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
@@ -590,9 +604,10 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -719,7 +734,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
@@ -770,8 +785,6 @@
                             <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
-                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
 <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
@@ -1034,11 +1047,11 @@
                             <p style="margin: 0.5rem 0 0;">where μ is the refractive index of the medium in front of the objective (μ = 1 for air, ~1.5 for immersion oil) and θ is the half-angle subtended by the objective at the specimen surface.</p>
                         </div>
                         <p>
-                            Resolution — the smallest distance at which two features can be seen as separate objects — follows from N.A. and the illumination wavelength:
+                            Resolution, the smallest distance at which two features can be seen as separate objects, follows from N.A. and the illumination wavelength:
                         </p>
                         <div class="guide-info-box guide-info-box-blue">
                             <p style="margin: 0;"><strong>Limit of Resolution = λ / (2 · N.A.)</strong></p>
-                            <p style="margin: 0.5rem 0 0;">Visible green light: λ ≈ 0.54 μm. With a high-N.A. air objective (N.A. ≈ 0.95), the limit is around 0.28 μm. With a high-N.A. oil immersion objective (N.A. ≈ 1.4), the limit drops to about 0.2 μm — the physical floor for visible-light microscopy.</p>
+                            <p style="margin: 0.5rem 0 0;">Visible green light: λ ≈ 0.54 μm. With a high-N.A. air objective (N.A. ≈ 0.95), the limit is around 0.28 μm. With a high-N.A. oil immersion objective (N.A. ≈ 1.4), the limit drops to about 0.2 μm, the physical floor for visible-light microscopy.</p>
                         </div>
                         <p>
                             An electron beam (λ ≈ 0.1 Å in an SEM) sidesteps the diffraction limit entirely, which is why SEM resolves down to angstroms.
@@ -1052,7 +1065,7 @@
                             <p style="margin: 0;"><strong>Total magnification = objective × eyepiece × tube factor</strong></p>
                         </div>
                         <p>
-                            But beyond a certain point, adding magnification stops adding information. That ceiling is called <strong>empty magnification</strong>: the image gets bigger, but no new detail appears because the objective's N.A. has already exhausted its resolving power. A practical rule of thumb is that useful magnification tops out at roughly 1000× the objective's N.A. — pushing past that just produces softer, larger pixels. Pick the objective whose N.A. supports the magnification you actually need.
+                            But beyond a certain point, adding magnification stops adding information. That ceiling is called <strong>empty magnification</strong>: the image gets bigger, but no new detail appears because the objective's N.A. has already exhausted its resolving power. A practical rule of thumb is that useful magnification tops out at roughly 1000× the objective's N.A.; pushing past that just produces softer, larger pixels. Pick the objective whose N.A. supports the magnification you actually need.
                         </p>
 
                         <h3>Optical filters</h3>
@@ -1075,12 +1088,12 @@
 
                         <h3>Brightfield (BF)</h3>
                         <p>
-                            The default mode and the one most micrographs are shot in. Light enters at a high angle through the objective, reflects off flat surfaces, and returns to form a bright background. Features that scatter or absorb light — pores, edges, etched grain boundaries, second-phase particles — appear darker than the matrix. Brightfield is the right starting point for almost any sample.
+                            The default mode and the one most micrographs are shot in. Light enters at a high angle through the objective, reflects off flat surfaces, and returns to form a bright background. Features that scatter or absorb light (pores, edges, etched grain boundaries, second-phase particles) appear darker than the matrix. Brightfield is the right starting point for almost any sample.
                         </p>
 
                         <h3>Darkfield (DF)</h3>
                         <p>
-                            A less common but powerful mode. Light bypasses the central optical path and travels down the outer rim of the objective, striking the sample at a low angle. Flat surfaces reflect that light away from the objective and stay dark; non-flat features — pores, edges, scratches, inclusions — scatter light back into the objective and appear bright on a black background. Darkfield can reveal microporosity, fine cracks, and surface scratches that brightfield washes out, and it makes preparation artifacts impossible to miss.
+                            A less common but powerful mode. Light bypasses the central optical path and travels down the outer rim of the objective, striking the sample at a low angle. Flat surfaces reflect that light away from the objective and stay dark; non-flat features (pores, edges, scratches, inclusions) scatter light back into the objective and appear bright on a black background. Darkfield can reveal microporosity, fine cracks, and surface scratches that brightfield washes out, and it makes preparation artifacts impossible to miss.
                         </p>
 
                         <h3>Polarized light</h3>
@@ -1106,11 +1119,11 @@
 
                         <h3>Stereology in one paragraph</h3>
                         <p>
-                            A polished cross-section is two-dimensional, but most of the features you care about — grains, inclusions, pores, second-phase particles — are three-dimensional. Stereology is the mathematics that extracts 3D quantities (volume fraction, surface area per volume, particle count per volume) from 2D measurements (area fraction, intercept count, point count). The single most useful stereological identity:
+                            A polished cross-section is two-dimensional, but most of the features you care about (grains, inclusions, pores, second-phase particles) are three-dimensional. Stereology is the mathematics that extracts 3D quantities (volume fraction, surface area per volume, particle count per volume) from 2D measurements (area fraction, intercept count, point count). The single most useful stereological identity:
                         </p>
                         <div class="guide-info-box guide-info-box-blue">
                             <p style="margin: 0;"><strong>V<sub>V</sub> = A<sub>A</sub> = P<sub>P</sub></strong></p>
-                            <p style="margin: 0.5rem 0 0;">Volume fraction equals area fraction equals point-count fraction — provided enough fields are measured. This is why a manual point count on a 2D image yields the true 3D volume fraction of a phase.</p>
+                            <p style="margin: 0.5rem 0 0;">Volume fraction equals area fraction equals point-count fraction, provided enough fields are measured. This is why a manual point count on a 2D image yields the true 3D volume fraction of a phase.</p>
                         </div>
 
                         <h3>Common measurements</h3>
@@ -1120,12 +1133,12 @@
                             <li><strong>Area fraction (A<sub>A</sub>):</strong> the detected area of a phase divided by the field area. Yields volume fraction.</li>
                             <li><strong>Particle count (N<sub>A</sub>):</strong> number of features per unit area. Used for inclusion ratings and porosity.</li>
                             <li><strong>Mean free path (λ):</strong> average edge-to-edge spacing between particles, perpendicular to the working direction. λ = (1 − A<sub>A</sub>) / N<sub>L</sub>.</li>
-                            <li><strong>95% confidence interval:</strong> t · s / √n, where s is the standard deviation across n fields. Always report it — a phase fraction without a CI is not a measurement.</li>
+                            <li><strong>95% confidence interval:</strong> t · s / √n, where s is the standard deviation across n fields. Always report it; a phase fraction without a CI is not a measurement.</li>
                         </ul>
 
                         <h3>Manual or automated</h3>
                         <p>
-                            Both are valid. Manual point counting against a reticle (ASTM E562) is auditable and works on any microscope. Automated image analysis (ASTM E1245, E1382) is faster, scales, and removes operator-to-operator variability — but it depends entirely on the polished and etched surface, because the software is detecting <em>contrast</em>, not actual features. Bad preparation produces bad analysis whether the operator or the computer is counting.
+                            Both are valid. Manual point counting against a reticle (ASTM E562) is auditable and works on any microscope. Automated image analysis (ASTM E1245, E1382) is faster, scales, and removes operator-to-operator variability, but it depends entirely on the polished and etched surface, because the software is detecting <em>contrast</em>, not actual features. Bad preparation produces bad analysis whether the operator or the computer is counting.
                         </p>
 
                         <div class="guide-image-wrapper">
@@ -1147,7 +1160,7 @@
                     <section id="astm-procedures" class="guide-section">
                         <h2>Standard ASTM Procedures</h2>
                         <p>
-                            Each measurement below is covered by a published ASTM (or equivalent) standard. The standard defines the method, the field count, the magnification, and the reporting conventions — write the standard number on the report, not just the result.
+                            Each measurement below is covered by a published ASTM (or equivalent) standard. The standard defines the method, the field count, the magnification, and the reporting conventions; write the standard number on the report, not just the result.
                         </p>
 
                         <div class="guide-table-wrapper">
@@ -1214,7 +1227,7 @@
                             <li><strong>Intercept (Heyn):</strong> straight or circular test lines are drawn across the image; counted grain boundary intersections give grain size. The recommended method for non-equiaxed structures.</li>
                         </ul>
                         <p>
-                            <strong>Always exclude twin boundaries</strong> from the count — they are coherent boundaries within a single grain, not grain boundaries. ASTM E930 handles very coarse structures where E112 has too few grains per field; E1181 handles duplex (bimodal) grain populations; E1382 covers automated image analysis.
+                            <strong>Always exclude twin boundaries</strong> from the count; they are coherent boundaries within a single grain, not grain boundaries. ASTM E930 handles very coarse structures where E112 has too few grains per field; E1181 handles duplex (bimodal) grain populations; E1382 covers automated image analysis.
                         </p>
 
                         <h3 id="phase-analysis">Phase analysis (ASTM E562, E1245)</h3>
@@ -1237,10 +1250,10 @@
                             ASTM E45 characterizes non-metallic inclusions in wrought steel using the JK rating system:
                         </p>
                         <ul>
-                            <li><strong>Type A — Sulfide:</strong> stringers, light gray under brightfield</li>
-                            <li><strong>Type B — Alumina:</strong> aligned clusters of at least three round/angular oxide particles (aspect ratio &lt; 2) parallel to the working direction</li>
-                            <li><strong>Type C — Silicate:</strong> stringers, black under brightfield (the easy way to tell A from C)</li>
-                            <li><strong>Type D — Globular oxide:</strong> isolated round oxides, not aligned</li>
+                            <li><strong>Type A, Sulfide:</strong> stringers, light gray under brightfield</li>
+                            <li><strong>Type B, Alumina:</strong> aligned clusters of at least three round/angular oxide particles (aspect ratio &lt; 2) parallel to the working direction</li>
+                            <li><strong>Type C, Silicate:</strong> stringers, black under brightfield (the easy way to tell A from C)</li>
+                            <li><strong>Type D, Globular oxide:</strong> isolated round oxides, not aligned</li>
                         </ul>
                         <p>
                             Each type is then rated by <strong>thickness</strong> (T = thin, H = heavy) and <strong>severity level</strong> based on count or length in a 0.50 mm² field. The result is a compact code (e.g., "A2T, B1H, C1T, D1T") that quality assurance tracks across heats and lots.
@@ -1263,7 +1276,7 @@
 
                         <h3 id="coating-thickness">Coating thickness (ASTM B487)</h3>
                         <p>
-                            ASTM B487 specifies the cross-sectional microscopy method for measuring metal and oxide coatings. The non-negotiable requirements: the cross-section must be <strong>perpendicular</strong> to the coating (any tilt inflates the apparent thickness), the surface must be flat across the entire field so the boundaries are sharply defined, and the section must be free of deformation, smearing, or rounded edges. Mount the part so the coating is in compression during sectioning and grinding, and use edge-retention compounds and resin systems suited to the substrate — coating measurements live or die on edge quality.
+                            ASTM B487 specifies the cross-sectional microscopy method for measuring metal and oxide coatings. The non-negotiable requirements: the cross-section must be <strong>perpendicular</strong> to the coating (any tilt inflates the apparent thickness), the surface must be flat across the entire field so the boundaries are sharply defined, and the section must be free of deformation, smearing, or rounded edges. Mount the part so the coating is in compression during sectioning and grinding, and use edge-retention compounds and resin systems suited to the substrate. Coating measurements live or die on edge quality.
                         </p>
 
                         <h3 id="weld-analysis">Weld analysis</h3>
@@ -1282,7 +1295,7 @@
                         <ul>
                             <li>Confirm preparation quality at low magnification first; a remaining scratch at 50× will only get worse at 500×</li>
                             <li>Calibrate the stage micrometer at every objective you plan to use; recalibrate after changing eyepieces, cameras, or zoom settings</li>
-                            <li>For image analysis, verify that the calibration file matches the objective in use — wrong calibration is the most common silent error</li>
+                            <li>For image analysis, verify that the calibration file matches the objective in use; wrong calibration is the most common silent error</li>
                             <li>Clean objectives gently with lens tissue and approved cleaner; never with paper towel or shop rag</li>
                         </ul>
 
@@ -1291,7 +1304,7 @@
                             <li>Start at the lowest useful magnification and step up only as needed. Empty magnification wastes time without adding information.</li>
                             <li>When a feature looks ambiguous, change illumination mode before changing objectives or etchants</li>
                             <li>Use Köhler illumination for the cleanest image (field and aperture diaphragms set per the microscope manual)</li>
-                            <li>For quantitative work, take enough fields to drive the 95% CI below your acceptance threshold — typically 5 to 12 fields, more for low-area-fraction phases</li>
+                            <li>For quantitative work, take enough fields to drive the 95% CI below your acceptance threshold (typically 5 to 12 fields, more for low-area-fraction phases)</li>
                         </ul>
 
                         <h3>After the session</h3>
@@ -1309,7 +1322,7 @@
                     <section id="troubleshooting" class="guide-section">
                         <h2>Troubleshooting</h2>
                         <p>
-                            Most microscopy problems trace back to preparation, calibration, or illumination — in that order. Use the table below before assuming the microscope or the software is at fault.
+                            Most microscopy problems trace back to preparation, calibration, or illumination, in that order. Use the table below before assuming the microscope or the software is at fault.
                         </p>
                         <div class="guide-table-wrapper">
                             <table class="guide-table">
@@ -1325,7 +1338,7 @@
                                         <td class="font-semibold align-top">Image looks soft or out of focus at high magnification</td>
                                         <td class="align-top">
                                             <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
-                                                <li>Empty magnification — N.A. exhausted</li>
+                                                <li>Empty magnification (N.A. exhausted)</li>
                                                 <li>Wrong objective for the cover glass / immersion combination</li>
                                                 <li>Sample relief; not flat in the field</li>
                                                 <li>Dirty or oil-contaminated objective</li>
@@ -1387,7 +1400,7 @@
                                         </td>
                                         <td class="align-top">
                                             <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
-                                                <li>Finish the polish — final 1 μm or sub-μm step is mandatory for E45/E1245</li>
+                                                <li>Finish the polish; final 1 μm or sub-μm step is mandatory for E45/E1245</li>
                                                 <li>Tighten the gray-level threshold; use morphological filters (aspect ratio, min size)</li>
                                                 <li>Switch to DF or DIC to make true features dominate the detected pixels</li>
                                             </ul>
@@ -1423,7 +1436,7 @@
                                             <ul style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
                                                 <li>Add a final vibratory or chemical polish (titanium, zirconium are deformation-prone)</li>
                                                 <li>Adjust the analyzer to true extinction</li>
-                                                <li>Lighten the etch — POL often works better on as-polished surfaces</li>
+                                                <li>Lighten the etch; POL often works better on as-polished surfaces</li>
                                             </ul>
                                         </td>
                                     </tr>
@@ -1439,19 +1452,19 @@
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                                 <summary class="guide-faq-question" itemprop="name">What is "empty magnification" and how do I avoid it?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">Empty magnification is the point where increasing magnification no longer adds detail because the objective's numerical aperture has already exhausted its resolving power. As a working rule, useful magnification tops out at about 1000× the objective's N.A. — so a 0.65-N.A. objective is usefully scaled to around 650×, and pushing higher just produces softer, larger pixels. The fix is to step up to a higher-N.A. objective (or oil immersion at the top end), not to add eyepiece or camera magnification.</p>
+                                    <p itemprop="text">Empty magnification is the point where increasing magnification no longer adds detail because the objective's numerical aperture has already exhausted its resolving power. As a working rule, useful magnification tops out at about 1000× the objective's N.A.; so a 0.65-N.A. objective is usefully scaled to around 650×, and pushing higher just produces softer, larger pixels. The fix is to step up to a higher-N.A. objective (or oil immersion at the top end), not to add eyepiece or camera magnification.</p>
                                 </div>
                             </details>
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                                 <summary class="guide-faq-question" itemprop="name">When should I use darkfield instead of brightfield?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">Use darkfield when you need to highlight non-flat features — porosity, fine cracks, scratches, inclusions, surface debris — that wash out in brightfield. The dark background makes small light-scattering features unmistakable. Darkfield is also the fastest way to expose remaining preparation artifacts; if a polish looks clean in brightfield but lights up in darkfield, the polish is not finished.</p>
+                                    <p itemprop="text">Use darkfield when you need to highlight non-flat features (porosity, fine cracks, scratches, inclusions, surface debris) that wash out in brightfield. The dark background makes small light-scattering features unmistakable. Darkfield is also the fastest way to expose remaining preparation artifacts; if a polish looks clean in brightfield but lights up in darkfield, the polish is not finished.</p>
                                 </div>
                             </details>
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                                 <summary class="guide-faq-question" itemprop="name">My titanium / zirconium sample will not etch. Am I doing something wrong?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">Often nothing — titanium, zirconium, beryllium, and many other HCP metals are chemically resistant and resist conventional chemical etching. Use polarized light on the as-polished (or vibratory-polished) surface: anisotropic grains light up in shades determined by their orientation, with no etchant required. A small amount of Kroll's reagent can help on Ti alloys, but POL is often the cleaner answer.</p>
+                                    <p itemprop="text">Often nothing. Titanium, zirconium, beryllium, and many other HCP metals are chemically resistant and resist conventional chemical etching. Use polarized light on the as-polished (or vibratory-polished) surface: anisotropic grains light up in shades determined by their orientation, with no etchant required. A small amount of Kroll's reagent can help on Ti alloys, but POL is often the cleaner answer.</p>
                                 </div>
                             </details>
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -1469,13 +1482,13 @@
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                                 <summary class="guide-faq-question" itemprop="name">How many fields do I need to measure for a defensible phase count?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">It depends on the phase fraction. ASTM E562 recommends starting with 5 fields and adding more until the 95% confidence interval drops below your acceptance threshold (often expressed as relative accuracy, %RA, of 10% or better). For phases above ~10% area fraction, 5 to 12 fields is usually enough. For low-fraction phases (inclusions, trace porosity), 20 or more fields may be required to drive the CI down. The standard requires that you report the CI alongside the result — a phase fraction without a CI is not a measurement.</p>
+                                    <p itemprop="text">It depends on the phase fraction. ASTM E562 recommends starting with 5 fields and adding more until the 95% confidence interval drops below your acceptance threshold (often expressed as relative accuracy, %RA, of 10% or better). For phases above ~10% area fraction, 5 to 12 fields is usually enough. For low-fraction phases (inclusions, trace porosity), 20 or more fields may be required to drive the CI down. The standard requires that you report the CI alongside the result; a phase fraction without a CI is not a measurement.</p>
                                 </div>
                             </details>
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                                <summary class="guide-faq-question" itemprop="name">Manual point count or automated image analysis — which should I use?</summary>
+                                <summary class="guide-faq-question" itemprop="name">Manual point count or automated image analysis, which should I use?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">Both are valid, and both depend on a clean polish and etch. Manual point count (ASTM E562) is the audit-friendly default and works on any microscope. Automated image analysis (ASTM E1245/E1382, run with PACE Material Plus or equivalent) is much faster, scales to hundreds of fields, and removes operator-to-operator variability — but it detects pixel contrast, not features, so any preparation artifact that contrasts with the matrix gets counted. For high-volume QC, automation pays for itself in weeks; for one-off failure analysis, manual point counting is often quicker to set up correctly.</p>
+                                    <p itemprop="text">Both are valid, and both depend on a clean polish and etch. Manual point count (ASTM E562) is the audit-friendly default and works on any microscope. Automated image analysis (ASTM E1245/E1382, run with PACE Material Plus or equivalent) is much faster, scales to hundreds of fields, and removes operator-to-operator variability, but it detects pixel contrast, not features, so any preparation artifact that contrasts with the matrix gets counted. For high-volume QC, automation pays for itself in weeks; for one-off failure analysis, manual point counting is often quicker to set up correctly.</p>
                                 </div>
                             </details>
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -1487,7 +1500,7 @@
                             <details class="guide-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                                 <summary class="guide-faq-question" itemprop="name">How do I store a polished or etched sample between prep and imaging?</summary>
                                 <div class="guide-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <p itemprop="text">For short-term storage (minutes to hours): rinse with ethanol, dry with compressed air, and place in a covered petri dish or specimen box with a desiccant pack. For overnight to several days: apply a clear protective lacquer to the polished face after final cleaning; the lacquer comes off with acetone before imaging. For long-term archival: photograph the microstructure first because it will change, then mount the specimen face-down in a clean dish with desiccant and store away from light and humidity. Carbon steels and copper alloys oxidize most aggressively; stainless steels and titanium alloys hold their polish longest. Never store an etched sample unprotected — the etched surface is chemically reactive and will continue to darken even in clean air.</p>
+                                    <p itemprop="text">For short-term storage (minutes to hours): rinse with ethanol, dry with compressed air, and place in a covered petri dish or specimen box with a desiccant pack. For overnight to several days: apply a clear protective lacquer to the polished face after final cleaning; the lacquer comes off with acetone before imaging. For long-term archival: photograph the microstructure first because it will change, then mount the specimen face-down in a clean dish with desiccant and store away from light and humidity. Carbon steels and copper alloys oxidize most aggressively; stainless steels and titanium alloys hold their polish longest. Never store an etched sample unprotected; the etched surface is chemically reactive and will continue to darken even in clean air.</p>
                                 </div>
                             </details>
                         </div>
@@ -1497,7 +1510,7 @@
                     <section id="whats-next" class="guide-section">
                         <h2>What's Next: Material-Specific Interpretation</h2>
                         <p>
-                            The standards in this guide tell you <em>how</em> to measure a microstructure. The material-specific guides tell you <em>what</em> the result means — which phases to expect, what cooling rate they imply, which etchant brings them out, and which defects matter for that alloy class. Start with the alloy you are actually working on.
+                            The standards in this guide tell you <em>how</em> to measure a microstructure. The material-specific guides tell you <em>what</em> the result means: which phases to expect, what cooling rate they imply, which etchant brings them out, and which defects matter for that alloy class. Start with the alloy you are actually working on.
                         </p>
                         <p>
                             <a href="/guides.html?category=Material-Specific" class="btn-primary">Browse Material-Specific Guides →</a>

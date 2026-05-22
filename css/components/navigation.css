@@ -54,7 +54,7 @@
   display: flex; /* Uses flexbox for layout */
   justify-content: space-between; /* Distributes space between items */
   align-items: center; /* Aligns items vertically in the center */
-  padding: 10px 24px; /* Compact-modern nav with headroom so condensed (3px) reads as a real shrink on scroll */
+  padding: 5px 24px; /* Reduced vertical padding to absorb the larger logo without growing nav height */
   max-width: 1440px; /* Sets the maximum width */
   width: 100%; /* Ensure it doesn't exceed viewport */
   max-width: min(1440px, 100vw); /* Constrain to viewport */
@@ -78,7 +78,7 @@
 }
 
 .navigation.condensed .nav-wrapper {
-  padding: 3px 30px; /* Genuinely tighter than the base (10px) so scroll-shrink reads visually, not just on the logo */
+  padding: 0px 10px; /* Genuinely tighter than the base (10px) so scroll-shrink reads visually, not just on the logo */
 }
 
 .logo-container {
@@ -90,11 +90,11 @@
 }
 
 .logo-image {
-  max-width: 135px; /* Tighter logo box for modern B2B nav height */
+  max-width: 175px; /* Larger desktop logo; paired with reduced nav-wrapper padding to keep total nav height constant */
   height: auto;     /* Preserve aspect ratio when max-width shrinks (e.g. on scroll/condensed).
                        Without this, pages that don't load homepage-styles.css inherit the
                        <img width/height> HTML attributes and squish horizontally. */
-  padding: 2px;
+  padding: 0;       /* Inner padding removed so the logo fills the wrapper's available height */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: left center;
 }
@@ -1523,11 +1523,14 @@
   pointer-events: none;
 }
 
-/* Once HubSpot mounts the form iframe, hide the spinner. */
+/* Once HubSpot mounts the form iframe, hide the spinner. Also hide it in the
+   fallback state so the error message doesn't sit under a spinning loader. */
 .quote-form-container:has(iframe)::before,
 .quote-form-container:has(iframe)::after,
 .quote-form-container.is-loaded::before,
-.quote-form-container.is-loaded::after {
+.quote-form-container.is-loaded::after,
+.quote-form-container.is-error::before,
+.quote-form-container.is-error::after {
   display: none;
 }
 
@@ -1539,6 +1542,44 @@
   .quote-form-container::before {
     animation: none;
   }
+}
+
+/* Fallback shown when the HubSpot script is blocked (commonly by ad blockers)
+   or fails to mount the form within the safety timeout. Gives the visitor a
+   direct phone + email path instead of an infinite spinner. */
+.quote-form-fallback {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: #475569;
+}
+
+.quote-form-fallback h3 {
+  margin: 0 0 0.5rem;
+  color: #0f172a;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.quote-form-fallback p {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.quote-form-fallback p:last-child {
+  margin-bottom: 0;
+}
+
+.quote-form-fallback-contact a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.quote-form-fallback-contact a:hover,
+.quote-form-fallback-contact a:focus {
+  text-decoration: underline;
 }
 
 /* Tooltip styles */
@@ -1884,9 +1925,11 @@
     stroke: white !important;
 }
 
-/* E-Commerce Shop button in Consumables dropdown - Unique isolated styles */
+/* Pill buttons in dropdown submenus (E-Commerce Shop, NFZ Featured System) */
 .sub-menu li a.shop-link-button,
-.sub-menu-mobile li a.shop-link-button {
+.sub-menu-mobile li a.shop-link-button,
+.sub-menu li a.featured-link-button,
+.sub-menu-mobile li a.featured-link-button {
   background-color: #2563eb !important;
   color: white !important;
   border-radius: 9999px !important;
@@ -1907,7 +1950,9 @@
 }
 
 .sub-menu li a.shop-link-button:hover,
-.sub-menu-mobile li a.shop-link-button:hover {
+.sub-menu-mobile li a.shop-link-button:hover,
+.sub-menu li a.featured-link-button:hover,
+.sub-menu-mobile li a.featured-link-button:hover {
   background-color: #1d4ed8 !important;
   color: white !important;
   transform: translateY(-1px) !important;
@@ -1915,7 +1960,9 @@
 }
 
 .sub-menu li a.shop-link-button span,
-.sub-menu-mobile li a.shop-link-button span {
+.sub-menu-mobile li a.shop-link-button span,
+.sub-menu li a.featured-link-button span,
+.sub-menu-mobile li a.featured-link-button span {
   color: white !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -1927,22 +1974,39 @@
 }
 
 .sub-menu li a.shop-link-button span::after,
-.sub-menu-mobile li a.shop-link-button span::after {
+.sub-menu-mobile li a.shop-link-button span::after,
+.sub-menu li a.featured-link-button span::after,
+.sub-menu-mobile li a.featured-link-button span::after {
   display: none !important;
   content: none !important;
 }
 
 .sub-menu li a.shop-link-button .right-arrow-icon,
-.sub-menu-mobile li a.shop-link-button .right-arrow-icon {
+.sub-menu-mobile li a.shop-link-button .right-arrow-icon,
+.sub-menu li a.featured-link-button .right-arrow-icon,
+.sub-menu-mobile li a.featured-link-button .right-arrow-icon {
   stroke: white !important;
   fill: white !important;
   margin-left: 6px !important;
   vertical-align: middle !important;
 }
 
-/* Mobile: Make shop button 90% viewport width */
+/* NFZ Featured pill: distinct accent so it doesn't look like the shop button */
+.sub-menu li a.featured-link-button,
+.sub-menu-mobile li a.featured-link-button {
+  background-color: #0d9488 !important;
+}
+
+.sub-menu li a.featured-link-button:hover,
+.sub-menu-mobile li a.featured-link-button:hover {
+  background-color: #0f766e !important;
+  box-shadow: 0 4px 6px rgba(13, 148, 136, 0.3) !important;
+}
+
+/* Mobile: Make pill buttons 90% viewport width */
 @media (max-width: 992px) {
-  .sub-menu-mobile li a.shop-link-button {
+  .sub-menu-mobile li a.shop-link-button,
+  .sub-menu-mobile li a.featured-link-button {
     width: 90vw !important;
     max-width: 90vw !important;
     margin: 4px auto !important;

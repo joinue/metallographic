@@ -42,6 +42,21 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
+        // Consent Mode v2: default granted globally; denied for EU/UK/EEA/CH until opt-in
+        gtag('consent', 'default', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied',
+          wait_for_update: 500,
+          region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+        });
         gtag('js', new Date());
         gtag('config', 'G-VQ62KENYY5');
       gtag('config', 'AW-1066794256');
@@ -270,9 +285,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -407,7 +423,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -463,8 +479,6 @@
                             <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
-                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
 <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
@@ -590,9 +604,10 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -719,7 +734,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
@@ -770,8 +785,6 @@
                             <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
-                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
 <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
@@ -1009,9 +1022,10 @@
                                 </svg>
                         </button>
                         <ul class="sub-menu-second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -1146,7 +1160,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation</span>
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation</span>
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <path d="M9 18l6-6-6-6" />
                         </svg></a></li>
@@ -1202,8 +1216,6 @@
                             <li><a href="/tools/grain-size-calculator.html">Grain Size Calculator</a></li>
                             <li><a href="/tools/mold-compatibility-checker.html">Mold Compatibility Checker</a></li>
                             <li><a href="/tools/mounting-material-calculator.html">Mounting Material Calculator</a></li>
-                            <li><a href="/tools/polishing-time-calculator.html">Polishing Time Calculator</a></li>
-<li><a href="/tools/procedure-time-estimator.html">Procedure Time Estimator</a></li>
 <li><a href="/build.html">Lab Builder</a></li>
                         </ul>
                     </li>
@@ -1329,9 +1341,10 @@
                             </span>
                         </a>
                         <ul class="sub-menu second-level">
+                            <li><a href="/metallographic-equipment/grinding-polishing/nfz-system.html" class="featured-link-button"><span>NFZ Integrated System</span></a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/penta.html">Hand / Belt Grinders</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Manual Grinder Polishers</a></li>
-                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Grinder Polishers</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/nano.html">Grinder-Polisher Bases</a></li>
+                            <li><a href="/metallographic-equipment/grinding-polishing/femto.html">Semi-Auto Polishing Heads</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/zeta.html">Automated Abrasive Dispenser</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/rc.html">Recirculating Filter System</a></li>
                             <li><a href="/metallographic-equipment/grinding-polishing/atto.html">Controlled Removal Polishers</a></li>
@@ -1458,7 +1471,7 @@
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
-                    <li><a href="/contact.html"><span>Lab Consultation
+                    <li><a href="/lab-consultation.html"><span>Lab Consultation
                         <svg class="right-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M9 18l6-6-6-6" />
                     </svg></span></a></li>
@@ -1509,8 +1522,6 @@
                             <li><a href="/tools/grain-size-calculator.html"><span>Grain Size Calculator</span></a></li>
                             <li><a href="/tools/mold-compatibility-checker.html"><span>Mold Compatibility Checker</span></a></li>
                             <li><a href="/tools/mounting-material-calculator.html"><span>Mounting Material Calculator</span></a></li>
-                            <li><a href="/tools/polishing-time-calculator.html"><span>Polishing Time Calculator</span></a></li>
-<li><a href="/tools/procedure-time-estimator.html"><span>Procedure Time Estimator</span></a></li>
 <li><a href="/build.html"><span>Lab Builder</span></a></li>
                         </ul>
                     </li>
@@ -1684,7 +1695,7 @@
                             microstructural analysis. Unlike monolithic materials, composites often rely on contrast from
                             careful polishing rather than chemical etching. Differential hardness between matrix and fiber
                             does produce a small amount of relief, which improves visibility under differential interference
-                            contrast (DIC) or polarized light. Excessive relief, however, is a defect — it distorts fiber
+                            contrast (DIC) or polarized light. Excessive relief, however, is a defect. It distorts fiber
                             geometry, hides interface detail, and is the single most common reason quantitative analysis
                             (fiber volume fraction per ASTM D3171, fiber spacing, void content) fails. Control relief; do
                             not rely on it.
@@ -1693,8 +1704,8 @@
                             <h4>Composite Material Characteristics</h4>
                             <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
                                 <li><strong>CFRP (Carbon Fiber Reinforced Polymer):</strong> Stiff, brittle carbon fibers (modulus 230–700 GPa, Mohs ~1–3) in a polymer matrix. Carbon fibers are not particularly hard but are highly abrasive due to their stiffness and brittleness, and they fracture and pull out easily under aggressive preparation.</li>
-                                <li><strong>GFRP (Glass Fiber Reinforced Polymer):</strong> Glass fibers in a polymer matrix. The polymer matrix — not the fiber — is heat-sensitive; matrix degradation begins at 100–250 °C depending on resin chemistry, while E-glass fibers tolerate 500–700 °C.</li>
-                                <li><strong>MMC (Metal Matrix Composites):</strong> A metal matrix (typically Al, Mg, Ti, or Cu) reinforced with ceramic or carbon. Two major sub-classes: <em>particulate-reinforced (PRMMCs)</em> such as SiC<sub>p</sub>/Al, Al<sub>2</sub>O<sub>3</sub><sub>p</sub>/Al, B<sub>4</sub>C<sub>p</sub>/Al, and TiC/steel — these are commercially common; and <em>continuous-fiber MMCs</em> such as SCS-6/Ti. Matrix etching is possible with conventional reagents (Keller's, Kroll's, etc.).</li>
+                                <li><strong>GFRP (Glass Fiber Reinforced Polymer):</strong> Glass fibers in a polymer matrix. The polymer matrix, not the fiber, is heat-sensitive; matrix degradation begins at 100–250 °C depending on resin chemistry, while E-glass fibers tolerate 500–700 °C.</li>
+                                <li><strong>MMC (Metal Matrix Composites):</strong> A metal matrix (typically Al, Mg, Ti, or Cu) reinforced with ceramic or carbon. Two major sub-classes: <em>particulate-reinforced (PRMMCs)</em> such as SiC<sub>p</sub>/Al, Al<sub>2</sub>O<sub>3</sub><sub>p</sub>/Al, B<sub>4</sub>C<sub>p</sub>/Al, and TiC/steel, which are commercially common; and <em>continuous-fiber MMCs</em> such as SCS-6/Ti. Matrix etching is possible with conventional reagents (Keller's, Kroll's, etc.).</li>
                                 <li><strong>CMC (Ceramic Matrix Composites):</strong> Fibers in a ceramic matrix. Hardness varies widely with chemistry: SiC/SiC and C/SiC are extremely hard and require diamond abrasives throughout; oxide/oxide (Al<sub>2</sub>O<sub>3</sub>/Al<sub>2</sub>O<sub>3</sub>) systems are softer and more porous.</li>
                             </ul>
                         </div>
@@ -1720,7 +1731,7 @@
                             </li>
                             <li><strong>Cooling:</strong> Continuous flood cooling is essential. For polymer composites that absorb water through cut edges, a light cutting oil or non-aqueous coolant can reduce post-cut swelling and analysis artifacts.</li>
                             <li><strong>Feed Rate:</strong> 0.5–1.0 mm/min on a precision saw; let the blade cut under its own weight on automatic units. Excess feed causes delamination far more often than excess speed does.</li>
-                            <li><strong>Cutting Direction:</strong> Choose the cut plane by the analysis you need (transverse, longitudinal, or off-axis). When the cut goes <em>across</em> unidirectional fibers, each fiber is sheared individually — use a sharper/finer blade, lower feed, and rigid clamping to limit fiber fracture and tear-out. Cutting <em>along</em> fiber length is mechanically gentler but produces a different — often less useful — view of the microstructure.</li>
+                            <li><strong>Cutting Direction:</strong> Choose the cut plane by the analysis you need (transverse, longitudinal, or off-axis). When the cut goes <em>across</em> unidirectional fibers, each fiber is sheared individually; use a sharper/finer blade, lower feed, and rigid clamping to limit fiber fracture and tear-out. Cutting <em>along</em> fiber length is mechanically gentler but produces a different, often less useful, view of the microstructure.</li>
                         </ul>
                         <div class="guide-image-wrapper" style="max-width: 500px;">
                             <a href="https://shop.metallographic.com/collections/abrasive-blades" target="_blank" rel="noopener noreferrer" class="guide-link">
@@ -1737,8 +1748,8 @@
                         <div class="guide-info-box">
                             <h4>By Composite Type</h4>
                             <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                                <li><strong>CFRP:</strong> Precision diamond wafering blade preferred; MAX-E thin abrasive acceptable on conventional cutoff saws. Carbon fibers are stiff and abrasive (not hard) — they polish a blade's bond matrix and reduce cut efficiency over time. Monitor blade dress and re-dress or replace when feed rate climbs or burning appears.</li>
-                                <li><strong>GFRP:</strong> Same blade options as CFRP. The matrix is the limiting constraint — keep coolant flow high and feed low to avoid resin smearing and interface degradation.</li>
+                                <li><strong>CFRP:</strong> Precision diamond wafering blade preferred; MAX-E thin abrasive acceptable on conventional cutoff saws. Carbon fibers are stiff and abrasive (not hard). They polish a blade's bond matrix and reduce cut efficiency over time. Monitor blade dress and re-dress or replace when feed rate climbs or burning appears.</li>
+                                <li><strong>GFRP:</strong> Same blade options as CFRP. The matrix is the limiting constraint; keep coolant flow high and feed low to avoid resin smearing and interface degradation.</li>
                                 <li><strong>MMC:</strong> MAX-E or diamond depending on reinforcement. Diamond blades for SiC, B<sub>4</sub>C, Al<sub>2</sub>O<sub>3</sub>, and TiC reinforcements; abrasive wheels are fine for soft particulate or short-fiber MMCs.</li>
                                 <li><strong>CMC:</strong> Diamond blades only. Slow feed; pre-load against rigid fixtures to limit chipping at the cut exit.</li>
                             </ul>
@@ -1746,11 +1757,11 @@
                         <h3>Best Practices</h3>
                         <ul>
                             <li>Use thin blades (0.3–1.0 mm) to minimize kerf loss and heat input.</li>
-                            <li>Flood the kerf — surface coolant alone is not enough for laminated composites where heat can be trapped between plies.</li>
+                            <li>Flood the kerf; surface coolant alone is not enough for laminated composites where heat can be trapped between plies.</li>
                             <li>Let the blade do the work. Force does not cut faster; it delaminates.</li>
                             <li>Use diamond blades for any reinforcement at or above ~9 Mohs (SiC, B<sub>4</sub>C, Al<sub>2</sub>O<sub>3</sub>).</li>
                             <li>Rigidly support thin laminates with a sacrificial backer to prevent flexing-induced delamination at the exit edge.</li>
-                            <li>Mark fiber orientation and the desired analysis plane on the sample with a permanent marker before the first cut — it is easy to lose reference once the sample is mounted.</li>
+                            <li>Mark fiber orientation and the desired analysis plane on the sample with a permanent marker before the first cut; it is easy to lose reference once the sample is mounted.</li>
                             <li>Dry-cut only as a last resort, and only on small CMC sections; expect to re-prep the surface aggressively.</li>
                         </ul>
                         <div class="guide-info-box" style="background: #fefce8; border-left-color: #ca8a04;">
@@ -1782,15 +1793,15 @@
                         <h3>Compression (Hot) Mounting</h3>
                         <p>
                             Compression mounting is suitable for <strong>MMCs and most CMCs</strong>. It is <strong>not</strong>
-                            appropriate for polymer-matrix composites — use castable mounting instead. For MMC/CMC work,
+                            appropriate for polymer-matrix composites; use castable mounting instead. For MMC/CMC work,
                             hot epoxies (e.g., PACE EPOMET-style mineral-filled epoxy) are generally preferred over
                             phenolics for compositional reasons, <em>not</em> thermal ones: both phenolic and hot-mount
                             epoxy systems cure in the same 150–180 °C range. Epoxy is chosen because it has lower
-                            shrinkage, better adhesion to the sample, and better edge retention — all critical when the
+                            shrinkage, better adhesion to the sample, and better edge retention. All these are critical when the
                             matrix–fiber interface within a few microns of the mount boundary is what you need to see.
                         </p>
                         <ol>
-                            <li>Clean the sample thoroughly — residual cutting fluid is the most common cause of mount porosity.</li>
+                            <li>Clean the sample thoroughly; residual cutting fluid is the most common cause of mount porosity.</li>
                             <li>Place sample in the mounting press with the analysis face down on the ram.</li>
                             <li>Apply standard pressure (~4200 psi / 290 bar typical; some labs run 2900 psi / 200 bar for delicate composites).</li>
                             <li>Heat to 150–180 °C and hold long enough to fully cure (5–10 min depending on mount diameter and resin system).</li>
@@ -1842,7 +1853,7 @@
                         <ol>
                             <li>Pre-soak the sample in low-viscosity castable epoxy in the mounting cup (do not yet add hardener if the resin's pot life is short).</li>
                             <li>Place the cup in a vacuum impregnation chamber. Draw vacuum to 25–100 mbar.</li>
-                            <li>Hold under vacuum for 1–5 minutes — watch for bubble evolution from the sample. When bubbling stops, the pore network is degassed.</li>
+                            <li>Hold under vacuum for 1–5 minutes and watch for bubble evolution from the sample. When bubbling stops, the pore network is degassed.</li>
                             <li>Slowly release vacuum to atmospheric. The pressure differential drives resin into evacuated pores.</li>
                             <li>Cure normally (room temperature or per resin spec).</li>
                         </ol>
@@ -1886,7 +1897,7 @@
                             given as ANSI grit with FEPA P-grade in parentheses where they differ meaningfully.
                         </p>
                         <ol>
-                            <li><strong>240 grit (P240) or 320 grit (P320):</strong> Planarize and remove sectioning damage (30-60 s). For CFRP/GFRP, start here — not coarser. 120 grit will fracture fibers and create deep subsurface damage that takes many more steps to remove.</li>
+                            <li><strong>240 grit (P240) or 320 grit (P320):</strong> Planarize and remove sectioning damage (30-60 s). For CFRP/GFRP, start here, not coarser. 120 grit will fracture fibers and create deep subsurface damage that takes many more steps to remove.</li>
                             <li><strong>400 grit (P400):</strong> Refine surface, remove 240/320 scratches (30-60 s).</li>
                             <li><strong>600 grit (P600):</strong> Intermediate step (30-60 s).</li>
                             <li><strong>800 grit (P800):</strong> Optional final SiC step before diamond polishing (20-40 s).</li>
@@ -1907,12 +1918,12 @@
 
                         <h3>Grinding Parameters</h3>
                         <ul>
-                            <li><strong>Force:</strong> Very light — 5–15 N per sample (≈1–3 lbf). Composites pull out under loads that metals shrug off; if in doubt, reduce force and increase time.</li>
+                            <li><strong>Force:</strong> Very light, 5–15 N per sample (≈1–3 lbf). Composites pull out under loads that metals shrug off; if in doubt, reduce force and increase time.</li>
                             <li><strong>Rotation:</strong> Rotate sample 90° between grits to confirm previous scratches are fully removed.</li>
                             <li><strong>Water flow:</strong> Continuous flood; the goal is debris removal as much as cooling. Loaded paper is the leading cause of pullout in this step.</li>
                             <li><strong>Speed:</strong> 240–300 RPM for fixed-platen grinders; 150 RPM for hand grinding.</li>
                             <li><strong>Direction (head vs. platen):</strong> On automatic polishers, use complementary rotation (head and platen turning the same direction) for general work; counter-rotation removes material faster but is harder on fibers.</li>
-                            <li><strong>Time per step:</strong> Shorter than for monolithic metals. Inspect under the microscope between grits — do not run on the clock alone.</li>
+                            <li><strong>Time per step:</strong> Shorter than for monolithic metals. Inspect under the microscope between grits; do not run on the clock alone.</li>
                         </ul>
                         <div class="guide-info-box">
                             <h4>Grinding Tips for Composites</h4>
@@ -1969,11 +1980,11 @@
                             Use <strong>polycrystalline diamond</strong> (PCD) suspensions throughout. PCD's multi-point
                             cutting geometry resists rolling, cuts uniformly across hard and soft phases, and substantially
                             reduces fiber pullout compared to monocrystalline diamond. Pad stiffness must <em>decrease</em>
-                            as abrasive size decreases — getting this backwards is the most common cause of fiber pullout in
+                            as abrasive size decreases; getting this backwards is the most common cause of fiber pullout in
                             otherwise correctly run protocols.
                         </p>
                         <ol>
-                            <li><strong>9 μm PCD:</strong> 2–4 minutes on a <strong>low-nap, firm pad</strong> (TEXPAN non-woven or GOLD PAD low-nap). A medium- or high-nap cloth at 9 μm will cause edge rounding and excessive relief — avoid MICROPAD here.</li>
+                            <li><strong>9 μm PCD:</strong> 2–4 minutes on a <strong>low-nap, firm pad</strong> (TEXPAN non-woven or GOLD PAD low-nap). A medium- or high-nap cloth at 9 μm will cause edge rounding and excessive relief; avoid MICROPAD here.</li>
                             <li><strong>3 μm PCD:</strong> 2–4 minutes on a <strong>low-nap pad</strong> (GOLD PAD or NYPAD silk). Still firm enough to resist rocking and preserve flatness. Monitor for pullout; reduce force, not time, if pullout appears.</li>
                             <li><strong>1 μm PCD:</strong> 2–3 minutes on a low-nap pad (NYPAD or ATLANTIS low-nap final). This step bridges to the colloidal silica final polish.</li>
                             <li><strong>0.25 μm PCD:</strong> Optional 1–2 minutes on ATLANTIS or a soft-nap pad. Useful for hard CMCs and for samples that will be analyzed by SEM at high magnification; usually skipped for routine light microscopy.</li>
@@ -1986,8 +1997,8 @@
                         </p>
                         <ol>
                             <li><strong>0.05 μm colloidal silica:</strong> 30–90 seconds on a high-nap pad (MICROPAD) or compliant low-nap final pad (ATLANTIS). Force 5–10 N per sample.</li>
-                            <li>Switch to clean water on the same pad for the final 10–20 seconds to flush silica residue. <strong>Never let colloidal silica dry on the sample</strong> — dried silica is extremely difficult to remove and shows in SEM as bright contamination.</li>
-                            <li>Rinse with water, then ethanol; dry with clean compressed air. Do not wipe the polished face — wiping pulls fibers.</li>
+                            <li>Switch to clean water on the same pad for the final 10–20 seconds to flush silica residue. <strong>Never let colloidal silica dry on the sample</strong>; dried silica is extremely difficult to remove and shows in SEM as bright contamination.</li>
+                            <li>Rinse with water, then ethanol; dry with clean compressed air. Do not wipe the polished face; wiping pulls fibers.</li>
                         </ol>
                         <h3>Polishing Parameters &amp; Pad Map</h3>
                         <div style="overflow-x:auto;">
@@ -2020,7 +2031,7 @@
                         <div class="guide-info-box guide-info-box-blue">
                             <p>
                                 <strong>Critical Consideration:</strong> Fiber pullout is the most common defect in composite
-                                polishing. If you see pullout, the response is — in order — (1) reduce force, (2) switch to a
+                                polishing. If you see pullout, the response is, in order, (1) reduce force, (2) switch to a
                                 firmer (lower-nap) pad at that step, (3) extend the previous step rather than the failing one,
                                 (4) shorten the failing step. Returning to a coarser grit is a last resort because it removes
                                 material that took effort to flatten.
@@ -2039,7 +2050,7 @@
                             <li><strong>Setup:</strong> 0.05 μm colloidal silica on a soft napped cloth (MICROPAD or equivalent) on the vibratory bowl.</li>
                             <li><strong>Sample weight:</strong> 100–300 g over the mount (sample plus weight). Heavier weights flatten faster but risk pullout.</li>
                             <li><strong>Time:</strong> 1–8 hours depending on composite system and required surface quality. 2 hours is a good starting point for routine CFRP.</li>
-                            <li><strong>Cleaning:</strong> Replace or thoroughly rinse the cloth between samples — vibratory pads accumulate debris that scratches subsequent samples.</li>
+                            <li><strong>Cleaning:</strong> Replace or thoroughly rinse the cloth between samples; vibratory pads accumulate debris that scratches subsequent samples.</li>
                         </ul>
 
                         <h3>Direction Conventions (Hand vs. Automatic)</h3>
@@ -2079,7 +2090,7 @@
                             <li><strong>Aluminum-matrix MMC:</strong> Keller's reagent for general matrix etching; <strong>Barker's electrolytic anodizing</strong> (1.8% HBF<sub>4</sub>, 30 V DC, 30–90 s) under polarized light for grain visualization in SiC<sub>p</sub>/Al, Al<sub>2</sub>O<sub>3</sub><sub>p</sub>/Al; <strong>Weck's reagent</strong> (4 g KMnO<sub>4</sub> + 1 g NaOH in 100 mL H<sub>2</sub>O) as a color etch for phase contrast in heat-treated Al-MMCs.</li>
                             <li><strong>Titanium-matrix MMC:</strong> Kroll's reagent (2 mL HF + 6 mL HNO<sub>3</sub> + 92 mL H<sub>2</sub>O) for matrix; <strong>Weck's reagent for Ti</strong> (50 mL H<sub>2</sub>O + 25 mL ethanol + 1 g NH<sub>4</sub>HF<sub>2</sub>) for α/β phase color etching.</li>
                             <li><strong>Steel-matrix MMC</strong> (TiC, WC, or TiB<sub>2</sub> reinforced tool steels): Nital (2–4% HNO<sub>3</sub> in ethanol) to reveal matrix; <strong>Murakami's reagent</strong> (10 g K<sub>3</sub>Fe(CN)<sub>6</sub> + 10 g KOH in 100 mL H<sub>2</sub>O) to differentiate carbide types. Often used sequentially: Nital first, then a brief Murakami swab.</li>
-                            <li><strong>CMC (SiC/SiC, C/SiC):</strong> <strong>Murakami's at 60 °C</strong> for boiling-immersion etching of SiC grain boundaries; molten salt etches (KOH/NaOH at 350–500 °C) for harder ceramic grain boundary revelation. These are aggressive procedures — protective equipment and fume containment are non-negotiable.</li>
+                            <li><strong>CMC (SiC/SiC, C/SiC):</strong> <strong>Murakami's at 60 °C</strong> for boiling-immersion etching of SiC grain boundaries; molten salt etches (KOH/NaOH at 350–500 °C) for harder ceramic grain boundary revelation. These are aggressive procedures; protective equipment and fume containment are non-negotiable.</li>
                             <li><strong>Oxide CMC (Al<sub>2</sub>O<sub>3</sub>/Al<sub>2</sub>O<sub>3</sub>):</strong> Thermal etching at 1400–1500 °C in air for 30 min is the standard grain-boundary technique; chemical etchants are generally ineffective.</li>
                             <li><strong>Interface revelation:</strong> Etching can darken matrix and outline fibers, but DIC and oblique illumination usually reveal interfaces more clearly without removing material.</li>
                         </ul>
@@ -2089,7 +2100,7 @@
                             difference between the softer matrix and harder reinforcement after polishing. Under DIC,
                             sub-100 nm height differences are sufficient for excellent phase contrast; under brightfield,
                             slightly larger relief helps but is not necessary. <strong>Aim for the minimum relief that
-                            produces usable contrast</strong> — relief that is large enough to be visible without DIC is
+                            produces usable contrast</strong>; relief that is large enough to be visible without DIC is
                             usually large enough to bias quantitative measurements. If your application is qualitative
                             and DIC is unavailable, a longer final polish on a softer pad can be used deliberately to
                             generate visible relief.
@@ -2110,15 +2121,15 @@
                             etch times by ~30–50% versus the monolithic recipe and monitor continuously.
                         </p>
                         <ol>
-                            <li>Confirm the sample is clean and dry — residual colloidal silica will produce a mottled etch.</li>
+                            <li>Confirm the sample is clean and dry; residual colloidal silica will produce a mottled etch.</li>
                             <li>Apply etchant sparingly with a cotton swab, or immerse briefly. Swab for short, controlled exposure; immerse for uniform reveal across the surface.</li>
-                            <li>Start at 5–15 s. Monitor for matrix darkening; pull when contrast is established. Do not chase a deeper etch by extending time — re-polish and re-etch if needed.</li>
+                            <li>Start at 5–15 s. Monitor for matrix darkening; pull when contrast is established. Do not chase a deeper etch by extending time; re-polish and re-etch if needed.</li>
                             <li>Rinse immediately with water, then ethanol.</li>
                             <li>Dry with compressed air. Do not wipe.</li>
                         </ol>
                         <div class="guide-info-box" style="background: #fef2f2; border-left-color: #dc2626;">
                             <p>
-                                <strong>Safety:</strong> Several etchants on this page are hazardous — Kroll's contains HF
+                                <strong>Safety:</strong> Several etchants on this page are hazardous. Kroll's contains HF
                                 and is acutely toxic with delayed-onset injury; Murakami's generates cyanide-containing
                                 fumes if mishandled; molten salt etching presents thermal and chemical hazards. Use only
                                 in a fume hood, with appropriate PPE, and follow the SDS for each reagent. New users
@@ -2139,7 +2150,7 @@
                     <section id="quantitative-analysis" class="guide-section">
                         <h2>Quantitative Analysis Considerations</h2>
                         <p>
-                            Most composite metallography is performed in service of a measurement — fiber volume fraction,
+                            Most composite metallography is performed in service of a measurement: fiber volume fraction,
                             void content, fiber diameter distribution, fiber spacing, ply thickness, or interface area.
                             Preparation requirements for quantitative work are stricter than for qualitative inspection.
                             The same sample that looks good under brightfield can produce biased measurements if relief,
@@ -2147,21 +2158,21 @@
                         </p>
                         <h3>Relevant Standards</h3>
                         <ul>
-                            <li><strong>ASTM E3</strong> — Standard Guide for Preparation of Metallographic Specimens (general framework).</li>
-                            <li><strong>ASTM D3171</strong> — Constituent Content of Composite Materials (digestion + density methods; metallographic comparison).</li>
-                            <li><strong>ASTM D2734</strong> — Void Content of Reinforced Plastics.</li>
-                            <li><strong>ASTM E1245</strong> — Automatic Image Analysis (governs flatness and contrast requirements for stereological measurements).</li>
-                            <li><strong>ASTM E1382</strong> — Determining Average Grain Size Using Semiautomatic and Automatic Image Analysis (applicable to MMC matrix grain measurement).</li>
-                            <li><strong>ASTM D3878</strong> — Standard Terminology for Composite Materials.</li>
-                            <li><strong>ASTM E1920</strong> — Metallographic Preparation of Thermal Sprayed Coatings (procedural parallels to composites).</li>
-                            <li><strong>ISO 4499</strong> — Hardmetals — Metallographic determination of microstructure (relevant to particulate MMC).</li>
+                            <li><strong>ASTM E3:</strong> Standard Guide for Preparation of Metallographic Specimens (general framework).</li>
+                            <li><strong>ASTM D3171:</strong> Constituent Content of Composite Materials (digestion + density methods; metallographic comparison).</li>
+                            <li><strong>ASTM D2734:</strong> Void Content of Reinforced Plastics.</li>
+                            <li><strong>ASTM E1245:</strong> Automatic Image Analysis (governs flatness and contrast requirements for stereological measurements).</li>
+                            <li><strong>ASTM E1382:</strong> Determining Average Grain Size Using Semiautomatic and Automatic Image Analysis (applicable to MMC matrix grain measurement).</li>
+                            <li><strong>ASTM D3878:</strong> Standard Terminology for Composite Materials.</li>
+                            <li><strong>ASTM E1920:</strong> Metallographic Preparation of Thermal Sprayed Coatings (procedural parallels to composites).</li>
+                            <li><strong>ISO 4499:</strong> Hardmetals — Metallographic determination of microstructure (relevant to particulate MMC).</li>
                         </ul>
                         <h3>What quantitative work demands of prep</h3>
                         <ul>
-                            <li><strong>Flatness:</strong> Relief between matrix and fiber must be minimized — under 100 nm where possible. Use vibratory polishing as the final step.</li>
+                            <li><strong>Flatness:</strong> Relief between matrix and fiber must be minimized, under 100 nm where possible. Use vibratory polishing as the final step.</li>
                             <li><strong>Edge retention:</strong> Use mineral-filled epoxy mounting; the matrix–mount boundary must not round, or peripheral fibers appear shortened.</li>
                             <li><strong>No pullout:</strong> Image analysis cannot distinguish a void from a pulled-out fiber. If pullout is suspected, re-prepare; do not threshold around it.</li>
-                            <li><strong>Vacuum impregnation:</strong> Mandatory for void content measurement — otherwise voids fill with abrasive, grinding swarf, and polishing debris during prep, biasing measurements low.</li>
+                            <li><strong>Vacuum impregnation:</strong> Mandatory for void content measurement. Otherwise voids fill with abrasive, grinding swarf, and polishing debris during prep, biasing measurements low.</li>
                             <li><strong>Statistical sampling:</strong> Single-section measurements are not representative of bulk composite properties. Use multiple sections per ASTM E1245 recommendations.</li>
                         </ul>
                     </section>
@@ -2179,7 +2190,7 @@
                             Polymer-matrix composites and oxide-CMC samples are nonconductive. Options:
                         </p>
                         <ul>
-                            <li><strong>Conductive mounting resin:</strong> Carbon- or copper-filled compression resin (e.g., PACE conductive grade) is the cleanest solution — provides a continuous conductive path from sample to stage.</li>
+                            <li><strong>Conductive mounting resin:</strong> Carbon- or copper-filled compression resin (e.g., PACE conductive grade) is the cleanest solution; provides a continuous conductive path from sample to stage.</li>
                             <li><strong>Conductive paint bridge:</strong> Apply colloidal silver or carbon paint from a small exposed area of the sample edge down the side of the mount to the stub. Acceptable for ad hoc analysis.</li>
                             <li><strong>Sputter coating:</strong> Carbon (5–20 nm) for EDS; Au, Au-Pd, or Pt (5–10 nm) for high-resolution SEM. Carbon is preferred for EDS because it has no overlapping X-ray lines with most matrix or reinforcement elements. Avoid Au coating for EDS of Al-MMCs (overlap risk).</li>
                         </ul>
@@ -2216,10 +2227,10 @@
                                 <strong>Solutions:</strong> Reduce force to 5–10 N per sample (≈1–2 lbf); confirm pad
                                 stiffness matches the abrasive size (low-nap firm pads such as TEXPAN or GOLD PAD for
                                 9 μm and 3 μm diamond; reserve MICROPAD for the colloidal silica final step); ensure
-                                proper grit progression — do not skip steps; switch to polycrystalline diamond if using
+                                proper grit progression and do not skip steps; switch to polycrystalline diamond if using
                                 monocrystalline; finish with vibratory polishing for stubborn cases; monitor frequently
                                 under the microscope rather than relying on time. If pullout persists after these
-                                adjustments, the root cause is usually subsurface damage from sectioning — return to a
+                                adjustments, the root cause is usually subsurface damage from sectioning; return to a
                                 coarser grinding step and re-run the full sequence with lighter force.
                             </p>
                         </div>
@@ -2310,12 +2321,12 @@
                         <h2>Additional Reading</h2>
                         <h3>Primary references</h3>
                         <ul>
-                            <li>Zipperian, D.C. <em>Metallographic Handbook</em>. PACE Technologies, Tucson, AZ. — house reference; the chapters on composites and ceramics directly inform this guide.</li>
-                            <li><em>ASM Handbook, Vol. 9: Metallography and Microstructures</em>. ASM International, 2004. — sections on composite preparation (Slepian, Vander Voort) and on MMC/CMC etching.</li>
-                            <li><em>ASM Handbook, Vol. 21: Composites</em>. ASM International, 2001. — for fiber properties, matrix systems, and composite terminology.</li>
-                            <li>Vander Voort, G.F. <em>Metallography: Principles and Practice</em>. ASM International (reprint of McGraw-Hill 1984). — definitive reference on relief, polishing, and etching.</li>
-                            <li>Petzow, G. <em>Metallographic Etching</em>, 2nd ed. ASM International, 1999. — etchant formulations and procedures, including the entries used here.</li>
-                            <li>Chawla, K.K. <em>Composite Materials: Science and Engineering</em>, 3rd ed. Springer, 2012. — for fiber and matrix property data.</li>
+                            <li>Zipperian, D.C. <em>Metallographic Handbook</em>. PACE Technologies, Tucson, AZ. House reference; the chapters on composites and ceramics directly inform this guide.</li>
+                            <li><em>ASM Handbook, Vol. 9: Metallography and Microstructures</em>. ASM International, 2004. Sections on composite preparation (Slepian, Vander Voort) and on MMC/CMC etching.</li>
+                            <li><em>ASM Handbook, Vol. 21: Composites</em>. ASM International, 2001. For fiber properties, matrix systems, and composite terminology.</li>
+                            <li>Vander Voort, G.F. <em>Metallography: Principles and Practice</em>. ASM International (reprint of McGraw-Hill 1984). Definitive reference on relief, polishing, and etching.</li>
+                            <li>Petzow, G. <em>Metallographic Etching</em>, 2nd ed. ASM International, 1999. Etchant formulations and procedures, including the entries used here.</li>
+                            <li>Chawla, K.K. <em>Composite Materials: Science and Engineering</em>, 3rd ed. Springer, 2012. For fiber and matrix property data.</li>
                         </ul>
                         <h3>Standards</h3>
                         <ul>
@@ -2331,7 +2342,7 @@
                         <h3>Application notes</h3>
                         <ul>
                             <li>Buehler, <em>SUM-MET: The Sum of Our Experience</em>. Buehler / ITW Test &amp; Measurement (current edition). Composite preparation tables and pad/abrasive selection guidance.</li>
-                            <li>Struers Application Notes — "Metallographic preparation of composites" and "Vacuum impregnation".</li>
+                            <li>Struers Application Notes. "Metallographic preparation of composites" and "Vacuum impregnation".</li>
                         </ul>
                     </section>
 

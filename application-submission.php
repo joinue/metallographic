@@ -1,5 +1,14 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Honeypot: bots fill hidden fields humans never see.
+    // If tripped, pretend success and send nothing.
+    if (!empty($_POST['website'])) {
+        echo "<h2>Application submitted successfully!</h2>";
+        echo "<a href='index.html'><button>Back to Home</button></a>";
+        exit;
+    }
+
     if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['job'])) {
 
         // Sanitize input
@@ -42,9 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $body .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
         $body .= $message . "\r\n";
 
+        $allowed_types = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+
         // Handle resume attachment
         if (isset($_FILES['resume']) && $_FILES['resume']['error'] === UPLOAD_ERR_OK) {
-            $allowed_types = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
             $resume_tmp_name = $_FILES['resume']['tmp_name'];
             $resume_name = basename($_FILES['resume']['name']);
             $resume_type = mime_content_type($resume_tmp_name);
@@ -59,6 +69,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $body .= $resume_content . "\r\n";
             } else {
                 echo "<h2>Error: Invalid resume file type. Only PDF, DOC, and DOCX allowed.</h2>";
+                exit;
+            }
+        }
+
+        // Handle cover letter attachment (optional)
+        if (isset($_FILES['cover-letter']) && $_FILES['cover-letter']['error'] === UPLOAD_ERR_OK) {
+            $cover_tmp_name = $_FILES['cover-letter']['tmp_name'];
+            $cover_name = basename($_FILES['cover-letter']['name']);
+            $cover_type = mime_content_type($cover_tmp_name);
+
+            if (in_array($cover_type, $allowed_types)) {
+                $cover_content = chunk_split(base64_encode(file_get_contents($cover_tmp_name)));
+
+                $body .= "--$boundary\r\n";
+                $body .= "Content-Type: $cover_type; name=\"$cover_name\"\r\n";
+                $body .= "Content-Transfer-Encoding: base64\r\n";
+                $body .= "Content-Disposition: attachment; filename=\"$cover_name\"\r\n\r\n";
+                $body .= $cover_content . "\r\n";
+            } else {
+                echo "<h2>Error: Invalid cover letter file type. Only PDF, DOC, and DOCX allowed.</h2>";
                 exit;
             }
         }

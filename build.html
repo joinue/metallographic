@@ -18,6 +18,21 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
+    // Consent Mode v2: default granted globally; denied for EU/UK/EEA/CH until opt-in
+    gtag('consent', 'default', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500,
+      region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+    });
     gtag('js', new Date());
     gtag('config', 'G-VQ62KENYY5');
       gtag('config', 'AW-1066794256');
@@ -161,7 +176,7 @@
           <line x1="12" y1="9" x2="12" y2="13"></line>
           <line x1="12" y1="17" x2="12.01" y2="17"></line>
         </svg>
-        <span class="builder-warning-text"><strong>Starter tool.</strong> Generic recommendations only &mdash; tap for details.</span>
+        <span class="builder-warning-text"><strong>Starter tool.</strong> Generic recommendations only. Tap for details.</span>
       </summary>
       <div class="builder-warning-detail">
         <p class="builder-warning-text">
@@ -266,7 +281,7 @@
               <option value="Hard (50-65 HRC)">Hard (50-65 HRC)</option>
               <option value="Very Hard (> 65 HRC)">Very Hard (&gt; 65 HRC)</option>
             </select>
-            <p class="builder-form-help" id="help-material-hardness" hidden>Soft = Al, Cu, annealed steels. Medium = mild &amp; low-alloy steels. Hard = hardened tool steels. Very Hard = nitrided, case-hardened, ceramics, carbides. Cemented carbides and ceramics are typically rated in HRA or HV &mdash; pick "Very Hard" or "Unknown" if HRC doesn't apply.</p>
+            <p class="builder-form-help" id="help-material-hardness" hidden>Soft = Al, Cu, annealed steels. Medium = mild &amp; low-alloy steels. Hard = hardened tool steels. Very Hard = nitrided, case-hardened, ceramics, carbides. Cemented carbides and ceramics are typically rated in HRA or HV. Pick "Very Hard" or "Unknown" if HRC doesn't apply.</p>
           </div>
 
           <!-- Sample Size -->

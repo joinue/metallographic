@@ -6,127 +6,143 @@
    ============================================================================ */
 
 /* Services Page Specific Styles */
+/* Hero frame aligned with .dist-hero (distribution.css) — rem-based heights,
+   135deg overlay, left-aligned content. */
 .services-hero {
     position: relative;
-    min-height: 48vh;
+    min-height: 26rem;
     display: flex;
     align-items: center;
-    justify-content: center;
     overflow: hidden;
+    border-radius: 0 0 1.5rem 1.5rem;
     margin-bottom: 3rem;
-    padding-top: 6rem; /* Account for fixed navigation - pushes content down */
-    padding-bottom: 1.5rem;
+    padding: 8rem 1rem 4rem;
+    background-color: #0f172a;
+    color: #fff;
 }
 
 @media (min-width: 768px) {
     .services-hero {
-        padding-top: 6.5rem; /* Slightly more padding on larger screens */
-        min-height: 52vh;
+        padding: 9rem 2rem 5rem;
+        min-height: 30rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-hero {
+        padding: 10rem 2rem 6rem;
+        min-height: 34rem;
     }
 }
 
 .services-hero-background {
     position: absolute;
-    top: -6rem; /* Extend upward to show top of image behind navigation */
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 0;
-    height: calc(100% + 6rem); /* Extend height to include the upward extension */
-}
-
-@media (min-width: 768px) {
-    .services-hero-background {
-        top: -6.5rem;
-        height: calc(100% + 6.5rem);
-    }
+    pointer-events: none;
 }
 
 .services-hero-background img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 25%; /* Center horizontally, focus on upper portion */
-    filter: grayscale(30%) brightness(0.85);
+    object-position: center 30%;
+    opacity: 0.55;
 }
 
 .services-hero-overlay {
     position: absolute;
-    top: -6rem; /* Match background extension */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: calc(100% + 6rem); /* Match background height */
-    background: linear-gradient(to bottom right, rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.65), rgba(17, 24, 39, 0.75));
+    inset: 0;
+    background: linear-gradient(135deg,
+                rgba(15, 23, 42, 0.85) 0%,
+                rgba(15, 23, 42, 0.55) 50%,
+                rgba(15, 23, 42, 0.78) 100%);
     z-index: 1;
-}
-
-@media (min-width: 768px) {
-    .services-hero-overlay {
-        top: -6.5rem;
-        height: calc(100% + 6.5rem);
-    }
 }
 
 .services-hero-content {
     position: relative;
     z-index: 10;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 0 2rem;
-}
-
-@media (min-width: 768px) {
-    .services-hero-content {
-        padding: 3rem 0 2rem;
-    }
-}
-
-.services-hero-content > div {
-    width: 100%;
-    text-align: center;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .services-hero-text {
-    max-width: 64rem;
-    margin: 0 auto;
+    max-width: 44rem;
 }
 
 .services-hero h1 {
-    font-size: 2rem;
+    font-size: clamp(2.125rem, 4.4vw, 3rem);
     font-weight: 700;
-    margin-bottom: 1rem;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-@media (min-width: 768px) {
-    .services-hero h1 {
-        font-size: 2.5rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    .services-hero h1 {
-        font-size: 3rem;
-    }
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+    color: #fff;
+    line-height: 1.05;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
 }
 
 .services-hero p {
-    font-size: 1.125rem;
-    color: rgba(243, 244, 246, 1);
-    max-width: 48rem;
-    margin: 0 auto;
-    line-height: 1.75;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 1.0625rem;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0;
+    line-height: 1.65;
+    max-width: 38rem;
 }
 
 @media (min-width: 768px) {
     .services-hero p {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
     }
+}
+
+.services-hero-description strong {
+    color: #fff;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.0625em;
+}
+
+/* Blue category eyebrow above the H1 — mirrors .dist-eyebrow in distribution.css */
+.services-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #60a5fa;
+    margin: 0 0 0.5rem;
+}
+
+.services-hero-ctas {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+@media (min-width: 640px) {
+    .services-hero-ctas {
+        flex-direction: row;
+        gap: 1rem;
+    }
+}
+
+/* KeepPACE logo badge sits inside .btn-cta-secondary in place of an SVG icon.
+   Match the SVG icon sizing rule in about.css so the button stays consistent. */
+.btn-keeppace-logo {
+    width: 1.25rem;
+    height: 1.25rem;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.btn-cta-secondary:hover .btn-keeppace-logo {
+    transform: scale(1.1);
 }
 
 .services-grid {

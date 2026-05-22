@@ -1,4 +1,11 @@
-/* Basics landing page — clickable card overrides */
+/* ============================================================================
+   Basics Page — Editorial layout for Don Zipperian's "Metallographic Specimen
+   Preparation Basics" paper. 9 step sections with image, narrative, inline
+   data tables, and embedded guide cards.
+   ============================================================================ */
+
+/* Backward-compat: a.resource-card was used by the old hub layout and is
+   still used by the "Keep exploring" footer grid. */
 a.resource-card {
     text-decoration: none;
     color: inherit;
@@ -8,4 +15,555 @@ a.resource-card {
 
 a.resource-card:hover {
     color: inherit;
+}
+
+/* ---- Hero ------------------------------------------------------------------ */
+
+.basics-hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+@media (min-width: 900px) {
+    .basics-hero {
+        grid-template-columns: 1.15fr 1fr;
+        gap: 3.5rem;
+    }
+}
+
+.basics-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #2563eb;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.75rem;
+}
+
+.basics-hero h1 {
+    font-size: clamp(1.875rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.basics-byline {
+    font-size: 0.95rem;
+    color: #4b5563;
+    margin: 0 0 1.25rem;
+}
+
+.basics-byline strong {
+    color: #111827;
+}
+
+.basics-lede {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: #1f2937;
+    margin: 0 0 0.9rem;
+}
+
+.basics-lede-cont {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: #374151;
+    margin: 0 0 1.5rem;
+}
+
+.basics-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.basics-hero-actions .btn-modern-outline svg {
+    margin-right: 0.4rem;
+    vertical-align: -3px;
+}
+
+.basics-hero-media {
+    position: relative;
+    border-radius: 0.875rem;
+    overflow: hidden;
+    box-shadow: 0 12px 32px -12px rgba(15, 23, 42, 0.25);
+    aspect-ratio: 4 / 3;
+    background: #f3f4f6;
+}
+
+.basics-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ---- Step navigation ------------------------------------------------------- */
+
+.basics-step-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
+    margin: 0 0 3rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+    border: 1px solid #e0e7ff;
+    border-radius: 0.875rem;
+}
+
+.basics-step-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: 9999px;
+    background: #ffffff;
+    color: #1f2937;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid #e5e7eb;
+    transition: border-color 0.15s, color 0.15s, transform 0.15s;
+    white-space: nowrap;
+}
+
+.basics-step-nav a:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+    transform: translateY(-1px);
+}
+
+.basics-step-nav-num {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: #2563eb;
+    font-size: 0.75rem;
+}
+
+/* ---- Steps container ------------------------------------------------------- */
+
+.basics-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.basics-step {
+    scroll-margin-top: 7rem;
+}
+
+.basics-step-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .basics-step-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+
+    .basics-step--reverse .basics-step-grid > .basics-step-media {
+        order: 2;
+    }
+
+    .basics-step--reverse .basics-step-grid > .basics-step-body {
+        order: 1;
+    }
+}
+
+.basics-step-media {
+    position: relative;
+    border-radius: 0.875rem;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: #f3f4f6;
+    box-shadow: 0 8px 24px -10px rgba(15, 23, 42, 0.2);
+}
+
+.basics-step-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.basics-step:hover .basics-step-media img {
+    transform: scale(1.02);
+}
+
+.basics-step-body {
+    min-width: 0;
+}
+
+.basics-step-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2563eb;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+}
+
+.basics-step-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+    letter-spacing: -0.01em;
+}
+
+.basics-step-lede {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: #1f2937;
+    margin: 0 0 0.875rem;
+}
+
+.basics-step-body p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #374151;
+    margin: 0 0 0.875rem;
+}
+
+.basics-step-body p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* ---- Callout boxes --------------------------------------------------------- */
+
+.basics-callout {
+    margin-top: 1rem;
+    padding: 0.875rem 1.125rem;
+    background: #eff6ff;
+    border-left: 3px solid #2563eb;
+    border-radius: 0.375rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #1e3a8a;
+}
+
+.basics-callout strong {
+    color: #1e3a8a;
+}
+
+.basics-callout--warning {
+    background: #fef3c7;
+    border-left-color: #d97706;
+    color: #78350f;
+}
+
+.basics-callout--warning strong {
+    color: #78350f;
+}
+
+/* ---- Microscopy technique list -------------------------------------------- */
+
+.basics-techniques {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: grid;
+    gap: 0.625rem;
+}
+
+.basics-techniques li {
+    padding: 0.625rem 0.875rem;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #374151;
+}
+
+.basics-techniques strong {
+    color: #0f172a;
+}
+
+/* ---- Inline data tables ---------------------------------------------------- */
+
+.basics-data-table {
+    margin: 1.75rem 0 0;
+    padding: 0;
+}
+
+.basics-data-table figcaption {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.625rem;
+}
+
+.basics-table-scroll {
+    overflow-x: auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.625rem;
+    background: #fff;
+    -webkit-overflow-scrolling: touch;
+}
+
+.basics-data-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    min-width: 520px;
+}
+
+.basics-data-table thead th {
+    background: #f8fafc;
+    color: #0f172a;
+    text-align: left;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.basics-data-table tbody th {
+    text-align: left;
+    font-weight: 600;
+    color: #111827;
+    padding: 0.625rem 1rem;
+    background: #fafafa;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.basics-data-table tbody td {
+    padding: 0.625rem 1rem;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: top;
+}
+
+.basics-data-table tbody tr:last-child th,
+.basics-data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.basics-data-table tbody tr:hover td,
+.basics-data-table tbody tr:hover th {
+    background: #f9fafb;
+}
+
+/* ---- Related guides (within a step) --------------------------------------- */
+
+.basics-step-related {
+    margin-top: 2rem;
+}
+
+.basics-related-heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #6b7280;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+}
+
+/* The guide-cards-grid default is 1 / 2 / 3 columns. Inside a step,
+   2 columns max keeps the row balanced. */
+.basics-related-grid {
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+    .basics-related-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .basics-related-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---- Author byline -------------------------------------------------------- */
+
+.basics-author {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 4rem 0 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 0.875rem;
+}
+
+@media (min-width: 700px) {
+    .basics-author {
+        grid-template-columns: 180px 1fr;
+        gap: 2rem;
+        padding: 2.5rem;
+    }
+}
+
+.basics-author-portrait {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #e5e7eb;
+    margin: 0;
+    flex-shrink: 0;
+    box-shadow: 0 8px 24px -12px rgba(15, 23, 42, 0.3);
+}
+
+@media (min-width: 700px) {
+    .basics-author-portrait {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+.basics-author-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.basics-author-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #2563eb;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.375rem;
+}
+
+.basics-author-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.875rem;
+    line-height: 1.2;
+}
+
+.basics-author-body p {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: #374151;
+    margin: 0 0 0.75rem;
+}
+
+.basics-author-actions {
+    margin-top: 1.25rem !important;
+}
+
+.basics-author-source {
+    font-size: 0.8125rem;
+    color: #6b7280;
+    margin: 0.875rem 0 0 !important;
+    line-height: 1.55;
+}
+
+.basics-author-source a {
+    color: #2563eb;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.basics-author-source a:hover {
+    color: #1d4ed8;
+}
+
+/* ---- "Keep exploring" footer section (uses .resources-grid) --------------- */
+
+.basics-browse {
+    margin: 0 0 3rem;
+}
+
+.basics-browse .section-header {
+    margin-bottom: 0.5rem;
+}
+
+/* Make this grid four-up at desktop instead of the global three-up.
+   At tablet, drop to two-up. Cards get tighter padding to fit. */
+.basics-browse .resources-grid {
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .basics-browse .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 960px) {
+    .basics-browse .resources-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.basics-browse .resource-card {
+    padding: 1.125rem 1.125rem 1.25rem;
+}
+
+.basics-browse .resource-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-bottom: 0.75rem;
+    border-radius: 0.4rem;
+}
+
+.basics-browse .resource-icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+.basics-browse .resource-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.375rem;
+}
+
+.basics-browse .resource-card p {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.basics-browse .resource-type-badge {
+    font-size: 0.6875rem;
+    padding: 0.15rem 0.5rem;
+    margin-bottom: 0.5rem;
+    align-self: flex-start;
+}
+
+/* Step animation entry */
+@media (prefers-reduced-motion: no-preference) {
+    .basics-step {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: basicsStepIn 0.6s ease-out forwards;
+        animation-delay: 0.05s;
+    }
+
+    @keyframes basicsStepIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }

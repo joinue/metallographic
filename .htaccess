@@ -8,7 +8,9 @@ RewriteCond %{HTTP_HOST} ^(www\.)?metallographic-equipment\.com$ [NC]
 RewriteRule ^(.*)$ https://www.metallographic.com/$1 [R=301,L]
 
 # =====================
-# HTTPS (must be first)
+# HTTPS
+# (Domain redirect above already targets https://, so this only fires for
+#  direct https-less hits on the canonical host.)
 # =====================
 
 RewriteCond %{HTTPS} off
@@ -31,18 +33,23 @@ Options -Indexes
     Header set Referrer-Policy "strict-origin-when-cross-origin"
     Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
     Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header set X-Permitted-Cross-Domain-Policies "none"
+    Header set Cross-Origin-Opener-Policy "same-origin"
 </IfModule>
 
 # =====================
 # FORCE LOWERCASE URLs
 # =====================
 
+# Specific subpaths first so /Images/Equipment/... lands in one hop, not two.
+RedirectMatch 301 ^/Images/Equipment/(.*)$ /images/equipment/$1
+RedirectMatch 301 ^/Images/Consumables/(.*)$ /images/consumables/$1
+RedirectMatch 301 ^/images/Equipment/(.*)$ /images/equipment/$1
+RedirectMatch 301 ^/images/Consumables/(.*)$ /images/consumables/$1
 RedirectMatch 301 ^/Images/(.*)$ /images/$1
 RedirectMatch 301 ^/Metallographic-Equipment/(.*)$ /metallographic-equipment/$1
 RedirectMatch 301 ^/Metallographic-Consumables/(.*)$ /metallographic-consumables/$1
 RedirectMatch 301 ^/Metallographic-Technical/(.*)$ /metallographic-technical/$1
-RedirectMatch 301 ^/images/Equipment/(.*)$ /images/equipment/$1
-RedirectMatch 301 ^/images/Consumables/(.*)$ /images/consumables/$1
 RedirectMatch 301 ^/Basics(/.*)?$ /basics$1
 
 # =====================
@@ -64,19 +71,19 @@ RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Stainless-steel-et
 RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Tin-alloy-etchants(\.html?)?$ /etching/tin-alloy
 RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Titanium-etchants(\.html?)?$ /etching/titanium
 RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Zinc-alloy-etchants(\.html?)?$ /etching/zinc-alloy
-RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Etchants(\.html?)?$ /etchants.html
+RedirectMatch 301 (?i)^/Metallographic-Etchants/Metallography-Etchants(\.html?)?$ /etchants
 RedirectMatch 301 (?i)^/Metallographic-Etchants/Etchant-Safety-procedures\.pdf$ /etching/etchant-safety-procedures.pdf
-RedirectMatch 301 (?i)^/Metallographic-Etchants/index(\.html?)?$ /etchants.html
-RedirectMatch 301 (?i)^/Metallographic-Etchants/?$ /etchants.html
+RedirectMatch 301 (?i)^/Metallographic-Etchants/index(\.html?)?$ /etchants
+RedirectMatch 301 (?i)^/Metallographic-Etchants/?$ /etchants
 RedirectMatch 301 (?i)^/Metallographic-Etchants/(.*)$ /etching/$1
 
 # Intermediate /etchant-guides/ → /etching/
-RedirectMatch 301 (?i)^/etchant-guides/?$ /etchants.html
+RedirectMatch 301 (?i)^/etchant-guides/?$ /etchants
 RedirectMatch 301 (?i)^/etchant-guides/(.*)$ /etching/$1
 
-# Etchant info hub collapsed into /etchants.html
-RedirectMatch 301 (?i)^/etchant-information(\.html?)?$ /etchants.html
-RedirectMatch 301 (?i)^/support/etchant-information(\.html?)?$ /etchants.html
+# Etchant info hub collapsed into /etchants
+RedirectMatch 301 (?i)^/etchant-information(\.html?)?$ /etchants
+RedirectMatch 301 (?i)^/support/etchant-information(\.html?)?$ /etchants
 
 # =====================
 # PREP PROCEDURES — legacy /support/ paths → /procedures/
@@ -84,16 +91,268 @@ RedirectMatch 301 (?i)^/support/etchant-information(\.html?)?$ /etchants.html
 # New: /procedures/class-N.html  +  /procedures.html
 # =====================
 
-RedirectMatch 301 (?i)^/support/preparation-procedures/(class-\d+)(\.html?)?$ /procedures/$1.html
-RedirectMatch 301 (?i)^/support/preparation-procedures(/.*)?$ /procedures.html
-RedirectMatch 301 (?i)^/support/procedures(\.html?)?$ /procedures.html
+RedirectMatch 301 (?i)^/support/preparation-procedures/(class-\d+)(\.html?)?$ /procedures/$1
+
+# Specific material-page mappings to modern guides / class pages.
+# These must come BEFORE the catch-all below so individual targets take precedence.
+
+# Aluminum → aluminum-sample-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/2024-aluminum(\.html?)?$ /guides/aluminum-sample-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/6061-aluminum(\.html?)?$ /guides/aluminum-sample-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/7075-aluminum(\.html?)?$ /guides/aluminum-sample-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/Al-Si(\.html?)?$ /guides/aluminum-sample-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/aluminum(\.html?)?$ /guides/aluminum-sample-preparation
+
+# Copper alloys / brass / bronze → copper-and-copper-alloys-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/brass(\.html?)?$ /guides/copper-and-copper-alloys-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/copper(\.html?)?$ /guides/copper-and-copper-alloys-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/copper-zinc-alloys(\.html?)?$ /guides/copper-and-copper-alloys-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/manganese-aluminum-bronze(\.html?)?$ /guides/copper-and-copper-alloys-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/nickel-iron-bronze(\.html?)?$ /guides/copper-and-copper-alloys-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/touch-pitch-copper(\.html?)?$ /guides/copper-and-copper-alloys-preparation
+
+# Welds (cross-material joints) → welding-analysis guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/copper-stainless-weld(\.html?)?$ /guides/welding-analysis
+RedirectMatch 301 (?i)^/support/preparation-procedures/Titanium-steel-weld(\.html?)?$ /guides/welding-analysis
+RedirectMatch 301 (?i)^/support/preparation-procedures/SiC-titanium-steel-weld(\.html?)?$ /guides/welding-analysis
+
+# Carbon steels → carbon-steel-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/1018-furnace-cooled-steel(\.html?)?$ /guides/carbon-steel-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/Mn-V-steel(\.html?)?$ /guides/carbon-steel-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/steel(\.html?)?$ /guides/carbon-steel-preparation
+
+# Tool / hardened steels → tool-steel-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/1018-quenched-steel(\.html?)?$ /guides/tool-steel-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/steel-hardened(\.html?)?$ /guides/tool-steel-preparation
+
+# High-carbon hardened steel → class-8 (Hardened Steels, no dedicated guide)
+RedirectMatch 301 (?i)^/support/preparation-procedures/1095-quenched-steel(\.html?)?$ /procedures/class-8
+
+# Cast iron (gray, white) → cast-iron-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/cast-iron(\.html?)?$ /guides/cast-iron-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/white-iron(\.html?)?$ /guides/cast-iron-preparation
+
+# Stainless steels → stainless-steel-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/stainless-steel-400(\.html?)?$ /guides/stainless-steel-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/stainless-steel(\.html?)?$ /guides/stainless-steel-preparation
+
+# Nitrided steel → class-7 (Coatings & Surface Treatments, for the nitride layer)
+RedirectMatch 301 (?i)^/support/preparation-procedures/nitrided-steel(\.html?)?$ /procedures/class-7
+
+# Titanium / Ti alloys → titanium-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/titanium-alloys(\.html?)?$ /guides/titanium-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/titanium(\.html?)?$ /guides/titanium-preparation
+
+# Nickel / superalloys → nickel-alloys-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/nickel-superalloys(\.html?)?$ /guides/nickel-alloys-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/inconnel(\.html?)?$ /guides/nickel-alloys-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/nimonic90(\.html?)?$ /guides/nickel-alloys-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/hastelloy(\.html?)?$ /guides/nickel-alloys-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/superalloys(\.html?)?$ /guides/nickel-alloys-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/wrought-Ni(\.html?)?$ /guides/nickel-alloys-preparation
+
+# Cobalt → class-6 (Tough Hard Non-ferrous; no Co-specific guide)
+RedirectMatch 301 (?i)^/support/preparation-procedures/cobalt(\.html?)?$ /procedures/class-6
+
+# Refractory metals (W, Mo, Ta, Nb, Re) → refractory-metals-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/niobium(\.html?)?$ /guides/refractory-metals-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/rhenium(\.html?)?$ /guides/refractory-metals-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/tungsten-refractory(\.html?)?$ /guides/refractory-metals-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/refractory-metals(\.html?)?$ /guides/refractory-metals-preparation
+
+# Precious metals (Au, Ag, Pt) → precious-metals-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/precious-metals(\.html?)?$ /guides/precious-metals-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/gold-silver-pt(\.html?)?$ /guides/precious-metals-preparation
+
+# Soft ductile metals (Pb, Sn, solder) → class-1 (no dedicated guide)
+RedirectMatch 301 (?i)^/support/preparation-procedures/lead-tin-zinc(\.html?)?$ /procedures/class-1
+RedirectMatch 301 (?i)^/support/preparation-procedures/lead(\.html?)?$ /procedures/class-1
+RedirectMatch 301 (?i)^/support/preparation-procedures/tin-pure(\.html?)?$ /procedures/class-1
+RedirectMatch 301 (?i)^/support/preparation-procedures/tin-alloys(\.html?)?$ /procedures/class-1
+RedirectMatch 301 (?i)^/support/preparation-procedures/solder(\.html?)?$ /procedures/class-1
+
+# Zinc and Zn alloys → class-3 (Lower Ductility Metals)
+RedirectMatch 301 (?i)^/support/preparation-procedures/Zn-Al(\.html?)?$ /procedures/class-3
+RedirectMatch 301 (?i)^/support/preparation-procedures/zinc(\.html?)?$ /procedures/class-3
+
+# Neodymium (NdFeB magnets) → class-3
+RedirectMatch 301 (?i)^/support/preparation-procedures/neodymium(\.html?)?$ /procedures/class-3
+
+# Graphite → class-4 (Soft Brittle Non-metals)
+RedirectMatch 301 (?i)^/support/preparation-procedures/graphite(\.html?)?$ /procedures/class-4
+
+# Powder metals → powder-metallurgy-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/powder-metals(\.html?)?$ /guides/powder-metallurgy-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/sintered-iron(\.html?)?$ /guides/powder-metallurgy-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/Fe-N-C0-Al(\.html?)?$ /guides/powder-metallurgy-preparation
+
+# Thermal spray coatings → thermal-spray-coatings-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/thermal-spray-coatings-Ni-Al-Mo(\.html?)?$ /guides/thermal-spray-coatings-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/thermal-spray-coatings-W-Co(\.html?)?$ /guides/thermal-spray-coatings-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/thermal-spray-coatings(\.html?)?$ /guides/thermal-spray-coatings-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/thermal-spray(\.html?)?$ /guides/thermal-spray-coatings-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/Thermal[ ]Spray[ ]Coatings-Ni-Al(\.html?)?$ /guides/thermal-spray-coatings-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/superalloys-ceramic-coating(\.html?)?$ /guides/thermal-spray-coatings-preparation
+
+# Basic ceramics → ceramics-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/alumina-ceramic(\.html?)?$ /guides/ceramics-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/ceramic(\.html?)?$ /guides/ceramics-preparation
+
+# Engineered / advanced technical ceramics → advanced-technical-ceramics guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/ALON-ceramic(\.html?)?$ /guides/advanced-technical-ceramics
+RedirectMatch 301 (?i)^/support/preparation-procedures/engineer-ceramics(\.html?)?$ /guides/advanced-technical-ceramics
+RedirectMatch 301 (?i)^/support/preparation-procedures/mullite-ceramic(\.html?)?$ /guides/advanced-technical-ceramics
+RedirectMatch 301 (?i)^/support/preparation-procedures/silicon-nitride-ceramic(\.html?)?$ /guides/advanced-technical-ceramics
+RedirectMatch 301 (?i)^/support/preparation-procedures/cordierite-ceramic(\.html?)?$ /guides/advanced-technical-ceramics
+RedirectMatch 301 (?i)^/support/preparation-procedures/steatite-ceramic(\.html?)?$ /guides/advanced-technical-ceramics
+RedirectMatch 301 (?i)^/support/preparation-procedures/zirconia-ceramic(\.html?)?$ /guides/advanced-technical-ceramics
+RedirectMatch 301 (?i)^/support/preparation-procedures/SIALON-ceramic(\.html?)?$ /guides/advanced-technical-ceramics
+RedirectMatch 301 (?i)^/support/preparation-procedures/SiSiC-ceramic(\.html?)?$ /guides/advanced-technical-ceramics
+RedirectMatch 301 (?i)^/support/preparation-procedures/beryillium-oxide-ceramic(\.html?)?$ /guides/advanced-technical-ceramics
+
+# Glass / cermets / hardmetals → cermets-technical-glasses-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/glass-ceramic(\.html?)?$ /guides/cermets-technical-glasses-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/glass(\.html?)?$ /guides/cermets-technical-glasses-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/CERMETS(\.html?)?$ /guides/cermets-technical-glasses-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/tungsten-carbide-CERMET(\.html?)?$ /guides/cermets-technical-glasses-preparation
+
+# Metal matrix composites → metal-matrix-composite-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/SiC-aluminum-MMC(\.html?)?$ /guides/metal-matrix-composite-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/ZrO2-titanium-MMC(\.html?)?$ /guides/metal-matrix-composite-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/mmc(\.html?)?$ /guides/metal-matrix-composite-preparation
+
+# Ceramic matrix composites → ceramic-matrix-composite-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/SiC-fibers-in-Si3N4-matrix(\.html?)?$ /guides/ceramic-matrix-composite-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/SiC-particles-in-Si3N4-matrix(\.html?)?$ /guides/ceramic-matrix-composite-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/SiC-particles-in-ZrB2-matrix(\.html?)?$ /guides/ceramic-matrix-composite-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/HfB2-fibers-in-BN-matrix(\.html?)?$ /guides/ceramic-matrix-composite-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/cmc(\.html?)?$ /guides/ceramic-matrix-composite-preparation
+
+# Carbon-carbon composite → dedicated guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/carbon-carbon-composite(\.html?)?$ /guides/carbon-carbon-composite-preparation
+
+# Other composites → generic composites guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/boron[ ]graphite-composite(\.html?)?$ /guides/composites-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/glass-fiber-composites(\.html?)?$ /guides/composites-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/polymer-matrix-composites(\.html?)?$ /guides/composites-preparation
+
+# Electronic packaging / PCBs → pcb-chip-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/electronic-components(\.html?)?$ /guides/pcb-chip-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/MLC-electronic(\.html?)?$ /guides/pcb-chip-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/AlN-electronic-package(\.html?)?$ /guides/pcb-chip-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/BeO-electronic-package(\.html?)?$ /guides/pcb-chip-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/Ni-Zin-ferrite(\.html?)?$ /guides/pcb-chip-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/solder-ceramic(\.html?)?$ /guides/pcb-chip-preparation
+
+# MEMS / piezoelectrics → mems-piezoelectric-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/MEMS(\.html?)?$ /guides/mems-piezoelectric-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/PZT(\.html?)?$ /guides/mems-piezoelectric-preparation
+
+# Semiconductor substrates → semiconductor-substrate-preparation guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/GaAs-electronic-substrates(\.html?)?$ /guides/semiconductor-substrate-preparation
+RedirectMatch 301 (?i)^/support/preparation-procedures/silicon-substrates(\.html?)?$ /guides/semiconductor-substrate-preparation
+
+# Industrial minerals / slag → industrial-process-mineral-metallography guide
+RedirectMatch 301 (?i)^/support/preparation-procedures/CuFeS2-mineral(\.html?)?$ /guides/industrial-process-mineral-metallography
+RedirectMatch 301 (?i)^/support/preparation-procedures/slag(\.html?)?$ /guides/industrial-process-mineral-metallography
+RedirectMatch 301 (?i)^/support/preparation-procedures/periclasemineral(\.html?)?$ /guides/industrial-process-mineral-metallography
+
+# Generic applications hub → guides index
+RedirectMatch 301 (?i)^/support/preparation-procedures/applications(\.html?)?$ /guides
+
+# Catch-all fallback: any unmapped /support/preparation-procedures/ path → procedures hub
+RedirectMatch 301 (?i)^/support/preparation-procedures(/.*)?$ /procedures
+RedirectMatch 301 (?i)^/support/procedures(\.html?)?$ /procedures
+
+# =====================
+# LEGACY-URL EQUIPMENT PAGES — /metallographic-equipment/Metallography-*.htm
+# Modern-design pages at legacy URLs; redirect to canonical modern equivalents.
+# (Targets verified as ≥90% body-content match unless noted.)
+# =====================
+
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Abrasive-cutter(\.html?)?$ /metallographic-equipment/abrasive-sectioning
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Abrasive-cutter-automated(\.html?)?$ /metallographic-equipment/abrasive-sectioning/automated
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Automatic-polisher(\.html?)?$ /metallographic-equipment/grinding-polishing/femto
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Brinell-Vickers(\.html?)?$ /metallographic-equipment/hardness-testing/brinell-vickers
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Castable-Mounting(\.html?)?$ /metallographic-equipment/castable-mounting
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Diamond-wafering-saws(\.html?)?$ /metallographic-equipment/precision-wafering
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Equipment(\.html?)?$ /equipment
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Hand-Grinder(\.html?)?$ /metallographic-equipment/grinding-polishing/penta
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-ImageAnalysis(\.html?)?$ /metallographic-equipment/microscopy/image-analysis
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Manual-Polishers(\.html?)?$ /metallographic-equipment/grinding-polishing/nano
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-MicroHardnessTester(\.html?)?$ /metallographic-equipment/hardness-testing/microhardness
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Microscopes(\.html?)?$ /metallographic-equipment/microscopy
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Mounting-Presses(\.html?)?$ /metallographic-equipment/compression-mounting
+# Quote-lab redirects to /quote (different presentation, same purpose; 38% body match)
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Quote-lab(\.html?)?$ /quote
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Rockwell(\.html?)?$ /metallographic-equipment/hardness-testing/rockwell
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Vacuum-mounting(\.html?)?$ /metallographic-equipment/castable-mounting/teravac-pro
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-Vibratory-polisher(\.html?)?$ /metallographic-equipment/grinding-polishing/giga
+RedirectMatch 301 (?i)^/metallographic-equipment/Metallography-furniture(\.html?)?$ /metallographic-equipment/lab-furniture
+
+# =====================
+# LEGACY-URL CONSUMABLES PAGES — /metallographic-consumables/Metallography-*.htm
+# Modern-design pages at legacy URLs; redirect to canonical modern equivalents.
+# =====================
+
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Abrasive-blades(\.html?)?$ /metallographic-consumables/sectioning/abrasive-cutting
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Alumina-Papers(\.html?)?$ /metallographic-consumables/grinding/abrasive-grinding
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Cleaning(\.html?)?$ /metallographic-consumables/cleaning
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Consumables(\.html?)?$ /consumables
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Diamond-disks(\.html?)?$ /metallographic-consumables/grinding/diamond-grinding
+# Etching redirects to /etchants (the new hub for etching content; 33% body match acceptable)
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Etching(\.html?)?$ /etchants
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Final-Polishing(\.html?)?$ /metallographic-consumables/final-polishing
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Grinding-Belts(\.html?)?$ /metallographic-consumables/grinding/belts-rolls-powders
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Lapping-Films(\.html?)?$ /metallographic-consumables/grinding/lapping-films
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Monocrystalline-Diamond(\.html?)?$ /metallographic-consumables/polishing/monocrystalline-diamond
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Polishing-Pads(\.html?)?$ /metallographic-consumables/polishing/polishing-pads
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-SiC-Papers(\.html?)?$ /metallographic-consumables/grinding/abrasive-grinding
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Wafering-Blades(\.html?)?$ /metallographic-consumables/sectioning/precision-wafering
+RedirectMatch 301 (?i)^/metallographic-consumables/Metallography-Zirconia-Grinding-Papers(\.html?)?$ /metallographic-consumables/grinding/abrasive-grinding
+
+# =====================
+# LEGACY-URL TECHNICAL ARTICLES — /metallographic-technical/Metallography-Technical-*.htm
+# Old PACE technical-articles series; redirect to modern consumables / equipment pages.
+# =====================
+
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Abrasive-Cutting(\.html?)?$ /metallographic-consumables/sectioning/abrasive-cutting
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Abrasive-Grinding(\.html?)?$ /metallographic-consumables/grinding/abrasive-grinding
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Castable-Mount(\.html?)?$ /metallographic-consumables/mounting/castable
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Cleaning(\.html?)?$ /metallographic-consumables/cleaning
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Compression-Mount(\.html?)?$ /metallographic-consumables/mounting/compression
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Diamond-Disk(\.html?)?$ /metallographic-consumables/grinding/diamond-grinding
+# Technical-Etching redirects to /etchants (new etchant hub; 43% body match acceptable)
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Etching(\.html?)?$ /etchants
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Fine-Abrasives(\.html?)?$ /metallographic-consumables/final-polishing
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Hardness(\.html?)?$ /metallographic-consumables/hardness-testing
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Lapping-Films(\.html?)?$ /metallographic-consumables/grinding/lapping-films
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Monocrystalline-Diamond(\.html?)?$ /metallographic-consumables/polishing/monocrystalline-diamond
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Polishing-Magnetic(\.html?)?$ /metallographic-consumables/polishing/magnetic-system
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Polishing-PSA(\.html?)?$ /metallographic-consumables/polishing/polishing-pads
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Polycrystalline-Diamond(\.html?)?$ /metallographic-consumables/polishing/polycrystalline-diamond
+RedirectMatch 301 (?i)^/metallographic-technical/Metallography-Technical-Wafer-Cutting(\.html?)?$ /metallographic-consumables/sectioning/precision-wafering
+
+# =====================
+# COMPANY HIERARCHY COLLAPSE
+# Legacy /company.html + /company/*.html were byte-identical duplicates of
+# root pages (about, careers, privacy, terms, support/site-map). Collapsed
+# to the canonical roots. /company/docs/ PDFs remain served.
+# =====================
+
+RedirectMatch 301 (?i)^/company(\.html?)?$ /about
+RedirectMatch 301 (?i)^/company/about(\.html?)?$ /about
+RedirectMatch 301 (?i)^/company/careers(\.html?)?$ /careers
+RedirectMatch 301 (?i)^/company/privacy(\.html?)?$ /privacy
+RedirectMatch 301 (?i)^/company/terms(\.html?)?$ /terms
+RedirectMatch 301 (?i)^/company/sitemap(\.html?)?$ /support/site-map
 
 # =====================
 # PAGE RENAMES
 # =====================
 
 RedirectMatch 301 (?i)^/docs(\.html?)?$ /library
-RedirectMatch 301 (?i)^/etchants/4-percent-picral(\.html?)?$ /etchants/picral.html
+RedirectMatch 301 (?i)^/etchants/4-percent-picral(\.html?)?$ /etchants/picral
 
 # =====================
 # CLEAN URLs
@@ -141,7 +400,12 @@ ErrorDocument 404 /404.html
 
 # Gzip
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# Brotli — preferred when client supports it; no-op if module unavailable
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css application/javascript application/json application/xml image/svg+xml
 </IfModule>
 
 # MIME types
@@ -166,9 +430,9 @@ ErrorDocument 404 /404.html
         Header set Cache-Control "public, max-age=31536000"
     </FilesMatch>
 
-    # CSS / JS — 1 month
+    # CSS / JS — 2 days (no per-file versioning, so keep it short enough that deploys propagate)
     <FilesMatch "\.(css|js)$">
-        Header set Cache-Control "public, max-age=2592000"
+        Header set Cache-Control "public, max-age=172800"
     </FilesMatch>
 
     # Fonts — 1 year
